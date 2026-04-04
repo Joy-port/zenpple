@@ -1,0 +1,25 @@
+/* ── SC page styles ── */
+:root {
+  --sc-purple-light: #A99BC4;
+}
+
+/* ── NAV overrides for SC page ── */
+body.page-sc header {
+  background: rgba(42,42,42,0.85) !important;
+  border-bottom-color: rgba(242,239,234,0.06) !important;
+}
+body.page-sc header ul a {
+  color: rgba(242,239,234,0.65) !important;
+  opacity: 1 !important;
+}
+body.page-sc header ul a:hover {
+  color: var(--sc-purple-light) !important;
+}
+body.page-sc header ul li:last-child a {
+  color: var(--sc-purple-light) !important;
+  border-color: rgba(123,107,158,0.4) !important;
+}
+body.page-sc header ul li:last-child a:hover {
+  background: rgba(123,107,158,0.15) !important;
+  color: var(--base) !important;
+}

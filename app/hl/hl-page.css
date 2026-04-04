@@ -4,6 +4,19 @@
   --purple: #7B6B9E;
 }
 
+/* ── NAV overrides for HL page ── */
+body.page-hl header {
+  border-bottom-color: rgba(196,123,123,0.12) !important;
+}
+body.page-hl header ul a:hover {
+  color: var(--rose) !important;
+  opacity: 1 !important;
+}
+body.page-hl header ul li:last-child a {
+  border-color: var(--rose) !important;
+  color: var(--rose) !important;
+}
+
 /* HERO */
 #hero {
   position: relative;
@@ -42,9 +55,9 @@
   top: 100px;
   left: 64px;
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.25em;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.65);
   display: flex;
   align-items: center;
   gap: 16px;
@@ -76,7 +89,7 @@
   font-weight: 300;
   font-size: 13px;
   letter-spacing: 0.3em;
-  color: rgba(255,255,255,0.48);
+  color: rgba(255,255,255,0.65);
   text-transform: uppercase;
   margin-bottom: 28px;
 }
@@ -90,7 +103,7 @@
 /* SECTION LABEL */
 .section-label {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.3em;
   color: var(--rose);
   text-transform: uppercase;
@@ -165,7 +178,7 @@ h2.sec-h2 {
   font-weight: 900;
   font-size: 28px;
   letter-spacing: 0.02em;
-  color: rgba(196,123,123,0.35);
+  color: rgba(196,123,123,0.5);
 }
 .step-card h3 {
   font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
@@ -220,7 +233,7 @@ h2.sec-h2 {
 }
 .sm-left .sm-tag {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.25em;
   color: var(--rose);
   margin-bottom: 4px;
@@ -268,7 +281,7 @@ h2.sec-h2 {
 .sm-meta-row:last-child { border-bottom: none; }
 .sm-meta-label {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.2em;
   color: var(--rose);
 }
@@ -294,7 +307,7 @@ h2.sec-h2 {
 .sm-right-title {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 300;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.25em;
   color: #bbb;
   text-transform: uppercase;
@@ -389,13 +402,13 @@ h2.sec-h2 {
 .flip-hint {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 300;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.25em;
-  color: rgba(196,123,123,0.55);
+  color: rgba(196,123,123,0.7);
   text-transform: uppercase;
   margin-top: 20px;
 }
-.flip-hint.purple { color: rgba(123,107,158,0.55); }
+.flip-hint.purple { color: rgba(123,107,158,0.7); }
 .flip-back h3 {
   font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
   font-weight: 700;
@@ -422,9 +435,9 @@ h2.sec-h2 {
 }
 .flip-back-meta-label {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.65);
 }
 .flip-btn {
   display: inline-flex;
@@ -511,7 +524,7 @@ h2.sec-h2 {
 }
 .fu-card-right-title {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.25em;
   color: var(--rose);
   text-transform: uppercase;
@@ -525,7 +538,7 @@ h2.sec-h2 {
 }
 .fu-cap {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   border: 1px solid rgba(196,123,123,0.4);
   border-radius: 20px;
@@ -583,7 +596,7 @@ h2.sec-h2 {
 }
 .fu-cd-label {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.18em;
   color: var(--rose);
 }
@@ -610,14 +623,14 @@ h2.sec-h2 {
 #pearls .section-label::after { background: rgba(196,123,123,0.4); }
 #pearls .pearls-desc {
   font-size: 14px;
-  color: rgba(255,255,255,0.52);
+  color: rgba(255,255,255,0.65);
   line-height: 1.85;
   margin-bottom: 6px;
   position: relative;
 }
 #pearls .pearls-meta {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.15em;
   color: rgba(196,123,123,0.6);
   margin-bottom: 64px;
@@ -755,9 +768,9 @@ h2.sec-h2 {
 .pearl-modal-inner .pd-en {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 100;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.3em;
-  color: rgba(0,0,0,0.35);
+  color: rgba(0,0,0,0.55);
   text-transform: uppercase;
   margin-bottom: 20px;
 }
@@ -776,12 +789,12 @@ h2.sec-h2 {
 }
 .pearl-cap {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   border: 1px solid rgba(0,0,0,0.2);
   border-radius: 20px;
   padding: 5px 14px;
-  color: rgba(0,0,0,0.55);
+  color: rgba(0,0,0,0.7);
 }
 
 /* CTA */

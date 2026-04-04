@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 import './hl-page.css'
 
@@ -45,6 +45,11 @@ const pearlData: Record<string, { name: string; en: string; lightBg: string; des
 }
 
 export default function HlPage() {
+  useEffect(() => {
+    document.body.classList.add('page-hl')
+    return () => { document.body.classList.remove('page-hl') }
+  }, [])
+
   const [smOpen, setSmOpen] = useState(false)
   const [flippedA, setFlippedA] = useState(false)
   const [flippedB, setFlippedB] = useState(false)
