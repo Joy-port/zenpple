@@ -44,21 +44,38 @@ colors: {
 *   **Body**: `DM Sans` (Line-height 1.7)
 *   **Mono**: `Space Mono` (用於編號/價格)
 
+### 字型尺寸規範 (Typography Size Rules)
+> 以下規範確保所有文字符合可讀性標準，禁止低於下限值。
+
+| 角色 | 最小尺寸 | 備註 |
+| :--- | :--- | :--- |
+| Section label (Mono 標籤) | **12px** | 如「預約流程」、`SOUND MAPPING` 等小標 |
+| Caption / tag / meta | **12px** | 卡片內 EN 副標、flip-hint、珍珠 cap 等 |
+| Body text | **13px** | 描述段落最低限 |
+| 裝飾性數字 (step number) | **11px** | 如步驟 01 02 03，可帶透明度但不得低於 11px |
+| 任何可見文字 | **11px** | 絕對下限，無例外 |
+
+### 文字透明度規範 (Text Opacity Rules)
+*   **可讀文字**（標籤、描述、副標）：`opacity ≥ 0.6` / `rgba alpha ≥ 0.6`
+*   **裝飾性文字**（步驟編號、次要 hint）：`opacity ≥ 0.5`
+*   **深色背景上的淺色文字**（hero label、en-sub）：`rgba(255,255,255, ≥ 0.65)`
+*   **禁止**：`opacity: 0.35`、`0.45`、`0.48`、`0.52` 等低於 0.5 的可讀文字
+
 ## 4. 核心頁面路由與功能架構
 | 路徑 | 頁面名稱 | 核心組件需求 |
 | :--- | :--- | :--- |
-| `/` | 首頁 | 全螢幕 Hero + **互動角色卡牌 (Click-to-expand)** |
-| `/qi-sb` | 靈性頌缽音流 | Feature Grid (服務項目), FAQ Accordion |
-| `/hl` | 深層系統對齊 | **分支路徑選擇器** (HL-02 vs HL-03), Timeline |
-| `/sc` | 薩滿靈魂覺醒 | 5 階段意識階梯 (Vertical Timeline), 三界圖插畫 |
-| `/qi-cs` | 夏＋玄路徑諮詢 | **情境對照表** (Feature Comparison), 指導靈宣言（水墨垂直排版）· 色系：#607866 / #212E27 |
-| `/as` | 品牌認證考核 | 認證 4 關卡 Step-by-step List, 效力對比表 |
-| `/ts-pe` | 高階執業養成 | 雙軸修煉路徑圖, 課程 Feature List |
-| `/as-c` | 品牌孵化實務 | 數位工作流介紹, 技術規格警告區塊 |
-| `/co` | 聯名企業合作 | B2B 定價級距表 (Pricing Table), 合作流程圖 |
-| `/about` | 關於森波 | Team Section (禿禿 & 夏子), Logo 意涵展示 |
-| `/contact` | 聯繫森波 | LINE QR Code, 預約 4 步驟卡片, Google Map |
-| `/ethics` | 執業規範 | 8 大紅線 Accordion, 非醫療聲明清單 |
+| `/` | 首頁 | 全螢幕 Hero（主標語中英雙行）+ **互動角色卡牌 (Click-to-expand)**（潮間帶的人、林間迷霧者、播種者）+ 森波生態區（大山插圖、左靈性調頻／右高階養成）+ 雙顧問雙軌導航 + Contact（LINE / IG） |
+| `/qi-sb` | 靈性頌缽音流 | Hero + 頌缽定頻原理簡介 + 顧問介紹（禿禿）+ Feature Grid（服務項目與價格）+ FAQ Accordion + Testimonial + CTA（LINE）+ 腦波定頻技術規格說明 |
+| `/hl` | 深層系統對齊 | Hero + 定頻邏輯 3 步驟（掃描→清理→陪跑）+ HL-01 介紹 + **分支路徑選擇器**（A: HL-02 全面式 vs B: HL-03 針對式）Feature Comparison Table + HL-02 Core Reset 詳述 + HL-02-A 陪跑 Timeline + HL-03 PEARL+ 六珍珠 Card Gallery + CTA |
+| `/sc` | 薩滿靈魂覺醒 | Hero + 薩滿三界世界觀（三界圖插畫）+ 核心服務 Feature Grid + SC 旅程 5 階段 Vertical Timeline + SC×HL 整合推薦 + 免責小叮嚀 + CTA |
+| `/xia` | 夏＋玄路徑諮詢 | Hero + 指導靈宣言（玄天上帝教誨，水墨垂直排版）+ **7 情境對照表**（情境→建議服務）+ 決策路徑地圖 Flowchart（QI-OR→QI-CS→AS-C）+ 服務細項列表 + 諮詢規範 FAQ + 顧問介紹（夏子）+ CTA · 色系：#607866 / #212E27 |
+| `/as` | 品牌認證考核 | Hero + 三階段養成路徑 Timeline + **AS 四大考核關卡** Step-by-step（AS-E / AS-P1 / AS-P2 / AS-S）+ 市場風格定錨服務介紹 + 證書效力對比表（修業證 vs 認證）+ 認證證書展示 + CTA |
+| `/ts-pe` | 高階執業養成 | Hero + 執業精神說明 + TS 技術系列 Feature List（TS-01/02/03）+ PE 感知倫理系列 Feature List（PE-01 / PE-L）+ 雙軸修煉路徑圖（路徑A+B → PE 必修）+ 核心技術修業證說明 + CTA（入學評估）|
+| `/as-c` | 品牌孵化實務 | Hero + 進入路徑 Step-by-step（AS-C-01→02or03，強制前置）+ **三大核心服務 Feature Grid**（AS-C-01/02/03 含價格）+ 技術規格警告（AS-C-02 純理性邏輯）+ FAQ + CTA |
+| `/co` | 聯名企業合作 | Hero + 服務定位說明（大眾放鬆 vs 高階校準）+ **企業包場 CO-C 比較表**（C1/C2/C3）+ 團體微包場 CO-M 系列 + 聯名培訓授權 CO-L（L1/L2）+ 核心團隊聚會 CO-G + 合作三步驟流程圖 + 企業洽詢 CTA |
+| `/about` | 關於森波 | Hero + 品牌緣起（ZENPPLE 意涵 + 三大支柱）+ Team Section（禿禿 / 夏子 / 雅妃老師）含 Pills 跳轉 + 品牌格言 + 致謝設計師 Joy + CTA |
+| `/contact` | 聯繫森波 | Hero + LINE / IG / QR Code CTA + 預約四步驟卡片 + 台南 / 台北場地介紹（Google Map 嵌入）+ FAQ Accordion + Testimonial（品牌座右銘）|
+| `/legal` | 執業規範與免責聲明 | Hero + **8 大執業紅線** Feature List + 非醫療聲明清單（技術規格說明）+ 誠實原則 5 步驟 + 能力邊界 FAQ Accordion（不碰、不扛、不逞強）+ CTA（導向 About）|
 
 ## 5. 互動設計細節 (Claude Code Attention Needed)
 *   **Click-to-expand 邏輯**：

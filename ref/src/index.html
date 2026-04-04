@@ -923,159 +923,158 @@ header {
 }
 
 /* ─── CONTACT ─── */
+/* ─── CONTACT — 重設計 ─── */
 .contact-section {
-  padding: var(--section-v) var(--gutter);
-  background: var(--base);
+  padding: clamp(80px, 12vw, 140px) var(--gutter);
+  background: var(--ink);
+  color: var(--base);
+  text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-.contact-section::before { display: none; }
-.contact-section::after  { display: none; }
+/* 三顆暈染 blob */
+.contact-blob-1 {
+  position: absolute;
+  width: 520px; height: 520px; border-radius: 50%;
+  background: var(--sc-purple);
+  filter: blur(130px);
+  opacity: 0.28;
+  top: -120px; left: -80px;
+  pointer-events: none;
+}
 
-.contact-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
+.contact-blob-2 {
+  position: absolute;
+  width: 420px; height: 420px; border-radius: 50%;
+  background: var(--hl-rose);
+  filter: blur(110px);
+  opacity: 0.22;
+  bottom: -80px; right: -60px;
+  pointer-events: none;
+}
+
+.contact-blob-3 {
+  position: absolute;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: var(--qi-sb);
+  filter: blur(90px);
+  opacity: 0.18;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.contact-section .sec-label {
+  color: rgba(242,239,234,0.35);
+  justify-content: center;
   position: relative; z-index: 1;
 }
 
-@media (max-width: 768px) { .contact-inner { grid-template-columns: 1fr; gap: 48px; } }
+.contact-section .sec-label::after { display: none; }
 
 .contact-heading {
   font-family: var(--f-zh);
   font-weight: 900;
-  font-size: clamp(22px, 3.2vw, 36px);
+  font-size: clamp(32px, 5vw, 62px);
   letter-spacing: 0.04em;
-  line-height: 1.25;
-  margin-bottom: 16px;
+  line-height: 1.2;
+  color: var(--base);
+  margin-bottom: 18px;
+  position: relative; z-index: 1;
 }
 
 .contact-sub {
   font-size: 14px;
-  color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 44px;
+  color: rgba(242,239,234,0.5);
+  line-height: 1.9;
+  max-width: 380px;
+  margin: 0 auto 52px;
+  position: relative; z-index: 1;
 }
 
 .contact-btns {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   gap: 14px;
+  flex-wrap: wrap;
+  position: relative; z-index: 1;
 }
 
 .contact-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 18px 24px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  text-decoration: none;
-  color: var(--ink);
-  background: rgba(255,255,255,0.55);
-  backdrop-filter: blur(6px);
-  transition: border-color 0.25s, box-shadow 0.25s;
+  gap: 10px;
+  padding: 15px 32px;
+  border-radius: 999px;
   font-family: var(--f-zh-sans);
   font-size: 14px;
   font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
 }
 
-.contact-btn:hover {
-  border-color: rgba(42,42,42,0.2);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+.contact-btn-line {
+  background: var(--base);
+  color: var(--ink);
 }
 
-.contact-btn-sub {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  font-weight: 400;
+.contact-btn-line:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.25);
 }
 
-.contact-btn-arrow {
-  font-size: 14px;
-  color: var(--muted);
-  opacity: 0.5;
-  margin-left: 16px;
+.contact-btn-ig {
+  background: transparent;
+  color: rgba(242,239,234,0.75);
+  border: 1px solid rgba(242,239,234,0.25);
 }
 
-/* flow + QR right side */
-.contact-right {
+.contact-btn-ig:hover {
+  border-color: rgba(242,239,234,0.55);
+  color: var(--base);
+  transform: translateY(-2px);
+}
+
+/* QR reveal */
+.contact-right { position: relative; z-index: 1; margin-top: 40px; }
+
+.qr-reveal {
   display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.flow-card {
-  border-radius: 14px;
-  padding: 34px 30px;
-  background: linear-gradient(
-    138deg,
-    rgba(181,200,171,0.22) 0%,
-    rgba(195,199,220,0.16) 55%,
-    rgba(215,152,176,0.10) 100%
-  );
-  position: relative; overflow: hidden;
-}
-
-.flow-card::before {
-  content: '';
-  position: absolute; top: -50px; right: -50px;
-  width: 180px; height: 180px;
-  background: radial-gradient(ellipse, rgba(255,255,255,0.18) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.flow-label {
-  font-family: var(--f-mono);
-  font-size: 9px; letter-spacing: 0.2em;
-  color: var(--muted); text-transform: uppercase;
-  margin-bottom: 26px;
-}
-
-.flow-steps { display: flex; flex-direction: column; gap: 16px; }
-
-.flow-step {
-  display: flex; align-items: center; gap: 16px;
-}
-
-.flow-num {
-  font-family: var(--f-mono);
-  font-size: 10px; color: var(--muted);
-  opacity: 0.45; width: 20px; flex-shrink: 0;
-}
-
-.flow-text {
-  font-family: var(--f-zh-sans);
-  font-size: 14px; letter-spacing: 0.03em;
+  justify-content: center;
 }
 
 .qr-row {
-  display: flex; align-items: center; gap: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(242,239,234,0.12);
+  border-radius: 12px;
+  padding: 20px 28px;
 }
 
 .qr-box {
-  width: 80px; height: 80px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.6);
+  width: 72px; height: 72px;
+  border: 1px solid rgba(242,239,234,0.2);
+  background: rgba(255,255,255,0.08);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
-  font-size: 20px; opacity: 0.28; border-radius: 4px;
+  font-size: 18px; opacity: 0.4; border-radius: 4px;
 }
 
 .qr-label {
   font-family: var(--f-zh-sans);
   font-weight: 700; font-size: 13px;
   display: block; margin-bottom: 4px;
+  color: var(--base);
 }
 
 .qr-note {
   font-family: var(--f-mono);
   font-size: 9px; letter-spacing: 0.09em;
-  color: var(--muted); line-height: 1.7;
+  color: rgba(242,239,234,0.4); line-height: 1.7;
 }
 
 /* ─── FOOTER ─── */
@@ -1496,43 +1495,34 @@ footer {
 
 <!-- ─── CONTACT ─── -->
 <section class="contact-section" id="contact">
+  <div class="contact-blob-1"></div>
+  <div class="contact-blob-2"></div>
+  <div class="contact-blob-3"></div>
+
   <div class="wrap">
     <p class="sec-label">聯絡 · 預約</p>
-    <div class="contact-inner">
+    <h2 class="contact-heading">準備好了嗎？<br>先來聊聊你的狀態。</h2>
+    <p class="contact-sub">不需要準備什麼，把你現在的狀況傳給我們，我們會幫你找到最適合的第一步。</p>
 
-      <div>
-        <h2 class="contact-heading">想聊聊<br>你的狀態？</h2>
-        <p class="contact-sub">傳訊給我們，任何問題都歡迎先來聊聊。</p>
-        <div class="contact-btns">
-          <a class="contact-btn contact-btn-line" href="#" onclick="toggleQR(event)">
-            <div>
-              <span style="display:block; font-size:11px; font-family:var(--f-mono); letter-spacing:0.12em; color:var(--muted); margin-bottom:4px;">傳訊 → 確認時間 → 開始服務</span>
-              <span style="display:block; font-weight:700;">LINE 官方帳號</span>
-            </div>
-            <span class="contact-btn-arrow">↗</span>
-          </a>
-          <a class="contact-btn" href="https://instagram.com/zenpple_" target="_blank">
-            <div>
-              <span style="display:block; font-size:11px; font-family:var(--f-mono); letter-spacing:0.12em; color:var(--muted); margin-bottom:4px;">活動 · 講座 · 最新消息</span>
-              <span style="display:block; font-weight:700;">Instagram @zenpple_</span>
-            </div>
-            <span class="contact-btn-arrow">↗</span>
-          </a>
-        </div>
-      </div>
+    <div class="contact-btns">
+      <a class="contact-btn contact-btn-line" href="#" onclick="toggleQR(event)">
+        LINE 官方帳號 ↗
+      </a>
+      <a class="contact-btn contact-btn-ig" href="https://instagram.com/zenpple_" target="_blank">
+        Instagram @zenpple_
+      </a>
+    </div>
 
-      <div class="contact-right">
-        <div class="qr-reveal" id="qr-reveal" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
-          <div class="qr-row">
-            <div class="qr-box">▦</div>
-            <div>
-              <span class="qr-label">LINE QR Code</span>
-              <p class="qr-note">掃描直接加入預約<br>[ QR Code 待提供 ]</p>
-            </div>
+    <div class="contact-right">
+      <div class="qr-reveal" id="qr-reveal" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
+        <div class="qr-row">
+          <div class="qr-box">▦</div>
+          <div>
+            <span class="qr-label">LINE QR Code</span>
+            <p class="qr-note">掃描直接加入 · 傳訊預約<br>[ QR Code 待提供 ]</p>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
