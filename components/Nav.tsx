@@ -56,12 +56,13 @@ export default function Nav() {
             <Link
               href={href}
               style={{
-                fontFamily: 'var(--f-mono)',
-                fontSize: 10,
-                letterSpacing: '0.12em',
+                fontFamily: 'var(--f-display)',
+                fontWeight: 300,
+                fontSize: 12,
+                letterSpacing: '0.22em',
                 color: 'var(--ink)',
                 textDecoration: 'none',
-                opacity: pathname === href ? 1 : 0.45,
+                opacity: pathname === href ? 1 : 0.7,
                 transition: 'opacity 0.2s',
               }}
             >
@@ -73,9 +74,10 @@ export default function Nav() {
           <Link
             href="/contact"
             style={{
-              fontFamily: 'var(--f-mono)',
-              fontSize: 10,
-              letterSpacing: '0.12em',
+              fontFamily: 'var(--f-display)',
+              fontWeight: 300,
+              fontSize: 12,
+              letterSpacing: '0.22em',
               color: 'var(--ink)',
               textDecoration: 'none',
               padding: '8px 20px',
