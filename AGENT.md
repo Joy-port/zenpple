@@ -20,7 +20,7 @@
 ```javascript
 colors: {
   background: "#F2EFEA", // 奶霧白：主底色
-  foreground: "#2A2A2A", // 墨：主文字
+  foreground: "#333333", // 墨：主文字
   series: {
     qi: "#4A6B8A",       // 靛石藍：QI-SB 系列
     hl: "#C47B7B",       // 煙霞玫：HL 系列
@@ -28,6 +28,12 @@ colors: {
     co: "#C4784A",       // 沉金橙：CO 系列
     as: "#5E8E8A",       // 苔石青：AS 認證
     ts: "#B09070",       // 暖沙石：TS / PE 系列
+    // QI-CS 夏＋玄 專屬色階（深綠系）
+    "qi-cs": {
+      light: "#607866",  // 苔綠：主強調色 / 標籤 / 連結
+      mid:   "#3D5C48",  // 林綠：次要強調 / 展開項目
+      dark:  "#212E27",  // 深森：標題 / CTA 底色
+    }
   }
 }
 ```
@@ -45,7 +51,7 @@ colors: {
 | `/qi-sb` | 靈性頌缽音流 | Feature Grid (服務項目), FAQ Accordion |
 | `/hl` | 深層系統對齊 | **分支路徑選擇器** (HL-02 vs HL-03), Timeline |
 | `/sc` | 薩滿靈魂覺醒 | 5 階段意識階梯 (Vertical Timeline), 三界圖插畫 |
-| `/qi-cs` | 夏＋玄路徑諮詢 | **情境對照表** (Feature Comparison), 指導靈宣告 |
+| `/qi-cs` | 夏＋玄路徑諮詢 | **情境對照表** (Feature Comparison), 指導靈宣言（水墨垂直排版）· 色系：#607866 / #212E27 |
 | `/as` | 品牌認證考核 | 認證 4 關卡 Step-by-step List, 效力對比表 |
 | `/ts-pe` | 高階執業養成 | 雙軸修煉路徑圖, 課程 Feature List |
 | `/as-c` | 品牌孵化實務 | 數位工作流介紹, 技術規格警告區塊 |
