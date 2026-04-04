@@ -1,0 +1,535 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import PersonaCards from '@/components/PersonaCards'
+
+const ecosystemRows = [
+  {
+    left:  { label: '薩滿靈魂覺醒', en: 'Shamanic Soul Awakening', href: '/sc',    color: '#7B6B9E' },
+    right: { label: '高階執業養成', en: 'Professional Mastery',    href: '/ts-pe', color: '#B09070' },
+  },
+  {
+    left:  { label: '深層系統對齊', en: 'Deep System Alignment',   href: '/hl',    color: '#C47B7B' },
+    right: { label: '品牌認證考核', en: 'Brand Certification',     href: '/as',    color: '#5E8E8A' },
+  },
+  {
+    left:  { label: '即時洞察梳理', en: 'Quick Insight & Sound Flow', href: '/qi-sb', color: '#4A6B8A' },
+    right: { label: '品牌孵化實務', en: 'Brand Incubation',         href: '/as-c',  color: '#B09070' },
+  },
+]
+
+export default function Home() {
+  return (
+    <>
+      {/* ── HERO ── */}
+      <section
+        style={{
+          minHeight: '100svh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          padding: '120px clamp(24px,5vw,72px) 80px',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Watermark logo */}
+        <Image
+          src="/zenpple-logo.jpg"
+          alt=""
+          width={640}
+          height={320}
+          aria-hidden
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -52%)',
+            width: 'clamp(300px, 55vw, 640px)',
+            height: 'auto',
+            opacity: 0.07,
+            mixBlendMode: 'multiply',
+            pointerEvents: 'none',
+            zIndex: 0,
+          }}
+        />
+
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <h1
+            className="animate-ink-reveal"
+            style={{
+              fontFamily: 'var(--f-zh)',
+              fontWeight: 900,
+              fontSize: 'clamp(28px, 4.8vw, 50px)',
+              letterSpacing: '0.06em',
+              lineHeight: 1.15,
+              marginBottom: 16,
+            }}
+          >
+            往內定頻　走回自己
+          </h1>
+          <p
+            style={{
+              fontFamily: 'var(--f-display)',
+              fontWeight: 300,
+              fontSize: 'clamp(13px, 1.6vw, 18px)',
+              letterSpacing: '0.22em',
+              color: 'var(--ink)',
+              opacity: 0.7,
+              textTransform: 'uppercase',
+            }}
+          >
+            Tune inward. Return to self.
+          </p>
+        </div>
+
+        {/* Scroll hint */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 32,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            color: 'var(--muted)',
+            opacity: 0.45,
+          }}
+        >
+          <svg
+            width="16"
+            height="24"
+            viewBox="0 0 16 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M8 4 L8 20" />
+            <path d="M3 15 L8 20 L13 15" />
+          </svg>
+        </div>
+      </section>
+
+      {/* ── PERSONA CARDS ── */}
+      <PersonaCards />
+
+      {/* ── ECOSYSTEM ── */}
+      <section
+        style={{
+          padding: 'clamp(80px,10vw,130px) clamp(24px,5vw,72px)',
+          background: 'var(--base)',
+        }}
+      >
+        <div className="wrap">
+          <p className="sec-label">森波生態系</p>
+          <h2
+            style={{
+              fontFamily: 'var(--f-zh)',
+              fontWeight: 900,
+              fontSize: 'clamp(22px,3vw,34px)',
+              letterSpacing: '0.04em',
+              marginBottom: 8,
+            }}
+          >
+            兩個方向，一座山。
+          </h2>
+          <p
+            style={{
+              fontSize: 14,
+              color: 'var(--muted)',
+              marginBottom: 52,
+              lineHeight: 1.8,
+            }}
+          >
+            靈性調頻 · 執業養成
+          </p>
+
+          {/* Pyramid rows */}
+          {ecosystemRows.map(({ left, right }, i) => (
+            <div
+              key={i}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr auto 1fr',
+                gap: 16,
+                alignItems: 'center',
+                marginBottom: 12,
+                maxWidth: 780,
+                margin: `0 auto ${i < 2 ? 12 : 0}px`,
+              }}
+            >
+              <Link
+                href={left.href}
+                style={{
+                  padding: '18px 24px',
+                  border: `1px solid rgba(${hexToRgb(left.color)},0.2)`,
+                  borderRadius: 10,
+                  textDecoration: 'none',
+                  background: `rgba(${hexToRgb(left.color)},0.04)`,
+                  transition: 'background 0.2s',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--f-zh)',
+                    fontWeight: 700,
+                    fontSize: 15,
+                    color: left.color,
+                    display: 'block',
+                    marginBottom: 2,
+                  }}
+                >
+                  {left.label}
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--f-display)',
+                    fontWeight: 100,
+                    fontSize: 10,
+                    letterSpacing: '0.2em',
+                    color: 'var(--muted)',
+                  }}
+                >
+                  {left.en}
+                </span>
+              </Link>
+
+              <div
+                style={{
+                  width: 1,
+                  height: 48,
+                  background: 'rgba(42,42,42,0.1)',
+                  flexShrink: 0,
+                }}
+              />
+
+              <Link
+                href={right.href}
+                style={{
+                  padding: '18px 24px',
+                  border: `1px solid rgba(${hexToRgb(right.color)},0.2)`,
+                  borderRadius: 10,
+                  textDecoration: 'none',
+                  background: `rgba(${hexToRgb(right.color)},0.04)`,
+                  transition: 'background 0.2s',
+                  textAlign: 'right',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--f-zh)',
+                    fontWeight: 700,
+                    fontSize: 15,
+                    color: right.color,
+                    display: 'block',
+                    marginBottom: 2,
+                  }}
+                >
+                  {right.label}
+                </span>
+                <span
+                  style={{
+                    fontFamily: 'var(--f-display)',
+                    fontWeight: 100,
+                    fontSize: 10,
+                    letterSpacing: '0.2em',
+                    color: 'var(--muted)',
+                  }}
+                >
+                  {right.en}
+                </span>
+              </Link>
+            </div>
+          ))}
+
+          {/* Direction labels */}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              maxWidth: 780,
+              margin: '24px auto 0',
+            }}
+          >
+            {['← 靈性調頻', '執業養成 →'].map(label => (
+              <span
+                key={label}
+                style={{
+                  fontFamily: 'var(--f-mono)',
+                  fontSize: 9,
+                  letterSpacing: '0.2em',
+                  color: 'var(--muted)',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOUNDERS ── */}
+      <section
+        style={{
+          padding: 'clamp(60px,8vw,100px) clamp(24px,5vw,72px)',
+          background: 'var(--base)',
+        }}
+      >
+        <div className="wrap">
+          <p className="sec-label">創辦人</p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 18,
+              paddingTop: 28,
+              borderTop: '1px solid var(--border)',
+            }}
+          >
+            {[
+              {
+                name: '禿禿 TWO TWO',
+                roles: '頌缽 · 薩滿 · 能量定頻',
+                desc: '身心狀態、潛意識定頻，以聲音引導感知回歸內在安定',
+              },
+              {
+                name: '夏',
+                roles: '靈性顧問 · 易經 · 品牌策略',
+                desc: '大方向定錨與理路梳理，結合玄天上帝指引與數位實務',
+              },
+            ].map(f => (
+              <Link
+                key={f.name}
+                href="/about"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 20,
+                  padding: '24px 22px',
+                  border: '1px solid var(--border)',
+                  borderRadius: 8,
+                  textDecoration: 'none',
+                  background: 'rgba(255,255,255,0.5)',
+                  transition: 'border-color 0.25s, box-shadow 0.25s',
+                }}
+              >
+                <div
+                  style={{
+                    width: 60,
+                    height: 60,
+                    borderRadius: '50%',
+                    background: 'rgba(42,42,42,0.05)',
+                    border: '1px solid var(--border)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    fontFamily: 'var(--f-mono)',
+                    fontSize: 8,
+                    letterSpacing: '0.05em',
+                    color: 'var(--muted)',
+                  }}
+                >
+                  photo
+                </div>
+                <div>
+                  <span
+                    style={{
+                      fontFamily: 'var(--f-zh)',
+                      fontWeight: 700,
+                      fontSize: 15,
+                      letterSpacing: '0.04em',
+                      color: 'var(--ink)',
+                      display: 'block',
+                      marginBottom: 4,
+                    }}
+                  >
+                    {f.name}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: 'var(--f-mono)',
+                      fontSize: 9,
+                      letterSpacing: '0.08em',
+                      color: 'var(--muted)',
+                      lineHeight: 1.7,
+                      display: 'block',
+                    }}
+                  >
+                    {f.roles}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: 12,
+                      color: 'var(--muted)',
+                      lineHeight: 1.7,
+                      display: 'block',
+                      marginTop: 4,
+                    }}
+                  >
+                    {f.desc}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CONTACT CTA ── */}
+      <section
+        style={{
+          padding: 'clamp(80px,10vw,130px) clamp(24px,5vw,72px)',
+          background: 'var(--base)',
+        }}
+        id="contact"
+      >
+        <div className="wrap">
+          <p className="sec-label">聯絡 · 預約</p>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 80,
+              alignItems: 'start',
+            }}
+          >
+            <div>
+              <h2
+                style={{
+                  fontFamily: 'var(--f-zh)',
+                  fontWeight: 900,
+                  fontSize: 'clamp(22px, 3.2vw, 36px)',
+                  letterSpacing: '0.04em',
+                  lineHeight: 1.25,
+                  marginBottom: 16,
+                }}
+              >
+                想聊聊<br />你的狀態？
+              </h2>
+              <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.8, marginBottom: 44 }}>
+                傳訊給我們，任何問題都歡迎先來聊聊。
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                {[
+                  { label: 'LINE 官方帳號', sub: '傳訊 → 確認時間 → 開始服務', href: '#' },
+                  { label: 'Instagram @zenpple_', sub: '活動 · 講座 · 最新消息', href: 'https://instagram.com/zenpple_' },
+                ].map(btn => (
+                  <Link
+                    key={btn.href}
+                    href={btn.href}
+                    target={btn.href.startsWith('http') ? '_blank' : undefined}
+                    rel={btn.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: '18px 24px',
+                      border: '1px solid var(--border)',
+                      borderRadius: 12,
+                      textDecoration: 'none',
+                      color: 'var(--ink)',
+                      background: 'rgba(255,255,255,0.55)',
+                      backdropFilter: 'blur(6px)',
+                      transition: 'border-color 0.25s',
+                    }}
+                  >
+                    <div>
+                      <span
+                        style={{
+                          display: 'block',
+                          fontSize: 11,
+                          fontFamily: 'var(--f-mono)',
+                          letterSpacing: '0.12em',
+                          color: 'var(--muted)',
+                          marginBottom: 4,
+                        }}
+                      >
+                        {btn.sub}
+                      </span>
+                      <span
+                        style={{
+                          display: 'block',
+                          fontFamily: 'var(--f-zh-sans)',
+                          fontWeight: 700,
+                          fontSize: 14,
+                        }}
+                      >
+                        {btn.label}
+                      </span>
+                    </div>
+                    <span style={{ fontSize: 14, color: 'var(--muted)', opacity: 0.5 }}>↗</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Flow steps */}
+            <div>
+              <div
+                style={{
+                  borderRadius: 14,
+                  padding: '34px 30px',
+                  background:
+                    'linear-gradient(138deg, rgba(181,200,171,0.22) 0%, rgba(195,199,220,0.16) 55%, rgba(215,152,176,0.10) 100%)',
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: 'var(--f-mono)',
+                    fontSize: 9,
+                    letterSpacing: '0.2em',
+                    color: 'var(--muted)',
+                    textTransform: 'uppercase',
+                    marginBottom: 26,
+                  }}
+                >
+                  預約流程
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  {['傳訊說明你的狀態', '等候我們回覆確認', '完成預約準備', '準時出現，放空就好'].map(
+                    (step, i) => (
+                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                        <span
+                          style={{
+                            fontFamily: 'var(--f-mono)',
+                            fontSize: 10,
+                            color: 'var(--muted)',
+                            opacity: 0.45,
+                            width: 20,
+                            flexShrink: 0,
+                          }}
+                        >
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <span
+                          style={{
+                            fontFamily: 'var(--f-zh-sans)',
+                            fontSize: 14,
+                            letterSpacing: '0.03em',
+                          }}
+                        >
+                          {step}
+                        </span>
+                      </div>
+                    )
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
+
+/** Quick hex → "r,g,b" helper for rgba() */
+function hexToRgb(hex: string): string {
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  return `${r},${g},${b}`
+}
