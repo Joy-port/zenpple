@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZENPPLE 森波 — 往內定頻，走回自己</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&family=DM+Sans:wght@400;500&family=Space+Mono&family=Noto+Serif+TC:wght@300;400;700;900&family=Noto+Sans+TC:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<style>
+
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ─── TOKENS ─── */
+:root {
+  /* Brand colours — from agent context */
+  --ink:       #2A2A2A;
+  --base:      #F2EFEA;
+  --cream:     #EEE9EA;
+  --mist:      #E0DEDE;
+  --qi-sb:     #4A6B8A;
+  --hl-rose:   #C47B7B;
+  --sc-purple: #7B6B9E;
+  --as-teal:   #5E8E8A;
+  --ts-sand:   #B09070;
+  --muted:     #9A9490;
+  --sage:      #B5C8AB;
+  --sage-dark: #768F87;
+  --border:    rgba(42,42,42,0.09);
+
+  /* Typography */
+  --f-display: 'Josefin Sans', sans-serif;
+  --f-zh:      'Noto Serif TC', serif;
+  --f-zh-sans: 'Noto Sans TC', sans-serif;
+  --f-body:    'DM Sans', sans-serif;
+  --f-mono:    'Space Mono', monospace;
+  --f-elegant: 'Cormorant Garamond', serif;
+
+  --gutter:     clamp(24px, 5vw, 72px);
+  --page-max:   1120px;
+  --section-v:  clamp(80px, 10vw, 130px);
+}
+
+body {
+  background: var(--base);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 14px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── GRAIN overlay ─── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px;
+  mix-blend-mode: multiply;
+}
+
+/* ─── NAV ─── */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px var(--gutter);
+  background: rgba(242,239,234,0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(42,42,42,0.07);
+}
+
+.nav-logo {
+  height: 36px;
+  width: auto;
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover { opacity: 1; }
+
+.nav-links .nav-cta {
+  opacity: 1;
+  padding: 8px 20px;
+  border: 1px solid rgba(42,42,42,0.25);
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.nav-links .nav-cta:hover {
+  background: var(--ink);
+  color: var(--base);
+  border-color: var(--ink);
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px var(--gutter) 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* logo as background watermark */
+.hero-bg-logo {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -52%);
+  width: clamp(300px, 55vw, 640px);
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-blobs { display: none; }
+
+.hero-inner { position: relative; z-index: 2; }
+
+.hero-logo { display: none; }
+
+.hero-zh {
+  font-family: var(--f-zh);
+  font-weight: 900;
+  font-size: clamp(28px, 4.8vw, 50px);
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.hero-en {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(13px, 1.6vw, 18px);
+  letter-spacing: 0.22em;
+  color: var(--ink);
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  color: var(--muted);
+  opacity: 0.45;
+}
+
+.scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--sage-dark), transparent);
+}
+
+/* ─── SHARED ─── */
+.wrap {
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+.sec-label {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sec-label::after {
+  content: '';
+  display: block; width: 40px; height: 1px;
+  background: currentColor; opacity: 0.3;
+}
+
+/* ─── CARD SECTION ─── */
+.card-section {
+  padding: var(--section-v) var(--gutter);
+  background: var(--base);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, var(--base), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--base));
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-section-head {
+  text-align: center;
+  margin-bottom: 52px;
+  position: relative; z-index: 1;
+}
+
+.card-section-head .sec-label { justify-content: center; }
+.card-section-head .sec-label::after { display: none; }
+
+.card-section-title {
+  font-family: var(--f-elegant);
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+/* cards row */
+.cards-row {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  max-width: 960px;
+  margin: 0 auto 32px;
+  position: relative; z-index: 1;
+}
+
+/* card — full bleed calligraphy bg */
+.persona-card {
+  flex: 1;
+  max-width: 300px;
+  min-height: 340px;
+  border: 1px solid rgba(42,42,42,0.08);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
+  position: relative;
+  overflow: hidden;
+}
+
+.persona-card:hover,
+.persona-card.active {
+  border-color: var(--sage);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(90,121,100,0.1);
+}
+
+.persona-card.active { border-color: var(--sage-dark); }
+
+/* calligraphy SVG background — fills entire card */
+.card-bg-illus {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+}
+
+.card-bg-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* per-card base colour tint */
+.persona-card:nth-child(1) { background: #F2EFEA; }
+.persona-card:nth-child(2) { background: #F2EFEA; }
+.persona-card:nth-child(3) { background: #F2EFEA; }
+
+/* text content floats above SVG */
+.card-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 0 26px 30px;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(242,239,234,0.97) 55%, transparent 100%);
+}
+
+.card-name {
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+/* card-num and card-illus hidden (replaced) */
+.card-num  { display: none; }
+.card-illus { display: none; }
+
+/* expand panel — base */
+.expand-panel {
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease, padding 0.5s ease, border-color 0.3s ease;
+  position: relative; z-index: 1;
+  border: 1px solid transparent;
+}
+
+.expand-panel.open {
+  max-height: 400px;
+  padding: 44px 48px;
+}
+
+.expand-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ── Panel 1: 潮間帶 — 靛石藍淡暈染 ── */
+#expand-1 {
+  background: linear-gradient(148deg,
+    rgba(74,107,138,0.12) 0%,
+    rgba(94,142,138,0.08) 60%,
+    rgba(242,239,234,0.95) 100%);
+}
+#expand-1.open { border-color: rgba(74,107,138,0.15); }
+
+#expand-1 .expand-title { color: var(--ink); }
+#expand-1 .expand-en    { color: var(--muted); }
+#expand-1 .expand-body  { color: var(--ink); opacity: 0.7; }
+#expand-1 .expand-services-label { color: var(--muted); }
+#expand-1 .pill {
+  border-color: rgba(74,107,138,0.3);
+  color: #4A6B8A;
+  background: rgba(74,107,138,0.06);
+}
+#expand-1 .expand-cta {
+  border-color: rgba(74,107,138,0.4);
+  color: #4A6B8A;
+}
+#expand-1 .expand-cta:hover {
+  background: rgba(74,107,138,0.1);
+}
+
+/* ── Panel 2: 林間迷霧者 — 暮紫淡暈染 ── */
+#expand-2 {
+  background: linear-gradient(148deg,
+    rgba(123,107,158,0.12) 0%,
+    rgba(196,123,123,0.07) 60%,
+    rgba(242,239,234,0.95) 100%);
+}
+#expand-2.open { border-color: rgba(123,107,158,0.15); }
+
+#expand-2 .expand-title { color: var(--ink); }
+#expand-2 .expand-en    { color: var(--muted); }
+#expand-2 .expand-body  { color: var(--ink); opacity: 0.7; }
+#expand-2 .expand-services-label { color: var(--muted); }
+#expand-2 .pill {
+  border-color: rgba(123,107,158,0.3);
+  color: #7B6B9E;
+  background: rgba(123,107,158,0.06);
+}
+#expand-2 .expand-cta {
+  border-color: rgba(123,107,158,0.4);
+  color: #7B6B9E;
+}
+#expand-2 .expand-cta:hover {
+  background: rgba(123,107,158,0.1);
+}
+
+/* ── Panel 3: 播種者 — 暖沙石淡暈染 ── */
+#expand-3 {
+  background: linear-gradient(148deg,
+    rgba(176,144,112,0.12) 0%,
+    rgba(94,142,138,0.07) 60%,
+    rgba(242,239,234,0.95) 100%);
+}
+#expand-3.open { border-color: rgba(176,144,112,0.15); }
+
+#expand-3 .expand-title { color: var(--ink); }
+#expand-3 .expand-en    { color: var(--muted); }
+#expand-3 .expand-body  { color: var(--ink); opacity: 0.7; }
+#expand-3 .expand-services-label { color: var(--muted); }
+#expand-3 .pill {
+  border-color: rgba(176,144,112,0.3);
+  color: #B09070;
+  background: rgba(176,144,112,0.06);
+}
+#expand-3 .expand-cta {
+  border-color: rgba(176,144,112,0.4);
+  color: #B09070;
+}
+#expand-3 .expand-cta:hover {
+  background: rgba(176,144,112,0.1);
+}
+
+/* shared text styles (kept for structure) */
+.expand-title {
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+}
+
+.expand-en {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.expand-body {
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.expand-services-label {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.pills {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 28px;
+}
+
+.pill {
+  font-family: var(--f-zh-sans);
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.expand-cta {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* ─── ABOUT / BIO ─── */
+.about-section {
+  padding: var(--section-v) var(--gutter);
+  background: var(--base);
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before { display: none; }
+.about-section::after  { display: none; }
+
+.about-section .wrap { position: relative; z-index: 1; }
+.about-section .sec-label { color: var(--muted); }
+
+/* ─── ECOSYSTEM TAGLINE ─── */
+.ecosystem-tagline {
+  font-family: var(--f-zh);
+  font-weight: 300;
+  font-size: clamp(18px, 2.5vw, 26px);
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  opacity: 0.55;
+  margin-bottom: 36px;
+}
+
+/* ─── PYRAMID MERGED CENTER ─── */
+.pyramid-merged {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+/* each row is: [left block] [center bars] [right block] */
+.pm-row {
+  display: grid;
+  grid-template-columns: 1fr 20px 1fr;
+  align-items: stretch;
+  gap: 0;
+}
+
+/* top row narrowest, bottom row widest */
+.pm-row-1 { padding: 0 22%; }
+.pm-row-2 { padding: 0 10%; }
+.pm-row-3 { padding: 0 0;   }
+
+/* left block — text right-aligned, flows toward center */
+.pm-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: right;
+  padding: 14px 16px 14px 12px;
+  border-radius: 8px 0 0 8px;
+  text-decoration: none;
+  transition: filter 0.2s;
+}
+
+.pm-left:hover { filter: brightness(0.93); }
+
+/* right block — text left-aligned, flows from center */
+.pm-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  padding: 14px 12px 14px 16px;
+  border-radius: 0 8px 8px 0;
+  text-decoration: none;
+  transition: filter 0.2s;
+}
+
+.pm-right:hover { filter: brightness(0.93); }
+
+/* center — two thin bars meeting in middle */
+.pm-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  width: 20px;
+}
+
+.pm-bar {
+  flex: 1;
+  width: 3px;
+  margin: 0 auto;
+}
+
+/* colours */
+.pm-sc  { background: rgba(168,184,208,0.15); }
+.pm-hl  { background: rgba(196,160,184,0.15); }
+.pm-qi  { background: rgba(212,168,154,0.15); }
+.pm-ts  { background: rgba(220,200,120,0.15); }
+.pm-as  { background: rgba(94,142,138,0.15); }
+.pm-asc { background: rgba(176,144,112,0.15); }
+
+.pm-bar-sc  { background: rgba(168,184,208,0.6); }
+.pm-bar-hl  { background: rgba(196,160,184,0.6); }
+.pm-bar-qi  { background: rgba(212,168,154,0.6); }
+.pm-bar-ts  { background: rgba(220,200,120,0.7); }
+.pm-bar-as  { background: rgba(94,142,138,0.6); }
+.pm-bar-asc { background: rgba(176,144,112,0.6); }
+
+.pm-zh {
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: clamp(13px, 1.5vw, 16px);
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.pm-en {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* direction labels below pyramid */
+.pm-labels {
+  display: grid;
+  grid-template-columns: 1fr 20px 1fr;
+  margin-top: 10px;
+}
+
+.pm-label-left {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 0.16em;
+  color: var(--muted); text-transform: uppercase;
+  text-align: right; padding-right: 16px;
+}
+
+.pm-label-right {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 0.16em;
+  color: var(--muted); text-transform: uppercase;
+  text-align: left; padding-left: 16px;
+  grid-column: 3;
+}
+
+/* hide old pyramid systems */
+.pyramid-wrap { display: none; }
+.pyramid-dual { display: none; }
+
+@media (max-width: 600px) {
+  .pm-row-1 { padding: 0 8%; }
+  .pm-row-2 { padding: 0 4%; }
+  .pm-row-3 { padding: 0; }
+  .pm-zh { font-size: 12px; }
+  .pm-en { display: none; }
+}
+
+/* founder desc */
+.founder-desc {
+  font-size: 12px; color: var(--muted);
+  line-height: 1.65; display: block; margin-top: 4px;
+}
+
+/* about CTA */
+.about-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 48px;
+  padding: 32px 40px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.5);
+}
+
+.about-cta-text {
+  font-family: var(--f-zh);
+  font-weight: 400;
+  font-size: clamp(16px, 2vw, 20px);
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  opacity: 0.7;
+}
+
+.about-cta-btn {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 13px 28px;
+  border: 1px solid rgba(42,42,42,0.3);
+  border-radius: 999px;
+  color: var(--ink);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.about-cta-btn:hover {
+  background: var(--ink);
+  color: var(--base);
+  border-color: var(--ink);
+}
+
+/* top grid: text only (map removed) */
+.about-top {
+  display: block;
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 768px) { .about-top { max-width: 100%; } }
+
+/* ecosystem mountain block */
+.ecosystem-block {
+  margin-bottom: 56px;
+  position: relative;
+}
+
+.ecosystem-label {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 0.18em;
+  color: var(--muted); text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+
+.ecosystem-label::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: var(--border);
+}
+
+/* SVG mountain */
+.mountain-wrap {
+  width: 100%;
+  margin-bottom: 0;
+  line-height: 0;
+}
+
+.mountain-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* four layer cards */
+.ecosystem-layers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .ecosystem-layers { grid-template-columns: 1fr 1fr; }
+}
+
+.eco-layer {
+  padding: 18px 16px;
+  border-right: 1px solid var(--border);
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.eco-layer:last-child { border-right: none; }
+
+/* top colour strip per layer */
+.eco-layer-dot {
+  display: block;
+  height: 3px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.eco-qi .eco-layer-dot  { background: rgba(212,168,154,0.7); }
+.eco-hl .eco-layer-dot  { background: rgba(196,160,184,0.7); }
+.eco-sc .eco-layer-dot  { background: rgba(168,184,208,0.7); }
+.eco-ts .eco-layer-dot  { background: rgba(220,200,120,0.7); }
+
+.eco-qi:hover  { background: rgba(212,168,154,0.06); }
+.eco-hl:hover  { background: rgba(196,160,184,0.06); }
+.eco-sc:hover  { background: rgba(168,184,208,0.06); }
+.eco-ts:hover  { background: rgba(220,200,120,0.06); }
+
+.eco-layer-code {
+  font-family: var(--f-mono);
+  font-size: 8px; letter-spacing: 0.14em;
+  color: var(--muted); text-transform: uppercase;
+  display: block; margin-bottom: 4px;
+}
+
+.eco-layer-name {
+  font-family: var(--f-zh-sans);
+  font-weight: 700; font-size: 13px;
+  color: var(--ink); display: block;
+  margin-bottom: 3px; letter-spacing: 0.02em;
+}
+
+.eco-layer-sub {
+  font-size: 11px; color: var(--muted); line-height: 1.5;
+  display: block;
+}
+
+.about-heading {
+  font-family: var(--f-zh);
+  font-weight: 900;
+  font-size: clamp(22px, 3vw, 34px);
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
+.about-body {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+
+/* map */
+.map-wrap {}
+
+.map-sublabel {
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.map-ph {
+  aspect-ratio: 16/9;
+  background: rgba(42,42,42,0.03);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+
+.map-ph-note {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 0.1em;
+  color: var(--muted);
+  opacity: 0.4;
+  text-align: center; line-height: 1.7;
+}
+
+.map-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.map-tag {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 0.1em;
+  color: var(--muted);
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+/* founders: horizontal two-column */
+.founders-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  border-top: 1px solid var(--border);
+  padding-top: 44px;
+}
+
+@media (max-width: 600px) { .founders-row { grid-template-columns: 1fr; } }
+
+.founder-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 22px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  background: rgba(255,255,255,0.5);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.founder-card:hover {
+  border-color: rgba(42,42,42,0.18);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.founder-ava {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: rgba(42,42,42,0.05);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--f-mono);
+  font-size: 8px; letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.founder-name {
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: 15px; letter-spacing: 0.04em;
+  color: var(--ink);
+  display: block; margin-bottom: 4px;
+}
+
+.founder-roles {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 0.08em;
+  color: var(--muted);
+  line-height: 1.7;
+  display: block;
+}
+
+.founder-pending {
+  font-family: var(--f-mono);
+  font-size: 8px; letter-spacing: 0.07em;
+  color: var(--muted);
+  opacity: 0.4;
+  display: block; margin-top: 3px;
+}
+
+/* ─── CONTACT ─── */
+.contact-section {
+  padding: var(--section-v) var(--gutter);
+  background: var(--base);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before { display: none; }
+.contact-section::after  { display: none; }
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative; z-index: 1;
+}
+
+@media (max-width: 768px) { .contact-inner { grid-template-columns: 1fr; gap: 48px; } }
+
+.contact-heading {
+  font-family: var(--f-zh);
+  font-weight: 900;
+  font-size: clamp(22px, 3.2vw, 36px);
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.contact-sub {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 44px;
+}
+
+.contact-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--ink);
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.25s, box-shadow 0.25s;
+  font-family: var(--f-zh-sans);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.contact-btn:hover {
+  border-color: rgba(42,42,42,0.2);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.contact-btn-sub {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.contact-btn-arrow {
+  font-size: 14px;
+  color: var(--muted);
+  opacity: 0.5;
+  margin-left: 16px;
+}
+
+/* flow + QR right side */
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.flow-card {
+  border-radius: 14px;
+  padding: 34px 30px;
+  background: linear-gradient(
+    138deg,
+    rgba(181,200,171,0.22) 0%,
+    rgba(195,199,220,0.16) 55%,
+    rgba(215,152,176,0.10) 100%
+  );
+  position: relative; overflow: hidden;
+}
+
+.flow-card::before {
+  content: '';
+  position: absolute; top: -50px; right: -50px;
+  width: 180px; height: 180px;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.flow-label {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 0.2em;
+  color: var(--muted); text-transform: uppercase;
+  margin-bottom: 26px;
+}
+
+.flow-steps { display: flex; flex-direction: column; gap: 16px; }
+
+.flow-step {
+  display: flex; align-items: center; gap: 16px;
+}
+
+.flow-num {
+  font-family: var(--f-mono);
+  font-size: 10px; color: var(--muted);
+  opacity: 0.45; width: 20px; flex-shrink: 0;
+}
+
+.flow-text {
+  font-family: var(--f-zh-sans);
+  font-size: 14px; letter-spacing: 0.03em;
+}
+
+.qr-row {
+  display: flex; align-items: center; gap: 20px;
+}
+
+.qr-box {
+  width: 80px; height: 80px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.6);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 20px; opacity: 0.28; border-radius: 4px;
+}
+
+.qr-label {
+  font-family: var(--f-zh-sans);
+  font-weight: 700; font-size: 13px;
+  display: block; margin-bottom: 4px;
+}
+
+.qr-note {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 0.09em;
+  color: var(--muted); line-height: 1.7;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  color: var(--base);
+  padding: 64px var(--gutter) 32px;
+}
+
+.footer-inner {
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+/* top row: logo + columns */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(242,239,234,0.08);
+  margin-bottom: 28px;
+}
+
+@media (max-width: 860px) {
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+
+@media (max-width: 480px) {
+  .footer-top { grid-template-columns: 1fr; }
+}
+
+/* brand col */
+.footer-brand {}
+
+.footer-logo {
+  height: 36px;
+  mix-blend-mode: screen;
+  filter: invert(1);
+  opacity: 0.75;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.footer-tagline {
+  font-family: var(--f-zh);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: rgba(242,239,234,0.45);
+  line-height: 1.7;
+}
+
+/* nav columns */
+.footer-col-label {
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: rgba(242,239,234,0.28);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-col-label::after {
+  content: '';
+  display: block;
+  flex: 1; height: 1px;
+  background: currentColor;
+  opacity: 0.4;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col ul a {
+  font-family: var(--f-zh-sans);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: rgba(242,239,234,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.4;
+}
+
+.footer-col ul a:hover { color: rgba(242,239,234,0.9); }
+
+.footer-col ul .link-sub {
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: rgba(242,239,234,0.25);
+  display: block;
+  margin-top: 1px;
+}
+
+/* divider between QI col and rest */
+.footer-col-divider {
+  width: 1px;
+  background: rgba(242,239,234,0.07);
+  align-self: stretch;
+}
+
+/* bottom row */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 0.1em;
+  color: rgba(242,239,234,0.22);
+}
+
+.footer-bottom-links {
+  display: flex; gap: 20px; list-style: none;
+}
+
+.footer-bottom-links a {
+  font-family: var(--f-mono);
+  font-size: 9px; letter-spacing: 0.1em;
+  color: rgba(242,239,234,0.25);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover { color: rgba(242,239,234,0.7); }
+
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <img class="nav-logo" src="zenpple-logo.jpg" alt="ZENPPLE 森波">
+  <ul class="nav-links">
+    <li><a href="/qi-sb">頌缽音流</a></li>
+    <li><a href="/hl">深層對齊</a></li>
+    <li><a href="/sc">薩滿覺醒</a></li>
+    <li><a href="/ts-pe">執業養成</a></li>
+    <li><a href="/as">品牌認證</a></li>
+    <li><a href="/as-c">品牌孵化</a></li>
+    <li><a href="/about">關於森波</a></li>
+    <li><a href="/contact" class="nav-cta">預約諮詢</a></li>
+  </ul>
+</header>
+
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <!-- 書法 Logo 佔滿背景 -->
+  <img class="hero-bg-logo" src="zenpple-logo.jpg" alt="">
+  <div class="hero-inner">
+    <h1 class="hero-zh">往內定頻　走回自己</h1>
+    <p class="hero-en">Tune inward. Return to self.</p>
+  </div>
+  <div class="hero-scroll-hint">
+    <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 4 L8 20"/>
+      <path d="M3 15 L8 20 L13 15"/>
+    </svg>
+  </div>
+</section>
+
+
+<!-- ─── PERSONA CARDS ─── -->
+<section class="card-section">
+  <div class="wrap">
+    <div class="card-section-head">
+      <p class="sec-label">你是哪一種人</p>
+      <h2 class="card-section-title">找到屬於你的路徑</h2>
+    </div>
+
+    <div class="cards-row">
+
+      <!-- Card 1 — 潮間帶 -->
+      <div class="persona-card" onclick="toggleCard(1)">
+        <!-- 書法筆觸背景 SVG — 波浪水流 -->
+        <div class="card-bg-illus">
+          <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" class="card-bg-svg">
+            <g stroke="rgba(74,107,138,0.18)" stroke-width="18" fill="none" stroke-linecap="round">
+              <path d="M30 80 Q80 40 150 70 Q220 100 270 60"/>
+              <path d="M20 160 Q90 110 160 150 Q230 185 280 140"/>
+              <path d="M10 250 Q85 195 160 235 Q235 270 285 225"/>
+              <path d="M25 340 Q100 290 170 325 Q240 360 288 315"/>
+            </g>
+            <g stroke="rgba(74,107,138,0.08)" stroke-width="8" fill="none" stroke-linecap="round">
+              <path d="M50 120 Q120 80 190 110 Q250 135 280 105"/>
+              <path d="M40 205 Q115 165 185 195 Q248 220 280 190"/>
+            </g>
+          </svg>
+        </div>
+        <div class="card-content">
+          <h3 class="card-name">喜歡感受<br>也懂得休息的人</h3>
+          <p class="card-desc">偶爾覺得快被什麼淹沒，<br>只是還沒找到那個出口</p>
+        </div>
+      </div>
+
+      <!-- Card 2 — 林間迷霧 -->
+      <div class="persona-card" onclick="toggleCard(2)">
+        <!-- 書法筆觸背景 SVG — 山峰林木 -->
+        <div class="card-bg-illus">
+          <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" class="card-bg-svg">
+            <g stroke="rgba(123,107,158,0.18)" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M150 30 L80 180 L220 180"/>
+              <path d="M90 120 L30 280 L155 280"/>
+              <path d="M210 80 L155 230 L270 230"/>
+            </g>
+            <g stroke="rgba(123,107,158,0.08)" stroke-width="6" fill="none" stroke-linecap="round">
+              <line x1="80" y1="200" x2="80" y2="360"/>
+              <line x1="150" y1="195" x2="150" y2="370"/>
+              <line x1="220" y1="205" x2="220" y2="355"/>
+            </g>
+          </svg>
+        </div>
+        <div class="card-content">
+          <h3 class="card-name">正在穿越某段<br>人生霧區的人</h3>
+          <p class="card-desc">有直覺，但看不清前方，<br>說不出來，卻揮之不去</p>
+        </div>
+      </div>
+
+      <!-- Card 3 — 播種者 -->
+      <div class="persona-card" onclick="toggleCard(3)">
+        <!-- 書法筆觸背景 SVG — 生長種芽 -->
+        <div class="card-bg-illus">
+          <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" class="card-bg-svg">
+            <g stroke="rgba(176,144,112,0.18)" stroke-width="14" fill="none" stroke-linecap="round">
+              <line x1="150" y1="370" x2="150" y2="140"/>
+              <path d="M150 200 Q210 160 230 100 Q200 90 170 130 Q155 155 150 185"/>
+              <path d="M150 240 Q90 195 70 130 Q100 120 135 160 Q148 180 150 220"/>
+              <path d="M150 300 Q195 265 215 210 Q190 205 165 240 Q152 265 150 290"/>
+            </g>
+            <g stroke="rgba(176,144,112,0.07)" stroke-width="5" fill="none" stroke-linecap="round">
+              <path d="M120 380 Q150 340 180 380"/>
+              <path d="M100 395 Q150 360 200 395"/>
+            </g>
+          </svg>
+        </div>
+        <div class="card-content">
+          <h3 class="card-name">準備把感知<br>化成力量的人</h3>
+          <p class="card-desc">想傳遞，想建立，<br>熱情有了，還缺一個結構</p>
+        </div>
+      </div>
+
+    </div><!-- /cards-row -->
+
+    <!-- Expand panels -->
+    <div class="expand-panel" id="expand-1">
+      <div class="expand-inner">
+        <div>
+          <h3 class="expand-title">潮間帶的人</h3>
+          <p class="expand-en">The Shoreline Wanderer</p>
+          <p class="expand-body">懂得感受生活的細膩，也知道自己需要補充能量。不一定在找「答案」，只是想在某個安靜的頻率裡，讓自己好好浮一次。</p>
+        </div>
+        <div>
+          <p class="expand-services-label">適合的服務</p>
+          <div class="pills">
+            <span class="pill">脈輪牌卡 + 頌缽</span>
+            <span class="pill">團體閨蜜療癒</span>
+            <span class="pill">靈擺快速問事</span>
+            <span class="pill">企業包場頌缽</span>
+          </div>
+          <a href="/qi-sb" class="expand-cta">找到我的第一步 ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="expand-panel" id="expand-2">
+      <div class="expand-inner">
+        <div>
+          <h3 class="expand-title">林間迷霧者</h3>
+          <p class="expand-en">The Mist Walker</p>
+          <p class="expand-body">有自己的感知與判斷，但某個地方就是卡著。情感、事業、身體，或說不清楚的東西。需要有人幫你看見自己。</p>
+        </div>
+        <div>
+          <p class="expand-services-label">適合的服務</p>
+          <div class="pills">
+            <span class="pill">能量療癒占卜旗艦</span>
+            <span class="pill">全脈輪能量分析</span>
+            <span class="pill">七脈輪能量調和</span>
+            <span class="pill">薩滿靈魂覺醒</span>
+            <span class="pill">易經理路定調</span>
+          </div>
+          <a href="/hl" class="expand-cta">說說你的困境 ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="expand-panel" id="expand-3">
+      <div class="expand-inner">
+        <div>
+          <h3 class="expand-title">播種者</h3>
+          <p class="expand-en">The Seed Keeper</p>
+          <p class="expand-body">已經在靈性路上走了一段，開始想讓這份感知長成別人也能依靠的東西。熱情夠了，需要的是方向與結構。</p>
+        </div>
+        <div>
+          <p class="expand-services-label">適合的服務</p>
+          <div class="pills">
+            <span class="pill">頌缽技法培訓</span>
+            <span class="pill">深度能量定頻師認證</span>
+            <span class="pill">靈性品牌策略定錨</span>
+            <span class="pill">高階品牌創業陪跑</span>
+          </div>
+          <a href="/ts-pe" class="expand-cta">了解我的路徑 ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /wrap -->
+</section>
+
+
+<!-- ─── ABOUT / 森波生態 ─── -->
+<section class="about-section">
+  <div class="wrap">
+
+    <!-- 生態系金字塔 — 中間合併 -->
+    <div class="ecosystem-block">
+      <p class="ecosystem-label">森波生態系</p>
+      <p class="ecosystem-tagline">兩個方向，一座山。</p>
+
+      <div class="pyramid-merged">
+
+        <!-- 頂層（最窄）：SC + TS -->
+        <div class="pm-row pm-row-1">
+          <a class="pm-left pm-sc" href="/sc">
+            <span class="pm-zh">薩滿靈魂覺醒</span>
+            <span class="pm-en">Shamanic Soul Awakening</span>
+          </a>
+          <div class="pm-center">
+            <div class="pm-bar pm-bar-sc"></div>
+            <div class="pm-bar pm-bar-ts"></div>
+          </div>
+          <a class="pm-right pm-ts" href="/ts-pe">
+            <span class="pm-zh">高階執業養成</span>
+            <span class="pm-en">Professional Mastery</span>
+          </a>
+        </div>
+
+        <!-- 中層：HL + AS -->
+        <div class="pm-row pm-row-2">
+          <a class="pm-left pm-hl" href="/hl">
+            <span class="pm-zh">深層系統對齊</span>
+            <span class="pm-en">Deep System Alignment</span>
+          </a>
+          <div class="pm-center">
+            <div class="pm-bar pm-bar-hl"></div>
+            <div class="pm-bar pm-bar-as"></div>
+          </div>
+          <a class="pm-right pm-as" href="/as">
+            <span class="pm-zh">品牌認證考核</span>
+            <span class="pm-en">Brand Certification</span>
+          </a>
+        </div>
+
+        <!-- 底層（最寬）：QI + AS-C -->
+        <div class="pm-row pm-row-3">
+          <a class="pm-left pm-qi" href="/qi-sb">
+            <span class="pm-zh">即時洞察梳理</span>
+            <span class="pm-en">Quick Insight & Sound Flow</span>
+          </a>
+          <div class="pm-center">
+            <div class="pm-bar pm-bar-qi"></div>
+            <div class="pm-bar pm-bar-asc"></div>
+          </div>
+          <a class="pm-right pm-asc" href="/as-c">
+            <span class="pm-zh">品牌孵化實務</span>
+            <span class="pm-en">Brand Incubation</span>
+          </a>
+        </div>
+
+        <!-- 方向標籤 -->
+        <div class="pm-labels">
+          <span class="pm-label-left">靈性調頻</span>
+          <span class="pm-label-right">執業養成</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="founders-row">
+      <a class="founder-card" href="/about">
+        <div class="founder-ava">photo</div>
+        <div>
+          <span class="founder-name">禿禿 TWO TWO</span>
+          <span class="founder-roles">頌缽 · 薩滿 · 能量定頻</span>
+          <span class="founder-desc">身心狀態、潛意識定頻，以聲音引導感知回歸內在安定</span>
+        </div>
+      </a>
+      <a class="founder-card" href="/about">
+        <div class="founder-ava">photo</div>
+        <div>
+          <span class="founder-name">夏</span>
+          <span class="founder-roles">靈性顧問 · 易經 · 品牌策略</span>
+          <span class="founder-desc">大方向定錨與理路梳理，結合玄天上帝指引與數位實務</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- CTA 區塊 — 保留設計，暫不在首頁顯示 -->
+    <div class="about-cta" style="display:none;">
+      <p class="about-cta-text">不確定從哪裡開始？</p>
+      <a href="/contact" class="about-cta-btn">跟我們說說你的狀態 ↗</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ─── CONTACT ─── -->
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <p class="sec-label">聯絡 · 預約</p>
+    <div class="contact-inner">
+
+      <div>
+        <h2 class="contact-heading">想聊聊<br>你的狀態？</h2>
+        <p class="contact-sub">傳訊給我們，任何問題都歡迎先來聊聊。</p>
+        <div class="contact-btns">
+          <a class="contact-btn contact-btn-line" href="#" onclick="toggleQR(event)">
+            <div>
+              <span style="display:block; font-size:11px; font-family:var(--f-mono); letter-spacing:0.12em; color:var(--muted); margin-bottom:4px;">傳訊 → 確認時間 → 開始服務</span>
+              <span style="display:block; font-weight:700;">LINE 官方帳號</span>
+            </div>
+            <span class="contact-btn-arrow">↗</span>
+          </a>
+          <a class="contact-btn" href="https://instagram.com/zenpple_" target="_blank">
+            <div>
+              <span style="display:block; font-size:11px; font-family:var(--f-mono); letter-spacing:0.12em; color:var(--muted); margin-bottom:4px;">活動 · 講座 · 最新消息</span>
+              <span style="display:block; font-weight:700;">Instagram @zenpple_</span>
+            </div>
+            <span class="contact-btn-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <div class="qr-reveal" id="qr-reveal" style="max-height:0; overflow:hidden; transition:max-height 0.4s ease;">
+          <div class="qr-row">
+            <div class="qr-box">▦</div>
+            <div>
+              <span class="qr-label">LINE QR Code</span>
+              <p class="qr-note">掃描直接加入預約<br>[ QR Code 待提供 ]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <img class="footer-logo" src="zenpple-logo.jpg" alt="ZENPPLE 森波">
+        <p class="footer-tagline">往內定頻，走回自己<br>Tune inward. Return to self.</p>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-label">個人服務</p>
+        <ul>
+          <li><a href="/qi-sb">靈性頌缽音流</a></li>
+          <li><a href="/xia">夏 + 玄路徑諮詢</a></li>
+          <li><a href="/hl">深層系統對齊</a></li>
+          <li><a href="/sc">薩滿靈魂覺醒</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-label">執業養成</p>
+        <ul>
+          <li><a href="/ts-pe">高階執業養成</a></li>
+          <li><a href="/as">品牌認證考核</a></li>
+          <li><a href="/as-c">品牌孵化實務</a></li>
+          <li><a href="/co">聯名企業合作</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-label">森波</p>
+        <ul>
+          <li><a href="/about">關於森波</a></li>
+          <li><a href="/contact">聯絡 · 預約</a></li>
+          <li><a href="/legal">執業規範</a></li>
+          <li><a href="https://instagram.com/zenpple_" target="_blank">Instagram</a></li>
+          <li><a href="#">LINE 官方帳號</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 ZENPPLE 森波 · All rights reserved</p>
+      <ul class="footer-bottom-links">
+        <li><a href="/legal">執業規範與免責聲明</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  let current = null;
+
+  function toggleCard(n) {
+    const panels = document.querySelectorAll('.expand-panel');
+    const cards  = document.querySelectorAll('.persona-card');
+
+    if (current === n) {
+      panels.forEach(p => p.classList.remove('open'));
+      cards.forEach(c  => c.classList.remove('active'));
+      current = null;
+    } else {
+      panels.forEach(p => p.classList.remove('open'));
+      cards.forEach(c  => c.classList.remove('active'));
+      document.getElementById('expand-' + n).classList.add('open');
+      cards[n - 1].classList.add('active');
+      current = n;
+      setTimeout(() => {
+        document.getElementById('expand-' + n)
+          .scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 80);
+    }
+  }
+
+  function toggleQR(e) {
+    e.preventDefault();
+    const qr = document.getElementById('qr-reveal');
+    if (qr.style.maxHeight === '0px' || qr.style.maxHeight === '') {
+      qr.style.maxHeight = qr.scrollHeight + 'px';
+    } else {
+      qr.style.maxHeight = '0px';
+    }
+  }
+</script>
+</body>
+</html>
