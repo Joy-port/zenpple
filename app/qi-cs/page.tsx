@@ -6,74 +6,64 @@ import Link from 'next/link'
 const scenarios = [
   {
     id: 1,
-    situation: '感知到方向，但不確定是真實的直覺還是焦慮',
-    tag: '方向校準',
+    situation: '問題模糊，想快速確認多個領域的方向',
+    tag: '快速指引',
     tagColor: '#607866',
-    service: '易經理路定調',
-    serviceEn: 'I Ching Alignment',
-    what: '以易卦切入當下能量狀態，辨識哪些是真實的內在訊號，哪些是雜訊干擾，還原你的判斷主軸。',
-    duration: '1.5–2 小時',
-    price: 'NT$6,000',
+    service: 'QI-OR-03　靈擺快速問事',
+    serviceEn: 'Pendulum Quick Reading',
+    what: '由夏與玄天上帝連線，針對「方向性」提供快速大指引。帝爺公通常不回應個人情感與生活瑣事，除非該問題與核心議題或主課題有關。需先列下欲詢問的問題，估算費用後進行。',
+    duration: '約 1 分鐘 / 題',
+    price: 'NT$500 / 題',
   },
   {
     id: 2,
-    situation: '靈性路上走了一段，想把感知轉化為可執業的服務',
-    tag: '事業定錨',
+    situation: '迷惘、邏輯混亂，不確定自己該問什麼',
+    tag: '理路定調',
     tagColor: '#4A7A5A',
-    service: '靈性品牌策略定錨',
-    serviceEn: 'Spiritual Brand Anchoring',
-    what: '從你的核心感知出發，定義服務語言、目標對象與品牌定位，讓你清楚知道自己在做什麼、為誰而做。',
-    duration: '2–3 小時',
-    price: 'NT$9,000',
+    service: 'QI-CS-01　易經理路定調',
+    serviceEn: 'I Ching Logic Alignment',
+    what: '所有大議題諮詢的前置必備流程。由夏透過易經與通靈核對解讀方向，在 30 分鐘內將發散的困惑收斂為「乾淨、具備邏輯」的問題核心，輔以靈擺確認，由玄天上帝補充觀點。',
+    duration: '30 分鐘',
+    price: 'NT$3,500',
   },
   {
     id: 3,
-    situation: '有玄天上帝或指導靈的指引訊息，不知道如何解讀與落地',
-    tag: '玄天指引',
+    situation: '需與個人主神對話，但不知道如何問得精準',
+    tag: '廟宇陪同',
     tagColor: '#3D5C48',
-    service: '玄天上帝路徑諮詢',
-    serviceEn: 'Xuantian Path Reading',
-    what: '夏作為玄天上帝的代言者，解讀靈性訊息的實質意涵，轉化為現實層面可執行的方向與行動。',
-    duration: '1–1.5 小時',
-    price: 'NT$5,000',
-  },
-  {
-    id: 4,
-    situation: '想創立靈性品牌，需要策略與靈性視角同時到位',
-    tag: '全方位陪跑',
-    tagColor: '#212E27',
-    service: '夏＋玄全方位陪伴',
-    serviceEn: 'Full-Spectrum Mentorship',
-    what: '策略思維 × 玄天指引的雙軌陪跑。從品牌定位到數位工作流，以靈性為底，建立真實可持續的執業系統。',
-    duration: '長期陪伴 · 洽詢',
-    price: '洽詢',
+    service: 'QI-CS-02　廟宇問事陪同',
+    serviceEn: 'Temple Consultation Accompaniment',
+    what: '協助案主與神明建立精準連結，由夏擔任「路徑轉譯」角色，最終決策仍由案主主導。遠端連線時，案主須在廟宇現場向神明取得三個聖筊同意方可進行。',
+    duration: '現場 / 遠端連線',
+    price: '現場 NT$1,000＋2,500/hr　遠端 NT$3,500/hr',
   },
 ]
 
 // ── 指導靈宣言段落 ────────────────────────────────────────────────────────────
 const declaration = {
-  title: '玄天上帝的宣言',
-  titleEn: 'Declaration of the Spirit Guide',
-  preamble: '以下文字，是夏在多年修行與服務過程中，從玄天上帝的指引中整理而來的核心精神。這不是宗教宣示，而是一份工作誓言——說清楚我們在做什麼，以及我們為什麼這樣做。',
+  title: '玄天上帝的執業教誨',
+  titleEn: 'Teachings of the Spirit Guide',
+  preamble: '預約之前，邀請你靜下心來閱讀這段文字。這是本系列所有服務的「對齊點」。',
+  quote: '生命中的議題都會回到個人生命裡誠實解決，我們能成為自己的力量，並且不以「無法改變」將責任歸責於他人。任何事都有轉圜改變的可能，天助自助者，事情要神也要人。望大家都能成為自己的力量。不誠實、無自我負責意願的客人不會再次提供協助。',
   lines: [
     {
-      zh: '我不替你做決定。',
-      sub: '指引的本質是還原你的判斷力，而非代替你的意志。',
+      zh: '大方向定錨，不代為決策。',
+      sub: '玄天上帝（帝爺公）僅聚焦於人生的大方向、重大的轉折點與決策之指引。聽完建議後，請回到自己的內心沉澱後做決定。',
     },
     {
-      zh: '我只說真實的東西。',
-      sub: '訊息可能不好聽，但我不說讓你舒服卻不真實的話。',
+      zh: '不回應瑣事。',
+      sub: '本系列不回應瑣碎之個人情感、生活雜事或「問心安」的重複性議題。指引的目的在協助你自立，而非代為處理生活細項。',
     },
     {
-      zh: '方向是你的，路也是你自己走的。',
-      sub: '諮詢之後，你仍然是那個選擇與承擔的人。沒有人能免除你的主體責任。',
+      zh: '高維指引是地圖，路要自己走。',
+      sub: '靈性顧問的視角中，高維的指引僅是「地圖上的標註」，真正的路徑必須由你親自走出來。',
     },
     {
-      zh: '我陪你看清楚，不陪你逃跑。',
-      sub: '所有的指引都是為了讓你更清醒，而不是更依賴。',
+      zh: '不誠實者，不再協助。',
+      sub: '若案主表現出不誠實、或無自我負責意願（如重複詢問已知答案、推卸自身責任），本顧問系統將立即終止並不再提供二次協助。',
     },
   ],
-  closing: '夏 · 玄天上帝代言者',
+  closing: '—— 指導靈 ｜ 玄天上帝（帝爺公）',
 }
 
 export default function QiCsPage() {
@@ -172,8 +162,8 @@ export default function QiCsPage() {
               maxWidth: 520,
             }}
           >
-            不給你答案——給你一個更清晰的問題。
-            夏以易經理路與玄天上帝指引，協助你梳理方向、定錨事業，讓感知真正落地為行動。
+            結合易經智慧與高維觀測，為生命大計提供定錨指引。
+            夏與玄天上帝協助你在迷霧中看清局勢，在跨出腳步前先穩住內心的定錨，踏實走出自己的路徑。
           </p>
         </div>
       </section>
@@ -279,7 +269,7 @@ export default function QiCsPage() {
                 {/* Expanded detail */}
                 <div
                   style={{
-                    maxHeight: activeScenario === s.id ? 320 : 0,
+                    maxHeight: activeScenario === s.id ? 420 : 0,
                     overflow: 'hidden',
                     transition: 'max-height 0.45s cubic-bezier(.4,0,.2,1)',
                   }}
@@ -480,6 +470,23 @@ export default function QiCsPage() {
             {declaration.preamble}
           </p>
 
+          {/* Original quote */}
+          <blockquote
+            style={{
+              fontFamily: 'var(--f-zh)',
+              fontSize: 14,
+              lineHeight: 2,
+              color: 'rgba(242,239,234,0.7)',
+              borderLeft: '2px solid rgba(96,120,102,0.5)',
+              paddingLeft: 20,
+              marginBottom: 56,
+              maxWidth: 600,
+              fontStyle: 'normal',
+            }}
+          >
+            「{declaration.quote}」
+          </blockquote>
+
           {/* Declaration lines */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {declaration.lines.map((line, i) => (
@@ -619,19 +626,18 @@ export default function QiCsPage() {
                 幫你看見大局的人
               </h2>
               <p style={{ fontSize: 14, lineHeight: 1.9, color: 'var(--muted)', marginBottom: 16 }}>
-                夏的工作是幫你看清楚你在哪裡，以及你可以往哪裡走。
-                結合易經理路、玄天上帝指引與多年數位品牌實務，她的問題通常很少，但每個都直接擊中那個點。
+                夏的工作是大方向指引與路徑梳理。結合易經理路與玄天上帝高維觀測，聚焦於人生重大轉折點與決策，協助你在邏輯混亂時收斂問題核心，在關鍵決策前穩住定錨。
               </p>
               <p style={{ fontSize: 14, lineHeight: 1.9, color: 'var(--muted)' }}>
-                這不是算命，也不是靈媒。這是一種需要你認真參與的對話——你帶來誠實，她帶來視角。
+                本系列不處理情緒療癒或生活瑣事。涉及個人情緒與能量場，請優先尋求禿禿協助；涉及事業、決策與路徑，再進入本顧問系統。
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {[
-                { label: '服務方式', value: '1 對 1 · 線上或實體' },
-                { label: '使用方法', value: '易經 / 玄天上帝指引 / 策略諮詢' },
-                { label: '適合時機', value: '方向模糊 / 事業轉型 / 靈性事業起步' },
-                { label: '語言', value: '中文（繁體）' },
+                { label: '服務形式', value: '1 對 1 · 線上或實體' },
+                { label: '使用方法', value: '易經 / 靈擺 / 玄天上帝高維觀測' },
+                { label: '適合議題', value: '大方向定錨 / 重大轉折 / 決策核對 / 廟宇問事' },
+                { label: '不適合', value: '個人情緒療癒 / 生活瑣事 / 重複性問心安議題' },
               ].map(item => (
                 <div
                   key={item.label}
