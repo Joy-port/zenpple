@@ -1,268 +1,1019 @@
-import type { Metadata } from 'next'
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
-  title: '靈性頌缽音流 QI-SB · ZENPPLE 森波',
-  description: '以頌缽頻率、脈輪牌卡與音叉，快速定頻你的當下狀態。適合潮間帶的人。',
-}
-
-const services = [
+// ── Course data ───────────────────────────────────────────────────────────────
+const courses = [
   {
-    code: 'QI-01',
-    name: '脈輪牌卡 + 頌缽',
-    duration: '1 小時',
+    id: 1,
+    code: 'QI-SB-01',
+    name: '脈輪牌卡問事＋放鬆頌缽',
+    nameEn: 'Chakra Card Reading + Relaxation Bowl',
+    meta: '1:1 · 60 分鐘',
     price: 'NT$3,500',
-    desc: '以脈輪牌卡讀取能量現況，搭配針對性頌缽頻率引導，快速梳理當下的身心狀態。',
-    by: '禿禿',
+    desc: '結合牌卡分析與全身放鬆的入門實體體驗。適合想了解當下身心狀態，並在諮詢後透過頌缽達到深層紓壓的你。先透過脈輪牌卡讀取能量現況，再以頌缽頻率引導全身放鬆，讓神經系統在聲波中自然進入修復狀態。',
+    tags: ['1:1 私人體驗', '實體', '30min 牌卡 + 30min 頌缽', 'TWO TWO'],
   },
   {
-    code: 'QI-02',
-    name: '靈擺快速問事',
-    duration: '30 分鐘',
-    price: 'NT$1,800',
-    desc: '透過靈擺直接與潛意識溝通，針對單一問題或決策點進行快速能量確認。',
-    by: '禿禿',
+    id: 2,
+    code: 'QI-SB-01-G',
+    name: '［團體］脈輪牌卡問事＋放鬆頌缽',
+    nameEn: 'Group Chakra Card + Sound Bath',
+    meta: '3–5 人 · 約 60 分鐘',
+    price: 'NT$3,200 / 人',
+    desc: '結合直覺牌卡解析與團體全身放鬆頌缽的私密療癒聚會。適合想與閨蜜好友共度質感時光、初次體驗靈性療癒的你們。10 分鐘快速牌卡讀取當下狀態，再以 30 分鐘團體放鬆頌缽讓每個人在聲波中完美沉澱。每場 3 人起，5 人滿。',
+    tags: ['3–5 人小團體', '實體', '10min 牌卡 + 30min 頌缽', '閨蜜私密'],
   },
   {
-    code: 'QI-03',
-    name: '企業包場頌缽',
-    duration: '2–3 小時',
-    price: '洽詢',
-    desc: '為企業團隊提供集體定頻體驗，建立共同能量基礎，適合年度啟動、季末收尾或任何需要凝聚的時刻。',
-    by: '禿禿',
+    id: 3,
+    code: 'QI-SB-02',
+    name: '能量療癒占卜旗艦',
+    nameEn: 'Flagship Energy Healing & Divination',
+    meta: '1:1 · 60 分鐘',
+    price: 'NT$10,000',
+    desc: '針對特定問題進行「深度拆解」與「頻率清理」的旗艦體驗。先透過牌卡問事深度讀取問題背後的隱藏訊息，再由禿禿敲擊通靈頌缽，針對該問題的阻礙點進行深層敲擊與頻率疏通。適合正在面對人生重大卡點、需要被深度看見的你。',
+    tags: ['1:1 私人體驗', '實體', '30min 深度問事 + 30min 專項頌缽', '通靈解析'],
+  },
+]
+
+// ── FAQ data ──────────────────────────────────────────────────────────────────
+const faqs = [
+  {
+    q: '需要有靈性背景或冥想經驗才能參加嗎？',
+    a: '完全不需要。頌缽音流的作用是透過物理聲波引發身體的放鬆反應，不依賴特定信仰或練習基礎。你唯一需要的是一個願意躺下來聆聽的自己。很多第一次體驗者因為「沒有預設」反而進入得更深。',
   },
   {
-    code: 'QI-04',
-    name: '閨蜜團體音流',
-    duration: '2 小時',
-    price: '洽詢',
-    desc: '3–6 人小團體的共頻體驗，在安全的能量場中一起定頻，適合好友共同體驗。',
-    by: '禿禿',
+    q: '可以線上體驗嗎？效果和實體有差別嗎？',
+    a: '目前 QI-SB 系列為實體體驗優先。實體的優勢在於缽的物理振動直接透過空氣傳遞到身體，讓聲波在空間中全面包圍，這是線上無法完全複製的體感。建議首次體驗選擇實體，充分感受頌缽共振的物理層次。',
+  },
+  {
+    q: '體驗過程中會發生什麼？我需要做什麼嗎？',
+    a: '你不需要「做」任何事。整個過程你只需要躺著、閉上眼睛、讓聲音流過。禿禿會在過程中引導節奏，並在聲音中傳遞接收到的洞見。有些人會看到畫面，有些人只是很放鬆，有些人會哭——每種反應都是完整的，沒有正確答案。',
+  },
+]
+
+// ── Brainwave data ────────────────────────────────────────────────────────────
+const brainwaves = [
+  {
+    label: 'β Beta · 日常清醒',
+    hz: '13–30 Hz',
+    desc: '緊繃、思緒快速流動的日常狀態。頌缽開始之前，多數人在這裡。',
+    color: '#8A9EAA',
+    strokeWidth: 2.2,
+    points: '0,18 12,8 18,26 24,6 30,28 36,10 42,24 48,4 54,30 60,8 66,22 72,4 78,28 84,10 90,20 96,6 102,26 108,4 114,28 120,8 126,22 132,4 138,30 144,10 150,22 156,6 162,26 168,8 174,24 180,10 186,28 192,6 198,22 204,8 210,26 216,6 222,24 228,10 234,22 240,6 246,28 252,12 260,18',
+    bg: 'rgba(74,107,138,0.06)',
+  },
+  {
+    label: 'α Alpha · 放鬆專注',
+    hz: '8–12 Hz',
+    desc: '心智清明、身體放鬆。頌缽聲中，這是最常出現的狀態轉換入口。',
+    color: '#4A6B8A',
+    strokeWidth: 2.6,
+    points: '0,18 18,6 36,30 54,6 72,28 90,8 108,26 126,6 144,28 162,8 180,28 198,8 216,28 234,8 252,24 260,18',
+    bg: 'rgba(74,107,138,0.12)',
+  },
+  {
+    label: 'θ Theta · 深層冥想',
+    hz: '4–7 Hz',
+    desc: '內在意象浮現，無意識智慧可及。薩滿旅程與靈性洞察在此層發生。',
+    color: '#2E4A63',
+    strokeWidth: 3.0,
+    points: '0,18 30,4 60,32 90,4 120,30 150,6 180,28 210,4 240,28 260,18',
+    bg: 'rgba(74,107,138,0.2)',
   },
 ]
 
 export default function QiSbPage() {
+  const [openCourse, setOpenCourse] = useState<number | null>(null)
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
+
   return (
     <>
-      {/* HERO */}
+      {/* ── HERO ── */}
       <section
         style={{
-          minHeight: '60vh',
-          display: 'flex',
-          alignItems: 'flex-end',
-          padding: 'clamp(120px,15vw,180px) clamp(24px,5vw,72px) clamp(60px,8vw,100px)',
-          background: 'linear-gradient(160deg, #e8eff6 0%, #F2EFEA 55%, #edf0eb 100%)',
           position: 'relative',
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           overflow: 'hidden',
+          background: 'linear-gradient(150deg, #1e3248 0%, #2E4A63 35%, #4A6B8A 65%, #3a5875 100%)',
         }}
       >
-        {/* Large bg character */}
+        {/* Watercolor wash overlays */}
         <div
           aria-hidden
           style={{
             position: 'absolute',
             inset: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            paddingRight: '5vw',
+            background:
+              'radial-gradient(ellipse 80% 60% at 20% 30%, rgba(255,255,255,0.07) 0%, transparent 60%),' +
+              'radial-gradient(ellipse 50% 70% at 75% 70%, rgba(20,40,65,0.4) 0%, transparent 65%),' +
+              'radial-gradient(ellipse 40% 40% at 50% 50%, rgba(74,107,138,0.18) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Background calligraphy — 「聲」 */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            right: '-20px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            fontFamily: 'var(--f-zh)',
+            fontWeight: 900,
+            fontSize: 'clamp(140px,18vw,240px)',
+            color: 'rgba(255,255,255,0.04)',
+            lineHeight: 1.1,
+            writingMode: 'vertical-rl',
+            letterSpacing: '0.05em',
+            userSelect: 'none',
             pointerEvents: 'none',
           }}
         >
-          <span
-            style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
-              fontSize: 'clamp(200px,28vw,360px)',
-              color: 'rgba(74,107,138,0.06)',
-              lineHeight: 1,
-              letterSpacing: '-0.02em',
-              userSelect: 'none',
-            }}
-          >
-            缽
-          </span>
+          聲音
         </div>
 
-        <div className="wrap" style={{ position: 'relative', zIndex: 2, width: '100%' }}>
+        {/* English ghost */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            left: '-10px',
+            bottom: '5vh',
+            fontFamily: 'var(--f-display)',
+            fontWeight: 100,
+            fontSize: 'clamp(80px,14vw,180px)',
+            lineHeight: 1,
+            color: 'rgba(255,255,255,0.04)',
+            letterSpacing: '-0.02em',
+            userSelect: 'none',
+            pointerEvents: 'none',
+          }}
+        >
+          sound
+        </div>
+
+        {/* Ripple rings */}
+        {[0, 1, 2].map(i => (
+          <div
+            key={i}
+            aria-hidden
+            style={{
+              position: 'absolute',
+              width: 'clamp(200px,30vw,400px)',
+              height: 'clamp(200px,30vw,400px)',
+              borderRadius: '50%',
+              border: '1px solid rgba(255,255,255,0.12)',
+              animation: `qi-ripple 4s ease-out ${i * 1.3}s infinite`,
+              pointerEvents: 'none',
+            }}
+          />
+        ))}
+
+        {/* Floating bowl ripple SVG */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            right: '8%',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            opacity: 0.18,
+            animation: 'qi-float 8s ease-in-out infinite',
+            pointerEvents: 'none',
+          }}
+        >
+          <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
+            <circle cx="140" cy="140" r="130" stroke="rgba(255,255,255,0.6)" strokeWidth="1"/>
+            <circle cx="140" cy="140" r="100" stroke="rgba(255,255,255,0.4)" strokeWidth="0.8"/>
+            <circle cx="140" cy="140" r="70" stroke="rgba(255,255,255,0.3)" strokeWidth="0.6"/>
+            <circle cx="140" cy="140" r="40" stroke="rgba(255,255,255,0.25)" strokeWidth="0.5"/>
+            <ellipse cx="140" cy="155" rx="55" ry="20" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" fill="none"/>
+            <path d="M85 155 Q140 135 195 155" stroke="rgba(255,255,255,0.4)" strokeWidth="1" fill="none"/>
+          </svg>
+        </div>
+
+        {/* Hero content */}
+        <div
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            textAlign: 'center',
+            padding: 'clamp(100px,15vw,160px) clamp(24px,5vw,72px) clamp(60px,8vw,100px)',
+            maxWidth: 680,
+          }}
+        >
           <p
             style={{
               fontFamily: 'var(--f-mono)',
-              fontSize: 10,
-              letterSpacing: '0.25em',
-              color: '#4A6B8A',
-              marginBottom: 24,
-              display: 'flex',
-              alignItems: 'center',
-              gap: 16,
+              fontSize: 11,
+              letterSpacing: '0.22em',
+              color: 'rgba(255,255,255,0.5)',
+              textTransform: 'uppercase',
+              marginBottom: 32,
             }}
           >
-            <span style={{ display: 'block', width: 40, height: 1, background: '#4A6B8A', opacity: 0.6 }} />
-            QI-SB · SOUND FLOW
+            QI · Singing Bowl Sound Flow · 靈性頌缽音流
           </p>
           <h1
             style={{
               fontFamily: 'var(--f-zh)',
               fontWeight: 900,
-              fontSize: 'clamp(36px,6vw,68px)',
-              lineHeight: 1.1,
-              letterSpacing: '0.03em',
-              marginBottom: 12,
-              color: 'var(--ink)',
+              fontSize: 'clamp(32px,5vw,58px)',
+              color: '#FDFBF8',
+              letterSpacing: '0.05em',
+              lineHeight: 1.25,
+              marginBottom: 14,
             }}
           >
-            靈性頌缽音流
+            聲音是最古老的<br />回家方式
           </h1>
           <p
             style={{
               fontFamily: 'var(--f-display)',
               fontWeight: 100,
               fontSize: 13,
-              letterSpacing: '0.3em',
-              color: '#4A6B8A',
-              opacity: 0.7,
+              letterSpacing: '0.32em',
+              color: 'rgba(255,255,255,0.45)',
               textTransform: 'uppercase',
-              marginBottom: 28,
+              marginBottom: 32,
             }}
           >
-            Spiritual Sound Flow
+            Sound is the oldest way home
           </p>
           <p
             style={{
+              fontFamily: 'var(--f-body)',
+              fontWeight: 300,
               fontSize: 15,
-              lineHeight: 1.9,
-              color: 'var(--ink)',
-              opacity: 0.65,
-              maxWidth: 520,
+              lineHeight: 1.85,
+              color: 'rgba(255,255,255,0.68)',
+              maxWidth: 420,
+              margin: '0 auto 44px',
             }}
           >
-            以頌缽頻率為媒介，快速定頻當下的身心狀態。不需要任何準備，帶著你的當下就好。
+            不需翻譯，不需理解，<br />
+            只需讓缽聲穿透——<br />
+            你的細胞已知道路。
           </p>
+          <Link
+            href="#courses"
+            style={{
+              fontFamily: 'var(--f-display)',
+              fontWeight: 300,
+              fontSize: 12,
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: 'rgba(255,255,255,0.8)',
+              textDecoration: 'none',
+              borderBottom: '1px solid rgba(255,255,255,0.3)',
+              paddingBottom: 4,
+              transition: 'all .3s',
+            }}
+          >
+            探索課程 · explore
+          </Link>
         </div>
       </section>
 
-      {/* SERVICES GRID */}
-      <section
-        style={{
-          padding: 'clamp(80px,10vw,120px) clamp(24px,5vw,72px)',
-          background: 'var(--base)',
-        }}
+      {/* ── WAVE 1: dark → base ── */}
+      <svg
+        viewBox="0 0 1440 60"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style={{ display: 'block', width: '100%', marginTop: -2, background: '#2E4A63' }}
       >
-        <div className="wrap">
-          <p className="sec-label">服務項目</p>
+        <path
+          d="M0,60 C180,20 360,55 540,30 C720,5 900,50 1080,25 C1260,0 1380,40 1440,30 L1440,0 L0,0 Z"
+          fill="#F2EFEA"
+        />
+      </svg>
+
+      {/* ── WHAT IS 頌缽音流 ── */}
+      <section style={{ background: 'var(--base)', position: 'relative', overflow: 'hidden' }}>
+        {/* ghost "sound" watermark */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            left: '-20px',
+            top: '40px',
+            fontFamily: 'var(--f-display)',
+            fontWeight: 100,
+            fontSize: 200,
+            color: 'rgba(74,107,138,0.04)',
+            letterSpacing: '-0.02em',
+            pointerEvents: 'none',
+            lineHeight: 1,
+            userSelect: 'none',
+          }}
+        >
+          sound
+        </div>
+
+        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+          <p className="sec-label">01 · WHAT IS IT</p>
           <h2
             style={{
               fontFamily: 'var(--f-zh)',
               fontWeight: 900,
-              fontSize: 'clamp(24px,3.5vw,40px)',
-              letterSpacing: '0.03em',
+              fontSize: 'clamp(26px,3.5vw,38px)',
+              color: '#2E4A63',
+              letterSpacing: '0.06em',
+              lineHeight: 1.3,
+              marginBottom: 12,
+            }}
+          >
+            什麼是靈性頌缽音流
+          </h2>
+          <p
+            style={{
+              fontFamily: 'var(--f-display)',
+              fontWeight: 100,
+              fontSize: 13,
+              letterSpacing: '0.3em',
+              color: 'var(--muted)',
+              textTransform: 'uppercase',
               marginBottom: 48,
             }}
           >
-            選擇你的入場方式
-          </h2>
+            Singing Bowl Sound Flow
+          </p>
 
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-              gap: 20,
+              gridTemplateColumns: '1fr 1fr',
+              gap: 'clamp(40px,6vw,80px)',
+              alignItems: 'start',
             }}
           >
-            {services.map(svc => (
-              <div
-                key={svc.code}
+            {/* Left: text + brainwave cards */}
+            <div>
+              <p
                 style={{
-                  background: '#fff',
-                  border: '1px solid rgba(74,107,138,0.12)',
-                  borderRadius: 20,
-                  padding: '40px 32px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 16,
-                  transition: 'transform 0.25s, box-shadow 0.25s',
+                  fontSize: 15,
+                  lineHeight: 1.85,
+                  color: 'var(--muted)',
+                  marginBottom: 36,
+                  maxWidth: 520,
                 }}
               >
-                <div>
+                頌缽發出的泛音頻率，能同步引導腦波從 β 波（清醒緊張）過渡到 α 波（放鬆專注）乃至 θ
+                波（深層冥想），讓神經系統進入自然的修復狀態。這不是催眠，而是聲音的物理共振在身體層面發生作用。
+              </p>
+
+              {/* Brainwave section label */}
+              <p
+                style={{
+                  fontFamily: 'var(--f-mono)',
+                  fontSize: 10,
+                  letterSpacing: '0.18em',
+                  color: 'var(--muted)',
+                  marginBottom: 20,
+                }}
+              >
+                · 腦波調頻原理 ·
+              </p>
+
+              {/* SVG roughness filter — defined once */}
+              <svg width="0" height="0" style={{ position: 'absolute' }}>
+                <defs>
+                  <filter id="bw-rough">
+                    <feTurbulence
+                      type="fractalNoise"
+                      baseFrequency="0.04 0.08"
+                      numOctaves="3"
+                      seed="2"
+                      result="noise"
+                    />
+                    <feDisplacementMap
+                      in="SourceGraphic"
+                      in2="noise"
+                      scale="1.8"
+                      xChannelSelector="R"
+                      yChannelSelector="G"
+                    />
+                  </filter>
+                </defs>
+              </svg>
+
+              {brainwaves.map(bw => (
+                <div
+                  key={bw.label}
+                  style={{
+                    background: bw.bg,
+                    borderRadius: 2,
+                    padding: '20px 24px',
+                    marginBottom: 12,
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}
+                >
                   <p
                     style={{
                       fontFamily: 'var(--f-mono)',
                       fontSize: 10,
-                      letterSpacing: '0.22em',
+                      letterSpacing: '0.15em',
                       color: '#4A6B8A',
-                      marginBottom: 8,
+                      marginBottom: 6,
                     }}
                   >
-                    {svc.code}
+                    {bw.label}
                   </p>
-                  <h3
+                  <p
                     style={{
                       fontFamily: 'var(--f-zh)',
                       fontWeight: 700,
-                      fontSize: 20,
-                      letterSpacing: '0.04em',
-                      marginBottom: 12,
+                      fontSize: 15,
+                      color: '#2E4A63',
+                      marginBottom: 6,
                     }}
                   >
-                    {svc.name}
-                  </h3>
-                  <p style={{ fontSize: 13, lineHeight: 1.85, color: '#888' }}>{svc.desc}</p>
-                </div>
-                <div style={{ marginTop: 'auto' }}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      paddingTop: 16,
-                      borderTop: '1px solid rgba(74,107,138,0.1)',
-                      fontSize: 12,
-                    }}
-                  >
-                    <span style={{ fontFamily: 'var(--f-mono)', color: '#4A6B8A' }}>{svc.duration}</span>
-                    <span style={{ fontFamily: 'var(--f-mono)', color: 'var(--ink)', fontWeight: 700 }}>
-                      {svc.price}
-                    </span>
-                  </div>
-                  <p
-                    style={{
-                      fontSize: 11,
-                      color: 'var(--muted)',
-                      marginTop: 6,
-                      fontFamily: 'var(--f-mono)',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    by {svc.by}
+                    {bw.hz}
                   </p>
+                  <svg
+                    viewBox="0 0 260 36"
+                    width="100%"
+                    height="32"
+                    style={{ display: 'block', margin: '8px 0 10px' }}
+                    preserveAspectRatio="none"
+                  >
+                    <polyline
+                      filter="url(#bw-rough)"
+                      points={bw.points}
+                      fill="none"
+                      stroke={bw.color}
+                      strokeWidth={bw.strokeWidth}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.7 }}>{bw.desc}</p>
                 </div>
+              ))}
+            </div>
+
+            {/* Right: why different */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              {/* Bowl ripple illustration */}
+              <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
+                <svg width="200" height="200" viewBox="0 0 200 200" fill="none" opacity={0.7}>
+                  <circle cx="100" cy="100" r="90" stroke="#4A6B8A" strokeWidth="1.2" strokeDasharray="4 3"/>
+                  <circle cx="100" cy="100" r="68" stroke="#4A6B8A" strokeWidth="1" strokeDasharray="3 4"/>
+                  <circle cx="100" cy="100" r="46" stroke="#2E4A63" strokeWidth="1.4"/>
+                  <circle cx="100" cy="100" r="24" stroke="#2E4A63" strokeWidth="1.8" fill="rgba(74,107,138,0.06)"/>
+                  <ellipse cx="100" cy="118" rx="42" ry="14" stroke="#4A6B8A" strokeWidth="1.2" fill="none"/>
+                  <path d="M58 118 Q100 102 142 118" stroke="#4A6B8A" strokeWidth="1" fill="none" opacity={0.6}/>
+                  <path d="M70 112 Q100 100 130 112" stroke="#2E4A63" strokeWidth="0.8" fill="none" opacity={0.5}/>
+                </svg>
               </div>
-            ))}
+
+              {/* Why different block */}
+              <div
+                style={{
+                  background: 'linear-gradient(135deg, #2E4A63 0%, #4A6B8A 100%)',
+                  borderRadius: 4,
+                  padding: '32px 36px',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                <div
+                  aria-hidden
+                  style={{
+                    position: 'absolute',
+                    right: -40,
+                    top: -40,
+                    width: 180,
+                    height: 180,
+                    borderRadius: '50%',
+                    background: 'rgba(255,255,255,0.04)',
+                    pointerEvents: 'none',
+                  }}
+                />
+                <p
+                  style={{
+                    fontFamily: 'var(--f-mono)',
+                    fontSize: 10,
+                    letterSpacing: '0.2em',
+                    color: 'rgba(255,255,255,0.4)',
+                    marginBottom: 10,
+                  }}
+                >
+                  · 為什麼森波的頌缽不一樣 ·
+                </p>
+                <h3
+                  style={{
+                    fontFamily: 'var(--f-zh)',
+                    fontWeight: 700,
+                    fontSize: 20,
+                    color: '#fff',
+                    marginBottom: 16,
+                    letterSpacing: '0.04em',
+                  }}
+                >
+                  聲音 × 薩滿 × 通靈解析
+                </h3>
+                <p
+                  style={{
+                    fontSize: 14,
+                    color: 'rgba(255,255,255,0.72)',
+                    lineHeight: 1.85,
+                  }}
+                >
+                  大多數的頌缽課程停在聲音的放鬆層面。森波的頌缽音流，同時結合薩滿意識旅程與通靈解析——禿禿在缽聲之中接收個案的能量訊息，引導每次體驗不只是「被聲音泡著」，而是有意識地鬆動特定能量阻塞，並帶回可落地的洞見。
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section
-        style={{
-          padding: 'clamp(80px,10vw,120px) clamp(24px,5vw,72px)',
-          background: 'var(--base)',
-          textAlign: 'center',
-        }}
+      {/* ── WAVE 2: base → cream ── */}
+      <svg
+        viewBox="0 0 1440 60"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style={{ display: 'block', width: '100%', marginTop: -2, background: 'var(--base)' }}
       >
-        <div className="wrap">
-          <p
+        <path
+          d="M0,0 C240,55 480,5 720,40 C960,75 1200,10 1440,45 L1440,60 L0,60 Z"
+          fill="var(--cream)"
+        />
+      </svg>
+
+      {/* ── COURSES ── */}
+      <section
+        id="courses"
+        style={{ background: 'var(--cream)', position: 'relative', overflow: 'hidden' }}
+      >
+        {/* bg ripple deco */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            left: '-80px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            width: 380,
+            height: 380,
+            borderRadius: '50%',
+            border: '1px solid rgba(74,107,138,0.08)',
+            boxShadow:
+              '0 0 0 40px rgba(74,107,138,0.04), 0 0 0 80px rgba(74,107,138,0.025), 0 0 0 120px rgba(74,107,138,0.015)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+          <p className="sec-label">02 · SESSIONS</p>
+          <h2
             style={{
               fontFamily: 'var(--f-zh)',
               fontWeight: 900,
-              fontSize: 'clamp(22px,3vw,34px)',
-              letterSpacing: '0.04em',
+              fontSize: 'clamp(26px,3.5vw,38px)',
+              color: '#2E4A63',
+              letterSpacing: '0.06em',
+              lineHeight: 1.3,
+              marginBottom: 12,
+            }}
+          >
+            課程與體驗
+          </h2>
+          <p
+            style={{
+              fontFamily: 'var(--f-display)',
+              fontWeight: 100,
+              fontSize: 13,
+              letterSpacing: '0.3em',
+              color: 'var(--muted)',
+              textTransform: 'uppercase',
               marginBottom: 16,
             }}
           >
-            準備好定頻了嗎？
+            Sessions &amp; Experiences
           </p>
-          <p style={{ fontSize: 14, color: 'var(--muted)', marginBottom: 36, lineHeight: 1.8 }}>
-            帶著你的當下就好，其他的交給頌缽。
+          <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.85, marginBottom: 48 }}>
+            每一次的頌缽都是獨特的旅程。點擊展開詳細說明。
+          </p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+            {courses.map(c => {
+              const isOpen = openCourse === c.id
+              return (
+                <div
+                  key={c.id}
+                  style={{
+                    borderTop: '1px solid rgba(74,107,138,0.18)',
+                    ...(c.id === courses.length ? { borderBottom: '1px solid rgba(74,107,138,0.18)' } : {}),
+                    overflow: 'hidden',
+                  }}
+                >
+                  {/* Row header */}
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => setOpenCourse(isOpen ? null : c.id)}
+                    onKeyDown={e => e.key === 'Enter' && setOpenCourse(isOpen ? null : c.id)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      padding: '28px 0',
+                      cursor: 'pointer',
+                      gap: 16,
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: 'var(--f-mono)',
+                        fontSize: 11,
+                        letterSpacing: '0.2em',
+                        color: isOpen ? '#4A6B8A' : 'var(--muted)',
+                        width: 40,
+                        flexShrink: 0,
+                        transition: 'color .3s',
+                      }}
+                    >
+                      {String(c.id).padStart(2, '0')}
+                    </span>
+                    <div style={{ flex: 1 }}>
+                      <div
+                        style={{
+                          fontFamily: 'var(--f-zh)',
+                          fontWeight: 700,
+                          fontSize: 18,
+                          color: '#2E4A63',
+                          letterSpacing: '0.04em',
+                        }}
+                      >
+                        {c.name}
+                      </div>
+                      <div
+                        style={{
+                          fontFamily: 'var(--f-display)',
+                          fontWeight: 100,
+                          fontSize: 11,
+                          letterSpacing: '0.25em',
+                          color: 'var(--muted)',
+                          textTransform: 'uppercase',
+                          marginTop: 4,
+                        }}
+                      >
+                        {c.nameEn}
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: 'var(--f-mono)',
+                        fontSize: 11,
+                        color: 'var(--muted)',
+                        textAlign: 'right',
+                        marginRight: 20,
+                        lineHeight: 1.6,
+                        flexShrink: 0,
+                      }}
+                    >
+                      {c.meta.split(' · ').join('\n')}
+                      <br />
+                      {c.price}
+                    </div>
+                    <div
+                      style={{
+                        width: 28,
+                        height: 28,
+                        borderRadius: '50%',
+                        border: '1px solid rgba(74,107,138,0.3)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                        color: isOpen ? '#fff' : '#4A6B8A',
+                        background: isOpen ? '#4A6B8A' : 'transparent',
+                        fontSize: 18,
+                        lineHeight: 1,
+                        transform: isOpen ? 'rotate(45deg)' : 'none',
+                        transition: 'all .3s',
+                      }}
+                    >
+                      +
+                    </div>
+                  </div>
+
+                  {/* Expanded panel */}
+                  <div
+                    style={{
+                      maxHeight: isOpen ? 400 : 0,
+                      overflow: 'hidden',
+                      transition: 'max-height .5s cubic-bezier(0.16,1,0.3,1)',
+                    }}
+                  >
+                    <div
+                      style={{
+                        padding: '0 0 40px 56px',
+                        borderTop: '1px solid rgba(74,107,138,0.1)',
+                        paddingTop: 24,
+                      }}
+                    >
+                      <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.85, maxWidth: 540, marginBottom: 20 }}>
+                        {c.desc}
+                      </p>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
+                        {c.tags.map(tag => (
+                          <span
+                            key={tag}
+                            style={{
+                              fontFamily: 'var(--f-mono)',
+                              fontSize: 10,
+                              letterSpacing: '0.12em',
+                              padding: '5px 12px',
+                              border: '1px solid rgba(74,107,138,0.3)',
+                              color: '#4A6B8A',
+                              borderRadius: 1,
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+                        <span
+                          style={{
+                            fontFamily: 'var(--f-mono)',
+                            fontSize: 15,
+                            fontWeight: 700,
+                            color: '#2E4A63',
+                            letterSpacing: '0.06em',
+                          }}
+                        >
+                          {c.price}
+                        </span>
+                        <span
+                          style={{
+                            fontFamily: 'var(--f-mono)',
+                            fontSize: 10,
+                            color: 'var(--muted)',
+                            letterSpacing: '0.1em',
+                          }}
+                        >
+                          {c.code}
+                        </span>
+                        <Link
+                          href="/contact"
+                          style={{
+                            fontFamily: 'var(--f-mono)',
+                            fontSize: 10,
+                            letterSpacing: '0.15em',
+                            textTransform: 'uppercase',
+                            color: '#4A6B8A',
+                            textDecoration: 'none',
+                            border: '1px solid rgba(74,107,138,0.4)',
+                            borderRadius: 999,
+                            padding: '7px 16px',
+                            marginLeft: 'auto',
+                          }}
+                        >
+                          預約此服務 →
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+            {/* last border */}
+            <div style={{ borderTop: '1px solid rgba(74,107,138,0.18)' }} />
+          </div>
+        </div>
+      </section>
+
+      {/* ── WAVE 3: cream → indigo-dark ── */}
+      <svg
+        viewBox="0 0 1440 60"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style={{ display: 'block', width: '100%', marginTop: -2, background: 'var(--cream)' }}
+      >
+        <path
+          d="M0,0 C180,55 360,5 540,40 C720,75 900,10 1080,42 C1260,68 1380,20 1440,38 L1440,60 L0,60 Z"
+          fill="#2E4A63"
+        />
+      </svg>
+
+      {/* ── FAQ ── */}
+      <section
+        style={{
+          background: '#2E4A63',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        {/* Ghost "FAQ" deco */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            right: '-10px',
+            top: '-20px',
+            fontFamily: 'var(--f-display)',
+            fontWeight: 100,
+            fontSize: 200,
+            color: 'rgba(255,255,255,0.03)',
+            letterSpacing: '-0.02em',
+            lineHeight: 1,
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        >
+          FAQ
+        </div>
+
+        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+          <p
+            className="sec-label"
+            style={{ color: 'rgba(255,255,255,0.3)' }}
+          >
+            03 · FAQ
+          </p>
+          <h2
+            style={{
+              fontFamily: 'var(--f-zh)',
+              fontWeight: 900,
+              fontSize: 'clamp(26px,3.5vw,38px)',
+              color: '#fff',
+              letterSpacing: '0.06em',
+              lineHeight: 1.3,
+              marginBottom: 12,
+            }}
+          >
+            常見問題
+          </h2>
+          <p
+            style={{
+              fontFamily: 'var(--f-display)',
+              fontWeight: 100,
+              fontSize: 13,
+              letterSpacing: '0.3em',
+              color: 'rgba(255,255,255,0.3)',
+              textTransform: 'uppercase',
+              marginBottom: 48,
+            }}
+          >
+            Frequently Asked Questions
+          </p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+            {faqs.map((faq, i) => {
+              const isOpen = openFaq === i
+              return (
+                <div
+                  key={i}
+                  style={{
+                    borderTop: '1px solid rgba(255,255,255,0.1)',
+                    ...(i === faqs.length - 1 ? { borderBottom: '1px solid rgba(255,255,255,0.1)' } : {}),
+                    overflow: 'hidden',
+                  }}
+                >
+                  <div
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => setOpenFaq(isOpen ? null : i)}
+                    onKeyDown={e => e.key === 'Enter' && setOpenFaq(isOpen ? null : i)}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: '24px 0',
+                      cursor: 'pointer',
+                      gap: 20,
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: 'var(--f-zh)',
+                        fontWeight: 500,
+                        fontSize: 16,
+                        color: 'rgba(255,255,255,0.88)',
+                        letterSpacing: '0.04em',
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {faq.q}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: 20,
+                        color: isOpen ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.3)',
+                        flexShrink: 0,
+                        transform: isOpen ? 'rotate(45deg)' : 'none',
+                        transition: 'transform .3s, color .3s',
+                        lineHeight: 1,
+                      }}
+                    >
+                      +
+                    </span>
+                  </div>
+                  <div
+                    style={{
+                      maxHeight: isOpen ? 300 : 0,
+                      overflow: 'hidden',
+                      transition: 'max-height .45s cubic-bezier(0.16,1,0.3,1)',
+                    }}
+                  >
+                    <p
+                      style={{
+                        padding: '0 60px 28px 0',
+                        fontSize: 14,
+                        color: 'rgba(255,255,255,0.62)',
+                        lineHeight: 1.85,
+                      }}
+                    >
+                      {faq.a}
+                    </p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WAVE 4: indigo → base ── */}
+      <svg
+        viewBox="0 0 1440 60"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style={{ display: 'block', width: '100%', marginTop: -2, background: '#2E4A63' }}
+      >
+        <path
+          d="M0,0 C360,55 720,10 1080,48 C1260,62 1380,22 1440,40 L1440,60 L0,60 Z"
+          fill="#F2EFEA"
+        />
+      </svg>
+
+      {/* ── CTA ── */}
+      <section
+        style={{
+          background: 'var(--base)',
+          position: 'relative',
+          overflow: 'hidden',
+          textAlign: 'center',
+        }}
+      >
+        {/* ghost word */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            left: '-20px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            fontFamily: 'var(--f-display)',
+            fontWeight: 100,
+            fontSize: 220,
+            color: 'rgba(74,107,138,0.04)',
+            lineHeight: 1,
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        >
+          home
+        </div>
+
+        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+          <p className="sec-label" style={{ justifyContent: 'center' }}>04 · CONNECT</p>
+          <h2
+            style={{
+              fontFamily: 'var(--f-zh)',
+              fontWeight: 900,
+              fontSize: 'clamp(26px,4vw,44px)',
+              color: '#2E4A63',
+              letterSpacing: '0.06em',
+              marginBottom: 16,
+            }}
+          >
+            準備好讓聲音帶你回家了嗎
+          </h2>
+          <p
+            style={{
+              fontSize: 14,
+              color: 'var(--muted)',
+              marginBottom: 40,
+              lineHeight: 1.8,
+              maxWidth: 400,
+              margin: '0 auto 40px',
+            }}
+          >
+            帶著你的當下就好，其他的交給頌缽。傳訊給我們預約或詢問。
           </p>
           <Link
             href="/contact"
@@ -272,18 +1023,29 @@ export default function QiSbPage() {
               gap: 10,
               fontFamily: 'var(--f-mono)',
               fontSize: 12,
-              letterSpacing: '0.18em',
+              letterSpacing: '0.22em',
               textTransform: 'uppercase',
-              color: '#4A6B8A',
+              color: '#fff',
               textDecoration: 'none',
-              border: '1px solid rgba(74,107,138,0.35)',
+              background: '#4A6B8A',
               borderRadius: 999,
-              padding: '14px 32px',
+              padding: '14px 36px',
               transition: 'background 0.2s',
             }}
           >
-            預約頌缽音流 →
+            預約頌缽體驗 →
           </Link>
+          <p
+            style={{
+              marginTop: 20,
+              fontFamily: 'var(--f-mono)',
+              fontSize: 11,
+              color: 'var(--muted)',
+              letterSpacing: '0.12em',
+            }}
+          >
+            @ ZENPPLE 森波 · 通常在一個工作日內回覆
+          </p>
         </div>
       </section>
     </>
