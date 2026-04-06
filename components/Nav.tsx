@@ -55,9 +55,8 @@ export default function Nav() {
           <li key={href}>
             <Link
               href={href}
+              className="tr-h2"
               style={{
-                fontFamily: 'var(--f-display)',
-                fontWeight: 300,
                 fontSize: 12,
                 letterSpacing: '0.22em',
                 color: 'var(--ink)',
@@ -73,9 +72,8 @@ export default function Nav() {
         <li>
           <Link
             href="/contact"
+            className="tr-h2"
             style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 300,
               fontSize: 12,
               letterSpacing: '0.22em',
               color: 'var(--ink)',

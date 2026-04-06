@@ -183,9 +183,8 @@ export default function PersonaCards() {
                 }}
               >
                 <h3
+                  className="tr-h1"
                   style={{
-                    fontFamily: 'var(--f-zh)',
-                    fontWeight: 700,
                     fontSize: 19,
                     lineHeight: 1.45,
                     color: 'var(--ink)',
@@ -239,11 +238,9 @@ export default function PersonaCards() {
             >
               <div>
                 <h3
+                  className="tr-h1"
                   style={{
-                    fontFamily: 'var(--f-zh)',
-                    fontWeight: 700,
                     fontSize: 26,
-                    letterSpacing: '0.03em',
                     marginBottom: 4,
                     color: 'var(--ink)',
                   }}

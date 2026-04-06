@@ -59,12 +59,11 @@ export default function Footer() {
               }}
             />
             <p
+              className="tr-body"
               style={{
-                fontFamily: 'var(--f-zh)',
                 fontSize: 13,
                 letterSpacing: '0.04em',
                 color: 'rgba(242,239,234,0.45)',
-                lineHeight: 1.7,
               }}
             >
               往內定頻，走回自己<br />

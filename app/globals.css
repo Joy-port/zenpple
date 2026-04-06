@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&family=DM+Sans:wght@400;500&family=Space+Mono&family=Noto+Serif+TC:wght@300;400;700;900&family=Noto+Sans+TC:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&family=DM+Sans:wght@400;500&family=Space+Mono&family=Noto+Serif+TC:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;700;900&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -20,11 +20,12 @@
   --border:    rgba(42,42,42,0.09);
 
   --f-display: 'Josefin Sans', sans-serif;
-  --f-zh:      'Noto Serif TC', serif;
+  --f-zh:      'Noto Sans TC', sans-serif;
   --f-zh-sans: 'Noto Sans TC', sans-serif;
   --f-body:    'DM Sans', sans-serif;
   --f-mono:    'Space Mono', monospace;
   --f-elegant: 'Cormorant Garamond', serif;
+  --f-qi:      'Noto Serif TC', serif;   /* qi-cs (夏＋玄諮詢) page only — do not use elsewhere */
 
   --gutter:   clamp(24px, 5vw, 72px);
   --page-max: 1120px;
@@ -104,6 +105,23 @@ body::after {
   0%   { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+/* ── Typography role classes ────────────────────────────────────────────────
+   Change the CSS variable (e.g. --f-zh → another font) in :root and every
+   element using that class will update automatically.
+────────────────────────────────────────────────────────────────────────── */
+/* D1 · Display — Logo text, brand identity */
+.tr-d1  { font-family: var(--f-display); font-weight: 100; letter-spacing: 0.3em; }
+/* D2 · Heading ZH — Main section headings, course titles (Chinese) */
+.tr-d2  { font-family: var(--f-zh); font-weight: 900; letter-spacing: 0.05em; }
+/* H1 · Sub-heading — Course names, column headings (Chinese) */
+.tr-h1  { font-family: var(--f-zh); font-weight: 700; letter-spacing: 0.08em; }
+/* H2 · Label EN — English sub-labels, chapter labels */
+.tr-h2  { font-family: var(--f-display); font-weight: 300; letter-spacing: 0.28em; }
+/* Body · Content — Description text, intro paragraphs */
+.tr-body { font-family: var(--f-body); font-weight: 400; line-height: 1.7; }
+/* Mono · Labels — Course info, time labels, metadata */
+.tr-mono { font-family: var(--f-mono); font-weight: 400; letter-spacing: 0.1em; }
 
 .animate-breathe    { animation: breathe 3.5s ease-in-out infinite; }
 .animate-ink-reveal { animation: ink-reveal 1.1s cubic-bezier(.4,0,.2,1) forwards; }

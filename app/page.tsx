@@ -60,10 +60,8 @@ export default function Home() {
 
         <div style={{ position: 'relative', zIndex: 2 }}>
           <h1
-            className="animate-ink-reveal"
+            className="animate-ink-reveal tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(28px, 4.8vw, 50px)',
               letterSpacing: '0.06em',
               lineHeight: 1.15,
@@ -73,9 +71,8 @@ export default function Home() {
             往內定頻　走回自己
           </h1>
           <p
+            className="tr-h2"
             style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 300,
               fontSize: 'clamp(13px, 1.6vw, 18px)',
               letterSpacing: '0.22em',
               color: 'var(--ink)',
@@ -127,11 +124,10 @@ export default function Home() {
         <div className="wrap">
           <p className="sec-label">森波生態系</p>
           <p
+            className="tr-h1"
             style={{
-              fontFamily: 'var(--f-zh)',
               fontWeight: 300,
               fontSize: 'clamp(18px,2.5vw,26px)',
-              letterSpacing: '0.08em',
               color: 'var(--ink)',
               opacity: 0.55,
               marginBottom: 36,
@@ -354,11 +350,9 @@ export default function Home() {
                 </div>
                 <div>
                   <span
+                    className="tr-h1"
                     style={{
-                      fontFamily: 'var(--f-zh)',
-                      fontWeight: 700,
                       fontSize: 15,
-                      letterSpacing: '0.04em',
                       color: 'var(--ink)',
                       display: 'block',
                       marginBottom: 4,
@@ -418,11 +412,9 @@ export default function Home() {
             聯絡 · 預約
           </p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(32px,5vw,62px)',
-              letterSpacing: '0.04em',
               lineHeight: 1.2,
               color: 'var(--base)',
               marginBottom: 18,

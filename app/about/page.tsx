@@ -23,23 +23,19 @@ export default function AboutPage() {
         <div className="wrap" style={{ width: '100%' }}>
           <p className="sec-label">關於</p>
           <h1
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(36px,6vw,68px)',
               lineHeight: 1.1,
-              letterSpacing: '0.03em',
               marginBottom: 24,
             }}
           >
             森波
           </h1>
           <p
+            className="tr-d1"
             style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
               fontSize: 13,
-              letterSpacing: '0.3em',
               color: 'var(--ink)',
               opacity: 0.5,
               textTransform: 'uppercase',
@@ -72,11 +68,9 @@ export default function AboutPage() {
         <div className="wrap">
           <p className="sec-label">創辦人</p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(24px,3.5vw,40px)',
-              letterSpacing: '0.03em',
               marginBottom: 52,
             }}
           >
@@ -127,11 +121,9 @@ export default function AboutPage() {
                   photo
                 </div>
                 <h3
+                  className="tr-h1"
                   style={{
-                    fontFamily: 'var(--f-zh)',
-                    fontWeight: 700,
                     fontSize: 22,
-                    letterSpacing: '0.04em',
                     marginBottom: 8,
                   }}
                 >
@@ -172,11 +164,9 @@ export default function AboutPage() {
         <div className="wrap" style={{ maxWidth: 680, margin: '0 auto' }}>
           <p className="sec-label">品牌命名</p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(24px,3.5vw,40px)',
-              letterSpacing: '0.03em',
               marginBottom: 24,
             }}
           >
@@ -207,11 +197,9 @@ export default function AboutPage() {
       >
         <div className="wrap">
           <p
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(20px,2.5vw,30px)',
-              letterSpacing: '0.04em',
               marginBottom: 36,
             }}
           >

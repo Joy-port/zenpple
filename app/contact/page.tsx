@@ -30,12 +30,10 @@ export default function ContactPage() {
         <div className="wrap" style={{ width: '100%' }}>
           <p className="sec-label">聯絡 · 預約</p>
           <h1
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(36px,6vw,68px)',
               lineHeight: 1.1,
-              letterSpacing: '0.03em',
               marginBottom: 16,
             }}
           >
@@ -74,11 +72,9 @@ export default function ContactPage() {
             <div>
               <p className="sec-label">聯繫管道</p>
               <h2
+                className="tr-d2"
                 style={{
-                  fontFamily: 'var(--f-zh)',
-                  fontWeight: 900,
                   fontSize: 'clamp(22px,3vw,32px)',
-                  letterSpacing: '0.04em',
                   marginBottom: 36,
                 }}
               >
@@ -218,11 +214,9 @@ export default function ContactPage() {
             <div>
               <p className="sec-label">預約流程</p>
               <h2
+                className="tr-d2"
                 style={{
-                  fontFamily: 'var(--f-zh)',
-                  fontWeight: 900,
                   fontSize: 'clamp(22px,3vw,32px)',
-                  letterSpacing: '0.04em',
                   marginBottom: 36,
                 }}
               >

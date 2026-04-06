@@ -209,12 +209,10 @@ export default function CoPage() {
             CO · CORPORATE COLLABORATION
           </p>
           <h1
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(32px,5.5vw,62px)',
               lineHeight: 1.1,
-              letterSpacing: '0.04em',
               marginBottom: 12,
               color: 'var(--ink)',
             }}
@@ -222,11 +220,9 @@ export default function CoPage() {
             聯名企業合作
           </h1>
           <p
+            className="tr-d1"
             style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
               fontSize: 13,
-              letterSpacing: '0.3em',
               color: AMBER,
               opacity: 0.75,
               textTransform: 'uppercase',
@@ -267,13 +263,11 @@ export default function CoPage() {
                   {item.icon}
                 </p>
                 <h3
+                  className="tr-h1"
                   style={{
-                    fontFamily: 'var(--f-zh)',
-                    fontWeight: 700,
                     fontSize: 16,
                     color: 'var(--ink)',
                     marginBottom: 10,
-                    letterSpacing: '0.03em',
                   }}
                 >
                   {item.title}
@@ -296,11 +290,9 @@ export default function CoPage() {
         <div className="wrap">
           <p className="sec-label">企業包場方案</p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(24px,3.5vw,40px)',
-              letterSpacing: '0.04em',
               marginBottom: 12,
               color: 'var(--ink)',
             }}
@@ -308,11 +300,9 @@ export default function CoPage() {
             依規模選擇方案
           </h2>
           <p
+            className="tr-d1"
             style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
               fontSize: 12,
-              letterSpacing: '0.28em',
               color: 'var(--muted)',
               textTransform: 'uppercase',
               marginBottom: 16,
@@ -361,13 +351,11 @@ export default function CoPage() {
                   {plan.id}
                 </p>
                 <h3
+                  className="tr-h1"
                   style={{
-                    fontFamily: 'var(--f-zh)',
-                    fontWeight: 700,
                     fontSize: 20,
                     color: 'var(--ink)',
                     marginBottom: 4,
-                    letterSpacing: '0.03em',
                   }}
                 >
                   {plan.tier}
@@ -416,22 +404,18 @@ export default function CoPage() {
         <div className="wrap">
           <p className="sec-label">CO-M · Micro Group</p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(24px,3.5vw,40px)',
-              letterSpacing: '0.04em',
               marginBottom: 12,
             }}
           >
             小型微包場 CO-M
           </h2>
           <p
+            className="tr-d1"
             style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
               fontSize: 12,
-              letterSpacing: '0.28em',
               color: 'var(--muted)',
               textTransform: 'uppercase',
               marginBottom: 16,
@@ -503,13 +487,11 @@ export default function CoPage() {
                 CO-G · Core Team Gathering
               </p>
               <h3
+                className="tr-h1"
                 style={{
-                  fontFamily: 'var(--f-zh)',
-                  fontWeight: 700,
                   fontSize: 20,
                   color: 'var(--ink)',
                   marginBottom: 12,
-                  letterSpacing: '0.03em',
                 }}
               >
                 核心團隊聚會
@@ -537,13 +519,11 @@ export default function CoPage() {
                 CO-L · Licensed Training
               </p>
               <h3
+                className="tr-h1"
                 style={{
-                  fontFamily: 'var(--f-zh)',
-                  fontWeight: 700,
                   fontSize: 20,
                   color: 'var(--ink)',
                   marginBottom: 12,
-                  letterSpacing: '0.03em',
                 }}
               >
                 聯名培訓授權
@@ -570,22 +550,18 @@ export default function CoPage() {
         <div className="wrap">
           <p className="sec-label">合作流程</p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(24px,3.5vw,40px)',
-              letterSpacing: '0.04em',
               marginBottom: 12,
             }}
           >
             合作三步驟
           </h2>
           <p
+            className="tr-d1"
             style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
               fontSize: 12,
-              letterSpacing: '0.28em',
               color: 'var(--muted)',
               textTransform: 'uppercase',
               marginBottom: 52,
@@ -646,12 +622,10 @@ export default function CoPage() {
                 </div>
                 <div style={{ paddingTop: 10 }}>
                   <h3
+                    className="tr-h1"
                     style={{
-                      fontFamily: 'var(--f-zh)',
-                      fontWeight: 700,
                       fontSize: 17,
                       color: 'var(--ink)',
-                      letterSpacing: '0.04em',
                       marginBottom: 8,
                     }}
                   >
@@ -670,11 +644,9 @@ export default function CoPage() {
         <div className="wrap">
           <p className="sec-label">常見問題</p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(22px,3vw,34px)',
-              letterSpacing: '0.04em',
               marginBottom: 40,
             }}
           >
@@ -786,12 +758,10 @@ export default function CoPage() {
           >
             <div>
               <h2
+                className="tr-d2"
                 style={{
-                  fontFamily: 'var(--f-zh)',
-                  fontWeight: 900,
                   fontSize: 'clamp(22px,3vw,36px)',
                   color: '#F2EFEA',
-                  letterSpacing: '0.04em',
                   marginBottom: 14,
                   lineHeight: 1.3,
                 }}
