@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&family=DM+Sans:wght@400;500&family=Space+Mono&family=Noto+Serif+TC:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;700;900&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&family=DM+Sans:wght@400;500&family=Space+Mono&family=Noto+Serif+TC:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;700;900&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -26,6 +26,7 @@
   --f-mono:    'Space Mono', monospace;
   --f-elegant: 'Cormorant Garamond', serif;
   --f-qi:      'Noto Serif TC', serif;   /* qi-cs (夏＋玄諮詢) page only — do not use elsewhere */
+  --f-impact:  'Fraunces', serif;        /* Seoul-style styling only — hero/background compositions, not body text */
 
   --gutter:   clamp(24px, 5vw, 72px);
   --page-max: 1120px;

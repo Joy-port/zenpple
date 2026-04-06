@@ -131,7 +131,7 @@ function FooterCol({
           fontFamily: 'var(--f-mono)',
           fontSize: 9,
           letterSpacing: '0.2em',
-          color: 'rgba(242,239,234,0.28)',
+          color: 'rgba(242,239,234,0.5)',
           textTransform: 'uppercase',
           marginBottom: 18,
         }}

@@ -237,7 +237,7 @@ export default function QiSbPage() {
               fontWeight: 100,
               fontSize: 13,
               letterSpacing: '0.32em',
-              color: 'rgba(255,255,255,0.45)',
+              color: 'rgba(255,255,255,0.65)',
               textTransform: 'uppercase',
               marginBottom: 32,
             }}
@@ -315,7 +315,7 @@ export default function QiSbPage() {
           sound
         </div>
 
-        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
           <p className="sec-label">01 · WHAT IS IT</p>
           <h2
             className="tr-d2"
@@ -566,7 +566,7 @@ export default function QiSbPage() {
           }}
         />
 
-        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
           <p className="sec-label">02 · SESSIONS</p>
           <h2
             className="tr-d2"
@@ -825,7 +825,7 @@ export default function QiSbPage() {
           FAQ
         </div>
 
-        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
           <p
             className="sec-label"
             style={{ color: 'rgba(255,255,255,0.3)' }}
@@ -976,7 +976,7 @@ export default function QiSbPage() {
           home
         </div>
 
-        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
           <p className="sec-label" style={{ justifyContent: 'center' }}>04 · CONNECT</p>
           <h2
             className="tr-d2"
