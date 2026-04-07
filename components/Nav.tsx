@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Z } from '@/constants/zIndex'
 
 const links = [
   { href: '/qi-sb',  label: '頌缽音流' },
@@ -22,7 +23,7 @@ export default function Nav() {
       style={{
         position: 'fixed',
         top: 0, left: 0, right: 0,
-        zIndex: 100,
+        zIndex: Z.nav,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',

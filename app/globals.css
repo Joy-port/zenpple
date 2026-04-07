@@ -63,7 +63,7 @@ body::after {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 999999; /* Z.grain — must stay above Z.modal (99999) */
   opacity: 0.028;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 160px;
@@ -132,6 +132,15 @@ body::after {
 .tr-body { font-family: var(--f-body); font-weight: 400; line-height: 1.7; }
 /* Mono · Labels — Course info, time labels, metadata */
 .tr-mono { font-family: var(--f-mono); font-weight: 400; letter-spacing: 0.1em; }
+
+@keyframes mobile-card-from-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes mobile-card-from-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
 
 @keyframes gradient-drift {
   0%   { background-position: 0% 50%; }

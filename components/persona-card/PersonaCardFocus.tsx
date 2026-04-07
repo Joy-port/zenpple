@@ -1,11 +1,13 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import Image from 'next/image'
 import PageSection from '@/components/ui/PageSection'
 import PageTitle from '@/components/ui/PageTitle'
 import { useIsMobile } from '@/hooks/useIsMobile'
+import { Z } from '@/constants/zIndex'
 
 const personas = [
   {
@@ -60,7 +62,7 @@ const personas = [
 
 type Persona = typeof personas[number]
 
-/* ── Mobile card list + centered modal ── */
+/* ── Mobile: single card + arrow nav + modal ── */
 function MobileCards({
   personas,
   active,
@@ -72,171 +74,213 @@ function MobileCards({
   setActive: React.Dispatch<React.SetStateAction<number | null>>
   ExpandContent: React.ComponentType<{ p: Persona; hideImage?: boolean; align?: 'center' | 'left' }>
 }) {
+  const [cardIdx, setCardIdx] = useState(0)
+  const [slideDir, setSlideDir] = useState<'left' | 'right' | null>(null)
+  const currentCard = personas[cardIdx]
+
   const activePersona = personas.find(p => p.id === active) ?? null
-  const activeIdx = personas.findIndex(p => p.id === active)
+  const activeIdx     = personas.findIndex(p => p.id === active)
 
   useEffect(() => {
-    if (active !== null) {
-      document.body.style.overflow = 'hidden'
-    } else {
+    const lock = active !== null
+    document.body.style.overflow = lock ? 'hidden' : ''
+    document.documentElement.style.overflow = lock ? 'hidden' : ''
+    return () => {
       document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
     }
-    return () => { document.body.style.overflow = '' }
   }, [active])
 
-  const close = () => setActive(null)
-  const prev = () => { if (activeIdx > 0) setActive(personas[activeIdx - 1].id) }
-  const next = () => { if (activeIdx < personas.length - 1) setActive(personas[activeIdx + 1].id) }
+  const goNext = () => { if (cardIdx < personas.length - 1) { setSlideDir('left');  setCardIdx(i => i + 1) } }
+  const goPrev = () => { if (cardIdx > 0)                   { setSlideDir('right'); setCardIdx(i => i - 1) } }
 
-  // Swipe to switch cards
-  const touchX = useRef<number | null>(null)
-  const onTouchStart = (e: React.TouchEvent) => { touchX.current = e.touches[0].clientX }
-  const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchX.current === null) return
-    const delta = e.changedTouches[0].clientX - touchX.current
-    if (delta < -50) next()
-    else if (delta > 50) prev()
-    touchX.current = null
+  const close     = () => setActive(null)
+  const modalPrev = () => { if (activeIdx > 0) setActive(personas[activeIdx - 1].id) }
+  const modalNext = () => { if (activeIdx < personas.length - 1) setActive(personas[activeIdx + 1].id) }
+
+  // Swipe on card to change cardIdx
+  const cardTouchX = useRef<number | null>(null)
+  const onCardTouchStart = (e: React.TouchEvent) => { cardTouchX.current = e.touches[0].clientX }
+  const onCardTouchEnd   = (e: React.TouchEvent) => {
+    if (cardTouchX.current === null) return
+    const delta = e.changedTouches[0].clientX - cardTouchX.current
+    if (delta < -50) goNext()
+    else if (delta > 50) goPrev()
+    cardTouchX.current = null
+  }
+
+  // Swipe inside modal to switch expanded cards
+  const modalTouchX = useRef<number | null>(null)
+  const onModalTouchStart = (e: React.TouchEvent) => { modalTouchX.current = e.touches[0].clientX }
+  const onModalTouchEnd   = (e: React.TouchEvent) => {
+    if (modalTouchX.current === null) return
+    const delta = e.changedTouches[0].clientX - modalTouchX.current
+    if (delta < -50) modalNext()
+    else if (delta > 50) modalPrev()
+    modalTouchX.current = null
   }
 
   return (
     <>
-      {/* Portrait cards — horizontal scroll row */}
-      <div style={{ display: 'flex', gap: 12, overflowX: 'auto', paddingBottom: 8, scrollSnapType: 'x mandatory', position: 'relative', zIndex: 1, WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
-        {personas.map(p => (
+      {/* Single card + side arrows */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, position: 'relative', zIndex: 1 }}>
+
+        {/* Prev arrow — full card height */}
+        <button
+          onClick={goPrev}
+          disabled={cardIdx === 0}
+          style={{
+            flexShrink: 0, alignSelf: 'stretch',
+            display: 'flex', alignItems: 'center',
+            background: 'none', border: 'none', cursor: cardIdx > 0 ? 'pointer' : 'default',
+            opacity: cardIdx > 0 ? 0.65 : 0.15, fontSize: 38, color: 'var(--ink)',
+            padding: '0 12px', lineHeight: 1,
+          }}
+          aria-label="上一張"
+        >‹</button>
+
+        {/* Card — animation wrapper clips slide */}
+        <div style={{ flex: 1, borderRadius: 18, overflow: 'hidden', boxShadow: `0 4px 28px rgba(${currentCard.accentRgb},0.18), 0 0 0 1.5px rgba(${currentCard.accentRgb},0.12)`, transition: 'box-shadow 0.28s ease' }}>
           <div
-            key={p.id}
-            onClick={() => setActive(p.id)}
+            key={cardIdx}
+            onTouchStart={onCardTouchStart}
+            onTouchEnd={onCardTouchEnd}
+            onClick={() => setActive(currentCard.id)}
             style={{
-              flexShrink: 0,
-              width: 'clamp(155px, 42vw, 200px)',
-              borderRadius: 16,
               background: '#FFFFFF',
-              boxShadow: active === p.id
-                ? `0 4px 24px rgba(${p.accentRgb},0.22), 0 0 0 1.5px rgba(${p.accentRgb},0.2)`
-                : '0 2px 14px rgba(42,42,42,0.07)',
-              overflow: 'hidden',
               cursor: 'pointer',
-              scrollSnapAlign: 'start',
               display: 'flex',
               flexDirection: 'column',
-              transition: 'box-shadow 0.3s ease',
+              alignItems: 'center',
+              textAlign: 'center',
+              animation: slideDir === 'left'
+                ? 'mobile-card-from-right 0.28s cubic-bezier(0.4,0,0.2,1) forwards'
+                : slideDir === 'right'
+                  ? 'mobile-card-from-left 0.28s cubic-bezier(0.4,0,0.2,1) forwards'
+                  : undefined,
             }}
           >
-            {/* Accent top bar */}
-            <div style={{ height: 4, background: p.accentColor, opacity: 0.8, flexShrink: 0 }} />
-
-            {/* Image area */}
-            <div style={{ flex: 1, position: 'relative', minHeight: 'clamp(130px, 34vw, 170px)' }}>
+            {/* Image */}
+            <div style={{ position: 'relative', width: '100%', height: 'clamp(180px, 46vw, 260px)', flexShrink: 0 }}>
               <Image
-                src={p.cardImage} alt="" fill
-                style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8, padding: '10px' }}
+                src={currentCard.cardImage} alt="" fill
+                style={{ objectFit: 'contain', filter: currentCard.imageFilter, mixBlendMode: 'multiply', opacity: 0.8, padding: '16px' }}
               />
             </div>
 
             {/* Text */}
-            <div style={{ padding: '0.625rem 0.75rem 0.875rem', borderTop: `1px solid rgba(${p.accentRgb},0.1)` }}>
+            <div style={{ padding: '0.75rem 1.25rem 1.375rem' }}>
               <h3
                 className="tr-h1"
-                style={{ fontSize: 13, lineHeight: 1.55, color: 'var(--ink)', marginBottom: 4, whiteSpace: 'pre-line' }}
+                style={{ fontSize: 17, lineHeight: 1.55, color: 'var(--ink)', marginBottom: 6, whiteSpace: 'pre-line' }}
               >
-                {p.cardTitle}
+                {currentCard.cardTitle}
               </h3>
-              <p style={{ fontSize: 11, color: 'var(--muted)', lineHeight: 1.7, whiteSpace: 'pre-line' }}>
-                {p.cardDesc}
+              <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.8, whiteSpace: 'pre-line' }}>
+                {currentCard.cardDesc}
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Next arrow — full card height */}
+        <button
+          onClick={goNext}
+          disabled={cardIdx === personas.length - 1}
+          style={{
+            flexShrink: 0, alignSelf: 'stretch',
+            display: 'flex', alignItems: 'center',
+            background: 'none', border: 'none', cursor: cardIdx < personas.length - 1 ? 'pointer' : 'default',
+            opacity: cardIdx < personas.length - 1 ? 0.65 : 0.15, fontSize: 38, color: 'var(--ink)',
+            padding: '0 12px', lineHeight: 1,
+          }}
+          aria-label="下一張"
+        >›</button>
+      </div>
+
+      {/* Pagination dots */}
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 6, marginTop: 28 }}>
+        {personas.map((p, i) => (
+          <div
+            key={p.id}
+            onClick={() => setCardIdx(i)}
+            style={{
+              width: cardIdx === i ? 20 : 6,
+              height: 6,
+              borderRadius: 3,
+              background: cardIdx === i ? currentCard.accentColor : '#d4cfc8',
+              transition: 'width 0.3s ease, background 0.3s ease',
+              cursor: 'pointer',
+            }}
+          />
         ))}
       </div>
 
-      {/* Centered modal */}
-      {active !== null && activePersona && (
+      {/* Centered modal — portal escapes section stacking context */}
+      {active !== null && activePersona && createPortal(
         <div
           style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 9999,
+            position: 'fixed', inset: 0, zIndex: Z.modal,
             background: 'rgba(0,0,0,0.65)',
-            backdropFilter: 'blur(8px)',
-            WebkitBackdropFilter: 'blur(8px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
             padding: '1.25rem',
           }}
           onClick={close}
         >
           <div
-            onTouchStart={onTouchStart}
-            onTouchEnd={onTouchEnd}
+            onTouchStart={onModalTouchStart}
+            onTouchEnd={onModalTouchEnd}
             style={{
               position: 'relative',
-              background: '#FFFFFF',
-              borderRadius: 22,
-              width: '100%',
-              maxWidth: 420,
-              maxHeight: '85vh',
+              background: '#FFFFFF', borderRadius: 22,
+              width: '100%', maxWidth: 420, maxHeight: '85vh',
               overflowY: 'auto',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              textAlign: 'center',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center',
               padding: '2.5rem 1.75rem 1.25rem',
               boxShadow: `0 24px 64px rgba(${activePersona.accentRgb},0.25)`,
               WebkitOverflowScrolling: 'touch',
             } as React.CSSProperties}
             onClick={e => e.stopPropagation()}
           >
-            {/* X — fixed top-right */}
+            {/* X */}
             <button
               onClick={close}
-              style={{
-                position: 'absolute', top: 14, right: 14,
-                background: 'none', border: 'none', cursor: 'pointer',
-                fontSize: 18, color: 'var(--ink)', opacity: 0.35,
-                lineHeight: 1, padding: '4px 6px',
-              }}
+              style={{ position: 'absolute', top: 14, right: 14, background: 'none', border: 'none', cursor: 'pointer', fontSize: 18, color: 'var(--ink)', opacity: 0.35, lineHeight: 1, padding: '4px 6px' }}
               aria-label="關閉"
             >✕</button>
 
             <ExpandContent p={activePersona} />
 
-            {/* Bottom pagination: prev / dots / next */}
+            {/* Modal pagination */}
             <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 20, flexShrink: 0 }}>
               <button
-                onClick={prev}
-                disabled={activeIdx <= 0}
+                onClick={modalPrev} disabled={activeIdx <= 0}
                 style={{ background: 'none', border: 'none', cursor: activeIdx > 0 ? 'pointer' : 'default', opacity: activeIdx > 0 ? 0.7 : 0.2, fontSize: 20, color: 'var(--ink)', padding: '4px 8px', lineHeight: 1 }}
                 aria-label="上一個"
               >‹</button>
-
               <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
                 {personas.map(p => (
                   <div
                     key={p.id}
                     onClick={() => setActive(p.id)}
                     style={{
-                      width: active === p.id ? 20 : 6,
-                      height: 6,
-                      borderRadius: 3,
+                      width: active === p.id ? 20 : 6, height: 6, borderRadius: 3,
                       background: active === p.id ? activePersona.accentColor : '#d4cfc8',
-                      transition: 'width 0.3s ease, background 0.3s ease',
-                      cursor: 'pointer',
+                      transition: 'width 0.3s ease, background 0.3s ease', cursor: 'pointer',
                     }}
                   />
                 ))}
               </div>
-
               <button
-                onClick={next}
-                disabled={activeIdx >= personas.length - 1}
+                onClick={modalNext} disabled={activeIdx >= personas.length - 1}
                 style={{ background: 'none', border: 'none', cursor: activeIdx < personas.length - 1 ? 'pointer' : 'default', opacity: activeIdx < personas.length - 1 ? 0.7 : 0.2, fontSize: 20, color: 'var(--ink)', padding: '4px 8px', lineHeight: 1 }}
                 aria-label="下一個"
               >›</button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   )
