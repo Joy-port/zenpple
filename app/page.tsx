@@ -2,7 +2,7 @@ import Link from 'next/link'
 import HeroCenter from '@/components/hero/HeroCenter'
 // ── PERSONA CARD ON / ── PersonaCardFocus (card dissolves, expand slides right)
 import PersonaCardFocus from '@/components/persona-card/PersonaCardFocus'
-import EcosystemMountain from '@/components/ecosystem/EcosystemMountain'
+import EcosystemMountain2 from '@/components/ecosystem/EcosystemMountain2'
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       <PersonaCardFocus />
 
       {/* ── ECOSYSTEM ── */}
-      <EcosystemMountain />
+      <EcosystemMountain2 />
 
       {/* ── FOUNDERS ── */}
       <section
