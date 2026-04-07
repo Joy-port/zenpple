@@ -65,7 +65,7 @@ export default function HeroSplit() {
       <div style={{ position: 'relative' }}>
         <div className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
           <Image
-            src="/頌缽九宮格.png"
+            src="/index/頌缽九宮格.png"
             alt=""
             width={1568}
             height={2172}
