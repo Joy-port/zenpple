@@ -89,38 +89,18 @@ export default function PersonaCard2() {
           <h2 style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 700, fontSize: 'clamp(22px, 3vw, 34px)', letterSpacing: '0.04em', color: 'var(--ink)' }}>
             找到屬於你的路徑
           </h2>
-          {active !== null && (
-            <p
-              onClick={() => setActive(null)}
-              style={{
-                fontFamily: 'var(--f-mono)',
-                fontSize: 10,
-                letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                color: 'var(--muted)',
-                marginTop: 14,
-                cursor: 'pointer',
-                opacity: 0.6,
-              }}
-            >
-              ← 重新選擇
-            </p>
-          )}
         </div>
 
-        {/* Cards — tarot flip layout */}
+        {/* Cards row */}
         <div
           style={{
             display: 'flex',
             gap: 18,
             justifyContent: 'center',
             maxWidth: 960,
-            margin: '0 auto',
+            margin: '0 auto 0',
             position: 'relative',
             zIndex: 1,
-            // perspective on container for shared 3D space
-            perspective: '1400px',
-            perspectiveOrigin: '50% 40%',
           }}
         >
           {personas.map(p => {
@@ -134,168 +114,175 @@ export default function PersonaCard2() {
                 style={{
                   flex: 1,
                   maxWidth: 300,
-                  height: 400,
-                  position: 'relative',
+                  minHeight: 380,
+                  borderRadius: 16,
                   cursor: 'pointer',
-                  // outer wrapper: scale + dim inactive cards
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  background: '#FFFFFF',
+                  // selected: lift + accent shadow + outline ring
+                  boxShadow: isActive
+                    ? `0 20px 52px rgba(${p.accentRgb},0.22), 0 4px 16px rgba(${p.accentRgb},0.1)`
+                    : '0 2px 14px rgba(42,42,42,0.07)',
+                  outline: isActive
+                    ? `2px solid rgba(${p.accentRgb},0.3)`
+                    : '2px solid transparent',
                   transform: isActive
-                    ? 'scale(1.14) translateY(-8px)'
+                    ? 'translateY(-8px) scale(1.03)'
                     : isOther
-                    ? 'scale(0.90) translateY(10px)'
-                    : 'scale(1) translateY(0)',
-                  opacity: isOther ? 0.28 : 1,
-                  filter: isOther ? 'blur(1.5px)' : 'none',
-                  transition: 'transform 0.55s cubic-bezier(0.34,1.4,0.64,1), opacity 0.4s ease, filter 0.4s ease',
-                  zIndex: isActive ? 10 : 1,
+                    ? 'translateY(4px) scale(0.97)'
+                    : 'translateY(0) scale(1)',
+                  opacity: isOther ? 0.48 : 1,
+                  filter: isOther ? 'blur(0.5px)' : 'none',
+                  transition: 'transform 0.45s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s, outline 0.25s, opacity 0.35s, filter 0.35s',
                 }}
               >
-                {/* 3D flip inner */}
-                <div
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    position: 'relative',
-                    transformStyle: 'preserve-3d',
-                    transform: isActive ? 'rotateY(180deg)' : 'rotateY(0deg)',
-                    transition: 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
-                  }}
-                >
-                  {/* ── FRONT FACE ── */}
-                  <div
+                {/* Image — top 65% */}
+                <div style={{ flex: '0 0 65%', position: 'relative', minHeight: 200 }}>
+                  <Image
+                    src={p.cardImage}
+                    alt=""
+                    fill
                     style={{
-                      position: 'absolute',
-                      inset: 0,
-                      backfaceVisibility: 'hidden',
-                      WebkitBackfaceVisibility: 'hidden',
-                      borderRadius: 16,
-                      overflow: 'hidden',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      background: '#FFFFFF',
-                      boxShadow: isActive
-                        ? `0 24px 56px rgba(${p.accentRgb},0.24), 0 4px 16px rgba(${p.accentRgb},0.1)`
-                        : '0 2px 14px rgba(42,42,42,0.07)',
+                      objectFit: 'contain',
+                      objectPosition: 'center center',
+                      filter: p.imageFilter,
+                      mixBlendMode: 'multiply',
+                      opacity: 0.75,
+                      padding: '18px 24px 0',
                     }}
-                  >
-                    {/* Image top 65% */}
-                    <div style={{ flex: '0 0 65%', position: 'relative' }}>
-                      <Image
-                        src={p.cardImage}
-                        alt=""
-                        fill
-                        style={{
-                          objectFit: 'contain',
-                          objectPosition: 'center center',
-                          filter: p.imageFilter,
-                          mixBlendMode: 'multiply',
-                          opacity: 0.75,
-                          padding: '18px 24px 0',
-                        }}
-                      />
-                    </div>
-                    {/* Text bottom */}
-                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '16px 24px 28px' }}>
-                      <h3 className="tr-h1" style={{ fontSize: 17, lineHeight: 1.5, color: 'var(--ink)', marginBottom: 8, whiteSpace: 'pre-line' }}>
-                        {p.cardTitle}
-                      </h3>
-                      <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.85, whiteSpace: 'pre-line' }}>
-                        {p.cardDesc}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* ── BACK FACE ── */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      backfaceVisibility: 'hidden',
-                      WebkitBackfaceVisibility: 'hidden',
-                      transform: 'rotateY(180deg)',
-                      borderRadius: 16,
-                      overflow: 'auto',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      padding: '28px 24px 24px',
-                      background: 'rgba(250,248,246,0.97)',
-                      boxShadow: `0 24px 56px rgba(${p.accentRgb},0.26), 0 0 0 1px rgba(${p.accentRgb},0.14)`,
-                    }}
-                  >
-                    {/* Top accent strip */}
-                    <div style={{ height: 3, borderRadius: 2, background: `rgba(${p.accentRgb},0.35)`, marginBottom: 20, flexShrink: 0 }} />
-
-                    {/* Persona title block */}
-                    <h3 className="tr-h1" style={{ fontSize: 22, marginBottom: 3, color: 'var(--ink)', lineHeight: 1.3 }}>
-                      {p.expandTitle}
-                    </h3>
-                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 14 }}>
-                      {p.expandEn}
-                    </p>
-
-                    {/* Body copy */}
-                    <p style={{ fontSize: 13, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.72, marginBottom: 18 }}>
-                      {p.expandBody}
-                    </p>
-
-                    {/* Divider */}
-                    <div style={{ height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 14, flexShrink: 0 }} />
-
-                    {/* Services label */}
-                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10 }}>
-                      適合的服務
-                    </p>
-
-                    {/* Service tags */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20 }}>
-                      {p.services.map(s => (
-                        <span
-                          key={s}
-                          style={{
-                            fontFamily: 'var(--f-zh-sans)',
-                            fontSize: 11,
-                            padding: '5px 12px',
-                            borderRadius: 999,
-                            border: `1px solid rgba(${p.accentRgb},0.3)`,
-                            color: p.accentColor,
-                            background: `rgba(${p.accentRgb},0.06)`,
-                            letterSpacing: '0.02em',
-                          }}
-                        >
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* CTA — stopPropagation so link click doesn't flip the card back */}
-                    <Link
-                      href={p.ctaHref}
-                      onClick={e => e.stopPropagation()}
-                      style={{
-                        fontFamily: 'var(--f-mono)',
-                        fontSize: 10,
-                        letterSpacing: '0.14em',
-                        textTransform: 'uppercase',
-                        textDecoration: 'none',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: 8,
-                        padding: '10px 22px',
-                        borderRadius: 999,
-                        border: `1px solid rgba(${p.accentRgb},0.4)`,
-                        color: p.accentColor,
-                        alignSelf: 'flex-start',
-                      }}
-                    >
-                      {p.ctaLabel}
-                    </Link>
-                  </div>
+                  />
+                </div>
+                {/* Text bottom */}
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '16px 24px 28px' }}>
+                  <h3 className="tr-h1" style={{ fontSize: 17, lineHeight: 1.5, color: 'var(--ink)', marginBottom: 8, whiteSpace: 'pre-line' }}>
+                    {p.cardTitle}
+                  </h3>
+                  <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.85, whiteSpace: 'pre-line' }}>
+                    {p.cardDesc}
+                  </p>
                 </div>
               </div>
             )
           })}
         </div>
 
-        {/* Hint text when nothing selected */}
+        {/* Narrow centered expand panels — 2–3× card width, one per persona */}
+        <div style={{ maxWidth: 960, margin: '0 auto', position: 'relative', zIndex: 1 }}>
+          {personas.map(p => {
+            const isActive = active === p.id
+            return (
+              <div
+                key={p.id}
+                style={{
+                  // Centered, narrow: ~640px ≈ 2× card width
+                  width: 640,
+                  maxWidth: '100%',
+                  margin: '0 auto',
+                  borderRadius: 20,
+                  overflow: 'hidden',
+                  position: 'relative',
+                  // Slide + fade reveal
+                  maxHeight: isActive ? 480 : 0,
+                  opacity: isActive ? 1 : 0,
+                  marginTop: isActive ? 20 : 0,
+                  marginBottom: isActive ? 12 : 0,
+                  transition: 'max-height 0.55s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease, margin 0.4s ease',
+                  background: 'rgba(250,248,246,0.97)',
+                  boxShadow: isActive
+                    ? `0 16px 52px rgba(${p.accentRgb},0.2), 0 0 0 1px rgba(${p.accentRgb},0.12)`
+                    : 'none',
+                }}
+              >
+                {/* Card image as ghost background — bottom-right anchored */}
+                <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}>
+                  <Image
+                    src={p.cardImage}
+                    alt=""
+                    fill
+                    style={{
+                      objectFit: 'contain',
+                      objectPosition: 'right bottom',
+                      filter: p.imageFilter,
+                      mixBlendMode: 'multiply',
+                      opacity: 0.09,
+                      padding: '0 0 0 40%',
+                    }}
+                  />
+                </div>
+
+                {/* Content — vertical stack */}
+                <div style={{ position: 'relative', zIndex: 1, padding: '36px 40px 32px' }}>
+
+                  {/* Top accent line */}
+                  <div style={{ height: 2, width: 40, borderRadius: 1, background: `rgba(${p.accentRgb},0.5)`, marginBottom: 20 }} />
+
+                  {/* Persona name block */}
+                  <h3 className="tr-h1" style={{ fontSize: 24, marginBottom: 4, color: 'var(--ink)' }}>
+                    {p.expandTitle}
+                  </h3>
+                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 16 }}>
+                    {p.expandEn}
+                  </p>
+                  <p style={{ fontSize: 14, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7, marginBottom: 24 }}>
+                    {p.expandBody}
+                  </p>
+
+                  {/* Divider */}
+                  <div style={{ height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 18 }} />
+
+                  {/* Services */}
+                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 12 }}>
+                    適合的服務
+                  </p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 28 }}>
+                    {p.services.map(s => (
+                      <span
+                        key={s}
+                        style={{
+                          fontFamily: 'var(--f-zh-sans)',
+                          fontSize: 12,
+                          padding: '6px 14px',
+                          borderRadius: 999,
+                          border: `1px solid rgba(${p.accentRgb},0.3)`,
+                          color: p.accentColor,
+                          background: `rgba(${p.accentRgb},0.06)`,
+                          letterSpacing: '0.02em',
+                        }}
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <Link
+                    href={p.ctaHref}
+                    style={{
+                      fontFamily: 'var(--f-mono)',
+                      fontSize: 11,
+                      letterSpacing: '0.14em',
+                      textTransform: 'uppercase',
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      padding: '10px 22px',
+                      borderRadius: 999,
+                      border: `1px solid rgba(${p.accentRgb},0.4)`,
+                      color: p.accentColor,
+                    }}
+                  >
+                    {p.ctaLabel}
+                  </Link>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Hint */}
         <p
           style={{
             textAlign: 'center',
@@ -304,9 +291,9 @@ export default function PersonaCard2() {
             letterSpacing: '0.18em',
             textTransform: 'uppercase',
             color: 'var(--muted)',
-            opacity: active !== null ? 0 : 0.5,
+            opacity: active !== null ? 0 : 0.45,
             transition: 'opacity 0.4s',
-            marginTop: 32,
+            marginTop: 28,
             position: 'relative',
             zIndex: 1,
             pointerEvents: 'none',
