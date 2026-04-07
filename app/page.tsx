@@ -43,7 +43,7 @@ export default function Home() {
         <div style={{ position: 'absolute', top: '-5%', left: '-6%', zIndex: 0, pointerEvents: 'none', opacity: 0.35 }}>
           <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <Image
-              src="/頌缽九宮格.png"
+              src="/index/頌缽九宮格.png"
               alt=""
               width={1568}
               height={2172}
@@ -58,7 +58,7 @@ export default function Home() {
         <div style={{ position: 'absolute', bottom: '-34vh', right: '-5%', zIndex: 0, pointerEvents: 'none', opacity: 1 }}>
           <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
             <Image
-              src="/頌缽九宮格.png"
+              src="/index/頌缽九宮格.png"
               alt=""
               width={1568}
               height={2172}
@@ -68,20 +68,6 @@ export default function Home() {
             />
           </div>
         </div>
-
-        {/* Bottom fade — visual bridge to next section */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: 260,
-            background: 'linear-gradient(to bottom, transparent, var(--base))',
-            pointerEvents: 'none',
-            zIndex: 1,
-          }}
-        />
 
         <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           {/* Logo above the tagline */}

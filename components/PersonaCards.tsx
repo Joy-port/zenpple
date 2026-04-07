@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const personas = [
   {
@@ -17,20 +18,8 @@ const personas = [
     accentColor: '#4A6B8A',
     accentRgb: '74,107,138',
     bgGradient: 'linear-gradient(148deg, rgba(74,107,138,0.12) 0%, rgba(94,142,138,0.08) 60%, rgba(242,239,234,0.95) 100%)',
-    svg: (
-      <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', display: 'block' }}>
-        <g stroke="rgba(74,107,138,0.18)" strokeWidth="18" fill="none" strokeLinecap="round">
-          <path d="M30 80 Q80 40 150 70 Q220 100 270 60" />
-          <path d="M20 160 Q90 110 160 150 Q230 185 280 140" />
-          <path d="M10 250 Q85 195 160 235 Q235 270 285 225" />
-          <path d="M25 340 Q100 290 170 325 Q240 360 288 315" />
-        </g>
-        <g stroke="rgba(74,107,138,0.08)" strokeWidth="8" fill="none" strokeLinecap="round">
-          <path d="M50 120 Q120 80 190 110 Q250 135 280 105" />
-          <path d="M40 205 Q115 165 185 195 Q248 220 280 190" />
-        </g>
-      </svg>
-    ),
+    cardImage: '/index/卡牌-1.png',
+    imageFilter: 'sepia(1) hue-rotate(170deg) saturate(0.55) brightness(0.9)',
   },
   {
     id: 2,
@@ -45,20 +34,8 @@ const personas = [
     accentColor: '#7B6B9E',
     accentRgb: '123,107,158',
     bgGradient: 'linear-gradient(148deg, rgba(123,107,158,0.12) 0%, rgba(196,123,123,0.07) 60%, rgba(242,239,234,0.95) 100%)',
-    svg: (
-      <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', display: 'block' }}>
-        <g stroke="rgba(123,107,158,0.18)" strokeWidth="16" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M150 30 L80 180 L220 180" />
-          <path d="M90 120 L30 280 L155 280" />
-          <path d="M210 80 L155 230 L270 230" />
-        </g>
-        <g stroke="rgba(123,107,158,0.08)" strokeWidth="6" fill="none" strokeLinecap="round">
-          <line x1="80" y1="200" x2="80" y2="360" />
-          <line x1="150" y1="195" x2="150" y2="370" />
-          <line x1="220" y1="205" x2="220" y2="355" />
-        </g>
-      </svg>
-    ),
+    cardImage: '/index/卡牌-2.png',
+    imageFilter: 'sepia(1) hue-rotate(230deg) saturate(0.6) brightness(0.95)',
   },
   {
     id: 3,
@@ -73,20 +50,8 @@ const personas = [
     accentColor: '#B09070',
     accentRgb: '176,144,112',
     bgGradient: 'linear-gradient(148deg, rgba(176,144,112,0.12) 0%, rgba(94,142,138,0.07) 60%, rgba(242,239,234,0.95) 100%)',
-    svg: (
-      <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', display: 'block' }}>
-        <g stroke="rgba(176,144,112,0.18)" strokeWidth="14" fill="none" strokeLinecap="round">
-          <line x1="150" y1="370" x2="150" y2="140" />
-          <path d="M150 200 Q210 160 230 100 Q200 90 170 130 Q155 155 150 185" />
-          <path d="M150 240 Q90 195 70 130 Q100 120 135 160 Q148 180 150 220" />
-          <path d="M150 300 Q195 265 215 210 Q190 205 165 240 Q152 265 150 290" />
-        </g>
-        <g stroke="rgba(176,144,112,0.07)" strokeWidth="5" fill="none" strokeLinecap="round">
-          <path d="M120 380 Q150 340 180 380" />
-          <path d="M100 395 Q150 360 200 395" />
-        </g>
-      </svg>
-    ),
+    cardImage: '/index/卡牌-3.png',
+    imageFilter: 'sepia(0.65) saturate(0.85) brightness(1.02)',
   },
 ]
 
@@ -100,12 +65,30 @@ export default function PersonaCards() {
   return (
     <section
       style={{
-        padding: 'clamp(80px,10vw,130px) var(--gutter)',
-        background: 'var(--base)',
+        paddingTop: 'clamp(100px, 13vw, 180px)',
+        paddingBottom: 'clamp(80px, 10vw, 130px)',
+        paddingLeft: 'var(--gutter)',
+        paddingRight: 'var(--gutter)',
+        background: 'var(--mist)',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
+      {/* Wave — transitions from hero base colour into mist bg */}
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
+        <svg
+          viewBox="0 0 1440 72"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          style={{ width: '100%', height: 72, display: 'block' }}
+        >
+          <path
+            d="M0,0 L1440,0 L1440,36 Q1260,70 1080,44 Q900,18 720,52 Q540,72 360,44 Q180,18 0,54 Z"
+            fill="var(--base)"
+          />
+        </svg>
+      </div>
+
       <div className="wrap">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 52, position: 'relative', zIndex: 1 }}>
@@ -117,17 +100,17 @@ export default function PersonaCards() {
               color: 'var(--muted)',
               textTransform: 'uppercase',
               marginBottom: 14,
-              justifyContent: 'center',
               display: 'flex',
+              justifyContent: 'center',
             }}
           >
             你是哪一種人
           </p>
           <h2
             style={{
-              fontFamily: 'var(--f-elegant)',
-              fontSize: 'clamp(26px, 3.5vw, 38px)',
-              fontWeight: 300,
+              fontFamily: 'var(--f-zh-sans)',
+              fontWeight: 700,
+              fontSize: 'clamp(22px, 3vw, 34px)',
               letterSpacing: '0.04em',
               color: 'var(--ink)',
             }}
@@ -169,8 +152,21 @@ export default function PersonaCards() {
                   : undefined,
               }}
             >
-              {/* Calligraphy SVG background */}
-              <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>{p.svg}</div>
+              {/* Card photo background */}
+              <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+                <Image
+                  src={p.cardImage}
+                  alt=""
+                  fill
+                  style={{
+                    objectFit: 'contain',
+                    objectPosition: 'center 15%',
+                    opacity: 0.5,
+                    filter: p.imageFilter,
+                    mixBlendMode: 'multiply',
+                  }}
+                />
+              </div>
 
               {/* Text content */}
               <div
@@ -185,7 +181,7 @@ export default function PersonaCards() {
                 <h3
                   className="tr-h1"
                   style={{
-                    fontSize: 19,
+                    fontSize: 17,
                     lineHeight: 1.45,
                     color: 'var(--ink)',
                     marginBottom: 8,
@@ -196,7 +192,7 @@ export default function PersonaCards() {
                 </h3>
                 <p
                   style={{
-                    fontSize: 13,
+                    fontSize: 14,
                     color: 'var(--muted)',
                     lineHeight: 1.85,
                     whiteSpace: 'pre-line',
@@ -240,7 +236,7 @@ export default function PersonaCards() {
                 <h3
                   className="tr-h1"
                   style={{
-                    fontSize: 26,
+                    fontSize: 24,
                     marginBottom: 4,
                     color: 'var(--ink)',
                   }}
