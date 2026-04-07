@@ -31,7 +31,7 @@ export default function PageSection({ children, ghost, style }: PageSectionProps
             color: 'var(--ink)',
             opacity: 0.04,
             position: 'absolute',
-            top: '15%',
+            top: 'clamp(60px, 8vw, 110px)',
             left: '50%',
             transform: 'translateX(-50%)',
             whiteSpace: 'nowrap',
