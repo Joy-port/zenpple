@@ -84,7 +84,7 @@ export default function EcosystemMountain2() {
   const isMobile = useIsMobile()
 
   return (
-    <PageSection ghost="SENSING WAVE" style={{ paddingTop: 'clamp(100px, 12vw, 140px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
+    <PageSection id="ecosystem" ghost="SENSING WAVE" style={{ minHeight: '100svh', paddingTop: 'clamp(100px, 12vw, 140px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
 
       <div className="wrap">
 

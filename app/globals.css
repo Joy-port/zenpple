@@ -40,6 +40,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -153,6 +154,53 @@ body::after {
 @keyframes qi-float {
   0%, 100% { transform: translateY(0) rotate(-2deg); }
   50%       { transform: translateY(-12px) rotate(2deg); }
+}
+
+/* ── Section scroll anchoring ── */
+section {
+  scroll-margin-top: 64px;
+  scroll-snap-align: start;
+}
+
+/* ── Desktop-only spacing overrides ─────────────────────────────────────────
+   Uses !important to beat inline styles. All values target ≥768px only.
+   Mobile floors in clamp() / component styles are untouched.
+──────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  /* SectionTransition divider — shrink from 90px to 44px */
+  .section-divider {
+    height: 44px !important;
+  }
+  .section-divider svg {
+    height: 44px !important;
+  }
+
+  /* Main section padding */
+  #who-you-are,
+  #ecosystem,
+  #founders {
+    padding-top: 72px !important;
+    padding-bottom: 32px !important;
+  }
+
+  /* PageTitle bottom gap */
+  .page-title-wrap {
+    margin-bottom: 28px !important;
+  }
+
+  /* Founders inner card spacing */
+  .founder-card-inner {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+
+  /* CTA section */
+  #contact h2 {
+    margin-bottom: 12px !important;
+  }
+  .cta-para {
+    margin: 0 auto 28px !important;
+  }
 }
 
 /* ── Scroll-triggered fade-slide ── */

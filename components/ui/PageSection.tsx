@@ -4,11 +4,15 @@ interface PageSectionProps {
   children: React.ReactNode
   ghost?: React.ReactNode
   style?: React.CSSProperties
+  id?: string
+  className?: string
 }
 
-export default function PageSection({ children, ghost, style }: PageSectionProps) {
+export default function PageSection({ children, ghost, style, id, className }: PageSectionProps) {
   return (
     <section
+      id={id}
+      className={className}
       style={{
         paddingTop: 'clamp(120px, 15vw, 160px)',
         paddingBottom: 'clamp(80px, 10vw, 130px)',

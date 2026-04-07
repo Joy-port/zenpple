@@ -31,8 +31,9 @@ const founders = [
 export default function FoundersSection() {
   return (
     <PageSection
+      id="founders"
       ghost="FOUNDERS"
-      style={{ overflow: 'visible', position: 'relative', paddingTop: 'clamp(100px, 12vw, 140px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}
+      style={{ minHeight: '100svh', overflow: 'visible', position: 'relative', paddingTop: 'clamp(100px, 12vw, 140px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}
     >
 
       {/* ── Top gradient wave ── */}
@@ -64,6 +65,7 @@ export default function FoundersSection() {
             return (
               <div key={f.key}>
                 <div
+                  className="founder-card-inner"
                   style={{
                     position: 'relative',
                     paddingTop: 'clamp(32px, 4vw, 64px)',
@@ -95,7 +97,7 @@ export default function FoundersSection() {
                       isRight ? 'md:flex-row-reverse' : 'md:flex-row',
                       'md:items-end',
                     ].join(' ')}
-                    style={{ gap: 'clamp(24px, 5vw, 72px)' }}
+                    style={{ gap: 'clamp(24px, 3vw, 40px)' }}
                   >
                     {/* Image */}
                     <div
@@ -115,7 +117,7 @@ export default function FoundersSection() {
                       <h3
                         className="tr-d2"
                         style={{
-                          fontSize: 'clamp(28px, 4.5vw, 54px)',
+                          fontSize: 'clamp(28px, 2.7vw, 33px)',
                           letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.1, marginBottom: 16,
                           overflowWrap: 'break-word', wordBreak: 'break-word',
                         }}
@@ -127,7 +129,7 @@ export default function FoundersSection() {
                         style={{
                           fontFamily: 'var(--f-mono)',
                           fontSize: 'clamp(14px, 1.5vw, 16px)',
-                          letterSpacing: '0.06em', color: f.accent, marginBottom: 24,
+                          letterSpacing: '0.06em', color: f.accent, marginBottom: 12,
                         }}
                       >
                         {f.roles}
@@ -137,7 +139,7 @@ export default function FoundersSection() {
                         className="max-w-full md:max-w-[400px]"
                         style={{
                           fontSize: 'clamp(14px, 1.5vw, 16px)', lineHeight: 1.9,
-                          color: 'var(--muted)', marginBottom: 36,
+                          color: 'var(--muted)', marginBottom: 20,
                           overflowWrap: 'break-word', wordBreak: 'break-word',
                         }}
                       >

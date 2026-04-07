@@ -1,6 +1,7 @@
 export default function SectionTransition() {
   return (
     <div
+      className="section-divider"
       style={{
         height: 90,
         background: 'var(--base)',

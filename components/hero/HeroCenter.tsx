@@ -4,6 +4,7 @@ import Image from 'next/image'
 export default function HeroCenter() {
   return (
     <section
+      id="hero"
       style={{
         minHeight: '100svh',
         display: 'flex',

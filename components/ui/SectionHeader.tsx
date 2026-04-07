@@ -40,7 +40,7 @@ export default function SectionHeader({
         <p style={{
           fontFamily: 'var(--f-zh-sans)',
           fontWeight: 300,
-          fontSize: 'clamp(20px, 2.8vw, 32px)',
+          fontSize: 'clamp(20px, 1.8vw, 22px)',
           letterSpacing: '0.1em',
           color: 'var(--muted)',
           marginBottom: 10,
@@ -52,7 +52,7 @@ export default function SectionHeader({
       <h2 style={{
         fontFamily: 'var(--f-zh-sans)',
         fontWeight: 700,
-        fontSize: 'clamp(28px, 4.5vw, 52px)',
+        fontSize: 'clamp(28px, 2.7vw, 33px)',
         letterSpacing: '0.04em',
         color: 'var(--ink)',
       }}>

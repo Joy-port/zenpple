@@ -64,7 +64,7 @@ export default function Home() {
           <h2
             className="tr-d2"
             style={{
-              fontSize: 'clamp(24px, 4vw, 48px)',
+              fontSize: 'clamp(24px, 2.5vw, 30px)',
               lineHeight: 1.2,
               color: 'var(--base)',
               marginBottom: 20,
@@ -73,6 +73,7 @@ export default function Home() {
             準備好了嗎？<br />先來聊聊你的狀態。
           </h2>
           <p
+            className="cta-para"
             style={{
               fontSize: 'clamp(14px, 1.5vw, 16px)',
               color: 'rgba(242,239,234,0.65)',

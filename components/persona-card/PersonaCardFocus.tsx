@@ -243,11 +243,11 @@ function MobileCards({
 }
 
 const CARD_W   = 300
-const CARD_H   = 580
+const CARD_H   = 480
 const IMG_W    = 210
-const IMG_H    = 336
-const EXPAND_W = 500
-const EXPAND_H = 680
+const IMG_H    = 270
+const EXPAND_W = 460
+const EXPAND_H = 520
 
 export default function PersonaCardFocus() {
   const [active, setActive] = useState<number | null>(null)
@@ -266,6 +266,7 @@ export default function PersonaCardFocus() {
     transition: 'background 0.6s ease',
     overflow: 'visible' as const,
     zIndex: 1,
+    minHeight: '100svh',
     paddingTop: 'clamp(100px, 12vw, 140px)',
     paddingBottom: 'clamp(40px, 5vw, 64px)',
   }
@@ -318,7 +319,7 @@ export default function PersonaCardFocus() {
   )
 
   return (
-    <PageSection ghost="WHO YOU ARE" style={sectionStyle}>
+    <PageSection id="who-you-are" ghost="WHO YOU ARE" style={sectionStyle}>
 
       {/* ── Top waves ── */}
       <div style={{ position: 'absolute', top: -88, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
