@@ -20,10 +20,10 @@ const pyramidRows = [
   },
 ]
 
-export default function Home() {
+export default function HeroTwo() {
   return (
     <>
-      {/* ── HERO ── */}
+      {/* ── HERO (Option C) ── */}
       <section
         style={{
           height: '100svh',
@@ -39,7 +39,7 @@ export default function Home() {
           background: 'var(--base)',
         }}
       >
-        {/* Option C — top-left: strong anchor */}
+        {/* Option A — top-left: balanced, reads as intentional frame */}
         <Image
           src="/頌缽九宮格.png"
           alt=""
@@ -49,9 +49,9 @@ export default function Home() {
           className="animate-breathe"
           style={{
             position: 'absolute',
-            top: '-5%',
-            left: '-6%',
-            height: 'clamp(380px, 68vh, 620px)',
+            top: '-8%',
+            left: '-5%',
+            height: 'clamp(320px, 55vh, 500px)',
             width: 'auto',
             opacity: 0.07,
             pointerEvents: 'none',
@@ -59,32 +59,26 @@ export default function Home() {
           }}
         />
 
-        {/* Option C — bottom-right: smooth fade-in reveal, no breathe flash */}
-        <div
-          className="animate-fade-in"
+        {/* Option A — bottom-right: close in size, slight opacity boost to compensate */}
+        <Image
+          src="/頌缽九宮格.png"
+          alt=""
+          width={1568}
+          height={2172}
+          aria-hidden
+          className="animate-breathe"
           style={{
             position: 'absolute',
-            bottom: '-34vh',
+            bottom: '-8%',
             right: '-5%',
-            zIndex: 0,
+            height: 'clamp(280px, 48vh, 440px)',
+            width: 'auto',
+            opacity: 0.09,
             pointerEvents: 'none',
-            animationDelay: '1s',
+            zIndex: 0,
+            animationDelay: '1.8s',
           }}
-        >
-          <Image
-            src="/頌缽九宮格.png"
-            alt=""
-            width={1568}
-            height={2172}
-            aria-hidden
-            style={{
-              height: 'clamp(380px, 68vh, 620px)',
-              width: 'auto',
-              opacity: 0.03,
-              display: 'block',
-            }}
-          />
-        </div>
+        />
 
         {/* Bottom fade — visual bridge to next section */}
         <div
@@ -93,7 +87,7 @@ export default function Home() {
             bottom: 0,
             left: 0,
             right: 0,
-            height: 260,
+            height: 140,
             background: 'linear-gradient(to bottom, transparent, var(--base))',
             pointerEvents: 'none',
             zIndex: 1,
