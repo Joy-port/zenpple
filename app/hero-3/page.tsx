@@ -20,10 +20,10 @@ const pyramidRows = [
   },
 ]
 
-export default function HeroTwo() {
+export default function HeroThree() {
   return (
     <>
-      {/* ── HERO (Option C) ── */}
+      {/* ── HERO (Option horizontal) ── */}
       <section
         style={{
           height: '100svh',
@@ -39,8 +39,8 @@ export default function HeroTwo() {
           background: 'var(--base)',
         }}
       >
-        {/* Top-right — entry from right, lighter */}
-        <div style={{ position: 'absolute', top: '-5%', right: '-6%', zIndex: 0, pointerEvents: 'none', opacity: 0.35 }}>
+        {/* Left — vertically centered, flanking */}
+        <div style={{ position: 'absolute', top: '50%', left: '-6%', transform: 'translateY(-50%)', zIndex: 0, pointerEvents: 'none', opacity: 0.35 }}>
           <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <Image
               src="/頌缽九宮格.png"
@@ -49,13 +49,13 @@ export default function HeroTwo() {
               height={2172}
               aria-hidden
               className="animate-breathe-scale"
-              style={{ height: 'clamp(380px, 68vh, 620px)', width: 'auto', display: 'block' }}
+              style={{ height: 'clamp(300px, 54vh, 500px)', width: 'auto', display: 'block' }}
             />
           </div>
         </div>
 
-        {/* Bottom-left — exit anchor, stronger */}
-        <div style={{ position: 'absolute', bottom: '-34vh', left: '-5%', zIndex: 0, pointerEvents: 'none', opacity: 1 }}>
+        {/* Right — vertically centered, flanking, stronger */}
+        <div style={{ position: 'absolute', top: '50%', right: '-6%', transform: 'translateY(-50%)', zIndex: 0, pointerEvents: 'none', opacity: 1 }}>
           <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
             <Image
               src="/頌缽九宮格.png"
