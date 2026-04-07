@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import SectionHeader from '@/components/ui/SectionHeader'
-import SectionTransition from '@/components/ui/SectionTransition'
 
 const personas = [
   {
@@ -85,8 +84,6 @@ export default function PersonaCardFocus() {
         overflow: 'hidden',
       }}
     >
-      <SectionTransition position="top" />
-
       {/* WHO YOU ARE ghost background */}
       <div
         aria-hidden="true"
@@ -99,7 +96,7 @@ export default function PersonaCardFocus() {
           color: 'var(--ink)',
           opacity: 0.04,
           position: 'absolute',
-          top: '6%',
+          top: '12%',
           left: '50%',
           transform: 'translateX(-50%)',
           whiteSpace: 'nowrap',
