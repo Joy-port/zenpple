@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import PersonaCard3 from '@/app/personalcard-3/page'
+import PersonaCards from '@/components/PersonaCards'
 
 const pyramidRows = [
   {
@@ -128,7 +128,7 @@ export default function HeroFour() {
       </section>
 
       {/* ── PERSONA CARDS ── */}
-      <PersonaCard3 />
+      <PersonaCards />
 
       {/* ── ECOSYSTEM ── */}
       <section

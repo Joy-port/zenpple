@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import PersonaCards from '@/components/PersonaCards'
+import PersonaCard3 from '@/app/personalcard-3/page'
 
 const pyramidRows = [
   {
@@ -160,7 +160,7 @@ export default function Home() {
       </section>
 
       {/* ── PERSONA CARDS ── */}
-      <PersonaCards />
+      <PersonaCard3 />
 
       {/* ── ECOSYSTEM ── */}
       <section
