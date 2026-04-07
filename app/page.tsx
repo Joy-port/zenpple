@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import HeroCenter from '@/components/HeroCenter'
+import HeroCenter from '@/components/hero/HeroCenter'
 // ── PERSONA CARD ON / ── PersonaCardFocus (card dissolves, expand slides right)
-import PersonaCardFocus from '@/components/PersonaCardFocus'
+import PersonaCardFocus from '@/components/persona-card/PersonaCardFocus'
 
 const pyramidRows = [
   {

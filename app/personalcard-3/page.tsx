@@ -1,4 +1,4 @@
-import PersonaCardFocus from '@/components/PersonaCardFocus'
+import PersonaCardFocus from '@/components/persona-card/PersonaCardFocus'
 
 export default function PersonaCard3Page() {
   return <PersonaCardFocus />
