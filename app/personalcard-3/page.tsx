@@ -90,7 +90,7 @@ export default function PersonaCard3() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 52, position: 'relative', zIndex: 1 }}>
           <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 300, fontSize: 'clamp(16px, 2vw, 26px)', letterSpacing: '0.12em', color: 'var(--muted)', marginBottom: 12 }}>
-            你是哪一種人
+            選一張牌
           </p>
           <h2 style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 700, fontSize: 'clamp(22px, 3vw, 34px)', letterSpacing: '0.04em', color: 'var(--ink)' }}>
             找到屬於你的路徑
@@ -148,12 +148,9 @@ export default function PersonaCard3() {
                     display: 'flex',
                     flexDirection: 'column',
                     background: '#FFFFFF',
-                    boxShadow: isActive
-                      ? `0 22px 52px rgba(${p.accentRgb},0.24), 0 4px 16px rgba(${p.accentRgb},0.1)`
-                      : '0 2px 14px rgba(42,42,42,0.07)',
-                    outline: isActive ? `2px solid rgba(${p.accentRgb},0.28)` : '2px solid transparent',
-                    transform: isActive ? 'translateY(-6px) scale(1.02)' : 'translateY(0) scale(1)',
-                    transition: 'transform 0.45s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s, outline 0.25s',
+                    boxShadow: '0 2px 14px rgba(42,42,42,0.07)',
+                    outline: isActive ? `2px solid rgba(${p.accentRgb},0.35)` : '2px solid transparent',
+                    transition: 'outline 0.25s',
                   }}
                 >
                   <div style={{ flex: '0 0 65%', position: 'relative' }}>
@@ -260,10 +257,6 @@ export default function PersonaCard3() {
           })}
         </div>
 
-        {/* Hint */}
-        <p style={{ textAlign: 'center', fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', opacity: active !== null ? 0 : 0.45, transition: 'opacity 0.4s', marginTop: 28, position: 'relative', zIndex: 1, pointerEvents: 'none' }}>
-          選一張牌
-        </p>
       </div>
     </section>
   )

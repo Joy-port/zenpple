@@ -84,7 +84,7 @@ export default function PersonaCard2() {
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 52, position: 'relative', zIndex: 1 }}>
           <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 300, fontSize: 'clamp(16px, 2vw, 26px)', letterSpacing: '0.12em', color: 'var(--muted)', marginBottom: 12 }}>
-            你是哪一種人
+            選一張牌
           </p>
           <h2 style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 700, fontSize: 'clamp(22px, 3vw, 34px)', letterSpacing: '0.04em', color: 'var(--ink)' }}>
             找到屬於你的路徑
@@ -246,25 +246,6 @@ export default function PersonaCard2() {
           })}
         </div>
 
-        {/* Hint */}
-        <p
-          style={{
-            textAlign: 'center',
-            fontFamily: 'var(--f-mono)',
-            fontSize: 10,
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase',
-            color: 'var(--muted)',
-            opacity: active !== null ? 0 : 0.45,
-            transition: 'opacity 0.4s',
-            marginTop: 28,
-            position: 'relative',
-            zIndex: 1,
-            pointerEvents: 'none',
-          }}
-        >
-          選一張牌
-        </p>
       </div>
     </section>
   )
