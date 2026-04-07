@@ -145,94 +145,75 @@ export default function EcosystemMountain2() {
                 )
               })}
 
-              {/* Hit zones (desktop only) */}
-              {!isMobile && zones.map(z => (
+              {/* Hit zones */}
+              {zones.map(z => (
                 <path
                   key={`zone-${z.id}`}
                   d={z.clipPath}
                   fill="transparent"
                   stroke="none"
                   style={{ cursor: 'pointer' }}
-                  onMouseEnter={() => setHovered(z.id)}
-                  onMouseLeave={() => setHovered(null)}
+                  onMouseEnter={isMobile ? undefined : () => setHovered(z.id)}
+                  onMouseLeave={isMobile ? undefined : () => setHovered(null)}
                   onClick={() => router.push(z.href)}
                 />
               ))}
             </svg>
 
-            {/* HTML tooltips — desktop only */}
-            {!isMobile && zones.map(z => (
+            {/* Tooltips — desktop: full label + stroke + sub; mobile: short label only, always visible, tappable */}
+            {zones.map(z => (
               <div
                 key={`tip-${z.id}`}
+                onClick={isMobile ? () => router.push(z.href) : undefined}
                 style={{
                   position: 'absolute',
                   ...z.tipPos,
-                  opacity: hovered === null ? 1 : (hovered === z.id ? 1 : 0),
+                  opacity: isMobile ? 1 : (hovered === null ? 1 : (hovered === z.id ? 1 : 0)),
                   transition: 'opacity 0.25s ease',
-                  pointerEvents: 'none',
+                  pointerEvents: isMobile ? 'auto' : 'none',
+                  cursor: isMobile ? 'pointer' : 'default',
                   zIndex: 10,
-                  background: `rgba(${z.accentRgb}, 0.10)`,
+                  background: `rgba(${z.accentRgb}, 0.12)`,
                   backdropFilter: 'blur(14px)',
                   WebkitBackdropFilter: 'blur(14px)',
-                  borderLeft: `5px solid ${z.accent}`,
+                  borderLeft: `4px solid ${z.accent}`,
                   borderRadius: '4px 10px 10px 4px',
-                  padding: '10px 14px',
-                  maxWidth: 180,
+                  padding: isMobile ? '7px 11px' : '12px 16px',
+                  maxWidth: isMobile ? 100 : 210,
                 }}
               >
+                {/* Label */}
                 <div style={{
                   fontFamily: 'var(--f-zh)',
                   fontWeight: 500,
-                  fontSize: 'clamp(14px, 1.8vw, 20px)',
+                  fontSize: isMobile ? 'clamp(13px, 3.5vw, 16px)' : 'clamp(14px, 1.8vw, 20px)',
                   letterSpacing: '0.04em',
                   color: 'var(--ink)',
                   lineHeight: 1.2,
+                  marginBottom: isMobile ? 0 : 6,
                 }}>
-                  {z.label}
+                  {isMobile ? z.shortLabel : z.label}
                 </div>
+
+                {/* Desktop only: horizontal divider + sub text */}
+                {!isMobile && (
+                  <>
+                    <div style={{ width: 24, height: 1, background: z.accent, opacity: 0.4, marginBottom: 6 }} />
+                    <div style={{
+                      fontFamily: 'var(--f-mono)',
+                      fontSize: 'clamp(12px, 1.2vw, 15px)',
+                      letterSpacing: '0.08em',
+                      color: 'var(--muted)',
+                      lineHeight: 1.6,
+                    }}>
+                      {z.sub}
+                    </div>
+                  </>
+                )}
               </div>
             ))}
           </div>
 
-          {/* ── Mobile: vertical label list below mountain ── */}
-          {isMobile && (
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '10px 16px',
-              marginTop: 20,
-              paddingLeft: 4,
-              paddingRight: 4,
-            }}>
-              {zones.map(z => (
-                <button
-                  key={`m-label-${z.id}`}
-                  onClick={() => router.push(z.href)}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 10,
-                    background: 'none',
-                    border: 'none',
-                    padding: '8px 0',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                  }}
-                >
-                  <div style={{ width: 4, height: 28, borderRadius: 2, background: z.accent, flexShrink: 0 }} />
-                  <span style={{
-                    fontFamily: 'var(--f-zh)',
-                    fontWeight: 500,
-                    fontSize: 'clamp(16px, 4vw, 20px)',
-                    letterSpacing: '0.04em',
-                    color: 'var(--ink)',
-                  }}>
-                    {z.shortLabel}
-                  </span>
-                </button>
-              ))}
-            </div>
-          )}
 
         </div>
       </div>

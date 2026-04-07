@@ -75,14 +75,12 @@ export default function PersonaCardFocus() {
     return () => window.removeEventListener('resize', check)
   }, [])
 
-  const toggle = (id: number) => {
-    setActive(prev => (prev === id ? null : id))
-  }
+  const toggle = (id: number) => setActive(prev => (prev === id ? null : id))
+  const close  = () => setActive(null)
 
   const activePersona = personas.find(p => p.id === active)
-
-  const primaryRgb   = active !== null ? (activePersona?.accentRgb    ?? '192,184,174') : '192,184,174'
-  const secondaryRgb = active !== null ? (activePersona?.secondaryRgb ?? '192,184,174') : '192,184,174'
+  const primaryRgb   = activePersona?.accentRgb    ?? '192,184,174'
+  const secondaryRgb = activePersona?.secondaryRgb ?? '192,184,174'
 
   const sectionStyle = {
     background: active !== null
@@ -95,14 +93,11 @@ export default function PersonaCardFocus() {
     paddingBottom: 'clamp(40px, 5vw, 64px)',
   }
 
-  /* ── shared expand panel content ── */
+  /* ── Shared expand content (used in both desktop panel & mobile modal) ── */
   const ExpandContent = ({ p }: { p: typeof personas[0] }) => (
     <>
       <div style={{ width: 80, height: 80, position: 'relative', marginBottom: 20, flexShrink: 0 }}>
-        <Image
-          src={p.cardImage}
-          alt=""
-          fill
+        <Image src={p.cardImage} alt="" fill
           style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.82 }}
         />
       </div>
@@ -146,12 +141,9 @@ export default function PersonaCardFocus() {
   )
 
   return (
-    <PageSection
-      ghost="WHO YOU ARE"
-      style={sectionStyle}
-    >
+    <PageSection ghost="WHO YOU ARE" style={sectionStyle}>
 
-      {/* ── Top waves: protrude upward into hero section ── */}
+      {/* ── Top waves ── */}
       <div style={{ position: 'absolute', top: -88, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
         <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block' }}>
           <defs>
@@ -164,20 +156,14 @@ export default function PersonaCardFocus() {
               <stop offset="100%" stopColor={`rgb(${primaryRgb})`} stopOpacity={0} />
             </linearGradient>
           </defs>
-          <path
-            d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z"
-            fill="url(#pcf-top-sec)"
-          />
-          <path
-            d="M0,90 L0,62 Q180,32 360,58 Q540,80 720,50 Q900,22 1080,52 Q1260,76 1440,46 L1440,90 Z"
-            fill="url(#pcf-top-pri)"
-          />
+          <path d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z" fill="url(#pcf-top-sec)" />
+          <path d="M0,90 L0,62 Q180,32 360,58 Q540,80 720,50 Q900,22 1080,52 Q1260,76 1440,46 L1440,90 Z" fill="url(#pcf-top-pri)" />
           <path d="M0,72 Q120,38 300,75 Q480,88 640,44 Q800,12 960,56 Q1100,84 1280,38 Q1380,18 1440,52" stroke="#b5ac9e" strokeWidth="1" fill="none" opacity="0.5" />
           <path d="M0,48 Q220,82 420,32 Q580,8 740,70 Q920,88 1060,34 Q1200,6 1380,58 L1440,62" stroke="#c8c0b2" strokeWidth="0.6" fill="none" opacity="0.4" />
         </svg>
       </div>
 
-      {/* ── Bottom waves: protrude downward into mountain section ── */}
+      {/* ── Bottom waves ── */}
       <div style={{ position: 'absolute', bottom: -88, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
         <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block', transform: 'scaleY(-1)' }}>
           <defs>
@@ -190,136 +176,128 @@ export default function PersonaCardFocus() {
               <stop offset="100%" stopColor={`rgb(${primaryRgb})`} stopOpacity={0} />
             </linearGradient>
           </defs>
-          <path
-            d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z"
-            fill="url(#pcf-bot-sec)"
-          />
-          <path
-            d="M0,90 L0,62 Q180,32 360,58 Q540,80 720,50 Q900,22 1080,52 Q1260,76 1440,46 L1440,90 Z"
-            fill="url(#pcf-bot-pri)"
-          />
+          <path d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z" fill="url(#pcf-bot-sec)" />
+          <path d="M0,90 L0,62 Q180,32 360,58 Q540,80 720,50 Q900,22 1080,52 Q1260,76 1440,46 L1440,90 Z" fill="url(#pcf-bot-pri)" />
         </svg>
       </div>
-
 
       <div className="wrap">
         <PageTitle sub="選一張牌" title="找到屬於你的路徑" />
 
-        {/* ── MOBILE layout: vertical stack ── */}
+        {/* ── MOBILE: card list + bottom-sheet modal ── */}
         {isMobile && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, position: 'relative', zIndex: 1 }}>
-            {personas.map(p => {
-              const isActive = active === p.id
-              return (
-                <div key={p.id} style={{ minWidth: 0 }}>
-                  {/* Card row */}
-                  <div
-                    onClick={() => toggle(p.id)}
-                    style={{
-                      borderRadius: 16,
-                      overflow: 'hidden',
-                      background: '#FFFFFF',
-                      boxShadow: isActive
-                        ? `0 4px 24px rgba(${p.accentRgb},0.18), 0 0 0 1px rgba(${p.accentRgb},0.12)`
-                        : '0 2px 14px rgba(42,42,42,0.07)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      padding: '1.25rem',
-                      gap: 16,
-                      cursor: 'pointer',
-                      transition: 'box-shadow 0.3s ease',
-                    }}
-                  >
-                    <div style={{ position: 'relative', width: 64, height: 100, flexShrink: 0 }}>
-                      <Image
-                        src={p.cardImage}
-                        alt=""
-                        fill
-                        style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8 }}
-                      />
-                    </div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <h3
-                        className="tr-h1"
-                        style={{
-                          fontSize: 'clamp(16px, 4vw, 22px)',
-                          lineHeight: 1.5,
-                          color: 'var(--ink)',
-                          marginBottom: 6,
-                          whiteSpace: 'pre-line',
-                          overflowWrap: 'break-word',
-                          wordBreak: 'break-word',
-                        }}
-                      >
-                        {p.cardTitle}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: 'clamp(13px, 3vw, 15px)',
-                          color: 'var(--muted)',
-                          lineHeight: 1.7,
-                          whiteSpace: 'pre-line',
-                          overflowWrap: 'break-word',
-                          wordBreak: 'break-word',
-                        }}
-                      >
-                        {p.cardDesc}
-                      </p>
-                    </div>
-                    <div style={{
-                      flexShrink: 0,
-                      width: 24,
-                      height: 24,
-                      borderRadius: '50%',
-                      border: `1.5px solid rgba(${p.accentRgb},0.4)`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: 14,
-                      color: p.accentColor,
-                      transition: 'transform 0.3s ease',
-                      transform: isActive ? 'rotate(45deg)' : 'none',
-                    }}>
-                      +
-                    </div>
-                  </div>
+          <>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, position: 'relative', zIndex: 1 }}>
+              {personas.map(p => (
+                <div
+                  key={p.id}
+                  onClick={() => toggle(p.id)}
+                  style={{
+                    borderRadius: 16,
+                    background: '#FFFFFF',
+                    boxShadow: active === p.id
+                      ? `0 4px 24px rgba(${p.accentRgb},0.22), 0 0 0 1.5px rgba(${p.accentRgb},0.2)`
+                      : '0 2px 14px rgba(42,42,42,0.07)',
+                    display: 'flex',
+                    alignItems: 'stretch',
+                    cursor: 'pointer',
+                    overflow: 'hidden',
+                    transition: 'box-shadow 0.3s ease',
+                  }}
+                >
+                  {/* Accent bar */}
+                  <div style={{ width: 4, flexShrink: 0, background: p.accentColor, opacity: 0.7 }} />
 
-                  {/* Expand panel below */}
-                  <div
-                    style={{
-                      overflow: 'hidden',
-                      maxHeight: isActive ? 800 : 0,
-                      opacity: isActive ? 1 : 0,
-                      marginTop: isActive ? 8 : 0,
-                      transition: [
-                        'max-height 0.5s cubic-bezier(0.4,0,0.2,1)',
-                        'opacity 0.35s ease',
-                        'margin-top 0.4s ease',
-                      ].join(', '),
-                    }}
-                  >
-                    <div
+                  {/* Text content */}
+                  <div style={{ flex: 1, minWidth: 0, padding: '1.25rem 1.25rem 1.25rem 1rem' }}>
+                    <h3
+                      className="tr-h1"
                       style={{
-                        borderRadius: 20,
-                        background: '#FFFFFF',
-                        boxShadow: `0 16px 52px rgba(${p.accentRgb},0.18), 0 0 0 1px rgba(${p.accentRgb},0.1)`,
-                        padding: '1.75rem',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        textAlign: 'center',
+                        fontSize: 'clamp(16px, 4vw, 22px)',
+                        lineHeight: 1.55,
+                        color: 'var(--ink)',
+                        marginBottom: 8,
+                        whiteSpace: 'pre-line',
+                        overflowWrap: 'break-word',
+                        wordBreak: 'break-word',
                       }}
                     >
-                      <ExpandContent p={p} />
-                    </div>
+                      {p.cardTitle}
+                    </h3>
+                    <p
+                      style={{
+                        fontSize: 'clamp(13px, 3vw, 15px)',
+                        color: 'var(--muted)',
+                        lineHeight: 1.8,
+                        whiteSpace: 'pre-line',
+                        overflowWrap: 'break-word',
+                        wordBreak: 'break-word',
+                      }}
+                    >
+                      {p.cardDesc}
+                    </p>
+                  </div>
+
+                  {/* Breathing dot indicator */}
+                  <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', paddingRight: '1rem' }}>
+                    <div
+                      className="animate-breathe"
+                      style={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: '50%',
+                        background: p.accentColor,
+                        opacity: 0.55,
+                      }}
+                    />
                   </div>
                 </div>
-              )
-            })}
-          </div>
+              ))}
+            </div>
+
+            {/* Bottom-sheet modal */}
+            {active !== null && activePersona && (
+              <div
+                style={{
+                  position: 'fixed',
+                  inset: 0,
+                  zIndex: 1000,
+                  background: 'rgba(42,42,42,0.45)',
+                  backdropFilter: 'blur(6px)',
+                  WebkitBackdropFilter: 'blur(6px)',
+                  display: 'flex',
+                  alignItems: 'flex-end',
+                }}
+                onClick={close}
+              >
+                <div
+                  style={{
+                    background: '#FFFFFF',
+                    borderRadius: '22px 22px 0 0',
+                    width: '100%',
+                    maxHeight: '88vh',
+                    overflowY: 'auto',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    padding: '0 1.75rem 2.5rem',
+                    boxShadow: `0 -8px 40px rgba(${activePersona.accentRgb},0.20)`,
+                    WebkitOverflowScrolling: 'touch',
+                  } as React.CSSProperties}
+                  onClick={e => e.stopPropagation()}
+                >
+                  {/* Drag handle */}
+                  <div style={{ width: 40, height: 4, borderRadius: 2, background: '#d8d4ce', margin: '14px auto 24px', flexShrink: 0 }} />
+                  <ExpandContent p={activePersona} />
+                  <div style={{ height: 8 }} />
+                </div>
+              </div>
+            )}
+          </>
         )}
 
-        {/* ── DESKTOP layout: horizontal expand ── */}
+        {/* ── DESKTOP: horizontal expand animation ── */}
         {!isMobile && (
           <div
             style={{
@@ -339,7 +317,6 @@ export default function PersonaCardFocus() {
               const isLast   = i === personas.length - 1
 
               return [
-                /* ── CARD ── */
                 <div
                   key={p.id}
                   onClick={() => toggle(p.id)}
@@ -351,82 +328,32 @@ export default function PersonaCardFocus() {
                     opacity: isOther ? 0 : 1,
                     cursor: 'pointer',
                     marginRight: isOther ? 0 : (isActive ? 18 : (isLast ? 0 : 18)),
-                    transition: [
-                      'width 0.5s cubic-bezier(0.4,0,0.2,1)',
-                      'opacity 0.35s ease',
-                      'margin 0.5s cubic-bezier(0.4,0,0.2,1)',
-                    ].join(', '),
+                    transition: ['width 0.5s cubic-bezier(0.4,0,0.2,1)', 'opacity 0.35s ease', 'margin 0.5s cubic-bezier(0.4,0,0.2,1)'].join(', '),
                   }}
                 >
-                  <div
-                    style={{
-                      width: CARD_W,
-                      height: '100%',
-                      borderRadius: 16,
-                      overflow: 'hidden',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      background: isActive ? 'transparent' : '#FFFFFF',
-                      boxShadow: isActive ? 'none' : '0 2px 14px rgba(42,42,42,0.07)',
-                      transition: 'background 0.6s ease, box-shadow 0.5s ease',
-                    }}
-                  >
-                    <div
-                      style={{
-                        flex: 1,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        paddingTop: 20,
-                      }}
-                    >
+                  <div style={{
+                    width: CARD_W, height: '100%', borderRadius: 16, overflow: 'hidden',
+                    display: 'flex', flexDirection: 'column',
+                    background: isActive ? 'transparent' : '#FFFFFF',
+                    boxShadow: isActive ? 'none' : '0 2px 14px rgba(42,42,42,0.07)',
+                    transition: 'background 0.6s ease, box-shadow 0.5s ease',
+                  }}>
+                    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 20 }}>
                       <div style={{ position: 'relative', width: IMG_W, height: IMG_H, flexShrink: 0 }}>
-                        <Image
-                          src={p.cardImage}
-                          alt=""
-                          fill
-                          style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8 }}
-                        />
+                        <Image src={p.cardImage} alt="" fill style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8 }} />
                       </div>
                     </div>
-
-                    <div
-                      style={{
-                        flexShrink: 0,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        textAlign: 'center',
-                        padding: '1.25rem 1.5rem 1.75rem',
-                      }}
-                    >
-                      <h3
-                        className="tr-h1"
-                        style={{ fontSize: 'clamp(18px, 2.5vw, 24px)', lineHeight: 1.5, color: 'var(--ink)', marginBottom: isActive ? 0 : 10, whiteSpace: 'pre-line', transition: 'margin 0.4s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}
-                      >
+                    <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '1.25rem 1.5rem 1.75rem' }}>
+                      <h3 className="tr-h1" style={{ fontSize: 'clamp(18px, 2.5vw, 24px)', lineHeight: 1.5, color: 'var(--ink)', marginBottom: isActive ? 0 : 10, whiteSpace: 'pre-line', transition: 'margin 0.4s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                         {p.cardTitle}
                       </h3>
-                      <p
-                        style={{
-                          fontSize: 'clamp(13px, 1.2vw, 15px)',
-                          color: 'var(--muted)',
-                          lineHeight: 1.85,
-                          whiteSpace: 'pre-line',
-                          opacity: isActive ? 0 : 1,
-                          maxHeight: isActive ? 0 : 80,
-                          overflow: 'hidden',
-                          transition: 'opacity 0.35s ease, max-height 0.45s ease',
-                          overflowWrap: 'break-word',
-                          wordBreak: 'break-word',
-                        }}
-                      >
+                      <p style={{ fontSize: 'clamp(13px, 1.2vw, 15px)', color: 'var(--muted)', lineHeight: 1.85, whiteSpace: 'pre-line', opacity: isActive ? 0 : 1, maxHeight: isActive ? 0 : 80, overflow: 'hidden', transition: 'opacity 0.35s ease, max-height 0.45s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                         {p.cardDesc}
                       </p>
                     </div>
                   </div>
                 </div>,
 
-                /* ── EXPAND PANEL ── */
                 <div
                   key={`expand-${p.id}`}
                   style={{
@@ -436,28 +363,12 @@ export default function PersonaCardFocus() {
                     overflow: 'hidden',
                     opacity: isActive ? 1 : 0,
                     borderRadius: 20,
-                    transition: [
-                      'width 0.55s cubic-bezier(0.4,0,0.2,1) 0.12s',
-                      'opacity 0.4s ease 0.12s',
-                    ].join(', '),
+                    transition: ['width 0.55s cubic-bezier(0.4,0,0.2,1) 0.12s', 'opacity 0.4s ease 0.12s'].join(', '),
                     background: '#FFFFFF',
-                    boxShadow: isActive
-                      ? `0 16px 52px rgba(${p.accentRgb},0.18), 0 0 0 1px rgba(${p.accentRgb},0.1)`
-                      : 'none',
+                    boxShadow: isActive ? `0 16px 52px rgba(${p.accentRgb},0.18), 0 0 0 1px rgba(${p.accentRgb},0.1)` : 'none',
                   }}
                 >
-                  <div
-                    style={{
-                      width: EXPAND_W,
-                      height: '100%',
-                      overflow: 'hidden',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      textAlign: 'center',
-                      padding: '2.25rem 2.5rem 2rem',
-                    }}
-                  >
+                  <div style={{ width: EXPAND_W, height: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '2.25rem 2.5rem 2rem' }}>
                     <ExpandContent p={p} />
                   </div>
                 </div>,
