@@ -35,34 +35,43 @@ export default function Home() {
           alignItems: 'center',
           justifyContent: 'center',
           padding: '120px clamp(24px,5vw,72px) 100px',
-          background: 'linear-gradient(135deg, #7B6B9E 0%, #A8687A 35%, #C47B7B 60%, #7B6B9E 100%)',
+          background: 'linear-gradient(135deg, #C47B7B 0%, #C47B7B 55%, #C8AEDD 100%)',
           color: 'var(--base)',
           textAlign: 'center',
           position: 'relative',
-          overflow: 'hidden',
+          overflow: 'visible',
         }}
       >
-        {/* Wave lines — decorative */}
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 0 }}>
-          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block' }}>
-            <path d="M0,60 Q180,20 360,55 Q540,88 720,48 Q900,12 1080,50 Q1260,84 1440,44" stroke="rgba(242,239,234,0.12)" strokeWidth="1.2" fill="none" />
-            <path d="M0,80 Q200,44 400,70 Q600,94 800,60 Q1000,28 1200,62 Q1340,82 1440,58" stroke="rgba(242,239,234,0.07)" strokeWidth="0.8" fill="none" />
-          </svg>
-        </div>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 0 }}>
-          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block', transform: 'scaleY(-1)' }}>
-            <path d="M0,60 Q180,20 360,55 Q540,88 720,48 Q900,12 1080,50 Q1260,84 1440,44" stroke="rgba(242,239,234,0.12)" strokeWidth="1.2" fill="none" />
-            <path d="M0,80 Q200,44 400,70 Q600,94 800,60 Q1000,28 1200,62 Q1340,82 1440,58" stroke="rgba(242,239,234,0.07)" strokeWidth="0.8" fill="none" />
+        {/* ── Top wave — bleeds up into SectionTransition, gradient uses CTA palette ── */}
+        <div style={{ position: 'absolute', top: -90, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 1 }}>
+          <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block' }}>
+            <defs>
+              <linearGradient id="cta-top-fill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#C47B7B" stopOpacity={0} />
+                <stop offset="100%" stopColor="#C47B7B" stopOpacity={1} />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z"
+              fill="url(#cta-top-fill)"
+            />
+            <path d="M0,62 Q180,28 360,52 Q540,74 720,46 Q900,20 1080,50 Q1260,76 1440,48" stroke="rgba(242,239,234,0.25)" strokeWidth="1" fill="none" />
+            <path d="M0,72 Q200,42 400,62 Q600,80 800,56 Q1000,34 1200,60 Q1340,74 1440,54" stroke="rgba(242,239,234,0.12)" strokeWidth="0.6" fill="none" />
           </svg>
         </div>
 
-        {/* Soft vignette centre */}
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.06) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0 }} />
+        {/* Decorative wave lines within section */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
+          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block' }}>
+            <path d="M0,60 Q180,20 360,55 Q540,88 720,48 Q900,12 1080,50 Q1260,84 1440,44" stroke="rgba(242,239,234,0.10)" strokeWidth="1" fill="none" />
+            <path d="M0,80 Q200,44 400,70 Q600,94 800,60 Q1000,28 1200,62 Q1340,82 1440,58" stroke="rgba(242,239,234,0.06)" strokeWidth="0.7" fill="none" />
+          </svg>
+        </div>
+
+        {/* Soft centre highlight */}
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.07) 0%, transparent 65%)', pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }} />
 
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <p className="sec-label" style={{ color: 'rgba(242,239,234,0.5)', justifyContent: 'center', marginBottom: 32 }}>
-            聯絡 · 預約
-          </p>
           <h2
             className="tr-d2"
             style={{
@@ -100,8 +109,8 @@ export default function Home() {
                 letterSpacing: '0.03em',
                 textDecoration: 'none',
                 background: 'rgba(242,239,234,0.95)',
-                color: '#7B6B9E',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
+                color: '#A8607A',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
               }}
             >
               LINE 官方帳號 ↗
