@@ -2,6 +2,8 @@
 
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
+import PageSection from '@/components/ui/PageSection'
+import PageTitle from '@/components/ui/PageTitle'
 
 const zones = [
   {
@@ -83,26 +85,9 @@ export default function EcosystemMountain() {
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
-    <section
-      style={{
-        padding: 'clamp(80px,10vw,130px) clamp(24px,5vw,72px)',
-        background: 'var(--base)',
-      }}
-    >
+    <PageSection ghost="SENSING WAVE">
       <div className="wrap">
-        <p className="sec-label">森波生態系</p>
-        <p
-          className="tr-h1"
-          style={{
-            fontWeight: 300,
-            fontSize: 'clamp(18px,2.5vw,26px)',
-            color: 'var(--ink)',
-            opacity: 0.55,
-            marginBottom: 36,
-          }}
-        >
-          兩個方向，一座山。
-        </p>
+        <PageTitle sub="Two Paths, One Mountain" title="兩個方向，一座山" />
 
         <svg
           viewBox="0 0 700 390"
@@ -229,6 +214,6 @@ export default function EcosystemMountain() {
           ))}
         </div>
       </div>
-    </section>
+    </PageSection>
   )
 }

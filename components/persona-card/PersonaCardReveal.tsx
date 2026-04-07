@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import PageSection from '@/components/ui/PageSection'
+import PageTitle from '@/components/ui/PageTitle'
 
 const personas = [
   {
@@ -60,36 +62,9 @@ export default function PersonaCardReveal() {
   }
 
   return (
-    <section
-      style={{
-        paddingTop: 'clamp(100px, 13vw, 180px)',
-        paddingBottom: 'clamp(80px, 10vw, 130px)',
-        paddingLeft: 'var(--gutter)',
-        paddingRight: 'var(--gutter)',
-        background: 'var(--base)',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Wave transition */}
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
-        <svg viewBox="0 0 1440 96" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 96, display: 'block' }}>
-          <path d="M0,0 L1440,0 L1440,64 C1380,82 1260,54 1100,72 C940,88 800,52 660,70 C520,86 380,58 220,76 C110,88 40,66 0,72 Z" fill="rgba(176,144,112,0.14)" />
-          <path d="M0,0 L1440,0 L1440,50 C1320,70 1180,40 1020,60 C860,78 700,42 560,58 C420,72 280,48 140,64 C60,74 20,56 0,60 Z" fill="rgba(212,168,154,0.10)" />
-          <path d="M0,0 L1440,0 L1440,36 C1340,58 1180,28 1040,48 C900,66 740,32 600,50 C460,66 300,38 160,56 C70,68 20,46 0,50 Z" fill="var(--base)" />
-        </svg>
-      </div>
-
+    <PageSection ghost="WHO YOU ARE" style={{ overflow: 'hidden' }}>
       <div className="wrap">
-        {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 52, position: 'relative', zIndex: 1 }}>
-          <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 300, fontSize: 'clamp(16px, 2vw, 26px)', letterSpacing: '0.12em', color: 'var(--muted)', marginBottom: 12 }}>
-            選一張牌
-          </p>
-          <h2 style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 700, fontSize: 'clamp(22px, 3vw, 34px)', letterSpacing: '0.04em', color: 'var(--ink)' }}>
-            找到屬於你的路徑
-          </h2>
-        </div>
+        <PageTitle sub="選一張牌" title="找到屬於你的路徑" />
 
         {/* Cards row */}
         <div
@@ -236,6 +211,6 @@ export default function PersonaCardReveal() {
           })}
         </div>
       </div>
-    </section>
+    </PageSection>
   )
 }

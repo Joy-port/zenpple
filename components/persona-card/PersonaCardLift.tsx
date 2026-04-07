@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import PageSection from '@/components/ui/PageSection'
+import PageTitle from '@/components/ui/PageTitle'
 
 const personas = [
   {
@@ -69,70 +71,9 @@ export default function PersonaCardLift() {
   }
 
   return (
-    <section
-      style={{
-        paddingTop: 'clamp(100px, 13vw, 180px)',
-        paddingBottom: 'clamp(80px, 10vw, 130px)',
-        paddingLeft: 'var(--gutter)',
-        paddingRight: 'var(--gutter)',
-        background: 'var(--base)',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
-      {/* Option B — gentle terrain wave, stroke lines only, same-bg fill */}
-      <div style={{ position: 'absolute', top: -1, left: 0, right: 0, zIndex: 1, lineHeight: 0, pointerEvents: 'none' }}>
-        <svg
-          viewBox="0 0 1440 90"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          style={{ width: '100%', height: 90, display: 'block' }}
-        >
-          <path d="M0,90 L0,55 Q120,20 240,45 Q360,68 480,38 Q600,10 720,40 Q840,68 960,42 Q1080,16 1200,44 Q1320,68 1440,38 L1440,90 Z" fill="var(--base)" />
-          <path d="M0,62 Q180,28 360,52 Q540,74 720,46 Q900,20 1080,50 Q1260,76 1440,48" stroke="#b5ac9e" strokeWidth="1" fill="none" opacity="0.5" />
-          <path d="M0,70 Q200,42 400,60 Q600,76 800,54 Q1000,34 1200,58 Q1340,72 1440,55" stroke="#c8c0b2" strokeWidth="0.6" fill="none" opacity="0.4" />
-        </svg>
-      </div>
-
+    <PageSection ghost="WHO YOU ARE" style={{ overflow: 'hidden' }}>
       <div className="wrap">
-        {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 52, position: 'relative', zIndex: 1 }}>
-          {/* Option A — line · circle · line divider */}
-          <svg
-            viewBox="0 0 800 40"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ display: 'block', width: '100%', maxWidth: 640, margin: '0 auto 48px' }}
-          >
-            <line x1="0" y1="20" x2="355" y2="20" stroke="#c0b8ae" strokeWidth="0.5" />
-            <circle cx="400" cy="20" r="6" fill="none" stroke="#a09888" strokeWidth="1" />
-            <circle cx="400" cy="20" r="12" fill="none" stroke="#c0b8ae" strokeWidth="0.5" />
-            <line x1="445" y1="20" x2="800" y2="20" stroke="#c0b8ae" strokeWidth="0.5" />
-          </svg>
-
-          <p
-            style={{
-              fontFamily: 'var(--f-zh-sans)',
-              fontWeight: 300,
-              fontSize: 'clamp(16px, 2vw, 26px)',
-              letterSpacing: '0.12em',
-              color: 'var(--muted)',
-              marginBottom: 12,
-            }}
-          >
-            選一張牌
-          </p>
-          <h2
-            style={{
-              fontFamily: 'var(--f-zh-sans)',
-              fontWeight: 700,
-              fontSize: 'clamp(22px, 3vw, 34px)',
-              letterSpacing: '0.04em',
-              color: 'var(--ink)',
-            }}
-          >
-            找到屬於你的路徑
-          </h2>
-        </div>
+        <PageTitle sub="選一張牌" title="找到屬於你的路徑" />
 
         {/* Cards row */}
         <div
@@ -331,6 +272,6 @@ export default function PersonaCardLift() {
           </div>
         ))}
       </div>
-    </section>
+    </PageSection>
   )
 }
