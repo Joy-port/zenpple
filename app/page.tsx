@@ -42,21 +42,45 @@ export default function Home() {
           overflow: 'visible',
         }}
       >
-        {/* ── Top wave — bleeds up into SectionTransition, gradient uses CTA palette ── */}
-        <div style={{ position: 'absolute', top: -90, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 1 }}>
-          <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block' }}>
+        {/* ── Top waves — two interacting fills bleeding up into SectionTransition ── */}
+        <div style={{ position: 'absolute', top: -120, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 1 }}>
+          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block' }}>
             <defs>
-              <linearGradient id="cta-top-fill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#C47B7B" stopOpacity={0} />
+              {/* Wave A — rose */}
+              <linearGradient id="cta-wave-a" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stopColor="#C47B7B" stopOpacity={0} />
                 <stop offset="100%" stopColor="#C47B7B" stopOpacity={1} />
               </linearGradient>
+              {/* Wave B — lavender, screen-blended so intersection glows rather than cuts */}
+              <linearGradient id="cta-wave-b" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stopColor="#C8AEDD" stopOpacity={0} />
+                <stop offset="100%" stopColor="#C8AEDD" stopOpacity={0.55} />
+              </linearGradient>
             </defs>
+
+            {/* Wave A — rose, primary fill */}
             <path
-              d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z"
-              fill="url(#cta-top-fill)"
+              d="M0,120 L0,68 Q180,28 360,58 Q540,85 720,48 Q900,14 1080,50 Q1260,80 1440,42 L1440,120 Z"
+              fill="url(#cta-wave-a)"
             />
-            <path d="M0,62 Q180,28 360,52 Q540,74 720,46 Q900,20 1080,50 Q1260,76 1440,48" stroke="rgba(242,239,234,0.25)" strokeWidth="1" fill="none" />
-            <path d="M0,72 Q200,42 400,62 Q600,80 800,56 Q1000,34 1200,60 Q1340,74 1440,54" stroke="rgba(242,239,234,0.12)" strokeWidth="0.6" fill="none" />
+
+            {/* Wave B — lavender, screen blend removes the harsh crossing line */}
+            <g style={{ mixBlendMode: 'screen' }}>
+              <path
+                d="M0,120 L0,44 Q180,76 360,28 Q540,8 720,72 Q900,100 1080,30 Q1260,4 1440,68 L1440,120 Z"
+                fill="url(#cta-wave-b)"
+              />
+            </g>
+
+            {/* Crest strokes — one per wave */}
+            <path
+              d="M0,68 Q180,28 360,58 Q540,85 720,48 Q900,14 1080,50 Q1260,80 1440,42"
+              stroke="rgba(242,239,234,0.28)" strokeWidth="1.2" fill="none"
+            />
+            <path
+              d="M0,44 Q180,76 360,28 Q540,8 720,72 Q900,100 1080,30 Q1260,4 1440,68"
+              stroke="rgba(220,190,240,0.35)" strokeWidth="0.9" fill="none"
+            />
           </svg>
         </div>
 
