@@ -74,38 +74,14 @@ export default function EcosystemMountain2() {
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
-    <PageSection>
-      {/* "SENSING WAVE" ghost watermark — centered, single line, Fraunces */}
-      <div
-        aria-hidden="true"
-        style={{
-          fontFamily: 'var(--f-impact)',
-          fontWeight: 900,
-          fontSize: 'clamp(72px,10vw,130px)',
-          lineHeight: 0.88,
-          letterSpacing: '-0.02em',
-          color: 'var(--ink)',
-          opacity: 0.04,
-          position: 'absolute',
-          top: '12%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          whiteSpace: 'nowrap',
-          pointerEvents: 'none',
-          userSelect: 'none',
-          zIndex: 0,
-          textAlign: 'center',
-        }}
-      >
-        SENSING WAVE
-      </div>
+    <PageSection ghost="SENSING WAVE">
 
       <div className="wrap">
 
         {/* ── Outer container ── */}
         <div style={{ position: 'relative' }}>
 
-          <PageTitle sub="Two Paths, One Mountain" title="兩個方向，一座山。" />
+          <PageTitle sub="Two Paths, One Mountain" title="兩個方向，一座山" />
 
           {/* ── Mountain + tooltips ── */}
           <div style={{ position: 'relative', zIndex: 1 }}>

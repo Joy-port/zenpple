@@ -72,6 +72,7 @@ export default function PersonaCardFocus() {
 
   return (
     <PageSection
+      ghost="WHO YOU ARE"
       style={{
         background: active !== null
           ? `rgba(${activePersona?.accentRgb},0.08)`
@@ -80,30 +81,6 @@ export default function PersonaCardFocus() {
         overflow: 'hidden',
       }}
     >
-      {/* WHO YOU ARE ghost background */}
-      <div
-        aria-hidden="true"
-        style={{
-          fontFamily: 'var(--f-impact)',
-          fontWeight: 900,
-          fontSize: 'clamp(72px,10vw,130px)',
-          lineHeight: 0.88,
-          letterSpacing: '-0.02em',
-          color: 'var(--ink)',
-          opacity: 0.04,
-          position: 'absolute',
-          top: '12%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          whiteSpace: 'nowrap',
-          pointerEvents: 'none',
-          userSelect: 'none',
-          zIndex: 0,
-          textAlign: 'center',
-        }}
-      >
-        WHO<br />YOU ARE
-      </div>
 
       <div className="wrap">
         <PageTitle sub="選一張牌" title="找到屬於你的路徑" />
