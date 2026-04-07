@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import PersonaCard3 from '@/components/PersonaCard3'
+// ── PERSONA CARD ON / ── PersonaCardFocus (card dissolves, expand slides right)
+import PersonaCardFocus from '@/components/PersonaCardFocus'
 
 const pyramidRows = [
   {
@@ -160,7 +161,7 @@ export default function Home() {
       </section>
 
       {/* ── PERSONA CARDS ── */}
-      <PersonaCard3 />
+      <PersonaCardFocus />
 
       {/* ── ECOSYSTEM ── */}
       <section
