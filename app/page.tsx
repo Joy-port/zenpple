@@ -4,6 +4,7 @@ import HeroCenter from '@/components/hero/HeroCenter'
 import PersonaCardFocus from '@/components/persona-card/PersonaCardFocus'
 import EcosystemMountain2 from '@/components/ecosystem/EcosystemMountain2'
 import SectionTransition from '@/components/ui/SectionTransition'
+import FoundersSection from '@/components/founders/FoundersSection'
 
 export default function Home() {
   return (
@@ -24,110 +25,10 @@ export default function Home() {
       </div>
 
       {/* ── FOUNDERS ── */}
-      <section
-        style={{
-          padding: 'clamp(60px,8vw,100px) clamp(24px,5vw,72px)',
-          background: 'var(--base)',
-        }}
-      >
-        <div className="wrap">
-          <p className="sec-label">創辦人</p>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: 18,
-              paddingTop: 28,
-              borderTop: '1px solid var(--border)',
-            }}
-          >
-            {[
-              {
-                name: '禿禿 TWO TWO',
-                roles: '頌缽 · 薩滿 · 能量定頻',
-                desc: '身心狀態、潛意識定頻，以聲音引導感知回歸內在安定',
-              },
-              {
-                name: '夏',
-                roles: '靈性顧問 · 易經 · 品牌策略',
-                desc: '大方向定錨與理路梳理，結合玄天上帝指引與數位實務',
-              },
-            ].map(f => (
-              <Link
-                key={f.name}
-                href="/about"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 20,
-                  padding: '24px 22px',
-                  border: '1px solid var(--border)',
-                  borderRadius: 8,
-                  textDecoration: 'none',
-                  background: 'rgba(255,255,255,0.5)',
-                  transition: 'border-color 0.25s, box-shadow 0.25s',
-                }}
-              >
-                <div
-                  style={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: '50%',
-                    background: 'rgba(42,42,42,0.05)',
-                    border: '1px solid var(--border)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                    fontFamily: 'var(--f-mono)',
-                    fontSize: 11,
-                    letterSpacing: '0.05em',
-                    color: 'var(--muted)',
-                  }}
-                >
-                  photo
-                </div>
-                <div>
-                  <span
-                    className="tr-h1"
-                    style={{
-                      fontSize: 15,
-                      color: 'var(--ink)',
-                      display: 'block',
-                      marginBottom: 4,
-                    }}
-                  >
-                    {f.name}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: 'var(--f-mono)',
-                      fontSize: 9,
-                      letterSpacing: '0.08em',
-                      color: 'var(--muted)',
-                      lineHeight: 1.7,
-                      display: 'block',
-                    }}
-                  >
-                    {f.roles}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: 13,
-                      color: 'var(--muted)',
-                      lineHeight: 1.7,
-                      display: 'block',
-                      marginTop: 4,
-                    }}
-                  >
-                    {f.desc}
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <div style={{ position: 'relative' }}>
+        <SectionTransition position="top" />
+        <FoundersSection />
+      </div>
 
       {/* ── CONTACT CTA ── */}
       <section
