@@ -76,233 +76,180 @@ export default function EcosystemMountain2() {
     >
       <div className="wrap">
 
-        {/* ── Section header — Seoul-style typography ── */}
-        <div style={{ marginBottom: 40 }}>
-          <p className="sec-label">Ecosystem · 森波生態系</p>
-
-          {/* Brand row */}
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 14, marginBottom: 6 }}>
-            <span style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
-              fontSize: 'clamp(18px,2.2vw,26px)',
-              letterSpacing: '0.32em',
-              textTransform: 'uppercase',
-              color: 'var(--ink)',
-              opacity: 0.7,
-            }}>
-              zenpple
-            </span>
-            <span style={{
-              fontFamily: 'var(--f-mono)',
-              fontSize: 9,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: 'var(--muted)',
-            }}>
-              presents
-            </span>
-          </div>
-
-          {/* Main heading — Fraunces impact title */}
-          <h2 style={{
-            fontFamily: 'var(--f-impact)',
-            fontWeight: 900,
-            fontSize: 'clamp(36px,5vw,58px)',
-            lineHeight: 0.92,
-            letterSpacing: '-0.01em',
-            color: 'var(--ink)',
-            marginBottom: 14,
-          }}>
-            Four<br />Dimensions
-          </h2>
-
-          {/* Chinese subtitle */}
-          <p style={{
-            fontFamily: 'var(--f-mono)',
-            fontSize: 10,
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            color: 'var(--muted)',
-          }}>
-            兩個方向，一座山。
-          </p>
-        </div>
-
-        {/* ── Mountain + tooltips ── */}
+        {/* ── Outer container: shared position context for 山 watermark ── */}
         <div style={{ position: 'relative' }}>
 
-          {/* Background watermark — large Fraunces ghost text behind mountain */}
+          {/* 山 background watermark — spans title + mountain */}
           <div
             aria-hidden="true"
             style={{
-              fontFamily: 'var(--f-impact)',
+              fontFamily: 'var(--f-zh-sans)',
               fontWeight: 900,
-              fontSize: 'clamp(100px,18vw,200px)',
-              lineHeight: 0.85,
-              letterSpacing: '-0.03em',
+              fontSize: 'clamp(280px,42vw,480px)',
+              lineHeight: 1,
               color: 'var(--ink)',
-              opacity: 0.035,
+              opacity: 0.032,
               position: 'absolute',
-              bottom: '8%',
+              top: '50%',
               left: '50%',
-              transform: 'translateX(-50%)',
-              whiteSpace: 'nowrap',
+              transform: 'translate(-50%, -44%)',
               pointerEvents: 'none',
               userSelect: 'none',
               zIndex: 0,
             }}
           >
-            FOUR<br />DIM
+            山
           </div>
 
-          {/* SVG mountain */}
-          <svg
-            viewBox="0 0 700 390"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ width: '100%', display: 'block', position: 'relative', zIndex: 1 }}
-          >
-            <defs>
-              {zones.map(z => (
-                <clipPath key={`clip-${z.id}`} id={`clip-${z.id}`}>
-                  <path d={z.clipPath} />
-                </clipPath>
-              ))}
-            </defs>
+          {/* ── Section header — fades out on hover ── */}
+          <div style={{
+            position: 'relative',
+            zIndex: 1,
+            marginBottom: 20,
+            opacity: hovered ? 0 : 1,
+            transition: 'opacity 0.3s ease',
+            pointerEvents: hovered ? 'none' : undefined,
+          }}>
+            <p className="sec-label">Ecosystem · 森波生態系</p>
 
-            {/* Base: full mountain, dims to 0.3 on hover */}
-            <image
-              href="/index/mountain-full.png"
-              x="0" y="0" width="700" height="390"
-              preserveAspectRatio="xMidYMid meet"
-              style={{ opacity: hovered ? 0.3 : 1, transition: 'opacity 0.3s ease' }}
-            />
+            <h2 style={{
+              fontFamily: 'var(--f-impact)',
+              fontWeight: 900,
+              fontSize: 'clamp(36px,5vw,58px)',
+              lineHeight: 0.92,
+              letterSpacing: '-0.01em',
+              color: 'var(--ink)',
+              marginBottom: 12,
+            }}>
+              Two Paths,<br />One Mountain
+            </h2>
 
-            {/* Cut layers: hovered=1, upper layers=0.3, others=0 */}
-            {zones.map((z, i) => {
-              let opacity = 0
-              if (hovered) {
-                const hoveredIdx = zones.findIndex(h => h.id === hovered)
-                if (z.id === hovered) opacity = 1
-                else if (i < hoveredIdx) opacity = 0.3
-              }
-              return (
-                <image
-                  key={`img-${z.id}`}
-                  href={z.img}
-                  x="0" y="0" width="700" height="390"
-                  preserveAspectRatio="xMidYMid meet"
-                  clipPath={`url(#clip-${z.id})`}
-                  style={{ opacity, transition: 'opacity 0.3s ease', pointerEvents: 'none' }}
-                />
-              )
-            })}
+            <p style={{
+              fontFamily: 'var(--f-mono)',
+              fontSize: 10,
+              letterSpacing: '0.14em',
+              color: 'var(--muted)',
+            }}>
+              兩個方向，一座山。
+            </p>
+          </div>
 
-            {/* Hit zones */}
-            {zones.map(z => (
-              <path
-                key={`zone-${z.id}`}
-                d={z.clipPath}
-                fill="transparent"
-                stroke="none"
-                style={{ cursor: 'pointer' }}
-                onMouseEnter={() => setHovered(z.id)}
-                onMouseLeave={() => setHovered(null)}
-                onClick={() => router.push(z.href)}
-              />
-            ))}
-          </svg>
-
-          {/* HTML tooltips — redesigned, frosted glass style */}
-          {zones.map(z => (
-            <div
-              key={`tip-${z.id}`}
-              style={{
-                position: 'absolute',
-                ...z.tipPos,
-                opacity: hovered === z.id ? 1 : 0,
-                transform: hovered === z.id ? 'translateY(0)' : 'translateY(6px)',
-                transition: 'opacity 0.25s ease, transform 0.25s ease',
-                pointerEvents: 'none',
-                zIndex: 10,
-                background: 'rgba(242,239,234,0.86)',
-                backdropFilter: 'blur(14px)',
-                WebkitBackdropFilter: 'blur(14px)',
-                borderLeft: `3px solid ${z.accent}`,
-                borderRadius: '2px 8px 8px 2px',
-                padding: '10px 14px',
-                maxWidth: 170,
-              }}
+          {/* ── Mountain + tooltips ── */}
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <svg
+              viewBox="0 0 700 390"
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ width: '100%', display: 'block' }}
             >
-              {/* Zone code */}
-              <div style={{
-                fontFamily: 'var(--f-display)',
-                fontWeight: 300,
-                fontSize: 9,
-                letterSpacing: '0.22em',
-                textTransform: 'uppercase',
-                color: z.accent,
-                marginBottom: 5,
-              }}>
-                {z.code}
-              </div>
-              {/* Chinese title */}
-              <div style={{
-                fontFamily: 'var(--f-zh)',
-                fontWeight: 700,
-                fontSize: 'clamp(14px,1.6vw,16px)',
-                letterSpacing: '0.04em',
-                color: 'var(--ink)',
-                lineHeight: 1.3,
-                marginBottom: 5,
-              }}>
-                {z.label}
-              </div>
-              {/* Divider */}
-              <div style={{ width: 24, height: 1, background: z.accent, opacity: 0.4, marginBottom: 5 }} />
-              {/* Subtitle */}
-              <div style={{
-                fontFamily: 'var(--f-mono)',
-                fontSize: 9,
-                letterSpacing: '0.08em',
-                color: 'var(--muted)',
-                lineHeight: 1.6,
-              }}>
-                {z.sub}
-              </div>
-            </div>
-          ))}
-        </div>
+              <defs>
+                {zones.map(z => (
+                  <clipPath key={`clip-${z.id}`} id={`clip-${z.id}`}>
+                    <path d={z.clipPath} />
+                  </clipPath>
+                ))}
+              </defs>
 
-        {/* ── Legend ── */}
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '8px 20px',
-          marginTop: 16,
-          justifyContent: 'center',
-        }}>
-          {zones.map(z => (
-            <div key={z.id} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              <span style={{
-                width: 8, height: 8,
-                borderRadius: '50%',
-                background: z.dot,
-                display: 'inline-block',
-                flexShrink: 0,
-              }} />
-              <span style={{
-                fontFamily: 'var(--f-mono)',
-                fontSize: 10,
-                color: 'var(--muted)',
-                letterSpacing: '0.06em',
-              }}>
-                {z.dotLabel}
-              </span>
-            </div>
-          ))}
-        </div>
+              {/* Base: full mountain, dims to 0.3 on hover */}
+              <image
+                href="/index/mountain-full.png"
+                x="0" y="0" width="700" height="390"
+                preserveAspectRatio="xMidYMid meet"
+                style={{ opacity: hovered ? 0.3 : 1, transition: 'opacity 0.3s ease' }}
+              />
 
+              {/* Cut layers: hovered=1, upper layers=0.3, others=0 */}
+              {zones.map((z, i) => {
+                let opacity = 0
+                if (hovered) {
+                  const hoveredIdx = zones.findIndex(h => h.id === hovered)
+                  if (z.id === hovered) opacity = 1
+                  else if (i < hoveredIdx) opacity = 0.3
+                }
+                return (
+                  <image
+                    key={`img-${z.id}`}
+                    href={z.img}
+                    x="0" y="0" width="700" height="390"
+                    preserveAspectRatio="xMidYMid meet"
+                    clipPath={`url(#clip-${z.id})`}
+                    style={{ opacity, transition: 'opacity 0.3s ease', pointerEvents: 'none' }}
+                  />
+                )
+              })}
+
+              {/* Hit zones */}
+              {zones.map(z => (
+                <path
+                  key={`zone-${z.id}`}
+                  d={z.clipPath}
+                  fill="transparent"
+                  stroke="none"
+                  style={{ cursor: 'pointer' }}
+                  onMouseEnter={() => setHovered(z.id)}
+                  onMouseLeave={() => setHovered(null)}
+                  onClick={() => router.push(z.href)}
+                />
+              ))}
+            </svg>
+
+            {/* HTML tooltips — frosted glass */}
+            {zones.map(z => (
+              <div
+                key={`tip-${z.id}`}
+                style={{
+                  position: 'absolute',
+                  ...z.tipPos,
+                  opacity: hovered === z.id ? 1 : 0,
+                  transform: hovered === z.id ? 'translateY(0)' : 'translateY(6px)',
+                  transition: 'opacity 0.25s ease, transform 0.25s ease',
+                  pointerEvents: 'none',
+                  zIndex: 10,
+                  background: 'rgba(242,239,234,0.86)',
+                  backdropFilter: 'blur(14px)',
+                  WebkitBackdropFilter: 'blur(14px)',
+                  borderLeft: `3px solid ${z.accent}`,
+                  borderRadius: '2px 8px 8px 2px',
+                  padding: '10px 14px',
+                  maxWidth: 170,
+                }}
+              >
+                <div style={{
+                  fontFamily: 'var(--f-display)',
+                  fontWeight: 300,
+                  fontSize: 9,
+                  letterSpacing: '0.22em',
+                  textTransform: 'uppercase',
+                  color: z.accent,
+                  marginBottom: 5,
+                }}>
+                  {z.code}
+                </div>
+                <div style={{
+                  fontFamily: 'var(--f-zh)',
+                  fontWeight: 700,
+                  fontSize: 'clamp(14px,1.6vw,16px)',
+                  letterSpacing: '0.04em',
+                  color: 'var(--ink)',
+                  lineHeight: 1.3,
+                  marginBottom: 5,
+                }}>
+                  {z.label}
+                </div>
+                <div style={{ width: 24, height: 1, background: z.accent, opacity: 0.4, marginBottom: 5 }} />
+                <div style={{
+                  fontFamily: 'var(--f-mono)',
+                  fontSize: 9,
+                  letterSpacing: '0.08em',
+                  color: 'var(--muted)',
+                  lineHeight: 1.6,
+                }}>
+                  {z.sub}
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
       </div>
     </section>
   )
