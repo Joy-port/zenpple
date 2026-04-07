@@ -1,5 +1,5 @@
 interface SectionHeaderProps {
-  label: string
+  label?: string
   title: string
   sub?: string
   align?: 'left' | 'center'
@@ -30,16 +30,18 @@ export default function SectionHeader({
         </svg>
       )}
 
-      <p className="sec-label" style={align === 'center' ? { justifyContent: 'center' } : undefined}>
-        {label}
-      </p>
+      {label && (
+        <p className="sec-label" style={align === 'center' ? { justifyContent: 'center' } : undefined}>
+          {label}
+        </p>
+      )}
 
       {sub && (
         <p style={{
           fontFamily: 'var(--f-zh-sans)',
           fontWeight: 300,
-          fontSize: 'clamp(16px, 2vw, 26px)',
-          letterSpacing: '0.12em',
+          fontSize: 'clamp(20px, 2.8vw, 32px)',
+          letterSpacing: '0.1em',
           color: 'var(--muted)',
           marginBottom: 10,
         }}>
@@ -50,7 +52,7 @@ export default function SectionHeader({
       <h2 style={{
         fontFamily: 'var(--f-zh-sans)',
         fontWeight: 700,
-        fontSize: 'clamp(22px, 3vw, 34px)',
+        fontSize: 'clamp(28px, 4.5vw, 52px)',
         letterSpacing: '0.04em',
         color: 'var(--ink)',
       }}>

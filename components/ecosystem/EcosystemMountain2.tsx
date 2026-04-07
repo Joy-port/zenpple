@@ -100,7 +100,7 @@ export default function EcosystemMountain2() {
               zIndex: 0,
             }}
           >
-            Two Paths,<br />One Mountain
+            SENSING<br />WAVE
           </div>
 
           {/* ── Section header — fades out on hover ── */}
@@ -113,7 +113,6 @@ export default function EcosystemMountain2() {
             pointerEvents: hovered ? 'none' : undefined,
           }}>
             <SectionHeader
-              label="Ecosystem · 森波生態系"
               sub="Two Paths, One Mountain"
               title="兩個方向，一座山。"
               align="left"
@@ -185,9 +184,8 @@ export default function EcosystemMountain2() {
                 style={{
                   position: 'absolute',
                   ...z.tipPos,
-                  opacity: hovered ? (hovered === z.id ? 1 : 0) : 1,
-                  transform: hovered && hovered !== z.id ? 'translateY(6px)' : 'translateY(0)',
-                  transition: 'opacity 0.25s ease, transform 0.25s ease',
+                  opacity: 1,
+                  transition: 'opacity 0.25s ease',
                   pointerEvents: 'none',
                   zIndex: 10,
                   background: 'rgba(242,239,234,0.86)',
@@ -195,36 +193,25 @@ export default function EcosystemMountain2() {
                   WebkitBackdropFilter: 'blur(14px)',
                   borderLeft: `3px solid ${z.accent}`,
                   borderRadius: '2px 8px 8px 2px',
-                  padding: '10px 14px',
-                  maxWidth: 170,
+                  padding: '12px 16px',
+                  maxWidth: 210,
                 }}
               >
                 <div style={{
-                  fontFamily: 'var(--f-display)',
-                  fontWeight: 300,
-                  fontSize: 9,
-                  letterSpacing: '0.22em',
-                  textTransform: 'uppercase',
-                  color: z.accent,
-                  marginBottom: 5,
-                }}>
-                  {z.code}
-                </div>
-                <div style={{
                   fontFamily: 'var(--f-zh)',
                   fontWeight: 700,
-                  fontSize: 'clamp(14px,1.6vw,16px)',
+                  fontSize: 'clamp(20px, 2.5vw, 28px)',
                   letterSpacing: '0.04em',
                   color: 'var(--ink)',
-                  lineHeight: 1.3,
-                  marginBottom: 5,
+                  lineHeight: 1.2,
+                  marginBottom: 6,
                 }}>
                   {z.label}
                 </div>
-                <div style={{ width: 24, height: 1, background: z.accent, opacity: 0.4, marginBottom: 5 }} />
+                <div style={{ width: 24, height: 1, background: z.accent, opacity: 0.4, marginBottom: 6 }} />
                 <div style={{
                   fontFamily: 'var(--f-mono)',
-                  fontSize: 9,
+                  fontSize: 11,
                   letterSpacing: '0.08em',
                   color: 'var(--muted)',
                   lineHeight: 1.6,

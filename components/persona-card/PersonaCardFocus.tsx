@@ -87,11 +87,35 @@ export default function PersonaCardFocus() {
     >
       <SectionTransition position="top" />
 
+      {/* WHO YOU ARE ghost background */}
+      <div
+        aria-hidden="true"
+        style={{
+          fontFamily: 'var(--f-impact)',
+          fontWeight: 900,
+          fontSize: 'clamp(72px,10vw,130px)',
+          lineHeight: 0.88,
+          letterSpacing: '-0.02em',
+          color: 'var(--ink)',
+          opacity: 0.04,
+          position: 'absolute',
+          top: '6%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          whiteSpace: 'nowrap',
+          pointerEvents: 'none',
+          userSelect: 'none',
+          zIndex: 0,
+          textAlign: 'center',
+        }}
+      >
+        WHO<br />YOU ARE
+      </div>
+
       <div className="wrap">
         {/* Header */}
         <div style={{ marginBottom: 52, position: 'relative', zIndex: 1 }}>
           <SectionHeader
-            label="Persona · 你是哪一種人"
             sub="選一張牌"
             title="找到屬於你的路徑"
             align="center"
