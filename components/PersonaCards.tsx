@@ -199,7 +199,7 @@ export default function PersonaCards() {
                 <h3
                   className="tr-h1"
                   style={{
-                    fontSize: 17,
+                    fontSize: 24,
                     lineHeight: 1.5,
                     color: 'var(--ink)',
                     marginBottom: 8,
@@ -210,7 +210,7 @@ export default function PersonaCards() {
                 </h3>
                 <p
                   style={{
-                    fontSize: 13,
+                    fontSize: 15,
                     color: 'var(--muted)',
                     lineHeight: 1.85,
                     whiteSpace: 'pre-line',
@@ -260,7 +260,7 @@ export default function PersonaCards() {
                 <p
                   style={{
                     fontFamily: 'var(--f-mono)',
-                    fontSize: 10,
+                    fontSize: 15,
                     letterSpacing: '0.22em',
                     textTransform: 'uppercase',
                     color: 'var(--muted)',
@@ -269,7 +269,7 @@ export default function PersonaCards() {
                 >
                   {p.expandEn}
                 </p>
-                <p style={{ fontSize: 14, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7 }}>
+                <p style={{ fontSize: 17, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7 }}>
                   {p.expandBody}
                 </p>
               </div>
@@ -278,7 +278,7 @@ export default function PersonaCards() {
                 <p
                   style={{
                     fontFamily: 'var(--f-mono)',
-                    fontSize: 10,
+                    fontSize: 17,
                     letterSpacing: '0.18em',
                     textTransform: 'uppercase',
                     color: 'var(--muted)',
@@ -293,7 +293,7 @@ export default function PersonaCards() {
                       key={s}
                       style={{
                         fontFamily: 'var(--f-zh-sans)',
-                        fontSize: 12,
+                        fontSize: 15,
                         padding: '6px 14px',
                         borderRadius: 999,
                         border: `1px solid rgba(${p.accentRgb},0.3)`,
@@ -310,7 +310,7 @@ export default function PersonaCards() {
                   href={p.ctaHref}
                   style={{
                     fontFamily: 'var(--f-mono)',
-                    fontSize: 11,
+                    fontSize: 17,
                     letterSpacing: '0.14em',
                     textTransform: 'uppercase',
                     textDecoration: 'none',

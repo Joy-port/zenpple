@@ -156,10 +156,10 @@ export default function PersonaCard2() {
                 </div>
                 {/* Text bottom */}
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '16px 24px 28px' }}>
-                  <h3 className="tr-h1" style={{ fontSize: 17, lineHeight: 1.5, color: 'var(--ink)', marginBottom: 8, whiteSpace: 'pre-line' }}>
+                  <h3 className="tr-h1" style={{ fontSize: 24, lineHeight: 1.5, color: 'var(--ink)', marginBottom: 8, whiteSpace: 'pre-line' }}>
                     {p.cardTitle}
                   </h3>
-                  <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.85, whiteSpace: 'pre-line' }}>
+                  <p style={{ fontSize: 15, color: 'var(--muted)', lineHeight: 1.85, whiteSpace: 'pre-line' }}>
                     {p.cardDesc}
                   </p>
                 </div>
@@ -203,30 +203,30 @@ export default function PersonaCard2() {
                     {/* Accent line */}
                     <div style={{ height: 2, width: 36, borderRadius: 1, background: `rgba(${p.accentRgb},0.5)`, marginBottom: 18, flexShrink: 0 }} />
 
-                    <h3 className="tr-h1" style={{ fontSize: 22, marginBottom: 4, color: 'var(--ink)' }}>
+                    <h3 className="tr-h1" style={{ fontSize: 24, marginBottom: 4, color: 'var(--ink)' }}>
                       {p.expandTitle}
                     </h3>
-                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 14 }}>
+                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 14 }}>
                       {p.expandEn}
                     </p>
-                    <p style={{ fontSize: 13, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7, marginBottom: 20 }}>
+                    <p style={{ fontSize: 17, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7, marginBottom: 20 }}>
                       {p.expandBody}
                     </p>
 
                     <div style={{ height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 16, flexShrink: 0 }} />
 
-                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10 }}>
+                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 17, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10 }}>
                       適合的服務
                     </p>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 22 }}>
                       {p.services.map(s => (
-                        <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 11, padding: '5px 12px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
+                        <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 15, padding: '5px 12px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
                           {s}
                         </span>
                       ))}
                     </div>
 
-                    <Link href={p.ctaHref} style={{ fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 20px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.4)`, color: p.accentColor, alignSelf: 'flex-start' }}>
+                    <Link href={p.ctaHref} style={{ fontFamily: 'var(--f-mono)', fontSize: 17, letterSpacing: '0.14em', textTransform: 'uppercase', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 20px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.4)`, color: p.accentColor, alignSelf: 'flex-start' }}>
                       {p.ctaLabel}
                     </Link>
                   </div>
