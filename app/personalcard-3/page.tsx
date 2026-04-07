@@ -72,7 +72,10 @@ export default function PersonaCard3() {
         paddingBottom: 'clamp(80px, 10vw, 130px)',
         paddingLeft: 'var(--gutter)',
         paddingRight: 'var(--gutter)',
-        background: 'var(--base)',
+        background: active !== null
+          ? `rgba(${personas.find(p => p.id === active)?.accentRgb},0.12)`
+          : 'var(--base)',
+        transition: 'background 0.5s ease',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -149,8 +152,7 @@ export default function PersonaCard3() {
                     flexDirection: 'column',
                     background: '#FFFFFF',
                     boxShadow: '0 2px 14px rgba(42,42,42,0.07)',
-                    outline: isActive ? `2px solid rgba(${p.accentRgb},0.35)` : '2px solid transparent',
-                    transition: 'outline 0.25s',
+                    transition: 'box-shadow 0.25s',
                   }}
                 >
                   <div style={{ flex: '0 0 65%', position: 'relative' }}>
@@ -186,7 +188,7 @@ export default function PersonaCard3() {
                     'width 0.55s cubic-bezier(0.4,0,0.2,1)',
                     'opacity 0.4s ease',
                   ].join(', '),
-                  background: 'rgba(250,248,246,0.97)',
+                  background: '#FFFFFF',
                   boxShadow: isActive
                     ? `0 16px 52px rgba(${p.accentRgb},0.2), 0 0 0 1px rgba(${p.accentRgb},0.12)`
                     : 'none',
