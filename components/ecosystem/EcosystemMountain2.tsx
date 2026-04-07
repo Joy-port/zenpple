@@ -81,26 +81,27 @@ export default function EcosystemMountain2() {
         {/* ── Outer container: shared position context for 山 watermark ── */}
         <div style={{ position: 'relative' }}>
 
-          {/* 山 background watermark — spans title + mountain */}
+          {/* "Two Paths, One Mountain" background watermark — right-anchored, Fraunces */}
           <div
             aria-hidden="true"
             style={{
-              fontFamily: 'var(--f-zh-sans)',
+              fontFamily: 'var(--f-impact)',
               fontWeight: 900,
-              fontSize: 'clamp(280px,42vw,480px)',
-              lineHeight: 1,
+              fontSize: 'clamp(52px,7vw,88px)',
+              lineHeight: 0.92,
+              letterSpacing: '-0.02em',
               color: 'var(--ink)',
-              opacity: 0.032,
+              opacity: 0.055,
               position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -44%)',
+              top: '12%',
+              right: 0,
+              textAlign: 'right',
               pointerEvents: 'none',
               userSelect: 'none',
               zIndex: 0,
             }}
           >
-            山
+            Two Paths,<br />One Mountain
           </div>
 
           {/* ── Section header — fades out on hover ── */}
