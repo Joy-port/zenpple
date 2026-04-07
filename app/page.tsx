@@ -40,7 +40,7 @@ export default function Home() {
         }}
       >
         {/* Top-left — lighter, entry point, appears first */}
-        <div style={{ position: 'absolute', top: '-5%', left: '-6%', zIndex: 0, pointerEvents: 'none', opacity: 0.08 }}>
+        <div style={{ position: 'absolute', top: '-5%', left: '-6%', zIndex: 0, pointerEvents: 'none', opacity: 0.35 }}>
           <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <Image
               src="/頌缽九宮格.png"
@@ -55,7 +55,7 @@ export default function Home() {
         </div>
 
         {/* Bottom-right — stronger, exit point, appears after content settles */}
-        <div style={{ position: 'absolute', bottom: '-34vh', right: '-5%', zIndex: 0, pointerEvents: 'none', opacity: 0.13 }}>
+        <div style={{ position: 'absolute', bottom: '-34vh', right: '-5%', zIndex: 0, pointerEvents: 'none', opacity: 1 }}>
           <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
             <Image
               src="/頌缽九宮格.png"
