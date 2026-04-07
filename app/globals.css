@@ -41,9 +41,13 @@
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
+  /* Required for scroll-snap to fire on iOS Safari */
+  overflow-y: auto;
+  height: 100%;
 }
 
 body {
+  min-height: 100%;
   background: var(--base);
   color: var(--ink);
   font-family: var(--f-body);
@@ -166,15 +170,16 @@ section {
    Uses !important to beat inline styles. All values target ≥768px only.
    Mobile floors in clamp() / component styles are untouched.
 ──────────────────────────────────────────────────────────────────────────── */
-@media (min-width: 768px) {
-  /* SectionTransition divider — shrink from 90px to 44px */
-  .section-divider {
-    height: 44px !important;
-  }
-  .section-divider svg {
-    height: 44px !important;
-  }
+/* SectionTransition divider — reduce on all sizes */
+.section-divider {
+  height: 44px !important;
+}
+.section-divider svg {
+  height: 44px !important;
+}
 
+/* ── Desktop-only spacing overrides ── */
+@media (min-width: 768px) {
   /* Main section padding */
   #who-you-are,
   #ecosystem,
@@ -192,6 +197,8 @@ section {
   .founder-card-inner {
     padding-top: 28px !important;
     padding-bottom: 28px !important;
+    padding-left: 56px !important;
+    padding-right: 56px !important;
   }
 
   /* CTA section */

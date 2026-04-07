@@ -72,8 +72,8 @@ export default function FoundersSection() {
                   position: 'relative',
                   paddingTop: 'clamp(24px, 3vw, 40px)',
                   paddingBottom: 'clamp(24px, 3vw, 40px)',
-                  paddingLeft: 'clamp(0px, 2vw, 32px)',
-                  paddingRight: 'clamp(0px, 2vw, 32px)',
+                  paddingLeft: 'clamp(28px, 4vw, 48px)',
+                  paddingRight: 'clamp(28px, 4vw, 48px)',
                   overflow: 'hidden',
                   height: '100%',
                 }}
@@ -93,7 +93,7 @@ export default function FoundersSection() {
                 <div className="relative z-[1] flex flex-col items-center gap-5 text-center">
 
                   {/* Image */}
-                  <div className="flex-shrink-0" style={{ width: 'clamp(120px, 18vw, 200px)' }}>
+                  <div className="flex-shrink-0 w-[140px] md:w-[110px]">
                     <div className="animate-breathe-scale" style={{ lineHeight: 0 }}>
                       <Image
                         src={f.img} alt={f.imgAlt} width={500} height={600}
