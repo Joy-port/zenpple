@@ -1,5 +1,5 @@
-import HeroSplit from '@/components/HeroSplit'
+import HeroFlank from '@/components/HeroFlank'
 
 export default function Hero3Page() {
-  return <HeroSplit />
+  return <HeroFlank />
 }

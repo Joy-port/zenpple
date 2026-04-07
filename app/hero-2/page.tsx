@@ -1,5 +1,5 @@
-import HeroFlank from '@/components/HeroFlank'
+import HeroFloat from '@/components/HeroFloat'
 
 export default function Hero2Page() {
-  return <HeroFlank />
+  return <HeroFloat />
 }

@@ -99,25 +99,6 @@ export default function HeroCenter() {
         </p>
       </div>
 
-      {/* Scroll hint */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 36,
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 8,
-          color: 'var(--muted)',
-          opacity: 0.45,
-          zIndex: 2,
-        }}
-      >
-        <span style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase' }}>scroll</span>
-        <div style={{ width: 1, height: 40, background: 'linear-gradient(to bottom, var(--muted), transparent)' }} />
-      </div>
     </section>
   )
 }
