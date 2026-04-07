@@ -73,7 +73,7 @@ export default function PersonaCardFocus() {
   return (
     <section
       style={{
-        paddingTop: 'clamp(100px, 13vw, 180px)',
+        paddingTop: 'clamp(200px, 18vw, 280px)',
         paddingBottom: 'clamp(80px, 10vw, 130px)',
         paddingLeft: 'var(--gutter)',
         paddingRight: 'var(--gutter)',
@@ -119,7 +119,6 @@ export default function PersonaCardFocus() {
             sub="選一張牌"
             title="找到屬於你的路徑"
             align="center"
-            divider
           />
         </div>
 

@@ -103,14 +103,11 @@ export default function EcosystemMountain2() {
             SENSING<br />WAVE
           </div>
 
-          {/* ── Section header — fades out on hover ── */}
+          {/* ── Section header — always visible ── */}
           <div style={{
             position: 'relative',
             zIndex: 1,
             marginBottom: 20,
-            opacity: hovered ? 0 : 1,
-            transition: 'opacity 0.3s ease',
-            pointerEvents: hovered ? 'none' : undefined,
           }}>
             <SectionHeader
               sub="Two Paths, One Mountain"
@@ -184,7 +181,7 @@ export default function EcosystemMountain2() {
                 style={{
                   position: 'absolute',
                   ...z.tipPos,
-                  opacity: 1,
+                  opacity: hovered === null ? 1 : (hovered === z.id ? 1 : 0),
                   transition: 'opacity 0.25s ease',
                   pointerEvents: 'none',
                   zIndex: 10,
