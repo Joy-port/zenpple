@@ -26,39 +26,68 @@ export default function Home() {
       {/* ── HERO ── */}
       <section
         style={{
+          height: '100svh',
           minHeight: '100svh',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
           textAlign: 'center',
-          padding: '120px clamp(24px,5vw,72px) 80px',
+          padding: '120px clamp(24px,5vw,72px) 100px',
           position: 'relative',
           overflow: 'hidden',
         }}
       >
-        {/* Watermark logo */}
+        {/* Background 頌缽九宮格 — right side, vertically centered, breathing */}
         <Image
-          src="/zenpple-logo.jpg"
+          src="/頌缽九宮格.png"
           alt=""
-          width={640}
-          height={320}
+          width={1568}
+          height={2172}
           aria-hidden
+          className="animate-breathe"
           style={{
             position: 'absolute',
             top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -52%)',
-            width: 'clamp(300px, 55vw, 640px)',
-            height: 'auto',
-            opacity: 0.07,
-            mixBlendMode: 'multiply',
+            right: 'clamp(32px, 5vw, 80px)',
+            transform: 'translateY(-50%)',
+            height: 'clamp(300px, 68vh, 600px)',
+            width: 'auto',
+            opacity: 0.13,
             pointerEvents: 'none',
             zIndex: 0,
           }}
         />
 
-        <div style={{ position: 'relative', zIndex: 2 }}>
+        {/* Bottom fade — visual bridge to next section */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 140,
+            background: 'linear-gradient(to bottom, transparent, var(--base))',
+            pointerEvents: 'none',
+            zIndex: 1,
+          }}
+        />
+
+        <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          {/* Logo above the tagline */}
+          <div style={{ marginBottom: 36 }}>
+            <Image
+              src="/zenpple-logo-eng.png"
+              alt="Zenpple 森波"
+              width={1872}
+              height={1874}
+              style={{
+                width: 'clamp(120px, 14vw, 180px)',
+                height: 'auto',
+              }}
+            />
+          </div>
+
           <h1
             className="animate-ink-reveal tr-d2"
             style={{
@@ -66,6 +95,8 @@ export default function Home() {
               letterSpacing: '0.06em',
               lineHeight: 1.15,
               marginBottom: 16,
+              animationDelay: '0.3s',
+              animationFillMode: 'both',
             }}
           >
             往內定頻　走回自己
@@ -84,30 +115,39 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Scroll hint */}
+        {/* Scroll hint — text + vertical line */}
         <div
           style={{
             position: 'absolute',
-            bottom: 32,
+            bottom: 36,
             left: '50%',
             transform: 'translateX(-50%)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 8,
             color: 'var(--muted)',
             opacity: 0.45,
+            zIndex: 2,
           }}
         >
-          <svg
-            width="16"
-            height="24"
-            viewBox="0 0 16 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+          <span
+            style={{
+              fontFamily: 'var(--f-mono)',
+              fontSize: 9,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+            }}
           >
-            <path d="M8 4 L8 20" />
-            <path d="M3 15 L8 20 L13 15" />
-          </svg>
+            scroll
+          </span>
+          <div
+            style={{
+              width: 1,
+              height: 40,
+              background: 'linear-gradient(to bottom, var(--muted), transparent)',
+            }}
+          />
         </div>
       </section>
 
