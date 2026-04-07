@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import SectionHeader from '@/components/ui/SectionHeader'
 import PageSection from '@/components/ui/PageSection'
+import PageTitle from '@/components/ui/PageTitle'
 
 const personas = [
   {
@@ -106,14 +106,7 @@ export default function PersonaCardFocus() {
       </div>
 
       <div className="wrap">
-        {/* Header */}
-        <div style={{ marginBottom: 52, position: 'relative', zIndex: 1 }}>
-          <SectionHeader
-            sub="選一張牌"
-            title="找到屬於你的路徑"
-            align="center"
-          />
-        </div>
+        <PageTitle sub="選一張牌" title="找到屬於你的路徑" />
 
         <div
           style={{
