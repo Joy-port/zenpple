@@ -52,7 +52,7 @@ const personas = [
   },
 ]
 
-export default function PersonaCard2() {
+export default function PersonaCard3() {
   const [active, setActive] = useState<number | null>(null)
 
   const toggle = (id: number) => {
@@ -71,7 +71,7 @@ export default function PersonaCard2() {
         overflow: 'hidden',
       }}
     >
-      {/* Wave transition */}
+      {/* Wave */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
         <svg viewBox="0 0 1440 96" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 96, display: 'block' }}>
           <path d="M0,0 L1440,0 L1440,64 C1380,82 1260,54 1100,72 C940,88 800,52 660,70 C520,86 380,58 220,76 C110,88 40,66 0,72 Z" fill="rgba(176,144,112,0.14)" />
@@ -121,13 +121,10 @@ export default function PersonaCard2() {
                   display: 'flex',
                   flexDirection: 'column',
                   background: '#FFFFFF',
-                  // selected: lift + accent shadow + outline ring
                   boxShadow: isActive
                     ? `0 20px 52px rgba(${p.accentRgb},0.22), 0 4px 16px rgba(${p.accentRgb},0.1)`
                     : '0 2px 14px rgba(42,42,42,0.07)',
-                  outline: isActive
-                    ? `2px solid rgba(${p.accentRgb},0.3)`
-                    : '2px solid transparent',
+                  outline: isActive ? `2px solid rgba(${p.accentRgb},0.3)` : '2px solid transparent',
                   transform: isActive
                     ? 'translateY(-8px) scale(1.03)'
                     : isOther
@@ -138,23 +135,14 @@ export default function PersonaCard2() {
                   transition: 'transform 0.45s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.35s, outline 0.25s, opacity 0.35s, filter 0.35s',
                 }}
               >
-                {/* Image — top 65% */}
                 <div style={{ flex: '0 0 65%', position: 'relative', minHeight: 200 }}>
                   <Image
                     src={p.cardImage}
                     alt=""
                     fill
-                    style={{
-                      objectFit: 'contain',
-                      objectPosition: 'center center',
-                      filter: p.imageFilter,
-                      mixBlendMode: 'multiply',
-                      opacity: 0.75,
-                      padding: '18px 24px 0',
-                    }}
+                    style={{ objectFit: 'contain', objectPosition: 'center', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.75, padding: '18px 24px 0' }}
                   />
                 </div>
-                {/* Text bottom */}
                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '16px 24px 28px' }}>
                   <h3 className="tr-h1" style={{ fontSize: 17, lineHeight: 1.5, color: 'var(--ink)', marginBottom: 8, whiteSpace: 'pre-line' }}>
                     {p.cardTitle}
@@ -168,7 +156,7 @@ export default function PersonaCard2() {
           })}
         </div>
 
-        {/* Narrow centered expand panels — 2–3× card width, one per persona */}
+        {/* Narrow centered expand — ~480px, icon at top, all content centered */}
         <div style={{ maxWidth: 960, margin: '0 auto', position: 'relative', zIndex: 1 }}>
           {personas.map(p => {
             const isActive = active === p.id
@@ -176,15 +164,12 @@ export default function PersonaCard2() {
               <div
                 key={p.id}
                 style={{
-                  // Centered, narrow: ~640px ≈ 2× card width
-                  width: 640,
+                  width: 480,
                   maxWidth: '100%',
                   margin: '0 auto',
                   borderRadius: 20,
                   overflow: 'hidden',
-                  position: 'relative',
-                  // Slide + fade reveal
-                  maxHeight: isActive ? 520 : 0,
+                  maxHeight: isActive ? 560 : 0,
                   opacity: isActive ? 1 : 0,
                   marginTop: isActive ? 20 : 0,
                   marginBottom: isActive ? 12 : 0,
@@ -195,51 +180,54 @@ export default function PersonaCard2() {
                     : 'none',
                 }}
               >
-                {/* Two-column layout: content left, image right */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 180px', height: '100%' }}>
+                <div style={{ padding: '36px 40px 36px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
 
-                  {/* Left — text content */}
-                  <div style={{ padding: '36px 32px 32px 40px', display: 'flex', flexDirection: 'column' }}>
-                    {/* Accent line */}
-                    <div style={{ height: 2, width: 36, borderRadius: 1, background: `rgba(${p.accentRgb},0.5)`, marginBottom: 18, flexShrink: 0 }} />
-
-                    <h3 className="tr-h1" style={{ fontSize: 22, marginBottom: 4, color: 'var(--ink)' }}>
-                      {p.expandTitle}
-                    </h3>
-                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 14 }}>
-                      {p.expandEn}
-                    </p>
-                    <p style={{ fontSize: 13, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7, marginBottom: 20 }}>
-                      {p.expandBody}
-                    </p>
-
-                    <div style={{ height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 16, flexShrink: 0 }} />
-
-                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10 }}>
-                      適合的服務
-                    </p>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 22 }}>
-                      {p.services.map(s => (
-                        <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 11, padding: '5px 12px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-
-                    <Link href={p.ctaHref} style={{ fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 20px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.4)`, color: p.accentColor, alignSelf: 'flex-start' }}>
-                      {p.ctaLabel}
-                    </Link>
-                  </div>
-
-                  {/* Right — card image, no overlap */}
-                  <div style={{ position: 'relative', background: `rgba(${p.accentRgb},0.04)`, borderLeft: `1px solid rgba(${p.accentRgb},0.1)` }}>
+                  {/* Card image as icon — top center */}
+                  <div style={{ width: 80, height: 80, position: 'relative', marginBottom: 20, flexShrink: 0 }}>
                     <Image
                       src={p.cardImage}
                       alt=""
                       fill
-                      style={{ objectFit: 'contain', objectPosition: 'center center', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.65, padding: '24px 16px' }}
+                      style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.82 }}
                     />
                   </div>
+
+                  {/* Accent dot row */}
+                  <div style={{ display: 'flex', gap: 5, marginBottom: 20 }}>
+                    {[0, 1, 2].map(i => (
+                      <div key={i} style={{ width: i === 1 ? 20 : 6, height: 4, borderRadius: 2, background: `rgba(${p.accentRgb},${i === 1 ? 0.5 : 0.2})` }} />
+                    ))}
+                  </div>
+
+                  <h3 className="tr-h1" style={{ fontSize: 24, marginBottom: 4, color: 'var(--ink)' }}>
+                    {p.expandTitle}
+                  </h3>
+                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 16 }}>
+                    {p.expandEn}
+                  </p>
+                  <p style={{ fontSize: 13.5, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7, marginBottom: 22 }}>
+                    {p.expandBody}
+                  </p>
+
+                  <div style={{ width: '100%', height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 18 }} />
+
+                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 12 }}>
+                    適合的服務
+                  </p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, justifyContent: 'center', marginBottom: 26 }}>
+                    {p.services.map(s => (
+                      <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 12, padding: '5px 13px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link
+                    href={p.ctaHref}
+                    style={{ fontFamily: 'var(--f-mono)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 24px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.4)`, color: p.accentColor }}
+                  >
+                    {p.ctaLabel}
+                  </Link>
                 </div>
               </div>
             )
@@ -247,22 +235,7 @@ export default function PersonaCard2() {
         </div>
 
         {/* Hint */}
-        <p
-          style={{
-            textAlign: 'center',
-            fontFamily: 'var(--f-mono)',
-            fontSize: 10,
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase',
-            color: 'var(--muted)',
-            opacity: active !== null ? 0 : 0.45,
-            transition: 'opacity 0.4s',
-            marginTop: 28,
-            position: 'relative',
-            zIndex: 1,
-            pointerEvents: 'none',
-          }}
-        >
+        <p style={{ textAlign: 'center', fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', opacity: active !== null ? 0 : 0.45, transition: 'opacity 0.4s', marginTop: 28, position: 'relative', zIndex: 1, pointerEvents: 'none' }}>
           選一張牌
         </p>
       </div>
