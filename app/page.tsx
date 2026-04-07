@@ -34,58 +34,36 @@ export default function Home() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '120px clamp(24px,5vw,72px) 100px',
           background: 'linear-gradient(135deg, #C47B7B 0%, #C47B7B 55%, #C8AEDD 100%)',
           color: 'var(--base)',
           textAlign: 'center',
           position: 'relative',
-          overflow: 'visible',
+          overflow: 'hidden',
         }}
       >
-        {/* ── Top waves — two interacting fills bleeding up into SectionTransition ── */}
-        <div style={{ position: 'absolute', top: -120, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 1 }}>
-          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block' }}>
-            <defs>
-              {/* Wave A — rose */}
-              <linearGradient id="cta-wave-a" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%"   stopColor="#C47B7B" stopOpacity={0} />
-                <stop offset="100%" stopColor="#C47B7B" stopOpacity={1} />
-              </linearGradient>
-              {/* Wave B — lavender, screen-blended so intersection glows rather than cuts */}
-              <linearGradient id="cta-wave-b" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%"   stopColor="#C8AEDD" stopOpacity={0} />
-                <stop offset="100%" stopColor="#C8AEDD" stopOpacity={0.55} />
-              </linearGradient>
-            </defs>
-
-            {/* Wave A — rose, primary fill */}
+        {/* ── Cream wave mask — sits at top:0, fills with base color, cuts organically into pink ── */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 2 }}>
+          <svg
+            viewBox="0 0 1440 110"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            style={{ width: '100%', height: 110, display: 'block', overflow: 'visible' }}
+          >
+            {/* Two interacting cream waves — primary + secondary with offset phase */}
             <path
-              d="M0,120 L0,68 Q180,28 360,58 Q540,85 720,48 Q900,14 1080,50 Q1260,80 1440,42 L1440,120 Z"
-              fill="url(#cta-wave-a)"
-            />
-
-            {/* Wave B — lavender, screen blend removes the harsh crossing line */}
-            <g style={{ mixBlendMode: 'screen' }}>
-              <path
-                d="M0,120 L0,44 Q180,76 360,28 Q540,8 720,72 Q900,100 1080,30 Q1260,4 1440,68 L1440,120 Z"
-                fill="url(#cta-wave-b)"
-              />
-            </g>
-
-            {/* Crest strokes — one per wave */}
-            <path
-              d="M0,68 Q180,28 360,58 Q540,85 720,48 Q900,14 1080,50 Q1260,80 1440,42"
-              stroke="rgba(242,239,234,0.28)" strokeWidth="1.2" fill="none"
+              d="M0,0 L1440,0 L1440,55 Q1350,90 1200,52 Q1080,18 960,68 Q840,100 720,56 Q600,18 480,70 Q360,100 240,58 Q120,20 0,72 Z"
+              fill="#F2EFEA"
             />
             <path
-              d="M0,44 Q180,76 360,28 Q540,8 720,72 Q900,100 1080,30 Q1260,4 1440,68"
-              stroke="rgba(220,190,240,0.35)" strokeWidth="0.9" fill="none"
+              d="M0,0 L1440,0 L1440,38 Q1300,72 1120,36 Q980,8 840,54 Q700,92 560,46 Q420,8 280,52 Q140,88 0,50 Z"
+              fill="#F2EFEA"
+              opacity={0.55}
             />
           </svg>
         </div>
 
         {/* Decorative wave lines within section */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 0 }}>
           <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block' }}>
             <path d="M0,60 Q180,20 360,55 Q540,88 720,48 Q900,12 1080,50 Q1260,84 1440,44" stroke="rgba(242,239,234,0.10)" strokeWidth="1" fill="none" />
             <path d="M0,80 Q200,44 400,70 Q600,94 800,60 Q1000,28 1200,62 Q1340,82 1440,58" stroke="rgba(242,239,234,0.06)" strokeWidth="0.7" fill="none" />
@@ -93,9 +71,9 @@ export default function Home() {
         </div>
 
         {/* Soft centre highlight */}
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.07) 0%, transparent 65%)', pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.07) 0%, transparent 65%)', pointerEvents: 'none', zIndex: 0 }} />
 
-        <div style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ position: 'relative', zIndex: 1, paddingTop: 'clamp(80px, 10vw, 120px)', paddingLeft: 'clamp(24px, 5vw, 72px)', paddingRight: 'clamp(24px, 5vw, 72px)', paddingBottom: 100 }}>
           <h2
             className="tr-d2"
             style={{
