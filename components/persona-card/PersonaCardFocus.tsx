@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import PageSection from '@/components/ui/PageSection'
@@ -70,7 +70,7 @@ function MobileCards({
   personas: Persona[]
   active: number | null
   setActive: React.Dispatch<React.SetStateAction<number | null>>
-  ExpandContent: React.ComponentType<{ p: Persona }>
+  ExpandContent: React.ComponentType<{ p: Persona; hideImage?: boolean; align?: 'center' | 'left' }>
 }) {
   const activePersona = personas.find(p => p.id === active) ?? null
   const activeIdx = personas.findIndex(p => p.id === active)
@@ -85,74 +85,66 @@ function MobileCards({
   }, [active])
 
   const close = () => setActive(null)
-  const prev = () => {
-    if (activeIdx > 0) setActive(personas[activeIdx - 1].id)
-  }
-  const next = () => {
-    if (activeIdx < personas.length - 1) setActive(personas[activeIdx + 1].id)
+  const prev = () => { if (activeIdx > 0) setActive(personas[activeIdx - 1].id) }
+  const next = () => { if (activeIdx < personas.length - 1) setActive(personas[activeIdx + 1].id) }
+
+  // Swipe to switch cards
+  const touchX = useRef<number | null>(null)
+  const onTouchStart = (e: React.TouchEvent) => { touchX.current = e.touches[0].clientX }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX.current === null) return
+    const delta = e.changedTouches[0].clientX - touchX.current
+    if (delta < -50) next()
+    else if (delta > 50) prev()
+    touchX.current = null
   }
 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, position: 'relative', zIndex: 1 }}>
+      {/* Portrait cards — horizontal scroll row */}
+      <div style={{ display: 'flex', gap: 12, overflowX: 'auto', paddingBottom: 8, scrollSnapType: 'x mandatory', position: 'relative', zIndex: 1, WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
         {personas.map(p => (
           <div
             key={p.id}
-            onClick={() => setActive(prev => (prev === p.id ? null : p.id))}
+            onClick={() => setActive(p.id)}
             style={{
+              flexShrink: 0,
+              width: 'clamp(155px, 42vw, 200px)',
               borderRadius: 16,
               background: '#FFFFFF',
               boxShadow: active === p.id
                 ? `0 4px 24px rgba(${p.accentRgb},0.22), 0 0 0 1.5px rgba(${p.accentRgb},0.2)`
                 : '0 2px 14px rgba(42,42,42,0.07)',
-              display: 'flex',
-              alignItems: 'stretch',
-              cursor: 'pointer',
               overflow: 'hidden',
+              cursor: 'pointer',
+              scrollSnapAlign: 'start',
+              display: 'flex',
+              flexDirection: 'column',
               transition: 'box-shadow 0.3s ease',
             }}
           >
-            {/* Accent bar */}
-            <div style={{ width: 4, flexShrink: 0, background: p.accentColor, opacity: 0.7 }} />
+            {/* Accent top bar */}
+            <div style={{ height: 4, background: p.accentColor, opacity: 0.8, flexShrink: 0 }} />
 
-            {/* Text content */}
-            <div style={{ flex: 1, minWidth: 0, padding: '1.25rem 1rem 1.25rem 1rem' }}>
+            {/* Image area */}
+            <div style={{ flex: 1, position: 'relative', minHeight: 'clamp(130px, 34vw, 170px)' }}>
+              <Image
+                src={p.cardImage} alt="" fill
+                style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8, padding: '10px' }}
+              />
+            </div>
+
+            {/* Text */}
+            <div style={{ padding: '0.625rem 0.75rem 0.875rem', borderTop: `1px solid rgba(${p.accentRgb},0.1)` }}>
               <h3
                 className="tr-h1"
-                style={{
-                  fontSize: 'clamp(16px, 4vw, 22px)',
-                  lineHeight: 1.55,
-                  color: 'var(--ink)',
-                  marginBottom: 8,
-                  whiteSpace: 'pre-line',
-                  overflowWrap: 'break-word',
-                  wordBreak: 'break-word',
-                }}
+                style={{ fontSize: 13, lineHeight: 1.55, color: 'var(--ink)', marginBottom: 4, whiteSpace: 'pre-line' }}
               >
                 {p.cardTitle}
               </h3>
-              <p
-                style={{
-                  fontSize: 'clamp(13px, 3vw, 15px)',
-                  color: 'var(--muted)',
-                  lineHeight: 1.8,
-                  whiteSpace: 'pre-line',
-                  overflowWrap: 'break-word',
-                  wordBreak: 'break-word',
-                }}
-              >
+              <p style={{ fontSize: 11, color: 'var(--muted)', lineHeight: 1.7, whiteSpace: 'pre-line' }}>
                 {p.cardDesc}
               </p>
-            </div>
-
-            {/* Card image on right */}
-            <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', paddingRight: '0.75rem' }}>
-              <div style={{ position: 'relative', width: 56, height: 80 }}>
-                <Image
-                  src={p.cardImage} alt="" fill
-                  style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.75 }}
-                />
-              </div>
             </div>
           </div>
         ))}
@@ -176,7 +168,10 @@ function MobileCards({
           onClick={close}
         >
           <div
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
             style={{
+              position: 'relative',
               background: '#FFFFFF',
               borderRadius: 22,
               width: '100%',
@@ -187,14 +182,28 @@ function MobileCards({
               flexDirection: 'column',
               alignItems: 'center',
               textAlign: 'center',
-              padding: '1.25rem 1.75rem 2rem',
+              padding: '2.5rem 1.75rem 1.25rem',
               boxShadow: `0 24px 64px rgba(${activePersona.accentRgb},0.25)`,
               WebkitOverflowScrolling: 'touch',
             } as React.CSSProperties}
             onClick={e => e.stopPropagation()}
           >
-            {/* Header: prev / dots / next / X */}
-            <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20, flexShrink: 0 }}>
+            {/* X — fixed top-right */}
+            <button
+              onClick={close}
+              style={{
+                position: 'absolute', top: 14, right: 14,
+                background: 'none', border: 'none', cursor: 'pointer',
+                fontSize: 18, color: 'var(--ink)', opacity: 0.35,
+                lineHeight: 1, padding: '4px 6px',
+              }}
+              aria-label="關閉"
+            >✕</button>
+
+            <ExpandContent p={activePersona} />
+
+            {/* Bottom pagination: prev / dots / next */}
+            <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 20, flexShrink: 0 }}>
               <button
                 onClick={prev}
                 disabled={activeIdx <= 0}
@@ -225,16 +234,7 @@ function MobileCards({
                 style={{ background: 'none', border: 'none', cursor: activeIdx < personas.length - 1 ? 'pointer' : 'default', opacity: activeIdx < personas.length - 1 ? 0.7 : 0.2, fontSize: 20, color: 'var(--ink)', padding: '4px 8px', lineHeight: 1 }}
                 aria-label="下一個"
               >›</button>
-
-              <button
-                onClick={close}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 20, color: 'var(--ink)', opacity: 0.45, padding: '4px 8px', lineHeight: 1, marginLeft: 4 }}
-                aria-label="關閉"
-              >✕</button>
             </div>
-
-            <ExpandContent p={activePersona} />
-            <div style={{ height: 8 }} />
           </div>
         </div>
       )}
@@ -243,11 +243,10 @@ function MobileCards({
 }
 
 const CARD_W   = 300
-const CARD_H   = 480
-const IMG_W    = 210
-const IMG_H    = 270
-const EXPAND_W = 460
-const EXPAND_H = 520
+const CARD_H   = 'clamp(380px, 48vh, 520px)'
+
+const EXPAND_W = 380
+const EXPAND_H = 'clamp(420px, 54vh, 580px)'
 
 export default function PersonaCardFocus() {
   const [active, setActive] = useState<number | null>(null)
@@ -271,52 +270,60 @@ export default function PersonaCardFocus() {
     paddingBottom: 'clamp(40px, 5vw, 64px)',
   }
 
-  /* ── Shared expand content (used in both desktop panel & mobile modal) ── */
-  const ExpandContent = ({ p }: { p: typeof personas[0] }) => (
-    <>
-      <div style={{ width: 80, height: 80, position: 'relative', marginBottom: 20, flexShrink: 0 }}>
-        <Image src={p.cardImage} alt="" fill
-          style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.82 }}
-        />
-      </div>
+  /* ── Shared expand content — align='center' for mobile modal, 'left' for desktop panel ── */
+  const ExpandContent = ({ p, hideImage, align = 'center' }: { p: typeof personas[0]; hideImage?: boolean; align?: 'center' | 'left' }) => {
+    const ta = align === 'left' ? 'left' : 'center'
+    const ja = align === 'left' ? 'flex-start' : 'center'
+    return (
+      <>
+        {!hideImage && (
+          <div style={{ width: 80, height: 80, position: 'relative', marginBottom: 20, flexShrink: 0 }}>
+            <Image src={p.cardImage} alt="" fill
+              style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.82 }}
+            />
+          </div>
+        )}
 
-      <div style={{ display: 'flex', gap: 5, marginBottom: 20, flexShrink: 0 }}>
-        {[0, 1, 2].map(i => (
-          <div key={i} style={{ width: i === 1 ? 20 : 6, height: 4, borderRadius: 2, background: `rgba(${p.accentRgb},${i === 1 ? 0.5 : 0.2})` }} />
-        ))}
-      </div>
+        <div style={{ display: 'flex', gap: 5, marginBottom: 14, flexShrink: 0, justifyContent: ja }}>
+          {[0, 1, 2].map(i => (
+            <div key={i} style={{ width: i === 1 ? 20 : 6, height: 4, borderRadius: 2, background: `rgba(${p.accentRgb},${i === 1 ? 0.5 : 0.2})` }} />
+          ))}
+        </div>
 
-      <h3 className="tr-h1" style={{ fontSize: 'clamp(18px, 3vw, 24px)', marginBottom: 4, color: 'var(--ink)', flexShrink: 0, overflowWrap: 'break-word', wordBreak: 'break-word' }}>
-        {p.expandTitle}
-      </h3>
-      <p style={{ fontFamily: 'var(--f-display)', fontWeight: 700, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 16, flexShrink: 0 }}>
-        {p.expandEn}
-      </p>
-      <p style={{ fontSize: 'clamp(14px, 1.5vw, 17px)', lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7, marginBottom: 0, flexShrink: 0, overflowWrap: 'break-word', wordBreak: 'break-word' }}>
-        {p.expandBody}
-      </p>
+        <h3 className="tr-h1" style={{ fontSize: 'clamp(15px, 1.8vw, 20px)', marginBottom: 3, color: 'var(--ink)', flexShrink: 0, overflowWrap: 'break-word', wordBreak: 'break-word', textAlign: ta, width: '100%' }}>
+          {p.expandTitle}
+        </h3>
+        <p style={{ fontFamily: 'var(--f-display)', fontWeight: 700, fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10, flexShrink: 0, textAlign: ta, width: '100%' }}>
+          {p.expandEn}
+        </p>
+        <p style={{ fontSize: 'clamp(13px, 1.3vw, 15px)', lineHeight: 1.85, color: 'var(--ink)', opacity: 0.7, marginBottom: 0, flexShrink: 0, overflowWrap: 'break-word', wordBreak: 'break-word', textAlign: ta }}>
+          {p.expandBody}
+        </p>
 
-      <div style={{ flex: 1, minHeight: 12 }} />
+        <div style={{ flex: 1, minHeight: 8 }} />
 
-      <div style={{ width: '100%', height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 16, flexShrink: 0 }} />
-      <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(14px, 1.5vw, 17px)', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 12, flexShrink: 0 }}>
-        適合的服務
-      </p>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, justifyContent: 'center', marginBottom: 22, flexShrink: 0 }}>
-        {p.services.map(s => (
-          <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 'clamp(13px, 1.2vw, 15px)', padding: '5px 13px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
-            {s}
-          </span>
-        ))}
-      </div>
-      <Link
-        href={p.ctaHref}
-        style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(14px, 1.5vw, 17px)', letterSpacing: '0.06em', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 28px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.45)`, color: p.accentColor, flexShrink: 0 }}
-      >
-        {p.ctaLabel}
-      </Link>
-    </>
-  )
+        <div style={{ width: '100%', height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 10, flexShrink: 0 }} />
+        <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(12px, 1.1vw, 14px)', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 8, flexShrink: 0, textAlign: ta, width: '100%' }}>
+          適合的服務
+        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, justifyContent: ja, marginBottom: 14, flexShrink: 0, width: '100%' }}>
+          {p.services.map(s => (
+            <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 'clamp(11px, 1vw, 13px)', padding: '4px 11px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
+              {s}
+            </span>
+          ))}
+        </div>
+        <div style={{ display: 'flex', justifyContent: ja, width: '100%', flexShrink: 0 }}>
+          <Link
+            href={p.ctaHref}
+            style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(12px, 1.1vw, 14px)', letterSpacing: '0.06em', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 22px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.45)`, color: p.accentColor }}
+          >
+            {p.ctaLabel}
+          </Link>
+        </div>
+      </>
+    )
+  }
 
   return (
     <PageSection id="who-you-are" ghost="WHO YOU ARE" style={sectionStyle}>
@@ -379,8 +386,8 @@ export default function PersonaCardFocus() {
               display: 'flex',
               gap: 0,
               justifyContent: 'flex-start',
-              alignItems: 'flex-start',
-              maxWidth: 960,
+              alignItems: 'center',
+              maxWidth: '100%',
               margin: '0 auto',
               position: 'relative',
               zIndex: 1,
@@ -413,16 +420,16 @@ export default function PersonaCardFocus() {
                     boxShadow: isActive ? 'none' : '0 2px 14px rgba(42,42,42,0.07)',
                     transition: 'background 0.6s ease, box-shadow 0.5s ease',
                   }}>
-                    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 20 }}>
-                      <div style={{ position: 'relative', width: IMG_W, height: IMG_H, flexShrink: 0 }}>
+                    <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 16 }}>
+                      <div style={{ position: 'relative', width: 160, height: 210, flexShrink: 0 }}>
                         <Image src={p.cardImage} alt="" fill style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8 }} />
                       </div>
                     </div>
-                    <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '1.25rem 1.5rem 1.75rem' }}>
-                      <h3 className="tr-h1" style={{ fontSize: 'clamp(18px, 2.5vw, 24px)', lineHeight: 1.5, color: 'var(--ink)', marginBottom: isActive ? 0 : 10, whiteSpace: 'pre-line', transition: 'margin 0.4s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
+                    <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '0.75rem 1.25rem 1.25rem' }}>
+                      <h3 className="tr-h1" style={{ fontSize: 'clamp(14px, 1.8vw, 18px)', lineHeight: 1.5, color: 'var(--ink)', marginBottom: isActive ? 0 : 8, whiteSpace: 'pre-line', transition: 'margin 0.4s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                         {p.cardTitle}
                       </h3>
-                      <p style={{ fontSize: 'clamp(13px, 1.2vw, 15px)', color: 'var(--muted)', lineHeight: 1.85, whiteSpace: 'pre-line', opacity: isActive ? 0 : 1, maxHeight: isActive ? 0 : 80, overflow: 'hidden', transition: 'opacity 0.35s ease, max-height 0.45s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
+                      <p style={{ fontSize: 'clamp(12px, 1vw, 13px)', color: 'var(--muted)', lineHeight: 1.8, whiteSpace: 'pre-line', opacity: isActive ? 0 : 1, maxHeight: isActive ? 0 : 120, overflow: 'hidden', transition: 'opacity 0.35s ease, max-height 0.45s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                         {p.cardDesc}
                       </p>
                     </div>
@@ -443,8 +450,8 @@ export default function PersonaCardFocus() {
                     boxShadow: isActive ? `0 16px 52px rgba(${p.accentRgb},0.18), 0 0 0 1px rgba(${p.accentRgb},0.1)` : 'none',
                   }}
                 >
-                  <div style={{ width: EXPAND_W, height: '100%', overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '2.25rem 2.5rem 2rem' }}>
-                    <ExpandContent p={p} />
+                  <div style={{ width: EXPAND_W, height: '100%', overflowY: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '2.25rem 2.25rem 1.75rem' }}>
+                    <ExpandContent p={p} hideImage />
                   </div>
                 </div>,
               ]
