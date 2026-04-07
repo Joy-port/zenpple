@@ -12,10 +12,7 @@ export default function Home() {
       <HeroCenter />
 
       {/* ── PERSONA CARDS ── */}
-      <div style={{ position: 'relative' }}>
-        <SectionTransition position="top" />
-        <PersonaCardFocus />
-      </div>
+      <PersonaCardFocus />
 
       {/* ── ECOSYSTEM ── */}
       <div style={{ position: 'relative' }}>

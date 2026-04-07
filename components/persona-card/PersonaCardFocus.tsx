@@ -19,6 +19,7 @@ const personas = [
     ctaHref: '/qi-sb',
     accentColor: '#4A6B8A',
     accentRgb: '74,107,138',
+    secondaryRgb: '123,107,158',
     cardImage: '/index/卡牌-1.png',
     imageFilter: 'sepia(1) hue-rotate(170deg) saturate(2) brightness(0.82)',
   },
@@ -34,6 +35,7 @@ const personas = [
     ctaHref: '/hl',
     accentColor: '#7B6B9E',
     accentRgb: '123,107,158',
+    secondaryRgb: '74,107,138',
     cardImage: '/index/卡牌-2.png',
     imageFilter: 'sepia(1) hue-rotate(240deg) saturate(2) brightness(0.85)',
   },
@@ -49,6 +51,7 @@ const personas = [
     ctaHref: '/ts-pe',
     accentColor: '#B09070',
     accentRgb: '176,144,112',
+    secondaryRgb: '123,107,158',
     cardImage: '/index/卡牌-3.png',
     imageFilter: 'sepia(0.7) saturate(1.9) brightness(0.95) hue-rotate(5deg)',
   },
@@ -70,6 +73,9 @@ export default function PersonaCardFocus() {
 
   const activePersona = personas.find(p => p.id === active)
 
+  const primaryRgb   = active !== null ? (activePersona?.accentRgb    ?? '192,184,174') : '192,184,174'
+  const secondaryRgb = active !== null ? (activePersona?.secondaryRgb ?? '192,184,174') : '192,184,174'
+
   return (
     <PageSection
       ghost="WHO YOU ARE"
@@ -81,6 +87,38 @@ export default function PersonaCardFocus() {
         overflow: 'hidden',
       }}
     >
+
+      {/* ── Top waves ── */}
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
+        <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block' }}>
+          {/* Back wave — secondary color */}
+          <path
+            d="M0,0 L0,72 Q180,42 360,65 Q540,85 720,56 Q900,28 1080,58 Q1260,80 1440,54 L1440,0 Z"
+            style={{ fill: `rgba(${secondaryRgb},0.13)`, transition: 'fill 0.6s ease' }}
+          />
+          {/* Front wave — primary color */}
+          <path
+            d="M0,0 L0,58 Q180,28 360,52 Q540,74 720,44 Q900,16 1080,44 Q1260,68 1440,40 L1440,0 Z"
+            style={{ fill: `rgba(${primaryRgb},0.22)`, transition: 'fill 0.6s ease' }}
+          />
+        </svg>
+      </div>
+
+      {/* ── Bottom waves ── */}
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
+        <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block', transform: 'scaleY(-1)' }}>
+          {/* Back wave — secondary color */}
+          <path
+            d="M0,0 L0,72 Q180,42 360,65 Q540,85 720,56 Q900,28 1080,58 Q1260,80 1440,54 L1440,0 Z"
+            style={{ fill: `rgba(${secondaryRgb},0.13)`, transition: 'fill 0.6s ease' }}
+          />
+          {/* Front wave — primary color */}
+          <path
+            d="M0,0 L0,58 Q180,28 360,52 Q540,74 720,44 Q900,16 1080,44 Q1260,68 1440,40 L1440,0 Z"
+            style={{ fill: `rgba(${primaryRgb},0.22)`, transition: 'fill 0.6s ease' }}
+          />
+        </svg>
+      </div>
 
       <div className="wrap">
         <PageTitle sub="選一張牌" title="找到屬於你的路徑" />
