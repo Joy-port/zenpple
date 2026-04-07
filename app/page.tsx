@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import PersonaCard3 from '@/app/personalcard-3/page'
+import PersonaCard3 from '@/components/PersonaCard3'
 
 const pyramidRows = [
   {
