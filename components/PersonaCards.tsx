@@ -153,7 +153,7 @@ export default function PersonaCards() {
               style={{
                 flex: 1,
                 maxWidth: 300,
-                minHeight: 380,
+                minHeight: 480,
                 borderRadius: 16,
                 cursor: 'pointer',
                 overflow: 'hidden',
@@ -168,7 +168,7 @@ export default function PersonaCards() {
               }}
             >
               {/* Image — top 65% */}
-              <div style={{ flex: '0 0 65%', position: 'relative', minHeight: 200 }}>
+              <div style={{ flex: '0 0 65%', position: 'relative', minHeight: 260 }}>
                 <Image
                   src={p.cardImage}
                   alt=""
@@ -232,7 +232,7 @@ export default function PersonaCards() {
               margin: '0 auto',
               borderRadius: 16,
               overflow: 'hidden',
-              maxHeight: active === p.id ? 420 : 0,
+              maxHeight: active === p.id ? 580 : 0,
               transition: 'max-height 0.5s ease, padding 0.5s ease, box-shadow 0.5s ease',
               padding: active === p.id ? '44px 48px' : '0 48px',
               background: p.expandBg,

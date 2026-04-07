@@ -114,7 +114,7 @@ export default function PersonaCard2() {
                 style={{
                   flex: 1,
                   maxWidth: 300,
-                  minHeight: 380,
+                  minHeight: 480,
                   borderRadius: 16,
                   cursor: 'pointer',
                   overflow: 'hidden',
@@ -139,7 +139,7 @@ export default function PersonaCard2() {
                 }}
               >
                 {/* Image — top 65% */}
-                <div style={{ flex: '0 0 65%', position: 'relative', minHeight: 200 }}>
+                <div style={{ flex: '0 0 65%', position: 'relative', minHeight: 260 }}>
                   <Image
                     src={p.cardImage}
                     alt=""
@@ -184,7 +184,7 @@ export default function PersonaCard2() {
                   overflow: 'hidden',
                   position: 'relative',
                   // Slide + fade reveal
-                  maxHeight: isActive ? 520 : 0,
+                  maxHeight: isActive ? 660 : 0,
                   opacity: isActive ? 1 : 0,
                   marginTop: isActive ? 20 : 0,
                   marginBottom: isActive ? 12 : 0,
