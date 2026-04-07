@@ -27,63 +27,81 @@ export default function Home() {
       {/* ── CONTACT CTA ── */}
       <section
         id="contact"
+        className="animate-gradient-drift"
         style={{
-          padding: 'clamp(80px,12vw,140px) clamp(24px,5vw,72px)',
-          background: 'var(--ink)',
+          minHeight: '100svh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '120px clamp(24px,5vw,72px) 100px',
+          background: 'linear-gradient(135deg, #7B6B9E 0%, #A8687A 35%, #C47B7B 60%, #7B6B9E 100%)',
           color: 'var(--base)',
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden',
         }}
       >
-        {/* Colour blobs */}
-        <div style={{ position: 'absolute', width: 520, height: 520, borderRadius: '50%', background: 'var(--sc-purple)', filter: 'blur(130px)', opacity: 0.28, top: -120, left: -80, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', width: 420, height: 420, borderRadius: '50%', background: 'var(--hl-rose)', filter: 'blur(110px)', opacity: 0.22, bottom: -80, right: -60, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', width: 300, height: 300, borderRadius: '50%', background: 'var(--qi-sb)', filter: 'blur(90px)', opacity: 0.18, top: '50%', left: '50%', transform: 'translate(-50%,-50%)', pointerEvents: 'none' }} />
+        {/* Wave lines — decorative */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 0 }}>
+          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block' }}>
+            <path d="M0,60 Q180,20 360,55 Q540,88 720,48 Q900,12 1080,50 Q1260,84 1440,44" stroke="rgba(242,239,234,0.12)" strokeWidth="1.2" fill="none" />
+            <path d="M0,80 Q200,44 400,70 Q600,94 800,60 Q1000,28 1200,62 Q1340,82 1440,58" stroke="rgba(242,239,234,0.07)" strokeWidth="0.8" fill="none" />
+          </svg>
+        </div>
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 0 }}>
+          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block', transform: 'scaleY(-1)' }}>
+            <path d="M0,60 Q180,20 360,55 Q540,88 720,48 Q900,12 1080,50 Q1260,84 1440,44" stroke="rgba(242,239,234,0.12)" strokeWidth="1.2" fill="none" />
+            <path d="M0,80 Q200,44 400,70 Q600,94 800,60 Q1000,28 1200,62 Q1340,82 1440,58" stroke="rgba(242,239,234,0.07)" strokeWidth="0.8" fill="none" />
+          </svg>
+        </div>
+
+        {/* Soft vignette centre */}
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.06) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0 }} />
 
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <p className="sec-label" style={{ color: 'rgba(242,239,234,0.35)', justifyContent: 'center' }}>
+          <p className="sec-label" style={{ color: 'rgba(242,239,234,0.5)', justifyContent: 'center', marginBottom: 32 }}>
             聯絡 · 預約
           </p>
           <h2
             className="tr-d2"
             style={{
-              fontSize: 'clamp(32px,5vw,62px)',
+              fontSize: 'clamp(36px, 5.5vw, 68px)',
               lineHeight: 1.2,
               color: 'var(--base)',
-              marginBottom: 18,
+              marginBottom: 20,
             }}
           >
             準備好了嗎？<br />先來聊聊你的狀態。
           </h2>
           <p
             style={{
-              fontSize: 14,
-              color: 'rgba(242,239,234,0.5)',
+              fontSize: 16,
+              color: 'rgba(242,239,234,0.65)',
               lineHeight: 1.9,
               maxWidth: 380,
-              margin: '0 auto 52px',
+              margin: '0 auto 56px',
             }}
           >
             不需要準備什麼，把你現在的狀況傳給我們，我們會幫你找到最適合的第一步。
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 14, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
             <Link
               href="#"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 10,
-                padding: '15px 32px',
+                padding: '16px 38px',
                 borderRadius: 999,
                 fontFamily: 'var(--f-zh-sans)',
-                fontSize: 14,
+                fontSize: 16,
                 fontWeight: 700,
                 letterSpacing: '0.03em',
                 textDecoration: 'none',
-                background: 'var(--base)',
-                color: 'var(--ink)',
-                transition: 'transform 0.25s, box-shadow 0.25s',
+                background: 'rgba(242,239,234,0.95)',
+                color: '#7B6B9E',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
               }}
             >
               LINE 官方帳號 ↗
@@ -96,17 +114,16 @@ export default function Home() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 10,
-                padding: '15px 32px',
+                padding: '16px 38px',
                 borderRadius: 999,
                 fontFamily: 'var(--f-zh-sans)',
-                fontSize: 14,
+                fontSize: 16,
                 fontWeight: 700,
                 letterSpacing: '0.03em',
                 textDecoration: 'none',
                 background: 'transparent',
-                color: 'rgba(242,239,234,0.75)',
-                border: '1px solid rgba(242,239,234,0.25)',
-                transition: 'border-color 0.25s, color 0.25s',
+                color: 'rgba(242,239,234,0.85)',
+                border: '1px solid rgba(242,239,234,0.35)',
               }}
             >
               Instagram @zenpple_
