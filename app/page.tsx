@@ -39,51 +39,34 @@ export default function Home() {
           background: 'var(--base)',
         }}
       >
-        {/* Option C — top-left: strong anchor */}
-        <Image
-          src="/頌缽九宮格.png"
-          alt=""
-          width={1568}
-          height={2172}
-          aria-hidden
-          className="animate-breathe"
-          style={{
-            position: 'absolute',
-            top: '-5%',
-            left: '-6%',
-            height: 'clamp(380px, 68vh, 620px)',
-            width: 'auto',
-            opacity: 0.07,
-            pointerEvents: 'none',
-            zIndex: 0,
-          }}
-        />
+        {/* Top-left — lighter, entry point, appears first */}
+        <div style={{ position: 'absolute', top: '-5%', left: '-6%', zIndex: 0, pointerEvents: 'none', opacity: 0.08 }}>
+          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <Image
+              src="/頌缽九宮格.png"
+              alt=""
+              width={1568}
+              height={2172}
+              aria-hidden
+              className="animate-breathe-scale"
+              style={{ height: 'clamp(380px, 68vh, 620px)', width: 'auto', display: 'block' }}
+            />
+          </div>
+        </div>
 
-        {/* Option C — bottom-right: smooth fade-in reveal, no breathe flash */}
-        <div
-          className="animate-fade-in"
-          style={{
-            position: 'absolute',
-            bottom: '-34vh',
-            right: '-5%',
-            zIndex: 0,
-            pointerEvents: 'none',
-            animationDelay: '1s',
-          }}
-        >
-          <Image
-            src="/頌缽九宮格.png"
-            alt=""
-            width={1568}
-            height={2172}
-            aria-hidden
-            style={{
-              height: 'clamp(380px, 68vh, 620px)',
-              width: 'auto',
-              opacity: 0.03,
-              display: 'block',
-            }}
-          />
+        {/* Bottom-right — stronger, exit point, appears after content settles */}
+        <div style={{ position: 'absolute', bottom: '-34vh', right: '-5%', zIndex: 0, pointerEvents: 'none', opacity: 0.13 }}>
+          <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
+            <Image
+              src="/頌缽九宮格.png"
+              alt=""
+              width={1568}
+              height={2172}
+              aria-hidden
+              className="animate-breathe-scale"
+              style={{ height: 'clamp(380px, 68vh, 620px)', width: 'auto', display: 'block', animationDelay: '2s' }}
+            />
+          </div>
         </div>
 
         {/* Bottom fade — visual bridge to next section */}

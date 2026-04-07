@@ -98,6 +98,10 @@ body::after {
   0%, 100% { opacity: 0.85; transform: scale(1); }
   50%       { opacity: 1;    transform: scale(1.03); }
 }
+@keyframes breathe-scale {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
 @keyframes ink-reveal {
   0%   { clip-path: inset(0 100% 0 0); }
   100% { clip-path: inset(0 0% 0 0); }
@@ -127,7 +131,8 @@ body::after {
 .animate-breathe    { animation: breathe 3.5s ease-in-out infinite; }
 .animate-ink-reveal { animation: ink-reveal 1.1s cubic-bezier(.4,0,.2,1) forwards; }
 .animate-fade-slide { animation: fade-slide 0.7s ease forwards; }
-.animate-fade-in    { animation: fade-in 2.4s cubic-bezier(0.22,1,0.36,1) both; }
+.animate-fade-in       { animation: fade-in 2.4s cubic-bezier(0.22,1,0.36,1) both; }
+.animate-breathe-scale { animation: breathe-scale 4s ease-in-out infinite; }
 
 @keyframes fade-in {
   from { opacity: 0; }
