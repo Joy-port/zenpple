@@ -213,49 +213,49 @@ export default function PersonaCard2() {
                       WebkitBackfaceVisibility: 'hidden',
                       transform: 'rotateY(180deg)',
                       borderRadius: 16,
-                      overflow: 'hidden',
+                      overflow: 'auto',
                       display: 'flex',
                       flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      textAlign: 'center',
-                      padding: '28px 22px',
-                      background: `linear-gradient(160deg, rgba(${p.accentRgb},0.07) 0%, rgba(250,248,246,1) 40%)`,
+                      padding: '28px 24px 24px',
+                      background: 'rgba(250,248,246,0.97)',
                       boxShadow: `0 24px 56px rgba(${p.accentRgb},0.26), 0 0 0 1px rgba(${p.accentRgb},0.14)`,
                     }}
                   >
-                    {/* Card image as small icon */}
-                    <div style={{ width: 64, height: 64, position: 'relative', marginBottom: 14, flexShrink: 0 }}>
-                      <Image
-                        src={p.cardImage}
-                        alt=""
-                        fill
-                        style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.85 }}
-                      />
-                    </div>
+                    {/* Top accent strip */}
+                    <div style={{ height: 3, borderRadius: 2, background: `rgba(${p.accentRgb},0.35)`, marginBottom: 20, flexShrink: 0 }} />
 
-                    {/* Persona name */}
-                    <h3 className="tr-h1" style={{ fontSize: 20, marginBottom: 2, color: 'var(--ink)', lineHeight: 1.3 }}>
+                    {/* Persona title block */}
+                    <h3 className="tr-h1" style={{ fontSize: 22, marginBottom: 3, color: 'var(--ink)', lineHeight: 1.3 }}>
                       {p.expandTitle}
                     </h3>
-                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 12 }}>
+                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 14 }}>
                       {p.expandEn}
                     </p>
-                    <p style={{ fontSize: 12.5, lineHeight: 1.85, color: 'var(--ink)', opacity: 0.68, marginBottom: 16 }}>
+
+                    {/* Body copy */}
+                    <p style={{ fontSize: 13, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.72, marginBottom: 18 }}>
                       {p.expandBody}
                     </p>
 
-                    {/* Services */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, justifyContent: 'center', marginBottom: 18 }}>
+                    {/* Divider */}
+                    <div style={{ height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 14, flexShrink: 0 }} />
+
+                    {/* Services label */}
+                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10 }}>
+                      適合的服務
+                    </p>
+
+                    {/* Service tags */}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20 }}>
                       {p.services.map(s => (
                         <span
                           key={s}
                           style={{
                             fontFamily: 'var(--f-zh-sans)',
                             fontSize: 11,
-                            padding: '4px 11px',
+                            padding: '5px 12px',
                             borderRadius: 999,
-                            border: `1px solid rgba(${p.accentRgb},0.28)`,
+                            border: `1px solid rgba(${p.accentRgb},0.3)`,
                             color: p.accentColor,
                             background: `rgba(${p.accentRgb},0.06)`,
                             letterSpacing: '0.02em',
@@ -266,7 +266,7 @@ export default function PersonaCard2() {
                       ))}
                     </div>
 
-                    {/* CTA — stop click propagation so card doesn't un-flip */}
+                    {/* CTA — stopPropagation so link click doesn't flip the card back */}
                     <Link
                       href={p.ctaHref}
                       onClick={e => e.stopPropagation()}
@@ -279,11 +279,11 @@ export default function PersonaCard2() {
                         display: 'inline-flex',
                         alignItems: 'center',
                         gap: 8,
-                        padding: '9px 22px',
+                        padding: '10px 22px',
                         borderRadius: 999,
                         border: `1px solid rgba(${p.accentRgb},0.4)`,
                         color: p.accentColor,
-                        background: `rgba(${p.accentRgb},0.06)`,
+                        alignSelf: 'flex-start',
                       }}
                     >
                       {p.ctaLabel}
