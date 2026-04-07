@@ -194,7 +194,7 @@ export default function PersonaCard3() {
                     : 'none',
                 }}
               >
-                {/* Fixed-width inner so content doesn't reflow during slide */}
+                {/* Fixed-width inner — top block anchored, service block floats to bottom */}
                 <div
                   style={{
                     width: EXPAND_W,
@@ -204,10 +204,11 @@ export default function PersonaCard3() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     textAlign: 'center',
-                    padding: '28px 40px 24px',
+                    padding: '36px 40px 32px',
                   }}
                 >
-                  {/* Card image — icon at top center */}
+                  {/* ── TOP IDENTITY BLOCK — same Y position across all 3 cards ── */}
+                  {/* Card image icon */}
                   <div style={{ width: 80, height: 80, position: 'relative', marginBottom: 20, flexShrink: 0 }}>
                     <Image
                       src={p.cardImage}
@@ -224,22 +225,28 @@ export default function PersonaCard3() {
                     ))}
                   </div>
 
-                  <h3 className="tr-h1" style={{ fontSize: 24, marginBottom: 4, color: 'var(--ink)' }}>
+                  <h3 className="tr-h1" style={{ fontSize: 24, marginBottom: 4, color: 'var(--ink)', flexShrink: 0 }}>
                     {p.expandTitle}
                   </h3>
-                  <p style={{ fontFamily: 'var(--f-display)', fontWeight: 700, fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 16 }}>
+                  <p style={{ fontFamily: 'var(--f-display)', fontWeight: 700, fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 16, flexShrink: 0 }}>
                     {p.expandEn}
                   </p>
-                  <p style={{ fontSize: 17, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7, marginBottom: 20 }}>
+
+                  {/* Body — directly below title block, same start position across cards */}
+                  <p style={{ fontSize: 17, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7, marginBottom: 0, flexShrink: 0 }}>
                     {p.expandBody}
                   </p>
 
+                  {/* Flex spacer — absorbs height difference between cards so services stay at bottom */}
+                  <div style={{ flex: 1 }} />
+
+                  {/* ── BOTTOM SERVICE BLOCK — floats to bottom, always near CTA ── */}
                   <div style={{ width: '100%', height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 16, flexShrink: 0 }} />
 
-                  <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 17, letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 12 }}>
+                  <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 17, letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 12, flexShrink: 0 }}>
                     適合的服務
                   </p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, justifyContent: 'center', marginBottom: 24 }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, justifyContent: 'center', marginBottom: 24, flexShrink: 0 }}>
                     {p.services.map(s => (
                       <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 15, padding: '5px 13px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
                         {s}
@@ -249,7 +256,7 @@ export default function PersonaCard3() {
 
                   <Link
                     href={p.ctaHref}
-                    style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 20, letterSpacing: '0.06em', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 32px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.45)`, color: p.accentColor, flexShrink: 0 }}
+                    style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 17, letterSpacing: '0.06em', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 28px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.45)`, color: p.accentColor, flexShrink: 0 }}
                   >
                     {p.ctaLabel}
                   </Link>
