@@ -42,7 +42,7 @@ export default function FoundersSection() {
   }, [])
 
   return (
-    <PageSection ghost="FOUNDERS" style={{ overflow: 'visible', position: 'relative', paddingTop: 'clamp(40px, 5vw, 64px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
+    <PageSection ghost="FOUNDERS" style={{ overflow: 'visible', position: 'relative', paddingTop: 'clamp(100px, 12vw, 140px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
 
       {/* ── Top gradient wave — blends both founder accent colours ── */}
       <div style={{ position: 'absolute', top: -88, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
@@ -157,8 +157,8 @@ export default function FoundersSection() {
                       <p
                         style={{
                           fontFamily: 'var(--f-mono)',
-                          fontSize: 11,
-                          letterSpacing: '0.1em',
+                          fontSize: 'clamp(14px, 1.5vw, 16px)',
+                          letterSpacing: '0.06em',
                           color: f.accent,
                           marginBottom: 24,
                         }}

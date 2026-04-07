@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import PageSection from '@/components/ui/PageSection'
 import PageTitle from '@/components/ui/PageTitle'
 
@@ -20,6 +20,7 @@ const zones = [
     accent: '#E1C06F',
     accentRgb: '225,192,111',
     label: '高階職業養成',
+    shortLabel: '高階',
     sub: '從自覺走向大地',
     tipPos: { top: '5%', left: '62%' } as React.CSSProperties,
     dot: '#e8c000',
@@ -34,6 +35,7 @@ const zones = [
     accent: '#ADBCC8',
     accentRgb: '173,188,200',
     label: '薩滿靈魂覺醒',
+    shortLabel: '薩滿',
     sub: '學會與高靈團隊航行',
     tipPos: { top: '30%', right: '8%' } as React.CSSProperties,
     dot: '#9090c8',
@@ -48,6 +50,7 @@ const zones = [
     accent: '#D09D9F',
     accentRgb: '208,157,159',
     label: '深層系統對齊',
+    shortLabel: '深層',
     sub: '校準生命的了心共振',
     tipPos: { top: '40%', left: '8%' } as React.CSSProperties,
     dot: '#d08090',
@@ -62,6 +65,7 @@ const zones = [
     accent: '#CB9E85',
     accentRgb: '203,158,133',
     label: '即時洞察與梳理',
+    shortLabel: '即時',
     sub: '在迷霧中看清局勢',
     tipPos: { top: '67%', left: '1.5%' } as React.CSSProperties,
     dot: '#c8a070',
@@ -72,9 +76,17 @@ const zones = [
 export default function EcosystemMountain2() {
   const router = useRouter()
   const [hovered, setHovered] = useState<string | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   return (
-    <PageSection ghost="SENSING WAVE" style={{ paddingTop: 'clamp(40px, 5vw, 64px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
+    <PageSection ghost="SENSING WAVE" style={{ paddingTop: 'clamp(100px, 12vw, 140px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
 
       <div className="wrap">
 
@@ -84,7 +96,14 @@ export default function EcosystemMountain2() {
           <PageTitle sub="Two Paths, One Mountain" title="兩個方向，一座山" />
 
           {/* ── Mountain + tooltips ── */}
-          <div style={{ position: 'relative', zIndex: 1 }}>
+          <div
+            style={{
+              position: 'relative',
+              zIndex: 1,
+              /* Full-bleed on mobile: escape .wrap gutter */
+              ...(isMobile ? { margin: '0 calc(-1 * var(--gutter))' } : {}),
+            }}
+          >
             <svg
               viewBox="0 0 700 390"
               xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +117,7 @@ export default function EcosystemMountain2() {
                 ))}
               </defs>
 
-              {/* Base: full mountain, dims to 0.3 on hover */}
+              {/* Base: full mountain */}
               <image
                 href="/index/mountain-full.png"
                 x="0" y="0" width="700" height="390"
@@ -106,7 +125,7 @@ export default function EcosystemMountain2() {
                 style={{ opacity: hovered ? 0.3 : 1, transition: 'opacity 0.3s ease' }}
               />
 
-              {/* Cut layers: hovered=1, upper layers=0.3, others=0 */}
+              {/* Cut layers */}
               {zones.map((z, i) => {
                 let opacity = 0
                 if (hovered) {
@@ -126,8 +145,8 @@ export default function EcosystemMountain2() {
                 )
               })}
 
-              {/* Hit zones */}
-              {zones.map(z => (
+              {/* Hit zones (desktop only) */}
+              {!isMobile && zones.map(z => (
                 <path
                   key={`zone-${z.id}`}
                   d={z.clipPath}
@@ -141,8 +160,8 @@ export default function EcosystemMountain2() {
               ))}
             </svg>
 
-            {/* HTML tooltips — frosted glass */}
-            {zones.map(z => (
+            {/* HTML tooltips — desktop only */}
+            {!isMobile && zones.map(z => (
               <div
                 key={`tip-${z.id}`}
                 style={{
@@ -157,8 +176,8 @@ export default function EcosystemMountain2() {
                   WebkitBackdropFilter: 'blur(14px)',
                   borderLeft: `5px solid ${z.accent}`,
                   borderRadius: '4px 10px 10px 4px',
-                  padding: '12px 16px',
-                  maxWidth: 210,
+                  padding: '10px 14px',
+                  maxWidth: 180,
                 }}
               >
                 <div style={{
@@ -168,23 +187,52 @@ export default function EcosystemMountain2() {
                   letterSpacing: '0.04em',
                   color: 'var(--ink)',
                   lineHeight: 1.2,
-                  marginBottom: 6,
                 }}>
                   {z.label}
-                </div>
-                <div style={{ width: 24, height: 1, background: z.accent, opacity: 0.4, marginBottom: 6 }} />
-                <div style={{
-                  fontFamily: 'var(--f-mono)',
-                  fontSize: 'clamp(12px, 1.2vw, 15px)',
-                  letterSpacing: '0.08em',
-                  color: 'var(--muted)',
-                  lineHeight: 1.6,
-                }}>
-                  {z.sub}
                 </div>
               </div>
             ))}
           </div>
+
+          {/* ── Mobile: vertical label list below mountain ── */}
+          {isMobile && (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: '10px 16px',
+              marginTop: 20,
+              paddingLeft: 4,
+              paddingRight: 4,
+            }}>
+              {zones.map(z => (
+                <button
+                  key={`m-label-${z.id}`}
+                  onClick={() => router.push(z.href)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                    background: 'none',
+                    border: 'none',
+                    padding: '8px 0',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                  }}
+                >
+                  <div style={{ width: 4, height: 28, borderRadius: 2, background: z.accent, flexShrink: 0 }} />
+                  <span style={{
+                    fontFamily: 'var(--f-zh)',
+                    fontWeight: 500,
+                    fontSize: 'clamp(16px, 4vw, 20px)',
+                    letterSpacing: '0.04em',
+                    color: 'var(--ink)',
+                  }}>
+                    {z.shortLabel}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
 
         </div>
       </div>

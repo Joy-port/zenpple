@@ -91,7 +91,7 @@ export default function PersonaCardFocus() {
     transition: 'background 0.6s ease',
     overflow: 'visible' as const,
     zIndex: 1,
-    paddingTop: 'clamp(40px, 5vw, 64px)',
+    paddingTop: 'clamp(100px, 12vw, 140px)',
     paddingBottom: 'clamp(40px, 5vw, 64px)',
   }
 
