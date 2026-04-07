@@ -1,6 +1,3 @@
-'use client'
-
-import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import PageSection from '@/components/ui/PageSection'
@@ -32,19 +29,13 @@ const founders = [
 ]
 
 export default function FoundersSection() {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
-  }, [])
-
   return (
-    <PageSection ghost="FOUNDERS" style={{ overflow: 'visible', position: 'relative', paddingTop: 'clamp(100px, 12vw, 140px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
+    <PageSection
+      ghost="FOUNDERS"
+      style={{ overflow: 'visible', position: 'relative', paddingTop: 'clamp(100px, 12vw, 140px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}
+    >
 
-      {/* ── Top gradient wave — blends both founder accent colours ── */}
+      {/* ── Top gradient wave ── */}
       <div style={{ position: 'absolute', top: -88, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
         <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block' }}>
           <defs>
@@ -57,31 +48,21 @@ export default function FoundersSection() {
               <stop offset="100%" stopColor="rgb(203,158,133)" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <path
-            d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z"
-            fill="url(#fo-top-a)"
-          />
-          <path
-            d="M0,90 L0,62 Q180,32 360,58 Q540,80 720,50 Q900,22 1080,52 Q1260,76 1440,46 L1440,90 Z"
-            fill="url(#fo-top-b)"
-          />
+          <path d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z" fill="url(#fo-top-a)" />
+          <path d="M0,90 L0,62 Q180,32 360,58 Q540,80 720,50 Q900,22 1080,52 Q1260,76 1440,46 L1440,90 Z" fill="url(#fo-top-b)" />
           <path d="M0,72 Q120,38 300,75 Q480,88 640,44 Q800,12 960,56 Q1100,84 1280,38 Q1380,18 1440,52" stroke="#b5ac9e" strokeWidth="1" fill="none" opacity="0.5" />
           <path d="M0,48 Q220,82 420,32 Q580,8 740,70 Q920,88 1060,34 Q1200,6 1380,58 L1440,62" stroke="#c8c0b2" strokeWidth="0.6" fill="none" opacity="0.4" />
         </svg>
       </div>
 
       <div className="wrap">
-
         <PageTitle sub="Two Souls, One Mountain" title="兩個靈魂，一座山" />
 
-        {/* ── Founder blocks ── */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
           {founders.map((f, i) => {
             const isRight = f.imgSide === 'right'
             return (
               <div key={f.key}>
-
-                {/* Card row */}
                 <div
                   style={{
                     position: 'relative',
@@ -96,59 +77,47 @@ export default function FoundersSection() {
                   <div
                     aria-hidden
                     style={{
-                      position: 'absolute',
-                      width: 800,
-                      height: 800,
-                      borderRadius: '50%',
-                      background: `rgba(${f.accentRgb}, 0.15)`,
-                      filter: 'blur(140px)',
-                      top: '50%',
-                      [isRight ? 'right' : 'left']: '-200px',
-                      transform: 'translateY(-50%)',
-                      pointerEvents: 'none',
-                      zIndex: 0,
+                      position: 'absolute', width: 800, height: 800, borderRadius: '50%',
+                      background: `rgba(${f.accentRgb}, 0.15)`, filter: 'blur(140px)',
+                      top: '50%', [isRight ? 'right' : 'left']: '-200px',
+                      transform: 'translateY(-50%)', pointerEvents: 'none', zIndex: 0,
                     }}
                   />
 
-                  {/* Inner row */}
+                  {/*
+                    DOM order: [image, text]
+                    Mobile (flex-col):        image on top, text below, both centered
+                    Desktop (flex-row/reverse): image left (Xia) or right (Tutu), text fills remaining space
+                  */}
                   <div
-                    style={{
-                      position: 'relative',
-                      zIndex: 1,
-                      display: 'flex',
-                      flexDirection: isMobile ? 'column' : (isRight ? 'row' : 'row-reverse'),
-                      alignItems: isMobile ? 'center' : 'flex-end',
-                      gap: 'clamp(24px, 5vw, 72px)',
-                      textAlign: isMobile ? 'center' : 'left',
-                    }}
+                    className={[
+                      'relative z-[1] flex flex-col items-center gap-6',
+                      isRight ? 'md:flex-row-reverse' : 'md:flex-row',
+                      'md:items-end',
+                    ].join(' ')}
+                    style={{ gap: 'clamp(24px, 5vw, 72px)' }}
                   >
-                    {/* Image — on mobile goes first (top) */}
-                    {isMobile && (
-                      <div style={{ flexShrink: 0, width: 'clamp(120px, 40vw, 220px)' }}>
-                        <div className="animate-breathe-scale" style={{ lineHeight: 0 }}>
-                          <Image
-                            src={f.img}
-                            alt={f.imgAlt}
-                            width={500}
-                            height={600}
-                            style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 16px 40px rgba(42,42,42,0.12))' }}
-                          />
-                        </div>
+                    {/* Image */}
+                    <div
+                      className="flex-shrink-0"
+                      style={{ width: 'clamp(140px, 28vw, 300px)' }}
+                    >
+                      <div className="animate-breathe-scale" style={{ lineHeight: 0 }}>
+                        <Image
+                          src={f.img} alt={f.imgAlt} width={500} height={600}
+                          style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 16px 40px rgba(42,42,42,0.12))' }}
+                        />
                       </div>
-                    )}
+                    </div>
 
                     {/* Text */}
-                    <div style={{ flex: 1, minWidth: 0 }}>
+                    <div className="flex-1 min-w-0 text-center md:text-left">
                       <h3
                         className="tr-d2"
                         style={{
                           fontSize: 'clamp(28px, 4.5vw, 54px)',
-                          letterSpacing: '0.04em',
-                          color: 'var(--ink)',
-                          lineHeight: 1.1,
-                          marginBottom: 16,
-                          overflowWrap: 'break-word',
-                          wordBreak: 'break-word',
+                          letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.1, marginBottom: 16,
+                          overflowWrap: 'break-word', wordBreak: 'break-word',
                         }}
                       >
                         {f.name}
@@ -158,23 +127,18 @@ export default function FoundersSection() {
                         style={{
                           fontFamily: 'var(--f-mono)',
                           fontSize: 'clamp(14px, 1.5vw, 16px)',
-                          letterSpacing: '0.06em',
-                          color: f.accent,
-                          marginBottom: 24,
+                          letterSpacing: '0.06em', color: f.accent, marginBottom: 24,
                         }}
                       >
                         {f.roles}
                       </p>
 
                       <p
+                        className="max-w-full md:max-w-[400px]"
                         style={{
-                          fontSize: 'clamp(14px, 1.5vw, 16px)',
-                          lineHeight: 1.9,
-                          color: 'var(--muted)',
-                          maxWidth: isMobile ? '100%' : 400,
-                          marginBottom: 36,
-                          overflowWrap: 'break-word',
-                          wordBreak: 'break-word',
+                          fontSize: 'clamp(14px, 1.5vw, 16px)', lineHeight: 1.9,
+                          color: 'var(--muted)', marginBottom: 36,
+                          overflowWrap: 'break-word', wordBreak: 'break-word',
                         }}
                       >
                         {f.desc}
@@ -183,71 +147,26 @@ export default function FoundersSection() {
                       <Link
                         href="/about"
                         style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: 8,
-                          fontFamily: 'var(--f-zh-sans)',
-                          fontWeight: 600,
-                          fontSize: 'clamp(14px, 1.6vw, 20px)',
-                          letterSpacing: '0.08em',
+                          display: 'inline-flex', alignItems: 'center', gap: 8,
+                          fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
+                          fontSize: 'clamp(14px, 1.6vw, 20px)', letterSpacing: '0.08em',
                           textDecoration: 'none',
                           background: `linear-gradient(120deg, ${f.accent}, var(--ink) 80%)`,
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                          backgroundClip: 'text',
+                          WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
                         }}
                       >
                         了解更多 ↗
                       </Link>
                     </div>
-
-                    {/* Image — desktop side position */}
-                    {!isMobile && (
-                      <div
-                        style={{
-                          flexShrink: 0,
-                          width: 'clamp(140px, 22vw, 300px)',
-                          position: 'relative',
-                          alignSelf: 'flex-end',
-                        }}
-                      >
-                        <div className="animate-breathe-scale" style={{ lineHeight: 0 }}>
-                          <Image
-                            src={f.img}
-                            alt={f.imgAlt}
-                            width={500}
-                            height={600}
-                            style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 16px 40px rgba(42,42,42,0.12))' }}
-                          />
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
 
                 {/* Wave divider between cards */}
                 {i < founders.length - 1 && (
                   <div aria-hidden style={{ lineHeight: 0, pointerEvents: 'none' }}>
-                    <svg
-                      viewBox="0 0 1440 40"
-                      xmlns="http://www.w3.org/2000/svg"
-                      preserveAspectRatio="none"
-                      style={{ width: '100%', height: 40, display: 'block' }}
-                    >
-                      <path
-                        d="M0,22 Q180,8 360,20 Q540,32 720,18 Q900,6 1080,22 Q1260,34 1440,18"
-                        stroke="#c0b8ae"
-                        strokeWidth="0.7"
-                        fill="none"
-                        opacity="0.5"
-                      />
-                      <path
-                        d="M0,28 Q200,14 400,26 Q600,36 800,22 Q1000,10 1200,24 Q1340,32 1440,20"
-                        stroke="#b5ac9e"
-                        strokeWidth="0.4"
-                        fill="none"
-                        opacity="0.35"
-                      />
+                    <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 40, display: 'block' }}>
+                      <path d="M0,22 Q180,8 360,20 Q540,32 720,18 Q900,6 1080,22 Q1260,34 1440,18" stroke="#c0b8ae" strokeWidth="0.7" fill="none" opacity="0.5" />
+                      <path d="M0,28 Q200,14 400,26 Q600,36 800,22 Q1000,10 1200,24 Q1340,32 1440,20" stroke="#b5ac9e" strokeWidth="0.4" fill="none" opacity="0.35" />
                     </svg>
                   </div>
                 )}
@@ -255,7 +174,6 @@ export default function FoundersSection() {
             )
           })}
         </div>
-
       </div>
     </PageSection>
   )

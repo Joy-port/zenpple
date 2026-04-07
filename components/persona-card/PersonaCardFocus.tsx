@@ -1,10 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import PageSection from '@/components/ui/PageSection'
 import PageTitle from '@/components/ui/PageTitle'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 const personas = [
   {
@@ -66,14 +67,7 @@ const EXPAND_H = 680
 
 export default function PersonaCardFocus() {
   const [active, setActive] = useState<number | null>(null)
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
-  }, [])
+  const isMobile = useIsMobile()
 
   const toggle = (id: number) => setActive(prev => (prev === id ? null : id))
   const close  = () => setActive(null)
@@ -185,7 +179,7 @@ export default function PersonaCardFocus() {
         <PageTitle sub="選一張牌" title="找到屬於你的路徑" />
 
         {/* ── MOBILE: card list + bottom-sheet modal ── */}
-        {isMobile && (
+        {isMobile === true && (
           <>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, position: 'relative', zIndex: 1 }}>
               {personas.map(p => (
@@ -298,7 +292,7 @@ export default function PersonaCardFocus() {
         )}
 
         {/* ── DESKTOP: horizontal expand animation ── */}
-        {!isMobile && (
+        {isMobile === false && (
           <div
             style={{
               display: 'flex',

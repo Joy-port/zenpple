@@ -1,9 +1,10 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import PageSection from '@/components/ui/PageSection'
 import PageTitle from '@/components/ui/PageTitle'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 const CLIP_AS = 'M 290,158 L 293,77 L 296,67 L 299,61 L 302,57 L 305,53 L 308,50 L 311,47 L 314,44 L 317,41 L 320,39 L 323,37 L 326,35 L 329,33 L 332,32 L 335,30 L 338,29 L 341,28 L 344,27 L 347,27 L 350,26 L 353,26 L 356,26 L 359,26 L 362,27 L 365,27 L 368,28 L 371,28 L 374,29 L 377,30 L 380,31 L 383,32 L 386,34 L 389,35 L 392,37 L 395,39 L 398,42 L 401,44 L 404,47 L 407,51 L 410,54 L 413,58 L 416,63 L 419,69 L 422,80 L 422,94 L 419,102 L 416,108 L 413,112 L 410,116 L 407,119 L 404,122 L 401,124 L 398,126 L 395,129 L 392,132 L 389,136 L 386,140 L 383,142 L 380,144 L 377,145 L 374,145 L 371,145 L 368,146 L 365,148 L 362,150 L 359,154 L 356,158 L 353,161 L 350,164 L 347,167 L 344,170 L 341,172 L 338,174 L 335,174 L 332,174 L 329,173 L 326,172 L 323,170 L 320,168 L 317,164 L 314,160 L 311,157 L 308,156 L 305,156 L 302,157 L 299,159 L 296,162 L 293,164 L 290,164 Z'
 const CLIP_SC = 'M 239,240 L 242,234 L 245,226 L 248,219 L 251,212 L 254,206 L 257,201 L 260,196 L 263,192 L 266,188 L 269,185 L 272,181 L 275,179 L 278,177 L 281,175 L 284,173 L 287,169 L 290,165 L 293,162 L 296,159 L 299,157 L 302,156 L 305,155 L 308,154 L 311,155 L 314,157 L 317,160 L 320,162 L 323,165 L 326,168 L 329,171 L 332,172 L 335,173 L 338,173 L 341,172 L 344,170 L 347,168 L 350,165 L 353,162 L 356,159 L 359,156 L 362,153 L 365,150 L 368,148 L 371,146 L 374,145 L 377,145 L 380,145 L 383,144 L 386,142 L 389,139 L 392,136 L 395,133 L 398,130 L 401,127 L 404,124 L 407,123 L 410,123 L 413,124 L 416,126 L 419,130 L 422,135 L 425,141 L 428,148 L 431,153 L 434,157 L 437,160 L 440,162 L 443,166 L 446,177 L 449,185 L 452,192 L 455,196 L 458,199 L 461,202 L 464,204 L 467,206 L 470,207 L 473,207 L 476,207 L 479,210 L 482,217 L 485,222 L 488,227 L 491,232 L 494,237 L 497,241 L 500,246 L 503,251 L 506,259 L 506,266 L 503,263 L 500,261 L 497,258 L 494,256 L 491,253 L 488,251 L 485,248 L 482,246 L 479,244 L 476,242 L 473,242 L 470,241 L 467,241 L 464,239 L 461,237 L 458,235 L 455,233 L 452,232 L 449,232 L 446,233 L 443,234 L 440,236 L 437,237 L 434,239 L 431,241 L 428,243 L 425,244 L 422,246 L 419,247 L 416,249 L 413,250 L 410,251 L 407,251 L 404,252 L 401,252 L 398,252 L 395,252 L 392,252 L 389,251 L 386,250 L 383,249 L 380,247 L 377,245 L 374,242 L 371,240 L 368,237 L 365,234 L 362,232 L 359,229 L 356,226 L 353,223 L 350,221 L 347,218 L 344,217 L 341,216 L 338,216 L 335,215 L 332,213 L 329,211 L 326,209 L 323,207 L 320,204 L 317,201 L 314,199 L 311,196 L 308,195 L 305,195 L 302,195 L 299,196 L 296,197 L 293,198 L 290,200 L 287,202 L 284,204 L 281,207 L 278,209 L 275,212 L 272,215 L 269,218 L 266,222 L 263,225 L 260,228 L 257,232 L 254,234 L 251,236 L 248,237 L 245,238 L 242,240 L 239,241 Z'
@@ -76,14 +77,7 @@ const zones = [
 export default function EcosystemMountain2() {
   const router = useRouter()
   const [hovered, setHovered] = useState<string | null>(null)
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
-  }, [])
+  const isMobile = useIsMobile()
 
   return (
     <PageSection ghost="SENSING WAVE" style={{ paddingTop: 'clamp(100px, 12vw, 140px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
@@ -96,14 +90,8 @@ export default function EcosystemMountain2() {
           <PageTitle sub="Two Paths, One Mountain" title="兩個方向，一座山" />
 
           {/* ── Mountain + tooltips ── */}
-          <div
-            style={{
-              position: 'relative',
-              zIndex: 1,
-              /* Full-bleed on mobile: escape .wrap gutter */
-              ...(isMobile ? { margin: '0 calc(-1 * var(--gutter))' } : {}),
-            }}
-          >
+          {/* Full-bleed on mobile via CSS: -mx-[var(--gutter)] escapes .wrap gutter, md:mx-0 resets on desktop */}
+          <div className="-mx-[var(--gutter)] md:mx-0" style={{ position: 'relative', zIndex: 1 }}>
             <svg
               viewBox="0 0 700 390"
               xmlns="http://www.w3.org/2000/svg"
@@ -153,50 +141,53 @@ export default function EcosystemMountain2() {
                   fill="transparent"
                   stroke="none"
                   style={{ cursor: 'pointer' }}
-                  onMouseEnter={isMobile ? undefined : () => setHovered(z.id)}
-                  onMouseLeave={isMobile ? undefined : () => setHovered(null)}
+                  onMouseEnter={isMobile === false ? () => setHovered(z.id) : undefined}
+                  onMouseLeave={isMobile === false ? () => setHovered(null) : undefined}
                   onClick={() => router.push(z.href)}
                 />
               ))}
             </svg>
 
-            {/* Tooltips — desktop: full label + stroke + sub; mobile: short label only, always visible, tappable */}
-            {zones.map(z => (
+            {/* Tooltips — hidden until hydrated (isMobile !== null) to avoid SSR/CSR mismatch */}
+            {isMobile !== null && zones.map(z => (
               <div
                 key={`tip-${z.id}`}
-                onClick={isMobile ? () => router.push(z.href) : undefined}
+                onClick={isMobile === true ? () => router.push(z.href) : undefined}
                 style={{
                   position: 'absolute',
                   ...z.tipPos,
-                  opacity: isMobile ? 1 : (hovered === null ? 1 : (hovered === z.id ? 1 : 0)),
+                  /* Behaviour: mobile always visible; desktop fades on hover */
+                  opacity: isMobile === true ? 1 : (hovered === null ? 1 : (hovered === z.id ? 1 : 0)),
                   transition: 'opacity 0.25s ease',
-                  pointerEvents: isMobile ? 'auto' : 'none',
-                  cursor: isMobile ? 'pointer' : 'default',
+                  /* Behaviour: mobile is tappable; desktop is pointer-events:none (hit zones handle clicks) */
+                  pointerEvents: isMobile === true ? 'auto' : 'none',
+                  cursor: isMobile === true ? 'pointer' : 'default',
                   zIndex: 10,
                   background: `rgba(${z.accentRgb}, 0.12)`,
                   backdropFilter: 'blur(14px)',
                   WebkitBackdropFilter: 'blur(14px)',
                   borderLeft: `4px solid ${z.accent}`,
                   borderRadius: '4px 10px 10px 4px',
-                  padding: isMobile ? '7px 11px' : '12px 16px',
-                  maxWidth: isMobile ? 100 : 210,
+                  /* Layout: CSS clamp handles padding + maxWidth responsively */
+                  padding: 'clamp(7px, 1vw, 12px) clamp(11px, 1.5vw, 16px)',
+                  maxWidth: 'clamp(90px, 15vw, 210px)',
                 }}
               >
-                {/* Label */}
+                {/* Label — behaviour: short on mobile, full on desktop */}
                 <div style={{
                   fontFamily: 'var(--f-zh)',
                   fontWeight: 500,
-                  fontSize: isMobile ? 'clamp(13px, 3.5vw, 16px)' : 'clamp(14px, 1.8vw, 20px)',
+                  fontSize: 'clamp(13px, 2vw, 20px)',
                   letterSpacing: '0.04em',
                   color: 'var(--ink)',
                   lineHeight: 1.2,
-                  marginBottom: isMobile ? 0 : 6,
+                  marginBottom: isMobile === true ? 0 : 6,
                 }}>
-                  {isMobile ? z.shortLabel : z.label}
+                  {isMobile === true ? z.shortLabel : z.label}
                 </div>
 
                 {/* Desktop only: horizontal divider + sub text */}
-                {!isMobile && (
+                {isMobile === false && (
                   <>
                     <div style={{ width: 24, height: 1, background: z.accent, opacity: 0.4, marginBottom: 6 }} />
                     <div style={{
