@@ -94,28 +94,30 @@ export default function PersonaCardFocus() {
         <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block' }}>
           <path
             d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z"
-            style={{ fill: `rgba(${secondaryRgb},0.08)`, transition: 'fill 0.6s ease' }}
+            style={{ fill: `rgba(${secondaryRgb},0.14)`, transition: 'fill 0.6s ease' }}
           />
           <path
             d="M0,90 L0,62 Q180,32 360,58 Q540,80 720,50 Q900,22 1080,52 Q1260,76 1440,46 L1440,90 Z"
-            style={{ fill: `rgba(${primaryRgb},0.13)`, transition: 'fill 0.6s ease' }}
+            style={{ fill: `rgba(${primaryRgb},0.22)`, transition: 'fill 0.6s ease' }}
           />
         </svg>
       </div>
+
 
       {/* ── Bottom waves: protrude downward into mountain section ── */}
       <div style={{ position: 'absolute', bottom: -88, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
         <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block', transform: 'scaleY(-1)' }}>
           <path
             d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z"
-            style={{ fill: `rgba(${secondaryRgb},0.08)`, transition: 'fill 0.6s ease' }}
+            style={{ fill: `rgba(${secondaryRgb},0.14)`, transition: 'fill 0.6s ease' }}
           />
           <path
             d="M0,90 L0,62 Q180,32 360,58 Q540,80 720,50 Q900,22 1080,52 Q1260,76 1440,46 L1440,90 Z"
-            style={{ fill: `rgba(${primaryRgb},0.13)`, transition: 'fill 0.6s ease' }}
+            style={{ fill: `rgba(${primaryRgb},0.22)`, transition: 'fill 0.6s ease' }}
           />
         </svg>
       </div>
+
 
       <div className="wrap">
         <PageTitle sub="選一張牌" title="找到屬於你的路徑" />
