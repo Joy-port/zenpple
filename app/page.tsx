@@ -69,6 +69,18 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Hero bottom gradient — fades image out softly */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0, left: 0, right: 0,
+            height: 280,
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(242,239,234,0.6) 50%, var(--base) 100%)',
+            pointerEvents: 'none',
+            zIndex: 1,
+          }}
+        />
+
         <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           {/* Logo above the tagline */}
           <div style={{ marginBottom: 44 }}>

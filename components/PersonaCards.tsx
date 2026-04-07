@@ -17,9 +17,11 @@ const personas = [
     ctaHref: '/qi-sb',
     accentColor: '#4A6B8A',
     accentRgb: '74,107,138',
-    bgGradient: 'linear-gradient(148deg, rgba(74,107,138,0.12) 0%, rgba(94,142,138,0.08) 60%, rgba(242,239,234,0.95) 100%)',
+    cardBg: 'linear-gradient(160deg, rgba(74,107,138,0.08) 0%, rgba(94,142,138,0.05) 100%)',
+    expandBg: 'rgba(250,248,246,0.97)',
+    expandShadow: '0 12px 48px rgba(74,107,138,0.18), 0 0 0 1px rgba(74,107,138,0.12)',
     cardImage: '/index/卡牌-1.png',
-    imageFilter: 'sepia(1) hue-rotate(170deg) saturate(0.55) brightness(0.9)',
+    imageFilter: 'sepia(1) hue-rotate(170deg) saturate(2) brightness(0.82)',
   },
   {
     id: 2,
@@ -33,9 +35,11 @@ const personas = [
     ctaHref: '/hl',
     accentColor: '#7B6B9E',
     accentRgb: '123,107,158',
-    bgGradient: 'linear-gradient(148deg, rgba(123,107,158,0.12) 0%, rgba(196,123,123,0.07) 60%, rgba(242,239,234,0.95) 100%)',
+    cardBg: 'linear-gradient(160deg, rgba(123,107,158,0.08) 0%, rgba(196,123,123,0.05) 100%)',
+    expandBg: 'rgba(250,248,246,0.97)',
+    expandShadow: '0 12px 48px rgba(123,107,158,0.18), 0 0 0 1px rgba(123,107,158,0.12)',
     cardImage: '/index/卡牌-2.png',
-    imageFilter: 'sepia(1) hue-rotate(230deg) saturate(0.6) brightness(0.95)',
+    imageFilter: 'sepia(1) hue-rotate(240deg) saturate(2) brightness(0.85)',
   },
   {
     id: 3,
@@ -49,9 +53,11 @@ const personas = [
     ctaHref: '/ts-pe',
     accentColor: '#B09070',
     accentRgb: '176,144,112',
-    bgGradient: 'linear-gradient(148deg, rgba(176,144,112,0.12) 0%, rgba(94,142,138,0.07) 60%, rgba(242,239,234,0.95) 100%)',
+    cardBg: 'linear-gradient(160deg, rgba(176,144,112,0.08) 0%, rgba(94,142,138,0.04) 100%)',
+    expandBg: 'rgba(250,248,246,0.97)',
+    expandShadow: '0 12px 48px rgba(176,144,112,0.18), 0 0 0 1px rgba(176,144,112,0.12)',
     cardImage: '/index/卡牌-3.png',
-    imageFilter: 'sepia(0.65) saturate(0.85) brightness(1.02)',
+    imageFilter: 'sepia(0.7) saturate(1.9) brightness(0.95) hue-rotate(5deg)',
   },
 ]
 
@@ -69,21 +75,32 @@ export default function PersonaCards() {
         paddingBottom: 'clamp(80px, 10vw, 130px)',
         paddingLeft: 'var(--gutter)',
         paddingRight: 'var(--gutter)',
-        background: 'var(--mist)',
+        background: 'var(--base)',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Wave — transitions from hero base colour into mist bg */}
+      {/* Three-layer calligraphy wave — transitions from hero */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
         <svg
-          viewBox="0 0 1440 72"
+          viewBox="0 0 1440 96"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
-          style={{ width: '100%', height: 72, display: 'block' }}
+          style={{ width: '100%', height: 96, display: 'block' }}
         >
+          {/* Layer 1 — blue (#4A6B8A), deepest, dramatic left dip */}
           <path
-            d="M0,0 L1440,0 L1440,36 Q1260,70 1080,44 Q900,18 720,52 Q540,72 360,44 Q180,18 0,54 Z"
+            d="M0,0 L1440,0 L1440,64 C1380,82 1260,54 1100,72 C940,88 800,52 660,70 C520,86 380,58 220,76 C110,88 40,66 0,72 Z"
+            fill="rgba(74,107,138,0.22)"
+          />
+          {/* Layer 2 — purple (#7B6B9E), mid, right-heavy swell */}
+          <path
+            d="M0,0 L1440,0 L1440,50 C1320,70 1180,40 1020,60 C860,78 700,42 560,58 C420,72 280,48 140,64 C60,74 20,56 0,60 Z"
+            fill="rgba(123,107,158,0.18)"
+          />
+          {/* Layer 3 — base colour, covers top, reveals colour at tips */}
+          <path
+            d="M0,0 L1440,0 L1440,36 C1340,58 1180,28 1040,48 C900,66 740,32 600,50 C460,66 300,38 160,56 C70,68 20,46 0,50 Z"
             fill="var(--base)"
           />
         </svg>
@@ -138,51 +155,54 @@ export default function PersonaCards() {
               style={{
                 flex: 1,
                 maxWidth: 300,
-                minHeight: 340,
-                border: `1px solid ${active === p.id ? p.accentColor : 'rgba(42,42,42,0.08)'}`,
+                minHeight: 380,
                 borderRadius: 16,
                 cursor: 'pointer',
-                transition: 'border-color 0.35s, transform 0.35s, box-shadow 0.35s',
-                position: 'relative',
                 overflow: 'hidden',
-                background: '#F2EFEA',
-                transform: active === p.id ? 'translateY(-5px)' : undefined,
+                display: 'flex',
+                flexDirection: 'column',
+                background: active === p.id ? p.cardBg : '#F2EFEA',
                 boxShadow: active === p.id
-                  ? `0 20px 50px rgba(${p.accentRgb},0.12)`
-                  : undefined,
+                  ? `0 20px 52px rgba(${p.accentRgb},0.22), 0 4px 16px rgba(${p.accentRgb},0.1)`
+                  : '0 2px 14px rgba(42,42,42,0.06)',
+                transform: active === p.id ? 'translateY(-6px)' : 'translateY(0)',
+                transition: 'transform 0.35s, box-shadow 0.35s, background 0.35s',
               }}
             >
-              {/* Card photo background */}
-              <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+              {/* Image — top 65% */}
+              <div style={{ flex: '0 0 65%', position: 'relative', minHeight: 200 }}>
                 <Image
                   src={p.cardImage}
                   alt=""
                   fill
                   style={{
                     objectFit: 'contain',
-                    objectPosition: 'center 15%',
-                    opacity: 0.5,
+                    objectPosition: 'center center',
                     filter: p.imageFilter,
                     mixBlendMode: 'multiply',
+                    opacity: 0.75,
+                    padding: '18px 24px 0',
                   }}
                 />
               </div>
 
-              {/* Text content */}
+              {/* Text — bottom 35%, centered */}
               <div
                 style={{
-                  position: 'absolute',
-                  bottom: 0, left: 0, right: 0,
-                  padding: '0 26px 30px',
-                  zIndex: 2,
-                  background: 'linear-gradient(to top, rgba(242,239,234,0.97) 55%, transparent 100%)',
+                  flex: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  padding: '16px 24px 28px',
                 }}
               >
                 <h3
                   className="tr-h1"
                   style={{
                     fontSize: 17,
-                    lineHeight: 1.45,
+                    lineHeight: 1.5,
                     color: 'var(--ink)',
                     marginBottom: 8,
                     whiteSpace: 'pre-line',
@@ -192,7 +212,7 @@ export default function PersonaCards() {
                 </h3>
                 <p
                   style={{
-                    fontSize: 14,
+                    fontSize: 13,
                     color: 'var(--muted)',
                     lineHeight: 1.85,
                     whiteSpace: 'pre-line',
@@ -214,11 +234,11 @@ export default function PersonaCards() {
               margin: '0 auto',
               borderRadius: 16,
               overflow: 'hidden',
-              maxHeight: active === p.id ? 400 : 0,
-              transition: 'max-height 0.5s ease, padding 0.5s ease',
+              maxHeight: active === p.id ? 420 : 0,
+              transition: 'max-height 0.5s ease, padding 0.5s ease, box-shadow 0.5s ease',
               padding: active === p.id ? '44px 48px' : '0 48px',
-              border: `1px solid ${active === p.id ? `rgba(${p.accentRgb},0.15)` : 'transparent'}`,
-              background: p.bgGradient,
+              background: p.expandBg,
+              boxShadow: active === p.id ? p.expandShadow : 'none',
               position: 'relative',
               zIndex: 1,
               marginBottom: active === p.id ? 16 : 0,
@@ -235,11 +255,7 @@ export default function PersonaCards() {
               <div>
                 <h3
                   className="tr-h1"
-                  style={{
-                    fontSize: 24,
-                    marginBottom: 4,
-                    color: 'var(--ink)',
-                  }}
+                  style={{ fontSize: 24, marginBottom: 4, color: 'var(--ink)' }}
                 >
                   {p.expandTitle}
                 </h3>
