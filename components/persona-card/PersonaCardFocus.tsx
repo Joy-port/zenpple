@@ -81,41 +81,38 @@ export default function PersonaCardFocus() {
       ghost="WHO YOU ARE"
       style={{
         background: active !== null
-          ? `rgba(${activePersona?.accentRgb},0.08)`
+          ? `radial-gradient(ellipse at 50% 55%, rgba(${activePersona?.accentRgb},0.12) 0%, rgba(${activePersona?.accentRgb},0.04) 60%, transparent 100%)`
           : 'var(--base)',
         transition: 'background 0.6s ease',
-        overflow: 'hidden',
+        overflow: 'visible',
+        zIndex: 1,
       }}
     >
 
-      {/* ── Top waves ── */}
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
+      {/* ── Top waves: protrude upward into hero section ── */}
+      <div style={{ position: 'absolute', top: -88, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
         <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block' }}>
-          {/* Back wave — secondary color */}
           <path
-            d="M0,0 L0,72 Q180,42 360,65 Q540,85 720,56 Q900,28 1080,58 Q1260,80 1440,54 L1440,0 Z"
-            style={{ fill: `rgba(${secondaryRgb},0.13)`, transition: 'fill 0.6s ease' }}
+            d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z"
+            style={{ fill: `rgba(${secondaryRgb},0.08)`, transition: 'fill 0.6s ease' }}
           />
-          {/* Front wave — primary color */}
           <path
-            d="M0,0 L0,58 Q180,28 360,52 Q540,74 720,44 Q900,16 1080,44 Q1260,68 1440,40 L1440,0 Z"
-            style={{ fill: `rgba(${primaryRgb},0.22)`, transition: 'fill 0.6s ease' }}
+            d="M0,90 L0,62 Q180,32 360,58 Q540,80 720,50 Q900,22 1080,52 Q1260,76 1440,46 L1440,90 Z"
+            style={{ fill: `rgba(${primaryRgb},0.13)`, transition: 'fill 0.6s ease' }}
           />
         </svg>
       </div>
 
-      {/* ── Bottom waves ── */}
-      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
+      {/* ── Bottom waves: protrude downward into mountain section ── */}
+      <div style={{ position: 'absolute', bottom: -88, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
         <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block', transform: 'scaleY(-1)' }}>
-          {/* Back wave — secondary color */}
           <path
-            d="M0,0 L0,72 Q180,42 360,65 Q540,85 720,56 Q900,28 1080,58 Q1260,80 1440,54 L1440,0 Z"
-            style={{ fill: `rgba(${secondaryRgb},0.13)`, transition: 'fill 0.6s ease' }}
+            d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z"
+            style={{ fill: `rgba(${secondaryRgb},0.08)`, transition: 'fill 0.6s ease' }}
           />
-          {/* Front wave — primary color */}
           <path
-            d="M0,0 L0,58 Q180,28 360,52 Q540,74 720,44 Q900,16 1080,44 Q1260,68 1440,40 L1440,0 Z"
-            style={{ fill: `rgba(${primaryRgb},0.22)`, transition: 'fill 0.6s ease' }}
+            d="M0,90 L0,62 Q180,32 360,58 Q540,80 720,50 Q900,22 1080,52 Q1260,76 1440,46 L1440,90 Z"
+            style={{ fill: `rgba(${primaryRgb},0.13)`, transition: 'fill 0.6s ease' }}
           />
         </svg>
       </div>
