@@ -130,7 +130,7 @@ export default function PersonaCard3() {
           style={{
             display: 'flex',
             gap: 0,
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
             alignItems: 'flex-start',
             maxWidth: 960,
             margin: '0 auto',
@@ -197,7 +197,7 @@ export default function PersonaCard3() {
                     </div>
                   </div>
 
-                  {/* Text block — title stays, desc fades out when active */}
+                  {/* Text block — title stays in place, only desc fades */}
                   <div
                     style={{
                       flexShrink: 0,
@@ -206,8 +206,6 @@ export default function PersonaCard3() {
                       alignItems: 'center',
                       textAlign: 'center',
                       padding: '18px 24px 28px',
-                      transform: isActive ? 'translateX(10px)' : 'translateX(0)',
-                      transition: 'transform 0.65s cubic-bezier(0.34,1.1,0.64,1)',
                     }}
                   >
                     <h3
