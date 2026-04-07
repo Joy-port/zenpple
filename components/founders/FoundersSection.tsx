@@ -30,7 +30,7 @@ const founders = [
 
 export default function FoundersSection() {
   return (
-    <PageSection ghost="FOUNDERS" style={{ paddingTop: 'clamp(80px, 10vw, 130px)' }}>
+    <PageSection ghost="FOUNDERS">
       <div className="wrap">
 
         <PageTitle sub="Two Souls, One Mountain" title="兩個靈魂，一座山" />
