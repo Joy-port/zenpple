@@ -53,14 +53,12 @@ const personas = [
 ]
 
 // Card front: tuned so image fills naturally without overflow
-const CARD_W  = 300
-const CARD_H  = 580   // front card height — image + text
-// Fixed painting dimensions — identical for all 3 cards so paintings look the same size
-const IMG_W   = 210
-const IMG_H   = 336   // ~1.6:1 portrait ratio, tarot-card proportions
-// Expand panel: taller to fit all text content without scroll
-const EXPAND_W = 500
-const EXPAND_H = 680
+const CARD_W       = 300
+const CARD_H       = 580  // front card height
+const IMG_W        = 210  // fixed painting width — same for all 3
+const IMG_H        = 336  // fixed painting height — same for all 3
+const EXPAND_W     = 500
+const EXPAND_H     = 680
 
 export default function PersonaCard3() {
   const [active, setActive] = useState<number | null>(null)
@@ -173,11 +171,13 @@ export default function PersonaCard3() {
                     overflow: 'hidden',
                     display: 'flex',
                     flexDirection: 'column',
-                    background: '#FFFFFF',
-                    boxShadow: '0 2px 14px rgba(42,42,42,0.07)',
+                    // Dissolve: bg + shadow fade to nothing, leaving only the floating title
+                    background: isActive ? 'transparent' : '#FFFFFF',
+                    boxShadow: isActive ? 'none' : '0 2px 14px rgba(42,42,42,0.07)',
+                    transition: 'background 0.6s ease, box-shadow 0.5s ease',
                   }}
                 >
-                  {/* Image area — flex:1 fills the space above the text block */}
+                  {/* Image area — stays visible, fixed dimensions same for all 3 cards */}
                   <div
                     style={{
                       flex: 1,
@@ -187,23 +187,17 @@ export default function PersonaCard3() {
                       paddingTop: 20,
                     }}
                   >
-                    {/* Fixed-size container: IMG_W × IMG_H — same for all 3 cards */}
                     <div style={{ position: 'relative', width: IMG_W, height: IMG_H, flexShrink: 0 }}>
                       <Image
                         src={p.cardImage}
                         alt=""
                         fill
-                        style={{
-                          objectFit: 'contain',
-                          filter: p.imageFilter,
-                          mixBlendMode: 'multiply',
-                          opacity: 0.8,
-                        }}
+                        style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8 }}
                       />
                     </div>
                   </div>
 
-                  {/* Text block — fixed natural height, bottom of card */}
+                  {/* Text block — title stays, desc fades out when active */}
                   <div
                     style={{
                       flexShrink: 0,
@@ -212,15 +206,29 @@ export default function PersonaCard3() {
                       alignItems: 'center',
                       textAlign: 'center',
                       padding: '18px 24px 28px',
+                      transform: isActive ? 'translateX(10px)' : 'translateX(0)',
+                      transition: 'transform 0.65s cubic-bezier(0.34,1.1,0.64,1)',
                     }}
                   >
                     <h3
                       className="tr-h1"
-                      style={{ fontSize: 24, lineHeight: 1.5, color: 'var(--ink)', marginBottom: 10, whiteSpace: 'pre-line' }}
+                      style={{ fontSize: 24, lineHeight: 1.5, color: 'var(--ink)', marginBottom: isActive ? 0 : 10, whiteSpace: 'pre-line', transition: 'margin 0.4s ease' }}
                     >
                       {p.cardTitle}
                     </h3>
-                    <p style={{ fontSize: 15, color: 'var(--muted)', lineHeight: 1.85, whiteSpace: 'pre-line' }}>
+                    {/* Description fades + collapses when card is active */}
+                    <p
+                      style={{
+                        fontSize: 15,
+                        color: 'var(--muted)',
+                        lineHeight: 1.85,
+                        whiteSpace: 'pre-line',
+                        opacity: isActive ? 0 : 1,
+                        maxHeight: isActive ? 0 : 80,
+                        overflow: 'hidden',
+                        transition: 'opacity 0.35s ease, max-height 0.45s ease',
+                      }}
+                    >
                       {p.cardDesc}
                     </p>
                   </div>
@@ -238,8 +246,8 @@ export default function PersonaCard3() {
                   opacity: isActive ? 1 : 0,
                   borderRadius: 20,
                   transition: [
-                    'width 0.55s cubic-bezier(0.4,0,0.2,1)',
-                    'opacity 0.4s ease',
+                    'width 0.55s cubic-bezier(0.4,0,0.2,1) 0.12s',
+                    'opacity 0.4s ease 0.12s',
                   ].join(', '),
                   background: '#FFFFFF',
                   boxShadow: isActive
