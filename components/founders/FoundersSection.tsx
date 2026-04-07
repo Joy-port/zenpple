@@ -73,7 +73,6 @@ export default function FoundersSection() {
                 <div
                   style={{
                     position: 'relative',
-                    borderTop: '1px solid var(--border)',
                     paddingTop: 64,
                     paddingBottom: 64,
                     paddingLeft: 'clamp(32px, 8vw, 140px)',
@@ -86,13 +85,13 @@ export default function FoundersSection() {
                     aria-hidden
                     style={{
                       position: 'absolute',
-                      width: 500,
-                      height: 500,
+                      width: 800,
+                      height: 800,
                       borderRadius: '50%',
-                      background: `rgba(${f.accentRgb}, 0.13)`,
-                      filter: 'blur(100px)',
+                      background: `rgba(${f.accentRgb}, 0.15)`,
+                      filter: 'blur(140px)',
                       top: '50%',
-                      [isRight ? 'right' : 'left']: '-40px',
+                      [isRight ? 'right' : 'left']: '-200px',
                       transform: 'translateY(-50%)',
                       pointerEvents: 'none',
                       zIndex: 0,
@@ -158,11 +157,15 @@ export default function FoundersSection() {
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: 8,
-                          fontFamily: 'var(--f-mono)',
-                          fontSize: 12,
-                          letterSpacing: '0.12em',
-                          color: f.accent,
+                          fontFamily: 'var(--f-zh-sans)',
+                          fontWeight: 600,
+                          fontSize: 'clamp(16px, 1.6vw, 20px)',
+                          letterSpacing: '0.08em',
                           textDecoration: 'none',
+                          background: `linear-gradient(120deg, ${f.accent}, var(--ink) 80%)`,
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text',
                         }}
                       >
                         了解更多 ↗
