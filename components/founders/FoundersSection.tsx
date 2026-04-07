@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import PageSection from '@/components/ui/PageSection'
@@ -29,8 +32,17 @@ const founders = [
 ]
 
 export default function FoundersSection() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
   return (
-    <PageSection ghost="FOUNDERS" style={{ overflow: 'visible', position: 'relative' }}>
+    <PageSection ghost="FOUNDERS" style={{ overflow: 'visible', position: 'relative', paddingTop: 'clamp(40px, 5vw, 64px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
 
       {/* ── Top gradient wave — blends both founder accent colours ── */}
       <div style={{ position: 'absolute', top: -88, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
@@ -69,18 +81,18 @@ export default function FoundersSection() {
             return (
               <div key={f.key}>
 
-                {/* Card row — inner horizontal padding narrows + centers the content */}
+                {/* Card row */}
                 <div
                   style={{
                     position: 'relative',
-                    paddingTop: 64,
-                    paddingBottom: 64,
-                    paddingLeft: 'clamp(32px, 8vw, 140px)',
-                    paddingRight: 'clamp(32px, 8vw, 140px)',
+                    paddingTop: 'clamp(32px, 4vw, 64px)',
+                    paddingBottom: 'clamp(32px, 4vw, 64px)',
+                    paddingLeft: 'clamp(0px, 4vw, 80px)',
+                    paddingRight: 'clamp(0px, 4vw, 80px)',
                     overflow: 'hidden',
                   }}
                 >
-                  {/* Accent glow behind image side */}
+                  {/* Accent glow */}
                   <div
                     aria-hidden
                     style={{
@@ -98,38 +110,54 @@ export default function FoundersSection() {
                     }}
                   />
 
-                  {/* Inner row: text + image compact together */}
+                  {/* Inner row */}
                   <div
                     style={{
                       position: 'relative',
                       zIndex: 1,
                       display: 'flex',
-                      flexDirection: isRight ? 'row' : 'row-reverse',
-                      alignItems: 'flex-end',
-                      gap: 'clamp(32px, 5vw, 72px)',
+                      flexDirection: isMobile ? 'column' : (isRight ? 'row' : 'row-reverse'),
+                      alignItems: isMobile ? 'center' : 'flex-end',
+                      gap: 'clamp(24px, 5vw, 72px)',
+                      textAlign: isMobile ? 'center' : 'left',
                     }}
                   >
+                    {/* Image — on mobile goes first (top) */}
+                    {isMobile && (
+                      <div style={{ flexShrink: 0, width: 'clamp(120px, 40vw, 220px)' }}>
+                        <div className="animate-breathe-scale" style={{ lineHeight: 0 }}>
+                          <Image
+                            src={f.img}
+                            alt={f.imgAlt}
+                            width={500}
+                            height={600}
+                            style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 16px 40px rgba(42,42,42,0.12))' }}
+                          />
+                        </div>
+                      </div>
+                    )}
+
                     {/* Text */}
-                    <div style={{ flex: 1 }}>
-                      {/* Name */}
+                    <div style={{ flex: 1, minWidth: 0 }}>
                       <h3
                         className="tr-d2"
                         style={{
-                          fontSize: 'clamp(34px, 4.5vw, 54px)',
+                          fontSize: 'clamp(28px, 4.5vw, 54px)',
                           letterSpacing: '0.04em',
                           color: 'var(--ink)',
                           lineHeight: 1.1,
                           marginBottom: 16,
+                          overflowWrap: 'break-word',
+                          wordBreak: 'break-word',
                         }}
                       >
                         {f.name}
                       </h3>
 
-                      {/* Roles */}
                       <p
                         style={{
                           fontFamily: 'var(--f-mono)',
-                          fontSize: 13,
+                          fontSize: 11,
                           letterSpacing: '0.1em',
                           color: f.accent,
                           marginBottom: 24,
@@ -138,14 +166,15 @@ export default function FoundersSection() {
                         {f.roles}
                       </p>
 
-                      {/* Desc */}
                       <p
                         style={{
-                          fontSize: 16,
+                          fontSize: 'clamp(14px, 1.5vw, 16px)',
                           lineHeight: 1.9,
                           color: 'var(--muted)',
-                          maxWidth: 400,
+                          maxWidth: isMobile ? '100%' : 400,
                           marginBottom: 36,
+                          overflowWrap: 'break-word',
+                          wordBreak: 'break-word',
                         }}
                       >
                         {f.desc}
@@ -159,7 +188,7 @@ export default function FoundersSection() {
                           gap: 8,
                           fontFamily: 'var(--f-zh-sans)',
                           fontWeight: 600,
-                          fontSize: 'clamp(16px, 1.6vw, 20px)',
+                          fontSize: 'clamp(14px, 1.6vw, 20px)',
                           letterSpacing: '0.08em',
                           textDecoration: 'none',
                           background: `linear-gradient(120deg, ${f.accent}, var(--ink) 80%)`,
@@ -172,31 +201,27 @@ export default function FoundersSection() {
                       </Link>
                     </div>
 
-                    {/* Image */}
-                    <div
-                      style={{
-                        flexShrink: 0,
-                        width: 'clamp(160px, 22vw, 300px)',
-                        position: 'relative',
-                        alignSelf: 'flex-end',
-                      }}
-                    >
-                      <div className="animate-breathe-scale" style={{ lineHeight: 0 }}>
-                        <Image
-                          src={f.img}
-                          alt={f.imgAlt}
-                          width={500}
-                          height={600}
-                          style={{
-                            width: '100%',
-                            height: 'auto',
-                            display: 'block',
-                            objectFit: 'contain',
-                            filter: 'drop-shadow(0 16px 40px rgba(42,42,42,0.12))',
-                          }}
-                        />
+                    {/* Image — desktop side position */}
+                    {!isMobile && (
+                      <div
+                        style={{
+                          flexShrink: 0,
+                          width: 'clamp(140px, 22vw, 300px)',
+                          position: 'relative',
+                          alignSelf: 'flex-end',
+                        }}
+                      >
+                        <div className="animate-breathe-scale" style={{ lineHeight: 0 }}>
+                          <Image
+                            src={f.img}
+                            alt={f.imgAlt}
+                            width={500}
+                            height={600}
+                            style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 16px 40px rgba(42,42,42,0.12))' }}
+                          />
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
 

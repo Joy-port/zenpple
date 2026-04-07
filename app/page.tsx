@@ -34,12 +34,12 @@ export default function Home() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '120px clamp(24px,5vw,72px) 100px',
+          padding: 'clamp(40px,5vw,64px) clamp(24px,5vw,80px)',
           background: 'linear-gradient(135deg, #C47B7B 0%, #C47B7B 55%, #C8AEDD 100%)',
           color: 'var(--base)',
           textAlign: 'center',
           position: 'relative',
-          overflow: 'hidden',
+          overflow: 'clip',
         }}
       >
         {/* Wave lines — decorative */}
@@ -64,7 +64,7 @@ export default function Home() {
           <h2
             className="tr-d2"
             style={{
-              fontSize: 'clamp(36px, 5.5vw, 68px)',
+              fontSize: 'clamp(24px, 4vw, 48px)',
               lineHeight: 1.2,
               color: 'var(--base)',
               marginBottom: 20,
@@ -74,7 +74,7 @@ export default function Home() {
           </h2>
           <p
             style={{
-              fontSize: 16,
+              fontSize: 'clamp(14px, 1.5vw, 16px)',
               color: 'rgba(242,239,234,0.65)',
               lineHeight: 1.9,
               maxWidth: 380,
@@ -93,7 +93,7 @@ export default function Home() {
                 padding: '16px 38px',
                 borderRadius: 999,
                 fontFamily: 'var(--f-zh-sans)',
-                fontSize: 16,
+                fontSize: 'clamp(14px, 1.5vw, 16px)',
                 fontWeight: 700,
                 letterSpacing: '0.03em',
                 textDecoration: 'none',
@@ -115,7 +115,7 @@ export default function Home() {
                 padding: '16px 38px',
                 borderRadius: 999,
                 fontFamily: 'var(--f-zh-sans)',
-                fontSize: 16,
+                fontSize: 'clamp(14px, 1.5vw, 16px)',
                 fontWeight: 700,
                 letterSpacing: '0.03em',
                 textDecoration: 'none',

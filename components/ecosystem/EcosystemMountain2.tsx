@@ -74,7 +74,7 @@ export default function EcosystemMountain2() {
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
-    <PageSection ghost="SENSING WAVE">
+    <PageSection ghost="SENSING WAVE" style={{ paddingTop: 'clamp(40px, 5vw, 64px)', paddingBottom: 'clamp(40px, 5vw, 64px)' }}>
 
       <div className="wrap">
 
@@ -164,7 +164,7 @@ export default function EcosystemMountain2() {
                 <div style={{
                   fontFamily: 'var(--f-zh)',
                   fontWeight: 500,
-                  fontSize: 20,
+                  fontSize: 'clamp(14px, 1.8vw, 20px)',
                   letterSpacing: '0.04em',
                   color: 'var(--ink)',
                   lineHeight: 1.2,
@@ -175,7 +175,7 @@ export default function EcosystemMountain2() {
                 <div style={{ width: 24, height: 1, background: z.accent, opacity: 0.4, marginBottom: 6 }} />
                 <div style={{
                   fontFamily: 'var(--f-mono)',
-                  fontSize: 15,
+                  fontSize: 'clamp(12px, 1.2vw, 15px)',
                   letterSpacing: '0.08em',
                   color: 'var(--muted)',
                   lineHeight: 1.6,

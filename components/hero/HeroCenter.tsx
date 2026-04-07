@@ -6,16 +6,15 @@ export default function HeroCenter() {
   return (
     <section
       style={{
-        height: '100svh',
         minHeight: '100svh',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        padding: '120px clamp(24px,5vw,72px) 100px',
+        padding: 'clamp(40px,5vw,64px) clamp(24px,5vw,80px)',
         position: 'relative',
-        overflow: 'hidden',
+        overflow: 'clip',
         background: 'var(--base)',
       }}
     >
@@ -68,14 +67,14 @@ export default function HeroCenter() {
             alt="Zenpple 森波"
             width={1872}
             height={1874}
-            style={{ width: 'clamp(130px, 15vw, 200px)', height: 'auto' }}
+            style={{ width: 'clamp(80px, 12vw, 180px)', height: 'auto' }}
           />
         </div>
 
         <h1
           className="animate-ink-reveal tr-d2"
           style={{
-            fontSize: 'clamp(28px, 4.8vw, 50px)',
+            fontSize: 'clamp(32px, 6vw, 72px)',
             letterSpacing: '0.06em',
             lineHeight: 1.15,
             marginBottom: 16,
@@ -88,7 +87,7 @@ export default function HeroCenter() {
         <p
           className="tr-h2"
           style={{
-            fontSize: 'clamp(24px, 1.6vw, 18px)',
+            fontSize: 'clamp(11px, 1.5vw, 14px)',
             letterSpacing: '0.22em',
             color: 'var(--ink)',
             opacity: 0.7,

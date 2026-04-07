@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import PageSection from '@/components/ui/PageSection'
@@ -66,6 +66,14 @@ const EXPAND_H = 680
 
 export default function PersonaCardFocus() {
   const [active, setActive] = useState<number | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   const toggle = (id: number) => {
     setActive(prev => (prev === id ? null : id))
@@ -76,17 +84,71 @@ export default function PersonaCardFocus() {
   const primaryRgb   = active !== null ? (activePersona?.accentRgb    ?? '192,184,174') : '192,184,174'
   const secondaryRgb = active !== null ? (activePersona?.secondaryRgb ?? '192,184,174') : '192,184,174'
 
+  const sectionStyle = {
+    background: active !== null
+      ? `radial-gradient(ellipse at 50% 55%, rgba(${activePersona?.accentRgb},0.12) 0%, rgba(${activePersona?.accentRgb},0.04) 60%, transparent 100%)`
+      : 'var(--base)',
+    transition: 'background 0.6s ease',
+    overflow: 'visible' as const,
+    zIndex: 1,
+    paddingTop: 'clamp(40px, 5vw, 64px)',
+    paddingBottom: 'clamp(40px, 5vw, 64px)',
+  }
+
+  /* ── shared expand panel content ── */
+  const ExpandContent = ({ p }: { p: typeof personas[0] }) => (
+    <>
+      <div style={{ width: 80, height: 80, position: 'relative', marginBottom: 20, flexShrink: 0 }}>
+        <Image
+          src={p.cardImage}
+          alt=""
+          fill
+          style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.82 }}
+        />
+      </div>
+
+      <div style={{ display: 'flex', gap: 5, marginBottom: 20, flexShrink: 0 }}>
+        {[0, 1, 2].map(i => (
+          <div key={i} style={{ width: i === 1 ? 20 : 6, height: 4, borderRadius: 2, background: `rgba(${p.accentRgb},${i === 1 ? 0.5 : 0.2})` }} />
+        ))}
+      </div>
+
+      <h3 className="tr-h1" style={{ fontSize: 'clamp(18px, 3vw, 24px)', marginBottom: 4, color: 'var(--ink)', flexShrink: 0, overflowWrap: 'break-word', wordBreak: 'break-word' }}>
+        {p.expandTitle}
+      </h3>
+      <p style={{ fontFamily: 'var(--f-display)', fontWeight: 700, fontSize: 11, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 16, flexShrink: 0 }}>
+        {p.expandEn}
+      </p>
+      <p style={{ fontSize: 'clamp(14px, 1.5vw, 17px)', lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7, marginBottom: 0, flexShrink: 0, overflowWrap: 'break-word', wordBreak: 'break-word' }}>
+        {p.expandBody}
+      </p>
+
+      <div style={{ flex: 1, minHeight: 12 }} />
+
+      <div style={{ width: '100%', height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 16, flexShrink: 0 }} />
+      <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(14px, 1.5vw, 17px)', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 12, flexShrink: 0 }}>
+        適合的服務
+      </p>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, justifyContent: 'center', marginBottom: 22, flexShrink: 0 }}>
+        {p.services.map(s => (
+          <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 'clamp(13px, 1.2vw, 15px)', padding: '5px 13px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
+            {s}
+          </span>
+        ))}
+      </div>
+      <Link
+        href={p.ctaHref}
+        style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(14px, 1.5vw, 17px)', letterSpacing: '0.06em', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 28px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.45)`, color: p.accentColor, flexShrink: 0 }}
+      >
+        {p.ctaLabel}
+      </Link>
+    </>
+  )
+
   return (
     <PageSection
       ghost="WHO YOU ARE"
-      style={{
-        background: active !== null
-          ? `radial-gradient(ellipse at 50% 55%, rgba(${activePersona?.accentRgb},0.12) 0%, rgba(${activePersona?.accentRgb},0.04) 60%, transparent 100%)`
-          : 'var(--base)',
-        transition: 'background 0.6s ease',
-        overflow: 'visible',
-        zIndex: 1,
-      }}
+      style={sectionStyle}
     >
 
       {/* ── Top waves: protrude upward into hero section ── */}
@@ -143,66 +205,32 @@ export default function PersonaCardFocus() {
       <div className="wrap">
         <PageTitle sub="選一張牌" title="找到屬於你的路徑" />
 
-        <div
-          style={{
-            display: 'flex',
-            gap: 0,
-            justifyContent: 'flex-start',
-            alignItems: 'flex-start',
-            maxWidth: 960,
-            margin: '0 auto',
-            position: 'relative',
-            zIndex: 1,
-          }}
-        >
-          {personas.flatMap((p, i) => {
-            const isActive = active === p.id
-            const isOther  = active !== null && !isActive
-            const isLast   = i === personas.length - 1
-
-            return [
-              /* ── CARD ── */
-              <div
-                key={p.id}
-                onClick={() => toggle(p.id)}
-                style={{
-                  width: isOther ? 0 : CARD_W,
-                  height: CARD_H,
-                  flexShrink: 0,
-                  overflow: 'hidden',
-                  opacity: isOther ? 0 : 1,
-                  cursor: 'pointer',
-                  marginRight: isOther ? 0 : (isActive ? 18 : (isLast ? 0 : 18)),
-                  transition: [
-                    'width 0.5s cubic-bezier(0.4,0,0.2,1)',
-                    'opacity 0.35s ease',
-                    'margin 0.5s cubic-bezier(0.4,0,0.2,1)',
-                  ].join(', '),
-                }}
-              >
-                <div
-                  style={{
-                    width: CARD_W,
-                    height: '100%',
-                    borderRadius: 16,
-                    overflow: 'hidden',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    background: isActive ? 'transparent' : '#FFFFFF',
-                    boxShadow: isActive ? 'none' : '0 2px 14px rgba(42,42,42,0.07)',
-                    transition: 'background 0.6s ease, box-shadow 0.5s ease',
-                  }}
-                >
+        {/* ── MOBILE layout: vertical stack ── */}
+        {isMobile && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, position: 'relative', zIndex: 1 }}>
+            {personas.map(p => {
+              const isActive = active === p.id
+              return (
+                <div key={p.id} style={{ minWidth: 0 }}>
+                  {/* Card row */}
                   <div
+                    onClick={() => toggle(p.id)}
                     style={{
-                      flex: 1,
+                      borderRadius: 16,
+                      overflow: 'hidden',
+                      background: '#FFFFFF',
+                      boxShadow: isActive
+                        ? `0 4px 24px rgba(${p.accentRgb},0.18), 0 0 0 1px rgba(${p.accentRgb},0.12)`
+                        : '0 2px 14px rgba(42,42,42,0.07)',
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'center',
-                      paddingTop: 20,
+                      padding: '1.25rem',
+                      gap: 16,
+                      cursor: 'pointer',
+                      transition: 'box-shadow 0.3s ease',
                     }}
                   >
-                    <div style={{ position: 'relative', width: IMG_W, height: IMG_H, flexShrink: 0 }}>
+                    <div style={{ position: 'relative', width: 64, height: 100, flexShrink: 0 }}>
                       <Image
                         src={p.cardImage}
                         alt=""
@@ -210,123 +238,233 @@ export default function PersonaCardFocus() {
                         style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8 }}
                       />
                     </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <h3
+                        className="tr-h1"
+                        style={{
+                          fontSize: 'clamp(16px, 4vw, 22px)',
+                          lineHeight: 1.5,
+                          color: 'var(--ink)',
+                          marginBottom: 6,
+                          whiteSpace: 'pre-line',
+                          overflowWrap: 'break-word',
+                          wordBreak: 'break-word',
+                        }}
+                      >
+                        {p.cardTitle}
+                      </h3>
+                      <p
+                        style={{
+                          fontSize: 'clamp(13px, 3vw, 15px)',
+                          color: 'var(--muted)',
+                          lineHeight: 1.7,
+                          whiteSpace: 'pre-line',
+                          overflowWrap: 'break-word',
+                          wordBreak: 'break-word',
+                        }}
+                      >
+                        {p.cardDesc}
+                      </p>
+                    </div>
+                    <div style={{
+                      flexShrink: 0,
+                      width: 24,
+                      height: 24,
+                      borderRadius: '50%',
+                      border: `1.5px solid rgba(${p.accentRgb},0.4)`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: 14,
+                      color: p.accentColor,
+                      transition: 'transform 0.3s ease',
+                      transform: isActive ? 'rotate(45deg)' : 'none',
+                    }}>
+                      +
+                    </div>
                   </div>
 
+                  {/* Expand panel below */}
                   <div
                     style={{
-                      flexShrink: 0,
+                      overflow: 'hidden',
+                      maxHeight: isActive ? 800 : 0,
+                      opacity: isActive ? 1 : 0,
+                      marginTop: isActive ? 8 : 0,
+                      transition: [
+                        'max-height 0.5s cubic-bezier(0.4,0,0.2,1)',
+                        'opacity 0.35s ease',
+                        'margin-top 0.4s ease',
+                      ].join(', '),
+                    }}
+                  >
+                    <div
+                      style={{
+                        borderRadius: 20,
+                        background: '#FFFFFF',
+                        boxShadow: `0 16px 52px rgba(${p.accentRgb},0.18), 0 0 0 1px rgba(${p.accentRgb},0.1)`,
+                        padding: '1.75rem',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                      }}
+                    >
+                      <ExpandContent p={p} />
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )}
+
+        {/* ── DESKTOP layout: horizontal expand ── */}
+        {!isMobile && (
+          <div
+            style={{
+              display: 'flex',
+              gap: 0,
+              justifyContent: 'flex-start',
+              alignItems: 'flex-start',
+              maxWidth: 960,
+              margin: '0 auto',
+              position: 'relative',
+              zIndex: 1,
+            }}
+          >
+            {personas.flatMap((p, i) => {
+              const isActive = active === p.id
+              const isOther  = active !== null && !isActive
+              const isLast   = i === personas.length - 1
+
+              return [
+                /* ── CARD ── */
+                <div
+                  key={p.id}
+                  onClick={() => toggle(p.id)}
+                  style={{
+                    width: isOther ? 0 : CARD_W,
+                    height: CARD_H,
+                    flexShrink: 0,
+                    overflow: 'hidden',
+                    opacity: isOther ? 0 : 1,
+                    cursor: 'pointer',
+                    marginRight: isOther ? 0 : (isActive ? 18 : (isLast ? 0 : 18)),
+                    transition: [
+                      'width 0.5s cubic-bezier(0.4,0,0.2,1)',
+                      'opacity 0.35s ease',
+                      'margin 0.5s cubic-bezier(0.4,0,0.2,1)',
+                    ].join(', '),
+                  }}
+                >
+                  <div
+                    style={{
+                      width: CARD_W,
+                      height: '100%',
+                      borderRadius: 16,
+                      overflow: 'hidden',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      background: isActive ? 'transparent' : '#FFFFFF',
+                      boxShadow: isActive ? 'none' : '0 2px 14px rgba(42,42,42,0.07)',
+                      transition: 'background 0.6s ease, box-shadow 0.5s ease',
+                    }}
+                  >
+                    <div
+                      style={{
+                        flex: 1,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingTop: 20,
+                      }}
+                    >
+                      <div style={{ position: 'relative', width: IMG_W, height: IMG_H, flexShrink: 0 }}>
+                        <Image
+                          src={p.cardImage}
+                          alt=""
+                          fill
+                          style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8 }}
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      style={{
+                        flexShrink: 0,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        padding: '1.25rem 1.5rem 1.75rem',
+                      }}
+                    >
+                      <h3
+                        className="tr-h1"
+                        style={{ fontSize: 'clamp(18px, 2.5vw, 24px)', lineHeight: 1.5, color: 'var(--ink)', marginBottom: isActive ? 0 : 10, whiteSpace: 'pre-line', transition: 'margin 0.4s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}
+                      >
+                        {p.cardTitle}
+                      </h3>
+                      <p
+                        style={{
+                          fontSize: 'clamp(13px, 1.2vw, 15px)',
+                          color: 'var(--muted)',
+                          lineHeight: 1.85,
+                          whiteSpace: 'pre-line',
+                          opacity: isActive ? 0 : 1,
+                          maxHeight: isActive ? 0 : 80,
+                          overflow: 'hidden',
+                          transition: 'opacity 0.35s ease, max-height 0.45s ease',
+                          overflowWrap: 'break-word',
+                          wordBreak: 'break-word',
+                        }}
+                      >
+                        {p.cardDesc}
+                      </p>
+                    </div>
+                  </div>
+                </div>,
+
+                /* ── EXPAND PANEL ── */
+                <div
+                  key={`expand-${p.id}`}
+                  style={{
+                    width: isActive ? EXPAND_W : 0,
+                    height: EXPAND_H,
+                    flexShrink: 0,
+                    overflow: 'hidden',
+                    opacity: isActive ? 1 : 0,
+                    borderRadius: 20,
+                    transition: [
+                      'width 0.55s cubic-bezier(0.4,0,0.2,1) 0.12s',
+                      'opacity 0.4s ease 0.12s',
+                    ].join(', '),
+                    background: '#FFFFFF',
+                    boxShadow: isActive
+                      ? `0 16px 52px rgba(${p.accentRgb},0.18), 0 0 0 1px rgba(${p.accentRgb},0.1)`
+                      : 'none',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: EXPAND_W,
+                      height: '100%',
+                      overflow: 'hidden',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       textAlign: 'center',
-                      padding: '18px 24px 28px',
+                      padding: '2.25rem 2.5rem 2rem',
                     }}
                   >
-                    <h3
-                      className="tr-h1"
-                      style={{ fontSize: 24, lineHeight: 1.5, color: 'var(--ink)', marginBottom: isActive ? 0 : 10, whiteSpace: 'pre-line', transition: 'margin 0.4s ease' }}
-                    >
-                      {p.cardTitle}
-                    </h3>
-                    <p
-                      style={{
-                        fontSize: 15,
-                        color: 'var(--muted)',
-                        lineHeight: 1.85,
-                        whiteSpace: 'pre-line',
-                        opacity: isActive ? 0 : 1,
-                        maxHeight: isActive ? 0 : 80,
-                        overflow: 'hidden',
-                        transition: 'opacity 0.35s ease, max-height 0.45s ease',
-                      }}
-                    >
-                      {p.cardDesc}
-                    </p>
+                    <ExpandContent p={p} />
                   </div>
-                </div>
-              </div>,
-
-              /* ── EXPAND PANEL ── */
-              <div
-                key={`expand-${p.id}`}
-                style={{
-                  width: isActive ? EXPAND_W : 0,
-                  height: EXPAND_H,
-                  flexShrink: 0,
-                  overflow: 'hidden',
-                  opacity: isActive ? 1 : 0,
-                  borderRadius: 20,
-                  transition: [
-                    'width 0.55s cubic-bezier(0.4,0,0.2,1) 0.12s',
-                    'opacity 0.4s ease 0.12s',
-                  ].join(', '),
-                  background: '#FFFFFF',
-                  boxShadow: isActive
-                    ? `0 16px 52px rgba(${p.accentRgb},0.18), 0 0 0 1px rgba(${p.accentRgb},0.1)`
-                    : 'none',
-                }}
-              >
-                <div
-                  style={{
-                    width: EXPAND_W,
-                    height: '100%',
-                    overflow: 'hidden',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    padding: '36px 40px 32px',
-                  }}
-                >
-                  <div style={{ width: 80, height: 80, position: 'relative', marginBottom: 20, flexShrink: 0 }}>
-                    <Image
-                      src={p.cardImage}
-                      alt=""
-                      fill
-                      style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.82 }}
-                    />
-                  </div>
-
-                  <div style={{ display: 'flex', gap: 5, marginBottom: 20, flexShrink: 0 }}>
-                    {[0, 1, 2].map(i => (
-                      <div key={i} style={{ width: i === 1 ? 20 : 6, height: 4, borderRadius: 2, background: `rgba(${p.accentRgb},${i === 1 ? 0.5 : 0.2})` }} />
-                    ))}
-                  </div>
-
-                  <h3 className="tr-h1" style={{ fontSize: 24, marginBottom: 4, color: 'var(--ink)', flexShrink: 0 }}>
-                    {p.expandTitle}
-                  </h3>
-                  <p style={{ fontFamily: 'var(--f-display)', fontWeight: 700, fontSize: 15, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 16, flexShrink: 0 }}>
-                    {p.expandEn}
-                  </p>
-                  <p style={{ fontSize: 17, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7, marginBottom: 0, flexShrink: 0 }}>
-                    {p.expandBody}
-                  </p>
-
-                  <div style={{ flex: 1, minHeight: 12 }} />
-
-                  <div style={{ width: '100%', height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 16, flexShrink: 0 }} />
-                  <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 17, letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 12, flexShrink: 0 }}>
-                    適合的服務
-                  </p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, justifyContent: 'center', marginBottom: 22, flexShrink: 0 }}>
-                    {p.services.map(s => (
-                      <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 15, padding: '5px 13px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                  <Link
-                    href={p.ctaHref}
-                    style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 17, letterSpacing: '0.06em', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 28px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.45)`, color: p.accentColor, flexShrink: 0 }}
-                  >
-                    {p.ctaLabel}
-                  </Link>
-                </div>
-              </div>,
-            ]
-          })}
-        </div>
+                </div>,
+              ]
+            })}
+          </div>
+        )}
       </div>
     </PageSection>
   )
