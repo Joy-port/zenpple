@@ -59,8 +59,6 @@ export default function PersonaCard2() {
     setActive(prev => (prev === id ? null : id))
   }
 
-  const activePersona = personas.find(p => p.id === active)
-
   return (
     <section
       style={{
@@ -73,270 +71,249 @@ export default function PersonaCard2() {
         overflow: 'hidden',
       }}
     >
-      {/* Wave transition from hero */}
+      {/* Wave transition */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
-        <svg
-          viewBox="0 0 1440 96"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          style={{ width: '100%', height: 96, display: 'block' }}
-        >
-          <path
-            d="M0,0 L1440,0 L1440,64 C1380,82 1260,54 1100,72 C940,88 800,52 660,70 C520,86 380,58 220,76 C110,88 40,66 0,72 Z"
-            fill="rgba(176,144,112,0.14)"
-          />
-          <path
-            d="M0,0 L1440,0 L1440,50 C1320,70 1180,40 1020,60 C860,78 700,42 560,58 C420,72 280,48 140,64 C60,74 20,56 0,60 Z"
-            fill="rgba(212,168,154,0.10)"
-          />
-          <path
-            d="M0,0 L1440,0 L1440,36 C1340,58 1180,28 1040,48 C900,66 740,32 600,50 C460,66 300,38 160,56 C70,68 20,46 0,50 Z"
-            fill="var(--base)"
-          />
+        <svg viewBox="0 0 1440 96" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 96, display: 'block' }}>
+          <path d="M0,0 L1440,0 L1440,64 C1380,82 1260,54 1100,72 C940,88 800,52 660,70 C520,86 380,58 220,76 C110,88 40,66 0,72 Z" fill="rgba(176,144,112,0.14)" />
+          <path d="M0,0 L1440,0 L1440,50 C1320,70 1180,40 1020,60 C860,78 700,42 560,58 C420,72 280,48 140,64 C60,74 20,56 0,60 Z" fill="rgba(212,168,154,0.10)" />
+          <path d="M0,0 L1440,0 L1440,36 C1340,58 1180,28 1040,48 C900,66 740,32 600,50 C460,66 300,38 160,56 C70,68 20,46 0,50 Z" fill="var(--base)" />
         </svg>
       </div>
 
       <div className="wrap">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 52, position: 'relative', zIndex: 1 }}>
-          <p
-            style={{
-              fontFamily: 'var(--f-zh-sans)',
-              fontWeight: 300,
-              fontSize: 'clamp(16px, 2vw, 26px)',
-              letterSpacing: '0.12em',
-              color: 'var(--muted)',
-              marginBottom: 12,
-            }}
-          >
+          <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 300, fontSize: 'clamp(16px, 2vw, 26px)', letterSpacing: '0.12em', color: 'var(--muted)', marginBottom: 12 }}>
             你是哪一種人
           </p>
-          <h2
-            style={{
-              fontFamily: 'var(--f-zh-sans)',
-              fontWeight: 700,
-              fontSize: 'clamp(22px, 3vw, 34px)',
-              letterSpacing: '0.04em',
-              color: 'var(--ink)',
-            }}
-          >
+          <h2 style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 700, fontSize: 'clamp(22px, 3vw, 34px)', letterSpacing: '0.04em', color: 'var(--ink)' }}>
             找到屬於你的路徑
           </h2>
+          {active !== null && (
+            <p
+              onClick={() => setActive(null)}
+              style={{
+                fontFamily: 'var(--f-mono)',
+                fontSize: 10,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'var(--muted)',
+                marginTop: 14,
+                cursor: 'pointer',
+                opacity: 0.6,
+              }}
+            >
+              ← 重新選擇
+            </p>
+          )}
         </div>
 
-        {/* Cards row */}
+        {/* Cards — tarot flip layout */}
         <div
           style={{
             display: 'flex',
             gap: 18,
             justifyContent: 'center',
             maxWidth: 960,
-            margin: '0 auto 32px',
-            position: 'relative',
-            zIndex: 1,
-          }}
-        >
-          {personas.map(p => (
-            <div
-              key={p.id}
-              onClick={() => toggle(p.id)}
-              style={{
-                flex: 1,
-                maxWidth: 300,
-                minHeight: 380,
-                borderRadius: 16,
-                cursor: 'pointer',
-                overflow: 'hidden',
-                display: 'flex',
-                flexDirection: 'column',
-                background: '#F2EFEA',
-                boxShadow: active === p.id
-                  ? `0 20px 52px rgba(${p.accentRgb},0.22), 0 4px 16px rgba(${p.accentRgb},0.1)`
-                  : '0 2px 14px rgba(42,42,42,0.06)',
-                transform: active === p.id ? 'translateY(-6px)' : 'translateY(0)',
-                transition: 'transform 0.35s, box-shadow 0.35s',
-                outline: active === p.id ? `2px solid rgba(${p.accentRgb},0.25)` : '2px solid transparent',
-              }}
-            >
-              {/* Image — top 65% */}
-              <div style={{ flex: '0 0 65%', position: 'relative', minHeight: 200 }}>
-                <Image
-                  src={p.cardImage}
-                  alt=""
-                  fill
-                  style={{
-                    objectFit: 'contain',
-                    objectPosition: 'center center',
-                    filter: p.imageFilter,
-                    mixBlendMode: 'multiply',
-                    opacity: 0.75,
-                    padding: '18px 24px 0',
-                  }}
-                />
-              </div>
-
-              {/* Text — bottom 35%, centered */}
-              <div
-                style={{
-                  flex: 1,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  padding: '16px 24px 28px',
-                }}
-              >
-                <h3
-                  className="tr-h1"
-                  style={{
-                    fontSize: 17,
-                    lineHeight: 1.5,
-                    color: 'var(--ink)',
-                    marginBottom: 8,
-                    whiteSpace: 'pre-line',
-                  }}
-                >
-                  {p.cardTitle}
-                </h3>
-                <p
-                  style={{
-                    fontSize: 13,
-                    color: 'var(--muted)',
-                    lineHeight: 1.85,
-                    whiteSpace: 'pre-line',
-                  }}
-                >
-                  {p.cardDesc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Narrow centered expand panel — appears below cards, centered under active card */}
-        <div
-          style={{
-            maxWidth: 480,
             margin: '0 auto',
             position: 'relative',
             zIndex: 1,
+            // perspective on container for shared 3D space
+            perspective: '1400px',
+            perspectiveOrigin: '50% 40%',
           }}
         >
-          {personas.map(p => (
-            <div
-              key={p.id}
-              style={{
-                borderRadius: 20,
-                overflow: 'hidden',
-                maxHeight: active === p.id ? 600 : 0,
-                opacity: active === p.id ? 1 : 0,
-                transition: 'max-height 0.5s ease, opacity 0.4s ease, padding 0.5s ease, box-shadow 0.5s ease',
-                padding: active === p.id ? '40px 36px' : '0 36px',
-                background: 'rgba(250,248,246,0.97)',
-                boxShadow: active === p.id
-                  ? `0 16px 52px rgba(${p.accentRgb},0.2), 0 0 0 1px rgba(${p.accentRgb},0.12)`
-                  : 'none',
-                marginBottom: active === p.id ? 16 : 0,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center',
-              }}
-            >
-              {/* Card image as icon */}
-              <div style={{ width: 80, height: 80, position: 'relative', marginBottom: 20, flexShrink: 0 }}>
-                <Image
-                  src={p.cardImage}
-                  alt=""
-                  fill
+          {personas.map(p => {
+            const isActive = active === p.id
+            const isOther = active !== null && !isActive
+
+            return (
+              <div
+                key={p.id}
+                onClick={() => toggle(p.id)}
+                style={{
+                  flex: 1,
+                  maxWidth: 300,
+                  height: 400,
+                  position: 'relative',
+                  cursor: 'pointer',
+                  // outer wrapper: scale + dim inactive cards
+                  transform: isActive
+                    ? 'scale(1.14) translateY(-8px)'
+                    : isOther
+                    ? 'scale(0.90) translateY(10px)'
+                    : 'scale(1) translateY(0)',
+                  opacity: isOther ? 0.28 : 1,
+                  filter: isOther ? 'blur(1.5px)' : 'none',
+                  transition: 'transform 0.55s cubic-bezier(0.34,1.4,0.64,1), opacity 0.4s ease, filter 0.4s ease',
+                  zIndex: isActive ? 10 : 1,
+                }}
+              >
+                {/* 3D flip inner */}
+                <div
                   style={{
-                    objectFit: 'contain',
-                    filter: p.imageFilter,
-                    mixBlendMode: 'multiply',
-                    opacity: 0.8,
+                    width: '100%',
+                    height: '100%',
+                    position: 'relative',
+                    transformStyle: 'preserve-3d',
+                    transform: isActive ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                    transition: 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
                   }}
-                />
-              </div>
-
-              <h3
-                className="tr-h1"
-                style={{ fontSize: 22, marginBottom: 4, color: 'var(--ink)' }}
-              >
-                {p.expandTitle}
-              </h3>
-              <p
-                style={{
-                  fontFamily: 'var(--f-mono)',
-                  fontSize: 10,
-                  letterSpacing: '0.22em',
-                  textTransform: 'uppercase',
-                  color: 'var(--muted)',
-                  marginBottom: 16,
-                }}
-              >
-                {p.expandEn}
-              </p>
-              <p style={{ fontSize: 14, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7, marginBottom: 24 }}>
-                {p.expandBody}
-              </p>
-
-              {/* Services */}
-              <p
-                style={{
-                  fontFamily: 'var(--f-mono)',
-                  fontSize: 10,
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
-                  color: 'var(--muted)',
-                  marginBottom: 12,
-                }}
-              >
-                適合的服務
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center', marginBottom: 28 }}>
-                {p.services.map(s => (
-                  <span
-                    key={s}
+                >
+                  {/* ── FRONT FACE ── */}
+                  <div
                     style={{
-                      fontFamily: 'var(--f-zh-sans)',
-                      fontSize: 12,
-                      padding: '6px 14px',
-                      borderRadius: 999,
-                      border: `1px solid rgba(${p.accentRgb},0.3)`,
-                      color: p.accentColor,
-                      background: `rgba(${p.accentRgb},0.06)`,
-                      letterSpacing: '0.02em',
+                      position: 'absolute',
+                      inset: 0,
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
+                      borderRadius: 16,
+                      overflow: 'hidden',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      background: '#FFFFFF',
+                      boxShadow: isActive
+                        ? `0 24px 56px rgba(${p.accentRgb},0.24), 0 4px 16px rgba(${p.accentRgb},0.1)`
+                        : '0 2px 14px rgba(42,42,42,0.07)',
                     }}
                   >
-                    {s}
-                  </span>
-                ))}
-              </div>
+                    {/* Image top 65% */}
+                    <div style={{ flex: '0 0 65%', position: 'relative' }}>
+                      <Image
+                        src={p.cardImage}
+                        alt=""
+                        fill
+                        style={{
+                          objectFit: 'contain',
+                          objectPosition: 'center center',
+                          filter: p.imageFilter,
+                          mixBlendMode: 'multiply',
+                          opacity: 0.75,
+                          padding: '18px 24px 0',
+                        }}
+                      />
+                    </div>
+                    {/* Text bottom */}
+                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '16px 24px 28px' }}>
+                      <h3 className="tr-h1" style={{ fontSize: 17, lineHeight: 1.5, color: 'var(--ink)', marginBottom: 8, whiteSpace: 'pre-line' }}>
+                        {p.cardTitle}
+                      </h3>
+                      <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.85, whiteSpace: 'pre-line' }}>
+                        {p.cardDesc}
+                      </p>
+                    </div>
+                  </div>
 
-              <Link
-                href={p.ctaHref}
-                style={{
-                  fontFamily: 'var(--f-mono)',
-                  fontSize: 11,
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  padding: '10px 28px',
-                  borderRadius: 999,
-                  border: `1px solid rgba(${p.accentRgb},0.4)`,
-                  color: p.accentColor,
-                  transition: 'background 0.2s',
-                }}
-              >
-                {p.ctaLabel}
-              </Link>
-            </div>
-          ))}
+                  {/* ── BACK FACE ── */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
+                      transform: 'rotateY(180deg)',
+                      borderRadius: 16,
+                      overflow: 'hidden',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      textAlign: 'center',
+                      padding: '28px 22px',
+                      background: `linear-gradient(160deg, rgba(${p.accentRgb},0.07) 0%, rgba(250,248,246,1) 40%)`,
+                      boxShadow: `0 24px 56px rgba(${p.accentRgb},0.26), 0 0 0 1px rgba(${p.accentRgb},0.14)`,
+                    }}
+                  >
+                    {/* Card image as small icon */}
+                    <div style={{ width: 64, height: 64, position: 'relative', marginBottom: 14, flexShrink: 0 }}>
+                      <Image
+                        src={p.cardImage}
+                        alt=""
+                        fill
+                        style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.85 }}
+                      />
+                    </div>
+
+                    {/* Persona name */}
+                    <h3 className="tr-h1" style={{ fontSize: 20, marginBottom: 2, color: 'var(--ink)', lineHeight: 1.3 }}>
+                      {p.expandTitle}
+                    </h3>
+                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 12 }}>
+                      {p.expandEn}
+                    </p>
+                    <p style={{ fontSize: 12.5, lineHeight: 1.85, color: 'var(--ink)', opacity: 0.68, marginBottom: 16 }}>
+                      {p.expandBody}
+                    </p>
+
+                    {/* Services */}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, justifyContent: 'center', marginBottom: 18 }}>
+                      {p.services.map(s => (
+                        <span
+                          key={s}
+                          style={{
+                            fontFamily: 'var(--f-zh-sans)',
+                            fontSize: 11,
+                            padding: '4px 11px',
+                            borderRadius: 999,
+                            border: `1px solid rgba(${p.accentRgb},0.28)`,
+                            color: p.accentColor,
+                            background: `rgba(${p.accentRgb},0.06)`,
+                            letterSpacing: '0.02em',
+                          }}
+                        >
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* CTA — stop click propagation so card doesn't un-flip */}
+                    <Link
+                      href={p.ctaHref}
+                      onClick={e => e.stopPropagation()}
+                      style={{
+                        fontFamily: 'var(--f-mono)',
+                        fontSize: 10,
+                        letterSpacing: '0.14em',
+                        textTransform: 'uppercase',
+                        textDecoration: 'none',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 8,
+                        padding: '9px 22px',
+                        borderRadius: 999,
+                        border: `1px solid rgba(${p.accentRgb},0.4)`,
+                        color: p.accentColor,
+                        background: `rgba(${p.accentRgb},0.06)`,
+                      }}
+                    >
+                      {p.ctaLabel}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
         </div>
+
+        {/* Hint text when nothing selected */}
+        <p
+          style={{
+            textAlign: 'center',
+            fontFamily: 'var(--f-mono)',
+            fontSize: 10,
+            letterSpacing: '0.18em',
+            textTransform: 'uppercase',
+            color: 'var(--muted)',
+            opacity: active !== null ? 0 : 0.5,
+            transition: 'opacity 0.4s',
+            marginTop: 32,
+            position: 'relative',
+            zIndex: 1,
+            pointerEvents: 'none',
+          }}
+        >
+          選一張牌
+        </p>
       </div>
     </section>
   )

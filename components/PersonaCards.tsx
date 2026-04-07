@@ -159,7 +159,7 @@ export default function PersonaCards() {
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
-                background: '#F2EFEA',
+                background: '#FFFFFF',
                 boxShadow: active === p.id
                   ? `0 20px 52px rgba(${p.accentRgb},0.22), 0 4px 16px rgba(${p.accentRgb},0.1)`
                   : '0 2px 14px rgba(42,42,42,0.06)',
