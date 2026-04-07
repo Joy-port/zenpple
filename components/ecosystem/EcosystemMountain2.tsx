@@ -24,7 +24,7 @@ const zones = [
     shortLabel: '高階',
     sub: '從自覺走向大地',
     tipPos: { top: '5%', left: '62%' } as React.CSSProperties,
-    mobileTipPos: { top: '15%', left: '56%' } as React.CSSProperties,
+    mobileTipPos: { top: '16%', left: '48%' } as React.CSSProperties,
     dot: '#e8c000',
     dotLabel: 'AS · TS-PE　高階職業養成',
   },
@@ -40,7 +40,7 @@ const zones = [
     shortLabel: '薩滿',
     sub: '學會與高靈團隊航行',
     tipPos: { top: '30%', right: '8%' } as React.CSSProperties,
-    mobileTipPos: { top: '44%', left: '68%' } as React.CSSProperties,
+    mobileTipPos: { top: '39%', left: '48%' } as React.CSSProperties,
     dot: '#9090c8',
     dotLabel: 'SC　薩滿靈魂覺醒',
   },
@@ -56,7 +56,7 @@ const zones = [
     shortLabel: '深層',
     sub: '校準生命的了心共振',
     tipPos: { top: '40%', left: '8%' } as React.CSSProperties,
-    mobileTipPos: { top: '68%', left: '10%' } as React.CSSProperties,
+    mobileTipPos: { top: '62%', left: '48%' } as React.CSSProperties,
     dot: '#d08090',
     dotLabel: 'HL　深層系統對齊',
   },
@@ -72,7 +72,7 @@ const zones = [
     shortLabel: '即時',
     sub: '在迷霧中看清局勢',
     tipPos: { top: '67%', left: '1.5%' } as React.CSSProperties,
-    mobileTipPos: { top: '86%', left: '5%' } as React.CSSProperties,
+    mobileTipPos: { top: '82%', left: '48%' } as React.CSSProperties,
     dot: '#c8a070',
     dotLabel: 'QI　即時洞察與梳理',
   },
@@ -170,17 +170,16 @@ export default function EcosystemMountain2() {
                   pointerEvents: isMobile === true ? 'auto' : 'none',
                   cursor: isMobile === true ? 'pointer' : 'default',
                   zIndex: 10,
-                  background: `rgba(${z.accentRgb}, 0.12)`,
+                  background: isMobile === true ? 'rgba(255,255,255,0.3)' : `rgba(${z.accentRgb}, 0.12)`,
                   backdropFilter: 'blur(14px)',
                   WebkitBackdropFilter: 'blur(14px)',
                   borderLeft: `4px solid ${z.accent}`,
                   borderRadius: '4px 10px 10px 4px',
                   /* Layout: CSS clamp handles padding + maxWidth responsively */
                   padding: 'clamp(7px, 1vw, 12px) clamp(11px, 1.5vw, 16px)',
-                  maxWidth: 'clamp(90px, 15vw, 210px)',
+                  maxWidth: 'clamp(130px, 35vw, 210px)',
                 }}
               >
-                {/* Label — behaviour: short on mobile, full on desktop */}
                 <div style={{
                   fontFamily: 'var(--f-zh)',
                   fontWeight: 500,
@@ -190,7 +189,7 @@ export default function EcosystemMountain2() {
                   lineHeight: 1.2,
                   marginBottom: isMobile === true ? 0 : 6,
                 }}>
-                  {isMobile === true ? z.shortLabel : z.label}
+                  {z.label}
                 </div>
 
                 {/* Desktop only: horizontal divider + sub text */}

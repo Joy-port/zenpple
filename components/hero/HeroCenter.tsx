@@ -34,15 +34,15 @@ export default function HeroCenter() {
 
       {/* Bottom-right image — always present, positioned lower on mobile */}
       <div
-        className="absolute right-[15%] bottom-[-25vh] opacity-[0.7] md:bottom-[-38vh] md:opacity-100"
+        className="absolute right-[15%] md:right-[-5%] bottom-[-25vh] opacity-[0.7] md:bottom-[-34vh] md:opacity-100"
         style={{ zIndex: 0, pointerEvents: 'none' }}
       >
         <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
           <Image
             src="/index/頌缽九宮格.png"
             alt="" width={1568} height={2172} aria-hidden
-            className="animate-breathe-scale"
-            style={{ height: 'clamp(300px, 50vh, 500px)', width: 'auto', display: 'block', animationDelay: '2s' }}
+            className="animate-breathe-scale h-[clamp(220px,50vh,400px)] md:h-[clamp(300px,62vh,620px)]"
+            style={{ width: 'auto', display: 'block', animationDelay: '2s' }}
           />
         </div>
       </div>
