@@ -221,12 +221,10 @@ export default function QiSbPage() {
             QI · Singing Bowl Sound Flow · 靈性頌缽音流
           </p>
           <h1
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(32px,5vw,58px)',
               color: '#FDFBF8',
-              letterSpacing: '0.05em',
               lineHeight: 1.25,
               marginBottom: 14,
             }}
@@ -239,7 +237,7 @@ export default function QiSbPage() {
               fontWeight: 100,
               fontSize: 13,
               letterSpacing: '0.32em',
-              color: 'rgba(255,255,255,0.45)',
+              color: 'rgba(255,255,255,0.65)',
               textTransform: 'uppercase',
               marginBottom: 32,
             }}
@@ -317,15 +315,13 @@ export default function QiSbPage() {
           sound
         </div>
 
-        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
           <p className="sec-label">01 · WHAT IS IT</p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(26px,3.5vw,38px)',
               color: '#2E4A63',
-              letterSpacing: '0.06em',
               lineHeight: 1.3,
               marginBottom: 12,
             }}
@@ -428,9 +424,8 @@ export default function QiSbPage() {
                     {bw.label}
                   </p>
                   <p
+                    className="tr-h1"
                     style={{
-                      fontFamily: 'var(--f-zh)',
-                      fontWeight: 700,
                       fontSize: 15,
                       color: '#2E4A63',
                       marginBottom: 6,
@@ -510,13 +505,11 @@ export default function QiSbPage() {
                   · 為什麼森波的頌缽不一樣 ·
                 </p>
                 <h3
+                  className="tr-h1"
                   style={{
-                    fontFamily: 'var(--f-zh)',
-                    fontWeight: 700,
                     fontSize: 20,
                     color: '#fff',
                     marginBottom: 16,
-                    letterSpacing: '0.04em',
                   }}
                 >
                   聲音 × 薩滿 × 通靈解析
@@ -573,15 +566,13 @@ export default function QiSbPage() {
           }}
         />
 
-        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
           <p className="sec-label">02 · SESSIONS</p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(26px,3.5vw,38px)',
               color: '#2E4A63',
-              letterSpacing: '0.06em',
               lineHeight: 1.3,
               marginBottom: 12,
             }}
@@ -646,12 +637,10 @@ export default function QiSbPage() {
                     </span>
                     <div style={{ flex: 1 }}>
                       <div
+                        className="tr-h1"
                         style={{
-                          fontFamily: 'var(--f-zh)',
-                          fontWeight: 700,
                           fontSize: 18,
                           color: '#2E4A63',
-                          letterSpacing: '0.04em',
                         }}
                       >
                         {c.name}
@@ -836,7 +825,7 @@ export default function QiSbPage() {
           FAQ
         </div>
 
-        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
           <p
             className="sec-label"
             style={{ color: 'rgba(255,255,255,0.3)' }}
@@ -844,12 +833,10 @@ export default function QiSbPage() {
             03 · FAQ
           </p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(26px,3.5vw,38px)',
               color: '#fff',
-              letterSpacing: '0.06em',
               lineHeight: 1.3,
               marginBottom: 12,
             }}
@@ -989,15 +976,13 @@ export default function QiSbPage() {
           home
         </div>
 
-        <div className="wrap" style={{ padding: 'clamp(80px,10vw,120px) 0' }}>
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
           <p className="sec-label" style={{ justifyContent: 'center' }}>04 · CONNECT</p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(26px,4vw,44px)',
               color: '#2E4A63',
-              letterSpacing: '0.06em',
               marginBottom: 16,
             }}
           >

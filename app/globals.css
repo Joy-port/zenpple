@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&family=DM+Sans:wght@400;500&family=Space+Mono&family=Noto+Serif+TC:wght@300;400;700;900&family=Noto+Sans+TC:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&family=DM+Sans:wght@400;500&family=Space+Mono&family=Noto+Serif+TC:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;700;900&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -20,11 +20,13 @@
   --border:    rgba(42,42,42,0.09);
 
   --f-display: 'Josefin Sans', sans-serif;
-  --f-zh:      'Noto Serif TC', serif;
+  --f-zh:      'Noto Sans TC', sans-serif;
   --f-zh-sans: 'Noto Sans TC', sans-serif;
   --f-body:    'DM Sans', sans-serif;
   --f-mono:    'Space Mono', monospace;
   --f-elegant: 'Cormorant Garamond', serif;
+  --f-qi:      'Noto Serif TC', serif;   /* qi-cs (夏＋玄諮詢) page only — do not use elsewhere */
+  --f-impact:  'Fraunces', serif;        /* Seoul-style styling only — hero/background compositions, not body text */
 
   --gutter:   clamp(24px, 5vw, 72px);
   --page-max: 1120px;
@@ -38,9 +40,14 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  /* Required for scroll-snap to fire on iOS Safari */
+  overflow-y: auto;
+  height: 100%;
 }
 
 body {
+  min-height: 100%;
   background: var(--base);
   color: var(--ink);
   font-family: var(--f-body);
@@ -56,7 +63,7 @@ body::after {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 999999; /* Z.grain — must stay above Z.modal (99999) */
   opacity: 0.028;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 160px;
@@ -96,6 +103,10 @@ body::after {
   0%, 100% { opacity: 0.85; transform: scale(1); }
   50%       { opacity: 1;    transform: scale(1.03); }
 }
+@keyframes breathe-scale {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
 @keyframes ink-reveal {
   0%   { clip-path: inset(0 100% 0 0); }
   100% { clip-path: inset(0 0% 0 0); }
@@ -105,9 +116,49 @@ body::after {
   100% { opacity: 1; transform: translateY(0); }
 }
 
+/* ── Typography role classes ────────────────────────────────────────────────
+   Change the CSS variable (e.g. --f-zh → another font) in :root and every
+   element using that class will update automatically.
+────────────────────────────────────────────────────────────────────────── */
+/* D1 · Display — Logo text, brand identity */
+.tr-d1  { font-family: var(--f-display); font-weight: 100; letter-spacing: 0.3em; }
+/* D2 · Heading ZH — Main section headings, course titles (Chinese) */
+.tr-d2  { font-family: var(--f-zh); font-weight: 900; letter-spacing: 0.05em; }
+/* H1 · Sub-heading — Course names, column headings (Chinese) */
+.tr-h1  { font-family: var(--f-zh); font-weight: 700; letter-spacing: 0.08em; }
+/* H2 · Label EN — English sub-labels, chapter labels */
+.tr-h2  { font-family: var(--f-display); font-weight: 300; letter-spacing: 0.28em; }
+/* Body · Content — Description text, intro paragraphs */
+.tr-body { font-family: var(--f-body); font-weight: 400; line-height: 1.7; }
+/* Mono · Labels — Course info, time labels, metadata */
+.tr-mono { font-family: var(--f-mono); font-weight: 400; letter-spacing: 0.1em; }
+
+@keyframes mobile-card-from-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes mobile-card-from-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes gradient-drift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient-drift { animation: gradient-drift 10s ease infinite; background-size: 250% 250%; }
+
 .animate-breathe    { animation: breathe 3.5s ease-in-out infinite; }
 .animate-ink-reveal { animation: ink-reveal 1.1s cubic-bezier(.4,0,.2,1) forwards; }
 .animate-fade-slide { animation: fade-slide 0.7s ease forwards; }
+.animate-fade-in       { animation: fade-in 2.4s cubic-bezier(0.22,1,0.36,1) both; }
+.animate-breathe-scale { animation: breathe-scale 4s ease-in-out infinite; }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
 @keyframes qi-ripple {
   0%   { transform: scale(0.8); opacity: 0.6; }
@@ -116,6 +167,56 @@ body::after {
 @keyframes qi-float {
   0%, 100% { transform: translateY(0) rotate(-2deg); }
   50%       { transform: translateY(-12px) rotate(2deg); }
+}
+
+/* ── Section scroll anchoring ── */
+section {
+  scroll-margin-top: 64px;
+  scroll-snap-align: start;
+}
+
+/* ── Desktop-only spacing overrides ─────────────────────────────────────────
+   Uses !important to beat inline styles. All values target ≥768px only.
+   Mobile floors in clamp() / component styles are untouched.
+──────────────────────────────────────────────────────────────────────────── */
+/* SectionTransition divider — reduce on all sizes */
+.section-divider {
+  height: 44px !important;
+}
+.section-divider svg {
+  height: 44px !important;
+}
+
+/* ── Desktop-only spacing overrides ── */
+@media (min-width: 768px) {
+  /* Main section padding */
+  #who-you-are,
+  #ecosystem,
+  #founders {
+    padding-top: 72px !important;
+    padding-bottom: 32px !important;
+  }
+
+  /* PageTitle bottom gap */
+  .page-title-wrap {
+    margin-bottom: 28px !important;
+  }
+
+  /* Founders inner card spacing */
+  .founder-card-inner {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+    padding-left: 56px !important;
+    padding-right: 56px !important;
+  }
+
+  /* CTA section */
+  #contact h2 {
+    margin-bottom: 12px !important;
+  }
+  .cta-para {
+    margin: 0 auto 28px !important;
+  }
 }
 
 /* ── Scroll-triggered fade-slide ── */

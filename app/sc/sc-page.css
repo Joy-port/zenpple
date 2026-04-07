@@ -23,3 +23,81 @@ body.page-sc header ul li:last-child a:hover {
   background: rgba(123,107,158,0.15) !important;
   color: var(--base) !important;
 }
+
+/* ── Ripple animation ── */
+@keyframes ripple-out {
+  0%   { width:0; height:0; top:50%; left:50%; opacity:0.6; transform:translate(-50%,-50%); }
+  100% { width:400px; height:400px; top:50%; left:50%; opacity:0; transform:translate(-50%,-50%); }
+}
+.sc-ripple { position:absolute; border-radius:50%; border:1px solid rgba(123,107,158,0.15); animation:ripple-out 8s ease-out infinite; }
+.sc-ripple:nth-child(2) { animation-delay:2s; }
+.sc-ripple:nth-child(3) { animation-delay:4s; }
+
+@keyframes sc-float {
+  0%,100% { transform:translateX(-50%) translateY(0); }
+  50%      { transform:translateX(-50%) translateY(8px); }
+}
+@keyframes sc-breathe {
+  0%,100% { transform:scale(1); }
+  50%      { transform:scale(1.03) translateY(-6px); }
+}
+@keyframes sc-pulse-sun {
+  0%,100% { transform:scale(1) rotate(0deg); }
+  50%      { transform:scale(1.08) rotate(5deg); }
+}
+
+/* ── Brush-stroke card border ── */
+.sc-card-brush { position:relative; }
+.sc-card-brush::before {
+  content:''; position:absolute; inset:0;
+  border:1.5px solid rgba(123,107,158,0.18);
+  pointer-events:none;
+  filter:url(#sc-brush-box);
+  z-index:1;
+}
+.sc-card-brush:hover::before { border-color:rgba(123,107,158,0.42); }
+
+.sc-card-lower::before  { border-color:rgba(196,120,74,0.22); }
+.sc-card-lower:hover::before  { border-color:rgba(196,120,74,0.5); }
+.sc-card-middle::before { border-color:rgba(94,142,138,0.22); }
+.sc-card-middle:hover::before { border-color:rgba(94,142,138,0.5); }
+
+/* ── Integration step card ── */
+.sc-if-card { position:relative; }
+.sc-if-card::before {
+  content:''; position:absolute; inset:0;
+  border:1.5px solid rgba(123,107,158,0.18);
+  pointer-events:none;
+  filter:url(#sc-brush-box);
+  z-index:1;
+}
+.sc-if-card:hover::before { border-color:rgba(123,107,158,0.42); }
+.sc-if-card-orange::before { border-color:rgba(196,120,74,0.22); }
+.sc-if-card-orange:hover::before { border-color:rgba(196,120,74,0.5); }
+
+/* ── CTA button brush ── */
+.sc-cta-btn {
+  position:relative; overflow:hidden;
+  display:inline-flex; align-items:center; gap:12px;
+  padding:16px 40px;
+  background:rgba(123,107,158,0.12);
+  color:#F2EFEA;
+  font-family:var(--f-display); font-weight:300; font-size:13px; letter-spacing:0.25em;
+  text-decoration:none; cursor:pointer;
+  transition:all 0.35s;
+}
+.sc-cta-btn::before {
+  content:''; position:absolute; inset:0;
+  border:1px solid rgba(123,107,158,0.45);
+  filter:url(#sc-brush-box);
+  pointer-events:none;
+}
+.sc-cta-btn::after {
+  content:''; position:absolute; inset:0;
+  background:rgba(123,107,158,0.15);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform 0.4s ease;
+  pointer-events:none;
+}
+.sc-cta-btn:hover::after { transform:scaleX(1); }
+.sc-cta-btn:hover::before { border-color:rgba(169,155,196,0.7); }

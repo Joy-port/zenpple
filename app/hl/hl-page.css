@@ -41,7 +41,7 @@ body.page-hl header ul li:last-child a {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(280px, 40vw, 480px);
   color: rgba(255,255,255,0.07);
@@ -54,7 +54,7 @@ body.page-hl header ul li:last-child a {
   position: absolute;
   top: 100px;
   left: 64px;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.25em;
   color: rgba(255,255,255,0.65);
@@ -76,7 +76,7 @@ body.page-hl header ul li:last-child a {
   max-width: 620px;
 }
 .hero-content h1 {
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(42px, 6vw, 68px);
   line-height: 1.1;
@@ -85,7 +85,7 @@ body.page-hl header ul li:last-child a {
   margin-bottom: 12px;
 }
 .hero-content .en-sub {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 13px;
   letter-spacing: 0.3em;
@@ -102,7 +102,7 @@ body.page-hl header ul li:last-child a {
 
 /* SECTION LABEL */
 .section-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.3em;
   color: var(--rose);
@@ -120,7 +120,7 @@ body.page-hl header ul li:last-child a {
   background: var(--rose);
 }
 h2.sec-h2 {
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(30px, 4vw, 46px);
   margin-bottom: 16px;
@@ -174,14 +174,14 @@ h2.sec-h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 900;
   font-size: 28px;
   letter-spacing: 0.02em;
   color: rgba(196,123,123,0.5);
 }
 .step-card h3 {
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 0.05em;
@@ -193,7 +193,7 @@ h2.sec-h2 {
   flex: 1;
 }
 .step-card-link {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 11px;
   letter-spacing: 0.22em;
@@ -232,20 +232,20 @@ h2.sec-h2 {
   gap: 0;
 }
 .sm-left .sm-tag {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.25em;
   color: var(--rose);
   margin-bottom: 4px;
 }
 .sm-left h3 {
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 700;
   font-size: 26px;
   letter-spacing: 0.04em;
 }
 .sm-left .sm-en {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 100;
   font-size: 11px;
   letter-spacing: 0.3em;
@@ -280,7 +280,7 @@ h2.sec-h2 {
 }
 .sm-meta-row:last-child { border-bottom: none; }
 .sm-meta-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.2em;
   color: var(--rose);
@@ -294,7 +294,7 @@ h2.sec-h2 {
   background: none;
   border: 1px solid rgba(196,123,123,0.3);
   border-radius: 30px;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 12px;
   letter-spacing: 0.2em;
@@ -305,7 +305,7 @@ h2.sec-h2 {
 }
 .sm-toggle:hover { background: rgba(196,123,123,0.06); }
 .sm-right-title {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 12px;
   letter-spacing: 0.25em;
@@ -392,7 +392,7 @@ h2.sec-h2 {
 .path-icon-rose { color: var(--rose); }
 .path-icon-purple { color: var(--purple); }
 .flip-front h3 {
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 700;
   font-size: 22px;
   margin-bottom: 12px;
@@ -400,7 +400,7 @@ h2.sec-h2 {
 }
 .flip-front p { font-size: 14px; line-height: 1.85; color: #666; flex: 1; }
 .flip-hint {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 12px;
   letter-spacing: 0.25em;
@@ -410,7 +410,7 @@ h2.sec-h2 {
 }
 .flip-hint.purple { color: rgba(123,107,158,0.7); }
 .flip-back h3 {
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 16px;
@@ -434,7 +434,7 @@ h2.sec-h2 {
   color: rgba(255,255,255,0.75);
 }
 .flip-back-meta-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.15em;
   color: rgba(255,255,255,0.65);
@@ -447,7 +447,7 @@ h2.sec-h2 {
   border: 1px solid rgba(255,255,255,0.35);
   color: #fff;
   border-radius: 30px;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 12px;
   letter-spacing: 0.2em;
@@ -507,7 +507,7 @@ h2.sec-h2 {
 }
 .fu-step-row:last-child { border-bottom: none; }
 .fu-step-mark {
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 700;
   font-size: 15px;
   color: rgba(196,123,123,0.7);
@@ -523,7 +523,7 @@ h2.sec-h2 {
   gap: 0;
 }
 .fu-card-right-title {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.25em;
   color: var(--rose);
@@ -537,7 +537,7 @@ h2.sec-h2 {
   margin-bottom: 24px;
 }
 .fu-cap {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.1em;
   border: 1px solid rgba(196,123,123,0.4);
@@ -565,7 +565,7 @@ h2.sec-h2 {
 }
 .fu-plan-c-header:hover { background: #fdf8f8; }
 .fu-plan-c-name {
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 700;
   font-size: 15px;
   letter-spacing: 0.03em;
@@ -595,7 +595,7 @@ h2.sec-h2 {
   color: #555;
 }
 .fu-cd-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.18em;
   color: var(--rose);
@@ -629,7 +629,7 @@ h2.sec-h2 {
   position: relative;
 }
 #pearls .pearls-meta {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.15em;
   color: rgba(196,123,123,0.6);
@@ -714,7 +714,7 @@ h2.sec-h2 {
 .pearl-l .dot-pearl-color { background: radial-gradient(circle at 35% 35%, #d8f5e8, #b0eacc); }
 .pearl-r .dot-pearl-color { background: radial-gradient(circle at 35% 35%, #ffe0ee, #ffc8dc); }
 .pearl-name {
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 700;
   font-size: 13px;
   color: #fff;
@@ -759,14 +759,14 @@ h2.sec-h2 {
 }
 .pearl-modal-close:hover { color: rgba(0,0,0,0.7); }
 .pearl-modal-inner h3 {
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 700;
   font-size: 24px;
   margin-bottom: 6px;
   letter-spacing: 0.04em;
 }
 .pearl-modal-inner .pd-en {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 100;
   font-size: 12px;
   letter-spacing: 0.3em;
@@ -788,7 +788,7 @@ h2.sec-h2 {
   border-top: 1px solid rgba(0,0,0,0.08);
 }
 .pearl-cap {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.1em;
   border: 1px solid rgba(0,0,0,0.2);
@@ -811,7 +811,7 @@ h2.sec-h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(280px, 40vw, 480px);
   color: rgba(255,255,255,0.07);
@@ -820,7 +820,7 @@ h2.sec-h2 {
   line-height: 1;
 }
 #hl-cta h2 {
-  font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
+  font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(28px, 4vw, 48px);
   color: #fff;
@@ -844,7 +844,7 @@ h2.sec-h2 {
 .btn-primary {
   background: #fff;
   color: var(--rose);
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 13px;
   letter-spacing: 0.25em;
@@ -860,7 +860,7 @@ h2.sec-h2 {
 .btn-ghost {
   background: transparent;
   color: #fff;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 13px;
   letter-spacing: 0.25em;

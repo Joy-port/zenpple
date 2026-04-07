@@ -1,5 +1,5 @@
 
-node_modules
+node_modules*
 
 .next*
 .claude*
@@ -8,3 +8,5 @@ node_modules
 
 tsconfig*
 ref
+
+.DS_Store

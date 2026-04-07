@@ -30,41 +30,38 @@ export default function Footer() {
       }}
     >
       <div style={{ maxWidth: 'var(--page-max)', margin: '0 auto' }}>
-        {/* Top grid */}
+
+        {/* Top grid — 2 cols on mobile, 4 cols on desktop */}
         <div
+          className="grid grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr_1fr]"
           style={{
-            display: 'grid',
-            gridTemplateColumns: '1.4fr 1fr 1fr 1fr',
-            gap: 48,
-            paddingBottom: 48,
+            gap: 'clamp(28px,4vw,48px)',
+            paddingBottom: 'clamp(32px,5vw,48px)',
             borderBottom: '1px solid rgba(242,239,234,0.08)',
             marginBottom: 28,
           }}
         >
-          {/* Brand */}
-          <div>
+          {/* Brand — full width on mobile */}
+          <div className="col-span-2 md:col-span-1">
             <Image
-              src="/zenpple-logo.jpg"
+              src="/zenpple-logo-wh.png"
               alt="ZENPPLE 森波"
-              width={72}
-              height={36}
+              width={160}
+              height={40}
               style={{
-                height: 36,
+                height: 32,
                 width: 'auto',
-                filter: 'invert(1)',
                 opacity: 0.75,
-                mixBlendMode: 'screen',
                 marginBottom: 16,
                 display: 'block',
               }}
             />
             <p
+              className="tr-body"
               style={{
-                fontFamily: 'var(--f-zh)',
                 fontSize: 13,
                 letterSpacing: '0.04em',
                 color: 'rgba(242,239,234,0.45)',
-                lineHeight: 1.7,
               }}
             >
               往內定頻，走回自己<br />
@@ -72,15 +69,13 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Col 1 */}
+          {/* Service cols */}
           <FooterCol label="個人服務" links={colServices} />
-          {/* Col 2 */}
           <FooterCol label="執業養成" links={colPractice} />
-          {/* Col 3 */}
           <FooterCol label="森波" links={colAbout} />
         </div>
 
-        {/* Bottom */}
+        {/* Bottom bar */}
         <div
           style={{
             display: 'flex',
@@ -93,7 +88,7 @@ export default function Footer() {
           <p
             style={{
               fontFamily: 'var(--f-mono)',
-              fontSize: 9,
+              fontSize: 11,
               letterSpacing: '0.1em',
               color: 'rgba(242,239,234,0.22)',
             }}
@@ -104,7 +99,7 @@ export default function Footer() {
             href="/ethics"
             style={{
               fontFamily: 'var(--f-mono)',
-              fontSize: 9,
+              fontSize: 11,
               letterSpacing: '0.1em',
               color: 'rgba(242,239,234,0.25)',
               textDecoration: 'none',
@@ -130,9 +125,9 @@ function FooterCol({
       <p
         style={{
           fontFamily: 'var(--f-mono)',
-          fontSize: 9,
+          fontSize: 11,
           letterSpacing: '0.2em',
-          color: 'rgba(242,239,234,0.28)',
+          color: 'rgba(242,239,234,0.5)',
           textTransform: 'uppercase',
           marginBottom: 18,
         }}
@@ -148,7 +143,7 @@ function FooterCol({
               rel={external ? 'noopener noreferrer' : undefined}
               style={{
                 fontFamily: 'var(--f-zh-sans)',
-                fontSize: 13,
+                fontSize: 14,
                 letterSpacing: '0.02em',
                 color: 'rgba(242,239,234,0.55)',
                 textDecoration: 'none',

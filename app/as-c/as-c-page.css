@@ -51,7 +51,7 @@ body.page-as-c header ul li:last-child a {
   right: -4vw;
   top: 50%;
   transform: translateY(-50%);
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 100;
   font-size: clamp(120px, 22vw, 260px);
   letter-spacing: 0.12em;
@@ -67,7 +67,7 @@ body.page-as-c header ul li:last-child a {
   position: absolute;
   top: 100px;
   left: clamp(24px, 5vw, 72px);
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 10px;
   letter-spacing: 0.28em;
   color: rgba(255,255,255,0.4);
@@ -91,7 +91,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-hero-en {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 11px;
   letter-spacing: 0.38em;
@@ -102,7 +102,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 #asc-hero h1 {
-  font-family: 'Noto Serif TC', serif;
+  font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(36px, 5.5vw, 64px);
   line-height: 1.15;
@@ -117,7 +117,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-hero-tagline {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 13px;
   letter-spacing: 0.22em;
@@ -138,7 +138,7 @@ body.page-as-c header ul li:last-child a {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -154,7 +154,7 @@ body.page-as-c header ul li:last-child a {
   position: absolute;
   bottom: 36px;
   right: clamp(24px, 5vw, 72px);
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 9px;
   letter-spacing: 0.2em;
   color: rgba(255,255,255,0.25);
@@ -176,7 +176,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-manifesto-claim {
-  font-family: 'Noto Serif TC', serif;
+  font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(18px, 2.5vw, 26px);
   color: #fff;
@@ -184,7 +184,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-manifesto-detail {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 12px;
   letter-spacing: 0.25em;
@@ -210,7 +210,7 @@ body.page-as-c header ul li:last-child a {
   margin-bottom: 48px;
 }
 .asc-section-head .en-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 10px;
   letter-spacing: 0.25em;
   color: var(--amber);
@@ -230,7 +230,7 @@ body.page-as-c header ul li:last-child a {
   opacity: 0.4;
 }
 .asc-section-head h2 {
-  font-family: 'Noto Serif TC', serif;
+  font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(22px, 3vw, 32px);
   letter-spacing: 0.04em;
@@ -263,7 +263,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .xia-name {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 100;
   font-size: 10px;
   letter-spacing: 0.35em;
@@ -273,7 +273,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .xia-title {
-  font-family: 'Noto Serif TC', serif;
+  font-family: var(--f-zh);
   font-weight: 700;
   font-size: clamp(18px, 2.2vw, 24px);
   color: var(--ink);
@@ -306,7 +306,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .xia-principle-no {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 100;
   font-size: 10px;
   letter-spacing: 0.3em;
@@ -316,7 +316,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .xia-principle h4 {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: var(--f-zh-sans);
   font-weight: 700;
   font-size: 14px;
   color: var(--ink);
@@ -355,7 +355,7 @@ body.page-as-c header ul li:last-child a {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 15px;
   color: var(--amber);
@@ -371,7 +371,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .entry-step-label {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 9px;
   letter-spacing: 0.2em;
   color: var(--amber);
@@ -380,7 +380,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .entry-step h4 {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: var(--f-zh-sans);
   font-weight: 700;
   font-size: 13px;
   color: var(--ink);
@@ -431,7 +431,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .entry-warning p {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-size: 11px;
   letter-spacing: 0.12em;
   color: var(--amber);
@@ -489,7 +489,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-card-id {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 100;
   font-size: 10px;
   letter-spacing: 0.3em;
@@ -498,7 +498,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-badge-req {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 9px;
   letter-spacing: 0.1em;
   color: var(--amber);
@@ -509,7 +509,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-card-top h3 {
-  font-family: 'Noto Serif TC', serif;
+  font-family: var(--f-zh);
   font-weight: 700;
   font-size: 16px;
   color: var(--ink);
@@ -537,7 +537,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-card-by {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 9px;
   letter-spacing: 0.15em;
   color: var(--muted);
@@ -545,7 +545,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-card-price {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 300;
   font-size: 14px;
   color: var(--amber);
@@ -572,7 +572,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-notice-tag {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 100;
   font-size: 10px;
   letter-spacing: 0.35em;
@@ -583,7 +583,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-notice h3 {
-  font-family: 'Noto Serif TC', serif;
+  font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(20px, 2.8vw, 30px);
   color: #fff;
@@ -631,7 +631,7 @@ body.page-as-c header ul li:last-child a {
 
 .asc-notice-rule-item strong {
   display: block;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: var(--f-zh-sans);
   font-weight: 700;
   font-size: 12.5px;
   color: rgba(255,255,255,0.85);
@@ -661,7 +661,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .faq-q-text {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: var(--f-zh-sans);
   font-weight: 500;
   font-size: 14px;
   color: var(--ink);
@@ -735,7 +735,7 @@ body.page-as-c header ul li:last-child a {
   position: absolute;
   bottom: -8px;
   right: -3vw;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--f-display);
   font-weight: 100;
   font-size: clamp(80px, 14vw, 160px);
   letter-spacing: 0.1em;
@@ -754,7 +754,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-cta-tag {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 10px;
   letter-spacing: 0.3em;
   color: rgba(255,255,255,0.3);
@@ -763,7 +763,7 @@ body.page-as-c header ul li:last-child a {
 }
 
 .asc-cta h2 {
-  font-family: 'Noto Serif TC', serif;
+  font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(24px, 3.5vw, 38px);
   color: #fff;
@@ -790,7 +790,7 @@ body.page-as-c header ul li:last-child a {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -806,7 +806,7 @@ body.page-as-c header ul li:last-child a {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--f-mono);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;

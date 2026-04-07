@@ -1,463 +1,106 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import PersonaCards from '@/components/PersonaCards'
-
-const pyramidRows = [
-  {
-    padding: '0 22%',
-    left:  { label: '薩滿靈魂覺醒', en: 'Shamanic Soul Awakening',  href: '/sc',    bg: 'rgba(168,184,208,0.15)', bar: 'rgba(168,184,208,0.6)' },
-    right: { label: '高階執業養成', en: 'Professional Mastery',      href: '/ts-pe', bg: 'rgba(220,200,120,0.15)', bar: 'rgba(220,200,120,0.7)' },
-  },
-  {
-    padding: '0 10%',
-    left:  { label: '深層系統對齊', en: 'Deep System Alignment',     href: '/hl',    bg: 'rgba(196,160,184,0.15)', bar: 'rgba(196,160,184,0.6)' },
-    right: { label: '品牌認證考核', en: 'Brand Certification',       href: '/as',    bg: 'rgba(94,142,138,0.15)',  bar: 'rgba(94,142,138,0.6)'  },
-  },
-  {
-    padding: '0 0',
-    left:  { label: '即時洞察梳理', en: 'Quick Insight & Sound Flow', href: '/qi-sb', bg: 'rgba(212,168,154,0.15)', bar: 'rgba(212,168,154,0.6)' },
-    right: { label: '品牌孵化實務', en: 'Brand Incubation',           href: '/as-c',  bg: 'rgba(176,144,112,0.15)', bar: 'rgba(176,144,112,0.6)' },
-  },
-]
+import HeroCenter from '@/components/hero/HeroCenter'
+// ── PERSONA CARD ON / ── PersonaCardFocus (card dissolves, expand slides right)
+import PersonaCardFocus from '@/components/persona-card/PersonaCardFocus'
+import EcosystemMountain2 from '@/components/ecosystem/EcosystemMountain2'
+import SectionTransition from '@/components/ui/SectionTransition'
+import FoundersSection from '@/components/founders/FoundersSection'
 
 export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
+      <HeroCenter />
+
+      {/* ── PERSONA CARDS ── */}
+      <SectionTransition />
+      <PersonaCardFocus />
+
+      {/* ── ECOSYSTEM ── */}
+      <SectionTransition />
+      <EcosystemMountain2 />
+
+      {/* ── FOUNDERS ── */}
+      <SectionTransition />
+      <FoundersSection />
+
+      {/* ── CONTACT CTA ── */}
       <section
+        id="contact"
+        className="animate-gradient-drift"
         style={{
           minHeight: '100svh',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          textAlign: 'center',
-          padding: '120px clamp(24px,5vw,72px) 80px',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        {/* Watermark logo */}
-        <Image
-          src="/zenpple-logo.jpg"
-          alt=""
-          width={640}
-          height={320}
-          aria-hidden
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -52%)',
-            width: 'clamp(300px, 55vw, 640px)',
-            height: 'auto',
-            opacity: 0.07,
-            mixBlendMode: 'multiply',
-            pointerEvents: 'none',
-            zIndex: 0,
-          }}
-        />
-
-        <div style={{ position: 'relative', zIndex: 2 }}>
-          <h1
-            className="animate-ink-reveal"
-            style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
-              fontSize: 'clamp(28px, 4.8vw, 50px)',
-              letterSpacing: '0.06em',
-              lineHeight: 1.15,
-              marginBottom: 16,
-            }}
-          >
-            往內定頻　走回自己
-          </h1>
-          <p
-            style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 300,
-              fontSize: 'clamp(13px, 1.6vw, 18px)',
-              letterSpacing: '0.22em',
-              color: 'var(--ink)',
-              opacity: 0.7,
-              textTransform: 'uppercase',
-            }}
-          >
-            Tune inward. Return to self.
-          </p>
-        </div>
-
-        {/* Scroll hint */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: 32,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            color: 'var(--muted)',
-            opacity: 0.45,
-          }}
-        >
-          <svg
-            width="16"
-            height="24"
-            viewBox="0 0 16 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M8 4 L8 20" />
-            <path d="M3 15 L8 20 L13 15" />
-          </svg>
-        </div>
-      </section>
-
-      {/* ── PERSONA CARDS ── */}
-      <PersonaCards />
-
-      {/* ── ECOSYSTEM ── */}
-      <section
-        style={{
-          padding: 'clamp(80px,10vw,130px) clamp(24px,5vw,72px)',
-          background: 'var(--base)',
-        }}
-      >
-        <div className="wrap">
-          <p className="sec-label">森波生態系</p>
-          <p
-            style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 300,
-              fontSize: 'clamp(18px,2.5vw,26px)',
-              letterSpacing: '0.08em',
-              color: 'var(--ink)',
-              opacity: 0.55,
-              marginBottom: 36,
-            }}
-          >
-            兩個方向，一座山。
-          </p>
-
-          {/* Pyramid rows */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 8 }}>
-            {pyramidRows.map(({ padding, left, right }, i) => (
-              <div
-                key={i}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 20px 1fr',
-                  padding,
-                }}
-              >
-                <Link
-                  href={left.href}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-end',
-                    justifyContent: 'center',
-                    textAlign: 'right',
-                    padding: '14px 16px 14px 12px',
-                    borderRadius: '8px 0 0 8px',
-                    textDecoration: 'none',
-                    background: left.bg,
-                    transition: 'filter 0.2s',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: 'var(--f-zh-sans)',
-                      fontWeight: 700,
-                      fontSize: 'clamp(13px,1.5vw,16px)',
-                      letterSpacing: '0.04em',
-                      color: 'var(--ink)',
-                      marginBottom: 2,
-                    }}
-                  >
-                    {left.label}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: 'var(--f-display)',
-                      fontWeight: 300,
-                      fontSize: 9,
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                      color: 'var(--muted)',
-                    }}
-                  >
-                    {left.en}
-                  </span>
-                </Link>
-
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'stretch',
-                    width: 20,
-                  }}
-                >
-                  <div style={{ flex: 1, width: 3, background: left.bar, margin: '0 auto' }} />
-                  <div style={{ flex: 1, width: 3, background: right.bar, margin: '0 auto' }} />
-                </div>
-
-                <Link
-                  href={right.href}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    justifyContent: 'center',
-                    textAlign: 'left',
-                    padding: '14px 12px 14px 16px',
-                    borderRadius: '0 8px 8px 0',
-                    textDecoration: 'none',
-                    background: right.bg,
-                    transition: 'filter 0.2s',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: 'var(--f-zh-sans)',
-                      fontWeight: 700,
-                      fontSize: 'clamp(13px,1.5vw,16px)',
-                      letterSpacing: '0.04em',
-                      color: 'var(--ink)',
-                      marginBottom: 2,
-                    }}
-                  >
-                    {right.label}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: 'var(--f-display)',
-                      fontWeight: 300,
-                      fontSize: 9,
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                      color: 'var(--muted)',
-                    }}
-                  >
-                    {right.en}
-                  </span>
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          {/* Direction labels */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 20px 1fr',
-              marginTop: 10,
-            }}
-          >
-            <span
-              style={{
-                fontFamily: 'var(--f-mono)',
-                fontSize: 9,
-                letterSpacing: '0.16em',
-                color: 'var(--muted)',
-                textTransform: 'uppercase',
-                textAlign: 'right',
-                paddingRight: 16,
-              }}
-            >
-              靈性調頻
-            </span>
-            <span />
-            <span
-              style={{
-                fontFamily: 'var(--f-mono)',
-                fontSize: 9,
-                letterSpacing: '0.16em',
-                color: 'var(--muted)',
-                textTransform: 'uppercase',
-                textAlign: 'left',
-                paddingLeft: 16,
-              }}
-            >
-              執業養成
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* ── FOUNDERS ── */}
-      <section
-        style={{
-          padding: 'clamp(60px,8vw,100px) clamp(24px,5vw,72px)',
-          background: 'var(--base)',
-        }}
-      >
-        <div className="wrap">
-          <p className="sec-label">創辦人</p>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: 18,
-              paddingTop: 28,
-              borderTop: '1px solid var(--border)',
-            }}
-          >
-            {[
-              {
-                name: '禿禿 TWO TWO',
-                roles: '頌缽 · 薩滿 · 能量定頻',
-                desc: '身心狀態、潛意識定頻，以聲音引導感知回歸內在安定',
-              },
-              {
-                name: '夏',
-                roles: '靈性顧問 · 易經 · 品牌策略',
-                desc: '大方向定錨與理路梳理，結合玄天上帝指引與數位實務',
-              },
-            ].map(f => (
-              <Link
-                key={f.name}
-                href="/about"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 20,
-                  padding: '24px 22px',
-                  border: '1px solid var(--border)',
-                  borderRadius: 8,
-                  textDecoration: 'none',
-                  background: 'rgba(255,255,255,0.5)',
-                  transition: 'border-color 0.25s, box-shadow 0.25s',
-                }}
-              >
-                <div
-                  style={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: '50%',
-                    background: 'rgba(42,42,42,0.05)',
-                    border: '1px solid var(--border)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                    fontFamily: 'var(--f-mono)',
-                    fontSize: 11,
-                    letterSpacing: '0.05em',
-                    color: 'var(--muted)',
-                  }}
-                >
-                  photo
-                </div>
-                <div>
-                  <span
-                    style={{
-                      fontFamily: 'var(--f-zh)',
-                      fontWeight: 700,
-                      fontSize: 15,
-                      letterSpacing: '0.04em',
-                      color: 'var(--ink)',
-                      display: 'block',
-                      marginBottom: 4,
-                    }}
-                  >
-                    {f.name}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: 'var(--f-mono)',
-                      fontSize: 9,
-                      letterSpacing: '0.08em',
-                      color: 'var(--muted)',
-                      lineHeight: 1.7,
-                      display: 'block',
-                    }}
-                  >
-                    {f.roles}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: 13,
-                      color: 'var(--muted)',
-                      lineHeight: 1.7,
-                      display: 'block',
-                      marginTop: 4,
-                    }}
-                  >
-                    {f.desc}
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CONTACT CTA ── */}
-      <section
-        id="contact"
-        style={{
-          padding: 'clamp(80px,12vw,140px) clamp(24px,5vw,72px)',
-          background: 'var(--ink)',
+          padding: 'clamp(40px,5vw,64px) clamp(24px,5vw,80px)',
+          background: 'linear-gradient(135deg, #C47B7B 0%, #C47B7B 55%, #C8AEDD 100%)',
           color: 'var(--base)',
           textAlign: 'center',
           position: 'relative',
-          overflow: 'hidden',
+          overflow: 'clip',
         }}
       >
-        {/* Colour blobs */}
-        <div style={{ position: 'absolute', width: 520, height: 520, borderRadius: '50%', background: 'var(--sc-purple)', filter: 'blur(130px)', opacity: 0.28, top: -120, left: -80, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', width: 420, height: 420, borderRadius: '50%', background: 'var(--hl-rose)', filter: 'blur(110px)', opacity: 0.22, bottom: -80, right: -60, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', width: 300, height: 300, borderRadius: '50%', background: 'var(--qi-sb)', filter: 'blur(90px)', opacity: 0.18, top: '50%', left: '50%', transform: 'translate(-50%,-50%)', pointerEvents: 'none' }} />
+        {/* Wave lines — decorative */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 0 }}>
+          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block' }}>
+            <path d="M0,60 Q180,20 360,55 Q540,88 720,48 Q900,12 1080,50 Q1260,84 1440,44" stroke="rgba(242,239,234,0.12)" strokeWidth="1.2" fill="none" />
+            <path d="M0,80 Q200,44 400,70 Q600,94 800,60 Q1000,28 1200,62 Q1340,82 1440,58" stroke="rgba(242,239,234,0.07)" strokeWidth="0.8" fill="none" />
+          </svg>
+        </div>
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 0 }}>
+          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block', transform: 'scaleY(-1)' }}>
+            <path d="M0,60 Q180,20 360,55 Q540,88 720,48 Q900,12 1080,50 Q1260,84 1440,44" stroke="rgba(242,239,234,0.12)" strokeWidth="1.2" fill="none" />
+            <path d="M0,80 Q200,44 400,70 Q600,94 800,60 Q1000,28 1200,62 Q1340,82 1440,58" stroke="rgba(242,239,234,0.07)" strokeWidth="0.8" fill="none" />
+          </svg>
+        </div>
+
+        {/* Soft vignette centre */}
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.06) 0%, transparent 70%)', pointerEvents: 'none', zIndex: 0 }} />
 
         <div style={{ position: 'relative', zIndex: 1 }}>
-          <p className="sec-label" style={{ color: 'rgba(242,239,234,0.35)', justifyContent: 'center' }}>
-            聯絡 · 預約
-          </p>
+
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
-              fontSize: 'clamp(32px,5vw,62px)',
-              letterSpacing: '0.04em',
+              fontSize: 'clamp(24px, 2.5vw, 30px)',
               lineHeight: 1.2,
               color: 'var(--base)',
-              marginBottom: 18,
+              marginBottom: 20,
             }}
           >
             準備好了嗎？<br />先來聊聊你的狀態。
           </h2>
           <p
+            className="cta-para"
             style={{
-              fontSize: 14,
-              color: 'rgba(242,239,234,0.5)',
+              fontSize: 'clamp(14px, 1.5vw, 16px)',
+              color: 'rgba(242,239,234,0.65)',
               lineHeight: 1.9,
               maxWidth: 380,
-              margin: '0 auto 52px',
+              margin: '0 auto 56px',
             }}
           >
             不需要準備什麼，把你現在的狀況傳給我們，我們會幫你找到最適合的第一步。
           </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 14, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 16, flexWrap: 'wrap' }}>
             <Link
               href="#"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 10,
-                padding: '15px 32px',
+                padding: '16px 38px',
                 borderRadius: 999,
                 fontFamily: 'var(--f-zh-sans)',
-                fontSize: 14,
+                fontSize: 'clamp(14px, 1.5vw, 16px)',
                 fontWeight: 700,
                 letterSpacing: '0.03em',
                 textDecoration: 'none',
-                background: 'var(--base)',
-                color: 'var(--ink)',
-                transition: 'transform 0.25s, box-shadow 0.25s',
+                background: 'rgba(242,239,234,0.95)',
+                color: '#7B6B9E',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
               }}
             >
               LINE 官方帳號 ↗
@@ -470,17 +113,16 @@ export default function Home() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 10,
-                padding: '15px 32px',
+                padding: '16px 38px',
                 borderRadius: 999,
                 fontFamily: 'var(--f-zh-sans)',
-                fontSize: 14,
+                fontSize: 'clamp(14px, 1.5vw, 16px)',
                 fontWeight: 700,
                 letterSpacing: '0.03em',
                 textDecoration: 'none',
                 background: 'transparent',
-                color: 'rgba(242,239,234,0.75)',
-                border: '1px solid rgba(242,239,234,0.25)',
-                transition: 'border-color 0.25s, color 0.25s',
+                color: 'rgba(242,239,234,0.85)',
+                border: '1px solid rgba(242,239,234,0.35)',
               }}
             >
               Instagram @zenpple_

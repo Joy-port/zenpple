@@ -98,7 +98,7 @@ export default function QiCsPage() {
         >
           <span
             style={{
-              fontFamily: 'var(--f-zh)',
+              fontFamily: 'var(--f-qi)',
               fontWeight: 900,
               fontSize: 'clamp(200px,28vw,380px)',
               color: 'rgba(96,120,102,0.07)',
@@ -129,7 +129,7 @@ export default function QiCsPage() {
           </p>
           <h1
             style={{
-              fontFamily: 'var(--f-zh)',
+              fontFamily: 'var(--f-qi)',
               fontWeight: 900,
               fontSize: 'clamp(36px,6vw,68px)',
               lineHeight: 1.1,
@@ -179,7 +179,7 @@ export default function QiCsPage() {
           <p className="sec-label">情境對照表</p>
           <h2
             style={{
-              fontFamily: 'var(--f-zh)',
+              fontFamily: 'var(--f-qi)',
               fontWeight: 900,
               fontSize: 'clamp(24px,3.5vw,42px)',
               letterSpacing: '0.03em',
@@ -241,7 +241,7 @@ export default function QiCsPage() {
                   </span>
                   <p
                     style={{
-                      fontFamily: 'var(--f-zh)',
+                      fontFamily: 'var(--f-qi)',
                       fontWeight: 700,
                       fontSize: 15,
                       letterSpacing: '0.02em',
@@ -445,7 +445,7 @@ export default function QiCsPage() {
           </p>
           <h2
             style={{
-              fontFamily: 'var(--f-zh)',
+              fontFamily: 'var(--f-qi)',
               fontWeight: 900,
               fontSize: 'clamp(26px,3.5vw,40px)',
               letterSpacing: '0.04em',
@@ -473,7 +473,7 @@ export default function QiCsPage() {
           {/* Original quote */}
           <blockquote
             style={{
-              fontFamily: 'var(--f-zh)',
+              fontFamily: 'var(--f-qi)',
               fontSize: 14,
               lineHeight: 2,
               color: 'rgba(242,239,234,0.7)',
@@ -516,7 +516,7 @@ export default function QiCsPage() {
                 <div>
                   <p
                     style={{
-                      fontFamily: 'var(--f-zh)',
+                      fontFamily: 'var(--f-qi)',
                       fontWeight: 900,
                       fontSize: 'clamp(20px,2.5vw,28px)',
                       letterSpacing: '0.04em',
@@ -560,7 +560,7 @@ export default function QiCsPage() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontFamily: 'var(--f-zh)',
+                fontFamily: 'var(--f-qi)',
                 fontWeight: 900,
                 fontSize: 16,
                 color: '#607866',
@@ -571,7 +571,7 @@ export default function QiCsPage() {
             <div>
               <p
                 style={{
-                  fontFamily: 'var(--f-zh)',
+                  fontFamily: 'var(--f-qi)',
                   fontWeight: 700,
                   fontSize: 14,
                   color: '#F2EFEA',
@@ -616,7 +616,7 @@ export default function QiCsPage() {
               <p className="sec-label">關於夏</p>
               <h2
                 style={{
-                  fontFamily: 'var(--f-zh)',
+                  fontFamily: 'var(--f-qi)',
                   fontWeight: 900,
                   fontSize: 'clamp(24px,3vw,36px)',
                   letterSpacing: '0.04em',
@@ -679,7 +679,7 @@ export default function QiCsPage() {
         <div className="wrap">
           <p
             style={{
-              fontFamily: 'var(--f-zh)',
+              fontFamily: 'var(--f-qi)',
               fontWeight: 900,
               fontSize: 'clamp(22px,3vw,36px)',
               letterSpacing: '0.04em',

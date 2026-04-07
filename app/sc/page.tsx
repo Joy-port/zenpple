@@ -38,84 +38,6 @@ export default function ScPage() {
 
   return (
     <>
-      <style>{`
-        @keyframes ripple-out {
-          0%   { width:0; height:0; top:50%; left:50%; opacity:0.6; transform:translate(-50%,-50%); }
-          100% { width:400px; height:400px; top:50%; left:50%; opacity:0; transform:translate(-50%,-50%); }
-        }
-        .sc-ripple { position:absolute; border-radius:50%; border:1px solid rgba(123,107,158,0.15); animation:ripple-out 8s ease-out infinite; }
-        .sc-ripple:nth-child(2) { animation-delay:2s; }
-        .sc-ripple:nth-child(3) { animation-delay:4s; }
-        @keyframes sc-float {
-          0%,100% { transform:translateX(-50%) translateY(0); }
-          50%      { transform:translateX(-50%) translateY(8px); }
-        }
-        @keyframes sc-breathe {
-          0%,100% { transform:scale(1); }
-          50%      { transform:scale(1.03) translateY(-6px); }
-        }
-        @keyframes sc-pulse-sun {
-          0%,100% { transform:scale(1) rotate(0deg); }
-          50%      { transform:scale(1.08) rotate(5deg); }
-        }
-
-        /* ── Brush-stroke card border ── */
-        .sc-card-brush { position:relative; }
-        .sc-card-brush::before {
-          content:''; position:absolute; inset:0;
-          border:1.5px solid rgba(123,107,158,0.18);
-          pointer-events:none;
-          filter:url(#sc-brush-box);
-          z-index:1;
-        }
-        .sc-card-brush:hover::before { border-color:rgba(123,107,158,0.42); }
-
-        .sc-card-lower::before  { border-color:rgba(196,120,74,0.22); }
-        .sc-card-lower:hover::before  { border-color:rgba(196,120,74,0.5); }
-        .sc-card-middle::before { border-color:rgba(94,142,138,0.22); }
-        .sc-card-middle:hover::before { border-color:rgba(94,142,138,0.5); }
-
-        /* ── Integration step card ── */
-        .sc-if-card { position:relative; }
-        .sc-if-card::before {
-          content:''; position:absolute; inset:0;
-          border:1.5px solid rgba(123,107,158,0.18);
-          pointer-events:none;
-          filter:url(#sc-brush-box);
-          z-index:1;
-        }
-        .sc-if-card:hover::before { border-color:rgba(123,107,158,0.42); }
-        .sc-if-card-orange::before { border-color:rgba(196,120,74,0.22); }
-        .sc-if-card-orange:hover::before { border-color:rgba(196,120,74,0.5); }
-
-        /* ── CTA button brush ── */
-        .sc-cta-btn {
-          position:relative; overflow:hidden;
-          display:inline-flex; align-items:center; gap:12px;
-          padding:16px 40px;
-          background:rgba(123,107,158,0.12);
-          color:#F2EFEA;
-          font-family:var(--f-display); font-weight:300; font-size:13px; letter-spacing:0.25em;
-          text-decoration:none; cursor:pointer;
-          transition:all 0.35s;
-        }
-        .sc-cta-btn::before {
-          content:''; position:absolute; inset:0;
-          border:1px solid rgba(123,107,158,0.45);
-          filter:url(#sc-brush-box);
-          pointer-events:none;
-        }
-        .sc-cta-btn::after {
-          content:''; position:absolute; inset:0;
-          background:rgba(123,107,158,0.15);
-          transform:scaleX(0); transform-origin:left;
-          transition:transform 0.4s ease;
-          pointer-events:none;
-        }
-        .sc-cta-btn:hover::after { transform:scaleX(1); }
-        .sc-cta-btn:hover::before { border-color:rgba(169,155,196,0.7); }
-      `}</style>
-
       {/* Shared brush-stroke SVG filter definitions */}
       <svg style={{ position:'absolute', width:0, height:0, overflow:'hidden' }} aria-hidden>
         <defs>
@@ -153,7 +75,7 @@ export default function ScPage() {
         </div>
 
         <div style={{ position:'relative', zIndex:2, textAlign:'left', padding:'0 6vw', maxWidth:700, marginRight:'auto' }}>
-          <h1 style={{ fontSize:'clamp(38px,6vw,72px)', fontWeight:900, lineHeight:1.1, letterSpacing:'0.02em', color:'#F2EFEA', marginBottom:16, fontFamily:'var(--f-zh)' }}>
+          <h1 className="tr-d2" style={{ fontSize:'clamp(38px,6vw,72px)', lineHeight:1.1, letterSpacing:'0.02em', color:'#F2EFEA', marginBottom:16 }}>
             靈魂最原始<br />的力量
           </h1>
           <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:'clamp(13px,1.4vw,16px)', letterSpacing:'0.32em', color:'#A99BC4', marginBottom:20, opacity:0.75, textTransform:'uppercase' }}>
@@ -178,7 +100,7 @@ export default function ScPage() {
             <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'#A99BC4', opacity:0.75, marginBottom:14, textTransform:'uppercase' }}>
               WHAT IS SHAMANISM
             </p>
-            <h2 style={{ fontSize:'clamp(28px,4vw,48px)', fontWeight:900, letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16, fontFamily:'var(--f-zh)' }}>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
               薩滿，<br />最古老的療癒智慧
             </h2>
             <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'#A99BC4', marginBottom:24, opacity:0.8 }}>
@@ -222,7 +144,7 @@ export default function ScPage() {
             <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'#A99BC4', opacity:0.75, marginBottom:14, textTransform:'uppercase' }}>
               THE THREE WORLDS
             </p>
-            <h2 style={{ fontSize:'clamp(28px,4vw,48px)', fontWeight:900, letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16, fontFamily:'var(--f-zh)' }}>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
               上、中、下部世界
             </h2>
             <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'#A99BC4', opacity:0.8 }}>
@@ -253,7 +175,7 @@ export default function ScPage() {
               <div style={{ position:'absolute', right:0, display:'flex', alignItems:'center', gap:12, width:220 }}>
                 <div style={{ fontSize:18, color:'#A99BC4', opacity:0.5, flexShrink:0 }}>←</div>
                 <div>
-                  <div style={{ fontSize:16, fontWeight:700, color:'#A99BC4', marginBottom:2, fontFamily:'var(--f-zh)' }}>上部世界</div>
+                  <div className="tr-h1" style={{ fontSize:16, color:'#A99BC4', marginBottom:2 }}>上部世界</div>
                   <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:12, letterSpacing:'0.2em', color:'#A99BC4', opacity:0.75, marginBottom:6 }}>UPPER WORLD</div>
                   <div style={{ fontSize:13, lineHeight:1.75, color:'rgba(242,239,234,0.7)' }}>指導靈與祖先智慧的居所。<br />接收更高維度的指引。</div>
                 </div>
@@ -279,7 +201,7 @@ export default function ScPage() {
               </svg>
               <div style={{ position:'absolute', left:0, display:'flex', alignItems:'center', gap:12, width:220, flexDirection:'row-reverse', textAlign:'right' }}>
                 <div>
-                  <div style={{ fontSize:16, fontWeight:700, color:'#5E8E8A', marginBottom:2, fontFamily:'var(--f-zh)' }}>中部世界</div>
+                  <div className="tr-h1" style={{ fontSize:16, color:'#5E8E8A', marginBottom:2 }}>中部世界</div>
                   <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:12, letterSpacing:'0.2em', color:'#5E8E8A', opacity:0.75, marginBottom:6 }}>MIDDLE WORLD</div>
                   <div style={{ fontSize:13, lineHeight:1.75, color:'rgba(242,239,234,0.7)' }}>我們生存的當下現實。<br />解讀能量場、清理舊有印記。</div>
                 </div>
@@ -309,7 +231,7 @@ export default function ScPage() {
               <div style={{ position:'absolute', right:0, display:'flex', alignItems:'center', gap:12, width:220 }}>
                 <div style={{ fontSize:18, color:'#C4784A', opacity:0.5, flexShrink:0 }}>←</div>
                 <div>
-                  <div style={{ fontSize:16, fontWeight:700, color:'#C4784A', marginBottom:2, fontFamily:'var(--f-zh)' }}>下部世界</div>
+                  <div className="tr-h1" style={{ fontSize:16, color:'#C4784A', marginBottom:2 }}>下部世界</div>
                   <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:12, letterSpacing:'0.2em', color:'#C4784A', opacity:0.75, marginBottom:6 }}>LOWER WORLD</div>
                   <div style={{ fontSize:13, lineHeight:1.75, color:'rgba(242,239,234,0.7)' }}>力量動物的棲所。<br />接觸最原始的生命力。</div>
                 </div>
@@ -332,7 +254,7 @@ export default function ScPage() {
             <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'#A99BC4', opacity:0.75, marginBottom:14, textTransform:'uppercase' }}>
               THE SHAMANIC JOURNEY
             </p>
-            <h2 style={{ fontSize:'clamp(28px,4vw,48px)', fontWeight:900, letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16, fontFamily:'var(--f-zh)' }}>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
               薩滿旅程五步驟
             </h2>
             <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'#A99BC4', opacity:0.8, marginBottom:12 }}>
@@ -435,7 +357,7 @@ export default function ScPage() {
               <div style={{ flex:1, height:1, background:'linear-gradient(to right, transparent, rgba(123,107,158,0.45))' }} />
               <div style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:3, whiteSpace:'nowrap' }}>
                 <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.22em', color:'#A99BC4', opacity:0.7 }}>THE AWAKENING</span>
-                <span style={{ fontSize:18, fontWeight:900, color:'#F2EFEA', letterSpacing:'0.04em', fontFamily:'var(--f-zh)' }}>建構靈魂的支持網：大地守護與高維智慧</span>
+                <span className="tr-d2" style={{ fontSize:18, letterSpacing:'0.04em', color:'#F2EFEA' }}>建構靈魂的支持網：大地守護與高維智慧</span>
               </div>
               <div style={{ flex:1, height:1, background:'linear-gradient(to left, transparent, rgba(123,107,158,0.45))' }} />
             </div>
@@ -446,7 +368,7 @@ export default function ScPage() {
               <div style={{ display:'flex', gap:0 }}>
                 <div style={{ flex:'0 0 220px', padding:'28px 28px 24px', borderRight:'1px solid rgba(123,107,158,0.08)' }}>
                   <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.14em', color:'rgba(169,155,196,0.75)', marginBottom:10 }}>上部世界 · Upper World</div>
-                  <div style={{ fontSize:24, fontWeight:900, color:'#F2EFEA', letterSpacing:'0.02em', marginBottom:4, fontFamily:'var(--f-zh)' }}>指導靈</div>
+                  <div className="tr-d2" style={{ fontSize:24, letterSpacing:'0.02em', color:'#F2EFEA', marginBottom:4 }}>指導靈</div>
                   <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.22em', color:'#A99BC4', opacity:0.7, marginBottom:20 }}>Spirit Guide</div>
                   <button onClick={() => toggleDetail('sc02')} style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.1em', background:'none', border:'1px solid rgba(169,155,196,0.25)', color:'#A99BC4', padding:'7px 14px', cursor:'pointer' }}>
                     {openDetail === 'sc02' ? '收合課程詳情 ↑' : '展開課程詳情 ↓'}
@@ -498,7 +420,7 @@ export default function ScPage() {
               <div style={{ display:'flex', gap:0 }}>
                 <div style={{ flex:'0 0 220px', padding:'28px 28px 24px', borderRight:'1px solid rgba(123,107,158,0.08)' }}>
                   <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.14em', color:'rgba(94,142,138,0.75)', marginBottom:10 }}>中部世界 · Middle World</div>
-                  <div style={{ fontSize:24, fontWeight:900, color:'#F2EFEA', letterSpacing:'0.02em', marginBottom:4, fontFamily:'var(--f-zh)' }}>七脈輪情緒覺察</div>
+                  <div className="tr-d2" style={{ fontSize:24, letterSpacing:'0.02em', color:'#F2EFEA', marginBottom:4 }}>七脈輪情緒覺察</div>
                   <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.22em', color:'#5E8E8A', opacity:0.7, marginBottom:20 }}>Chakra &amp; Emotional Awareness</div>
                   <button onClick={() => toggleDetail('sc03')} style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.1em', background:'none', border:'1px solid rgba(94,142,138,0.25)', color:'#5E8E8A', padding:'7px 14px', cursor:'pointer' }}>
                     {openDetail === 'sc03' ? '收合課程詳情 ↑' : '展開課程詳情 ↓'}
@@ -545,7 +467,7 @@ export default function ScPage() {
               <div style={{ display:'flex', gap:0 }}>
                 <div style={{ flex:'0 0 220px', padding:'28px 28px 24px', borderRight:'1px solid rgba(123,107,158,0.08)' }}>
                   <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.14em', color:'rgba(196,120,74,0.75)', marginBottom:10 }}>下部世界 · Lower World</div>
-                  <div style={{ fontSize:24, fontWeight:900, color:'#F2EFEA', letterSpacing:'0.02em', marginBottom:4, fontFamily:'var(--f-zh)' }}>力量動物</div>
+                  <div className="tr-d2" style={{ fontSize:24, letterSpacing:'0.02em', color:'#F2EFEA', marginBottom:4 }}>力量動物</div>
                   <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.22em', color:'#C4784A', opacity:0.7, marginBottom:20 }}>Power Animal</div>
                   <button onClick={() => toggleDetail('sc01')} style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.1em', background:'none', border:'1px solid rgba(196,120,74,0.25)', color:'#C4784A', padding:'7px 14px', cursor:'pointer' }}>
                     {openDetail === 'sc01' ? '收合課程詳情 ↑' : '展開課程詳情 ↓'}
@@ -598,7 +520,7 @@ export default function ScPage() {
               <div style={{ flex:1, height:1, background:'linear-gradient(to right, transparent, rgba(123,107,158,0.5))' }} />
               <div style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:3, whiteSpace:'nowrap' }}>
                 <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.22em', color:'#A99BC4', opacity:0.7 }}>THE INTEGRATION</span>
-                <span style={{ fontSize:18, fontWeight:900, color:'#F2EFEA', letterSpacing:'0.04em', fontFamily:'var(--f-zh)' }}>終極對齊：找回遺落的靈魂碎片</span>
+                <span className="tr-d2" style={{ fontSize:18, letterSpacing:'0.04em', color:'#F2EFEA' }}>終極對齊：找回遺落的靈魂碎片</span>
               </div>
               <div style={{ flex:1, height:1, background:'linear-gradient(to left, transparent, rgba(123,107,158,0.5))' }} />
             </div>
@@ -619,7 +541,7 @@ export default function ScPage() {
                   </svg>
                 </div>
                 <div style={{ flex:1, padding:'0 16px 12px', display:'flex', flexDirection:'column', alignItems:'center' }}>
-                  <div style={{ fontSize:15, fontWeight:700, color:'rgba(196,120,74,0.9)', marginBottom:8, fontFamily:'var(--f-zh)' }}>重生呼吸</div>
+                  <div className="tr-h1" style={{ fontSize:15, color:'rgba(196,120,74,0.9)', marginBottom:8 }}>重生呼吸</div>
                   <div style={{ fontSize:13, lineHeight:1.75, color:'rgba(242,239,234,0.65)', textAlign:'center' }}>從呼吸開始，讓身體重新連結。釋放凍結的模式，身心靈回歸完整的整合狀態。</div>
                 </div>
                 <div style={{ padding:'8px 16px 18px', minHeight:34, display:'flex', alignItems:'flex-end', justifyContent:'center' }}>
@@ -643,7 +565,7 @@ export default function ScPage() {
                   </svg>
                 </div>
                 <div style={{ flex:1, padding:'0 16px 12px', display:'flex', flexDirection:'column', alignItems:'center' }}>
-                  <div style={{ fontSize:15, fontWeight:700, color:'#F2EFEA', marginBottom:8, fontFamily:'var(--f-zh)' }}>連結高我</div>
+                  <div className="tr-h1" style={{ fontSize:15, color:'#F2EFEA', marginBottom:8 }}>連結高我</div>
                   <div style={{ fontSize:13, lineHeight:1.75, color:'rgba(242,239,234,0.65)', textAlign:'center' }}>接通內在神聖源頭，讓高我成為每日決策的絕對導師，身心靈合一。</div>
                 </div>
                 <div style={{ padding:'8px 16px 18px', minHeight:34, display:'flex', alignItems:'flex-end', justifyContent:'center' }}>
@@ -679,7 +601,7 @@ export default function ScPage() {
                   </svg>
                 </div>
                 <div style={{ flex:1, padding:'0 16px 12px', display:'flex', flexDirection:'column', alignItems:'center' }}>
-                  <div style={{ fontSize:15, fontWeight:700, color:'#F2EFEA', marginBottom:8, fontFamily:'var(--f-zh)' }}>尋找內在小孩</div>
+                  <div className="tr-h1" style={{ fontSize:15, color:'#F2EFEA', marginBottom:8 }}>尋找內在小孩</div>
                   <div style={{ fontSize:13, lineHeight:1.75, color:'rgba(242,239,234,0.65)', textAlign:'center' }}>帶回失落的靈魂碎片，讓因保護而解離的自我重新歸位，回到完整的自己。</div>
                 </div>
                 <div style={{ padding:'8px 16px 18px', minHeight:34, display:'flex', alignItems:'flex-end', justifyContent:'center' }}>
@@ -755,7 +677,7 @@ export default function ScPage() {
             <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'#A99BC4', opacity:0.75, marginBottom:14, textTransform:'uppercase' }}>
               RECOMMENDED PAIRING
             </p>
-            <h2 style={{ fontSize:'clamp(28px,4vw,48px)', fontWeight:900, letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16, fontFamily:'var(--f-zh)' }}>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
               推薦整合搭配
             </h2>
             <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'#A99BC4', opacity:0.8, marginBottom:24 }}>
@@ -775,7 +697,7 @@ export default function ScPage() {
               <div key={card.title} style={{ display:'flex', flexDirection:'row', border:'1px solid rgba(123,107,158,0.15)', position:'relative', overflow:'hidden', transition:'border-color 0.35s' }}>
                 <div style={{ flex:'0 0 65%', padding:'36px 28px', display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
                   <div>
-                    <div style={{ fontSize:22, fontWeight:900, color:'#F2EFEA', marginBottom:16, fontFamily:'var(--f-zh)' }}>{card.title}</div>
+                    <div className="tr-d2" style={{ fontSize:22, color:'#F2EFEA', marginBottom:16 }}>{card.title}</div>
                     <p style={{ fontSize:13, lineHeight:1.85, color:'rgba(242,239,234,0.55)', marginBottom:24 }}>{card.desc}</p>
                   </div>
                   <Link href={card.href} style={{ display:'inline-flex', alignItems:'center', gap:10, fontFamily:'var(--f-display)', fontWeight:300, fontSize:12, letterSpacing:'0.22em', color:'#A99BC4', textDecoration:'none', borderBottom:'1px solid rgba(123,107,158,0.35)', paddingBottom:4 }}>
@@ -791,7 +713,7 @@ export default function ScPage() {
 
           {/* Main CTA */}
           <div style={{ textAlign:'center', paddingTop:64, borderTop:'1px solid rgba(123,107,158,0.1)' }}>
-            <div style={{ fontSize:28, fontWeight:900, color:'#F2EFEA', marginBottom:12, fontFamily:'var(--f-zh)' }}>準備好開始你的薩滿旅程了嗎？</div>
+            <div className="tr-d2" style={{ fontSize:28, color:'#F2EFEA', marginBottom:12 }}>準備好開始你的薩滿旅程了嗎？</div>
             <div style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:16, color:'#A99BC4', marginBottom:32 }}>每一個靈魂都有它的路，讓我們一起找到你的。</div>
             <Link href="/contact" className="sc-cta-btn">
               預約探索諮詢 &nbsp;·&nbsp; BOOK A SESSION

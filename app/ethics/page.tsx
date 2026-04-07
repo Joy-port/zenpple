@@ -32,12 +32,10 @@ export default function EthicsPage() {
         <div className="wrap" style={{ width: '100%' }}>
           <p className="sec-label">執業規範</p>
           <h1
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(36px,6vw,60px)',
               lineHeight: 1.1,
-              letterSpacing: '0.03em',
               marginBottom: 16,
             }}
           >
@@ -59,11 +57,9 @@ export default function EthicsPage() {
         <div className="wrap">
           <p className="sec-label">八大紅線</p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(24px,3.5vw,40px)',
-              letterSpacing: '0.03em',
               marginBottom: 40,
             }}
           >
@@ -111,11 +107,9 @@ export default function EthicsPage() {
         <div className="wrap" style={{ maxWidth: 680 }}>
           <p className="sec-label">非醫療聲明</p>
           <h2
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(22px,3vw,34px)',
-              letterSpacing: '0.03em',
               marginBottom: 24,
             }}
           >

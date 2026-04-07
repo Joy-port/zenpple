@@ -2,6 +2,9 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import PageSection from '@/components/ui/PageSection'
+import PageTitle from '@/components/ui/PageTitle'
 
 const personas = [
   {
@@ -16,21 +19,11 @@ const personas = [
     ctaHref: '/qi-sb',
     accentColor: '#4A6B8A',
     accentRgb: '74,107,138',
-    bgGradient: 'linear-gradient(148deg, rgba(74,107,138,0.12) 0%, rgba(94,142,138,0.08) 60%, rgba(242,239,234,0.95) 100%)',
-    svg: (
-      <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', display: 'block' }}>
-        <g stroke="rgba(74,107,138,0.18)" strokeWidth="18" fill="none" strokeLinecap="round">
-          <path d="M30 80 Q80 40 150 70 Q220 100 270 60" />
-          <path d="M20 160 Q90 110 160 150 Q230 185 280 140" />
-          <path d="M10 250 Q85 195 160 235 Q235 270 285 225" />
-          <path d="M25 340 Q100 290 170 325 Q240 360 288 315" />
-        </g>
-        <g stroke="rgba(74,107,138,0.08)" strokeWidth="8" fill="none" strokeLinecap="round">
-          <path d="M50 120 Q120 80 190 110 Q250 135 280 105" />
-          <path d="M40 205 Q115 165 185 195 Q248 220 280 190" />
-        </g>
-      </svg>
-    ),
+    cardBg: 'linear-gradient(160deg, rgba(74,107,138,0.08) 0%, rgba(94,142,138,0.05) 100%)',
+    expandBg: 'rgba(250,248,246,0.97)',
+    expandShadow: '0 12px 48px rgba(74,107,138,0.18), 0 0 0 1px rgba(74,107,138,0.12)',
+    cardImage: '/index/卡牌-1.png',
+    imageFilter: 'sepia(1) hue-rotate(170deg) saturate(2) brightness(0.82)',
   },
   {
     id: 2,
@@ -44,21 +37,11 @@ const personas = [
     ctaHref: '/hl',
     accentColor: '#7B6B9E',
     accentRgb: '123,107,158',
-    bgGradient: 'linear-gradient(148deg, rgba(123,107,158,0.12) 0%, rgba(196,123,123,0.07) 60%, rgba(242,239,234,0.95) 100%)',
-    svg: (
-      <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', display: 'block' }}>
-        <g stroke="rgba(123,107,158,0.18)" strokeWidth="16" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M150 30 L80 180 L220 180" />
-          <path d="M90 120 L30 280 L155 280" />
-          <path d="M210 80 L155 230 L270 230" />
-        </g>
-        <g stroke="rgba(123,107,158,0.08)" strokeWidth="6" fill="none" strokeLinecap="round">
-          <line x1="80" y1="200" x2="80" y2="360" />
-          <line x1="150" y1="195" x2="150" y2="370" />
-          <line x1="220" y1="205" x2="220" y2="355" />
-        </g>
-      </svg>
-    ),
+    cardBg: 'linear-gradient(160deg, rgba(123,107,158,0.08) 0%, rgba(196,123,123,0.05) 100%)',
+    expandBg: 'rgba(250,248,246,0.97)',
+    expandShadow: '0 12px 48px rgba(123,107,158,0.18), 0 0 0 1px rgba(123,107,158,0.12)',
+    cardImage: '/index/卡牌-2.png',
+    imageFilter: 'sepia(1) hue-rotate(240deg) saturate(2) brightness(0.85)',
   },
   {
     id: 3,
@@ -72,25 +55,15 @@ const personas = [
     ctaHref: '/ts-pe',
     accentColor: '#B09070',
     accentRgb: '176,144,112',
-    bgGradient: 'linear-gradient(148deg, rgba(176,144,112,0.12) 0%, rgba(94,142,138,0.07) 60%, rgba(242,239,234,0.95) 100%)',
-    svg: (
-      <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', display: 'block' }}>
-        <g stroke="rgba(176,144,112,0.18)" strokeWidth="14" fill="none" strokeLinecap="round">
-          <line x1="150" y1="370" x2="150" y2="140" />
-          <path d="M150 200 Q210 160 230 100 Q200 90 170 130 Q155 155 150 185" />
-          <path d="M150 240 Q90 195 70 130 Q100 120 135 160 Q148 180 150 220" />
-          <path d="M150 300 Q195 265 215 210 Q190 205 165 240 Q152 265 150 290" />
-        </g>
-        <g stroke="rgba(176,144,112,0.07)" strokeWidth="5" fill="none" strokeLinecap="round">
-          <path d="M120 380 Q150 340 180 380" />
-          <path d="M100 395 Q150 360 200 395" />
-        </g>
-      </svg>
-    ),
+    cardBg: 'linear-gradient(160deg, rgba(176,144,112,0.08) 0%, rgba(94,142,138,0.04) 100%)',
+    expandBg: 'rgba(250,248,246,0.97)',
+    expandShadow: '0 12px 48px rgba(176,144,112,0.18), 0 0 0 1px rgba(176,144,112,0.12)',
+    cardImage: '/index/卡牌-3.png',
+    imageFilter: 'sepia(0.7) saturate(1.9) brightness(0.95) hue-rotate(5deg)',
   },
 ]
 
-export default function PersonaCards() {
+export default function PersonaCardLift() {
   const [active, setActive] = useState<number | null>(null)
 
   const toggle = (id: number) => {
@@ -98,43 +71,9 @@ export default function PersonaCards() {
   }
 
   return (
-    <section
-      style={{
-        padding: 'clamp(80px,10vw,130px) var(--gutter)',
-        background: 'var(--base)',
-        position: 'relative',
-        overflow: 'hidden',
-      }}
-    >
+    <PageSection ghost="WHO YOU ARE" style={{ overflow: 'hidden' }}>
       <div className="wrap">
-        {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 52, position: 'relative', zIndex: 1 }}>
-          <p
-            style={{
-              fontFamily: 'var(--f-mono)',
-              fontSize: 10,
-              letterSpacing: '0.2em',
-              color: 'var(--muted)',
-              textTransform: 'uppercase',
-              marginBottom: 14,
-              justifyContent: 'center',
-              display: 'flex',
-            }}
-          >
-            你是哪一種人
-          </p>
-          <h2
-            style={{
-              fontFamily: 'var(--f-elegant)',
-              fontSize: 'clamp(26px, 3.5vw, 38px)',
-              fontWeight: 300,
-              letterSpacing: '0.04em',
-              color: 'var(--ink)',
-            }}
-          >
-            找到屬於你的路徑
-          </h2>
-        </div>
+        <PageTitle sub="選一張牌" title="找到屬於你的路徑" />
 
         {/* Cards row */}
         <div
@@ -155,39 +94,54 @@ export default function PersonaCards() {
               style={{
                 flex: 1,
                 maxWidth: 300,
-                minHeight: 340,
-                border: `1px solid ${active === p.id ? p.accentColor : 'rgba(42,42,42,0.08)'}`,
+                minHeight: 480,
                 borderRadius: 16,
                 cursor: 'pointer',
-                transition: 'border-color 0.35s, transform 0.35s, box-shadow 0.35s',
-                position: 'relative',
                 overflow: 'hidden',
-                background: '#F2EFEA',
-                transform: active === p.id ? 'translateY(-5px)' : undefined,
+                display: 'flex',
+                flexDirection: 'column',
+                background: '#FFFFFF',
                 boxShadow: active === p.id
-                  ? `0 20px 50px rgba(${p.accentRgb},0.12)`
-                  : undefined,
+                  ? `0 20px 52px rgba(${p.accentRgb},0.22), 0 4px 16px rgba(${p.accentRgb},0.1)`
+                  : '0 2px 14px rgba(42,42,42,0.06)',
+                transform: active === p.id ? 'translateY(-6px)' : 'translateY(0)',
+                transition: 'transform 0.35s, box-shadow 0.35s, background 0.35s',
               }}
             >
-              {/* Calligraphy SVG background */}
-              <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>{p.svg}</div>
+              {/* Image — top 65% */}
+              <div style={{ flex: '0 0 65%', position: 'relative', minHeight: 260 }}>
+                <Image
+                  src={p.cardImage}
+                  alt=""
+                  fill
+                  style={{
+                    objectFit: 'contain',
+                    objectPosition: 'center center',
+                    filter: p.imageFilter,
+                    mixBlendMode: 'multiply',
+                    opacity: 0.75,
+                    padding: '18px 24px 0',
+                  }}
+                />
+              </div>
 
-              {/* Text content */}
+              {/* Text — bottom 35%, centered */}
               <div
                 style={{
-                  position: 'absolute',
-                  bottom: 0, left: 0, right: 0,
-                  padding: '0 26px 30px',
-                  zIndex: 2,
-                  background: 'linear-gradient(to top, rgba(242,239,234,0.97) 55%, transparent 100%)',
+                  flex: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  padding: '16px 24px 28px',
                 }}
               >
                 <h3
+                  className="tr-h1"
                   style={{
-                    fontFamily: 'var(--f-zh)',
-                    fontWeight: 700,
-                    fontSize: 19,
-                    lineHeight: 1.45,
+                    fontSize: 24,
+                    lineHeight: 1.5,
                     color: 'var(--ink)',
                     marginBottom: 8,
                     whiteSpace: 'pre-line',
@@ -197,7 +151,7 @@ export default function PersonaCards() {
                 </h3>
                 <p
                   style={{
-                    fontSize: 13,
+                    fontSize: 15,
                     color: 'var(--muted)',
                     lineHeight: 1.85,
                     whiteSpace: 'pre-line',
@@ -219,11 +173,11 @@ export default function PersonaCards() {
               margin: '0 auto',
               borderRadius: 16,
               overflow: 'hidden',
-              maxHeight: active === p.id ? 400 : 0,
-              transition: 'max-height 0.5s ease, padding 0.5s ease',
+              maxHeight: active === p.id ? 580 : 0,
+              transition: 'max-height 0.5s ease, padding 0.5s ease, box-shadow 0.5s ease',
               padding: active === p.id ? '44px 48px' : '0 48px',
-              border: `1px solid ${active === p.id ? `rgba(${p.accentRgb},0.15)` : 'transparent'}`,
-              background: p.bgGradient,
+              background: p.expandBg,
+              boxShadow: active === p.id ? p.expandShadow : 'none',
               position: 'relative',
               zIndex: 1,
               marginBottom: active === p.id ? 16 : 0,
@@ -239,21 +193,15 @@ export default function PersonaCards() {
             >
               <div>
                 <h3
-                  style={{
-                    fontFamily: 'var(--f-zh)',
-                    fontWeight: 700,
-                    fontSize: 26,
-                    letterSpacing: '0.03em',
-                    marginBottom: 4,
-                    color: 'var(--ink)',
-                  }}
+                  className="tr-h1"
+                  style={{ fontSize: 24, marginBottom: 4, color: 'var(--ink)' }}
                 >
                   {p.expandTitle}
                 </h3>
                 <p
                   style={{
                     fontFamily: 'var(--f-mono)',
-                    fontSize: 10,
+                    fontSize: 15,
                     letterSpacing: '0.22em',
                     textTransform: 'uppercase',
                     color: 'var(--muted)',
@@ -262,7 +210,7 @@ export default function PersonaCards() {
                 >
                   {p.expandEn}
                 </p>
-                <p style={{ fontSize: 14, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7 }}>
+                <p style={{ fontSize: 17, lineHeight: 1.9, color: 'var(--ink)', opacity: 0.7 }}>
                   {p.expandBody}
                 </p>
               </div>
@@ -271,7 +219,7 @@ export default function PersonaCards() {
                 <p
                   style={{
                     fontFamily: 'var(--f-mono)',
-                    fontSize: 10,
+                    fontSize: 17,
                     letterSpacing: '0.18em',
                     textTransform: 'uppercase',
                     color: 'var(--muted)',
@@ -286,7 +234,7 @@ export default function PersonaCards() {
                       key={s}
                       style={{
                         fontFamily: 'var(--f-zh-sans)',
-                        fontSize: 12,
+                        fontSize: 15,
                         padding: '6px 14px',
                         borderRadius: 999,
                         border: `1px solid rgba(${p.accentRgb},0.3)`,
@@ -303,7 +251,7 @@ export default function PersonaCards() {
                   href={p.ctaHref}
                   style={{
                     fontFamily: 'var(--f-mono)',
-                    fontSize: 11,
+                    fontSize: 17,
                     letterSpacing: '0.14em',
                     textTransform: 'uppercase',
                     textDecoration: 'none',
@@ -324,6 +272,6 @@ export default function PersonaCards() {
           </div>
         ))}
       </div>
-    </section>
+    </PageSection>
   )
 }

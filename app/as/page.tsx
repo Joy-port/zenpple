@@ -28,23 +28,19 @@ export default function AsPage() {
         <div className="wrap" style={{ width: '100%' }}>
           <p className="sec-label">認證考核</p>
           <h1
+            className="tr-d2"
             style={{
-              fontFamily: 'var(--f-zh)',
-              fontWeight: 900,
               fontSize: 'clamp(36px,6vw,68px)',
               lineHeight: 1.1,
-              letterSpacing: '0.03em',
               marginBottom: 12,
             }}
           >
             品牌認證考核
           </h1>
           <p
+            className="tr-d1"
             style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
               fontSize: 13,
-              letterSpacing: '0.3em',
               color: '#5E8E8A',
               textTransform: 'uppercase',
               marginBottom: 28,
@@ -93,9 +89,8 @@ export default function AsPage() {
                 </span>
                 <div>
                   <h3
+                    className="tr-h1"
                     style={{
-                      fontFamily: 'var(--f-zh)',
-                      fontWeight: 700,
                       fontSize: 18,
                       marginBottom: 8,
                     }}
