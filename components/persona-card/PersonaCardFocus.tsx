@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import PageSection from '@/components/ui/PageSection'
@@ -58,6 +58,190 @@ const personas = [
   },
 ]
 
+type Persona = typeof personas[number]
+
+/* ── Mobile card list + centered modal ── */
+function MobileCards({
+  personas,
+  active,
+  setActive,
+  ExpandContent,
+}: {
+  personas: Persona[]
+  active: number | null
+  setActive: React.Dispatch<React.SetStateAction<number | null>>
+  ExpandContent: React.ComponentType<{ p: Persona }>
+}) {
+  const activePersona = personas.find(p => p.id === active) ?? null
+  const activeIdx = personas.findIndex(p => p.id === active)
+
+  useEffect(() => {
+    if (active !== null) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [active])
+
+  const close = () => setActive(null)
+  const prev = () => {
+    if (activeIdx > 0) setActive(personas[activeIdx - 1].id)
+  }
+  const next = () => {
+    if (activeIdx < personas.length - 1) setActive(personas[activeIdx + 1].id)
+  }
+
+  return (
+    <>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12, position: 'relative', zIndex: 1 }}>
+        {personas.map(p => (
+          <div
+            key={p.id}
+            onClick={() => setActive(prev => (prev === p.id ? null : p.id))}
+            style={{
+              borderRadius: 16,
+              background: '#FFFFFF',
+              boxShadow: active === p.id
+                ? `0 4px 24px rgba(${p.accentRgb},0.22), 0 0 0 1.5px rgba(${p.accentRgb},0.2)`
+                : '0 2px 14px rgba(42,42,42,0.07)',
+              display: 'flex',
+              alignItems: 'stretch',
+              cursor: 'pointer',
+              overflow: 'hidden',
+              transition: 'box-shadow 0.3s ease',
+            }}
+          >
+            {/* Accent bar */}
+            <div style={{ width: 4, flexShrink: 0, background: p.accentColor, opacity: 0.7 }} />
+
+            {/* Text content */}
+            <div style={{ flex: 1, minWidth: 0, padding: '1.25rem 1rem 1.25rem 1rem' }}>
+              <h3
+                className="tr-h1"
+                style={{
+                  fontSize: 'clamp(16px, 4vw, 22px)',
+                  lineHeight: 1.55,
+                  color: 'var(--ink)',
+                  marginBottom: 8,
+                  whiteSpace: 'pre-line',
+                  overflowWrap: 'break-word',
+                  wordBreak: 'break-word',
+                }}
+              >
+                {p.cardTitle}
+              </h3>
+              <p
+                style={{
+                  fontSize: 'clamp(13px, 3vw, 15px)',
+                  color: 'var(--muted)',
+                  lineHeight: 1.8,
+                  whiteSpace: 'pre-line',
+                  overflowWrap: 'break-word',
+                  wordBreak: 'break-word',
+                }}
+              >
+                {p.cardDesc}
+              </p>
+            </div>
+
+            {/* Card image on right */}
+            <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', paddingRight: '0.75rem' }}>
+              <div style={{ position: 'relative', width: 56, height: 80 }}>
+                <Image
+                  src={p.cardImage} alt="" fill
+                  style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.75 }}
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Centered modal */}
+      {active !== null && activePersona && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 9999,
+            background: 'rgba(0,0,0,0.65)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1.25rem',
+          }}
+          onClick={close}
+        >
+          <div
+            style={{
+              background: '#FFFFFF',
+              borderRadius: 22,
+              width: '100%',
+              maxWidth: 420,
+              maxHeight: '85vh',
+              overflowY: 'auto',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              padding: '1.25rem 1.75rem 2rem',
+              boxShadow: `0 24px 64px rgba(${activePersona.accentRgb},0.25)`,
+              WebkitOverflowScrolling: 'touch',
+            } as React.CSSProperties}
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Header: prev / dots / next / X */}
+            <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 20, flexShrink: 0 }}>
+              <button
+                onClick={prev}
+                disabled={activeIdx <= 0}
+                style={{ background: 'none', border: 'none', cursor: activeIdx > 0 ? 'pointer' : 'default', opacity: activeIdx > 0 ? 0.7 : 0.2, fontSize: 20, color: 'var(--ink)', padding: '4px 8px', lineHeight: 1 }}
+                aria-label="上一個"
+              >‹</button>
+
+              <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+                {personas.map(p => (
+                  <div
+                    key={p.id}
+                    onClick={() => setActive(p.id)}
+                    style={{
+                      width: active === p.id ? 20 : 6,
+                      height: 6,
+                      borderRadius: 3,
+                      background: active === p.id ? activePersona.accentColor : '#d4cfc8',
+                      transition: 'width 0.3s ease, background 0.3s ease',
+                      cursor: 'pointer',
+                    }}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={next}
+                disabled={activeIdx >= personas.length - 1}
+                style={{ background: 'none', border: 'none', cursor: activeIdx < personas.length - 1 ? 'pointer' : 'default', opacity: activeIdx < personas.length - 1 ? 0.7 : 0.2, fontSize: 20, color: 'var(--ink)', padding: '4px 8px', lineHeight: 1 }}
+                aria-label="下一個"
+              >›</button>
+
+              <button
+                onClick={close}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 20, color: 'var(--ink)', opacity: 0.45, padding: '4px 8px', lineHeight: 1, marginLeft: 4 }}
+                aria-label="關閉"
+              >✕</button>
+            </div>
+
+            <ExpandContent p={activePersona} />
+            <div style={{ height: 8 }} />
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
+
 const CARD_W   = 300
 const CARD_H   = 580
 const IMG_W    = 210
@@ -70,7 +254,6 @@ export default function PersonaCardFocus() {
   const isMobile = useIsMobile()
 
   const toggle = (id: number) => setActive(prev => (prev === id ? null : id))
-  const close  = () => setActive(null)
 
   const activePersona = personas.find(p => p.id === active)
   const primaryRgb   = activePersona?.accentRgb    ?? '192,184,174'
@@ -178,117 +361,14 @@ export default function PersonaCardFocus() {
       <div className="wrap">
         <PageTitle sub="選一張牌" title="找到屬於你的路徑" />
 
-        {/* ── MOBILE: card list + bottom-sheet modal ── */}
+        {/* ── MOBILE: card list + centered modal ── */}
         {isMobile === true && (
-          <>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, position: 'relative', zIndex: 1 }}>
-              {personas.map(p => (
-                <div
-                  key={p.id}
-                  onClick={() => toggle(p.id)}
-                  style={{
-                    borderRadius: 16,
-                    background: '#FFFFFF',
-                    boxShadow: active === p.id
-                      ? `0 4px 24px rgba(${p.accentRgb},0.22), 0 0 0 1.5px rgba(${p.accentRgb},0.2)`
-                      : '0 2px 14px rgba(42,42,42,0.07)',
-                    display: 'flex',
-                    alignItems: 'stretch',
-                    cursor: 'pointer',
-                    overflow: 'hidden',
-                    transition: 'box-shadow 0.3s ease',
-                  }}
-                >
-                  {/* Accent bar */}
-                  <div style={{ width: 4, flexShrink: 0, background: p.accentColor, opacity: 0.7 }} />
-
-                  {/* Text content */}
-                  <div style={{ flex: 1, minWidth: 0, padding: '1.25rem 1.25rem 1.25rem 1rem' }}>
-                    <h3
-                      className="tr-h1"
-                      style={{
-                        fontSize: 'clamp(16px, 4vw, 22px)',
-                        lineHeight: 1.55,
-                        color: 'var(--ink)',
-                        marginBottom: 8,
-                        whiteSpace: 'pre-line',
-                        overflowWrap: 'break-word',
-                        wordBreak: 'break-word',
-                      }}
-                    >
-                      {p.cardTitle}
-                    </h3>
-                    <p
-                      style={{
-                        fontSize: 'clamp(13px, 3vw, 15px)',
-                        color: 'var(--muted)',
-                        lineHeight: 1.8,
-                        whiteSpace: 'pre-line',
-                        overflowWrap: 'break-word',
-                        wordBreak: 'break-word',
-                      }}
-                    >
-                      {p.cardDesc}
-                    </p>
-                  </div>
-
-                  {/* Breathing dot indicator */}
-                  <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center', paddingRight: '1rem' }}>
-                    <div
-                      className="animate-breathe"
-                      style={{
-                        width: 10,
-                        height: 10,
-                        borderRadius: '50%',
-                        background: p.accentColor,
-                        opacity: 0.55,
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Bottom-sheet modal */}
-            {active !== null && activePersona && (
-              <div
-                style={{
-                  position: 'fixed',
-                  inset: 0,
-                  zIndex: 1000,
-                  background: 'rgba(42,42,42,0.45)',
-                  backdropFilter: 'blur(6px)',
-                  WebkitBackdropFilter: 'blur(6px)',
-                  display: 'flex',
-                  alignItems: 'flex-end',
-                }}
-                onClick={close}
-              >
-                <div
-                  style={{
-                    background: '#FFFFFF',
-                    borderRadius: '22px 22px 0 0',
-                    width: '100%',
-                    maxHeight: '88vh',
-                    overflowY: 'auto',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    padding: '0 1.75rem 2.5rem',
-                    boxShadow: `0 -8px 40px rgba(${activePersona.accentRgb},0.20)`,
-                    WebkitOverflowScrolling: 'touch',
-                  } as React.CSSProperties}
-                  onClick={e => e.stopPropagation()}
-                >
-                  {/* Drag handle */}
-                  <div style={{ width: 40, height: 4, borderRadius: 2, background: '#d8d4ce', margin: '14px auto 24px', flexShrink: 0 }} />
-                  <ExpandContent p={activePersona} />
-                  <div style={{ height: 8 }} />
-                </div>
-              </div>
-            )}
-          </>
+          <MobileCards
+            personas={personas}
+            active={active}
+            setActive={setActive}
+            ExpandContent={ExpandContent}
+          />
         )}
 
         {/* ── DESKTOP: horizontal expand animation ── */}

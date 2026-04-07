@@ -24,6 +24,7 @@ const zones = [
     shortLabel: '高階',
     sub: '從自覺走向大地',
     tipPos: { top: '5%', left: '62%' } as React.CSSProperties,
+    mobileTipPos: { top: '15%', left: '56%' } as React.CSSProperties,
     dot: '#e8c000',
     dotLabel: 'AS · TS-PE　高階職業養成',
   },
@@ -39,6 +40,7 @@ const zones = [
     shortLabel: '薩滿',
     sub: '學會與高靈團隊航行',
     tipPos: { top: '30%', right: '8%' } as React.CSSProperties,
+    mobileTipPos: { top: '44%', left: '68%' } as React.CSSProperties,
     dot: '#9090c8',
     dotLabel: 'SC　薩滿靈魂覺醒',
   },
@@ -54,6 +56,7 @@ const zones = [
     shortLabel: '深層',
     sub: '校準生命的了心共振',
     tipPos: { top: '40%', left: '8%' } as React.CSSProperties,
+    mobileTipPos: { top: '68%', left: '10%' } as React.CSSProperties,
     dot: '#d08090',
     dotLabel: 'HL　深層系統對齊',
   },
@@ -69,6 +72,7 @@ const zones = [
     shortLabel: '即時',
     sub: '在迷霧中看清局勢',
     tipPos: { top: '67%', left: '1.5%' } as React.CSSProperties,
+    mobileTipPos: { top: '86%', left: '5%' } as React.CSSProperties,
     dot: '#c8a070',
     dotLabel: 'QI　即時洞察與梳理',
   },
@@ -91,11 +95,14 @@ export default function EcosystemMountain2() {
 
           {/* ── Mountain + tooltips ── */}
           {/* Full-bleed on mobile via CSS: -mx-[var(--gutter)] escapes .wrap gutter, md:mx-0 resets on desktop */}
-          <div className="-mx-[var(--gutter)] md:mx-0" style={{ position: 'relative', zIndex: 1 }}>
+          {/* aspect-square on mobile crops SVG to 1:1 (slice), showing only center — mountain appears 2× larger */}
+          <div className="-mx-[var(--gutter)] md:mx-0 aspect-square md:aspect-auto overflow-hidden" style={{ position: 'relative', zIndex: 1 }}>
             <svg
               viewBox="0 0 700 390"
               xmlns="http://www.w3.org/2000/svg"
-              style={{ width: '100%', display: 'block' }}
+              preserveAspectRatio={isMobile === true ? 'xMidYMid slice' : 'xMidYMid meet'}
+              className="w-full block"
+              style={{ height: isMobile === true ? '100%' : 'auto' }}
             >
               <defs>
                 {zones.map(z => (
@@ -155,7 +162,7 @@ export default function EcosystemMountain2() {
                 onClick={isMobile === true ? () => router.push(z.href) : undefined}
                 style={{
                   position: 'absolute',
-                  ...z.tipPos,
+                  ...(isMobile === true ? z.mobileTipPos : z.tipPos),
                   /* Behaviour: mobile always visible; desktop fades on hover */
                   opacity: isMobile === true ? 1 : (hovered === null ? 1 : (hovered === z.id ? 1 : 0)),
                   transition: 'opacity 0.25s ease',
