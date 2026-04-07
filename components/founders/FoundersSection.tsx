@@ -30,7 +30,34 @@ const founders = [
 
 export default function FoundersSection() {
   return (
-    <PageSection ghost="FOUNDERS">
+    <PageSection ghost="FOUNDERS" style={{ overflow: 'visible', position: 'relative' }}>
+
+      {/* ── Top gradient wave — blends both founder accent colours ── */}
+      <div style={{ position: 'absolute', top: -88, left: 0, right: 0, zIndex: 2, lineHeight: 0, pointerEvents: 'none' }}>
+        <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 90, display: 'block' }}>
+          <defs>
+            <linearGradient id="fo-top-a" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="30%" stopColor="rgb(173,188,200)" stopOpacity={0.16} />
+              <stop offset="100%" stopColor="rgb(173,188,200)" stopOpacity={0} />
+            </linearGradient>
+            <linearGradient id="fo-top-b" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="30%" stopColor="rgb(203,158,133)" stopOpacity={0.20} />
+              <stop offset="100%" stopColor="rgb(203,158,133)" stopOpacity={0} />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,90 L0,48 Q180,18 360,42 Q540,64 720,36 Q900,10 1080,38 Q1260,62 1440,32 L1440,90 Z"
+            fill="url(#fo-top-a)"
+          />
+          <path
+            d="M0,90 L0,62 Q180,32 360,58 Q540,80 720,50 Q900,22 1080,52 Q1260,76 1440,46 L1440,90 Z"
+            fill="url(#fo-top-b)"
+          />
+          <path d="M0,72 Q120,38 300,75 Q480,88 640,44 Q800,12 960,56 Q1100,84 1280,38 Q1380,18 1440,52" stroke="#b5ac9e" strokeWidth="1" fill="none" opacity="0.5" />
+          <path d="M0,48 Q220,82 420,32 Q580,8 740,70 Q920,88 1060,34 Q1200,6 1380,58 L1440,62" stroke="#c8c0b2" strokeWidth="0.6" fill="none" opacity="0.4" />
+        </svg>
+      </div>
+
       <div className="wrap">
 
         <PageTitle sub="Two Souls, One Mountain" title="兩個靈魂，一座山" />

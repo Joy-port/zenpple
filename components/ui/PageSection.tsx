@@ -10,7 +10,7 @@ export default function PageSection({ children, ghost, style }: PageSectionProps
   return (
     <section
       style={{
-        paddingTop: 'clamp(300px, 18vw, 280px)',
+        paddingTop: 'clamp(120px, 15vw, 160px)',
         paddingBottom: 'clamp(80px, 10vw, 130px)',
         paddingLeft: 'clamp(24px, 5vw, 72px)',
         paddingRight: 'clamp(24px, 5vw, 72px)',
@@ -31,7 +31,7 @@ export default function PageSection({ children, ghost, style }: PageSectionProps
             color: 'var(--ink)',
             opacity: 0.04,
             position: 'absolute',
-            top: 'clamp(60px, 8vw, 110px)',
+            top: 'clamp(28px, 4vw, 48px)',
             left: '50%',
             transform: 'translateX(-50%)',
             whiteSpace: 'nowrap',
