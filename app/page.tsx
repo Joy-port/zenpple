@@ -3,6 +3,7 @@ import HeroCenter from '@/components/hero/HeroCenter'
 // ── PERSONA CARD ON / ── PersonaCardFocus (card dissolves, expand slides right)
 import PersonaCardFocus from '@/components/persona-card/PersonaCardFocus'
 import EcosystemMountain2 from '@/components/ecosystem/EcosystemMountain2'
+import SectionTransition from '@/components/ui/SectionTransition'
 
 export default function Home() {
   return (
@@ -14,7 +15,10 @@ export default function Home() {
       <PersonaCardFocus />
 
       {/* ── ECOSYSTEM ── */}
-      <EcosystemMountain2 />
+      <div style={{ position: 'relative' }}>
+        <SectionTransition position="top" />
+        <EcosystemMountain2 />
+      </div>
 
       {/* ── FOUNDERS ── */}
       <section
