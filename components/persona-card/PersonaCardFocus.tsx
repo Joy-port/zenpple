@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import SectionHeader from '@/components/ui/SectionHeader'
+import PageSection from '@/components/ui/PageSection'
 
 const personas = [
   {
@@ -70,17 +71,12 @@ export default function PersonaCardFocus() {
   const activePersona = personas.find(p => p.id === active)
 
   return (
-    <section
+    <PageSection
       style={{
-        paddingTop: 'clamp(200px, 18vw, 280px)',
-        paddingBottom: 'clamp(80px, 10vw, 130px)',
-        paddingLeft: 'var(--gutter)',
-        paddingRight: 'var(--gutter)',
         background: active !== null
           ? `rgba(${activePersona?.accentRgb},0.08)`
           : 'var(--base)',
         transition: 'background 0.6s ease',
-        position: 'relative',
         overflow: 'hidden',
       }}
     >
@@ -304,6 +300,6 @@ export default function PersonaCardFocus() {
           })}
         </div>
       </div>
-    </section>
+    </PageSection>
   )
 }
