@@ -59,122 +59,106 @@ export default function FoundersSection() {
       <div className="wrap">
         <PageTitle sub="Two Souls, One Mountain" title="兩個靈魂，一座山" />
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-          {founders.map((f, i) => {
-            const isRight = f.imgSide === 'right'
-            return (
-              <div key={f.key}>
+        {/* Mobile: stacked · Desktop: side-by-side columns */}
+        <div className="flex flex-col md:flex-row md:gap-0" style={{ position: 'relative' }}>
+          {founders.map((f, i) => (
+            <div
+              key={f.key}
+              className={`flex-1 min-w-0${i === 0 ? ' md:border-r md:border-[rgba(42,42,42,0.07)]' : ''}`}
+            >
+              <div
+                className="founder-card-inner"
+                style={{
+                  position: 'relative',
+                  paddingTop: 'clamp(24px, 3vw, 40px)',
+                  paddingBottom: 'clamp(24px, 3vw, 40px)',
+                  paddingLeft: 'clamp(0px, 2vw, 32px)',
+                  paddingRight: 'clamp(0px, 2vw, 32px)',
+                  overflow: 'hidden',
+                  height: '100%',
+                }}
+              >
+                {/* Accent glow */}
                 <div
-                  className="founder-card-inner"
+                  aria-hidden
                   style={{
-                    position: 'relative',
-                    paddingTop: 'clamp(32px, 4vw, 64px)',
-                    paddingBottom: 'clamp(32px, 4vw, 64px)',
-                    paddingLeft: 'clamp(0px, 4vw, 80px)',
-                    paddingRight: 'clamp(0px, 4vw, 80px)',
-                    overflow: 'hidden',
+                    position: 'absolute', width: 500, height: 500, borderRadius: '50%',
+                    background: `rgba(${f.accentRgb}, 0.15)`, filter: 'blur(100px)',
+                    top: '40%', left: '50%', transform: 'translate(-50%, -50%)',
+                    pointerEvents: 'none', zIndex: 0,
                   }}
-                >
-                  {/* Accent glow */}
-                  <div
-                    aria-hidden
-                    style={{
-                      position: 'absolute', width: 800, height: 800, borderRadius: '50%',
-                      background: `rgba(${f.accentRgb}, 0.15)`, filter: 'blur(140px)',
-                      top: '50%', [isRight ? 'right' : 'left']: '-200px',
-                      transform: 'translateY(-50%)', pointerEvents: 'none', zIndex: 0,
-                    }}
-                  />
+                />
 
-                  {/*
-                    DOM order: [image, text]
-                    Mobile (flex-col):        image on top, text below, both centered
-                    Desktop (flex-row/reverse): image left (Xia) or right (Tutu), text fills remaining space
-                  */}
-                  <div
-                    className={[
-                      'relative z-[1] flex flex-col items-center gap-6',
-                      isRight ? 'md:flex-row-reverse' : 'md:flex-row',
-                      'md:items-end',
-                    ].join(' ')}
-                    style={{ gap: 'clamp(24px, 3vw, 40px)' }}
-                  >
-                    {/* Image */}
-                    <div
-                      className="flex-shrink-0"
-                      style={{ width: 'clamp(140px, 28vw, 300px)' }}
+                {/* Vertical layout: image top, text below, centered */}
+                <div className="relative z-[1] flex flex-col items-center gap-5 text-center">
+
+                  {/* Image */}
+                  <div className="flex-shrink-0" style={{ width: 'clamp(120px, 18vw, 200px)' }}>
+                    <div className="animate-breathe-scale" style={{ lineHeight: 0 }}>
+                      <Image
+                        src={f.img} alt={f.imgAlt} width={500} height={600}
+                        style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.12))' }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Text */}
+                  <div className="w-full">
+                    <h3
+                      className="tr-d2"
+                      style={{
+                        fontSize: 'clamp(22px, 2.2vw, 28px)',
+                        letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.1, marginBottom: 10,
+                        overflowWrap: 'break-word', wordBreak: 'break-word',
+                      }}
                     >
-                      <div className="animate-breathe-scale" style={{ lineHeight: 0 }}>
-                        <Image
-                          src={f.img} alt={f.imgAlt} width={500} height={600}
-                          style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 16px 40px rgba(42,42,42,0.12))' }}
-                        />
-                      </div>
-                    </div>
+                      {f.name}
+                    </h3>
 
-                    {/* Text */}
-                    <div className="flex-1 min-w-0 text-center md:text-left">
-                      <h3
-                        className="tr-d2"
-                        style={{
-                          fontSize: 'clamp(28px, 2.7vw, 33px)',
-                          letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.1, marginBottom: 16,
-                          overflowWrap: 'break-word', wordBreak: 'break-word',
-                        }}
-                      >
-                        {f.name}
-                      </h3>
+                    <p style={{
+                      fontFamily: 'var(--f-mono)',
+                      fontSize: 'clamp(12px, 1.2vw, 14px)',
+                      letterSpacing: '0.06em', color: f.accent, marginBottom: 10,
+                    }}>
+                      {f.roles}
+                    </p>
 
-                      <p
-                        style={{
-                          fontFamily: 'var(--f-mono)',
-                          fontSize: 'clamp(14px, 1.5vw, 16px)',
-                          letterSpacing: '0.06em', color: f.accent, marginBottom: 12,
-                        }}
-                      >
-                        {f.roles}
-                      </p>
+                    <p style={{
+                      fontSize: 'clamp(13px, 1.2vw, 15px)', lineHeight: 1.85,
+                      color: 'var(--muted)', marginBottom: 16,
+                      overflowWrap: 'break-word', wordBreak: 'break-word',
+                    }}>
+                      {f.desc}
+                    </p>
 
-                      <p
-                        className="max-w-full md:max-w-[400px]"
-                        style={{
-                          fontSize: 'clamp(14px, 1.5vw, 16px)', lineHeight: 1.9,
-                          color: 'var(--muted)', marginBottom: 20,
-                          overflowWrap: 'break-word', wordBreak: 'break-word',
-                        }}
-                      >
-                        {f.desc}
-                      </p>
-
-                      <Link
-                        href="/about"
-                        style={{
-                          display: 'inline-flex', alignItems: 'center', gap: 8,
-                          fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
-                          fontSize: 'clamp(14px, 1.6vw, 20px)', letterSpacing: '0.08em',
-                          textDecoration: 'none',
-                          background: `linear-gradient(120deg, ${f.accent}, var(--ink) 80%)`,
-                          WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-                        }}
-                      >
-                        了解更多 ↗
-                      </Link>
-                    </div>
+                    <Link
+                      href="/about"
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: 8,
+                        fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
+                        fontSize: 'clamp(13px, 1.3vw, 16px)', letterSpacing: '0.08em',
+                        textDecoration: 'none',
+                        background: `linear-gradient(120deg, ${f.accent}, var(--ink) 80%)`,
+                        WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                      }}
+                    >
+                      了解更多 ↗
+                    </Link>
                   </div>
                 </div>
-
-                {/* Wave divider between cards */}
-                {i < founders.length - 1 && (
-                  <div aria-hidden style={{ lineHeight: 0, pointerEvents: 'none' }}>
-                    <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 40, display: 'block' }}>
-                      <path d="M0,22 Q180,8 360,20 Q540,32 720,18 Q900,6 1080,22 Q1260,34 1440,18" stroke="#c0b8ae" strokeWidth="0.7" fill="none" opacity="0.5" />
-                      <path d="M0,28 Q200,14 400,26 Q600,36 800,22 Q1000,10 1200,24 Q1340,32 1440,20" stroke="#b5ac9e" strokeWidth="0.4" fill="none" opacity="0.35" />
-                    </svg>
-                  </div>
-                )}
               </div>
-            )
-          })}
+
+              {/* Wave divider — mobile only (between stacked cards) */}
+              {i < founders.length - 1 && (
+                <div aria-hidden className="md:hidden" style={{ lineHeight: 0, pointerEvents: 'none' }}>
+                  <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 40, display: 'block' }}>
+                    <path d="M0,22 Q180,8 360,20 Q540,32 720,18 Q900,6 1080,22 Q1260,34 1440,18" stroke="#c0b8ae" strokeWidth="0.7" fill="none" opacity="0.5" />
+                    <path d="M0,28 Q200,14 400,26 Q600,36 800,22 Q1000,10 1200,24 Q1340,32 1440,20" stroke="#b5ac9e" strokeWidth="0.4" fill="none" opacity="0.35" />
+                  </svg>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </PageSection>
