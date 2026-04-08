@@ -226,6 +226,8 @@ export default function HlPage() {
             <p>這是一場讓身心頻率徹底「Core Reset」的過程——幫助你在面對人生轉折與大課題時，擁有一套穩定、純粹且充滿力量的內在支持系統。</p>
           </div>
           <div className="cr-right">
+            <div className="cr-divider" />
+            <span className="cr-section-label">療程流程</span>
             <div className="cr-process">
               {[
                 ['30 min', '抽脈輪牌卡 + 冥想引導'],
@@ -238,6 +240,7 @@ export default function HlPage() {
                 </div>
               ))}
             </div>
+            <div className="cr-divider" />
             <div className="cr-meta-list">
               {[
                 ['服務形式', '1 對 1 · 實體預約'],
@@ -251,7 +254,8 @@ export default function HlPage() {
                 </div>
               ))}
             </div>
-            <p className="cr-next-note">完成後可接續陪跑計劃，持續鞏固清理後的能量狀態。</p>
+            <div className="cr-divider" />
+            <p className="cr-next-note">↓ 完成後可銜接陪跑計劃</p>
             <button className="cr-cta" onClick={() => navScrollTo('followup')}>
               了解陪跑計劃 →
             </button>
