@@ -5,18 +5,17 @@ import HlHeroBackground from './HlHeroBackground'
 
 export default function HlHero() {
   return (
-    <section id="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'flex-end', paddingBottom: 80, overflow: 'hidden' }}>
+    <section id="hero">
       <HlHeroBackground />
 
-      {/* Ghost watermark image */}
-      <div className="hero-deep">
+      {/* Watermark image — upper-right, away from all ripple drop anchors */}
+      <div className="hero-watermark" aria-hidden="true">
         <Image
           src="/hl/頌缽波動-粉.png"
           alt=""
-          width={600}
-          height={600}
-          style={{ width: 'clamp(280px, 42vw, 520px)', height: 'auto', opacity: 0.18, filter: 'brightness(4) saturate(0.15)' }}
-          aria-hidden="true"
+          width={700}
+          height={700}
+          style={{ width: '100%', height: 'auto', filter: 'brightness(5) saturate(0.1)' }}
           priority
         />
       </div>
@@ -24,11 +23,19 @@ export default function HlHero() {
       {/* Top label */}
       <div className="hero-label">HARMONIC LAYERS · 林間迷霧者</div>
 
-      {/* Main content */}
+      {/* Main content — lower-left, diagonal with image */}
       <div className="hero-content">
         <div className="en-sub">DEEP SYSTEM ALIGNMENT</div>
         <h1>不只放鬆，<br />而是從根源<br />重新調頻</h1>
-        <p>七脈輪校準系統，從全面掃描到系統重整，透過頌缽物理波頻，清理累積的雜訊，讓身心頻率回歸原始和諧。</p>
+        <p>七脈輪校準系統，從全面掃描到系統重整，<br />透過頌缽物理波頻，清理累積的雜訊，<br />讓身心頻率回歸原始和諧。</p>
+      </div>
+
+      {/* Wave transition into next section (#steps bg: #F2EFEA) */}
+      <div className="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,60 C240,100 480,20 720,55 C960,90 1200,25 1440,60 L1440,100 L0,100 Z" fill="#F2EFEA" />
+          <path d="M0,75 C300,40 600,95 900,70 C1100,55 1280,85 1440,75 L1440,100 L0,100 Z" fill="#F2EFEA" opacity="0.55" />
+        </svg>
       </div>
     </section>
   )
