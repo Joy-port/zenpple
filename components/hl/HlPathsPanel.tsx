@@ -31,9 +31,8 @@ export default function HlPathsPanel() {
     <HlSection id="paths">
       <HlPathStepNav />
       <HlTitleSection
-        eyebrow="STEP 02"
         title="選擇你的清理路徑"
-        subtitle="完成生命音譜掃描後，根據你的能量地圖結果，選擇最適合你的清理路徑。"
+        subtitle="根據你的能量地圖結果，選擇最適合你的清理路徑。"
       />
 
       <div className="ps-outer">

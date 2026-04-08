@@ -1,5 +1,5 @@
 interface Props {
-  eyebrow: string   // mono eyebrow, uppercase, rose color
+  eyebrow?: string  // mono eyebrow, uppercase, rose color (optional — omit to hide)
   title: string     // main heading, Noto Serif TC
   subtitle: string  // sub copy, DM Sans, 60% of title size
 }
@@ -7,7 +7,7 @@ interface Props {
 export default function HlTitleSection({ eyebrow, title, subtitle }: Props) {
   return (
     <div className="hts-wrap">
-      <p className="hts-eyebrow">{eyebrow}</p>
+      {eyebrow && <p className="hts-eyebrow">{eyebrow}</p>}
       <h2 className="hts-title">{title}</h2>
       <p className="hts-subtitle">{subtitle}</p>
     </div>

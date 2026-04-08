@@ -1,9 +1,11 @@
 'use client'
 
 import { useState, useCallback, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import Link from 'next/link'
 import Image from 'next/image'
 import './hl-page.css'
+import { Z } from '@/constants/zIndex'
 import HlHero from '@/components/hl/HlHero'
 import HlSection from '@/components/hl/HlSection'
 import HlTitleSection from '@/components/hl/HlTitleSection'
@@ -65,6 +67,11 @@ export default function HlPage() {
   const [crOpen, setCrOpen] = useState(false)
   const [openPlans, setOpenPlans] = useState<Record<string, boolean>>({})
   const [activePearl, setActivePearl] = useState<string | null>(null)
+
+  useEffect(() => {
+    document.body.style.overflow = activePearl ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [activePearl])
 
   const navScrollTo = useCallback((id: string) => {
     const el = document.getElementById(id)
@@ -141,9 +148,8 @@ export default function HlPage() {
           </div>
         </div>
         <HlTitleSection
-          eyebrow="STEP 01"
           title="生命音譜掃描"
-          subtitle="以 1.5 小時深度工作，建立身心現況雷達，形成可視化的能量地圖。"
+          subtitle="建立身心現況雷達，形成可視化的能量地圖。"
         />
         <div className="sm-inner" id="sm-card">
           <div className="sm-left">
@@ -218,7 +224,6 @@ export default function HlPage() {
       {/* ── CORE RESET ── */}
       <HlSection id="core-reset" className="core-reset">
         <HlTitleSection
-          eyebrow="全面式系統清理"
           title="七脈輪能量調和"
           subtitle="從基底到頂點的系統性重整，讓身心頻率徹底回歸原始和諧。"
         />
@@ -277,9 +282,8 @@ export default function HlPage() {
       {/* ── FOLLOW-UP ── */}
       <HlSection id="followup" className="followup">
         <HlTitleSection
-          eyebrow="陪跑計劃"
           title="能量陪跑定錨計畫"
-          subtitle="清理之後，整合才是真正的改變。持續的陪跑支持，讓頻率真正落地為日常。"
+          subtitle="持續的陪跑支持，讓頻率真正落地為日常。"
         />
         <div className="fu-card-wrap">
           <div className="fu-card" id="fu-card">
@@ -339,16 +343,15 @@ export default function HlPage() {
       {/* Wave: followup → pearls — prominent */}
       <div className="pearls-wave-enter" aria-hidden="true">
         <svg viewBox="0 0 1440 60" preserveAspectRatio="none" width="100%" height="60" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#2e1f2e" />
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#e2d8f5" />
         </svg>
       </div>
 
       {/* ── PEARLS ── */}
       <HlSection id="pearls" className="pearls">
         <HlTitleSection
-          eyebrow="針對式主題對齊"
           title="六大定音珍珠系列"
-          subtitle="每顆珍珠對應一個生命主題，精準對齊你當下最需要清理的場域。"
+          subtitle="精準對齊你當下最需要清理的場域。"
         />
         <p className="pearls-meta">NT$12,000 / 主題 · 90 min · 禿禿 親自執行</p>
 
@@ -370,31 +373,42 @@ export default function HlPage() {
           ))}
         </div>
 
-        {/* Pearl expand panel */}
-        {pearl && (
-          <div className="pearl-expand" key={activePearl}>
-            <div className="pearl-expand-inner" style={{ background: pearl.lightBg }}>
-              <button className="pearl-expand-close" onClick={() => setActivePearl(null)}>×</button>
-              <p className="pearl-expand-en">{pearl.en}</p>
-              <h3 className="pearl-expand-name">{pearl.name}</h3>
-              <p className="pearl-expand-desc">{pearl.desc}</p>
-              <div className="pearl-traits">
-                <span className="pearl-traits-label">適合狀態</span>
-                <div className="pearl-traits-pills">
-                  {pearl.traits.map(t => (
-                    <span className="pearl-trait-pill" key={t}>{t}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="pearl-expand-meta">
-                {['NT$12,000', '90 分鐘', '1 對 1 · 實體', '禿禿 親自執行'].map(cap => (
-                  <span className="pearl-cap" key={cap}>{cap}</span>
+      </HlSection>
+
+      {/* Pearl detail modal — portal escapes #pearls overflow:hidden stacking context */}
+      {pearl && createPortal(
+        <div
+          className="pearl-modal-backdrop"
+          style={{ zIndex: Z.pearlBackdrop }}
+          onClick={() => setActivePearl(null)}
+        >
+          <div
+            className="pearl-expand-inner"
+            key={activePearl}
+            style={{ background: pearl.lightBg, zIndex: Z.pearlPanel }}
+            onClick={e => e.stopPropagation()}
+          >
+            <button className="pearl-expand-close" onClick={() => setActivePearl(null)}>×</button>
+            <p className="pearl-expand-en">{pearl.en}</p>
+            <h3 className="pearl-expand-name">{pearl.name}</h3>
+            <p className="pearl-expand-desc">{pearl.desc}</p>
+            <div className="pearl-traits">
+              <span className="pearl-traits-label">適合狀態</span>
+              <div className="pearl-traits-pills">
+                {pearl.traits.map(t => (
+                  <span className="pearl-trait-pill" key={t}>{t}</span>
                 ))}
               </div>
             </div>
+            <div className="pearl-expand-meta">
+              {['NT$12,000', '90 分鐘', '1 對 1 · 實體', '禿禿 親自執行'].map(cap => (
+                <span className="pearl-cap" key={cap}>{cap}</span>
+              ))}
+            </div>
           </div>
-        )}
-      </HlSection>
+        </div>,
+        document.body
+      )}
 
       {/* ── CTA ── */}
       <section id="hl-cta">
