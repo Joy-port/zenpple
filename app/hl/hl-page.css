@@ -1185,8 +1185,8 @@ h2.sec-h2 {
 .ps-price-unit   { font-size: 11px; color: rgba(255,255,255,0.6); }
 .ps-price-note   { font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 0.25rem; }
 
-.ps-connector { display: flex; align-items: center; gap: 8px; padding: 0.6rem 0; }
-.ps-connector-line { width: 1px; height: 14px; background: rgba(196,154,150,0.4); margin-left: 2px; }
+.ps-connector { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0.6rem 0; }
+.ps-connector-line { width: 1px; height: 14px; background: rgba(196,154,150,0.4); }
 .ps-connector-plus { font-family: var(--f-display); font-size: 11px; color: rgba(184,124,120,0.55); padding-left: 14px; letter-spacing: 0.1em; }
 
 .ps-cta-wrap { margin-top: auto; padding-top: 1.5rem; display: flex; flex-direction: column; gap: 8px; }
