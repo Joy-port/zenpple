@@ -1682,9 +1682,9 @@ h2.sec-h2 {
   font-size: 15px;
   letter-spacing: 0.03em;
 }
-.fu-plan-c--5  .fu-plan-c-name { color: #C49898; }
-.fu-plan-c--10 .fu-plan-c-name { color: #A86060; }
-.fu-plan-c--15 .fu-plan-c-name { color: #7A3D3D; }
+.fu-plan-c--5 .fu-plan-c-name,
+.fu-plan-c--10 .fu-plan-c-name,
+.fu-plan-c--15 .fu-plan-c-name { color: #B87878; }
 .fu-plan-c-plus {
   font-size: 18px;
   color: rgba(196,123,123,0.45);
