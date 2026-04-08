@@ -1682,10 +1682,9 @@ h2.sec-h2 {
 /* PEARLS */
 #pearls {
   background: linear-gradient(145deg,
-    #f5f2fc 0%,
-    #e2d8f5 28%,
-    #c4b0e8 55%,
-    #9888c8 78%,
+    #e2d8f5 0%,
+    #c4b0e8 30%,
+    #9888c8 60%,
     #7B6B9E 100%
   );
   position: relative;
@@ -1948,7 +1947,12 @@ h2.sec-h2 {
 
 /* CTA */
 #hl-cta {
-  padding: 100px 64px;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(40px, 5vw, 64px) clamp(24px, 5vw, 80px);
   background: linear-gradient(160deg, #C47B7B 0%, #9a6a8a 40%, #7B6B9E 100%);
   text-align: center;
   position: relative;

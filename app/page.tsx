@@ -64,7 +64,7 @@ export default function Home() {
           <h2
             className="tr-d2"
             style={{
-              fontSize: 'clamp(24px, 2.5vw, 30px)',
+              fontSize: 'clamp(28px, 4vw, 48px)',
               lineHeight: 1.2,
               color: 'var(--base)',
               marginBottom: 20,
@@ -75,7 +75,7 @@ export default function Home() {
           <p
             className="cta-para"
             style={{
-              fontSize: 'clamp(14px, 1.5vw, 16px)',
+              fontSize: '15px',
               color: 'rgba(242,239,234,0.65)',
               lineHeight: 1.9,
               maxWidth: 380,

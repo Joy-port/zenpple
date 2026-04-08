@@ -343,7 +343,7 @@ export default function HlPage() {
       {/* Wave: followup → pearls — prominent */}
       <div className="pearls-wave-enter" aria-hidden="true">
         <svg viewBox="0 0 1440 60" preserveAspectRatio="none" width="100%" height="60" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f5f2fc" />
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#e2d8f5" />
         </svg>
       </div>
 
