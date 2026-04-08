@@ -2053,8 +2053,9 @@ h2.sec-h2 {
 /* ── Nav colour per section ────────────────────────────────────────────── */
 /* All selectors scoped to header to avoid any collateral effects on page content */
 
-/* Rose sections: sound-mapping, core-reset, followup */
+/* Rose sections: sound-mapping, paths, core-reset, followup */
 body[data-hl-section="sound-mapping"] header,
+body[data-hl-section="paths"] header,
 body[data-hl-section="core-reset"] header,
 body[data-hl-section="followup"] header {
   background: rgba(176, 100, 100, 0.90) !important;
@@ -2062,6 +2063,8 @@ body[data-hl-section="followup"] header {
 }
 body[data-hl-section="sound-mapping"] header a,
 body[data-hl-section="sound-mapping"] header button span,
+body[data-hl-section="paths"] header a,
+body[data-hl-section="paths"] header button span,
 body[data-hl-section="core-reset"] header a,
 body[data-hl-section="core-reset"] header button span,
 body[data-hl-section="followup"] header a,
@@ -2069,9 +2072,11 @@ body[data-hl-section="followup"] header button span {
   color: rgba(255,255,255,0.90) !important;
 }
 body[data-hl-section="sound-mapping"] header .nav-logo-light,
+body[data-hl-section="paths"] header .nav-logo-light,
 body[data-hl-section="core-reset"] header .nav-logo-light,
 body[data-hl-section="followup"] header .nav-logo-light { display: none !important; }
 body[data-hl-section="sound-mapping"] header .nav-logo-dark,
+body[data-hl-section="paths"] header .nav-logo-dark,
 body[data-hl-section="core-reset"] header .nav-logo-dark,
 body[data-hl-section="followup"] header .nav-logo-dark  { display: block !important; }
 
@@ -2092,7 +2097,3 @@ body[data-hl-section="hl-cta"] header .nav-logo-light { display: none !important
 body[data-hl-section="pearls"] header .nav-logo-dark,
 body[data-hl-section="hl-cta"] header .nav-logo-dark  { display: block !important; }
 
-/* Paths section: slightly more opaque lavender */
-body[data-hl-section="paths"] header {
-  background: rgba(210, 205, 235, 0.95) !important;
-}
