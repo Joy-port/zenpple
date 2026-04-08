@@ -731,6 +731,43 @@ h2.sec-h2 {
   color: rgba(196, 123, 123, 0.55);
   flex-shrink: 0;
 }
+/* left icon — larger, section symbol */
+.paths-group-icon svg { width: 44px; height: 44px; }
+
+/* right group container — mirrors .paths-left */
+.paths-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(123, 107, 158, 0.06);
+  border-radius: 26px;
+  border: 1px solid rgba(123, 107, 158, 0.13);
+}
+.paths-group-label--purple { color: rgba(123, 107, 158, 0.58); }
+.paths-group-icon--purple   { color: rgba(123, 107, 158, 0.55); }
+
+/* purple expand card variant */
+.path-expand-card--purple {
+  background: linear-gradient(148deg, #7B6B9E 0%, #5a4a7a 100%);
+}
+.path-expand-card--purple:hover {
+  box-shadow: 0 8px 32px rgba(90,74,122,0.32);
+}
+.path-expand-card--purple .path-expand-label { color: var(--purple); }
+.path-expand-card--purple .path-expand-row   { border-color: rgba(123,107,158,0.12); }
+.path-expand-card--purple .path-expand-row:first-child { border-color: rgba(123,107,158,0.12); }
+.path-expand-desc {
+  font-size: 13px;
+  line-height: 1.85;
+  color: #666;
+  margin-bottom: 16px;
+}
+.path-expand-cta--purple {
+  border-color: rgba(123,107,158,0.30) !important;
+  color: var(--purple) !important;
+}
+.path-expand-cta--purple:hover { background: rgba(123,107,158,0.08) !important; }
 
 /* Left column: expand/accordion cards */
 .path-expand-card {
@@ -829,113 +866,6 @@ h2.sec-h2 {
 }
 .path-expand-cta:hover { background: rgba(196,123,123,0.08); }
 
-/* Flip cards — content-driven height via CSS grid stacking */
-.flip-outer {
-  perspective: 1200px;
-  cursor: pointer;
-}
-.flip-inner {
-  display: grid;
-  grid-template-areas: "card";
-  transform-style: preserve-3d;
-  transition: transform .65s cubic-bezier(.4,0,.2,1);
-}
-.flip-outer.flipped .flip-inner { transform: rotateY(180deg); }
-.flip-front, .flip-back {
-  grid-area: card;
-  border-radius: 20px;
-  padding: 44px 40px;
-  backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-}
-/* Front: obvious purple */
-.flip-front {
-  background: linear-gradient(148deg, #7B6B9E 0%, #6a5a8a 100%);
-}
-.flip-front h3 {
-  font-family: var(--f-zh);
-  font-weight: 700;
-  font-size: 22px;
-  margin-bottom: 12px;
-  letter-spacing: 0.04em;
-  color: #fff;
-}
-.flip-front p { font-size: 14px; line-height: 1.85; color: rgba(255,255,255,0.80); flex: 1; }
-.path-icon {
-  width: 56px;
-  height: 56px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.88);
-}
-.flip-hint {
-  font-family: var(--f-display);
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 0.25em;
-  color: rgba(255,255,255,0.50);
-  text-transform: uppercase;
-  margin-top: auto;
-  padding-top: 16px;
-}
-/* Back: cream lavender */
-.flip-back {
-  transform: rotateY(180deg);
-  overflow: hidden;
-  background: linear-gradient(148deg, #f5f0fa 0%, #ede5f8 100%);
-}
-.flip-back h3 {
-  font-family: var(--f-zh);
-  font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 16px;
-  letter-spacing: 0.04em;
-  color: #3d3050;
-}
-.flip-back p { font-size: 14px; line-height: 1.85; color: rgba(61,48,80,0.72); margin-bottom: 14px; flex: 1; }
-.flip-back-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 16px 0;
-  border-top: 1px solid rgba(123,107,158,0.14);
-  border-bottom: 1px solid rgba(123,107,158,0.14);
-  margin-bottom: 20px;
-}
-.flip-back-meta-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 13px;
-  color: rgba(61,48,80,0.70);
-}
-.flip-back-meta-label {
-  font-family: var(--f-mono);
-  font-size: 12px;
-  letter-spacing: 0.15em;
-  color: #7B6B9E;
-}
-.flip-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(123,107,158,0.10);
-  border: 1px solid rgba(123,107,158,0.32);
-  color: #7B6B9E;
-  border-radius: 30px;
-  font-family: var(--f-display);
-  font-weight: 300;
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  padding: 10px 22px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background .2s;
-  width: fit-content;
-}
-.flip-btn:hover { background: rgba(123,107,158,0.18); }
 
 /* CORE RESET */
 #core-reset {

@@ -291,34 +291,41 @@ export default function HlPage() {
             </div>
           </div>
 
-          {/* Right: flip card — obvious purple front, cream back */}
-          <div className={`flip-outer${flippedB ? ' flipped' : ''}`} onClick={() => setFlippedB(v => !v)}>
-            <div className="flip-inner">
-              <div className="flip-front">
-                <div className="path-icon" aria-hidden="true">
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-                    <circle cx="28" cy="28" r="18" fill="currentColor" opacity="0.18" />
-                    <circle cx="28" cy="28" r="12" fill="currentColor" opacity="0.42" />
-                    <circle cx="28" cy="28" r="7"  fill="currentColor" opacity="0.90" />
-                    <circle cx="24" cy="23" r="2.5" fill="white"       opacity="0.45" />
-                  </svg>
-                </div>
-                <h3>針對式主題對齊</h3>
-                <p>六大定音珍珠系列。針對單一主題進行深度對齊，適合有明確議題或想針對特定生命面向進行清理者。</p>
-                <div className="flip-hint">點擊翻面查看詳情</div>
+          {/* Right: expand card — mirrors left form */}
+          <div className="paths-right">
+            <div className="paths-group-label paths-group-label--purple">
+              <div className="paths-group-icon paths-group-icon--purple" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 56 56" fill="none">
+                  <circle cx="28" cy="28" r="18" fill="currentColor" opacity="0.18" />
+                  <circle cx="28" cy="28" r="12" fill="currentColor" opacity="0.42" />
+                  <circle cx="28" cy="28" r="7"  fill="currentColor" opacity="0.90" />
+                  <circle cx="24" cy="23" r="2.5" fill="white"       opacity="0.45" />
+                </svg>
               </div>
-              <div className="flip-back">
-                <h3>針對式主題對齊</h3>
-                <p>每顆珍珠對應一個核心生命主題——文昌對齊、身體健康祈福、能量保護罩、愛的流動、金錢豐盛、關係共振。由禿禿親自執行。</p>
-                <div className="flip-back-meta">
-                  {[['服務形式', '1 對 1 · 實體'], ['投入時間', '90 分鐘 / 主題'], ['費用', 'NT$12,000 / 主題']].map(([l, v]) => (
-                    <div className="flip-back-meta-row" key={l}>
-                      <span className="flip-back-meta-label">{l}</span>
-                      <span>{v}</span>
-                    </div>
-                  ))}
+              <span>主題精準路徑</span>
+            </div>
+
+            <div className={`path-expand-card path-expand-card--purple${flippedB ? ' expanded' : ''}`}>
+              <div className="path-expand-header" onClick={() => setFlippedB(v => !v)}>
+                <div className="path-expand-titles">
+                  <h3>針對式主題對齊</h3>
+                  <p>六大定音珍珠 · Pearls</p>
                 </div>
-                <button className="flip-btn" onClick={e => { e.stopPropagation(); navScrollTo('pearls') }}>查看六大定音主題 →</button>
+                <span className="path-expand-toggle">+</span>
+              </div>
+              <div className="path-expand-body">
+                <div className="path-expand-body-inner">
+                  <p className="path-expand-desc">每顆珍珠對應一個核心生命主題——文昌對齊、身體健康祈福、能量保護罩、愛的流動、金錢豐盛、關係共振。由禿禿親自執行。</p>
+                  <div className="path-expand-meta">
+                    {[['服務形式', '1 對 1 · 實體'], ['投入時間', '90 分鐘 / 主題'], ['費用', 'NT$12,000 / 主題']].map(([l, v]) => (
+                      <div className="path-expand-row" key={l}>
+                        <span className="path-expand-label">{l}</span>
+                        <span className="path-expand-val">{v}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <button className="path-expand-cta path-expand-cta--purple" onClick={e => { e.stopPropagation(); navScrollTo('pearls') }}>查看六大定音主題 →</button>
+                </div>
               </div>
             </div>
           </div>
