@@ -990,6 +990,7 @@ h2.sec-h2 {
   gap: 10px;
   list-style: none;
   user-select: none;
+  cursor: pointer;
 }
 .ps-path-header-row::-webkit-details-marker { display: none; }
 .ps-path-header-row::marker { display: none; }
@@ -1050,7 +1051,7 @@ h2.sec-h2 {
   border-radius: 14px;
   padding: 10px 14px;
   margin: 0;
-  animation: none;
+  animation: ps-tip-in 0.18s ease;
 }
 .ps-path-desc  { font-size: 12px; color: rgba(0,0,0,0.48); line-height: 1.65; margin-bottom: 1.25rem; text-align: center; }
 @keyframes ps-tip-in {
