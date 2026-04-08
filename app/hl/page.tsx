@@ -147,7 +147,7 @@ export default function HlPage() {
           title="生命音譜掃描"
           subtitle="以 1.5 小時深度工作，建立身心現況雷達，形成可視化的能量地圖。"
         />
-        <div className={`sm-inner${smOpen ? ' expanded' : ''}`} id="sm-card">
+        <div className="sm-inner" id="sm-card">
           <div className="sm-left">
             <p>以頌缽、音叉與直覺讀取，禿禿掃描你七個脈輪的振動狀態，辨識阻塞區域、能量漏失點與長期壓抑的情緒訊號。</p>
             <p style={{ fontSize: 14, color: '#999', lineHeight: 1.85, marginTop: 12 }}>
@@ -155,21 +155,28 @@ export default function HlPage() {
             </p>
           </div>
           <div className="sm-right">
-            <div className="sm-right-title">完成後你會獲得</div>
-            <div className="sm-what-list">
-              {[
-                '個人七脈輪能量現況報告（口頭傳達）',
-                '主要阻塞區域與情緒根源初判',
-                '量身推薦的清理路徑（全面式或針對式）',
-                '後續是否適合陪跑計畫的評估建議',
-              ].map(item => (
-                <div className="sm-what-item" key={item}>
-                  <div className="sm-what-dot" />
-                  <p>{item}</p>
-                </div>
-              ))}
+            {/* View A: 完成後你會獲得 */}
+            <div className={`sm-view${smOpen ? ' sm-view--hidden' : ''}`}>
+              <div className="sm-right-title">完成後你會獲得</div>
+              <div className="sm-what-list">
+                {[
+                  '個人七脈輪能量現況報告（口頭傳達）',
+                  '主要阻塞區域與情緒根源初判',
+                  '量身推薦的清理路徑（全面式或針對式）',
+                  '後續是否適合陪跑計畫的評估建議',
+                ].map(item => (
+                  <div className="sm-what-item" key={item}>
+                    <div className="sm-what-dot" />
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+              <button className="sm-toggle" onClick={() => setSmOpen(true)}>
+                <span>查看費用與形式</span><span>→</span>
+              </button>
             </div>
-            <div className="sm-meta-reveal">
+            {/* View B: 規格表 */}
+            <div className={`sm-view${!smOpen ? ' sm-view--hidden' : ''}`}>
               <div className="sm-meta-list">
                 {[
                   ['服務形式', '1 對 1 · 實體預約'],
@@ -183,11 +190,10 @@ export default function HlPage() {
                   </div>
                 ))}
               </div>
+              <button className="sm-toggle" onClick={() => setSmOpen(false)}>
+                <span>← 返回</span>
+              </button>
             </div>
-            <button className="sm-toggle" onClick={() => setSmOpen(v => !v)}>
-              <span>{smOpen ? '收起' : '查看費用與形式'}</span>
-              <span style={{ transition: 'transform .3s', display: 'inline-block', transform: smOpen ? 'rotate(180deg)' : 'none' }}>↓</span>
-            </button>
           </div>
         </div>
       </HlSection>

@@ -633,9 +633,21 @@ h2.sec-h2 {
 }
 .sm-right {
   padding: 64px;
+  display: grid;
+}
+/* grid-stacking: both views share the same cell → height = max of both */
+.sm-view {
+  grid-area: 1 / 1;
   display: flex;
   flex-direction: column;
   gap: 0;
+  opacity: 1;
+  transition: opacity 0.3s;
+  pointer-events: auto;
+}
+.sm-view--hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 .sm-left .sm-tag {
   font-family: var(--f-mono);
@@ -659,17 +671,6 @@ h2.sec-h2 {
   text-transform: uppercase;
 }
 .sm-left p { font-size: 14px; line-height: 1.9; color: #666; }
-.sm-meta-reveal {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height .5s cubic-bezier(.4,0,.2,1), opacity .4s;
-  opacity: 0;
-}
-.sm-inner.expanded .sm-meta-reveal {
-  max-height: 300px;
-  opacity: 1;
-  margin: 20px 0 4px;
-}
 .sm-meta-list {
   display: flex;
   flex-direction: column;
@@ -1824,7 +1825,8 @@ h2.sec-h2 {
   }
   .steps-horiz { grid-template-columns: 1fr; }
   .sm-inner { grid-template-columns: 1fr; }
-  .sm-left { padding: 40px 32px; justify-content: flex-start; }
+  .sm-left  { padding: 1rem; justify-content: flex-start; }
+  .sm-right { padding: 1rem; }
   .paths-grid { grid-template-columns: 1fr; }
   .flip-outer--nav { flex: none; width: 100%; }
   .fu-card { grid-template-columns: 1fr; }
