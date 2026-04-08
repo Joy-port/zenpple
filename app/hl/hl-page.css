@@ -1470,7 +1470,8 @@ h2.sec-h2 {
 .pearls-wave-enter svg { display: block; margin-bottom: -1px; }
 
 /* FOLLOW-UP title override */
-#followup .hts-title { color: #fff; }
+#followup .hts-title    { color: #fff; }
+#followup .hts-subtitle { color: #fff; }
 
 /* FOLLOW-UP */
 #followup {
@@ -1702,7 +1703,7 @@ h2.sec-h2 {
 }
 /* HlTitleSection color overrides for purple bg */
 #pearls .hts-eyebrow  { color: rgba(196,123,123,0.85); }
-#pearls .hts-title    { color: #1e1430; }
+#pearls .hts-title    { color: #0d0820; }
 #pearls .hts-subtitle { color: rgba(40,25,65,0.65); }
 #pearls .pearls-meta {
   font-family: var(--f-mono);
@@ -1855,22 +1856,21 @@ h2.sec-h2 {
   line-height: 1;
 }
 .pearl-expand-close:hover { color: rgba(0,0,0,0.65); }
-.pearl-expand-en {
-  font-family: var(--f-display);
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.24em;
-  color: rgba(0,0,0,0.65);
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
 .pearl-expand-name {
   font-family: var(--f-zh);
   font-weight: 700;
   font-size: 24px;
   letter-spacing: 0.04em;
   color: #1a1a1a;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
+}
+.pearl-expand-en {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  color: rgba(0,0,0,0.55);
+  margin-bottom: 16px;
 }
 .pearl-expand-desc {
   font-size: 14px;
