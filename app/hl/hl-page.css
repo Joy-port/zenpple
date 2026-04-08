@@ -715,13 +715,21 @@ h2.sec-h2 {
   border: 1px solid rgba(196, 123, 123, 0.13);
 }
 .paths-group-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   font-family: var(--f-mono);
   font-size: 10px;
   letter-spacing: 0.28em;
   color: rgba(196, 123, 123, 0.58);
   text-transform: uppercase;
-  text-align: center;
   padding-bottom: 2px;
+}
+.paths-group-icon {
+  display: flex;
+  color: rgba(196, 123, 123, 0.55);
+  flex-shrink: 0;
 }
 
 /* Left column: expand/accordion cards */
@@ -742,6 +750,7 @@ h2.sec-h2 {
   cursor: pointer;
   user-select: none;
 }
+.path-expand-titles { display: flex; flex-direction: column; gap: 5px; }
 .path-expand-header h3 {
   font-family: var(--f-zh);
   font-weight: 700;
@@ -749,6 +758,14 @@ h2.sec-h2 {
   letter-spacing: 0.04em;
   color: #fff;
   margin: 0;
+}
+.path-expand-header p {
+  font-family: var(--f-display);
+  font-size: 11px;
+  letter-spacing: 0.20em;
+  color: rgba(255,255,255,0.58);
+  margin: 0;
+  text-transform: uppercase;
 }
 .path-expand-toggle {
   font-size: 22px;

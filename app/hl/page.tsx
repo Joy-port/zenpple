@@ -227,12 +227,28 @@ export default function HlPage() {
 
           {/* Left: paired group — 全面式 + 陪跑 */}
           <div className="paths-left">
-            <div className="paths-group-label">完整系統路徑</div>
+            <div className="paths-group-label">
+              <div className="paths-group-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 56 56" fill="none">
+                  <circle cx="28" cy="8"    r="4"   fill="currentColor" opacity="0.90" />
+                  <circle cx="28" cy="20"   r="3.5" fill="currentColor" opacity="0.75" />
+                  <circle cx="28" cy="30.5" r="3"   fill="currentColor" opacity="0.60" />
+                  <circle cx="28" cy="39.5" r="2.5" fill="currentColor" opacity="0.45" />
+                  <circle cx="28" cy="47"   r="2"   fill="currentColor" opacity="0.32" />
+                  <circle cx="20" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
+                  <circle cx="36" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
+                </svg>
+              </div>
+              <span>完整系統路徑</span>
+            </div>
 
             {/* Card 1: 全面式系統清理 — expand */}
             <div className={`path-expand-card${flippedA ? ' expanded' : ''}`}>
               <div className="path-expand-header" onClick={() => setFlippedA(v => !v)}>
-                <h3>全面式系統清理</h3>
+                <div className="path-expand-titles">
+                  <h3>全面式系統清理</h3>
+                  <p>七脈輪能量調和 · Core Reset</p>
+                </div>
                 <span className="path-expand-toggle">+</span>
               </div>
               <div className="path-expand-body">
@@ -253,7 +269,10 @@ export default function HlPage() {
             {/* Card 2: 陪跑計劃 — expand */}
             <div className={`path-expand-card${flippedC ? ' expanded' : ''}`}>
               <div className="path-expand-header" onClick={() => setFlippedC(v => !v)}>
-                <h3>陪跑計劃</h3>
+                <div className="path-expand-titles">
+                  <h3>陪跑計劃</h3>
+                  <p>頻率定錨隨行 · Anchor</p>
+                </div>
                 <span className="path-expand-toggle">+</span>
               </div>
               <div className="path-expand-body">
