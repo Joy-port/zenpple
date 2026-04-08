@@ -287,11 +287,11 @@ h2.sec-h2 {
 .hl-section-inner {
   max-width: 1080px;
   margin: 0 auto;
-  padding: clamp(80px, 10vh, 120px) clamp(48px, 7vw, 100px);
+  padding: clamp(100px, 13vh, 150px) clamp(60px, 9vw, 130px);
 }
 @media (max-width: 640px) {
   .hl-section-inner {
-    padding: clamp(56px, 8vh, 80px) 28px;
+    padding: clamp(64px, 10vh, 96px) 32px;
   }
 }
 

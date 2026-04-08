@@ -92,7 +92,7 @@ export default function HlPage() {
           {/* Step 01 */}
           <div className="step-col" onClick={() => navScrollTo('sound-mapping')}>
             <div className="step-dot-wrap">
-              <Image src="/resource/circle/single/粉點-1.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+              <Image src="/resource/circle/pink/粉點-1.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
               <span className="step-dot-num">01</span>
             </div>
             <div className="step-word">掃描</div>
@@ -110,7 +110,7 @@ export default function HlPage() {
           {/* Step 02 */}
           <div className="step-col step-col-2" onClick={() => navScrollTo('paths')}>
             <div className="step-dot-wrap">
-              <Image src="/resource/circle/single/粉點-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+              <Image src="/resource/circle/pink/粉點-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
               <span className="step-dot-num">02</span>
             </div>
             <div className="step-word">清理</div>
