@@ -45,7 +45,10 @@ export default function HlPathsSplit() {
               <HlIconSystemPath style={{ color: 'rgba(196,123,123,0.55)' }} aria-hidden="true" />
               <span className="ps-icon-label">完 整 系 統 路 徑</span>
             </div>
-            <p className="ps-path-desc">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。兩個模組相互搭配使用。</p>
+            <details className="ps-path-tip">
+              <summary className="ps-path-tip-trigger">說明</summary>
+              <p className="ps-path-tip-content">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。兩個模組相互搭配使用。</p>
+            </details>
 
             <div className={`ps-card ps-card--rose${expandA ? ' open' : ''}`} onClick={() => setExpandA(v => !v)}>
               <div className="ps-card-header">
@@ -130,7 +133,10 @@ export default function HlPathsSplit() {
               <HlIconThemePath style={{ color: 'rgba(123,107,158,0.55)' }} aria-hidden="true" />
               <span className="ps-icon-label">主 題 精 準 路 徑</span>
             </div>
-            <p className="ps-path-desc">已知卡點、想針對單一主題快速處理的人。選擇一個對應你當下狀態的主題。</p>
+            <details className="ps-path-tip">
+              <summary className="ps-path-tip-trigger">說明</summary>
+              <p className="ps-path-tip-content">已知卡點、想針對單一主題快速處理的人。選擇一個對應你當下狀態的主題。</p>
+            </details>
 
             <div className="ps-topic-tags">
               <span className="ps-topic-label">可選主題</span>
