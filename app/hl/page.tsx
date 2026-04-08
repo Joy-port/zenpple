@@ -8,7 +8,7 @@ import HlHero from '@/components/hl/HlHero'
 import HlSection from '@/components/hl/HlSection'
 import HlSectionTitle from '@/components/hl/HlSectionTitle'
 import HlTitleSection from '@/components/hl/HlTitleSection'
-import HlPathsExpand from '@/components/hl/HlPathsExpand'
+import HlPathsPanel from '@/components/hl/HlPathsPanel'
 
 // ── Pearl data ──────────────────────────────────────────────────────────────
 const pearlData: Record<string, { name: string; en: string; lightBg: string; desc: string }> = {
@@ -203,7 +203,7 @@ export default function HlPage() {
       </div>
 
       {/* ── PATH SELECTION ── */}
-      <HlPathsExpand />
+      <HlPathsPanel />
 
       {/* ── CORE RESET ── */}
       <HlSection id="core-reset" className="core-reset">
