@@ -281,11 +281,21 @@ export default function HlPage() {
         </div>
       </HlSection>
 
+      {/* Wave: core-reset → followup — rose-cream breathing divider */}
+      <div className="fu-wave-enter" aria-hidden="true">
+        <svg viewBox="0 0 1440 36" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,18 C300,32 700,4 1100,20 C1260,28 1380,12 1440,18 L1440,36 L0,36 Z" fill="rgba(196,123,123,0.08)" />
+          <path d="M0,24 C400,10 800,34 1200,18 C1340,10 1410,28 1440,24 L1440,36 L0,36 Z" fill="rgba(196,123,123,0.05)" />
+        </svg>
+      </div>
+
       {/* ── FOLLOW-UP ── */}
-      <section id="followup">
-        <div className="section-label">落地整合</div>
-        <h2 className="sec-h2">能量陪跑定錨計畫</h2>
-        <p className="fu-sub">清理之後，整合才是真正的改變。持續的陪跑支持，讓頻率真正落地為日常。</p>
+      <HlSection id="followup" className="followup">
+        <HlTitleSection
+          eyebrow="陪跑計劃"
+          title="能量陪跑定錨計畫"
+          subtitle="清理之後，整合才是真正的改變。持續的陪跑支持，讓頻率真正落地為日常。"
+        />
         <div className="fu-card-wrap">
           <div className="fu-card" id="fu-card">
             <div className="fu-card-left">
@@ -336,7 +346,7 @@ export default function HlPage() {
             </div>
           </div>
         </div>
-      </section>
+      </HlSection>
 
       {/* ── PEARLS ── */}
       <section id="pearls">

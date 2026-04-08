@@ -1438,19 +1438,20 @@ h2.sec-h2 {
   .cr-right { padding: 2rem 1.5rem; }
 }
 
-/* FOLLOW-UP */
-#followup {
-  padding: 120px 64px;
+/* Wave: core-reset → followup */
+.fu-wave-enter {
   background: #F2EFEA;
+  line-height: 0;
+  display: block;
 }
-#followup h2.sec-h2 { margin-bottom: 8px; }
-#followup .fu-sub {
-  font-size: 15px;
-  color: #888;
-  line-height: 1.9;
-  max-width: 500px;
-  margin-bottom: 48px;
+.fu-wave-enter svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
+
+/* FOLLOW-UP */
+#followup { background: #F2EFEA; }
 .fu-card-wrap { margin-top: 0; }
 .fu-card {
   background: linear-gradient(135deg, #f9f0f2 0%, #f5eded 100%);
