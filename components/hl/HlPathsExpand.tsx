@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import Image from 'next/image'
 import HlSection from './HlSection'
 import HlSectionTitle from './HlSectionTitle'
+import HlPathStepNav from './HlPathStepNav'
 
 const chevron = (
   <svg width="16" height="10" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,17 +27,7 @@ export default function HlPathsExpand() {
 
   return (
     <HlSection id="paths">
-      <div className="sm-step-icon">
-        <div className="sm-step-dot-wrap sm-step-dot-wrap--nav" onClick={() => navScrollTo('sound-mapping')} role="button" aria-label="前往第一步">
-          <Image src="/resource/circle/pink/粉點-1.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
-          <span className="step-dot-num step-dot-num--muted">01</span>
-        </div>
-        <div className="sm-step-connector" aria-hidden="true" />
-        <div className="sm-step-dot-wrap">
-          <Image src="/resource/circle/pink/粉點-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
-          <span className="step-dot-num">02</span>
-        </div>
-      </div>
+      <HlPathStepNav />
 
       <HlSectionTitle
         label="選擇路徑"
