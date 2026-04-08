@@ -283,9 +283,20 @@ h2.sec-h2 {
   letter-spacing: 0.03em;
 }
 
+/* ── HlSection — reusable centered wrapper ─────────────────────────────── */
+.hl-section-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: clamp(80px, 10vh, 120px) clamp(48px, 7vw, 100px);
+}
+@media (max-width: 640px) {
+  .hl-section-inner {
+    padding: clamp(56px, 8vh, 80px) 28px;
+  }
+}
+
 /* HOW IT WORKS */
 #steps {
-  padding: 120px 64px;
   background: #F2EFEA;
 }
 #steps .steps-desc {

@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 import './hl-page.css'
 import HlHero from '@/components/hl/HlHero'
+import HlSection from '@/components/hl/HlSection'
 
 // ── Pearl data ──────────────────────────────────────────────────────────────
 const pearlData: Record<string, { name: string; en: string; lightBg: string; desc: string }> = {
@@ -78,7 +79,7 @@ export default function HlPage() {
       <HlHero />
 
       {/* ── HOW IT WORKS ── */}
-      <section id="steps">
+      <HlSection id="steps">
         <div className="section-label">HOW IT WORKS</div>
         <h2 className="sec-h2">定頻邏輯三步驟</h2>
         <p className="steps-desc">每個完整的旅程都遵循三個核心步驟，從精準掃描到深度清理，最後落地整合。點擊步驟了解更多。</p>
@@ -109,7 +110,7 @@ export default function HlPage() {
             <div className="step-card-link">了解詳情 →</div>
           </div>
         </div>
-      </section>
+      </HlSection>
 
       {/* ── SOUND MAPPING ── */}
       <section id="sound-mapping">
