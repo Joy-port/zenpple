@@ -7,6 +7,7 @@ import './hl-page.css'
 import HlHero from '@/components/hl/HlHero'
 import HlSection from '@/components/hl/HlSection'
 import HlSectionTitle from '@/components/hl/HlSectionTitle'
+import HlTitleSection from '@/components/hl/HlTitleSection'
 import HlPathsExpand from '@/components/hl/HlPathsExpand'
 
 // ── Pearl data ──────────────────────────────────────────────────────────────
@@ -81,10 +82,10 @@ export default function HlPage() {
 
       {/* ── HOW IT WORKS ── */}
       <HlSection id="steps">
-        <HlSectionTitle
-          label="HOW IT WORKS"
+        <HlTitleSection
+          eyebrow="HOW IT WORKS"
           title="定頻邏輯兩步驟"
-          desc="每段旅程都遵循兩個核心步驟——從精準掃描到深度清理。"
+          subtitle="每段旅程都遵循兩個核心步驟——從精準掃描到深度清理。"
         />
 
         <div className="steps-flow">
@@ -142,10 +143,10 @@ export default function HlPage() {
             <span className="step-dot-num step-dot-num--muted">02</span>
           </div>
         </div>
-        <HlSectionTitle
-          label="掃描 · 第一步"
+        <HlTitleSection
+          eyebrow="STEP 01"
           title="生命音譜掃描"
-          desc="以 1.5 小時深度工作，建立身心現況雷達，形成可視化的能量地圖。"
+          subtitle="以 1.5 小時深度工作，建立身心現況雷達，形成可視化的能量地圖。"
         />
         <div className={`sm-inner${smOpen ? ' expanded' : ''}`} id="sm-card">
           <div className="sm-left">

@@ -295,6 +295,37 @@ h2.sec-h2 {
   }
 }
 
+/* ── HlTitleSection ─────────────────────────────────────────────────────── */
+.hts-wrap {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vh, 64px);
+}
+.hts-eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #B87C78;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.hts-title {
+  font-family: var(--f-zh);
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 600;
+  color: #2C2C2A;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+.hts-subtitle {
+  font-family: var(--f-display);
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: #888780;
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
 /* ── HlSectionTitle — shared centered section header ───────────────────── */
 .hl-section-title {
   text-align: center;
@@ -863,6 +894,27 @@ h2.sec-h2 {
 }
 .path-expand-cta:hover { background: rgba(196,123,123,0.08); }
 
+/* suited audience pills inside path-expand-body-inner */
+.path-expand-suited {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.path-expand-pill {
+  font-family: var(--f-display);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 0.5px solid rgba(196,123,123,0.35);
+  color: rgba(184,100,100,0.80);
+  background: transparent;
+}
+.path-expand-suited--purple .path-expand-pill {
+  border-color: rgba(123,107,158,0.35);
+  color: rgba(100,84,140,0.80);
+}
+
 /* purple expand card variant — must come AFTER base .path-expand-card */
 .path-expand-card--purple {
   background: linear-gradient(148deg, #7B6B9E 0%, #5a4a7a 100%);
@@ -916,8 +968,8 @@ h2.sec-h2 {
   font-family: var(--f-zh);
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.22em;
-  color: rgba(0,0,0,0.68);
+  letter-spacing: 0.08em;
+  color: #2C2C2A;
 }
 .ps-path-desc  { font-size: 12px; color: rgba(0,0,0,0.48); line-height: 1.65; margin-bottom: 1.25rem; text-align: center; }
 
@@ -962,6 +1014,43 @@ h2.sec-h2 {
 .ps-card { border-radius: 14px; padding: 1.25rem; cursor: pointer; }
 .ps-card--rose   { background: #B87C78; }
 .ps-card--purple { background: #8880B0; }
+
+/* gradient variants for hl-paths-3 */
+.ps-card--rose-grad   { background: linear-gradient(to bottom, #B87C78, #C49080); padding: 0; }
+.ps-card--purple-grad { background: linear-gradient(to bottom, #8880B0, #9E98C0); padding: 0; }
+.ps-card--rose-grad   .ps-card-header,
+.ps-card--purple-grad .ps-card-header { padding: 1.25rem; }
+.ps-card--rose-grad   .ps-card-body { background: #F5E8E6; }
+.ps-card--purple-grad .ps-card-body { background: #EEEDF5; }
+.ps-card--rose-grad.open   .ps-card-body,
+.ps-card--purple-grad.open .ps-card-body { padding: 1.25rem; padding-top: 0; }
+.ps-card--rose-grad .ps-divider   { background: rgba(184,124,120,0.18); }
+.ps-card--purple-grad .ps-divider { background: rgba(123,107,158,0.18); }
+.ps-card--rose-grad .ps-body-label,
+.ps-card--purple-grad .ps-body-label { color: rgba(0,0,0,0.40); }
+.ps-card--rose-grad .ps-body-text,
+.ps-card--purple-grad .ps-body-text { color: rgba(0,0,0,0.68); }
+.ps-card--rose-grad .ps-pill   { border-color: rgba(184,124,120,0.40); color: rgba(184,124,120,0.90); }
+.ps-card--purple-grad .ps-pill { border-color: rgba(123,107,158,0.40); color: rgba(123,107,158,0.90); }
+.ps-card--rose-grad .ps-meta-row,
+.ps-card--purple-grad .ps-meta-row { border-color: rgba(0,0,0,0.07); }
+.ps-card--rose-grad .ps-meta-row:first-child,
+.ps-card--purple-grad .ps-meta-row:first-child { border-color: rgba(0,0,0,0.07); }
+.ps-card--rose-grad .ps-meta-label,
+.ps-card--purple-grad .ps-meta-label { color: rgba(0,0,0,0.40); }
+.ps-card--rose-grad .ps-meta-val,
+.ps-card--purple-grad .ps-meta-val { color: rgba(0,0,0,0.72); }
+
+/* hl-paths-3 panel-scoped overrides */
+.ps-panel--rose   .ps-path-tip-trigger { border-color: rgba(184,124,120,0.50); color: #B87C78; }
+.ps-panel--purple .ps-path-tip-trigger { border-color: rgba(136,128,176,0.50); color: #8880B0; }
+.ps-panel--rose   .ps-path-tip[open] .ps-path-tip-trigger { border-color: #B87C78; }
+.ps-panel--purple .ps-path-tip[open] .ps-path-tip-trigger { border-color: #8880B0; }
+
+.ps-topic-pill { border-color: #9B95B8; color: #534AB7; }
+
+.ps-panel--rose   .ps-cta--rose   { border-color: #B87C78; color: #B87C78; }
+.ps-panel--purple .ps-cta--purple { border-color: #8880B0; color: #8880B0; }
 .ps-card-header { display: flex; align-items: center; justify-content: space-between; }
 .ps-card-title {
   font-family: var(--f-zh);

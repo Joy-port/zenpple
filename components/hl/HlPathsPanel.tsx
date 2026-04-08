@@ -2,14 +2,14 @@
 
 import { useState, useCallback } from 'react'
 import HlSection from './HlSection'
-import HlSectionTitle from './HlSectionTitle'
+import HlTitleSection from './HlTitleSection'
 import HlPathStepNav from './HlPathStepNav'
 import HlIconSystemPath from './HlIconSystemPath'
 import HlIconThemePath from './HlIconThemePath'
 
-const Chevron = () => (
-  <svg viewBox="0 0 16 16" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
-    <polyline points="4,6 8,10 12,6"/>
+const chevron = (
+  <svg width="16" height="10" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1.5 1.5 L11 11.5 L20.5 1.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 )
 
@@ -30,10 +30,10 @@ export default function HlPathsPanel() {
   return (
     <HlSection id="paths">
       <HlPathStepNav />
-      <HlSectionTitle
-        label="選擇路徑"
+      <HlTitleSection
+        eyebrow="STEP 02"
         title="選擇你的清理路徑"
-        desc="完成生命音譜掃描後，根據你的能量地圖結果，選擇最適合你的清理路徑。"
+        subtitle="完成生命音譜掃描後，根據你的能量地圖結果，選擇最適合你的清理路徑。"
       />
 
       <div className="ps-outer">
@@ -50,35 +50,30 @@ export default function HlPathsPanel() {
               <p className="ps-path-tip-content">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。兩個模組相互搭配使用。</p>
             </details>
 
-            <div className={`ps-card ps-card--rose${expandA ? ' open' : ''}`} onClick={() => setExpandA(v => !v)}>
-              <div className="ps-card-header">
-                <div>
-                  <div className="ps-card-title">全面式系統清理</div>
-                  <div className="ps-card-sub">七脈輪能量調和 · Core Reset</div>
+            <div className={`path-expand-card${expandA ? ' expanded' : ''}`}>
+              <div className="path-expand-header" onClick={() => setExpandA(v => !v)}>
+                <div className="path-expand-titles">
+                  <h3>全面式系統清理</h3>
+                  <p>七脈輪能量調和</p>
                 </div>
-                <div className={`ps-chevron${expandA ? ' open' : ''}`}><Chevron /></div>
+                <span className="path-expand-toggle">{chevron}</span>
               </div>
-              <div className="ps-card-body">
-                <div className="ps-divider" />
-                <div className="ps-body-section">
-                  <div className="ps-body-label">服務說明</div>
-                  <div className="ps-body-text">以七脈輪為框架，系統性掃描與清理全身能量阻塞點。每次療程針對當下能量地圖，進行頻率校準與情緒釋放。</div>
-                </div>
-                <div className="ps-body-section">
-                  <div className="ps-body-label">適合對象</div>
-                  <div className="ps-pills">
+              <div className="path-expand-body">
+                <div className="path-expand-body-inner">
+                  <p className="path-expand-desc">以七脈輪為框架，系統性掃描與清理全身能量阻塞點。每次療程針對當下能量地圖，進行頻率校準與情緒釋放。</p>
+                  <div className="path-expand-suited">
                     {['初次接觸能量療癒', '全身感覺沉重失衡', '不確定問題根源'].map(t => (
-                      <span className="ps-pill" key={t}>{t}</span>
+                      <span className="path-expand-pill" key={t}>{t}</span>
                     ))}
                   </div>
-                </div>
-                <div className="ps-body-section">
-                  {[['服務形式', '1 對 1 · 實體'], ['投入時間', '3 小時'], ['費用', 'NT$45,000']].map(([l, v]) => (
-                    <div className="ps-meta-row" key={l}>
-                      <span className="ps-meta-label">{l}</span>
-                      <span className="ps-meta-val">{v}</span>
-                    </div>
-                  ))}
+                  <div className="path-expand-meta">
+                    {[['服務形式', '1 對 1 · 實體'], ['投入時間', '3 小時'], ['費用', 'NT$45,000']].map(([l, v]) => (
+                      <div className="path-expand-row" key={l}>
+                        <span className="path-expand-label">{l}</span>
+                        <span className="path-expand-val">{v}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -88,35 +83,30 @@ export default function HlPathsPanel() {
               <span className="ps-connector-plus">＋ 搭配</span>
             </div>
 
-            <div className={`ps-card ps-card--rose${expandC ? ' open' : ''}`} onClick={() => setExpandC(v => !v)}>
-              <div className="ps-card-header">
-                <div>
-                  <div className="ps-card-title">陪跑計劃</div>
-                  <div className="ps-card-sub">頻率定錨隨行 · Anchor</div>
+            <div className={`path-expand-card${expandC ? ' expanded' : ''}`}>
+              <div className="path-expand-header" onClick={() => setExpandC(v => !v)}>
+                <div className="path-expand-titles">
+                  <h3>陪跑計劃</h3>
+                  <p>頻率定錨隨行</p>
                 </div>
-                <div className={`ps-chevron${expandC ? ' open' : ''}`}><Chevron /></div>
+                <span className="path-expand-toggle">{chevron}</span>
               </div>
-              <div className="ps-card-body">
-                <div className="ps-divider" />
-                <div className="ps-body-section">
-                  <div className="ps-body-label">服務說明</div>
-                  <div className="ps-body-text">療程後的頻率維護計劃。透過定期追蹤與微調，確保清理後的能量狀態穩定落地，不回彈。</div>
-                </div>
-                <div className="ps-body-section">
-                  <div className="ps-body-label">適合對象</div>
-                  <div className="ps-pills">
+              <div className="path-expand-body">
+                <div className="path-expand-body-inner">
+                  <p className="path-expand-desc">療程後的頻率維護計劃。透過定期追蹤與微調，確保清理後的能量狀態穩定落地，不回彈。</p>
+                  <div className="path-expand-suited">
                     {['完成 Core Reset 後', '需要長期定錨支持'].map(t => (
-                      <span className="ps-pill" key={t}>{t}</span>
+                      <span className="path-expand-pill" key={t}>{t}</span>
                     ))}
                   </div>
-                </div>
-                <div className="ps-body-section">
-                  {[['服務形式', '1 對 1 · 實體預約'], ['投入時間', '1.5 小時 / 堂'], ['前提', '完成系統清理後可加選']].map(([l, v]) => (
-                    <div className="ps-meta-row" key={l}>
-                      <span className="ps-meta-label">{l}</span>
-                      <span className="ps-meta-val">{v}</span>
-                    </div>
-                  ))}
+                  <div className="path-expand-meta">
+                    {[['服務形式', '1 對 1 · 實體預約'], ['投入時間', '1.5 小時 / 堂'], ['前提', '完成系統清理後可加選']].map(([l, v]) => (
+                      <div className="path-expand-row" key={l}>
+                        <span className="path-expand-label">{l}</span>
+                        <span className="path-expand-val">{v}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -147,35 +137,30 @@ export default function HlPathsPanel() {
               </div>
             </div>
 
-            <div className={`ps-card ps-card--purple${expandB ? ' open' : ''}`} onClick={() => setExpandB(v => !v)}>
-              <div className="ps-card-header">
-                <div>
-                  <div className="ps-card-title">針對式主題對齊</div>
-                  <div className="ps-card-sub">六大定音珍珠 · Pearls</div>
+            <div className={`path-expand-card path-expand-card--purple${expandB ? ' expanded' : ''}`}>
+              <div className="path-expand-header" onClick={() => setExpandB(v => !v)}>
+                <div className="path-expand-titles">
+                  <h3>針對式主題對齊</h3>
+                  <p>六大定音珍珠</p>
                 </div>
-                <div className={`ps-chevron${expandB ? ' open' : ''}`}><Chevron /></div>
+                <span className="path-expand-toggle">{chevron}</span>
               </div>
-              <div className="ps-card-body">
-                <div className="ps-divider" />
-                <div className="ps-body-section">
-                  <div className="ps-body-label">服務說明</div>
-                  <div className="ps-body-text">針對單一主題進行深度對齊，每顆珍珠對應一個核心生命主題，由禿禿親自執行。</div>
-                </div>
-                <div className="ps-body-section">
-                  <div className="ps-body-label">適合對象</div>
-                  <div className="ps-pills">
+              <div className="path-expand-body">
+                <div className="path-expand-body-inner">
+                  <p className="path-expand-desc">針對單一主題進行深度對齊，每顆珍珠對應一個核心生命主題，由禿禿親自執行。</p>
+                  <div className="path-expand-suited path-expand-suited--purple">
                     {['有明確生命議題', '想針對單一面向清理', '已知卡點所在'].map(t => (
-                      <span className="ps-pill" key={t}>{t}</span>
+                      <span className="path-expand-pill" key={t}>{t}</span>
                     ))}
                   </div>
-                </div>
-                <div className="ps-body-section">
-                  {[['服務形式', '1 對 1 · 實體'], ['投入時間', '90 分鐘 / 主題'], ['費用', 'NT$12,000 / 主題']].map(([l, v]) => (
-                    <div className="ps-meta-row" key={l}>
-                      <span className="ps-meta-label">{l}</span>
-                      <span className="ps-meta-val">{v}</span>
-                    </div>
-                  ))}
+                  <div className="path-expand-meta">
+                    {[['服務形式', '1 對 1 · 實體'], ['投入時間', '90 分鐘 / 主題'], ['費用', 'NT$12,000 / 主題']].map(([l, v]) => (
+                      <div className="path-expand-row" key={l}>
+                        <span className="path-expand-label">{l}</span>
+                        <span className="path-expand-val">{v}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

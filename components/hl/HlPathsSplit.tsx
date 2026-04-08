@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import HlSection from './HlSection'
-import HlSectionTitle from './HlSectionTitle'
+import HlTitleSection from './HlTitleSection'
 import HlPathStepNav from './HlPathStepNav'
 import HlIconSystemPath from './HlIconSystemPath'
 import HlIconThemePath from './HlIconThemePath'
@@ -30,10 +30,10 @@ export default function HlPathsSplit() {
   return (
     <HlSection id="paths">
       <HlPathStepNav />
-      <HlSectionTitle
-        label="選擇路徑"
+      <HlTitleSection
+        eyebrow="STEP 02"
         title="選擇你的清理路徑"
-        desc="完成生命音譜掃描後，根據你的能量地圖結果，選擇最適合你的清理路徑。"
+        subtitle="完成生命音譜掃描後，根據你的能量地圖結果，選擇最適合你的清理路徑。"
       />
 
       <div className="ps-outer">
