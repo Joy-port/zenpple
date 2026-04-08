@@ -213,12 +213,12 @@ export default function HlPage() {
       {/* ── PATH SELECTION ── */}
       <HlPathsPanel />
 
-      {/* Wave: paths → core-reset — lavender into deep lavender */}
+      {/* Wave: paths → core-reset — prominent */}
       <div className="cr-wave-enter" aria-hidden="true">
-        <svg viewBox="0 0 1440 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,22 C240,40 560,6 840,26 C1060,42 1280,10 1440,22 L1440,44 L0,44 Z" fill="#f2e8e7" />
-          <path d="M0,30 C320,14 680,44 1000,28 C1180,18 1340,38 1440,32 L1440,44 L0,44 Z" fill="#f2e8e7" opacity="0.55" />
-          <path d="M0,36 C400,24 800,44 1160,34 C1300,28 1390,40 1440,38 L1440,44 L0,44 Z" fill="#f2e8e7" opacity="0.28" />
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,40 C200,72 480,8 780,44 C1000,68 1240,10 1440,38 L1440,80 L0,80 Z" fill="#f2e8e7" />
+          <path d="M0,54 C280,22 640,76 960,48 C1140,32 1320,66 1440,54 L1440,80 L0,80 Z" fill="#f2e8e7" opacity="0.60" />
+          <path d="M0,64 C360,46 720,78 1080,58 C1260,46 1380,68 1440,64 L1440,80 L0,80 Z" fill="#f2e8e7" opacity="0.32" />
         </svg>
       </div>
 
@@ -281,11 +281,10 @@ export default function HlPage() {
         </div>
       </HlSection>
 
-      {/* Wave: core-reset → followup — rose-cream breathing divider */}
+      {/* Wave: core-reset → followup — barely visible seam */}
       <div className="fu-wave-enter" aria-hidden="true">
-        <svg viewBox="0 0 1440 36" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,18 C300,32 700,4 1100,20 C1260,28 1380,12 1440,18 L1440,36 L0,36 Z" fill="rgba(196,123,123,0.08)" />
-          <path d="M0,24 C400,10 800,34 1200,18 C1340,10 1410,28 1440,24 L1440,36 L0,36 Z" fill="rgba(196,123,123,0.05)" />
+        <svg viewBox="0 0 1440 18" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,9 C360,16 720,2 1080,10 C1260,14 1380,6 1440,9 L1440,18 L0,18 Z" fill="rgba(196,123,123,0.06)" />
         </svg>
       </div>
 
@@ -350,6 +349,15 @@ export default function HlPage() {
           </div>
         </div>
       </HlSection>
+
+      {/* Wave: followup → pearls — prominent, cream into dark purple */}
+      <div className="pearls-wave-enter" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,36 C220,68 560,4 860,42 C1080,66 1280,14 1440,36 L1440,80 L0,80 Z" fill="#2e1f2e" />
+          <path d="M0,50 C300,24 680,72 1020,44 C1200,30 1340,60 1440,50 L1440,80 L0,80 Z" fill="#2e1f2e" opacity="0.65" />
+          <path d="M0,62 C380,48 760,76 1120,58 C1300,50 1400,68 1440,62 L1440,80 L0,80 Z" fill="#2e1f2e" opacity="0.35" />
+        </svg>
+      </div>
 
       {/* ── PEARLS ── */}
       <section id="pearls">
