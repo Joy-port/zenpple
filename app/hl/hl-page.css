@@ -1238,7 +1238,7 @@ h2.sec-h2 {
 }
 
 @media (max-width: 640px) {
-  .ps-columns, .ps-container { grid-template-columns: 1fr; }
+  .ps-columns, .ps-container { grid-template-columns: 1fr; gap: 48px; }
 
   /* stack dual CTA buttons vertically */
   .ps-cta-wrap--dual {
