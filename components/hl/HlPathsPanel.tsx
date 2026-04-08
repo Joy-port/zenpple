@@ -38,17 +38,7 @@ export default function HlPathsPanel() {
 
       <div className="ps-outer">
 
-        {/* Branching arrow SVG */}
-        <svg width="100%" height="60" viewBox="0 0 400 60" aria-hidden="true" className="ps-branch-svg">
-          <circle cx="200" cy="8" r="4" fill="#C49A96"/>
-          <line x1="200" y1="12" x2="200" y2="30" stroke="#C49A96" strokeWidth="1"/>
-          <line x1="200" y1="30" x2="100" y2="50" stroke="#C49A96" strokeWidth="1"/>
-          <line x1="200" y1="30" x2="300" y2="50" stroke="#C49A96" strokeWidth="1"/>
-          <polyline points="93,45 100,50 107,45" fill="none" stroke="#C49A96" strokeWidth="1"/>
-          <polyline points="293,45 300,50 307,45" fill="none" stroke="#C49A96" strokeWidth="1"/>
-        </svg>
-
-        {/* Description row — below SVG, above cards */}
+        {/* Description row — above cards */}
         <div className="ps-desc-row">
           <p className="ps-desc-col ps-desc-col--rose">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。</p>
           <p className="ps-desc-col ps-desc-col--purple">已知卡點、想針對單一主題快速處理的人。</p>
@@ -193,7 +183,6 @@ export default function HlPathsPanel() {
           </div>
 
         </div>
-        <div className="ps-or-badge">or</div>
       </div>
 
       <p className="ps-path-note">不確定哪條適合你？完成生命音譜掃描後，禿禿會協助你判斷。</p>

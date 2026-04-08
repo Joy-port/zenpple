@@ -959,8 +959,8 @@ h2.sec-h2 {
   flex-direction: column;
   gap: 0.75rem;
 }
-.ps-outer-card--rose   { background: #F2ECED; }
-.ps-outer-card--purple { background: #EEEDF5; }
+.ps-outer-card--rose   { background: #F2ECED; border: 1px solid rgba(196,123,123,0.13); }
+.ps-outer-card--purple { background: #EEEDF5; border: 1px solid rgba(123,107,158,0.13); }
 
 /* branching arrow + description row above ps-columns — hl-paths-3 */
 .ps-branch-svg { display: block; margin-bottom: 0; }
