@@ -119,15 +119,6 @@ export default function HlPage() {
         </div>
       </HlSection>
 
-      {/* Wave: steps → sound-mapping — soft rose cloud wisps on cream */}
-      <div className="sm-wave-enter" aria-hidden="true">
-        <svg viewBox="0 0 1440 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,22 C240,40 560,6 840,26 C1060,42 1280,10 1440,22 L1440,44 L0,44 Z" fill="rgba(196,123,123,0.13)" />
-          <path d="M0,30 C320,14 680,44 1000,28 C1180,18 1340,38 1440,32 L1440,44 L0,44 Z" fill="rgba(196,123,123,0.07)" />
-          <path d="M0,36 C400,24 800,44 1160,34 C1300,28 1390,40 1440,38 L1440,44 L0,44 Z" fill="rgba(196,123,123,0.04)" />
-        </svg>
-      </div>
-
       {/* ── SOUND MAPPING ── */}
       <HlSection id="sound-mapping" className="sound-mapping">
         <div className="sm-step-icon">
@@ -201,12 +192,10 @@ export default function HlPage() {
         </div>
       </HlSection>
 
-      {/* Wave: sound-mapping → paths — rose into cream */}
+      {/* Wave: sound-mapping → paths */}
       <div className="sm-wave-exit" aria-hidden="true">
-        <svg viewBox="0 0 1440 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,22 C280,4 620,42 960,18 C1160,4 1320,36 1440,20 L1440,44 L0,44 Z" fill="#f8f5f0" />
-          <path d="M0,32 C360,48 720,16 1080,36 C1240,46 1360,22 1440,30 L1440,44 L0,44 Z" fill="#f8f5f0" opacity="0.58" />
-          <path d="M0,38 C480,28 880,46 1200,36 C1320,30 1400,42 1440,40 L1440,44 L0,44 Z" fill="#f8f5f0" opacity="0.30" />
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" width="100%" height="60" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#f8f5f0" />
         </svg>
       </div>
 
@@ -215,10 +204,8 @@ export default function HlPage() {
 
       {/* Wave: paths → core-reset — prominent */}
       <div className="cr-wave-enter" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,40 C200,72 480,8 780,44 C1000,68 1240,10 1440,38 L1440,80 L0,80 Z" fill="#f2e8e7" />
-          <path d="M0,54 C280,22 640,76 960,48 C1140,32 1320,66 1440,54 L1440,80 L0,80 Z" fill="#f2e8e7" opacity="0.60" />
-          <path d="M0,64 C360,46 720,78 1080,58 C1260,46 1380,68 1440,64 L1440,80 L0,80 Z" fill="#f2e8e7" opacity="0.32" />
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" width="100%" height="60" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,30 C360,0 1080,60 1440,30 L1440,60 L0,60 Z" fill="#F2EFEA" />
         </svg>
       </div>
 
@@ -280,13 +267,6 @@ export default function HlPage() {
           </div>
         </div>
       </HlSection>
-
-      {/* Wave: core-reset → followup — barely visible seam */}
-      <div className="fu-wave-enter" aria-hidden="true">
-        <svg viewBox="0 0 1440 18" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,9 C360,16 720,2 1080,10 C1260,14 1380,6 1440,9 L1440,18 L0,18 Z" fill="rgba(196,123,123,0.06)" />
-        </svg>
-      </div>
 
       {/* ── FOLLOW-UP ── */}
       <HlSection id="followup" className="followup">
@@ -350,12 +330,10 @@ export default function HlPage() {
         </div>
       </HlSection>
 
-      {/* Wave: followup → pearls — prominent, cream into dark purple */}
+      {/* Wave: followup → pearls — prominent */}
       <div className="pearls-wave-enter" aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,36 C220,68 560,4 860,42 C1080,66 1280,14 1440,36 L1440,80 L0,80 Z" fill="#2e1f2e" />
-          <path d="M0,50 C300,24 680,72 1020,44 C1200,30 1340,60 1440,50 L1440,80 L0,80 Z" fill="#2e1f2e" opacity="0.65" />
-          <path d="M0,62 C380,48 760,76 1120,58 C1300,50 1400,68 1440,62 L1440,80 L0,80 Z" fill="#2e1f2e" opacity="0.35" />
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" width="100%" height="60" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#2e1f2e" />
         </svg>
       </div>
 
