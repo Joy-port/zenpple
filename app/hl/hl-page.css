@@ -985,9 +985,9 @@ h2.sec-h2 {
 .ps-path-header-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0.75rem 0;
   gap: 10px;
-  cursor: pointer;
   list-style: none;
   user-select: none;
 }
@@ -1004,7 +1004,6 @@ h2.sec-h2 {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.08em;
-  flex: 1;
   text-align: center;
 }
 /* base: pill style used by HlPathsSplit */
