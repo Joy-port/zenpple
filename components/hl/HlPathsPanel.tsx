@@ -37,16 +37,11 @@ export default function HlPathsPanel() {
       />
 
       <div className="ps-outer">
-
-        {/* Description row — above cards */}
-        <div className="ps-desc-row">
-          <p className="ps-desc-col ps-desc-col--rose">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。</p>
-          <p className="ps-desc-col ps-desc-col--purple">已知卡點、想針對單一主題快速處理的人。</p>
-        </div>
-
         <div className="ps-columns">
 
-          {/* Left outer card */}
+          {/* Left column: description + card */}
+          <div className="ps-col">
+          <p className="ps-desc-col ps-desc-col--rose">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。</p>
           <div className="ps-outer-card ps-outer-card--rose">
             {/* Header */}
             <div className="ps-path-header">
@@ -126,8 +121,11 @@ export default function HlPathsPanel() {
               <button className="ps-cta ps-cta--rose" onClick={e => { e.stopPropagation(); navScrollTo('followup') }}>了解陪跑計劃</button>
             </div>
           </div>
+          </div>{/* end ps-col rose */}
 
-          {/* Right outer card */}
+          {/* Right column: description + card */}
+          <div className="ps-col">
+          <p className="ps-desc-col ps-desc-col--purple">已知卡點、想針對單一主題快速處理的人。</p>
           <div className="ps-outer-card ps-outer-card--purple">
             {/* Header */}
             <div className="ps-path-header">
@@ -181,6 +179,7 @@ export default function HlPathsPanel() {
               <button className="ps-cta ps-cta--purple" onClick={e => { e.stopPropagation(); navScrollTo('pearls') }}>查看六大定音主題</button>
             </div>
           </div>
+          </div>{/* end ps-col purple */}
 
         </div>
       </div>
