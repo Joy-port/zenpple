@@ -787,7 +787,7 @@ h2.sec-h2 {
 /* Left column: expand/accordion cards */
 .path-expand-card {
   background: linear-gradient(148deg, #C47B7B 0%, #b06060 100%);
-  border-radius: 20px;
+  border-radius: 14px;
   overflow: hidden;
   transition: box-shadow 0.22s;
 }
