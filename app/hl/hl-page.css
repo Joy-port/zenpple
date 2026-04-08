@@ -954,7 +954,7 @@ h2.sec-h2 {
 }
 .ps-outer-card {
   border-radius: 20px;
-  padding: 16px;
+  padding: 16px 20px;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -1044,6 +1044,14 @@ h2.sec-h2 {
   color: rgba(0,0,0,0.52);
   text-align: left;
   animation: ps-tip-in 0.18s ease;
+}
+/* always-visible description with white bg (hl-paths-3) */
+.ps-path-tip-content--static {
+  background: rgba(255,255,255,0.72);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 0 1rem 0.25rem;
+  animation: none;
 }
 .ps-path-desc  { font-size: 12px; color: rgba(0,0,0,0.48); line-height: 1.65; margin-bottom: 1.25rem; text-align: center; }
 @keyframes ps-tip-in {

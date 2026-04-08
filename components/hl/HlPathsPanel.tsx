@@ -42,16 +42,15 @@ export default function HlPathsPanel() {
           {/* Left outer card */}
           <div className="ps-outer-card ps-outer-card--rose">
             {/* Header */}
-            <details className="ps-path-header">
-              <summary className="ps-path-header-row">
+            <div className="ps-path-header">
+              <div className="ps-path-header-row">
                 <div className="ps-path-icon">
                   <HlIconSystemPath style={{ color: '#B87C78' }} aria-hidden="true" />
                 </div>
                 <span className="ps-icon-label">完 整 系 統 路 徑</span>
-                <span className="ps-path-tip-trigger ps-path-tip-trigger--rose">ⓘ</span>
-              </summary>
-              <p className="ps-path-tip-content">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。兩個模組相互搭配使用。</p>
-            </details>
+              </div>
+              <p className="ps-path-tip-content ps-path-tip-content--static">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。兩個模組相互搭配使用。</p>
+            </div>
 
             {/* Cards */}
             <div className={`path-expand-card${expandA ? ' expanded' : ''}`}>
@@ -125,16 +124,15 @@ export default function HlPathsPanel() {
           {/* Right outer card */}
           <div className="ps-outer-card ps-outer-card--purple">
             {/* Header */}
-            <details className="ps-path-header">
-              <summary className="ps-path-header-row">
+            <div className="ps-path-header">
+              <div className="ps-path-header-row">
                 <div className="ps-path-icon">
                   <HlIconThemePath style={{ color: '#8880B0' }} aria-hidden="true" />
                 </div>
                 <span className="ps-icon-label">主 題 精 準 路 徑</span>
-                <span className="ps-path-tip-trigger ps-path-tip-trigger--purple">ⓘ</span>
-              </summary>
-              <p className="ps-path-tip-content">已知卡點、想針對單一主題快速處理的人。選擇一個對應你當下狀態的主題。</p>
-            </details>
+              </div>
+              <p className="ps-path-tip-content ps-path-tip-content--static">已知卡點、想針對單一主題快速處理的人。選擇一個對應你當下狀態的主題。</p>
+            </div>
 
             <div className="ps-topic-tags">
               <span className="ps-topic-label">可選主題</span>
