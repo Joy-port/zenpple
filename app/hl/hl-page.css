@@ -962,6 +962,22 @@ h2.sec-h2 {
 .ps-outer-card--rose   { background: #F2ECED; }
 .ps-outer-card--purple { background: #EEEDF5; }
 
+/* description row above ps-columns — hl-paths-3 */
+.ps-desc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 0.75rem;
+}
+.ps-desc-col {
+  font-family: var(--f-display);
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0;
+}
+.ps-desc-col--rose   { color: #B87C78; }
+.ps-desc-col--purple { color: #8880B0; }
+
 /* ps-container / ps-panel — used by HlPathsSplit (hl-paths-2) */
 .ps-container {
   display: grid;
