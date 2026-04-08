@@ -696,7 +696,7 @@ h2.sec-h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  align-items: stretch;
+  align-items: start;
 }
 
 /* Left column — paired group container */
@@ -719,12 +719,8 @@ h2.sec-h2 {
   padding-bottom: 2px;
 }
 
-/* Left column flip card — stretches with flex, no fixed height */
-.flip-outer--nav {
-  flex: 1;
-  height: auto;
-  min-height: 160px;
-}
+/* Left column flip cards — auto-height, share equal flex space */
+.flip-outer--nav { flex: 1; }
 .flip-front--rose {
   background: linear-gradient(148deg, #C47B7B 0%, #b06060 100%) !important;
   border: none !important;
@@ -748,24 +744,20 @@ h2.sec-h2 {
 }
 .flip-back--rose .flip-btn:hover { background: rgba(196,123,123,0.14) !important; }
 
-/* Right column — flip card: obvious purple front, cream back */
+/* Flip cards — content-driven height via CSS grid stacking */
 .flip-outer {
   perspective: 1200px;
-  height: 100%;
-  min-height: 380px;
   cursor: pointer;
 }
 .flip-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  display: grid;
+  grid-template-areas: "card";
   transform-style: preserve-3d;
   transition: transform .65s cubic-bezier(.4,0,.2,1);
 }
 .flip-outer.flipped .flip-inner { transform: rotateY(180deg); }
 .flip-front, .flip-back {
-  position: absolute;
-  inset: 0;
+  grid-area: card;
   border-radius: 20px;
   padding: 44px 40px;
   backface-visibility: hidden;
@@ -1391,7 +1383,7 @@ h2.sec-h2 {
   .sm-inner { grid-template-columns: 1fr; }
   .sm-left { padding: 40px 32px; justify-content: flex-start; }
   .paths-grid { grid-template-columns: 1fr; }
-  .flip-outer { min-height: 320px; height: auto; }
+  .flip-outer--nav { flex: none; width: 100%; }
   .fu-card { grid-template-columns: 1fr; }
   .pearls-ring-wrap { width: 100%; height: 480px; }
 }

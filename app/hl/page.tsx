@@ -263,10 +263,13 @@ export default function HlPage() {
                 <div className="flip-front flip-front--rose">
                   <div className="path-icon path-icon--rose" aria-hidden="true">
                     <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
-                      <circle cx="28" cy="28" r="22" fill="currentColor" opacity="0.10" />
-                      <circle cx="28" cy="28" r="15" fill="currentColor" opacity="0.22" />
-                      <circle cx="28" cy="28" r="9"  fill="currentColor" opacity="0.55" />
-                      <circle cx="28" cy="28" r="4"  fill="currentColor" opacity="0.88" />
+                      <circle cx="28" cy="8"    r="4"   fill="currentColor" opacity="0.90" />
+                      <circle cx="28" cy="20"   r="3.5" fill="currentColor" opacity="0.75" />
+                      <circle cx="28" cy="30.5" r="3"   fill="currentColor" opacity="0.60" />
+                      <circle cx="28" cy="39.5" r="2.5" fill="currentColor" opacity="0.45" />
+                      <circle cx="28" cy="47"   r="2"   fill="currentColor" opacity="0.32" />
+                      <circle cx="20" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
+                      <circle cx="36" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
                     </svg>
                   </div>
                   <h3>陪跑計劃</h3>
