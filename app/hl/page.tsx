@@ -60,7 +60,30 @@ const pearlData: Record<string, { name: string; en: string; lightBg: string; des
 export default function HlPage() {
   useEffect(() => {
     document.body.classList.add('page-hl')
-    return () => { document.body.classList.remove('page-hl') }
+    return () => {
+      document.body.classList.remove('page-hl')
+      document.body.removeAttribute('data-hl-section')
+    }
+  }, [])
+
+  // Nav colour adapts to current section
+  useEffect(() => {
+    const ids = ['hero', 'steps', 'sound-mapping', 'paths', 'core-reset', 'followup', 'pearls', 'hl-cta']
+    const obs = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            document.body.setAttribute('data-hl-section', entry.target.id)
+          }
+        })
+      },
+      { threshold: 0.25 }
+    )
+    ids.forEach(id => {
+      const el = document.getElementById(id)
+      if (el) obs.observe(el)
+    })
+    return () => obs.disconnect()
   }, [])
 
   const [smOpen, setSmOpen] = useState(false)
@@ -353,7 +376,6 @@ export default function HlPage() {
           title="六大定音珍珠系列"
           subtitle="精準對齊你當下最需要清理的場域。"
         />
-        <p className="pearls-meta">NT$12,000 / 主題 · 90 min · 禿禿 親自執行</p>
 
         <div className="pearls-ring-wrap">
           <div className="pearls-ring-halo" />
