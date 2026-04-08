@@ -8,14 +8,27 @@ export default function HlHero() {
   const titleRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    // Title reveal
     const el = titleRef.current
-    if (!el) return
-    const io = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) el.classList.add('in-view') },
-      { threshold: 0.08 }
-    )
-    io.observe(el)
-    return () => io.disconnect()
+    if (el) {
+      const io = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) el.classList.add('in-view') },
+        { threshold: 0.08 }
+      )
+      io.observe(el)
+    }
+
+    // Nav: transparent at top of HL hero, fades in on scroll
+    const nav = document.querySelector('header') as HTMLElement | null
+    if (nav) {
+      const onScroll = () => nav.classList.toggle('hl-scrolled', window.scrollY > 40)
+      onScroll() // set initial state
+      window.addEventListener('scroll', onScroll, { passive: true })
+      return () => {
+        window.removeEventListener('scroll', onScroll)
+        nav.classList.remove('hl-scrolled')
+      }
+    }
   }, [])
 
   return (
@@ -23,8 +36,11 @@ export default function HlHero() {
       {/* Canvas fills all 230vh */}
       <HlHeroBackground />
 
-      {/* ── First viewport: image only ── */}
+      {/* ── First viewport: image + bg chars ── */}
       <div className="hero-image-zone" aria-hidden="true">
+        {/* Desktop: left of image | Mobile: below image (grid row 2 col 1) */}
+        <div className="hero-bg-char">深層</div>
+
         <div className="hero-watermark">
           <Image
             src="/hl/頌缽波動-粉.png"
@@ -35,6 +51,9 @@ export default function HlHero() {
             priority
           />
         </div>
+
+        {/* Desktop: right of image | Mobile: below image (grid row 2 col 2) */}
+        <div className="hero-bg-char">對齊</div>
       </div>
 
       {/* ── Title zone: scrolls into view with staggered animation ── */}

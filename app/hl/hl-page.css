@@ -4,24 +4,50 @@
   --purple: #7B6B9E;
 }
 
-/* ── NAV overrides for HL page ── */
+/* ── NAV overrides for HL page ──────────────────────────────────────────── */
+/* Transparent at hero top; fades in when .hl-scrolled is toggled by JS */
 body.page-hl header {
-  border-bottom-color: rgba(196,123,123,0.12) !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border-bottom-color: transparent !important;
+  transition: background 0.5s ease, backdrop-filter 0.5s ease, border-bottom-color 0.5s ease !important;
+}
+body.page-hl header.hl-scrolled {
+  background: rgba(42, 28, 48, 0.80) !important;
+  backdrop-filter: blur(16px) saturate(1.3) !important;
+  border-bottom-color: rgba(196,123,123,0.14) !important;
+}
+/* Logo — screen blend so it shows on dark bg */
+body.page-hl header img {
+  mix-blend-mode: screen !important;
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.75 !important;
+}
+/* Nav links — white on dark hero bg */
+body.page-hl header a,
+body.page-hl header a:visited {
+  color: rgba(255,255,255,0.72) !important;
 }
 body.page-hl header ul a:hover {
-  color: var(--rose) !important;
+  color: rgba(255,255,255,1) !important;
   opacity: 1 !important;
 }
+/* CTA pill button */
 body.page-hl header ul li:last-child a {
-  border-color: var(--rose) !important;
-  color: var(--rose) !important;
+  border-color: rgba(255,255,255,0.30) !important;
+  color: rgba(255,255,255,0.80) !important;
+}
+/* Hamburger lines */
+body.page-hl header button span {
+  background: rgba(255,255,255,0.80) !important;
 }
 
 /* ══ HERO ══════════════════════════════════════════════════════════════════ */
 
 @keyframes hl-watermark-breathe {
-  0%, 100% { opacity: 0.15; transform: scale(1); }
-  50%       { opacity: 0.22; transform: scale(1.05); }
+  /* Image is primary — clearly visible white */
+  0%, 100% { opacity: 0.44; transform: scale(1); }
+  50%       { opacity: 0.60; transform: scale(1.04); }
 }
 
 /* Total section height — canvas + wave fill this; content does not extend it */
@@ -38,20 +64,37 @@ body.page-hl header ul li:last-child a {
   left: 0;
   right: 0;
   height: 100vh;
+  /* Desktop: row — [深層] [image] [對齊] */
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: clamp(16px, 3vw, 48px);
+  padding: clamp(60px, 8vh, 80px) clamp(32px, 5vw, 80px) clamp(40px, 6vh, 60px);
   z-index: 2;
   pointer-events: none;
+}
+
+/* Background characters — ghost level, below image visually */
+.hero-bg-char {
+  font-family: var(--f-zh);
+  font-weight: 900;
+  font-size: clamp(44px, 6.5vw, 84px);
+  color: rgba(255,255,255,0.06);
+  writing-mode: vertical-rl;
+  letter-spacing: 0.12em;
+  user-select: none;
+  pointer-events: none;
+  flex-shrink: 0;
 }
 
 .hero-watermark {
   animation: hl-watermark-breathe 6s ease-in-out infinite;
   user-select: none;
+  flex-shrink: 0;
 }
 .hero-watermark img {
-  /* between current (too small) and original (too large) */
-  width: clamp(220px, 34vw, 420px) !important;
+  width: clamp(200px, 30vw, 380px) !important;
   height: auto !important;
 }
 
@@ -151,9 +194,39 @@ body.page-hl header ul li:last-child a {
 @media (max-width: 640px) {
   #hero { min-height: 210vh; }
 
+  /* Mobile: column grid — image top spanning both cols, chars side-by-side below */
+  .hero-image-zone {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    justify-items: center;
+    gap: clamp(20px, 4vh, 36px) 0;
+    padding: clamp(64px, 10vh, 88px) 28px clamp(32px, 5vh, 48px);
+  }
+  .hero-watermark {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
   .hero-watermark img {
-    /* larger on mobile — image is the hero; cropping is acceptable */
-    width: clamp(240px, 80vw, 340px) !important;
+    /* smaller on mobile so chars fit in viewport */
+    width: clamp(150px, 58vw, 240px) !important;
+  }
+  /* 深層 — below image, left */
+  .hero-bg-char:nth-child(1) {
+    grid-column: 1;
+    grid-row: 2;
+    writing-mode: horizontal-tb;
+    font-size: clamp(24px, 7vw, 36px);
+    letter-spacing: 0.15em;
+  }
+  /* 對齊 — below image, right */
+  .hero-bg-char:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+    writing-mode: horizontal-tb;
+    font-size: clamp(24px, 7vw, 36px);
+    letter-spacing: 0.15em;
   }
 
   .hero-title-zone {
