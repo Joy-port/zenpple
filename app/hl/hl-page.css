@@ -13,9 +13,10 @@ body.page-hl header {
   transition: background 0.5s ease, backdrop-filter 0.5s ease, border-bottom-color 0.5s ease !important;
 }
 body.page-hl header.hl-scrolled {
-  background: rgba(42, 28, 48, 0.80) !important;
-  backdrop-filter: blur(16px) saturate(1.3) !important;
-  border-bottom-color: rgba(196,123,123,0.14) !important;
+  background: rgba(215, 165, 165, 0.14) !important;
+  backdrop-filter: blur(20px) saturate(1.4) !important;
+  border-bottom: 1px solid rgba(123, 107, 158, 0.50) !important;
+  box-shadow: 0 2px 18px rgba(196, 123, 123, 0.12) !important;
 }
 /* Logo — screen blend so it shows on dark bg */
 body.page-hl header img {
@@ -45,9 +46,9 @@ body.page-hl header button span {
 /* ══ HERO ══════════════════════════════════════════════════════════════════ */
 
 @keyframes hl-watermark-breathe {
-  /* Image is primary — clearly visible white */
-  0%, 100% { opacity: 0.44; transform: scale(1); }
-  50%       { opacity: 0.60; transform: scale(1.04); }
+  /* Image is primary — full white, subtle scale breath only */
+  0%, 100% { opacity: 0.88; transform: scale(1); }
+  50%       { opacity: 1.00; transform: scale(1.04); }
 }
 
 /* Total section height — canvas + wave fill this; content does not extend it */
@@ -79,7 +80,7 @@ body.page-hl header button span {
   font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(64px, 9vw, 112px);
-  color: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.75);
   writing-mode: horizontal-tb;
   letter-spacing: 0.06em;
   user-select: none;
@@ -229,16 +230,16 @@ body.page-hl header button span {
     display: block;
     font-family: var(--f-zh);
     font-weight: 900;
-    font-size: clamp(18px, 5vw, 26px);
-    color: rgba(255,255,255,0.09);
+    font-size: clamp(26px, 7.5vw, 40px);
+    color: rgba(255,255,255,0.75);
     letter-spacing: 0.22em;
     text-align: center;
     user-select: none;
   }
 
-  /* Smaller image so caption fits in first viewport */
+  /* +30% larger on mobile — image is the main character */
   .hero-watermark img {
-    width: clamp(150px, 55vw, 230px) !important;
+    width: clamp(195px, 72vw, 300px) !important;
   }
 
   /* Hide scroll hint on mobile */
