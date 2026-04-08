@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import './hl-page.css'
 import HlHero from '@/components/hl/HlHero'
 import HlSection from '@/components/hl/HlSection'
@@ -84,25 +85,44 @@ export default function HlPage() {
         <HlSectionTitle
           label="HOW IT WORKS"
           title="定頻邏輯兩步驟"
-          desc="每段旅程都遵循兩個核心步驟——從精準掃描到深度清理。點擊步驟了解更多。"
+          desc="每段旅程都遵循兩個核心步驟——從精準掃描到深度清理。"
         />
 
-        <div className="steps-horiz">
-          <div className="step-card" onClick={() => navScrollTo('sound-mapping')}>
-            <div className="step-card-num">
-              <div className="step-card-num-txt">01</div>
+        <div className="steps-flow">
+          {/* Step 01 */}
+          <div className="step-col" onClick={() => navScrollTo('sound-mapping')}>
+            <div className="step-dot-wrap">
+              <Image src="/resource/circle/single/點-1.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+              <span className="step-dot-num">01</span>
             </div>
-            <h3>掃描<br />生命音譜掃描</h3>
-            <p>以 1.5 小時深度工作，建立你的身心現況雷達，形成可視化的能量地圖。</p>
-            <div className="step-card-link">了解詳情 →</div>
+            <div className="step-body">
+              <div className="step-eyebrow">掃描</div>
+              <h3>生命音譜掃描</h3>
+              <p>以 1.5 小時深度工作，建立你的身心現況雷達，形成可視化的能量地圖。</p>
+              <div className="step-card-link">了解詳情 →</div>
+            </div>
           </div>
-          <div className="step-card" onClick={() => navScrollTo('paths')}>
-            <div className="step-card-num">
-              <div className="step-card-num-txt">02</div>
+
+          {/* Connector */}
+          <div className="step-connector" aria-hidden="true">
+            <div className="step-conn-line" />
+            <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
+              <path d="M1 1 L7 6 L1 11" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+
+          {/* Step 02 */}
+          <div className="step-col step-col-2" onClick={() => navScrollTo('paths')}>
+            <div className="step-dot-wrap">
+              <Image src="/resource/circle/single/點-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+              <span className="step-dot-num">02</span>
             </div>
-            <h3>清理<br />選擇你的路徑</h3>
-            <p>根據掃描結果，選擇全面式系統清理或針對式主題對齊，兩條路徑皆由禿禿親自執行。</p>
-            <div className="step-card-link">了解詳情 →</div>
+            <div className="step-body">
+              <div className="step-eyebrow">清理</div>
+              <h3>選擇你的路徑</h3>
+              <p>根據掃描結果，選擇全面式系統清理或針對式主題對齊，兩條路徑皆由禿禿親自執行。</p>
+              <div className="step-card-link">了解詳情 →</div>
+            </div>
           </div>
         </div>
       </HlSection>
