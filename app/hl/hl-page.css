@@ -1047,7 +1047,7 @@ h2.sec-h2 {
 /* always-visible description with white bg (hl-paths-3) */
 .ps-path-tip-content--static {
   background: rgba(255,255,255,0.72);
-  border-radius: 10px;
+  border-radius: 14px;
   padding: 10px 14px;
   margin: 0;
   animation: none;
