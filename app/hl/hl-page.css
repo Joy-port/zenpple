@@ -1007,19 +1007,35 @@ h2.sec-h2 {
   flex: 1;
   text-align: center;
 }
+/* base: pill style used by HlPathsSplit */
 .ps-path-tip-trigger {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
   display: inline-flex;
   align-items: center;
+  gap: 5px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: rgba(0,0,0,0.36);
+  border: 0.5px solid rgba(0,0,0,0.16);
+  border-radius: 20px;
+  padding: 3px 11px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  flex-shrink: 0;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+.ps-path-tip-trigger::-webkit-details-marker { display: none; }
+/* circle override for ⓘ variants used by HlPathsPanel */
+.ps-path-tip-trigger--rose,
+.ps-path-tip-trigger--purple {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border-radius: 50%;
   justify-content: center;
-  font-family: var(--f-display);
   font-size: 12px;
   letter-spacing: 0;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: background 0.18s;
 }
 .ps-path-tip-content {
   padding: 0 1.25rem 1rem;
