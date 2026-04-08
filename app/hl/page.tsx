@@ -56,6 +56,7 @@ export default function HlPage() {
   }, [])
 
   const [smOpen, setSmOpen] = useState(false)
+  const [crOpen, setCrOpen] = useState(false)
   const [openPlans, setOpenPlans] = useState<Record<string, boolean>>({})
   const [activePearl, setActivePearl] = useState<string | null>(null)
 
@@ -234,39 +235,48 @@ export default function HlPage() {
             <p>這是一場讓身心頻率徹底「Core Reset」的過程——幫助你在面對人生轉折與大課題時，擁有一套穩定、純粹且充滿力量的內在支持系統。</p>
           </div>
           <div className="cr-right">
-            <div className="cr-divider" />
-            <span className="cr-section-label">療程流程</span>
-            <div className="cr-process">
-              {[
-                ['30 min', '抽脈輪牌卡 + 冥想引導'],
-                ['70 min', '七脈輪淨化 & 脈輪能量平衡'],
-                ['80 min', '七脈輪能量解讀與平衡指引'],
-              ].map(([time, label]) => (
-                <div className="cr-process-row" key={time}>
-                  <span className="cr-process-time">{time}</span>
-                  <span className="cr-process-label">{label}</span>
-                </div>
-              ))}
+            {/* View A: 療程流程 */}
+            <div className={`cr-view${crOpen ? ' cr-view--hidden' : ''}`}>
+              <div className="cr-view-spacer" />
+              <span className="cr-section-label">療程流程</span>
+              <div className="cr-process">
+                {[
+                  ['30 min', '抽脈輪牌卡 + 冥想引導'],
+                  ['70 min', '七脈輪淨化 & 脈輪能量平衡'],
+                  ['80 min', '七脈輪能量解讀與平衡指引'],
+                ].map(([time, label]) => (
+                  <div className="cr-process-row" key={time}>
+                    <span className="cr-process-time">{time}</span>
+                    <span className="cr-process-label">{label}</span>
+                  </div>
+                ))}
+              </div>
+              <button className="cr-toggle" onClick={() => setCrOpen(true)}>
+                查看費用與資訊 →
+              </button>
             </div>
-            <div className="cr-divider" />
-            <div className="cr-meta-list">
-              {[
-                ['服務形式', '1 對 1 · 實體預約'],
-                ['前置條件', '須先完成生命音譜掃描'],
-                ['投入時間', '3 小時'],
-                ['費用',     'NT$45,000'],
-              ].map(([label, val]) => (
-                <div className="cr-meta-row" key={label}>
-                  <span className="cr-meta-label">{label}</span>
-                  <span className="cr-meta-val">{val}</span>
-                </div>
-              ))}
+            {/* View B: 規格表 */}
+            <div className={`cr-view${!crOpen ? ' cr-view--hidden' : ''}`}>
+              <div className="cr-view-spacer" />
+              <div className="cr-meta-list">
+                {[
+                  ['服務形式', '1 對 1 · 實體預約'],
+                  ['前置條件', '須先完成生命音譜掃描'],
+                  ['投入時間', '3 小時'],
+                  ['費用',     'NT$45,000'],
+                  ['銜接方案', '可接續陪跑計劃'],
+                ].map(([label, val]) => (
+                  <div className="cr-meta-row" key={label}>
+                    <span className="cr-meta-label">{label}</span>
+                    <span className="cr-meta-val">{val}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="cr-toggle-row">
+                <button className="cr-toggle" onClick={() => setCrOpen(false)}>← 返回</button>
+                <button className="cr-cta" onClick={() => navScrollTo('followup')}>了解陪跑計劃 →</button>
+              </div>
             </div>
-            <div className="cr-divider" />
-            <p className="cr-next-note">↓ 完成後可銜接陪跑計劃</p>
-            <button className="cr-cta" onClick={() => navScrollTo('followup')}>
-              了解陪跑計劃 →
-            </button>
           </div>
         </div>
       </HlSection>
