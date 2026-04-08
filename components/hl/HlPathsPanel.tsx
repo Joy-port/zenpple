@@ -42,7 +42,7 @@ export default function HlPathsPanel() {
           {/* Left outer card */}
           <div className="ps-outer-card ps-outer-card--rose">
             {/* Header */}
-            <details className="ps-path-header">
+            <details className="ps-path-header" open>
               <summary className="ps-path-header-row">
                 <div className="ps-path-icon">
                   <HlIconSystemPath style={{ color: '#B87C78' }} aria-hidden="true" />
@@ -124,7 +124,7 @@ export default function HlPathsPanel() {
           {/* Right outer card */}
           <div className="ps-outer-card ps-outer-card--purple">
             {/* Header */}
-            <details className="ps-path-header">
+            <details className="ps-path-header" open>
               <summary className="ps-path-header-row">
                 <div className="ps-path-icon">
                   <HlIconThemePath style={{ color: '#8880B0' }} aria-hidden="true" />
