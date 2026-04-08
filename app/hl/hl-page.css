@@ -755,6 +755,35 @@ h2.sec-h2 {
   text-transform: uppercase;
 }
 
+/* Left column flip card — stretches with flex, no fixed height */
+.flip-outer--nav {
+  flex: 1;
+  height: auto;
+  min-height: 160px;
+}
+.flip-front--rose {
+  background: linear-gradient(148deg, #C47B7B 0%, #b06060 100%) !important;
+  border: none !important;
+}
+.flip-front--rose h3 { color: #fff !important; }
+.flip-front--rose p  { color: rgba(255,255,255,0.62) !important; }
+.flip-back--rose {
+  background: linear-gradient(148deg, #fdf0f0 0%, #f5e8e8 100%) !important;
+}
+.flip-back--rose h3 { color: #7a3838 !important; }
+.flip-back--rose p  { color: rgba(122,56,56,0.70) !important; }
+.flip-back--rose .flip-back-meta {
+  border-color: rgba(196,123,123,0.12) !important;
+}
+.flip-back--rose .flip-back-meta-row { color: rgba(80,40,40,0.70) !important; }
+.flip-back--rose .flip-back-meta-label { color: #C47B7B !important; }
+.flip-back--rose .flip-btn {
+  border-color: rgba(196,123,123,0.35) !important;
+  color: #C47B7B !important;
+  background: rgba(196,123,123,0.06) !important;
+}
+.flip-back--rose .flip-btn:hover { background: rgba(196,123,123,0.14) !important; }
+
 /* Right column — flip card: obvious purple front, cream back */
 .flip-outer {
   perspective: 1200px;
