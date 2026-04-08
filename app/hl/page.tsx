@@ -280,6 +280,51 @@ export default function HlPage() {
         </div>
       </HlSection>
 
+      {/* ── CORE RESET ── */}
+      <HlSection id="core-reset" className="core-reset">
+        <HlSectionTitle
+          label="全面式系統清理 · HL-02"
+          title="七脈輪能量調和"
+          desc="從基底到頂點的系統性重整，讓身心頻率徹底回歸原始和諧。"
+        />
+        <div className="cr-card">
+          <div className="cr-left">
+            <p>針對目前面臨的重大生命課題，由基底海底輪向上延伸至頂輪，進行系統性的頻率重整。藉由頌缽穩定的物理波頻，逐一清理累積在七個能量中心的雜訊，重新建立各中心點之間的流動與同步。</p>
+            <p>這是一場讓身心頻率徹底「Core Reset」的過程——幫助你在面對人生轉折與大課題時，擁有一套穩定、純粹且充滿力量的內在支持系統。</p>
+            <div className="cr-process">
+              {[
+                ['30 min', '抽脈輪牌卡 + 冥想引導'],
+                ['70 min', '七脈輪淨化 & 脈輪能量平衡'],
+                ['80 min', '七脈輪能量解讀與平衡指引'],
+              ].map(([time, label]) => (
+                <div className="cr-process-row" key={time}>
+                  <span className="cr-process-time">{time}</span>
+                  <span className="cr-process-label">{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="cr-right">
+            <div className="cr-meta-list">
+              {[
+                ['服務形式', '1 對 1 · 實體預約'],
+                ['前置條件', '須先完成生命音譜掃描'],
+                ['投入時間', '3 小時'],
+                ['費用',     'NT$45,000'],
+              ].map(([label, val]) => (
+                <div className="cr-meta-row" key={label}>
+                  <span className="cr-meta-label">{label}</span>
+                  <span className="cr-meta-val">{val}</span>
+                </div>
+              ))}
+            </div>
+            <button className="cr-cta" onClick={() => navScrollTo('followup')}>
+              了解陪跑計劃 →
+            </button>
+          </div>
+        </div>
+      </HlSection>
+
       {/* ── FOLLOW-UP ── */}
       <section id="followup">
         <div className="section-label">落地整合</div>
