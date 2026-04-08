@@ -1478,9 +1478,9 @@ h2.sec-h2 {
 }
 .fu-step-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 16px;
-  padding: 14px 0;
+  padding: 12px 0;
   border-bottom: 1px solid rgba(196,123,123,0.08);
   font-size: 13px;
   color: #666;
@@ -1488,13 +1488,30 @@ h2.sec-h2 {
 }
 .fu-step-row:last-child { border-bottom: none; }
 .fu-step-mark {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fu-step-mark-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/resource/circle/pink/粉點-1.png');
+  background-size: cover;
+  background-position: center;
+  display: block;
+}
+.fu-step-mark-char {
+  position: relative;
   font-family: var(--f-zh);
   font-weight: 700;
-  font-size: 15px;
-  color: rgba(196,123,123,0.7);
-  min-width: 20px;
-  flex-shrink: 0;
-  margin-top: 1px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1;
+  z-index: 1;
 }
 .fu-card-right {
   padding: 64px;
@@ -1526,6 +1543,14 @@ h2.sec-h2 {
   padding: 5px 14px;
   color: var(--rose);
 }
+/* force "完成系統清理後可加選" to its own row on desktop */
+.fu-cap--prereq {
+  flex-basis: 100%;
+  width: fit-content;
+}
+@media (max-width: 640px) {
+  .fu-cap--prereq { margin-top: 4px; }
+}
 .fu-plans-compact {
   display: flex;
   flex-direction: column;
@@ -1551,6 +1576,9 @@ h2.sec-h2 {
   font-size: 15px;
   letter-spacing: 0.03em;
 }
+.fu-plan-c--5  .fu-plan-c-name { color: #C49898; }
+.fu-plan-c--10 .fu-plan-c-name { color: #A86060; }
+.fu-plan-c--15 .fu-plan-c-name { color: #7A3D3D; }
 .fu-plan-c-plus {
   font-size: 18px;
   color: rgba(196,123,123,0.45);

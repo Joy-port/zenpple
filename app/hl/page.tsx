@@ -311,7 +311,10 @@ export default function HlPage() {
                   ['踐', '實踐分享 ― 提供具體行動建議與日常定錨策略'],
                 ].map(([mark, text]) => (
                   <div className="fu-step-row" key={mark}>
-                    <span className="fu-step-mark">{mark}</span>
+                    <span className="fu-step-mark">
+                      <span className="fu-step-mark-bg" aria-hidden="true" />
+                      <span className="fu-step-mark-char">{mark}</span>
+                    </span>
                     <span>{text}</span>
                   </div>
                 ))}
@@ -319,18 +322,18 @@ export default function HlPage() {
             </div>
             <div className="fu-card-right">
               <div className="fu-caps-row">
-                {['1 對 1 · 實體預約', '1.5 小時 / 堂', '完成系統清理後可加選'].map(cap => (
-                  <span className="fu-cap" key={cap}>{cap}</span>
-                ))}
+                <span className="fu-cap">1 對 1 · 實體預約</span>
+                <span className="fu-cap">1.5 小時 / 堂</span>
+                <span className="fu-cap fu-cap--prereq">完成系統清理後可加選</span>
               </div>
               <div className="fu-card-right-title">選擇你的方案</div>
               <div className="fu-plans-compact">
                 {[
-                  { id: 'fpc-5',  name: '五堂計畫',     duration: '1.5 小時 / 堂 · 共 5 堂',  price: 'NT$75,000',  prereq: '完成系統清理' },
-                  { id: 'fpc-10', name: '十堂計畫',     duration: '1.5 小時 / 堂 · 共 10 堂', price: 'NT$150,000', prereq: '完成系統清理' },
-                  { id: 'fpc-15', name: '十五堂旗艦計畫', duration: '1.5 小時 / 堂 · 共 15 堂', price: 'NT$225,000', prereq: '完成系統清理 · 長期深度整合' },
+                  { id: 'fpc-5',  name: '五堂計畫',       duration: '1.5 小時 / 堂 · 共 5 堂',  price: 'NT$75,000',  note: '完成系統清理', mod: 'fu-plan-c--5' },
+                  { id: 'fpc-10', name: '十堂計畫',       duration: '1.5 小時 / 堂 · 共 10 堂', price: 'NT$150,000', note: '完成系統清理', mod: 'fu-plan-c--10' },
+                  { id: 'fpc-15', name: '十五堂旗艦計畫', duration: '1.5 小時 / 堂 · 共 15 堂', price: 'NT$225,000', note: '完成系統清理 · 長期深度整合', mod: 'fu-plan-c--15' },
                 ].map(plan => (
-                  <div className={`fu-plan-c${openPlans[plan.id] ? ' open' : ''}`} key={plan.id}>
+                  <div className={`fu-plan-c ${plan.mod}${openPlans[plan.id] ? ' open' : ''}`} key={plan.id}>
                     <div className="fu-plan-c-header" onClick={() => togglePlan(plan.id)}>
                       <span className="fu-plan-c-name">{plan.name}</span>
                       <span className="fu-plan-c-plus">+</span>
@@ -338,7 +341,7 @@ export default function HlPage() {
                     <div className="fu-plan-c-detail">
                       <div className="fu-cd-row"><span className="fu-cd-label">投入時間</span><span className="fu-cd-val">{plan.duration}</span></div>
                       <div className="fu-cd-row"><span className="fu-cd-label">費用</span><span className="fu-cd-val">{plan.price}</span></div>
-                      <div className="fu-cd-row"><span className="fu-cd-label">前提</span><span className="fu-cd-val">{plan.prereq}</span></div>
+                      <div className="fu-cd-row"><span className="fu-cd-label">前提</span><span className="fu-cd-val">{plan.note}</span></div>
                     </div>
                   </div>
                 ))}
