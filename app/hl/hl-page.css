@@ -978,7 +978,6 @@ h2.sec-h2 {
 .ps-outer-card--purple { background: #EEEDF5; border: 1px solid rgba(123,107,158,0.13); }
 
 /* branching arrow + description row above ps-columns — hl-paths-3 */
-.ps-branch-svg { display: block; margin-bottom: 0; }
 .ps-desc-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1012,22 +1011,13 @@ h2.sec-h2 {
 .ps-panel--rose   { background: #F2ECED; }
 .ps-panel--purple { background: #EEEDF5; }
 
-/* ps-path-header: <details> element — summary row + inline expand */
-.ps-path-header {
-  /* details element acts as flex-col wrapper */
-}
 .ps-path-header-row {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.75rem 0;
   gap: 10px;
-  list-style: none;
-  user-select: none;
-  cursor: pointer;
 }
-.ps-path-header-row::-webkit-details-marker { display: none; }
-.ps-path-header-row::marker { display: none; }
 .ps-path-icon {
   display: flex;
   align-items: center;
@@ -1082,14 +1072,6 @@ h2.sec-h2 {
   line-height: 1.7;
   color: rgba(0,0,0,0.52);
   text-align: left;
-  animation: ps-tip-in 0.18s ease;
-}
-/* always-visible description with white bg (hl-paths-3) */
-.ps-path-tip-content--static {
-  background: rgba(255,255,255,0.72);
-  border-radius: 14px;
-  padding: 10px 14px;
-  margin: 0;
   animation: ps-tip-in 0.18s ease;
 }
 .ps-path-desc  { font-size: 12px; color: rgba(0,0,0,0.48); line-height: 1.65; margin-bottom: 1.25rem; text-align: center; }
