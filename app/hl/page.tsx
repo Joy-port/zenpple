@@ -60,30 +60,7 @@ const pearlData: Record<string, { name: string; en: string; lightBg: string; des
 export default function HlPage() {
   useEffect(() => {
     document.body.classList.add('page-hl')
-    return () => {
-      document.body.classList.remove('page-hl')
-      document.body.removeAttribute('data-hl-section')
-    }
-  }, [])
-
-  // Nav colour adapts to current section
-  useEffect(() => {
-    const ids = ['hero', 'steps', 'sound-mapping', 'paths', 'core-reset', 'followup', 'pearls', 'hl-cta']
-    const obs = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            document.body.setAttribute('data-hl-section', entry.target.id)
-          }
-        })
-      },
-      { threshold: 0.25 }
-    )
-    ids.forEach(id => {
-      const el = document.getElementById(id)
-      if (el) obs.observe(el)
-    })
-    return () => obs.disconnect()
+    return () => { document.body.classList.remove('page-hl') }
   }, [])
 
   const [smOpen, setSmOpen] = useState(false)

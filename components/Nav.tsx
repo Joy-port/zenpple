@@ -6,35 +6,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Z } from '@/constants/zIndex'
 
-type NavTheme = 'light' | 'rose' | 'purple'
-
-const sectionTheme: Record<string, NavTheme> = {
-  'sound-mapping': 'rose',
-  'paths':         'rose',
-  'core-reset':    'rose',
-  'followup':      'rose',
-  'pearls':        'purple',
-  'hl-cta':        'purple',
-}
-
-const themeStyles: Record<NavTheme, React.CSSProperties> = {
-  light: {
-    background: 'rgba(242,239,234,0.88)',
-    borderBottom: '1px solid rgba(42,42,42,0.07)',
-    color: 'var(--ink)',
-  },
-  rose: {
-    background: 'rgba(176,100,100,0.90)',
-    borderBottom: '1px solid rgba(255,255,255,0.10)',
-    color: 'rgba(255,255,255,0.90)',
-  },
-  purple: {
-    background: 'rgba(100,85,140,0.90)',
-    borderBottom: '1px solid rgba(255,255,255,0.10)',
-    color: 'rgba(255,255,255,0.90)',
-  },
-}
-
 const links = [
   { href: '/qi-sb',  label: '頌缽音流' },
   { href: '/hl',     label: '深層對齊' },
@@ -48,32 +19,36 @@ const links = [
 export default function Nav() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
-  const [theme, setTheme] = useState<NavTheme>('light')
+  const [isHero, setIsHero] = useState(true)
 
   useEffect(() => {
-    const update = () => {
-      const section = document.body.getAttribute('data-hl-section') ?? ''
-      setTheme(sectionTheme[section] ?? 'light')
-    }
-    const obs = new MutationObserver(update)
-    obs.observe(document.body, { attributes: true, attributeFilter: ['data-hl-section'] })
+    const update = () => setIsHero(window.scrollY < 80)
     update()
-    return () => obs.disconnect()
+    window.addEventListener('scroll', update, { passive: true })
+    return () => window.removeEventListener('scroll', update)
   }, [])
 
-  const t = themeStyles[theme]
-  const isLight = theme === 'light'
+  const isHl = pathname === '/hl'
+
+  // Hero: transparent, blends into any page's hero background
+  // Scrolled: page-specific colour
+  // Use same colour with 0→target alpha so background/border interpolate smoothly
+  const bgColor   = isHl ? `rgba(176,100,100,${isHero ? 0 : 0.90})` : `rgba(242,239,234,${isHero ? 0 : 0.88})`
+  const borderClr = isHl ? `rgba(255,255,255,${isHero ? 0 : 0.10})` : `rgba(42,42,42,${isHero ? 0 : 0.07})`
 
   const headerBase: React.CSSProperties = {
     position: 'fixed',
     top: 0, left: 0, right: 0,
     zIndex: Z.nav,
-    background: t.background,
-    backdropFilter: 'blur(18px)',
-    WebkitBackdropFilter: 'blur(18px)',
-    borderBottom: t.borderBottom,
-    transition: 'background 0.4s ease, border-color 0.4s ease',
+    background: bgColor,
+    backdropFilter: `blur(${isHero ? 0 : 18}px)`,
+    WebkitBackdropFilter: `blur(${isHero ? 0 : 18}px)`,
+    borderBottom: `1px solid ${borderClr}`,
+    transition: 'background 0.45s ease, backdrop-filter 0.45s ease, border-bottom-color 0.45s ease',
   }
+
+  // Hero: white text works on any dark hero; scrolled: page-specific
+  const linkColor = (isHero || isHl) ? 'rgba(255,255,255,0.90)' : 'var(--ink)'
 
   return (
     <>
@@ -84,18 +59,15 @@ export default function Nav() {
           className="flex md:hidden items-center"
           style={{ padding: '13px 20px' }}
         >
-          {/* Left spacer balances hamburger */}
           <div style={{ width: 44, flexShrink: 0 }} />
 
-          {/* Logo — centered */}
           <Link href="/" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            {isLight
-              ? <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40} style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
-              : <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE" width={160} height={40} style={{ height: 28, width: 'auto', opacity: 0.90 }} />
+            {(isHero || isHl)
+              ? <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE" width={160} height={40} style={{ height: 28, width: 'auto', opacity: 0.90 }} />
+              : <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40} style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
             }
           </Link>
 
-          {/* Hamburger */}
           <button
             onClick={() => setOpen(o => !o)}
             aria-label="開啟選單"
@@ -105,9 +77,9 @@ export default function Nav() {
               background: 'none', border: 'none', cursor: 'pointer', padding: 0,
             }}
           >
-            <span style={{ display: 'block', width: 22, height: 1.5, background: isLight ? 'var(--ink)' : 'rgba(255,255,255,0.9)', borderRadius: 1, transition: 'opacity 0.2s' }} />
-            <span style={{ display: 'block', width: 22, height: 1.5, background: isLight ? 'var(--ink)' : 'rgba(255,255,255,0.9)', borderRadius: 1, transition: 'opacity 0.2s' }} />
-            <span style={{ display: 'block', width: 22, height: 1.5, background: isLight ? 'var(--ink)' : 'rgba(255,255,255,0.9)', borderRadius: 1, transition: 'opacity 0.2s' }} />
+            <span style={{ display: 'block', width: 22, height: 1.5, background: linkColor, borderRadius: 1, transition: 'background 0.45s ease' }} />
+            <span style={{ display: 'block', width: 22, height: 1.5, background: linkColor, borderRadius: 1, transition: 'background 0.45s ease' }} />
+            <span style={{ display: 'block', width: 22, height: 1.5, background: linkColor, borderRadius: 1, transition: 'background 0.45s ease' }} />
           </button>
         </div>
 
@@ -117,9 +89,9 @@ export default function Nav() {
           style={{ padding: '18px clamp(24px,5vw,72px)' }}
         >
           <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-            {isLight
-              ? <Image src="/zenpple-logo-eng.png" alt="ZENPPLE 森波" width={160} height={40} style={{ height: 34, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
-              : <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE 森波" width={160} height={40} style={{ height: 34, width: 'auto', opacity: 0.90 }} />
+            {(isHero || isHl)
+              ? <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE 森波" width={160} height={40} style={{ height: 34, width: 'auto', opacity: 0.90 }} />
+              : <Image src="/zenpple-logo-eng.png" alt="ZENPPLE 森波" width={160} height={40} style={{ height: 34, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
             }
           </Link>
 
@@ -132,10 +104,10 @@ export default function Nav() {
                   style={{
                     fontSize: 13,
                     letterSpacing: '0.22em',
-                    color: t.color,
+                    color: linkColor,
                     textDecoration: 'none',
                     opacity: pathname === href ? 1 : 0.65,
-                    transition: 'opacity 0.2s',
+                    transition: 'opacity 0.2s, color 0.45s ease',
                   }}
                 >
                   {label}
@@ -149,12 +121,12 @@ export default function Nav() {
                 style={{
                   fontSize: 13,
                   letterSpacing: '0.22em',
-                  color: t.color,
+                  color: linkColor,
                   textDecoration: 'none',
                   padding: '8px 20px',
-                  border: isLight ? '1px solid rgba(42,42,42,0.25)' : '1px solid rgba(255,255,255,0.40)',
+                  border: (isHero || isHl) ? '1px solid rgba(255,255,255,0.40)' : '1px solid rgba(42,42,42,0.25)',
                   borderRadius: 999,
-                  transition: 'background 0.2s, color 0.2s',
+                  transition: 'background 0.2s, color 0.45s ease, border-color 0.45s ease',
                 }}
               >
                 預約諮詢
@@ -178,7 +150,6 @@ export default function Nav() {
             overflowY: 'auto',
           }}
         >
-          {/* Overlay top bar — mirrors header */}
           <div
             style={{
               display: 'flex', alignItems: 'center',
@@ -189,13 +160,8 @@ export default function Nav() {
           >
             <div style={{ width: 44, flexShrink: 0 }} />
             <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-              <Image
-                src="/zenpple-logo-eng.png"
-                alt="ZENPPLE"
-                width={160}
-                height={40}
-                style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }}
-              />
+              <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40}
+                style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
             </div>
             <button
               onClick={() => setOpen(false)}
@@ -209,7 +175,6 @@ export default function Nav() {
             >✕</button>
           </div>
 
-          {/* Nav links */}
           <nav style={{ display: 'flex', flexDirection: 'column', padding: '24px 32px 48px' }}>
             {links.map(({ href, label }) => (
               <Link

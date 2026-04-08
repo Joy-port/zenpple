@@ -4,44 +4,6 @@
   --purple: #7B6B9E;
 }
 
-/* ── NAV overrides for HL page ──────────────────────────────────────────── */
-/* Transparent at hero top; fades in when .hl-scrolled is toggled by JS */
-body.page-hl header {
-  background: transparent !important;
-  backdrop-filter: none !important;
-  border-bottom-color: transparent !important;
-  transition: background 0.5s ease, backdrop-filter 0.5s ease, border-bottom-color 0.5s ease !important;
-}
-body.page-hl header.hl-scrolled {
-  background: rgba(215, 165, 165, 0.14) !important;
-  backdrop-filter: blur(20px) saturate(1.4) !important;
-  border-bottom: 1px solid rgba(123, 107, 158, 0.50) !important;
-  box-shadow: 0 2px 18px rgba(196, 123, 123, 0.12) !important;
-}
-/* Logo — screen blend so it shows on dark bg */
-body.page-hl header img {
-  mix-blend-mode: screen !important;
-  filter: brightness(0) invert(1) !important;
-  opacity: 0.75 !important;
-}
-/* Nav links — white on dark hero bg */
-body.page-hl header a,
-body.page-hl header a:visited {
-  color: rgba(255,255,255,0.72) !important;
-}
-body.page-hl header ul a:hover {
-  color: rgba(255,255,255,1) !important;
-  opacity: 1 !important;
-}
-/* CTA pill button */
-body.page-hl header ul li:last-child a {
-  border-color: rgba(255,255,255,0.30) !important;
-  color: rgba(255,255,255,0.80) !important;
-}
-/* Hamburger lines */
-body.page-hl header button span {
-  background: rgba(255,255,255,0.80) !important;
-}
 
 /* ══ HERO ══════════════════════════════════════════════════════════════════ */
 
