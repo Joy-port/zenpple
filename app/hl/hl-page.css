@@ -955,12 +955,27 @@ h2.sec-h2 {
 .ps-panel--rose   { background: #F2ECED; border-right: 0.5px solid rgba(0,0,0,0.08); }
 .ps-panel--purple { background: #EEEDF5; }
 
+.ps-path-header {
+  border-radius: 14px;
+  padding: 20px 16px 18px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.ps-path-header--rose {
+  background: rgba(196,123,123,0.09);
+  border: 0.5px solid rgba(196,123,123,0.18);
+}
+.ps-path-header--purple {
+  background: rgba(123,107,158,0.08);
+  border: 0.5px solid rgba(123,107,158,0.18);
+}
+
 .ps-path-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 12px;
   text-align: center;
 }
 .ps-circle-icon { width: 18px; height: 18px; border-radius: 50%; background: #9B95B8; opacity: 0.7; flex-shrink: 0; }
@@ -974,6 +989,7 @@ h2.sec-h2 {
 .ps-path-desc  { font-size: 12px; color: rgba(0,0,0,0.48); line-height: 1.65; margin-bottom: 1.25rem; text-align: center; }
 
 .ps-path-tip { margin-bottom: 1.25rem; text-align: center; }
+.ps-path-header .ps-path-tip { margin-bottom: 0; }
 .ps-path-tip-trigger {
   display: inline-flex;
   align-items: center;

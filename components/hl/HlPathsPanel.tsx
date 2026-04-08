@@ -41,14 +41,16 @@ export default function HlPathsPanel() {
 
           {/* Left: 完整系統路徑 */}
           <div className="ps-panel ps-panel--rose">
-            <div className="ps-path-icon">
-              <HlIconSystemPath style={{ color: 'rgba(196,123,123,0.55)' }} aria-hidden="true" />
-              <span className="ps-icon-label">完 整 系 統 路 徑</span>
+            <div className="ps-path-header ps-path-header--rose">
+              <div className="ps-path-icon">
+                <HlIconSystemPath style={{ color: 'rgba(196,123,123,0.65)' }} aria-hidden="true" />
+                <span className="ps-icon-label">完 整 系 統 路 徑</span>
+              </div>
+              <details className="ps-path-tip">
+                <summary className="ps-path-tip-trigger">說明</summary>
+                <p className="ps-path-tip-content">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。兩個模組相互搭配使用。</p>
+              </details>
             </div>
-            <details className="ps-path-tip">
-              <summary className="ps-path-tip-trigger">說明</summary>
-              <p className="ps-path-tip-content">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。兩個模組相互搭配使用。</p>
-            </details>
 
             <div className={`path-expand-card${expandA ? ' expanded' : ''}`}>
               <div className="path-expand-header" onClick={() => setExpandA(v => !v)}>
@@ -119,14 +121,16 @@ export default function HlPathsPanel() {
 
           {/* Right: 主題精準路徑 */}
           <div className="ps-panel ps-panel--purple">
-            <div className="ps-path-icon">
-              <HlIconThemePath style={{ color: 'rgba(123,107,158,0.55)' }} aria-hidden="true" />
-              <span className="ps-icon-label">主 題 精 準 路 徑</span>
+            <div className="ps-path-header ps-path-header--purple">
+              <div className="ps-path-icon">
+                <HlIconThemePath style={{ color: 'rgba(123,107,158,0.65)' }} aria-hidden="true" />
+                <span className="ps-icon-label">主 題 精 準 路 徑</span>
+              </div>
+              <details className="ps-path-tip">
+                <summary className="ps-path-tip-trigger">說明</summary>
+                <p className="ps-path-tip-content">已知卡點、想針對單一主題快速處理的人。選擇一個對應你當下狀態的主題。</p>
+              </details>
             </div>
-            <details className="ps-path-tip">
-              <summary className="ps-path-tip-trigger">說明</summary>
-              <p className="ps-path-tip-content">已知卡點、想針對單一主題快速處理的人。選擇一個對應你當下狀態的主題。</p>
-            </details>
 
             <div className="ps-topic-tags">
               <span className="ps-topic-label">可選主題</span>
