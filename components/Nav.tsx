@@ -28,6 +28,7 @@ export default function Nav() {
     backdropFilter: 'blur(18px)',
     WebkitBackdropFilter: 'blur(18px)',
     borderBottom: '1px solid rgba(42,42,42,0.07)',
+    transition: 'background 0.4s ease, border-color 0.4s ease',
   }
 
   return (
@@ -44,13 +45,12 @@ export default function Nav() {
 
           {/* Logo — centered */}
           <Link href="/" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <Image
-              src="/zenpple-logo-eng.png"
-              alt="ZENPPLE"
-              width={160}
-              height={40}
-              style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }}
-            />
+            <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40}
+              className="nav-logo-light"
+              style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
+            <Image src="/zenpple-logo-wh.png" alt="ZENPPLE" width={160} height={40}
+              className="nav-logo-dark"
+              style={{ height: 28, width: 'auto', display: 'none', opacity: 0.90 }} />
           </Link>
 
           {/* Hamburger */}
@@ -75,13 +75,12 @@ export default function Nav() {
           style={{ padding: '18px clamp(24px,5vw,72px)' }}
         >
           <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-            <Image
-              src="/zenpple-logo-eng.png"
-              alt="ZENPPLE 森波"
-              width={160}
-              height={40}
-              style={{ height: 34, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }}
-            />
+            <Image src="/zenpple-logo-eng.png" alt="ZENPPLE 森波" width={160} height={40}
+              className="nav-logo-light"
+              style={{ height: 34, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
+            <Image src="/zenpple-logo-wh.png" alt="ZENPPLE 森波" width={160} height={40}
+              className="nav-logo-dark"
+              style={{ height: 34, width: 'auto', display: 'none', opacity: 0.90 }} />
           </Link>
 
           <ul style={{ display: 'flex', gap: 28, alignItems: 'center', listStyle: 'none' }}>
