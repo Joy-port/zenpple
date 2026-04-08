@@ -1267,7 +1267,19 @@ h2.sec-h2 {
 }
 
 @media (max-width: 640px) {
-  .ps-columns, .ps-container { grid-template-columns: 1fr; }
+  .ps-columns, .ps-container, .ps-desc-row { grid-template-columns: 1fr; }
+
+  /* stack dual CTA buttons vertically */
+  .ps-cta-wrap--dual {
+    flex-direction: column;
+  }
+  .ps-cta-wrap--dual .ps-cta { flex: unset; width: 100%; }
+
+  /* tighten inner card body padding */
+  .path-expand-body-inner { padding: 16px 20px 20px; }
+
+  /* tighten card header padding */
+  .path-expand-header { padding: 0.875rem 1rem; }
 }
 
 
