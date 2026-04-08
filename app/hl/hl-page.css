@@ -970,13 +970,22 @@ h2.sec-h2 {
   margin-bottom: 0.75rem;
 }
 .ps-desc-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 1.25rem;
+  gap: 0.6rem;
+}
+.ps-desc-col p {
   font-family: var(--f-display);
   font-size: 13px;
   line-height: 1.65;
   margin: 0;
 }
-.ps-desc-col--rose   { color: #B87C78; }
-.ps-desc-col--purple { color: #8880B0; }
+.ps-desc-dot { display: block; width: 40px; height: 40px; object-fit: contain; }
+.ps-desc-col--rose   p { color: #B87C78; }
+.ps-desc-col--purple p { color: #8880B0; }
 
 /* ps-container / ps-panel — used by HlPathsSplit (hl-paths-2) */
 .ps-container {
