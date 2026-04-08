@@ -19,32 +19,76 @@ body.page-hl header ul li:last-child a {
 
 /* HERO */
 @keyframes hl-watermark-breathe {
-  0%, 100% { opacity: 0.13; transform: scale(1) rotate(-2deg); }
-  50%       { opacity: 0.19; transform: scale(1.03) rotate(-2deg); }
+  0%, 100% { opacity: 0.14; transform: scale(1); }
+  50%       { opacity: 0.20; transform: scale(1.04); }
 }
 
+/* Section fills 130vh — only canvas + wave use the extra height */
 #hero {
   position: relative;
   min-height: 130vh;
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 120px;
   overflow: hidden;
 }
 
-/* Watermark image — upper-right calm zone, breathes slowly */
-.hero-watermark {
+/* All content stays within 100vh — nothing extends beyond the viewport */
+.hero-viewport {
   position: absolute;
-  top: -4%;
-  right: -8%;
-  width: clamp(340px, 50vw, 620px);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(80px, 12vh, 110px) clamp(36px, 6vw, 80px) clamp(56px, 8vh, 88px);
+  z-index: 2;
+}
+
+/* Watermark takes all vertical space above titles, image centered within */
+.hero-watermark {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   pointer-events: none;
   user-select: none;
   animation: hl-watermark-breathe 6s ease-in-out infinite;
-  z-index: 1;
+}
+.hero-watermark img {
+  width: clamp(140px, 24vw, 300px) !important;
+  height: auto !important;
 }
 
-/* Wave transition at bottom */
+/* Titles — bottom of viewport, left-aligned */
+.hero-content {
+  flex-shrink: 0;
+  max-width: clamp(280px, 50vw, 480px);
+}
+.hero-content .en-sub {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.38em;
+  color: rgba(255,255,255,0.42);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-content h1 {
+  font-family: var(--f-zh);
+  font-weight: 900;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.28;
+  color: #fff;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+.hero-content p {
+  font-size: 14px;
+  line-height: 2.0;
+  color: rgba(255,255,255,0.50);
+  letter-spacing: 0.02em;
+}
+
+/* Wave — sits in the lower 30vh extension, anchored to bottom of section */
 .hero-wave {
   position: absolute;
   bottom: -1px;
@@ -60,57 +104,17 @@ body.page-hl header ul li:last-child a {
   display: block;
 }
 
-.hero-label {
-  position: absolute;
-  top: 108px;
-  left: 64px;
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: 0.28em;
-  color: rgba(255,255,255,0.50);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  z-index: 2;
-}
-.hero-label::before {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 1px;
-  background: rgba(255,255,255,0.28);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  padding: 0 64px 0 68px;
-  max-width: 560px;
-}
-.hero-content .en-sub {
-  font-family: var(--f-display);
-  font-weight: 300;
-  font-size: 11px;
-  letter-spacing: 0.38em;
-  color: rgba(255,255,255,0.45);
-  text-transform: uppercase;
-  margin-bottom: 32px;
-}
-.hero-content h1 {
-  font-family: var(--f-zh);
-  font-weight: 900;
-  font-size: clamp(40px, 5.5vw, 62px);
-  line-height: 1.25;
-  color: #fff;
-  letter-spacing: 0.04em;
-  margin-bottom: 28px;
-}
-.hero-content p {
-  font-size: 15px;
-  line-height: 2.1;
-  color: rgba(255,255,255,0.55);
-  max-width: 420px;
-  letter-spacing: 0.02em;
+/* Mobile */
+@media (max-width: 640px) {
+  .hero-viewport {
+    padding: clamp(72px, 10vh, 88px) 28px clamp(44px, 7vh, 64px);
+  }
+  .hero-watermark img {
+    width: clamp(120px, 52vw, 220px) !important;
+  }
+  .hero-content {
+    max-width: 100%;
+  }
 }
 
 /* SECTION LABEL */
