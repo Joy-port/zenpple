@@ -649,6 +649,8 @@ h2.sec-h2 {
   opacity: 0;
   pointer-events: none;
 }
+/* pushes content + button toward bottom of the shared cell */
+.sm-view-spacer { flex: 1; }
 .sm-left .sm-tag {
   font-family: var(--f-mono);
   font-size: 12px;
@@ -674,14 +676,13 @@ h2.sec-h2 {
 .sm-meta-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 24px 16px 8px;
+  gap: 0;
 }
 .sm-meta-row {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding-bottom: 14px;
+  padding: 18px 0;
   border-bottom: 1px solid rgba(196,123,123,0.1);
   font-size: 13px;
 }
@@ -694,7 +695,7 @@ h2.sec-h2 {
 }
 .sm-meta-val { color: #444; font-size: 14px; }
 .sm-toggle {
-  margin-top: auto;
+  margin-top: 24px;
   display: inline-flex;
   align-items: center;
   gap: 8px;

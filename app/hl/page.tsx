@@ -157,6 +157,7 @@ export default function HlPage() {
           <div className="sm-right">
             {/* View A: 完成後你會獲得 */}
             <div className={`sm-view${smOpen ? ' sm-view--hidden' : ''}`}>
+              <div className="sm-view-spacer" />
               <div className="sm-right-title">完成後你會獲得</div>
               <div className="sm-what-list">
                 {[
@@ -177,6 +178,7 @@ export default function HlPage() {
             </div>
             {/* View B: 規格表 */}
             <div className={`sm-view${!smOpen ? ' sm-view--hidden' : ''}`}>
+              <div className="sm-view-spacer" />
               <div className="sm-meta-list">
                 {[
                   ['服務形式', '1 對 1 · 實體預約'],
