@@ -4,6 +4,8 @@ import { useState, useCallback } from 'react'
 import HlSection from './HlSection'
 import HlSectionTitle from './HlSectionTitle'
 import HlPathStepNav from './HlPathStepNav'
+import HlIconSystemPath from './HlIconSystemPath'
+import HlIconThemePath from './HlIconThemePath'
 
 const Chevron = () => (
   <svg viewBox="0 0 16 16" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
@@ -40,11 +42,7 @@ export default function HlPathsSplit() {
           {/* Left: 完整系統路徑 */}
           <div className="ps-panel ps-panel--rose">
             <div className="ps-path-icon">
-              <div className="ps-dots-icon">
-                <span className="ps-dot" />
-                <span className="ps-dot ps-dot--mid" />
-                <span className="ps-dot ps-dot--bot" />
-              </div>
+              <HlIconSystemPath style={{ color: 'rgba(196,123,123,0.55)' }} aria-hidden="true" />
               <span className="ps-icon-label">完 整 系 統 路 徑</span>
             </div>
             <p className="ps-path-desc">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。兩個模組相互搭配使用。</p>
@@ -72,12 +70,12 @@ export default function HlPathsSplit() {
                   </div>
                 </div>
                 <div className="ps-body-section">
-                  <div className="ps-body-label">課程資訊</div>
-                  <div className="ps-price-row">
-                    <span className="ps-price-amount">NT$45,000</span>
-                    <span className="ps-price-unit">/ 3 小時</span>
-                  </div>
-                  <div className="ps-price-note">1 對 1 · 實體</div>
+                  {[['服務形式', '1 對 1 · 實體'], ['投入時間', '3 小時'], ['費用', 'NT$45,000']].map(([l, v]) => (
+                    <div className="ps-meta-row" key={l}>
+                      <span className="ps-meta-label">{l}</span>
+                      <span className="ps-meta-val">{v}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -110,28 +108,38 @@ export default function HlPathsSplit() {
                   </div>
                 </div>
                 <div className="ps-body-section">
-                  <div className="ps-body-label">課程資訊</div>
-                  <div className="ps-price-row">
-                    <span className="ps-price-amount">NT$3,800</span>
-                    <span className="ps-price-unit">/ 1.5 小時 · 堂</span>
-                  </div>
-                  <div className="ps-price-note">須完成 Core Reset 後方可加入</div>
+                  {[['服務形式', '1 對 1 · 實體預約'], ['投入時間', '1.5 小時 / 堂'], ['前提', '完成系統清理後可加選']].map(([l, v]) => (
+                    <div className="ps-meta-row" key={l}>
+                      <span className="ps-meta-label">{l}</span>
+                      <span className="ps-meta-val">{v}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
-            <div className="ps-cta-wrap">
-              <button className="ps-cta ps-cta--rose" onClick={e => { e.stopPropagation(); navScrollTo('core-reset') }}>了解完整路徑 →</button>
+            <div className="ps-cta-wrap ps-cta-wrap--dual">
+              <button className="ps-cta ps-cta--rose" onClick={e => { e.stopPropagation(); navScrollTo('core-reset') }}>了解全面式系統清理</button>
+              <button className="ps-cta ps-cta--rose" onClick={e => { e.stopPropagation(); navScrollTo('followup') }}>了解陪跑計劃</button>
             </div>
           </div>
 
           {/* Right: 主題精準路徑 */}
           <div className="ps-panel ps-panel--purple">
             <div className="ps-path-icon">
-              <div className="ps-circle-icon" />
+              <HlIconThemePath style={{ color: 'rgba(123,107,158,0.55)' }} aria-hidden="true" />
               <span className="ps-icon-label">主 題 精 準 路 徑</span>
             </div>
             <p className="ps-path-desc">已知卡點、想針對單一主題快速處理的人。選擇一個對應你當下狀態的主題。</p>
+
+            <div className="ps-topic-tags">
+              <span className="ps-topic-label">可選主題</span>
+              <div className="ps-topic-pills">
+                {['文昌對齊', '身體健康祈福', '能量保護罩', '愛的流動', '金錢豐盛', '關係共振'].map(t => (
+                  <span className="ps-topic-pill" key={t}>{t}</span>
+                ))}
+              </div>
+            </div>
 
             <div className={`ps-card ps-card--purple${expandB ? ' open' : ''}`} onClick={() => setExpandB(v => !v)}>
               <div className="ps-card-header">
@@ -145,29 +153,29 @@ export default function HlPathsSplit() {
                 <div className="ps-divider" />
                 <div className="ps-body-section">
                   <div className="ps-body-label">服務說明</div>
-                  <div className="ps-body-text">針對六大生命主題，以定音珍珠頻率進行精準對齊。每次聚焦一個主題，清理該領域的核心阻塞與信念模式。</div>
+                  <div className="ps-body-text">針對單一主題進行深度對齊，每顆珍珠對應一個核心生命主題，由禿禿親自執行。</div>
                 </div>
                 <div className="ps-body-section">
-                  <div className="ps-body-label">可選主題</div>
+                  <div className="ps-body-label">適合對象</div>
                   <div className="ps-pills">
-                    {['文昌對齊', '身體健康', '能量保護', '愛的流動', '金錢豐盛', '關係共振'].map(t => (
+                    {['有明確生命議題', '想針對單一面向清理', '已知卡點所在'].map(t => (
                       <span className="ps-pill" key={t}>{t}</span>
                     ))}
                   </div>
                 </div>
                 <div className="ps-body-section">
-                  <div className="ps-body-label">課程資訊</div>
-                  <div className="ps-price-row">
-                    <span className="ps-price-amount">NT$12,000</span>
-                    <span className="ps-price-unit">/ 主題</span>
-                  </div>
-                  <div className="ps-price-note">90 分鐘 · 1 對 1 · 實體</div>
+                  {[['服務形式', '1 對 1 · 實體'], ['投入時間', '90 分鐘 / 主題'], ['費用', 'NT$12,000 / 主題']].map(([l, v]) => (
+                    <div className="ps-meta-row" key={l}>
+                      <span className="ps-meta-label">{l}</span>
+                      <span className="ps-meta-val">{v}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
             <div className="ps-cta-wrap">
-              <button className="ps-cta ps-cta--purple" onClick={e => { e.stopPropagation(); navScrollTo('pearls') }}>選擇精準路徑 →</button>
+              <button className="ps-cta ps-cta--purple" onClick={e => { e.stopPropagation(); navScrollTo('pearls') }}>查看六大定音主題</button>
             </div>
           </div>
 

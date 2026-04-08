@@ -4,6 +4,8 @@ import { useState, useCallback } from 'react'
 import HlSection from './HlSection'
 import HlSectionTitle from './HlSectionTitle'
 import HlPathStepNav from './HlPathStepNav'
+import HlIconSystemPath from './HlIconSystemPath'
+import HlIconThemePath from './HlIconThemePath'
 
 const chevron = (
   <svg width="16" height="10" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,17 +42,7 @@ export default function HlPathsExpand() {
         {/* Left: paired group */}
         <div className="paths-left">
           <div className="paths-group-label">
-            <div className="paths-group-icon" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 56 56" fill="none">
-                <circle cx="28" cy="8"    r="4"   fill="currentColor" opacity="0.90" />
-                <circle cx="28" cy="20"   r="3.5" fill="currentColor" opacity="0.75" />
-                <circle cx="28" cy="30.5" r="3"   fill="currentColor" opacity="0.60" />
-                <circle cx="28" cy="39.5" r="2.5" fill="currentColor" opacity="0.45" />
-                <circle cx="28" cy="47"   r="2"   fill="currentColor" opacity="0.32" />
-                <circle cx="20" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
-                <circle cx="36" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
-              </svg>
-            </div>
+            <HlIconSystemPath className="paths-group-icon" aria-hidden="true" />
             <span>完整系統路徑</span>
           </div>
 
@@ -106,14 +98,7 @@ export default function HlPathsExpand() {
         {/* Right: purple card */}
         <div className="paths-right">
           <div className="paths-group-label paths-group-label--purple">
-            <div className="paths-group-icon paths-group-icon--purple" aria-hidden="true">
-              <svg width="28" height="28" viewBox="0 0 56 56" fill="none">
-                <circle cx="28" cy="28" r="18" fill="currentColor" opacity="0.18" />
-                <circle cx="28" cy="28" r="12" fill="currentColor" opacity="0.42" />
-                <circle cx="28" cy="28" r="7"  fill="currentColor" opacity="0.90" />
-                <circle cx="24" cy="23" r="2.5" fill="white"       opacity="0.45" />
-              </svg>
-            </div>
+            <HlIconThemePath className="paths-group-icon paths-group-icon--purple" aria-hidden="true" />
             <span>主題精準路徑</span>
           </div>
 

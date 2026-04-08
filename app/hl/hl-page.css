@@ -903,14 +903,23 @@ h2.sec-h2 {
 .ps-panel--rose   { background: #F2ECED; border-right: 0.5px solid rgba(0,0,0,0.08); }
 .ps-panel--purple { background: #EEEDF5; }
 
-.ps-path-icon { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
-.ps-dots-icon { display: flex; flex-direction: column; gap: 4px; }
-.ps-dot        { display: block; width: 6px; height: 6px; border-radius: 50%; background: #C49A96; }
-.ps-dot--mid   { width: 5px; height: 5px; opacity: 0.6; }
-.ps-dot--bot   { width: 4px; height: 4px; opacity: 0.35; }
+.ps-path-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
 .ps-circle-icon { width: 18px; height: 18px; border-radius: 50%; background: #9B95B8; opacity: 0.7; flex-shrink: 0; }
-.ps-icon-label { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.18em; color: rgba(0,0,0,0.38); }
-.ps-path-desc  { font-size: 12px; color: rgba(0,0,0,0.48); line-height: 1.65; margin-bottom: 1.25rem; }
+.ps-icon-label {
+  font-family: var(--f-zh);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: rgba(0,0,0,0.68);
+}
+.ps-path-desc  { font-size: 12px; color: rgba(0,0,0,0.48); line-height: 1.65; margin-bottom: 1.25rem; text-align: center; }
 
 .ps-card { border-radius: 14px; padding: 1.25rem; cursor: pointer; }
 .ps-card--rose   { background: #B87C78; }
@@ -961,6 +970,38 @@ h2.sec-h2 {
   border: 0.5px solid rgba(255,255,255,0.35);
   color: rgba(255,255,255,0.85);
 }
+.ps-topic-tags {
+  margin-bottom: 1rem;
+}
+.ps-topic-label {
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: rgba(123,107,158,0.5);
+  margin-bottom: 0.5rem;
+}
+.ps-topic-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ps-topic-pill {
+  font-family: var(--f-display);
+  font-size: 11px;
+  padding: 4px 11px;
+  border-radius: 20px;
+  border: 0.5px solid rgba(123,107,158,0.35);
+  color: rgba(123,107,158,0.75);
+  background: transparent;
+  letter-spacing: 0.04em;
+}
+
+.ps-meta-row { display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; border-bottom: 0.5px solid rgba(255,255,255,0.12); font-size: 12px; }
+.ps-meta-row:first-child { border-top: 0.5px solid rgba(255,255,255,0.12); }
+.ps-meta-label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5); }
+.ps-meta-val   { color: rgba(255,255,255,0.88); font-size: 12px; }
+
 .ps-price-row { display: flex; align-items: baseline; gap: 6px; margin-top: 0.4rem; }
 .ps-price-amount { font-family: var(--f-display); font-size: 18px; font-weight: 500; color: #fff; }
 .ps-price-unit   { font-size: 11px; color: rgba(255,255,255,0.6); }
@@ -970,23 +1011,32 @@ h2.sec-h2 {
 .ps-connector-line { width: 1px; height: 14px; background: rgba(196,154,150,0.4); margin-left: 2px; }
 .ps-connector-plus { font-family: var(--f-display); font-size: 11px; color: rgba(184,124,120,0.55); padding-left: 14px; letter-spacing: 0.1em; }
 
-.ps-cta-wrap { margin-top: auto; padding-top: 1.5rem; }
+.ps-cta-wrap { margin-top: auto; padding-top: 1.5rem; display: flex; flex-direction: column; gap: 8px; }
+.ps-cta-wrap--dual { flex-direction: row; gap: 8px; }
+.ps-cta-wrap--dual .ps-cta { flex: 1; }
 .ps-cta {
   width: 100%;
-  padding: 11px;
+  padding: 10px 16px;
   border-radius: 10px;
   font-size: 12px;
   font-family: var(--f-display);
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   cursor: pointer;
-  border: none;
-  transition: opacity 0.15s, transform 0.1s;
+  background: transparent;
+  transition: background 0.18s, transform 0.1s;
 }
-.ps-cta:hover  { opacity: 0.85; }
 .ps-cta:active { transform: scale(0.98); }
-.ps-cta--rose   { background: #B87C78; color: #fff; }
-.ps-cta--purple { background: #8880B0; color: #fff; }
+.ps-cta--rose {
+  border: 1px solid rgba(184,124,120,0.45);
+  color: #a06060;
+}
+.ps-cta--rose:hover { background: rgba(184,124,120,0.08); }
+.ps-cta--purple {
+  border: 1px solid rgba(123,107,158,0.40);
+  color: #7060a0;
+}
+.ps-cta--purple:hover { background: rgba(123,107,158,0.08); }
 
 .ps-or-badge {
   position: absolute;
