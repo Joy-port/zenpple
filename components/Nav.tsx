@@ -30,25 +30,30 @@ export default function Nav() {
 
   const isHl = pathname === '/hl'
 
-  // Hero: transparent, blends into any page's hero background
-  // Scrolled: page-specific colour
+  // Pages with a light hero (cream/base bg) — nav text stays dark at top
+  const isLightHeroPage = pathname === '/'
+  const isHeroDark  = isHero && !isLightHeroPage   // transparent + white text
+  const isHeroLight = isHero && isLightHeroPage     // transparent + dark text
+
+  const atTop = isHeroDark || isHeroLight
+
   // Use same colour with 0→target alpha so background/border interpolate smoothly
-  const bgColor   = isHl ? `rgba(176,100,100,${isHero ? 0 : 0.90})` : `rgba(242,239,234,${isHero ? 0 : 0.88})`
-  const borderClr = isHl ? `rgba(255,255,255,${isHero ? 0 : 0.10})` : `rgba(42,42,42,${isHero ? 0 : 0.07})`
+  const bgColor   = isHl ? `rgba(176,100,100,${atTop ? 0 : 0.90})` : `rgba(242,239,234,${atTop ? 0 : 0.88})`
+  const borderClr = isHl ? `rgba(255,255,255,${atTop ? 0 : 0.10})` : `rgba(42,42,42,${atTop ? 0 : 0.07})`
 
   const headerBase: React.CSSProperties = {
     position: 'fixed',
     top: 0, left: 0, right: 0,
     zIndex: Z.nav,
     background: bgColor,
-    backdropFilter: `blur(${isHero ? 0 : 18}px)`,
-    WebkitBackdropFilter: `blur(${isHero ? 0 : 18}px)`,
+    backdropFilter: `blur(${atTop ? 0 : 18}px)`,
+    WebkitBackdropFilter: `blur(${atTop ? 0 : 18}px)`,
     borderBottom: `1px solid ${borderClr}`,
     transition: 'background 0.45s ease, backdrop-filter 0.45s ease, border-bottom-color 0.45s ease',
   }
 
-  // Hero: white text works on any dark hero; scrolled: page-specific
-  const linkColor = (isHero || isHl) ? 'rgba(255,255,255,0.90)' : 'var(--ink)'
+  // isHeroDark or scrolled hl → white; isHeroLight or scrolled other pages → dark
+  const linkColor = (isHeroDark || isHl) ? 'rgba(255,255,255,0.90)' : 'var(--ink)'
 
   return (
     <>
@@ -62,9 +67,9 @@ export default function Nav() {
           <div style={{ width: 44, flexShrink: 0 }} />
 
           <Link href="/" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            {(isHero || isHl)
-              ? <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE" width={160} height={40} style={{ height: 28, width: 'auto', opacity: 0.90 }} />
-              : <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40} style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
+            {(isHeroDark || isHl)
+              ? <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE" width={160} height={40} style={{ height: 38, width: 'auto', opacity: 0.90 }} />
+              : <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40} style={{ height: 38, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
             }
           </Link>
 
@@ -89,9 +94,9 @@ export default function Nav() {
           style={{ padding: '18px clamp(24px,5vw,72px)' }}
         >
           <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-            {(isHero || isHl)
-              ? <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE 森波" width={160} height={40} style={{ height: 34, width: 'auto', opacity: 0.90 }} />
-              : <Image src="/zenpple-logo-eng.png" alt="ZENPPLE 森波" width={160} height={40} style={{ height: 34, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
+            {(isHeroDark || isHl)
+              ? <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE 森波" width={160} height={40} style={{ height: 48, width: 'auto', opacity: 0.90 }} />
+              : <Image src="/zenpple-logo-eng.png" alt="ZENPPLE 森波" width={160} height={40} style={{ height: 48, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
             }
           </Link>
 
@@ -124,7 +129,7 @@ export default function Nav() {
                   color: linkColor,
                   textDecoration: 'none',
                   padding: '8px 20px',
-                  border: (isHero || isHl) ? '1px solid rgba(255,255,255,0.40)' : '1px solid rgba(42,42,42,0.25)',
+                  border: (isHeroDark || isHl) ? '1px solid rgba(255,255,255,0.40)' : '1px solid rgba(42,42,42,0.25)',
                   borderRadius: 999,
                   transition: 'background 0.2s, color 0.45s ease, border-color 0.45s ease',
                 }}
@@ -161,7 +166,7 @@ export default function Nav() {
             <div style={{ width: 44, flexShrink: 0 }} />
             <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
               <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40}
-                style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
+                style={{ height: 38, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
             </div>
             <button
               onClick={() => setOpen(false)}
