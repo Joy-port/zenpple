@@ -1964,13 +1964,18 @@ h2.sec-h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--f-zh);
-  font-weight: 900;
-  font-size: clamp(280px, 40vw, 480px);
-  color: rgba(255,255,255,0.07);
   user-select: none;
   pointer-events: none;
-  line-height: 1;
+}
+.cta-en {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  position: relative;
 }
 #hl-cta h2 {
   font-family: var(--f-zh);
@@ -1980,7 +1985,7 @@ h2.sec-h2 {
   margin-bottom: 16px;
   position: relative;
 }
-#hl-cta p {
+#hl-cta p:not(.cta-en) {
   font-size: 15px;
   color: rgba(255,255,255,0.7);
   max-width: 460px;

@@ -412,7 +412,16 @@ export default function HlPage() {
 
       {/* ── CTA ── */}
       <section id="hl-cta">
-        <div className="cta-deep">深</div>
+        <div className="cta-deep" aria-hidden="true">
+          <Image
+            src="/hl/頌缽波動-白.png"
+            alt=""
+            width={900}
+            height={900}
+            style={{ width: 'min(80vw, 700px)', height: 'auto', opacity: 0.07 }}
+          />
+        </div>
+        <p className="cta-en">RETUNE FROM THE ROOT</p>
         <h2>準備好從根源重新調頻？</h2>
         <p>從生命音譜掃描開始，讓禿禿帶你找到屬於你的清理路徑。</p>
         <div className="cta-buttons">
