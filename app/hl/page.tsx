@@ -339,15 +339,18 @@ export default function HlPage() {
 
       {/* ── PEARLS ── */}
       <section id="pearls">
-        <div className="section-label" style={{ position: 'relative' }}>六大定音</div>
+        <p className="pearls-eyebrow">針對式主題對齊</p>
         <h2 className="sec-h2">六大定音珍珠系列</h2>
-        <p className="pearls-desc">每顆珍珠對應一個核心生命主題，單獨或組合體驗皆可。點擊珍珠查看詳情。</p>
         <p className="pearls-meta">NT$12,000 / 主題 · 90 min · 禿禿 親自執行</p>
 
         <div className="pearls-ring-wrap">
           <div className="pearls-ring-halo" />
           {(['p','h','e','l','a','r'] as const).map(key => (
-            <div className={`pearl-item pos-${key}`} key={key} onClick={() => setActivePearl(key)}>
+            <div
+              className={`pearl-item pos-${key}${activePearl === key ? ' pearl-item--active' : ''}`}
+              key={key}
+              onClick={() => setActivePearl(activePearl === key ? null : key)}
+            >
               <div className="pearl-halo" />
               <div className={`dot-pearl pearl-${key}`}>
                 <div className="dot-pearl-color" />
@@ -357,24 +360,24 @@ export default function HlPage() {
             </div>
           ))}
         </div>
-      </section>
 
-      {/* ── PEARL MODAL ── */}
-      {pearl && (
-        <div className="pearl-modal open" onClick={e => { if (e.target === e.currentTarget) setActivePearl(null) }}>
-          <div className="pearl-modal-inner" style={{ background: pearl.lightBg }}>
-            <button className="pearl-modal-close" onClick={() => setActivePearl(null)}>×</button>
-            <h3>{pearl.name}</h3>
-            <div className="pd-en">{pearl.en}</div>
-            <p>{pearl.desc}</p>
-            <div className="pearl-modal-meta">
-              {['NT$12,000', '90 分鐘', '1 對 1 · 實體', '禿禿 親自執行'].map(cap => (
-                <span className="pearl-cap" key={cap}>{cap}</span>
-              ))}
+        {/* Pearl expand panel — inline below ring, based on homepage card style */}
+        {pearl && (
+          <div className="pearl-expand" key={activePearl}>
+            <div className="pearl-expand-inner" style={{ background: pearl.lightBg }}>
+              <button className="pearl-expand-close" onClick={() => setActivePearl(null)}>×</button>
+              <p className="pearl-expand-en">{pearl.en}</p>
+              <h3 className="pearl-expand-name">{pearl.name}</h3>
+              <p className="pearl-expand-desc">{pearl.desc}</p>
+              <div className="pearl-expand-meta">
+                {['NT$12,000', '90 分鐘', '1 對 1 · 實體', '禿禿 親自執行'].map(cap => (
+                  <span className="pearl-cap" key={cap}>{cap}</span>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </section>
 
       {/* ── CTA ── */}
       <section id="hl-cta">
