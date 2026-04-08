@@ -80,9 +80,11 @@ export default function HlPage() {
 
       {/* ── HOW IT WORKS ── */}
       <HlSection id="steps">
-        <div className="section-label">HOW IT WORKS</div>
-        <h2 className="sec-h2">定頻邏輯三步驟</h2>
-        <p className="steps-desc">每個完整的旅程都遵循三個核心步驟，從精準掃描到深度清理，最後落地整合。點擊步驟了解更多。</p>
+        <div className="steps-title">
+          <div className="section-label">HOW IT WORKS</div>
+          <h2 className="sec-h2">定頻邏輯兩步驟</h2>
+          <p className="steps-desc">每段旅程都遵循兩個核心步驟——從精準掃描到深度清理。點擊步驟了解更多。</p>
+        </div>
 
         <div className="steps-horiz">
           <div className="step-card" onClick={() => navScrollTo('sound-mapping')}>
@@ -99,14 +101,6 @@ export default function HlPage() {
             </div>
             <h3>清理<br />選擇你的路徑</h3>
             <p>根據掃描結果，選擇全面式系統清理或針對式主題對齊，兩條路徑皆由禿禿親自執行。</p>
-            <div className="step-card-link">了解詳情 →</div>
-          </div>
-          <div className="step-card" onClick={() => navScrollTo('followup')}>
-            <div className="step-card-num">
-              <div className="step-card-num-txt">03</div>
-            </div>
-            <h3>落地陪跑<br />能量整合計畫</h3>
-            <p>清理之後的整合，才是真正的改變。持續陪跑，協助你將內在轉變帶入日常。</p>
             <div className="step-card-link">了解詳情 →</div>
           </div>
         </div>

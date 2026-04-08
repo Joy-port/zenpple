@@ -299,35 +299,57 @@ h2.sec-h2 {
 #steps {
   background: #F2EFEA;
 }
-#steps .steps-desc {
-  font-size: 15px;
-  color: #888;
-  line-height: 1.9;
-  max-width: 520px;
-  margin-bottom: 64px;
+
+/* Centered title block */
+.steps-title {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vh, 64px);
 }
+.steps-title .section-label {
+  justify-content: center;
+}
+.steps-title .section-label::after { display: none; }
+.steps-title .sec-h2 {
+  color: #3a2d40;   /*暗紫 — pop, used sparingly */
+}
+#steps .steps-desc {
+  font-size: 14px;
+  color: rgba(123,107,158,0.70);   /* 暮紫 muted */
+  line-height: 2.0;
+  max-width: 480px;
+  margin: 12px auto 0;
+  letter-spacing: 0.02em;
+}
+
+/* 2-column grid (step 03 removed) */
 .steps-horiz {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  max-width: 760px;
+  margin: 0 auto;
 }
+@media (max-width: 640px) {
+  .steps-horiz { grid-template-columns: 1fr; }
+}
+
 .step-card {
   background: #fff;
   border-radius: 20px;
   padding: 44px 36px;
-  border: 1px solid rgba(196,123,123,0.12);
+  border: 1px solid rgba(196,123,123,0.14);
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: transform .25s, box-shadow .25s, border-color .25s;
+  transition: transform .28s, box-shadow .28s, border-color .28s;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 .step-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(196,123,123,0.1);
-  border-color: rgba(196,123,123,0.25);
+  box-shadow: 0 16px 40px rgba(196,123,123,0.12);
+  border-color: rgba(196,123,123,0.32);
 }
 .step-card-num {
   width: 80px;
@@ -341,22 +363,24 @@ h2.sec-h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--f-zh);
-  font-weight: 900;
-  font-size: 28px;
-  letter-spacing: 0.02em;
-  color: rgba(196,123,123,0.5);
+  font-family: var(--f-mono);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--rose);
+  opacity: 0.55;
 }
 .step-card h3 {
   font-family: var(--f-zh);
   font-weight: 700;
   font-size: 18px;
   letter-spacing: 0.05em;
+  color: #3a2d40;   /* 暗紫 for heading pop */
 }
 .step-card p {
   font-size: 13px;
-  line-height: 1.8;
-  color: #888;
+  line-height: 1.9;
+  color: rgba(123,107,158,0.65);   /* 暮紫 muted */
   flex: 1;
 }
 .step-card-link {
