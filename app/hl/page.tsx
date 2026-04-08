@@ -132,13 +132,16 @@ export default function HlPage() {
       {/* ── SOUND MAPPING ── */}
       <HlSection id="sound-mapping" className="sound-mapping">
         <div className="sm-step-icon">
+          {/* Active: 01 */}
           <div className="sm-step-dot-wrap">
             <Image src="/resource/circle/pink/粉點-1.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
             <span className="step-dot-num">01</span>
           </div>
           <div className="sm-step-connector" aria-hidden="true" />
-          <div className="sm-step-black-wrap">
-            <Image src="/resource/circle/black/黑圈-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+          {/* Nav → 02 */}
+          <div className="sm-step-dot-wrap sm-step-dot-wrap--nav" onClick={() => navScrollTo('paths')} role="button" aria-label="前往第二步">
+            <Image src="/resource/circle/pink/粉點-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+            <span className="step-dot-num step-dot-num--muted">02</span>
           </div>
         </div>
         <HlSectionTitle
@@ -203,13 +206,16 @@ export default function HlPage() {
       {/* ── PATH SELECTION ── */}
       <HlSection id="paths">
         <div className="sm-step-icon">
+          {/* Nav ← 01 */}
+          <div className="sm-step-dot-wrap sm-step-dot-wrap--nav" onClick={() => navScrollTo('sound-mapping')} role="button" aria-label="前往第一步">
+            <Image src="/resource/circle/pink/粉點-1.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+            <span className="step-dot-num step-dot-num--muted">01</span>
+          </div>
+          <div className="sm-step-connector" aria-hidden="true" />
+          {/* Active: 02 */}
           <div className="sm-step-dot-wrap">
             <Image src="/resource/circle/pink/粉點-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
             <span className="step-dot-num">02</span>
-          </div>
-          <div className="sm-step-connector" aria-hidden="true" />
-          <div className="sm-step-black-wrap">
-            <Image src="/resource/circle/black/黑圈-3.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
           </div>
         </div>
         <HlSectionTitle

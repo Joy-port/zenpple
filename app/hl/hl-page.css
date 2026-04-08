@@ -545,13 +545,18 @@ h2.sec-h2 {
   background: rgba(196,123,123,0.25);
   flex-shrink: 0;
 }
-.sm-step-black-wrap {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  opacity: 0.18;
+/* Muted nav dot — links to the adjacent step section */
+.sm-step-dot-wrap--nav {
+  cursor: pointer;
+  opacity: 0.32;
+  transition: opacity 0.22s, transform 0.22s;
 }
+.sm-step-dot-wrap--nav:hover {
+  opacity: 0.70;
+  transform: scale(1.06);
+}
+.sm-step-dot-wrap--nav img { animation: none !important; }
+.step-dot-num--muted { color: rgba(255,255,255,0.55); }
 .sm-inner {
   background: rgba(255, 252, 250, 0.88);
   backdrop-filter: blur(4px);
