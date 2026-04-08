@@ -2051,24 +2051,29 @@ h2.sec-h2 {
 }
 
 /* ── Nav colour per section ────────────────────────────────────────────── */
-/* Default (light cream) is already the Nav base style — only override dark sections */
+/* All selectors scoped to header to avoid any collateral effects on page content */
 
-/* Rose sections: sound-mapping, followup */
+/* Rose sections: sound-mapping, core-reset, followup */
 body[data-hl-section="sound-mapping"] header,
+body[data-hl-section="core-reset"] header,
 body[data-hl-section="followup"] header {
   background: rgba(176, 100, 100, 0.90) !important;
   border-bottom-color: rgba(255,255,255,0.10) !important;
 }
 body[data-hl-section="sound-mapping"] header a,
 body[data-hl-section="sound-mapping"] header button span,
+body[data-hl-section="core-reset"] header a,
+body[data-hl-section="core-reset"] header button span,
 body[data-hl-section="followup"] header a,
 body[data-hl-section="followup"] header button span {
   color: rgba(255,255,255,0.90) !important;
 }
-body[data-hl-section="sound-mapping"] .nav-logo-light,
-body[data-hl-section="followup"] .nav-logo-light { display: none !important; }
-body[data-hl-section="sound-mapping"] .nav-logo-dark,
-body[data-hl-section="followup"] .nav-logo-dark  { display: block !important; }
+body[data-hl-section="sound-mapping"] header .nav-logo-light,
+body[data-hl-section="core-reset"] header .nav-logo-light,
+body[data-hl-section="followup"] header .nav-logo-light { display: none !important; }
+body[data-hl-section="sound-mapping"] header .nav-logo-dark,
+body[data-hl-section="core-reset"] header .nav-logo-dark,
+body[data-hl-section="followup"] header .nav-logo-dark  { display: block !important; }
 
 /* Purple sections: pearls, hl-cta */
 body[data-hl-section="pearls"] header,
@@ -2082,13 +2087,12 @@ body[data-hl-section="hl-cta"] header a,
 body[data-hl-section="hl-cta"] header button span {
   color: rgba(255,255,255,0.90) !important;
 }
-body[data-hl-section="pearls"] .nav-logo-light,
-body[data-hl-section="hl-cta"] .nav-logo-light { display: none !important; }
-body[data-hl-section="pearls"] .nav-logo-dark,
-body[data-hl-section="hl-cta"] .nav-logo-dark  { display: block !important; }
+body[data-hl-section="pearls"] header .nav-logo-light,
+body[data-hl-section="hl-cta"] header .nav-logo-light { display: none !important; }
+body[data-hl-section="pearls"] header .nav-logo-dark,
+body[data-hl-section="hl-cta"] header .nav-logo-dark  { display: block !important; }
 
-/* Light lavender sections: paths, core-reset */
-body[data-hl-section="paths"] header,
-body[data-hl-section="core-reset"] header {
-  background: rgba(232, 228, 244, 0.92) !important;
+/* Paths section: slightly more opaque lavender */
+body[data-hl-section="paths"] header {
+  background: rgba(210, 205, 235, 0.95) !important;
 }
