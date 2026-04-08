@@ -529,6 +529,21 @@ h2.sec-h2 {
   display: block;
 }
 
+/* Enter: paths (#f0ebf5) → core-reset (#e8e2f2) */
+.cr-wave-enter {
+  background: #f0ebf5;
+  line-height: 0;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -1px;
+  pointer-events: none;
+}
+.cr-wave-enter svg {
+  width: 100%;
+  height: clamp(24px, 3.5vw, 44px);
+  display: block;
+}
+
 /* Exit: sound-mapping (#C47B7B bottom) → paths (#f8f5f0) */
 .sm-wave-exit {
   background: #C47B7B;

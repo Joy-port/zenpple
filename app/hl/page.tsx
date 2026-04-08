@@ -205,6 +205,15 @@ export default function HlPage() {
       {/* ── PATH SELECTION ── */}
       <HlPathsPanel />
 
+      {/* Wave: paths → core-reset — lavender into deep lavender */}
+      <div className="cr-wave-enter" aria-hidden="true">
+        <svg viewBox="0 0 1440 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,22 C240,40 560,6 840,26 C1060,42 1280,10 1440,22 L1440,44 L0,44 Z" fill="#e8e2f2" />
+          <path d="M0,30 C320,14 680,44 1000,28 C1180,18 1340,38 1440,32 L1440,44 L0,44 Z" fill="#e8e2f2" opacity="0.55" />
+          <path d="M0,36 C400,24 800,44 1160,34 C1300,28 1390,40 1440,38 L1440,44 L0,44 Z" fill="#e8e2f2" opacity="0.28" />
+        </svg>
+      </div>
+
       {/* ── CORE RESET ── */}
       <HlSection id="core-reset" className="core-reset">
         <HlSectionTitle
