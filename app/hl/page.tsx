@@ -237,7 +237,6 @@ export default function HlPage() {
           <div className="cr-right">
             {/* View A: 療程流程 */}
             <div className={`cr-view${crOpen ? ' cr-view--hidden' : ''}`}>
-              <div className="cr-view-spacer" />
               <span className="cr-section-label">療程流程</span>
               <div className="cr-process">
                 {[
@@ -251,13 +250,13 @@ export default function HlPage() {
                   </div>
                 ))}
               </div>
+              <div className="cr-view-spacer" />
               <button className="cr-toggle" onClick={() => setCrOpen(true)}>
                 查看費用與資訊 →
               </button>
             </div>
             {/* View B: 規格表 */}
             <div className={`cr-view${!crOpen ? ' cr-view--hidden' : ''}`}>
-              <div className="cr-view-spacer" />
               <div className="cr-meta-list">
                 {[
                   ['服務形式', '1 對 1 · 實體預約'],
@@ -272,6 +271,7 @@ export default function HlPage() {
                   </div>
                 ))}
               </div>
+              <div className="cr-view-spacer" />
               <div className="cr-toggle-row">
                 <button className="cr-toggle" onClick={() => setCrOpen(false)}>← 返回</button>
                 <button className="cr-cta" onClick={() => navScrollTo('followup')}>了解陪跑計劃 →</button>
