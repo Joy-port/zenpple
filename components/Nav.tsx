@@ -1,10 +1,39 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Z } from '@/constants/zIndex'
+
+type NavTheme = 'light' | 'rose' | 'purple'
+
+const sectionTheme: Record<string, NavTheme> = {
+  'sound-mapping': 'rose',
+  'paths':         'rose',
+  'core-reset':    'rose',
+  'followup':      'rose',
+  'pearls':        'purple',
+  'hl-cta':        'purple',
+}
+
+const themeStyles: Record<NavTheme, React.CSSProperties> = {
+  light: {
+    background: 'rgba(242,239,234,0.88)',
+    borderBottom: '1px solid rgba(42,42,42,0.07)',
+    color: 'var(--ink)',
+  },
+  rose: {
+    background: 'rgba(176,100,100,0.90)',
+    borderBottom: '1px solid rgba(255,255,255,0.10)',
+    color: 'rgba(255,255,255,0.90)',
+  },
+  purple: {
+    background: 'rgba(100,85,140,0.90)',
+    borderBottom: '1px solid rgba(255,255,255,0.10)',
+    color: 'rgba(255,255,255,0.90)',
+  },
+}
 
 const links = [
   { href: '/qi-sb',  label: '頌缽音流' },
@@ -17,17 +46,32 @@ const links = [
 ]
 
 export default function Nav() {
-  const pathname  = usePathname()
+  const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [theme, setTheme] = useState<NavTheme>('light')
+
+  useEffect(() => {
+    const update = () => {
+      const section = document.body.getAttribute('data-hl-section') ?? ''
+      setTheme(sectionTheme[section] ?? 'light')
+    }
+    const obs = new MutationObserver(update)
+    obs.observe(document.body, { attributes: true, attributeFilter: ['data-hl-section'] })
+    update()
+    return () => obs.disconnect()
+  }, [])
+
+  const t = themeStyles[theme]
+  const isLight = theme === 'light'
 
   const headerBase: React.CSSProperties = {
     position: 'fixed',
     top: 0, left: 0, right: 0,
     zIndex: Z.nav,
-    background: 'rgba(242,239,234,0.88)',
+    background: t.background,
     backdropFilter: 'blur(18px)',
     WebkitBackdropFilter: 'blur(18px)',
-    borderBottom: '1px solid rgba(42,42,42,0.07)',
+    borderBottom: t.borderBottom,
     transition: 'background 0.4s ease, border-color 0.4s ease',
   }
 
@@ -45,12 +89,10 @@ export default function Nav() {
 
           {/* Logo — centered */}
           <Link href="/" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40}
-              className="nav-logo-light"
-              style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
-            <Image src="/zenpple-logo-wh.png" alt="ZENPPLE" width={160} height={40}
-              className="nav-logo-dark"
-              style={{ height: 28, width: 'auto', display: 'none', opacity: 0.90 }} />
+            {isLight
+              ? <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40} style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
+              : <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE" width={160} height={40} style={{ height: 28, width: 'auto', opacity: 0.90 }} />
+            }
           </Link>
 
           {/* Hamburger */}
@@ -63,9 +105,9 @@ export default function Nav() {
               background: 'none', border: 'none', cursor: 'pointer', padding: 0,
             }}
           >
-            <span style={{ display: 'block', width: 22, height: 1.5, background: 'var(--ink)', borderRadius: 1, transition: 'opacity 0.2s' }} />
-            <span style={{ display: 'block', width: 22, height: 1.5, background: 'var(--ink)', borderRadius: 1, transition: 'opacity 0.2s' }} />
-            <span style={{ display: 'block', width: 22, height: 1.5, background: 'var(--ink)', borderRadius: 1, transition: 'opacity 0.2s' }} />
+            <span style={{ display: 'block', width: 22, height: 1.5, background: isLight ? 'var(--ink)' : 'rgba(255,255,255,0.9)', borderRadius: 1, transition: 'opacity 0.2s' }} />
+            <span style={{ display: 'block', width: 22, height: 1.5, background: isLight ? 'var(--ink)' : 'rgba(255,255,255,0.9)', borderRadius: 1, transition: 'opacity 0.2s' }} />
+            <span style={{ display: 'block', width: 22, height: 1.5, background: isLight ? 'var(--ink)' : 'rgba(255,255,255,0.9)', borderRadius: 1, transition: 'opacity 0.2s' }} />
           </button>
         </div>
 
@@ -75,12 +117,10 @@ export default function Nav() {
           style={{ padding: '18px clamp(24px,5vw,72px)' }}
         >
           <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-            <Image src="/zenpple-logo-eng.png" alt="ZENPPLE 森波" width={160} height={40}
-              className="nav-logo-light"
-              style={{ height: 34, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
-            <Image src="/zenpple-logo-wh.png" alt="ZENPPLE 森波" width={160} height={40}
-              className="nav-logo-dark"
-              style={{ height: 34, width: 'auto', display: 'none', opacity: 0.90 }} />
+            {isLight
+              ? <Image src="/zenpple-logo-eng.png" alt="ZENPPLE 森波" width={160} height={40} style={{ height: 34, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
+              : <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE 森波" width={160} height={40} style={{ height: 34, width: 'auto', opacity: 0.90 }} />
+            }
           </Link>
 
           <ul style={{ display: 'flex', gap: 28, alignItems: 'center', listStyle: 'none' }}>
@@ -92,7 +132,7 @@ export default function Nav() {
                   style={{
                     fontSize: 13,
                     letterSpacing: '0.22em',
-                    color: 'var(--ink)',
+                    color: t.color,
                     textDecoration: 'none',
                     opacity: pathname === href ? 1 : 0.65,
                     transition: 'opacity 0.2s',
@@ -109,10 +149,10 @@ export default function Nav() {
                 style={{
                   fontSize: 13,
                   letterSpacing: '0.22em',
-                  color: 'var(--ink)',
+                  color: t.color,
                   textDecoration: 'none',
                   padding: '8px 20px',
-                  border: '1px solid rgba(42,42,42,0.25)',
+                  border: isLight ? '1px solid rgba(42,42,42,0.25)' : '1px solid rgba(255,255,255,0.40)',
                   borderRadius: 999,
                   transition: 'background 0.2s, color 0.2s',
                 }}
