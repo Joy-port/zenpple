@@ -18,17 +18,6 @@ export default function HlHero() {
       io.observe(el)
     }
 
-    // Nav: transparent at top of HL hero, fades in on scroll
-    const nav = document.querySelector('header') as HTMLElement | null
-    if (nav) {
-      const onScroll = () => nav.classList.toggle('hl-scrolled', window.scrollY > 40)
-      onScroll() // set initial state
-      window.addEventListener('scroll', onScroll, { passive: true })
-      return () => {
-        window.removeEventListener('scroll', onScroll)
-        nav.classList.remove('hl-scrolled')
-      }
-    }
   }, [])
 
   return (

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -17,19 +17,43 @@ const links = [
 ]
 
 export default function Nav() {
-  const pathname  = usePathname()
+  const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [isHero, setIsHero] = useState(true)
+
+  useEffect(() => {
+    const update = () => setIsHero(window.scrollY < 80)
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    return () => window.removeEventListener('scroll', update)
+  }, [])
+
+  const isHl = pathname === '/hl'
+
+  // Pages with a light hero (cream/base bg) — nav text stays dark at top
+  const isLightHeroPage = pathname === '/'
+  const isHeroDark  = isHero && !isLightHeroPage   // transparent + white text
+  const isHeroLight = isHero && isLightHeroPage     // transparent + dark text
+
+  const atTop = isHeroDark || isHeroLight
+
+  // Use same colour with 0→target alpha so background/border interpolate smoothly
+  const bgColor   = isHl ? `rgba(176,100,100,${atTop ? 0 : 0.90})` : `rgba(242,239,234,${atTop ? 0 : 0.88})`
+  const borderClr = isHl ? `rgba(255,255,255,${atTop ? 0 : 0.10})` : `rgba(42,42,42,${atTop ? 0 : 0.07})`
 
   const headerBase: React.CSSProperties = {
     position: 'fixed',
     top: 0, left: 0, right: 0,
     zIndex: Z.nav,
-    background: 'rgba(242,239,234,0.88)',
-    backdropFilter: 'blur(18px)',
-    WebkitBackdropFilter: 'blur(18px)',
-    borderBottom: '1px solid rgba(42,42,42,0.07)',
-    transition: 'background 0.4s ease, border-color 0.4s ease',
+    background: bgColor,
+    backdropFilter: `blur(${atTop ? 0 : 18}px)`,
+    WebkitBackdropFilter: `blur(${atTop ? 0 : 18}px)`,
+    borderBottom: `1px solid ${borderClr}`,
+    transition: 'background 0.45s ease, backdrop-filter 0.45s ease, border-bottom-color 0.45s ease',
   }
+
+  // isHeroDark or scrolled hl → white; isHeroLight or scrolled other pages → dark
+  const linkColor = (isHeroDark || isHl) ? 'rgba(255,255,255,0.90)' : 'var(--ink)'
 
   return (
     <>
@@ -40,20 +64,15 @@ export default function Nav() {
           className="flex md:hidden items-center"
           style={{ padding: '13px 20px' }}
         >
-          {/* Left spacer balances hamburger */}
           <div style={{ width: 44, flexShrink: 0 }} />
 
-          {/* Logo — centered */}
           <Link href="/" style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40}
-              className="nav-logo-light"
-              style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
-            <Image src="/zenpple-logo-wh.png" alt="ZENPPLE" width={160} height={40}
-              className="nav-logo-dark"
-              style={{ height: 28, width: 'auto', display: 'none', opacity: 0.90 }} />
+            {(isHeroDark || isHl)
+              ? <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE" width={160} height={40} style={{ height: 38, width: 'auto', opacity: 0.90 }} />
+              : <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40} style={{ height: 38, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
+            }
           </Link>
 
-          {/* Hamburger */}
           <button
             onClick={() => setOpen(o => !o)}
             aria-label="開啟選單"
@@ -63,9 +82,9 @@ export default function Nav() {
               background: 'none', border: 'none', cursor: 'pointer', padding: 0,
             }}
           >
-            <span style={{ display: 'block', width: 22, height: 1.5, background: 'var(--ink)', borderRadius: 1, transition: 'opacity 0.2s' }} />
-            <span style={{ display: 'block', width: 22, height: 1.5, background: 'var(--ink)', borderRadius: 1, transition: 'opacity 0.2s' }} />
-            <span style={{ display: 'block', width: 22, height: 1.5, background: 'var(--ink)', borderRadius: 1, transition: 'opacity 0.2s' }} />
+            <span style={{ display: 'block', width: 22, height: 1.5, background: linkColor, borderRadius: 1, transition: 'background 0.45s ease' }} />
+            <span style={{ display: 'block', width: 22, height: 1.5, background: linkColor, borderRadius: 1, transition: 'background 0.45s ease' }} />
+            <span style={{ display: 'block', width: 22, height: 1.5, background: linkColor, borderRadius: 1, transition: 'background 0.45s ease' }} />
           </button>
         </div>
 
@@ -75,12 +94,10 @@ export default function Nav() {
           style={{ padding: '18px clamp(24px,5vw,72px)' }}
         >
           <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-            <Image src="/zenpple-logo-eng.png" alt="ZENPPLE 森波" width={160} height={40}
-              className="nav-logo-light"
-              style={{ height: 34, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
-            <Image src="/zenpple-logo-wh.png" alt="ZENPPLE 森波" width={160} height={40}
-              className="nav-logo-dark"
-              style={{ height: 34, width: 'auto', display: 'none', opacity: 0.90 }} />
+            {(isHeroDark || isHl)
+              ? <Image src="/zenpple-logo-wh.png"  alt="ZENPPLE 森波" width={160} height={40} style={{ height: 48, width: 'auto', opacity: 0.90 }} />
+              : <Image src="/zenpple-logo-eng.png" alt="ZENPPLE 森波" width={160} height={40} style={{ height: 48, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
+            }
           </Link>
 
           <ul style={{ display: 'flex', gap: 28, alignItems: 'center', listStyle: 'none' }}>
@@ -92,10 +109,10 @@ export default function Nav() {
                   style={{
                     fontSize: 13,
                     letterSpacing: '0.22em',
-                    color: 'var(--ink)',
+                    color: linkColor,
                     textDecoration: 'none',
                     opacity: pathname === href ? 1 : 0.65,
-                    transition: 'opacity 0.2s',
+                    transition: 'opacity 0.2s, color 0.45s ease',
                   }}
                 >
                   {label}
@@ -109,12 +126,12 @@ export default function Nav() {
                 style={{
                   fontSize: 13,
                   letterSpacing: '0.22em',
-                  color: 'var(--ink)',
+                  color: linkColor,
                   textDecoration: 'none',
                   padding: '8px 20px',
-                  border: '1px solid rgba(42,42,42,0.25)',
+                  border: (isHeroDark || isHl) ? '1px solid rgba(255,255,255,0.40)' : '1px solid rgba(42,42,42,0.25)',
                   borderRadius: 999,
-                  transition: 'background 0.2s, color 0.2s',
+                  transition: 'background 0.2s, color 0.45s ease, border-color 0.45s ease',
                 }}
               >
                 預約諮詢
@@ -138,7 +155,6 @@ export default function Nav() {
             overflowY: 'auto',
           }}
         >
-          {/* Overlay top bar — mirrors header */}
           <div
             style={{
               display: 'flex', alignItems: 'center',
@@ -149,13 +165,8 @@ export default function Nav() {
           >
             <div style={{ width: 44, flexShrink: 0 }} />
             <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-              <Image
-                src="/zenpple-logo-eng.png"
-                alt="ZENPPLE"
-                width={160}
-                height={40}
-                style={{ height: 28, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }}
-              />
+              <Image src="/zenpple-logo-eng.png" alt="ZENPPLE" width={160} height={40}
+                style={{ height: 38, width: 'auto', mixBlendMode: 'multiply', opacity: 0.85 }} />
             </div>
             <button
               onClick={() => setOpen(false)}
@@ -169,7 +180,6 @@ export default function Nav() {
             >✕</button>
           </div>
 
-          {/* Nav links */}
           <nav style={{ display: 'flex', flexDirection: 'column', padding: '24px 32px 48px' }}>
             {links.map(({ href, label }) => (
               <Link
