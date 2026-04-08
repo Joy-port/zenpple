@@ -1,18 +1,31 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import HlHeroBackground from './HlHeroBackground'
 
 export default function HlHero() {
+  const titleRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = titleRef.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) el.classList.add('in-view') },
+      { threshold: 0.08 }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
   return (
     <section id="hero">
-      {/* Canvas bg fills the full 130vh section */}
+      {/* Canvas fills all 230vh */}
       <HlHeroBackground />
 
-      {/* Content locked to 100vh — nothing extends beyond the viewport */}
-      <div className="hero-viewport">
-        {/* Watermark — centered in the upper space, breathing */}
-        <div className="hero-watermark" aria-hidden="true">
+      {/* ── First viewport: image only ── */}
+      <div className="hero-image-zone" aria-hidden="true">
+        <div className="hero-watermark">
           <Image
             src="/hl/頌缽波動-粉.png"
             alt=""
@@ -22,20 +35,23 @@ export default function HlHero() {
             priority
           />
         </div>
+      </div>
 
-        {/* Titles — bottom of viewport */}
+      {/* ── Title zone: scrolls into view with staggered animation ── */}
+      <div className="hero-title-zone" ref={titleRef}>
         <div className="hero-content">
           <div className="en-sub">DEEP SYSTEM ALIGNMENT</div>
           <h1>不只放鬆，<br />而是從根源<br />重新調頻</h1>
-          <p>七脈輪校準系統，從全面掃描到系統重整，透過頌缽物理波頻，清理累積的雜訊，讓身心頻率回歸原始和諧。</p>
+          <p>七脈輪校準系統，從全面掃描到系統重整，<br />透過頌缽物理波頻，清理累積的雜訊，<br />讓身心頻率回歸原始和諧。</p>
         </div>
       </div>
 
-      {/* Wave sits in the extended 30vh below the viewport */}
+      {/* ── Wave: far below, after breathing space ── */}
       <div className="hero-wave" aria-hidden="true">
-        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,60 C240,100 480,20 720,55 C960,90 1200,25 1440,60 L1440,100 L0,100 Z" fill="#F2EFEA" />
-          <path d="M0,75 C300,40 600,95 900,70 C1100,55 1280,85 1440,75 L1440,100 L0,100 Z" fill="#F2EFEA" opacity="0.55" />
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,70 C200,110 480,20 720,65 C960,105 1240,18 1440,65 L1440,120 L0,120 Z" fill="#F2EFEA" />
+          <path d="M0,88 C280,50 560,108 840,80 C1080,58 1280,96 1440,85 L1440,120 L0,120 Z" fill="#F2EFEA" opacity="0.5" />
+          <path d="M0,100 C360,72 720,115 1080,95 C1240,86 1360,104 1440,100 L1440,120 L0,120 Z" fill="#F2EFEA" opacity="0.28" />
         </svg>
       </div>
     </section>

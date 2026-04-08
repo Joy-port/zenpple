@@ -17,78 +17,121 @@ body.page-hl header ul li:last-child a {
   color: var(--rose) !important;
 }
 
-/* HERO */
+/* ══ HERO ══════════════════════════════════════════════════════════════════ */
+
 @keyframes hl-watermark-breathe {
-  0%, 100% { opacity: 0.14; transform: scale(1); }
-  50%       { opacity: 0.20; transform: scale(1.04); }
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50%       { opacity: 0.22; transform: scale(1.05); }
 }
 
-/* Section fills 130vh — only canvas + wave use the extra height */
+/* Total section height — canvas + wave fill this; content does not extend it */
 #hero {
   position: relative;
-  min-height: 130vh;
+  min-height: 230vh;
   overflow: hidden;
 }
 
-/* All content stays within 100vh — nothing extends beyond the viewport */
-.hero-viewport {
+/* ── Image zone: first viewport only ────────────────────────────────────── */
+.hero-image-zone {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  padding: clamp(80px, 12vh, 110px) clamp(36px, 6vw, 80px) clamp(56px, 8vh, 88px);
-  z-index: 2;
-}
-
-/* Watermark takes all vertical space above titles, image centered within */
-.hero-watermark {
-  flex: 1;
-  display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
   pointer-events: none;
-  user-select: none;
+}
+
+.hero-watermark {
   animation: hl-watermark-breathe 6s ease-in-out infinite;
+  user-select: none;
 }
 .hero-watermark img {
-  width: clamp(140px, 24vw, 300px) !important;
+  /* between current (too small) and original (too large) */
+  width: clamp(220px, 34vw, 420px) !important;
   height: auto !important;
 }
 
-/* Titles — bottom of viewport, left-aligned */
+/* ── Title zone: scrolls into view below the first viewport ─────────────── */
+.hero-title-zone {
+  position: absolute;
+  top: 100vh;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: clamp(64px, 12vh, 110px) clamp(28px, 8vw, 120px) clamp(80px, 14vh, 140px);
+  z-index: 2;
+}
+
+/* Staggered children — start hidden */
+.hero-title-zone .en-sub,
+.hero-title-zone h1,
+.hero-title-zone p {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.hero-title-zone .en-sub { transition: opacity 0.9s 0.00s cubic-bezier(0.22,1,0.36,1), transform 0.9s 0.00s cubic-bezier(0.22,1,0.36,1); }
+.hero-title-zone h1       { transition: opacity 0.9s 0.16s cubic-bezier(0.22,1,0.36,1), transform 0.9s 0.16s cubic-bezier(0.22,1,0.36,1); }
+.hero-title-zone p        { transition: opacity 0.9s 0.30s cubic-bezier(0.22,1,0.36,1), transform 0.9s 0.30s cubic-bezier(0.22,1,0.36,1); }
+
+/* Reveal all children when zone enters viewport */
+.hero-title-zone.in-view .en-sub,
+.hero-title-zone.in-view h1,
+.hero-title-zone.in-view p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Content — centered, luxe brand style */
 .hero-content {
-  flex-shrink: 0;
-  max-width: clamp(280px, 50vw, 480px);
+  text-align: center;
+  max-width: clamp(300px, 55vw, 520px);
 }
 .hero-content .en-sub {
   font-family: var(--f-display);
   font-weight: 300;
   font-size: 11px;
   letter-spacing: 0.38em;
-  color: rgba(255,255,255,0.42);
+  color: rgba(255,255,255,0.40);
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.hero-content .en-sub::before,
+.hero-content .en-sub::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: rgba(255,255,255,0.22);
+  flex-shrink: 0;
 }
 .hero-content h1 {
   font-family: var(--f-zh);
   font-weight: 900;
-  font-size: clamp(36px, 5vw, 58px);
-  line-height: 1.28;
+  font-size: clamp(38px, 5.5vw, 64px);
+  line-height: 1.3;
   color: #fff;
-  letter-spacing: 0.04em;
-  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+  margin-bottom: 28px;
 }
 .hero-content p {
   font-size: 14px;
-  line-height: 2.0;
-  color: rgba(255,255,255,0.50);
-  letter-spacing: 0.02em;
+  line-height: 2.1;
+  color: rgba(255,255,255,0.48);
+  letter-spacing: 0.025em;
+  max-width: 360px;
+  margin: 0 auto;
 }
 
-/* Wave — sits in the lower 30vh extension, anchored to bottom of section */
+/* ── Wave: much lower — after title + generous breathing space ───────────── */
 .hero-wave {
   position: absolute;
   bottom: -1px;
@@ -100,20 +143,27 @@ body.page-hl header ul li:last-child a {
 }
 .hero-wave svg {
   width: 100%;
-  height: clamp(60px, 8vw, 100px);
+  height: clamp(80px, 10vw, 120px);
   display: block;
 }
 
-/* Mobile */
+/* ── Mobile ─────────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
-  .hero-viewport {
-    padding: clamp(72px, 10vh, 88px) 28px clamp(44px, 7vh, 64px);
-  }
+  #hero { min-height: 210vh; }
+
   .hero-watermark img {
-    width: clamp(120px, 52vw, 220px) !important;
+    /* larger on mobile — image is the hero; cropping is acceptable */
+    width: clamp(240px, 80vw, 340px) !important;
+  }
+
+  .hero-title-zone {
+    padding: clamp(48px, 8vh, 72px) 32px clamp(60px, 10vh, 96px);
   }
   .hero-content {
     max-width: 100%;
+  }
+  .hero-content h1 {
+    font-size: clamp(36px, 9vw, 48px);
   }
 }
 
