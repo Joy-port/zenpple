@@ -6,7 +6,6 @@ import Image from 'next/image'
 import './hl-page.css'
 import HlHero from '@/components/hl/HlHero'
 import HlSection from '@/components/hl/HlSection'
-import HlSectionTitle from '@/components/hl/HlSectionTitle'
 import HlTitleSection from '@/components/hl/HlTitleSection'
 import HlPathsPanel from '@/components/hl/HlPathsPanel'
 
@@ -216,15 +215,17 @@ export default function HlPage() {
 
       {/* ── CORE RESET ── */}
       <HlSection id="core-reset" className="core-reset">
-        <HlSectionTitle
-          label="全面式系統清理 · HL-02"
+        <HlTitleSection
+          eyebrow="全面式系統清理"
           title="七脈輪能量調和"
-          desc="從基底到頂點的系統性重整，讓身心頻率徹底回歸原始和諧。"
+          subtitle="從基底到頂點的系統性重整，讓身心頻率徹底回歸原始和諧。"
         />
         <div className="cr-card">
           <div className="cr-left">
             <p>針對目前面臨的重大生命課題，由基底海底輪向上延伸至頂輪，進行系統性的頻率重整。藉由頌缽穩定的物理波頻，逐一清理累積在七個能量中心的雜訊，重新建立各中心點之間的流動與同步。</p>
             <p>這是一場讓身心頻率徹底「Core Reset」的過程——幫助你在面對人生轉折與大課題時，擁有一套穩定、純粹且充滿力量的內在支持系統。</p>
+          </div>
+          <div className="cr-right">
             <div className="cr-process">
               {[
                 ['30 min', '抽脈輪牌卡 + 冥想引導'],
@@ -237,8 +238,6 @@ export default function HlPage() {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="cr-right">
             <div className="cr-meta-list">
               {[
                 ['服務形式', '1 對 1 · 實體預約'],
@@ -252,6 +251,7 @@ export default function HlPage() {
                 </div>
               ))}
             </div>
+            <p className="cr-next-note">完成後可接續陪跑計劃，持續鞏固清理後的能量狀態。</p>
             <button className="cr-cta" onClick={() => navScrollTo('followup')}>
               了解陪跑計劃 →
             </button>
