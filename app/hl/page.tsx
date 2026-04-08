@@ -10,42 +10,48 @@ import HlTitleSection from '@/components/hl/HlTitleSection'
 import HlPathsPanel from '@/components/hl/HlPathsPanel'
 
 // ── Pearl data ──────────────────────────────────────────────────────────────
-const pearlData: Record<string, { name: string; en: string; lightBg: string; desc: string }> = {
+const pearlData: Record<string, { name: string; en: string; lightBg: string; desc: string; traits: string[] }> = {
   p: {
     name: '文昌對齊',
     en: 'Academic & Creative Alignment',
     lightBg: 'linear-gradient(135deg,#f5f4d8,#eeec9a)',
-    desc: '清理思維阻塞，讓學習力、表達力、創意與直覺重新流動。適合準備考試、創作瓶頸、思維混濁、語言表達受阻者。',
+    desc: '清理思維阻塞，讓學習力、表達力、創意與直覺重新流動。協助回到清晰、安定與信任自己的共振狀態。',
+    traits: ['考試準備中', '重要面試前', '創作瓶頸', '表達受阻'],
   },
   h: {
     name: '身體健康祈福',
     en: 'Physical Vitality & Healing',
     lightBg: 'linear-gradient(135deg,#f0e8ff,#ddc8f8)',
-    desc: '針對身體議題進行能量支持，啟動自癒頻率，讓物質層面的阻塞鬆動。協助身體找回與自然節律的連結。',
+    desc: '讀取身體的頻率訊息，協助耗損能量回流，補充整體生命能量，在身心交界處建立穩定的支持系統。',
+    traits: ['長期疲勞', '體力反覆透支', '生命轉折期', '需要深度支持'],
   },
   e: {
     name: '能量保護罩',
     en: 'Energy Shield & Boundaries',
     lightBg: 'linear-gradient(135deg,#daeeff,#b8d8f8)',
-    desc: '建立個人能量邊界，清理外來干擾與能量漏失，重建氣場的完整性與穩定性。適合敏感體質、容易被環境影響者。',
+    desc: '辨識並加固能量場的穩定度，防止外在情緒與雜訊過度滲透，協助高敏感的你找回中心位。',
+    traits: ['高敏感體質', '易受他人影響', '能量過度消耗', '邊界感薄弱'],
   },
   a: {
     name: '金錢豐盛',
     en: 'Abundance & Prosperity',
     lightBg: 'linear-gradient(135deg,#fff4cc,#fde898)',
-    desc: '清理對金錢的匱乏信念與能量收縮，重建對豐盛的接收通道。讓你與財富之間的頻率重新對準。',
+    desc: '讀取與金錢相關的能量訊息，清理匱乏信念，重塑內在價值感，讓你的生命場域對齊豐盛的接收軌道。',
+    traits: ['收入進入停滯', '金錢持續焦慮', '不配得感', '付出回收失衡'],
   },
   l: {
     name: '愛的流動',
     en: 'Love & Heart Opening',
     lightBg: 'linear-gradient(135deg,#d8f5e8,#a8eacc)',
-    desc: '清理心輪阻塞，釋放過去愛的傷痕，重建與自己及他人之間愛的連結能力。讓給予與接收愛都變得自然。',
+    desc: '讀取潛意識的關係模式，清理過往殘留的頻率雜訊，重新校準對愛與親密關係的接收力與開放度。',
+    traits: ['感情感到停滯', '反覆相同模式', '難以放下過往', '對愛有防備'],
   },
   r: {
     name: '關係共振',
     en: 'Relationship Resonance',
     lightBg: 'linear-gradient(135deg,#ffe8f0,#ffccdc)',
-    desc: '處理深層的關係模式與依附傾向，清理影響關係的舊有頻率，讓真實的連結得以發生。',
+    desc: '辨識並鬆開關係中的頻率糾結，終止單方面的能量耗損，讓互動回到和諧流動的音場。',
+    traits: ['關係反覆緊繃', '情緒拉扯消耗', '渴望關係平衡', '互動模式卡關'],
   },
 }
 
@@ -338,9 +344,12 @@ export default function HlPage() {
       </div>
 
       {/* ── PEARLS ── */}
-      <section id="pearls">
-        <p className="pearls-eyebrow">針對式主題對齊</p>
-        <h2 className="sec-h2">六大定音珍珠系列</h2>
+      <HlSection id="pearls" className="pearls">
+        <HlTitleSection
+          eyebrow="針對式主題對齊"
+          title="六大定音珍珠系列"
+          subtitle="每顆珍珠對應一個生命主題，精準對齊你當下最需要清理的場域。"
+        />
         <p className="pearls-meta">NT$12,000 / 主題 · 90 min · 禿禿 親自執行</p>
 
         <div className="pearls-ring-wrap">
@@ -361,7 +370,7 @@ export default function HlPage() {
           ))}
         </div>
 
-        {/* Pearl expand panel — inline below ring, based on homepage card style */}
+        {/* Pearl expand panel */}
         {pearl && (
           <div className="pearl-expand" key={activePearl}>
             <div className="pearl-expand-inner" style={{ background: pearl.lightBg }}>
@@ -369,6 +378,14 @@ export default function HlPage() {
               <p className="pearl-expand-en">{pearl.en}</p>
               <h3 className="pearl-expand-name">{pearl.name}</h3>
               <p className="pearl-expand-desc">{pearl.desc}</p>
+              <div className="pearl-traits">
+                <span className="pearl-traits-label">適合狀態</span>
+                <div className="pearl-traits-pills">
+                  {pearl.traits.map(t => (
+                    <span className="pearl-trait-pill" key={t}>{t}</span>
+                  ))}
+                </div>
+              </div>
               <div className="pearl-expand-meta">
                 {['NT$12,000', '90 分鐘', '1 對 1 · 實體', '禿禿 親自執行'].map(cap => (
                   <span className="pearl-cap" key={cap}>{cap}</span>
@@ -377,7 +394,7 @@ export default function HlPage() {
             </div>
           </div>
         )}
-      </section>
+      </HlSection>
 
       {/* ── CTA ── */}
       <section id="hl-cta">

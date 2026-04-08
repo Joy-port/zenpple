@@ -521,6 +521,7 @@ h2.sec-h2 {
   display: block;
   pointer-events: none;
 }
+.cr-wave-enter svg { display: block; margin-bottom: -1px; }
 
 /* sound-mapping → paths */
 .sm-wave-exit {
@@ -529,6 +530,7 @@ h2.sec-h2 {
   display: block;
   pointer-events: none;
 }
+.sm-wave-exit svg { display: block; margin-bottom: -1px; }
 
 /* Lift content above blurs */
 #sound-mapping .hl-section-inner {
@@ -1465,6 +1467,7 @@ h2.sec-h2 {
   display: block;
   pointer-events: none;
 }
+.pearls-wave-enter svg { display: block; margin-bottom: -1px; }
 
 /* FOLLOW-UP */
 #followup {
@@ -1674,12 +1677,12 @@ h2.sec-h2 {
 
 /* PEARLS */
 #pearls {
-  padding: 120px 64px;
   background: linear-gradient(145deg,
-    #180e28 0%,
-    #251840 30%,
-    #302050 58%,
-    #3d2860 100%
+    #f5f2fc 0%,
+    #e2d8f5 28%,
+    #c4b0e8 55%,
+    #9888c8 78%,
+    #7B6B9E 100%
   );
   position: relative;
   overflow: hidden;
@@ -1690,27 +1693,22 @@ h2.sec-h2 {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 68% 52% at 18% 28%, rgba(165,135,225,0.50), transparent),
-    radial-gradient(ellipse 50% 60% at 82% 72%, rgba(196,123,123,0.28), transparent),
-    radial-gradient(ellipse 44% 38% at 62% 18%, rgba(190,165,245,0.36), transparent);
+    radial-gradient(ellipse 62% 48% at 15% 25%, rgba(255,250,255,0.55), transparent),
+    radial-gradient(ellipse 50% 55% at 85% 70%, rgba(196,123,123,0.22), transparent),
+    radial-gradient(ellipse 40% 36% at 65% 15%, rgba(200,180,250,0.40), transparent);
 }
-#pearls h2.sec-h2 { color: #fff; margin-bottom: 12px; position: relative; }
-.pearls-eyebrow {
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: 0.28em;
-  color: rgba(196,123,123,0.75);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  position: relative;
-}
+/* HlTitleSection color overrides for purple bg */
+#pearls .hts-eyebrow  { color: rgba(196,123,123,0.85); }
+#pearls .hts-title    { color: #1e1430; }
+#pearls .hts-subtitle { color: rgba(40,25,65,0.65); }
 #pearls .pearls-meta {
   font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.15em;
-  color: rgba(180,155,220,0.65);
+  color: rgba(80,55,120,0.70);
   margin-bottom: 64px;
   position: relative;
+  text-align: center;
 }
 
 /* Pearl circular layout */
@@ -1841,10 +1839,10 @@ h2.sec-h2 {
 .pearl-expand-close:hover { color: rgba(0,0,0,0.65); }
 .pearl-expand-en {
   font-family: var(--f-display);
-  font-weight: 100;
+  font-weight: 600;
   font-size: 11px;
-  letter-spacing: 0.30em;
-  color: rgba(0,0,0,0.42);
+  letter-spacing: 0.24em;
+  color: rgba(0,0,0,0.65);
   text-transform: uppercase;
   margin-bottom: 6px;
 }
@@ -1854,13 +1852,42 @@ h2.sec-h2 {
   font-size: 24px;
   letter-spacing: 0.04em;
   color: #1a1a1a;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 .pearl-expand-desc {
   font-size: 14px;
   line-height: 1.9;
   color: rgba(0,0,0,0.60);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+.pearl-traits {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.pearl-traits-label {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgba(0,0,0,0.45);
+  white-space: nowrap;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+.pearl-traits-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pearl-trait-pill {
+  font-family: var(--f-zh-sans);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.07);
+  color: rgba(0,0,0,0.65);
 }
 .pearl-expand-meta {
   display: flex;
