@@ -724,30 +724,93 @@ h2.sec-h2 {
   padding-bottom: 2px;
 }
 
-/* Left column flip cards — auto-height, share equal flex space */
-.flip-outer--nav { flex: 1; }
-.flip-front--rose {
-  background: linear-gradient(148deg, #C47B7B 0%, #b06060 100%) !important;
-  border: none !important;
+/* Left column: expand/accordion cards */
+.path-expand-card {
+  background: linear-gradient(148deg, #C47B7B 0%, #b06060 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: box-shadow 0.22s;
 }
-.flip-front--rose h3 { color: #fff !important; }
-.flip-front--rose p  { color: rgba(255,255,255,0.62) !important; }
-.flip-back--rose {
-  background: linear-gradient(148deg, #fdf0f0 0%, #f5e8e8 100%) !important;
+.path-expand-card:hover {
+  box-shadow: 0 8px 32px rgba(196,123,123,0.28);
 }
-.flip-back--rose h3 { color: #7a3838 !important; }
-.flip-back--rose p  { color: rgba(122,56,56,0.70) !important; }
-.flip-back--rose .flip-back-meta {
-  border-color: rgba(196,123,123,0.12) !important;
+.path-expand-header {
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
 }
-.flip-back--rose .flip-back-meta-row { color: rgba(80,40,40,0.70) !important; }
-.flip-back--rose .flip-back-meta-label { color: #C47B7B !important; }
-.flip-back--rose .flip-btn {
-  border-color: rgba(196,123,123,0.35) !important;
-  color: #C47B7B !important;
-  background: rgba(196,123,123,0.06) !important;
+.path-expand-header h3 {
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: 0;
 }
-.flip-back--rose .flip-btn:hover { background: rgba(196,123,123,0.14) !important; }
+.path-expand-toggle {
+  font-size: 22px;
+  font-weight: 200;
+  color: rgba(255,255,255,0.65);
+  line-height: 1;
+  transition: transform 0.30s cubic-bezier(.4,0,.2,1);
+  flex-shrink: 0;
+}
+.path-expand-card.expanded .path-expand-toggle {
+  transform: rotate(45deg);
+}
+.path-expand-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.42s cubic-bezier(.4,0,.2,1);
+}
+.path-expand-card.expanded .path-expand-body {
+  max-height: 400px;
+}
+.path-expand-body-inner {
+  padding: 20px 36px 28px;
+  background: #F2EFEA;
+}
+.path-expand-meta {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.path-expand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(196,123,123,0.12);
+  font-size: 13px;
+}
+.path-expand-row:first-child { border-top: 1px solid rgba(196,123,123,0.12); }
+.path-expand-label {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.20em;
+  color: var(--rose);
+}
+.path-expand-val { color: #444; font-size: 14px; }
+.path-expand-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid rgba(196,123,123,0.30);
+  border-radius: 30px;
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.20em;
+  color: var(--rose);
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.path-expand-cta:hover { background: rgba(196,123,123,0.08); }
 
 /* Flip cards — content-driven height via CSS grid stacking */
 .flip-outer {
@@ -801,10 +864,6 @@ h2.sec-h2 {
   margin-top: auto;
   padding-top: 16px;
 }
-/* rose card variant: hint pushes to bottom */
-.flip-hint--light { color: rgba(255,255,255,0.55); }
-/* rose front: icon colour */
-.path-icon--rose { color: rgba(255,255,255,0.90); }
 /* Back: cream lavender */
 .flip-back {
   transform: rotateY(180deg);

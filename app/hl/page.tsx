@@ -229,70 +229,44 @@ export default function HlPage() {
           <div className="paths-left">
             <div className="paths-group-label">完整系統路徑</div>
 
-            {/* Card 1: 全面式系統清理 — rose flip */}
-            <div className={`flip-outer flip-outer--nav${flippedA ? ' flipped' : ''}`} onClick={() => setFlippedA(v => !v)}>
-              <div className="flip-inner">
-                <div className="flip-front flip-front--rose">
-                  <div className="path-icon path-icon--rose" aria-hidden="true">
-                    <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
-                      <circle cx="28" cy="8"    r="4"   fill="currentColor" opacity="0.90" />
-                      <circle cx="28" cy="20"   r="3.5" fill="currentColor" opacity="0.75" />
-                      <circle cx="28" cy="30.5" r="3"   fill="currentColor" opacity="0.60" />
-                      <circle cx="28" cy="39.5" r="2.5" fill="currentColor" opacity="0.45" />
-                      <circle cx="28" cy="47"   r="2"   fill="currentColor" opacity="0.32" />
-                      <circle cx="20" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
-                      <circle cx="36" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
-                    </svg>
-                  </div>
-                  <h3>全面式系統清理</h3>
-                  <p>七脈輪能量調和。從海底輪到頂輪的全系統能量重建，適合需要深度清理或長期卡關者。</p>
-                  <div className="flip-hint flip-hint--light">點擊翻面查看詳情</div>
-                </div>
-                <div className="flip-back flip-back--rose">
-                  <h3>全面式系統清理</h3>
-                  <div className="flip-back-meta">
+            {/* Card 1: 全面式系統清理 — expand */}
+            <div className={`path-expand-card${flippedA ? ' expanded' : ''}`}>
+              <div className="path-expand-header" onClick={() => setFlippedA(v => !v)}>
+                <h3>全面式系統清理</h3>
+                <span className="path-expand-toggle">+</span>
+              </div>
+              <div className="path-expand-body">
+                <div className="path-expand-body-inner">
+                  <div className="path-expand-meta">
                     {[['服務形式', '1 對 1 · 實體'], ['投入時間', '3 小時'], ['費用', 'NT$45,000']].map(([l, v]) => (
-                      <div className="flip-back-meta-row" key={l}>
-                        <span className="flip-back-meta-label">{l}</span>
-                        <span>{v}</span>
+                      <div className="path-expand-row" key={l}>
+                        <span className="path-expand-label">{l}</span>
+                        <span className="path-expand-val">{v}</span>
                       </div>
                     ))}
                   </div>
-                  <button className="flip-btn" onClick={e => { e.stopPropagation(); navScrollTo('core-reset') }}>了解詳情 →</button>
+                  <button className="path-expand-cta" onClick={e => { e.stopPropagation(); navScrollTo('core-reset') }}>了解詳情 →</button>
                 </div>
               </div>
             </div>
 
-            {/* Card 2: 陪跑計劃 — rose flip */}
-            <div className={`flip-outer flip-outer--nav${flippedC ? ' flipped' : ''}`} onClick={() => setFlippedC(v => !v)}>
-              <div className="flip-inner">
-                <div className="flip-front flip-front--rose">
-                  <div className="path-icon path-icon--rose" aria-hidden="true">
-                    <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
-                      <circle cx="28" cy="8"    r="4"   fill="currentColor" opacity="0.90" />
-                      <circle cx="28" cy="20"   r="3.5" fill="currentColor" opacity="0.75" />
-                      <circle cx="28" cy="30.5" r="3"   fill="currentColor" opacity="0.60" />
-                      <circle cx="28" cy="39.5" r="2.5" fill="currentColor" opacity="0.45" />
-                      <circle cx="28" cy="47"   r="2"   fill="currentColor" opacity="0.32" />
-                      <circle cx="20" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
-                      <circle cx="36" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
-                    </svg>
-                  </div>
-                  <h3>陪跑計劃</h3>
-                  <p>清理後的深度整合隨行，確保新頻率在日常生活中穩定落地，不回彈。</p>
-                  <div className="flip-hint flip-hint--light">點擊翻面查看詳情</div>
-                </div>
-                <div className="flip-back flip-back--rose">
-                  <h3>陪跑計劃</h3>
-                  <div className="flip-back-meta">
+            {/* Card 2: 陪跑計劃 — expand */}
+            <div className={`path-expand-card${flippedC ? ' expanded' : ''}`}>
+              <div className="path-expand-header" onClick={() => setFlippedC(v => !v)}>
+                <h3>陪跑計劃</h3>
+                <span className="path-expand-toggle">+</span>
+              </div>
+              <div className="path-expand-body">
+                <div className="path-expand-body-inner">
+                  <div className="path-expand-meta">
                     {[['服務形式', '1 對 1 · 實體預約'], ['投入時間', '1.5 小時 / 堂'], ['前提', '完成系統清理後可加選']].map(([l, v]) => (
-                      <div className="flip-back-meta-row" key={l}>
-                        <span className="flip-back-meta-label">{l}</span>
-                        <span>{v}</span>
+                      <div className="path-expand-row" key={l}>
+                        <span className="path-expand-label">{l}</span>
+                        <span className="path-expand-val">{v}</span>
                       </div>
                     ))}
                   </div>
-                  <button className="flip-btn" onClick={e => { e.stopPropagation(); navScrollTo('followup') }}>了解陪跑計劃 →</button>
+                  <button className="path-expand-cta" onClick={e => { e.stopPropagation(); navScrollTo('followup') }}>了解陪跑計劃 →</button>
                 </div>
               </div>
             </div>
