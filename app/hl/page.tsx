@@ -7,6 +7,7 @@ import './hl-page.css'
 import HlHero from '@/components/hl/HlHero'
 import HlSection from '@/components/hl/HlSection'
 import HlSectionTitle from '@/components/hl/HlSectionTitle'
+import HlPathsExpand from '@/components/hl/HlPathsExpand'
 
 // ── Pearl data ──────────────────────────────────────────────────────────────
 const pearlData: Record<string, { name: string; en: string; lightBg: string; desc: string }> = {
@@ -55,9 +56,6 @@ export default function HlPage() {
   }, [])
 
   const [smOpen, setSmOpen] = useState(false)
-  const [flippedA, setFlippedA] = useState(false)
-  const [flippedC, setFlippedC] = useState(false)
-  const [flippedB, setFlippedB] = useState(false)
   const [openPlans, setOpenPlans] = useState<Record<string, boolean>>({})
   const [activePearl, setActivePearl] = useState<string | null>(null)
 
@@ -204,136 +202,7 @@ export default function HlPage() {
       </div>
 
       {/* ── PATH SELECTION ── */}
-      <HlSection id="paths">
-        <div className="sm-step-icon">
-          {/* Nav ← 01 */}
-          <div className="sm-step-dot-wrap sm-step-dot-wrap--nav" onClick={() => navScrollTo('sound-mapping')} role="button" aria-label="前往第一步">
-            <Image src="/resource/circle/pink/粉點-1.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
-            <span className="step-dot-num step-dot-num--muted">01</span>
-          </div>
-          <div className="sm-step-connector" aria-hidden="true" />
-          {/* Active: 02 */}
-          <div className="sm-step-dot-wrap">
-            <Image src="/resource/circle/pink/粉點-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
-            <span className="step-dot-num">02</span>
-          </div>
-        </div>
-        <HlSectionTitle
-          label="選擇路徑"
-          title="選擇你的清理路徑"
-          desc="完成生命音譜掃描後，根據你的能量地圖結果，選擇最適合你的清理路徑。"
-        />
-        <div className="paths-grid">
-
-          {/* Left: paired group — 全面式 + 陪跑 */}
-          <div className="paths-left">
-            <div className="paths-group-label">
-              <div className="paths-group-icon" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 56 56" fill="none">
-                  <circle cx="28" cy="8"    r="4"   fill="currentColor" opacity="0.90" />
-                  <circle cx="28" cy="20"   r="3.5" fill="currentColor" opacity="0.75" />
-                  <circle cx="28" cy="30.5" r="3"   fill="currentColor" opacity="0.60" />
-                  <circle cx="28" cy="39.5" r="2.5" fill="currentColor" opacity="0.45" />
-                  <circle cx="28" cy="47"   r="2"   fill="currentColor" opacity="0.32" />
-                  <circle cx="20" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
-                  <circle cx="36" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
-                </svg>
-              </div>
-              <span>完整系統路徑</span>
-            </div>
-
-            {/* Card 1: 全面式系統清理 — expand */}
-            <div className={`path-expand-card${flippedA ? ' expanded' : ''}`}>
-              <div className="path-expand-header" onClick={() => setFlippedA(v => !v)}>
-                <div className="path-expand-titles">
-                  <h3>全面式系統清理</h3>
-                  <p>七脈輪能量調和 · Core Reset</p>
-                  <span className="path-expand-pre">七脈輪能量調和。從海底輪到頂輪的全系統能量重建，適合需要深度清理或長期卡關者。</span>
-                </div>
-                <span className="path-expand-toggle">+</span>
-              </div>
-              <div className="path-expand-body">
-                <div className="path-expand-body-inner">
-                  <div className="path-expand-meta">
-                    {[['服務形式', '1 對 1 · 實體'], ['投入時間', '3 小時'], ['費用', 'NT$45,000']].map(([l, v]) => (
-                      <div className="path-expand-row" key={l}>
-                        <span className="path-expand-label">{l}</span>
-                        <span className="path-expand-val">{v}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <button className="path-expand-cta" onClick={e => { e.stopPropagation(); navScrollTo('core-reset') }}>了解詳情 →</button>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2: 陪跑計劃 — expand */}
-            <div className={`path-expand-card${flippedC ? ' expanded' : ''}`}>
-              <div className="path-expand-header" onClick={() => setFlippedC(v => !v)}>
-                <div className="path-expand-titles">
-                  <h3>陪跑計劃</h3>
-                  <p>頻率定錨隨行 · Anchor</p>
-                  <span className="path-expand-pre">清理後的深度整合陪伴，確保新的頻率能在日常生活中穩定落地，不回彈。</span>
-                </div>
-                <span className="path-expand-toggle">+</span>
-              </div>
-              <div className="path-expand-body">
-                <div className="path-expand-body-inner">
-                  <div className="path-expand-meta">
-                    {[['服務形式', '1 對 1 · 實體預約'], ['投入時間', '1.5 小時 / 堂'], ['前提', '完成系統清理後可加選']].map(([l, v]) => (
-                      <div className="path-expand-row" key={l}>
-                        <span className="path-expand-label">{l}</span>
-                        <span className="path-expand-val">{v}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <button className="path-expand-cta" onClick={e => { e.stopPropagation(); navScrollTo('followup') }}>了解陪跑計劃 →</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right: expand card — mirrors left form */}
-          <div className="paths-right">
-            <div className="paths-group-label paths-group-label--purple">
-              <div className="paths-group-icon paths-group-icon--purple" aria-hidden="true">
-                <svg width="28" height="28" viewBox="0 0 56 56" fill="none">
-                  <circle cx="28" cy="28" r="18" fill="currentColor" opacity="0.18" />
-                  <circle cx="28" cy="28" r="12" fill="currentColor" opacity="0.42" />
-                  <circle cx="28" cy="28" r="7"  fill="currentColor" opacity="0.90" />
-                  <circle cx="24" cy="23" r="2.5" fill="white"       opacity="0.45" />
-                </svg>
-              </div>
-              <span>主題精準路徑</span>
-            </div>
-
-            <div className={`path-expand-card path-expand-card--purple${flippedB ? ' expanded' : ''}`}>
-              <div className="path-expand-header" onClick={() => setFlippedB(v => !v)}>
-                <div className="path-expand-titles">
-                  <h3>針對式主題對齊</h3>
-                  <p>六大定音珍珠 · Pearls</p>
-                </div>
-                <span className="path-expand-toggle">+</span>
-              </div>
-              <div className="path-expand-body">
-                <div className="path-expand-body-inner">
-                  <p className="path-expand-desc">每顆珍珠對應一個核心生命主題——文昌對齊、身體健康祈福、能量保護罩、愛的流動、金錢豐盛、關係共振。由禿禿親自執行。</p>
-                  <div className="path-expand-meta">
-                    {[['服務形式', '1 對 1 · 實體'], ['投入時間', '90 分鐘 / 主題'], ['費用', 'NT$12,000 / 主題']].map(([l, v]) => (
-                      <div className="path-expand-row" key={l}>
-                        <span className="path-expand-label">{l}</span>
-                        <span className="path-expand-val">{v}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <button className="path-expand-cta path-expand-cta--purple" onClick={e => { e.stopPropagation(); navScrollTo('pearls') }}>查看六大定音主題 →</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </HlSection>
+      <HlPathsExpand />
 
       {/* ── CORE RESET ── */}
       <HlSection id="core-reset" className="core-reset">

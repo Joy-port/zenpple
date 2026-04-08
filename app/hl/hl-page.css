@@ -747,28 +747,12 @@ h2.sec-h2 {
 .paths-group-label--purple { color: rgba(123, 107, 158, 0.58); }
 .paths-group-icon--purple   { color: rgba(123, 107, 158, 0.55); }
 
-/* purple expand card variant */
-.path-expand-card--purple {
-  background: linear-gradient(148deg, #7B6B9E 0%, #5a4a7a 100%);
-}
-.path-expand-card--purple:hover {
-  box-shadow: 0 8px 32px rgba(90,74,122,0.32);
-}
-.path-expand-card--purple .path-expand-label { color: var(--purple); }
-.path-expand-card--purple .path-expand-row   { border-color: rgba(123,107,158,0.12); }
-.path-expand-card--purple .path-expand-row:first-child { border-color: rgba(123,107,158,0.12); }
 .path-expand-desc {
   font-size: 13px;
   line-height: 1.85;
   color: #666;
   margin-bottom: 16px;
 }
-.path-expand-cta--purple {
-  border-color: rgba(123,107,158,0.30) !important;
-  color: var(--purple) !important;
-}
-.path-expand-cta--purple:hover { background: rgba(123,107,158,0.08) !important; }
-
 /* Left column: expand/accordion cards */
 .path-expand-card {
   background: linear-gradient(148deg, #C47B7B 0%, #b06060 100%);
@@ -780,14 +764,16 @@ h2.sec-h2 {
   box-shadow: 0 8px 32px rgba(196,123,123,0.28);
 }
 .path-expand-header {
-  padding: 28px 36px;
+  padding: 28px 36px 20px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
+  gap: 16px;
   cursor: pointer;
   user-select: none;
 }
-.path-expand-titles { display: flex; flex-direction: column; gap: 5px; }
+.path-expand-titles { display: flex; flex-direction: column; align-items: center; gap: 5px; }
 .path-expand-header h3 {
   font-family: var(--f-zh);
   font-weight: 700;
@@ -815,15 +801,13 @@ h2.sec-h2 {
   text-transform: none;
 }
 .path-expand-toggle {
-  font-size: 22px;
-  font-weight: 200;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.55);
   line-height: 1;
   transition: transform 0.30s cubic-bezier(.4,0,.2,1);
   flex-shrink: 0;
 }
 .path-expand-card.expanded .path-expand-toggle {
-  transform: rotate(45deg);
+  transform: rotate(180deg);
 }
 .path-expand-body {
   max-height: 0;
@@ -835,7 +819,10 @@ h2.sec-h2 {
 }
 .path-expand-body-inner {
   padding: 20px 36px 28px;
-  background: #F2EFEA;
+  background: rgba(255, 248, 248, 0.88);
+}
+.path-expand-card--purple .path-expand-body-inner {
+  background: rgba(248, 245, 255, 0.88);
 }
 .path-expand-meta {
   display: flex;
@@ -875,6 +862,32 @@ h2.sec-h2 {
   transition: background 0.2s;
 }
 .path-expand-cta:hover { background: rgba(196,123,123,0.08); }
+
+/* purple expand card variant — must come AFTER base .path-expand-card */
+.path-expand-card--purple {
+  background: linear-gradient(148deg, #7B6B9E 0%, #5a4a7a 100%);
+}
+.path-expand-card--purple:hover {
+  box-shadow: 0 8px 32px rgba(90,74,122,0.32);
+}
+.path-expand-card--purple .path-expand-label { color: var(--purple); }
+.path-expand-card--purple .path-expand-row   { border-color: rgba(123,107,158,0.12); }
+.path-expand-card--purple .path-expand-row:first-child { border-color: rgba(123,107,158,0.12); }
+.path-expand-cta--purple {
+  border-color: rgba(123,107,158,0.30) !important;
+  color: var(--purple) !important;
+}
+.path-expand-cta--purple:hover { background: rgba(123,107,158,0.08) !important; }
+
+
+/* ── PATHS B (experimental) ── */
+#paths-b {
+  background: linear-gradient(175deg, #f8f5f0 0%, #ede9f4 62%, #f0ebf5 100%);
+}
+/* Override card styles here for v2 experiments */
+/* .paths-grid--v2 { ... } */
+/* .paths-left--v2 .path-expand-card { ... } */
+/* .paths-right--v2 .path-expand-card--purple { ... } */
 
 
 /* CORE RESET */
