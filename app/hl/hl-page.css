@@ -295,31 +295,32 @@ h2.sec-h2 {
   }
 }
 
-/* HOW IT WORKS */
-#steps {
-  background: #F2EFEA;
-}
-
-/* Centered title block */
-.steps-title {
+/* ── HlSectionTitle — shared centered section header ───────────────────── */
+.hl-section-title {
   text-align: center;
   margin-bottom: clamp(40px, 6vh, 64px);
 }
-.steps-title .section-label {
+.hl-section-title .section-label {
   justify-content: center;
 }
-.steps-title .section-label::after { display: none; }
-.steps-title .sec-h2 {
-  color: #3a2d40;   /*暗紫 — pop, used sparingly */
+.hl-section-title .section-label::after { display: none; }
+.hl-section-title .sec-h2 {
+  color: #3a2d40;
 }
-#steps .steps-desc {
+.hl-section-desc {
   font-size: 14px;
-  color: rgba(123,107,158,0.70);   /* 暮紫 muted */
+  color: rgba(123,107,158,0.70);
   line-height: 2.0;
   max-width: 480px;
   margin: 12px auto 0;
   letter-spacing: 0.02em;
 }
+
+/* HOW IT WORKS */
+#steps {
+  background: #F2EFEA;
+}
+
 
 /* 2-column grid (step 03 removed) */
 .steps-horiz {

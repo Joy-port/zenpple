@@ -5,6 +5,7 @@ import Link from 'next/link'
 import './hl-page.css'
 import HlHero from '@/components/hl/HlHero'
 import HlSection from '@/components/hl/HlSection'
+import HlSectionTitle from '@/components/hl/HlSectionTitle'
 
 // ── Pearl data ──────────────────────────────────────────────────────────────
 const pearlData: Record<string, { name: string; en: string; lightBg: string; desc: string }> = {
@@ -80,11 +81,11 @@ export default function HlPage() {
 
       {/* ── HOW IT WORKS ── */}
       <HlSection id="steps">
-        <div className="steps-title">
-          <div className="section-label">HOW IT WORKS</div>
-          <h2 className="sec-h2">定頻邏輯兩步驟</h2>
-          <p className="steps-desc">每段旅程都遵循兩個核心步驟——從精準掃描到深度清理。點擊步驟了解更多。</p>
-        </div>
+        <HlSectionTitle
+          label="HOW IT WORKS"
+          title="定頻邏輯兩步驟"
+          desc="每段旅程都遵循兩個核心步驟——從精準掃描到深度清理。點擊步驟了解更多。"
+        />
 
         <div className="steps-horiz">
           <div className="step-card" onClick={() => navScrollTo('sound-mapping')}>
