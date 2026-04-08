@@ -56,6 +56,7 @@ export default function HlPage() {
 
   const [smOpen, setSmOpen] = useState(false)
   const [flippedA, setFlippedA] = useState(false)
+  const [flippedC, setFlippedC] = useState(false)
   const [flippedB, setFlippedB] = useState(false)
   const [openPlans, setOpenPlans] = useState<Record<string, boolean>>({})
   const [activePearl, setActivePearl] = useState<string | null>(null)
@@ -201,6 +202,16 @@ export default function HlPage() {
 
       {/* ── PATH SELECTION ── */}
       <HlSection id="paths">
+        <div className="sm-step-icon">
+          <div className="sm-step-dot-wrap">
+            <Image src="/resource/circle/pink/粉點-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+            <span className="step-dot-num">02</span>
+          </div>
+          <div className="sm-step-connector" aria-hidden="true" />
+          <div className="sm-step-black-wrap">
+            <Image src="/resource/circle/black/黑圈-3.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+          </div>
+        </div>
         <HlSectionTitle
           label="選擇路徑"
           title="選擇你的清理路徑"
@@ -208,27 +219,28 @@ export default function HlPage() {
         />
         <div className="paths-grid">
 
-          {/* Left: 2 anchor nav cards */}
+          {/* Left: paired group — 全面式 + 陪跑 */}
           <div className="paths-left">
+            <div className="paths-group-label">完整系統路徑</div>
+
+            {/* Card 1: 全面式系統清理 — rose flip */}
             <div className={`flip-outer flip-outer--nav${flippedA ? ' flipped' : ''}`} onClick={() => setFlippedA(v => !v)}>
               <div className="flip-inner">
                 <div className="flip-front flip-front--rose">
-                  <div className="path-nav-top">
-                    <div className="path-nav-icon" aria-hidden="true">
-                      <svg width="36" height="36" viewBox="0 0 56 56" fill="none">
-                        <circle cx="28" cy="8"    r="4"   fill="currentColor" opacity="0.90" />
-                        <circle cx="28" cy="20"   r="3.5" fill="currentColor" opacity="0.75" />
-                        <circle cx="28" cy="30.5" r="3"   fill="currentColor" opacity="0.60" />
-                        <circle cx="28" cy="39.5" r="2.5" fill="currentColor" opacity="0.45" />
-                        <circle cx="28" cy="47"   r="2"   fill="currentColor" opacity="0.32" />
-                        <circle cx="20" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
-                        <circle cx="36" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
-                      </svg>
-                    </div>
-                    <span className="path-nav-arrow">翻面</span>
+                  <div className="path-icon path-icon--rose" aria-hidden="true">
+                    <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+                      <circle cx="28" cy="8"    r="4"   fill="currentColor" opacity="0.90" />
+                      <circle cx="28" cy="20"   r="3.5" fill="currentColor" opacity="0.75" />
+                      <circle cx="28" cy="30.5" r="3"   fill="currentColor" opacity="0.60" />
+                      <circle cx="28" cy="39.5" r="2.5" fill="currentColor" opacity="0.45" />
+                      <circle cx="28" cy="47"   r="2"   fill="currentColor" opacity="0.32" />
+                      <circle cx="20" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
+                      <circle cx="36" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
+                    </svg>
                   </div>
                   <h3>全面式系統清理</h3>
-                  <p>七脈輪能量調和 · Core Reset</p>
+                  <p>七脈輪能量調和。從海底輪到頂輪的全系統能量重建，適合需要深度清理或長期卡關者。</p>
+                  <div className="flip-hint flip-hint--light">點擊翻面查看詳情</div>
                 </div>
                 <div className="flip-back flip-back--rose">
                   <h3>全面式系統清理</h3>
@@ -245,20 +257,35 @@ export default function HlPage() {
               </div>
             </div>
 
-            <div className="path-nav-card path-nav-card--light" onClick={() => navScrollTo('followup')}>
-              <div className="path-nav-top">
-                <div className="path-nav-icon" aria-hidden="true">
-                  <svg width="36" height="36" viewBox="0 0 56 56" fill="none">
-                    <circle cx="28" cy="28" r="22" fill="currentColor" opacity="0.08" />
-                    <circle cx="28" cy="28" r="15" fill="currentColor" opacity="0.18" />
-                    <circle cx="28" cy="28" r="9"  fill="currentColor" opacity="0.48" />
-                    <circle cx="28" cy="28" r="4"  fill="currentColor" opacity="0.80" />
-                  </svg>
+            {/* Card 2: 陪跑計劃 — rose flip */}
+            <div className={`flip-outer flip-outer--nav${flippedC ? ' flipped' : ''}`} onClick={() => setFlippedC(v => !v)}>
+              <div className="flip-inner">
+                <div className="flip-front flip-front--rose">
+                  <div className="path-icon path-icon--rose" aria-hidden="true">
+                    <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+                      <circle cx="28" cy="28" r="22" fill="currentColor" opacity="0.10" />
+                      <circle cx="28" cy="28" r="15" fill="currentColor" opacity="0.22" />
+                      <circle cx="28" cy="28" r="9"  fill="currentColor" opacity="0.55" />
+                      <circle cx="28" cy="28" r="4"  fill="currentColor" opacity="0.88" />
+                    </svg>
+                  </div>
+                  <h3>陪跑計劃</h3>
+                  <p>清理後的深度整合隨行，確保新頻率在日常生活中穩定落地，不回彈。</p>
+                  <div className="flip-hint flip-hint--light">點擊翻面查看詳情</div>
                 </div>
-                <span className="path-nav-arrow">→</span>
+                <div className="flip-back flip-back--rose">
+                  <h3>陪跑計劃</h3>
+                  <div className="flip-back-meta">
+                    {[['服務形式', '1 對 1 · 實體預約'], ['投入時間', '1.5 小時 / 堂'], ['前提', '完成系統清理後可加選']].map(([l, v]) => (
+                      <div className="flip-back-meta-row" key={l}>
+                        <span className="flip-back-meta-label">{l}</span>
+                        <span>{v}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <button className="flip-btn" onClick={e => { e.stopPropagation(); navScrollTo('followup') }}>了解陪跑計劃 →</button>
+                </div>
               </div>
-              <h3>陪跑計劃</h3>
-              <p>頻率定錨隨行 · Anchor</p>
             </div>
           </div>
 

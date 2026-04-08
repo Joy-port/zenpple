@@ -699,60 +699,24 @@ h2.sec-h2 {
   align-items: stretch;
 }
 
-/* Left column — 2 stacked anchor nav cards */
+/* Left column — paired group container */
 .paths-left {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(196, 123, 123, 0.06);
+  border-radius: 26px;
+  border: 1px solid rgba(196, 123, 123, 0.13);
 }
-.path-nav-card {
-  flex: 1;
-  background: linear-gradient(148deg, #C47B7B 0%, #b06060 100%);
-  color: #fff;
-  border-radius: 20px;
-  padding: 36px 40px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition: transform 0.22s, box-shadow 0.22s;
-}
-.path-nav-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(196,123,123,0.30);
-}
-.path-nav-card--light {
-  background: linear-gradient(148deg, rgba(196,123,123,0.68) 0%, rgba(185,110,110,0.78) 100%);
-  backdrop-filter: blur(2px);
-}
-.path-nav-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
-.path-nav-icon { display: flex; color: rgba(255,255,255,0.88); }
-.path-nav-arrow {
-  font-size: 18px;
-  color: rgba(255,255,255,0.65);
-  transition: transform 0.22s, color 0.22s;
-}
-.path-nav-card:hover .path-nav-arrow { transform: translateX(5px); color: #fff; }
-.path-nav-card h3 {
-  font-family: var(--f-zh);
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: 0.04em;
-  color: #fff;
-  margin: 0;
-}
-.path-nav-card p {
-  font-family: var(--f-display);
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  color: rgba(255,255,255,0.62);
-  margin: 0;
+.paths-group-label {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: rgba(196, 123, 123, 0.58);
   text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 2px;
 }
 
 /* Left column flip card — stretches with flex, no fixed height */
@@ -837,8 +801,13 @@ h2.sec-h2 {
   letter-spacing: 0.25em;
   color: rgba(255,255,255,0.50);
   text-transform: uppercase;
-  margin-top: 20px;
+  margin-top: auto;
+  padding-top: 16px;
 }
+/* rose card variant: hint pushes to bottom */
+.flip-hint--light { color: rgba(255,255,255,0.55); }
+/* rose front: icon colour */
+.path-icon--rose { color: rgba(255,255,255,0.90); }
 /* Back: cream lavender */
 .flip-back {
   transform: rotateY(180deg);
