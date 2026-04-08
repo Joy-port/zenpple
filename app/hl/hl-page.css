@@ -26,29 +26,14 @@ body.page-hl header ul li:last-child a {
   padding-bottom: 80px;
   overflow: hidden;
 }
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 80% at 70% 30%, #b8739b55, transparent),
-    radial-gradient(ellipse 60% 70% at 20% 60%, #7B6B9E44, transparent),
-    radial-gradient(ellipse 100% 60% at 50% 100%, #C47B7B33, transparent),
-    linear-gradient(160deg, #3a2d40 0%, #4a3060 30%, #7B6B9E 65%, #C47B7B 100%);
-}
 .hero-deep {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--f-zh);
-  font-weight: 900;
-  font-size: clamp(280px, 40vw, 480px);
-  color: rgba(255,255,255,0.07);
   user-select: none;
   pointer-events: none;
-  letter-spacing: -0.02em;
-  line-height: 1;
 }
 .hero-label {
   position: absolute;

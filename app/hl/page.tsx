@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 import './hl-page.css'
+import HlHero from '@/components/hl/HlHero'
 
 // ── Pearl data ──────────────────────────────────────────────────────────────
 const pearlData: Record<string, { name: string; en: string; lightBg: string; desc: string }> = {
@@ -74,16 +75,7 @@ export default function HlPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section id="hero">
-        <div className="hero-bg" />
-        <div className="hero-deep">深</div>
-        <div className="hero-label">HARMONIC LAYERS · 林間迷霧者</div>
-        <div className="hero-content">
-          <div className="en-sub">DEEP SYSTEM ALIGNMENT</div>
-          <h1>不只放鬆，<br />而是從根源<br />重新調頻</h1>
-          <p>七脈輪校準系統，從全面掃描到系統重整，透過頌缽物理波頻，清理累積的雜訊，讓身心頻率回歸原始和諧。</p>
-        </div>
-      </section>
+      <HlHero />
 
       {/* ── HOW IT WORKS ── */}
       <section id="steps">
