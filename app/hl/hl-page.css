@@ -432,23 +432,153 @@ h2.sec-h2 {
 
 /* SOUND MAPPING */
 #sound-mapping {
-  padding: 0 64px 120px;
+  /* gradient flipped: cream at top (pink dot stays sharp), rose blooms downward */
+  background: linear-gradient(175deg,
+    #F2EFEA 0%,
+    rgba(242, 239, 234, 0.90) 32%,
+    rgba(196, 123, 123, 0.52) 65%,
+    #C47B7B 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cloud blur — top-left, soft cream warmth */
+#sound-mapping::before {
+  content: '';
+  position: absolute;
+  top: -8%;
+  left: -12%;
+  width: 68%;
+  height: 58%;
+  background: radial-gradient(ellipse at 42% 42%,
+    rgba(255, 246, 240, 0.70) 0%,
+    rgba(242, 220, 210, 0.28) 48%,
+    transparent 72%
+  );
+  filter: blur(42px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Cloud blur — bottom-right, rose + micro #7B6B9E whisper */
+#sound-mapping::after {
+  content: '';
+  position: absolute;
+  bottom: -4%;
+  right: -10%;
+  width: 54%;
+  height: 52%;
+  background: radial-gradient(ellipse at 54% 58%,
+    rgba(220, 150, 150, 0.38) 0%,
+    rgba(196, 123, 123, 0.18) 50%,
+    rgba(123, 107, 158, 0.06) 80%,
+    transparent 100%
+  );
+  filter: blur(48px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Transition waves ────────────────────────────────────────────────────── */
+/* Enter: steps (#F2EFEA) → sound-mapping; soft rose cloud wisps on cream */
+.sm-wave-enter {
   background: #F2EFEA;
+  line-height: 0;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -1px;
+  pointer-events: none;
+}
+.sm-wave-enter svg {
+  width: 100%;
+  height: clamp(24px, 3.5vw, 44px);
+  display: block;
+}
+
+/* Exit: sound-mapping (#C47B7B bottom) → paths (#f8f5f0) */
+.sm-wave-exit {
+  background: #C47B7B;
+  line-height: 0;
+  position: relative;
+  z-index: 2;
+  margin-top: -1px;
+  pointer-events: none;
+}
+.sm-wave-exit svg {
+  width: 100%;
+  height: clamp(24px, 3.5vw, 44px);
+  display: block;
+}
+
+/* Lift content above blurs */
+#sound-mapping .hl-section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Step icon row — echoes the steps section dots */
+.sm-step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: clamp(24px, 4vh, 40px);
+}
+.sm-step-dot-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sm-step-dot-wrap img {
+  animation: step-dot-breathe 3.6s ease-in-out infinite !important;
+}
+.sm-step-connector {
+  width: 40px;
+  height: 1px;
+  background: rgba(196,123,123,0.25);
+  flex-shrink: 0;
+}
+.sm-step-black-wrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  opacity: 0.18;
 }
 .sm-inner {
-  background: #fff;
+  background: rgba(255, 252, 250, 0.88);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
-  border: 1px solid rgba(196,123,123,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 8px 48px rgba(196, 123, 123, 0.18),
+    0 2px 12px rgba(123, 107, 158, 0.05);
 }
 .sm-left {
   padding: 64px;
-  background: linear-gradient(135deg, #f9f6f1, #f4eef0);
+  background: linear-gradient(148deg,
+    rgba(196, 123, 123, 0.14) 0%,
+    rgba(249, 240, 238, 0.92) 42%,
+    #f4eef0 100%
+  );
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  justify-content: center;
+  gap: 0;
+}
+.sm-left p + p {
+  margin-top: 20px;
 }
 .sm-right {
   padding: 64px;
@@ -1103,12 +1233,13 @@ h2.sec-h2 {
 @media (max-width: 768px) {
   #hero .hero-label { top: 80px; left: 24px; }
   .hero-content { padding: 0 24px; }
-  #steps, #sound-mapping, #paths, #followup, #pearls, #hl-cta {
+  #steps, #paths, #followup, #pearls, #hl-cta {
     padding-left: 24px;
     padding-right: 24px;
   }
   .steps-horiz { grid-template-columns: 1fr; }
   .sm-inner { grid-template-columns: 1fr; }
+  .sm-left { padding: 40px 32px; justify-content: flex-start; }
   .paths-grid { grid-template-columns: 1fr; }
   .fu-card { grid-template-columns: 1fr; }
   .pearls-ring-wrap { width: 100%; height: 480px; }

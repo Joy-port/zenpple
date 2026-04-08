@@ -119,13 +119,32 @@ export default function HlPage() {
         </div>
       </HlSection>
 
+      {/* Wave: steps → sound-mapping — soft rose cloud wisps on cream */}
+      <div className="sm-wave-enter" aria-hidden="true">
+        <svg viewBox="0 0 1440 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,22 C240,40 560,6 840,26 C1060,42 1280,10 1440,22 L1440,44 L0,44 Z" fill="rgba(196,123,123,0.13)" />
+          <path d="M0,30 C320,14 680,44 1000,28 C1180,18 1340,38 1440,32 L1440,44 L0,44 Z" fill="rgba(196,123,123,0.07)" />
+          <path d="M0,36 C400,24 800,44 1160,34 C1300,28 1390,40 1440,38 L1440,44 L0,44 Z" fill="rgba(196,123,123,0.04)" />
+        </svg>
+      </div>
+
       {/* ── SOUND MAPPING ── */}
-      <section id="sound-mapping">
-        <div className="section-label">掃描 · 第一步</div>
-        <h2 className="sec-h2">生命音譜掃描</h2>
-        <p style={{ fontSize: 15, color: '#888', lineHeight: 1.9, maxWidth: 520, marginBottom: 40 }}>
-          以 1.5 小時深度工作，建立身心現況雷達，形成可視化的能量地圖。
-        </p>
+      <HlSection id="sound-mapping" className="sound-mapping">
+        <div className="sm-step-icon">
+          <div className="sm-step-dot-wrap">
+            <Image src="/resource/circle/pink/粉點-1.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+            <span className="step-dot-num">01</span>
+          </div>
+          <div className="sm-step-connector" aria-hidden="true" />
+          <div className="sm-step-black-wrap">
+            <Image src="/resource/circle/black/黑圈-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+          </div>
+        </div>
+        <HlSectionTitle
+          label="掃描 · 第一步"
+          title="生命音譜掃描"
+          desc="以 1.5 小時深度工作，建立身心現況雷達，形成可視化的能量地圖。"
+        />
         <div className={`sm-inner${smOpen ? ' expanded' : ''}`} id="sm-card">
           <div className="sm-left">
             <p>以頌缽、音叉與直覺讀取，禿禿掃描你七個脈輪的振動狀態，辨識阻塞區域、能量漏失點與長期壓抑的情緒訊號。</p>
@@ -169,7 +188,16 @@ export default function HlPage() {
             </button>
           </div>
         </div>
-      </section>
+      </HlSection>
+
+      {/* Wave: sound-mapping → paths — rose into cream */}
+      <div className="sm-wave-exit" aria-hidden="true">
+        <svg viewBox="0 0 1440 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,22 C280,4 620,42 960,18 C1160,4 1320,36 1440,20 L1440,44 L0,44 Z" fill="#f8f5f0" />
+          <path d="M0,32 C360,48 720,16 1080,36 C1240,46 1360,22 1440,30 L1440,44 L0,44 Z" fill="#f8f5f0" opacity="0.58" />
+          <path d="M0,38 C480,28 880,46 1200,36 C1320,30 1400,42 1440,40 L1440,44 L0,44 Z" fill="#f8f5f0" opacity="0.30" />
+        </svg>
+      </div>
 
       {/* ── PATH SELECTION ── */}
       <section id="paths">
