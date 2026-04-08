@@ -64,28 +64,46 @@ body.page-hl header button span {
   left: 0;
   right: 0;
   height: 100vh;
-  /* Desktop: row — [深層] [image] [對齊] */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: clamp(16px, 3vw, 48px);
-  padding: clamp(60px, 8vh, 80px) clamp(32px, 5vw, 80px) clamp(40px, 6vh, 60px);
+  gap: clamp(40px, 6vw, 80px);
+  padding: clamp(60px, 8vh, 80px) clamp(24px, 4vw, 60px) clamp(40px, 6vh, 60px);
   z-index: 2;
   pointer-events: none;
 }
 
-/* Background characters — ghost level, below image visually */
+/* Desktop flanking chars — horizontal, large ghost */
 .hero-bg-char {
   font-family: var(--f-zh);
   font-weight: 900;
-  font-size: clamp(44px, 6.5vw, 84px);
+  font-size: clamp(64px, 9vw, 112px);
   color: rgba(255,255,255,0.06);
-  writing-mode: vertical-rl;
-  letter-spacing: 0.12em;
+  writing-mode: horizontal-tb;
+  letter-spacing: 0.06em;
   user-select: none;
   pointer-events: none;
   flex-shrink: 0;
+}
+/* Mobile only combined caption — hidden on desktop */
+.hero-chars-mobile { display: none; }
+
+/* Scroll chevron — desktop only, absolute at bottom-center of image zone */
+@keyframes hl-scroll-bob {
+  0%, 100% { opacity: 0.30; transform: translateY(0); }
+  50%       { opacity: 0.65; transform: translateY(8px); }
+}
+.hero-scroll-hint {
+  position: absolute;
+  bottom: clamp(20px, 3vh, 36px);
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.50);
+}
+.hero-scroll-hint svg {
+  animation: hl-scroll-bob 2.2s ease-in-out infinite;
+  display: block;
 }
 
 .hero-watermark {
@@ -194,40 +212,37 @@ body.page-hl header button span {
 @media (max-width: 640px) {
   #hero { min-height: 210vh; }
 
-  /* Mobile: column grid — image top spanning both cols, chars side-by-side below */
+  /* Mobile image zone: flex column, centered in viewport */
   .hero-image-zone {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    flex-direction: column;
     align-items: center;
-    justify-items: center;
-    gap: clamp(20px, 4vh, 36px) 0;
-    padding: clamp(64px, 10vh, 88px) 28px clamp(32px, 5vh, 48px);
+    justify-content: center;
+    gap: clamp(14px, 2.5vh, 24px);
+    padding: clamp(64px, 11vh, 88px) 32px clamp(40px, 6vh, 60px);
   }
-  .hero-watermark {
-    grid-column: 1 / 3;
-    grid-row: 1;
+
+  /* Hide desktop flanking chars */
+  .hero-char-desktop { display: none; }
+
+  /* Show combined caption below image */
+  .hero-chars-mobile {
+    display: block;
+    font-family: var(--f-zh);
+    font-weight: 900;
+    font-size: clamp(18px, 5vw, 26px);
+    color: rgba(255,255,255,0.09);
+    letter-spacing: 0.22em;
+    text-align: center;
+    user-select: none;
   }
+
+  /* Smaller image so caption fits in first viewport */
   .hero-watermark img {
-    /* smaller on mobile so chars fit in viewport */
-    width: clamp(150px, 58vw, 240px) !important;
+    width: clamp(150px, 55vw, 230px) !important;
   }
-  /* 深層 — below image, left */
-  .hero-bg-char:nth-child(1) {
-    grid-column: 1;
-    grid-row: 2;
-    writing-mode: horizontal-tb;
-    font-size: clamp(24px, 7vw, 36px);
-    letter-spacing: 0.15em;
-  }
-  /* 對齊 — below image, right */
-  .hero-bg-char:nth-child(3) {
-    grid-column: 2;
-    grid-row: 2;
-    writing-mode: horizontal-tb;
-    font-size: clamp(24px, 7vw, 36px);
-    letter-spacing: 0.15em;
-  }
+
+  /* Hide scroll hint on mobile */
+  .hero-scroll-hint { display: none; }
 
   .hero-title-zone {
     padding: clamp(48px, 8vh, 72px) 32px clamp(60px, 10vh, 96px);

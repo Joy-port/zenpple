@@ -38,8 +38,9 @@ export default function HlHero() {
 
       {/* ── First viewport: image + bg chars ── */}
       <div className="hero-image-zone" aria-hidden="true">
-        {/* Desktop: left of image | Mobile: below image (grid row 2 col 1) */}
-        <div className="hero-bg-char">深層</div>
+
+        {/* Desktop only — flanking the image horizontally */}
+        <div className="hero-bg-char hero-char-desktop">深層</div>
 
         <div className="hero-watermark">
           <Image
@@ -52,8 +53,18 @@ export default function HlHero() {
           />
         </div>
 
-        {/* Desktop: right of image | Mobile: below image (grid row 2 col 2) */}
-        <div className="hero-bg-char">對齊</div>
+        <div className="hero-bg-char hero-char-desktop">對齊</div>
+
+        {/* Mobile only — single caption below image */}
+        <div className="hero-chars-mobile">深層對齊</div>
+
+        {/* Scroll guide — breathing chevron, desktop only */}
+        <div className="hero-scroll-hint">
+          <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.5 1.5 L11 11.5 L20.5 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+
       </div>
 
       {/* ── Title zone: scrolls into view with staggered animation ── */}

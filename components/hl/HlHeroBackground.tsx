@@ -85,30 +85,32 @@ export default function HlHeroBackground() {
       const stop1  = 0.38 + Math.sin(flowT * 1.1) * 0.08
       const stop2  = 0.72 + Math.cos(flowT * 0.9) * 0.06
 
+      // 01 · Gradient drift — 煙霞玫 #C47B7B primary, 暮紫 #7B6B9E secondary
+      //      Never darker than the base hues; avoid deep purple
       const base = ctx.createRadialGradient(
         focalX * w, focalY * h, 0,
         focalX * w, focalY * h, w * 0.88,
       )
-      base.addColorStop(0,     '#9A5C6A')
-      base.addColorStop(stop1, '#7B4260')
-      base.addColorStop(stop2, '#6B3D72')
-      base.addColorStop(1,     '#3a2d40')
+      base.addColorStop(0,     '#D4908A')   // light 煙霞玫
+      base.addColorStop(stop1, '#C47B7B')   // 煙霞玫 exact
+      base.addColorStop(stop2, '#9A8FBE')   // light 暮紫
+      base.addColorStop(1,     '#7B6B9E')   // 暮紫 — ceiling of darkness
       ctx.fillStyle = base
       ctx.fillRect(0, 0, w, h)
 
-      // Deep corner vignette
+      // Soft rose vignette at corners (replaces deep-purple corners)
       const corners: [number, number][] = [[0, 0], [1, 0], [0, 1], [1, 1]]
       corners.forEach(([fx, fy]) => {
         const cx = fx * w, cy = fy * h
         const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, w * 0.70)
-        g.addColorStop(0,   'rgba(58,45,64,0.55)')
-        g.addColorStop(0.5, 'rgba(58,45,64,0.20)')
-        g.addColorStop(1,   'rgba(58,45,64,0)')
+        g.addColorStop(0,   'rgba(175,105,115,0.28)')
+        g.addColorStop(0.5, 'rgba(175,105,115,0.08)')
+        g.addColorStop(1,   'rgba(175,105,115,0)')
         ctx.fillStyle = g
         ctx.fillRect(0, 0, w, h)
       })
 
-      // 02 · Breathing orbs (~3.5–5s cycle each)
+      // 02 · Breathing orbs — stay in rose range, only gently shift toward light amethyst at edges
       BG_ORBS.forEach(s => {
         const bx      = s.bx + Math.sin(t * s.dx + s.phase) * 0.07
         const by      = s.by + Math.cos(t * s.dy + s.phase + 0.5) * 0.06
@@ -117,21 +119,21 @@ export default function HlHeroBackground() {
         const radius  = s.r * Math.max(w, h) * breathe
 
         const rg = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius)
-        rg.addColorStop(0,    'rgba(196,123,123,0.38)')
-        rg.addColorStop(0.12, 'rgba(185,100,110,0.26)')
-        rg.addColorStop(0.30, 'rgba(160, 90,115,0.14)')
-        rg.addColorStop(0.55, 'rgba(140, 80,125,0.07)')
-        rg.addColorStop(0.80, 'rgba(110, 70,135,0.03)')
-        rg.addColorStop(1,    'rgba(100, 60,120,0)')
+        rg.addColorStop(0,    'rgba(220,152,152,0.42)')  // warm light rose
+        rg.addColorStop(0.15, 'rgba(196,123,123,0.28)')  // 煙霞玫
+        rg.addColorStop(0.35, 'rgba(185,120,138,0.15)')  // rose-pink
+        rg.addColorStop(0.60, 'rgba(165,120,158,0.07)')  // light mauve
+        rg.addColorStop(0.85, 'rgba(148,130,175,0.03)')  // light amethyst
+        rg.addColorStop(1,    'rgba(140,125,170,0)')
         ctx.fillStyle = rg
         ctx.fillRect(0, 0, w, h)
       })
 
-      // Thin veil overlay
+      // Thin rose veil overlay
       const veil = ctx.createLinearGradient(0, 0, w, h)
-      veil.addColorStop(0,   'rgba(196,123,123,0.05)')
-      veil.addColorStop(0.5, 'rgba(150, 90,130,0.03)')
-      veil.addColorStop(1,   'rgba(100, 60,120,0.07)')
+      veil.addColorStop(0,   'rgba(215,148,148,0.07)')  // warm rose
+      veil.addColorStop(0.5, 'rgba(196,123,140,0.04)')
+      veil.addColorStop(1,   'rgba(180,130,160,0.05)')  // light mauve edge
       ctx.fillStyle = veil
       ctx.fillRect(0, 0, w, h)
 
@@ -158,11 +160,11 @@ export default function HlHeroBackground() {
           const a2 = ring.alpha * 0.16
 
           const rg = ctx.createRadialGradient(cx, cy, innerR, cx, cy, ring.r)
-          rg.addColorStop(0,    'rgba(196,155,175,0)')
-          rg.addColorStop(0.25, `rgba(196,148,170,${a0})`)
-          rg.addColorStop(0.60, `rgba(165,115,158,${a1})`)
-          rg.addColorStop(0.85, `rgba(140, 90,148,${a2})`)
-          rg.addColorStop(1,    'rgba(115, 70,138,0)')
+          rg.addColorStop(0,    'rgba(220,155,155,0)')
+          rg.addColorStop(0.25, `rgba(210,148,148,${a0})`)   // warm rose ring
+          rg.addColorStop(0.60, `rgba(196,123,138,${a1})`)   // 煙霞玫
+          rg.addColorStop(0.85, `rgba(175,115,148,${a2})`)   // rose-mauve
+          rg.addColorStop(1,    'rgba(155,110,155,0)')
 
           ctx.fillStyle = rg
           ctx.beginPath()
