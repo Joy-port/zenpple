@@ -804,6 +804,16 @@ h2.sec-h2 {
   margin: 0;
   text-transform: uppercase;
 }
+.path-expand-pre {
+  font-family: var(--f-display);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.60);
+  margin-top: 6px;
+  display: block;
+  text-transform: none;
+}
 .path-expand-toggle {
   font-size: 22px;
   font-weight: 200;

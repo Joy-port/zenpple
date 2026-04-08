@@ -248,6 +248,7 @@ export default function HlPage() {
                 <div className="path-expand-titles">
                   <h3>全面式系統清理</h3>
                   <p>七脈輪能量調和 · Core Reset</p>
+                  <span className="path-expand-pre">七脈輪能量調和。從海底輪到頂輪的全系統能量重建，適合需要深度清理或長期卡關者。</span>
                 </div>
                 <span className="path-expand-toggle">+</span>
               </div>
@@ -272,6 +273,7 @@ export default function HlPage() {
                 <div className="path-expand-titles">
                   <h3>陪跑計劃</h3>
                   <p>頻率定錨隨行 · Anchor</p>
+                  <span className="path-expand-pre">清理後的深度整合陪伴，確保新的頻率能在日常生活中穩定落地，不回彈。</span>
                 </div>
                 <span className="path-expand-toggle">+</span>
               </div>
