@@ -688,26 +688,78 @@ h2.sec-h2 {
 }
 .sm-what-item p { font-size: 14px; line-height: 1.8; color: #555; }
 
-/* PATHS (flip cards) */
+/* PATHS */
 #paths {
-  padding: 120px 64px;
-  background: linear-gradient(170deg, #f8f5f0 0%, #f0ebf5 100%);
-}
-#paths .paths-desc {
-  font-size: 15px;
-  color: #888;
-  line-height: 1.9;
-  max-width: 520px;
-  margin-bottom: 64px;
+  background: linear-gradient(175deg, #f8f5f0 0%, #ede9f4 62%, #f0ebf5 100%);
 }
 .paths-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+  align-items: stretch;
 }
+
+/* Left column — 2 stacked anchor nav cards */
+.paths-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.path-nav-card {
+  flex: 1;
+  background: linear-gradient(148deg, #C47B7B 0%, #b06060 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 36px 40px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+.path-nav-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(196,123,123,0.30);
+}
+.path-nav-card--light {
+  background: linear-gradient(148deg, rgba(196,123,123,0.68) 0%, rgba(185,110,110,0.78) 100%);
+  backdrop-filter: blur(2px);
+}
+.path-nav-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.path-nav-icon { display: flex; color: rgba(255,255,255,0.88); }
+.path-nav-arrow {
+  font-size: 18px;
+  color: rgba(255,255,255,0.65);
+  transition: transform 0.22s, color 0.22s;
+}
+.path-nav-card:hover .path-nav-arrow { transform: translateX(5px); color: #fff; }
+.path-nav-card h3 {
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: 0;
+}
+.path-nav-card p {
+  font-family: var(--f-display);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.62);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Right column — flip card: obvious purple front, cream back */
 .flip-outer {
   perspective: 1200px;
-  height: 440px;
+  height: 100%;
+  min-height: 380px;
   cursor: pointer;
 }
 .flip-inner {
@@ -727,15 +779,19 @@ h2.sec-h2 {
   display: flex;
   flex-direction: column;
 }
+/* Front: obvious purple */
 .flip-front {
-  background: rgba(255,255,255,0.7);
-  border: 1px solid rgba(196,123,123,0.18);
-  backdrop-filter: blur(4px);
+  background: linear-gradient(148deg, #7B6B9E 0%, #6a5a8a 100%);
 }
-.flip-front.purple { border-color: rgba(123,107,158,0.2); }
-.flip-back { transform: rotateY(180deg); overflow: hidden; }
-.flip-back.rose { background: linear-gradient(145deg, #C47B7B, #9a5a5a); color: #fff; }
-.flip-back.purple { background: linear-gradient(145deg, #7B6B9E, #5a4a7a); color: #fff; }
+.flip-front h3 {
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+.flip-front p { font-size: 14px; line-height: 1.85; color: rgba(255,255,255,0.80); flex: 1; }
 .path-icon {
   width: 56px;
   height: 56px;
@@ -743,64 +799,60 @@ h2.sec-h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: rgba(255,255,255,0.88);
 }
-.path-icon-rose { color: var(--rose); }
-.path-icon-purple { color: var(--purple); }
-.flip-front h3 {
-  font-family: var(--f-zh);
-  font-weight: 700;
-  font-size: 22px;
-  margin-bottom: 12px;
-  letter-spacing: 0.04em;
-}
-.flip-front p { font-size: 14px; line-height: 1.85; color: #666; flex: 1; }
 .flip-hint {
   font-family: var(--f-display);
   font-weight: 300;
   font-size: 12px;
   letter-spacing: 0.25em;
-  color: rgba(196,123,123,0.7);
+  color: rgba(255,255,255,0.50);
   text-transform: uppercase;
   margin-top: 20px;
 }
-.flip-hint.purple { color: rgba(123,107,158,0.7); }
+/* Back: cream lavender */
+.flip-back {
+  transform: rotateY(180deg);
+  overflow: hidden;
+  background: linear-gradient(148deg, #f5f0fa 0%, #ede5f8 100%);
+}
 .flip-back h3 {
   font-family: var(--f-zh);
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 16px;
   letter-spacing: 0.04em;
-  color: #fff;
+  color: #3d3050;
 }
-.flip-back p { font-size: 14px; line-height: 1.85; color: rgba(255,255,255,0.8); margin-bottom: 14px; flex: 1; }
+.flip-back p { font-size: 14px; line-height: 1.85; color: rgba(61,48,80,0.72); margin-bottom: 14px; flex: 1; }
 .flip-back-meta {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 16px 0;
-  border-top: 1px solid rgba(255,255,255,0.15);
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(123,107,158,0.14);
+  border-bottom: 1px solid rgba(123,107,158,0.14);
   margin-bottom: 20px;
 }
 .flip-back-meta-row {
   display: flex;
   justify-content: space-between;
   font-size: 13px;
-  color: rgba(255,255,255,0.75);
+  color: rgba(61,48,80,0.70);
 }
 .flip-back-meta-label {
   font-family: var(--f-mono);
   font-size: 12px;
   letter-spacing: 0.15em;
-  color: rgba(255,255,255,0.65);
+  color: #7B6B9E;
 }
 .flip-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.35);
-  color: #fff;
+  background: rgba(123,107,158,0.10);
+  border: 1px solid rgba(123,107,158,0.32);
+  color: #7B6B9E;
   border-radius: 30px;
   font-family: var(--f-display);
   font-weight: 300;
@@ -812,7 +864,7 @@ h2.sec-h2 {
   transition: background .2s;
   width: fit-content;
 }
-.flip-btn:hover { background: rgba(255,255,255,0.28); }
+.flip-btn:hover { background: rgba(123,107,158,0.18); }
 
 /* FOLLOW-UP */
 #followup {
@@ -1233,7 +1285,7 @@ h2.sec-h2 {
 @media (max-width: 768px) {
   #hero .hero-label { top: 80px; left: 24px; }
   .hero-content { padding: 0 24px; }
-  #steps, #paths, #followup, #pearls, #hl-cta {
+  #steps, #followup, #pearls, #hl-cta {
     padding-left: 24px;
     padding-right: 24px;
   }
@@ -1241,6 +1293,7 @@ h2.sec-h2 {
   .sm-inner { grid-template-columns: 1fr; }
   .sm-left { padding: 40px 32px; justify-content: flex-start; }
   .paths-grid { grid-template-columns: 1fr; }
+  .flip-outer { min-height: 320px; height: auto; }
   .fu-card { grid-template-columns: 1fr; }
   .pearls-ring-wrap { width: 100%; height: 480px; }
 }

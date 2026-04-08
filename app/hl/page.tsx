@@ -55,7 +55,6 @@ export default function HlPage() {
   }, [])
 
   const [smOpen, setSmOpen] = useState(false)
-  const [flippedA, setFlippedA] = useState(false)
   const [flippedB, setFlippedB] = useState(false)
   const [openPlans, setOpenPlans] = useState<Record<string, boolean>>({})
   const [activePearl, setActivePearl] = useState<string | null>(null)
@@ -200,67 +199,72 @@ export default function HlPage() {
       </div>
 
       {/* ── PATH SELECTION ── */}
-      <section id="paths">
-        <div className="section-label">選擇路徑</div>
-        <h2 className="sec-h2">選擇你的清理路徑</h2>
-        <p className="paths-desc">完成生命音譜掃描後，根據你的能量地圖結果，選擇最適合你的清理路徑。點擊卡片翻面查看詳情。</p>
+      <HlSection id="paths">
+        <HlSectionTitle
+          label="選擇路徑"
+          title="選擇你的清理路徑"
+          desc="完成生命音譜掃描後，根據你的能量地圖結果，選擇最適合你的清理路徑。"
+        />
         <div className="paths-grid">
 
-          {/* Card A */}
-          <div className={`flip-outer${flippedA ? ' flipped' : ''}`} onClick={() => setFlippedA(v => !v)}>
-            <div className="flip-inner">
-              <div className="flip-front">
-                <div className="path-icon path-icon-rose">
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-                    <circle cx="28" cy="8" r="4" fill="currentColor" opacity="0.9" />
-                    <circle cx="28" cy="20" r="3.5" fill="currentColor" opacity="0.75" />
-                    <circle cx="28" cy="30.5" r="3" fill="currentColor" opacity="0.6" />
+          {/* Left: 2 anchor nav cards */}
+          <div className="paths-left">
+            <div className="path-nav-card" onClick={() => navScrollTo('core-reset')}>
+              <div className="path-nav-top">
+                <div className="path-nav-icon" aria-hidden="true">
+                  <svg width="36" height="36" viewBox="0 0 56 56" fill="none">
+                    <circle cx="28" cy="8"    r="4"   fill="currentColor" opacity="0.90" />
+                    <circle cx="28" cy="20"   r="3.5" fill="currentColor" opacity="0.75" />
+                    <circle cx="28" cy="30.5" r="3"   fill="currentColor" opacity="0.60" />
                     <circle cx="28" cy="39.5" r="2.5" fill="currentColor" opacity="0.45" />
-                    <circle cx="28" cy="47" r="2" fill="currentColor" opacity="0.32" />
-                    <circle cx="20" cy="23" r="2" fill="currentColor" opacity="0.28" />
-                    <circle cx="36" cy="23" r="2" fill="currentColor" opacity="0.28" />
+                    <circle cx="28" cy="47"   r="2"   fill="currentColor" opacity="0.32" />
+                    <circle cx="20" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
+                    <circle cx="36" cy="23"   r="2"   fill="currentColor" opacity="0.28" />
                   </svg>
                 </div>
-                <h3>全面式系統清理</h3>
-                <p>七脈輪能量調和。從海底輪到頂輪的全系統能量重建，適合需要深度清理或長期卡關者。</p>
-                <div className="flip-hint">點擊翻面查看詳情</div>
+                <span className="path-nav-arrow">→</span>
               </div>
-              <div className="flip-back rose">
-                <h3>全面式系統清理</h3>
-                <p>整個過程由禿禿引導，透過頌缽頻率、音叉定點與冥想引導的組合，系統性地清理每一個脈輪的能量阻塞，重建能量流動的完整性。</p>
-                <div className="flip-back-meta">
-                  {[['服務形式', '1 對 1 · 實體'], ['投入時間', '3 小時'], ['費用', 'NT$45,000']].map(([l, v]) => (
-                    <div className="flip-back-meta-row" key={l}>
-                      <span className="flip-back-meta-label">{l}</span>
-                      <span>{v}</span>
-                    </div>
-                  ))}
+              <h3>全面式系統清理</h3>
+              <p>七脈輪能量調和 · Core Reset</p>
+            </div>
+
+            <div className="path-nav-card path-nav-card--light" onClick={() => navScrollTo('followup')}>
+              <div className="path-nav-top">
+                <div className="path-nav-icon" aria-hidden="true">
+                  <svg width="36" height="36" viewBox="0 0 56 56" fill="none">
+                    <circle cx="28" cy="28" r="22" fill="currentColor" opacity="0.08" />
+                    <circle cx="28" cy="28" r="15" fill="currentColor" opacity="0.18" />
+                    <circle cx="28" cy="28" r="9"  fill="currentColor" opacity="0.48" />
+                    <circle cx="28" cy="28" r="4"  fill="currentColor" opacity="0.80" />
+                  </svg>
                 </div>
-                <button className="flip-btn" onClick={e => { e.stopPropagation(); navScrollTo('followup') }}>了解陪跑計畫 →</button>
+                <span className="path-nav-arrow">→</span>
               </div>
+              <h3>陪跑計劃</h3>
+              <p>頻率定錨隨行 · Anchor</p>
             </div>
           </div>
 
-          {/* Card B */}
+          {/* Right: flip card — obvious purple front, cream back */}
           <div className={`flip-outer${flippedB ? ' flipped' : ''}`} onClick={() => setFlippedB(v => !v)}>
             <div className="flip-inner">
-              <div className="flip-front purple">
-                <div className="path-icon path-icon-purple">
+              <div className="flip-front">
+                <div className="path-icon" aria-hidden="true">
                   <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-                    <circle cx="28" cy="28" r="18" fill="currentColor" opacity="0.12" />
-                    <circle cx="28" cy="28" r="12" fill="currentColor" opacity="0.38" />
-                    <circle cx="28" cy="28" r="7" fill="currentColor" opacity="0.85" />
-                    <circle cx="24" cy="23" r="2.5" fill="white" opacity="0.42" />
+                    <circle cx="28" cy="28" r="18" fill="currentColor" opacity="0.18" />
+                    <circle cx="28" cy="28" r="12" fill="currentColor" opacity="0.42" />
+                    <circle cx="28" cy="28" r="7"  fill="currentColor" opacity="0.90" />
+                    <circle cx="24" cy="23" r="2.5" fill="white"       opacity="0.45" />
                   </svg>
                 </div>
                 <h3>針對式主題對齊</h3>
                 <p>六大定音珍珠系列。針對單一主題進行深度對齊，適合有明確議題或想針對特定生命面向進行清理者。</p>
-                <div className="flip-hint purple">點擊翻面查看詳情</div>
+                <div className="flip-hint">點擊翻面查看詳情</div>
               </div>
-              <div className="flip-back purple">
+              <div className="flip-back">
                 <h3>針對式主題對齊</h3>
                 <p>每顆珍珠對應一個核心生命主題——文昌對齊、身體健康祈福、能量保護罩、愛的流動、金錢豐盛、關係共振。由禿禿親自執行。</p>
-                <div className="flip-back-meta" style={{ borderColor: 'rgba(255,255,255,0.12)' }}>
+                <div className="flip-back-meta">
                   {[['服務形式', '1 對 1 · 實體'], ['投入時間', '90 分鐘 / 主題'], ['費用', 'NT$12,000 / 主題']].map(([l, v]) => (
                     <div className="flip-back-meta-row" key={l}>
                       <span className="flip-back-meta-label">{l}</span>
@@ -274,7 +278,7 @@ export default function HlPage() {
           </div>
 
         </div>
-      </section>
+      </HlSection>
 
       {/* ── FOLLOW-UP ── */}
       <section id="followup">
