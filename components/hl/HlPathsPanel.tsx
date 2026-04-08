@@ -50,8 +50,8 @@ export default function HlPathsPanel() {
 
         {/* Description row — below SVG, above cards */}
         <div className="ps-desc-row">
-          <p className="ps-desc-col ps-desc-col--rose">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。兩個模組相互搭配使用。</p>
-          <p className="ps-desc-col ps-desc-col--purple">已知卡點、想針對單一主題快速處理的人。選擇一個對應你當下狀態的主題。</p>
+          <p className="ps-desc-col ps-desc-col--rose">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。</p>
+          <p className="ps-desc-col ps-desc-col--purple">已知卡點、想針對單一主題快速處理的人。</p>
         </div>
 
         <div className="ps-columns">
