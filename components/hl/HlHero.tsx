@@ -44,11 +44,11 @@ export default function HlHero() {
 
         <div className="hero-watermark">
           <Image
-            src="/hl/頌缽波動-粉.png"
+            src="/hl/頌缽波動-白.png"
             alt=""
             width={600}
             height={600}
-            style={{ width: '100%', height: 'auto', filter: 'brightness(5) saturate(0.1)' }}
+            style={{ width: '100%', height: 'auto' }}
             priority
           />
         </div>

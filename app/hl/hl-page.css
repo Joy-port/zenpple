@@ -46,8 +46,8 @@ body.page-hl header button span {
 /* ══ HERO ══════════════════════════════════════════════════════════════════ */
 
 @keyframes hl-watermark-breathe {
-  /* Image is primary — full white, subtle scale breath only */
-  0%, 100% { opacity: 0.88; transform: scale(1); }
+  /* Native white image — breathe between 0.92 and 1.0 */
+  0%, 100% { opacity: 0.92; transform: scale(1); }
   50%       { opacity: 1.00; transform: scale(1.04); }
 }
 
@@ -80,7 +80,7 @@ body.page-hl header button span {
   font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(64px, 9vw, 112px);
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.90);
   writing-mode: horizontal-tb;
   letter-spacing: 0.06em;
   user-select: none;
@@ -231,7 +231,7 @@ body.page-hl header button span {
     font-family: var(--f-zh);
     font-weight: 900;
     font-size: clamp(26px, 7.5vw, 40px);
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.90);
     letter-spacing: 0.22em;
     text-align: center;
     user-select: none;
