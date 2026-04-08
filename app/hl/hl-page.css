@@ -319,10 +319,10 @@ h2.sec-h2 {
 /* HOW IT WORKS */
 #steps { background: #F2EFEA; }
 
-/* ── Steps flow — open column design, dots as visual anchors ── */
+/* ── Steps flow — dot + number + word as centered title unit ── */
 @keyframes step-dot-breathe {
-  0%, 100% { transform: scale(1);    opacity: 0.82; }
-  50%       { transform: scale(1.07); opacity: 1.00; }
+  0%, 100% { transform: scale(1);    opacity: 0.80; }
+  50%       { transform: scale(1.06); opacity: 1.00; }
 }
 
 .steps-flow {
@@ -332,32 +332,35 @@ h2.sec-h2 {
   gap: 0;
 }
 
-/* Each step column */
+/* Column — everything centered */
 .step-col {
   flex: 1;
-  max-width: 340px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   cursor: pointer;
-  padding: 0 clamp(16px, 2.5vw, 36px);
+  padding: 0 clamp(12px, 2vw, 32px);
   transition: opacity 0.22s;
 }
 .step-col:first-child { padding-left: 0; }
 .step-col:last-child  { padding-right: 0; }
-.step-col:hover { opacity: 0.78; }
+.step-col:hover { opacity: 0.75; }
 
-/* Breathing dot */
+/* Large breathing dot */
 .step-dot-wrap {
   position: relative;
-  width: clamp(72px, 9vw, 104px);
-  height: clamp(72px, 9vw, 104px);
-  margin-bottom: clamp(20px, 3vh, 32px);
+  width: clamp(110px, 16vw, 180px);
+  height: clamp(110px, 16vw, 180px);
+  margin-bottom: clamp(18px, 2.5vh, 28px);
 }
 .step-dot-wrap img {
   animation: step-dot-breathe 3.6s ease-in-out infinite !important;
 }
-/* Stagger step 02 */
-.step-col-2 .step-dot-wrap img {
-  animation-delay: 1.8s !important;
-}
+.step-col-2 .step-dot-wrap img { animation-delay: 1.8s !important; }
+
+/* Number inside dot — large, white */
 .step-dot-num {
   position: absolute;
   inset: 0;
@@ -365,83 +368,64 @@ h2.sec-h2 {
   align-items: center;
   justify-content: center;
   font-family: var(--f-mono);
-  font-size: clamp(13px, 1.4vw, 16px);
-  letter-spacing: 0.06em;
+  font-size: clamp(22px, 3vw, 38px);
+  letter-spacing: 0.04em;
   color: #fff;
   font-weight: 400;
   pointer-events: none;
 }
 
-/* Step text */
-.step-eyebrow {
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: 0.28em;
-  color: var(--rose);
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.step-body h3 {
+/* 掃描 / 清理 — coordinated with number: large, rose, same visual weight */
+.step-word {
   font-family: var(--f-zh);
-  font-weight: 700;
-  font-size: clamp(17px, 2vw, 20px);
-  color: #2a2020;
-  letter-spacing: 0.04em;
-  margin-bottom: 12px;
-}
-.step-body p {
-  font-size: 13px;
-  line-height: 1.95;
-  color: rgba(90, 80, 85, 0.68);
-  margin-bottom: 20px;
-}
-.step-card-link {
-  font-family: var(--f-display);
-  font-weight: 300;
-  font-size: 11px;
-  letter-spacing: 0.22em;
+  font-weight: 900;
+  font-size: clamp(22px, 3vw, 38px);  /* same clamp as number */
   color: var(--rose);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap 0.2s;
+  letter-spacing: 0.10em;
+  margin-bottom: clamp(8px, 1.2vh, 14px);
 }
-.step-col:hover .step-card-link { gap: 12px; }
 
-/* Connector — horizontal line + chevron */
+/* Subtitle — one line, muted, secondary */
+.step-sub {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: rgba(90, 80, 85, 0.55);
+  line-height: 1.6;
+}
+
+/* Connector — aligned to dot center */
 .step-connector {
   display: flex;
   align-items: center;
   gap: 4px;
-  /* vertically align with center of dot */
-  padding-top: calc(clamp(72px, 9vw, 104px) / 2 - 6px);
+  padding-top: calc(clamp(110px, 16vw, 180px) / 2 - 6px);
   flex-shrink: 0;
-  color: rgba(196,123,123,0.45);
+  color: rgba(196,123,123,0.40);
 }
 .step-conn-line {
-  width: clamp(24px, 4vw, 56px);
+  width: clamp(20px, 3.5vw, 48px);
   height: 1px;
-  background: linear-gradient(to right, rgba(196,123,123,0.20), rgba(196,123,123,0.50), rgba(196,123,123,0.20));
+  background: linear-gradient(to right, rgba(196,123,123,0.15), rgba(196,123,123,0.45), rgba(196,123,123,0.15));
 }
 
-/* Mobile: vertical stack */
+/* Mobile: vertical stack, centered */
 @media (max-width: 640px) {
   .steps-flow {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 0;
   }
   .step-col { max-width: 100%; padding: 0; }
   .step-connector {
     flex-direction: column;
     padding-top: 0;
-    padding: 8px 0 8px calc(clamp(72px, 9vw, 104px) / 2);
+    padding: 10px 0;
     gap: 2px;
   }
   .step-conn-line {
     width: 1px;
-    height: 32px;
-    background: linear-gradient(to bottom, rgba(196,123,123,0.20), rgba(196,123,123,0.50), rgba(196,123,123,0.20));
+    height: 28px;
+    background: linear-gradient(to bottom, rgba(196,123,123,0.15), rgba(196,123,123,0.45), rgba(196,123,123,0.15));
   }
   .step-connector svg { transform: rotate(90deg); }
 }

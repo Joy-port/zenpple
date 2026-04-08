@@ -92,15 +92,11 @@ export default function HlPage() {
           {/* Step 01 */}
           <div className="step-col" onClick={() => navScrollTo('sound-mapping')}>
             <div className="step-dot-wrap">
-              <Image src="/resource/circle/single/點-1.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+              <Image src="/resource/circle/single/粉點-1.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
               <span className="step-dot-num">01</span>
             </div>
-            <div className="step-body">
-              <div className="step-eyebrow">掃描</div>
-              <h3>生命音譜掃描</h3>
-              <p>以 1.5 小時深度工作，建立你的身心現況雷達，形成可視化的能量地圖。</p>
-              <div className="step-card-link">了解詳情 →</div>
-            </div>
+            <div className="step-word">掃描</div>
+            <div className="step-sub">生命音譜掃描</div>
           </div>
 
           {/* Connector */}
@@ -114,15 +110,11 @@ export default function HlPage() {
           {/* Step 02 */}
           <div className="step-col step-col-2" onClick={() => navScrollTo('paths')}>
             <div className="step-dot-wrap">
-              <Image src="/resource/circle/single/點-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
+              <Image src="/resource/circle/single/粉點-2.png" alt="" fill style={{ objectFit: 'contain' }} aria-hidden="true" />
               <span className="step-dot-num">02</span>
             </div>
-            <div className="step-body">
-              <div className="step-eyebrow">清理</div>
-              <h3>選擇你的路徑</h3>
-              <p>根據掃描結果，選擇全面式系統清理或針對式主題對齊，兩條路徑皆由禿禿親自執行。</p>
-              <div className="step-card-link">了解詳情 →</div>
-            </div>
+            <div className="step-word">清理</div>
+            <div className="step-sub">選擇你的路徑</div>
           </div>
         </div>
       </HlSection>
