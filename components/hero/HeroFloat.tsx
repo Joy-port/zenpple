@@ -22,7 +22,7 @@ export default function HeroFloat() {
       <div style={{ position: 'absolute', top: '-5%', right: '-6%', zIndex: 0, pointerEvents: 'none', opacity: 0.35 }}>
         <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <Image
-            src="/頌缽九宮格.png"
+            src="/index/頌缽九宮格.png"
             alt=""
             width={1568}
             height={2172}
@@ -37,7 +37,7 @@ export default function HeroFloat() {
       <div style={{ position: 'absolute', bottom: '-34vh', left: '-5%', zIndex: 0, pointerEvents: 'none', opacity: 1 }}>
         <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
           <Image
-            src="/頌缽九宮格.png"
+            src="/index/頌缽九宮格.png"
             alt=""
             width={1568}
             height={2172}

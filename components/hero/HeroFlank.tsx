@@ -22,7 +22,7 @@ export default function HeroFlank() {
       <div style={{ position: 'absolute', top: '50%', left: '-6%', transform: 'translateY(-50%)', zIndex: 0, pointerEvents: 'none', opacity: 0.35 }}>
         <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <Image
-            src="/頌缽九宮格.png"
+            src="/index/頌缽九宮格.png"
             alt=""
             width={1568}
             height={2172}
@@ -37,7 +37,7 @@ export default function HeroFlank() {
       <div style={{ position: 'absolute', top: '50%', right: '-6%', transform: 'translateY(-50%)', zIndex: 0, pointerEvents: 'none', opacity: 1 }}>
         <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
           <Image
-            src="/頌缽九宮格.png"
+            src="/index/頌缽九宮格.png"
             alt=""
             width={1568}
             height={2172}
