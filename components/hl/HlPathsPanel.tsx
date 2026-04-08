@@ -37,21 +37,23 @@ export default function HlPathsPanel() {
       />
 
       <div className="ps-outer">
-        <div className="ps-container">
+        <div className="ps-columns">
 
-          {/* Left: 完整系統路徑 */}
-          <div className="ps-panel ps-panel--rose">
-            <div className="ps-path-header ps-path-header--rose">
+          {/* Left outer card */}
+          <div className="ps-outer-card ps-outer-card--rose">
+            {/* Header */}
+            <div className="ps-path-header">
               <div className="ps-path-icon">
-                <HlIconSystemPath style={{ color: 'rgba(196,123,123,0.65)' }} aria-hidden="true" />
-                <span className="ps-icon-label">完 整 系 統 路 徑</span>
+                <HlIconSystemPath style={{ color: '#B87C78' }} aria-hidden="true" />
               </div>
+              <span className="ps-icon-label">完 整 系 統 路 徑</span>
               <details className="ps-path-tip">
-                <summary className="ps-path-tip-trigger">說明</summary>
+                <summary className="ps-path-tip-trigger ps-path-tip-trigger--rose">ⓘ</summary>
                 <p className="ps-path-tip-content">適合初次接觸、或感覺全身失衡、不確定問題在哪裡的人。兩個模組相互搭配使用。</p>
               </details>
             </div>
 
+            {/* Cards */}
             <div className={`path-expand-card${expandA ? ' expanded' : ''}`}>
               <div className="path-expand-header" onClick={() => setExpandA(v => !v)}>
                 <div className="path-expand-titles">
@@ -113,21 +115,23 @@ export default function HlPathsPanel() {
               </div>
             </div>
 
+            {/* CTA */}
             <div className="ps-cta-wrap ps-cta-wrap--dual">
               <button className="ps-cta ps-cta--rose" onClick={e => { e.stopPropagation(); navScrollTo('core-reset') }}>了解全面式系統清理</button>
               <button className="ps-cta ps-cta--rose" onClick={e => { e.stopPropagation(); navScrollTo('followup') }}>了解陪跑計劃</button>
             </div>
           </div>
 
-          {/* Right: 主題精準路徑 */}
-          <div className="ps-panel ps-panel--purple">
-            <div className="ps-path-header ps-path-header--purple">
+          {/* Right outer card */}
+          <div className="ps-outer-card ps-outer-card--purple">
+            {/* Header */}
+            <div className="ps-path-header">
               <div className="ps-path-icon">
-                <HlIconThemePath style={{ color: 'rgba(123,107,158,0.65)' }} aria-hidden="true" />
-                <span className="ps-icon-label">主 題 精 準 路 徑</span>
+                <HlIconThemePath style={{ color: '#8880B0' }} aria-hidden="true" />
               </div>
+              <span className="ps-icon-label">主 題 精 準 路 徑</span>
               <details className="ps-path-tip">
-                <summary className="ps-path-tip-trigger">說明</summary>
+                <summary className="ps-path-tip-trigger ps-path-tip-trigger--purple">ⓘ</summary>
                 <p className="ps-path-tip-content">已知卡點、想針對單一主題快速處理的人。選擇一個對應你當下狀態的主題。</p>
               </details>
             </div>
@@ -169,6 +173,7 @@ export default function HlPathsPanel() {
               </div>
             </div>
 
+            {/* CTA */}
             <div className="ps-cta-wrap">
               <button className="ps-cta ps-cta--purple" onClick={e => { e.stopPropagation(); navScrollTo('pearls') }}>查看六大定音主題</button>
             </div>
