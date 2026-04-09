@@ -139,7 +139,7 @@ export default function ScPage() {
               aria-hidden
               width={460}
               height={460}
-              style={{ width:'min(420px,85%)', height:'auto', filter:'invert(1) sepia(0.2) saturate(1.2) hue-rotate(185deg) brightness(1.05)', mixBlendMode:'screen', opacity:0.7, animation:'sc-breathe 5s ease-in-out infinite' }}
+              style={{ width:'min(420px,85%)', height:'auto', filter:'invert(1) sepia(0.5) saturate(1.8) hue-rotate(168deg) brightness(0.88)', mixBlendMode:'screen', opacity:0.55, animation:'sc-breathe 5s ease-in-out infinite' }}
             />
           </div>
         </div>
