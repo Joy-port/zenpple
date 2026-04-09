@@ -763,14 +763,13 @@ export default function QiSbPage() {
               alignItems: 'start',
             }}
           >
-            {/* Left: text + brainwave cards */}
-            <div>
+            {/* Left: description + why different */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
               <p
                 style={{
                   fontSize: 15,
                   lineHeight: 1.85,
                   color: 'var(--muted)',
-                  marginBottom: 36,
                   maxWidth: 520,
                 }}
               >
@@ -778,6 +777,64 @@ export default function QiSbPage() {
                 波（深層冥想），讓神經系統進入自然的修復狀態。這不是催眠，而是聲音的物理共振在身體層面發生作用。
               </p>
 
+              {/* Why different block */}
+              <div
+                style={{
+                  background: 'linear-gradient(135deg, #25525F 0%, #3A7D8E 100%)',
+                  borderRadius: 4,
+                  padding: '32px 36px',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                <div
+                  aria-hidden
+                  style={{
+                    position: 'absolute',
+                    right: -40,
+                    top: -40,
+                    width: 180,
+                    height: 180,
+                    borderRadius: '50%',
+                    background: 'rgba(255,255,255,0.04)',
+                    pointerEvents: 'none',
+                  }}
+                />
+                <p
+                  style={{
+                    fontFamily: 'var(--f-mono)',
+                    fontSize: 10,
+                    letterSpacing: '0.2em',
+                    color: 'rgba(255,255,255,0.4)',
+                    marginBottom: 10,
+                  }}
+                >
+                  · 為什麼森波的頌缽不一樣 ·
+                </p>
+                <h3
+                  className="tr-h1"
+                  style={{
+                    fontSize: 20,
+                    color: '#fff',
+                    marginBottom: 16,
+                  }}
+                >
+                  聲音 × 薩滿 × 通靈解析
+                </h3>
+                <p
+                  style={{
+                    fontSize: 14,
+                    color: 'rgba(255,255,255,0.72)',
+                    lineHeight: 1.85,
+                  }}
+                >
+                  大多數的頌缽課程停在聲音的放鬆層面。森波的頌缽音流，同時結合薩滿意識旅程與通靈解析——禿禿在缽聲之中接收個案的能量訊息，引導每次體驗不只是「被聲音泡著」，而是有意識地鬆動特定能量阻塞，並帶回可落地的洞見。
+                </p>
+              </div>
+            </div>
+
+            {/* Right: brainwave cards */}
+            <div>
               {/* Brainwave section label */}
               <p
                 style={{
@@ -867,77 +924,6 @@ export default function QiSbPage() {
                 </div>
               ))}
             </div>
-
-            {/* Right: why different */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-              {/* Bowl ripple illustration */}
-              <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
-                <svg width="200" height="200" viewBox="0 0 200 200" fill="none" opacity={0.7}>
-                  <circle cx="100" cy="100" r="90" stroke="#3A7D8E" strokeWidth="1.2" strokeDasharray="4 3"/>
-                  <circle cx="100" cy="100" r="68" stroke="#3A7D8E" strokeWidth="1" strokeDasharray="3 4"/>
-                  <circle cx="100" cy="100" r="46" stroke="#25525F" strokeWidth="1.4"/>
-                  <circle cx="100" cy="100" r="24" stroke="#25525F" strokeWidth="1.8" fill="rgba(58,125,142,0.06)"/>
-                  <ellipse cx="100" cy="118" rx="42" ry="14" stroke="#3A7D8E" strokeWidth="1.2" fill="none"/>
-                  <path d="M58 118 Q100 102 142 118" stroke="#3A7D8E" strokeWidth="1" fill="none" opacity={0.6}/>
-                  <path d="M70 112 Q100 100 130 112" stroke="#25525F" strokeWidth="0.8" fill="none" opacity={0.5}/>
-                </svg>
-              </div>
-
-              {/* Why different block */}
-              <div
-                style={{
-                  background: 'linear-gradient(135deg, #25525F 0%, #3A7D8E 100%)',
-                  borderRadius: 4,
-                  padding: '32px 36px',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                <div
-                  aria-hidden
-                  style={{
-                    position: 'absolute',
-                    right: -40,
-                    top: -40,
-                    width: 180,
-                    height: 180,
-                    borderRadius: '50%',
-                    background: 'rgba(255,255,255,0.04)',
-                    pointerEvents: 'none',
-                  }}
-                />
-                <p
-                  style={{
-                    fontFamily: 'var(--f-mono)',
-                    fontSize: 10,
-                    letterSpacing: '0.2em',
-                    color: 'rgba(255,255,255,0.4)',
-                    marginBottom: 10,
-                  }}
-                >
-                  · 為什麼森波的頌缽不一樣 ·
-                </p>
-                <h3
-                  className="tr-h1"
-                  style={{
-                    fontSize: 20,
-                    color: '#fff',
-                    marginBottom: 16,
-                  }}
-                >
-                  聲音 × 薩滿 × 通靈解析
-                </h3>
-                <p
-                  style={{
-                    fontSize: 14,
-                    color: 'rgba(255,255,255,0.72)',
-                    lineHeight: 1.85,
-                  }}
-                >
-                  大多數的頌缽課程停在聲音的放鬆層面。森波的頌缽音流，同時結合薩滿意識旅程與通靈解析——禿禿在缽聲之中接收個案的能量訊息，引導每次體驗不只是「被聲音泡著」，而是有意識地鬆動特定能量阻塞，並帶回可落地的洞見。
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -949,7 +935,7 @@ export default function QiSbPage() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        style={{ display: 'block', width: '100%', marginTop: -2, background: 'var(--base)' }}
+        style={{ display: 'block', width: '100%', marginTop: -2, marginBottom: -2, background: 'var(--base)' }}
       >
         <path
           d="M0,0 C180,55 360,5 540,40 C720,75 900,10 1080,42 C1260,68 1380,20 1440,38 L1440,60 L0,60 Z"
