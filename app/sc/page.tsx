@@ -279,25 +279,25 @@ export default function ScPage() {
           {/* Wave Timeline — 3-row layout: top labels / wave+nodes / bottom labels */}
           <div style={{ width:'100%', marginBottom:8 }}>
 
-            {/* Row 1 — above-wave labels: 01, 03, 05 */}
-            <div style={{ position:'relative', height:110, marginBottom:20 }}>
-              {/* 01 */}
-              <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:7, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.24em', color:'#A0763A', opacity:0.8 }}>01</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:14, letterSpacing:'0.1em', padding:'5px 13px', background:'rgba(160,118,58,0.18)', color:'#A0763A', whiteSpace:'nowrap' }}>下部世界</div>
-                <div style={{ fontSize:26, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>力量動物</div>
+            {/* Row 1 — above-wave labels: 01, 03, 05 — image on top, title near wave */}
+            <div style={{ position:'relative', height:160, marginBottom:20 }}>
+              {/* 01 — dragon, amber */}
+              <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
+                <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={100} height={100}
+                  style={{ width:80, height:'auto', filter:'invert(1) sepia(1) saturate(2) hue-rotate(8deg) brightness(0.85)', mixBlendMode:'screen', opacity:0.82 }} />
+                <div style={{ fontSize:22, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>力量動物</div>
               </div>
-              {/* 03 */}
-              <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:7, cursor:'pointer' }} onClick={() => selectNode('sc03')}>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.24em', color:'#C4906A', opacity:0.8 }}>03</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:14, letterSpacing:'0.1em', padding:'5px 13px', background:'rgba(196,144,106,0.18)', color:'#C4906A', whiteSpace:'nowrap' }}>中部世界</div>
-                <div style={{ fontSize:26, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>脈輪情緒覺察</div>
+              {/* 03 — octopus, terracotta */}
+              <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc03')}>
+                <Image src="/sc/animals/octopus.png" alt="" aria-hidden width={100} height={100}
+                  style={{ width:80, height:'auto', filter:'invert(1) sepia(1) saturate(1.8) hue-rotate(350deg) brightness(0.88)', mixBlendMode:'screen', opacity:0.82 }} />
+                <div style={{ fontSize:22, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>脈輪情緒覺察</div>
               </div>
-              {/* 05 */}
-              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:7, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.24em', color:'#B088B8', opacity:0.8 }}>05</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:14, letterSpacing:'0.1em', padding:'5px 13px', background:'rgba(176,136,184,0.18)', color:'#B088B8', whiteSpace:'nowrap' }}>靈魂碎片團圓</div>
-                <div style={{ fontSize:26, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>尋找內在小孩</div>
+              {/* 05 — capybara, purple */}
+              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
+                <Image src="/sc/animals/capybara.png" alt="" aria-hidden width={100} height={100}
+                  style={{ width:80, height:'auto', filter:'invert(1) sepia(0.5) saturate(3) hue-rotate(255deg) brightness(0.85)', mixBlendMode:'screen', opacity:0.82 }} />
+                <div style={{ fontSize:22, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>尋找內在小孩</div>
               </div>
             </div>
 
@@ -344,19 +344,19 @@ export default function ScPage() {
               </div>
             </div>
 
-            {/* Row 3 — below-wave labels: 02, 04 */}
-            <div style={{ position:'relative', height:110, marginTop:20 }}>
-              {/* 02 */}
-              <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:7, cursor:'pointer' }} onClick={() => selectNode('sc02')}>
-                <div style={{ fontSize:26, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>指導靈</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:14, letterSpacing:'0.1em', padding:'5px 13px', background:'rgba(176,196,220,0.18)', color:'#B0C4DC', whiteSpace:'nowrap' }}>上部世界</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.24em', color:'#B0C4DC', opacity:0.8 }}>02</div>
+            {/* Row 3 — below-wave labels: 02, 04 — title near wave, image outward */}
+            <div style={{ position:'relative', height:160, marginTop:20 }}>
+              {/* 02 — crane, blue-gray */}
+              <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc02')}>
+                <div style={{ fontSize:22, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>指導靈</div>
+                <Image src="/sc/animals/crane.png" alt="" aria-hidden width={100} height={100}
+                  style={{ width:80, height:'auto', filter:'invert(1) sepia(0.2) saturate(1.5) hue-rotate(195deg) brightness(0.9)', mixBlendMode:'screen', opacity:0.82 }} />
               </div>
-              {/* 04 */}
-              <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:7, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
-                <div style={{ fontSize:26, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>連結高我</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:14, letterSpacing:'0.1em', padding:'5px 13px', background:'rgba(196,176,96,0.18)', color:'#C4B060', whiteSpace:'nowrap' }}>靈魂整合</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.24em', color:'#C4B060', opacity:0.8 }}>04</div>
+              {/* 04 — unicorn, gold */}
+              <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
+                <div style={{ fontSize:22, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>連結高我</div>
+                <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={100} height={100}
+                  style={{ width:80, height:'auto', filter:'invert(1) sepia(1) saturate(2) hue-rotate(28deg) brightness(0.88)', mixBlendMode:'screen', opacity:0.82 }} />
               </div>
             </div>
 
