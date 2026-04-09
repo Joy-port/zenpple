@@ -1055,7 +1055,7 @@ export default function QiSbPage() {
           style={{
             position: 'absolute',
             right: '-10px',
-            top: '-20px',
+            top: '20px',
             fontFamily: 'var(--f-display)',
             fontWeight: 100,
             fontSize: 200,
