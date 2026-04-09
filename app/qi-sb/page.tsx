@@ -437,16 +437,20 @@ export default function QiSbPage() {
         </p>
       </section>
 
-      {/* ── WAVE: dark → cream ── */}
+      {/* ── WAVE: section1 → courses ── */}
       <svg
-        viewBox="0 0 1440 60"
+        viewBox="0 0 1440 90"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        style={{ display: 'block', width: '100%', marginTop: -2, background: '#5DA5B5' }}
+        style={{ display: 'block', width: '100%', marginTop: -2, marginBottom: -2, background: '#6BBFB2' }}
       >
         <path
-          d="M0,0 C180,55 360,5 540,40 C720,75 900,10 1080,42 C1260,68 1380,20 1440,38 L1440,60 L0,60 Z"
+          d="M0,10 C240,75 480,5 720,50 C960,90 1200,15 1440,52 L1440,90 L0,90 Z"
+          fill="rgba(242,239,234,0.45)"
+        />
+        <path
+          d="M0,30 C300,85 600,8 900,55 C1100,85 1300,25 1440,60 L1440,90 L0,90 Z"
           fill="var(--cream)"
         />
       </svg>
