@@ -324,14 +324,14 @@ export default function QiSbPage() {
             ))}
           </defs>
 
-          {/* 6 wave paths — varied thickness, slow pace */}
+          {/* 6 wave paths — varied thickness, slow scroll + vertical drift */}
           {([
-            { amp: 18, phase: 0,   period: 320, y: 200, opacity: 0.50, stroke: 'rgba(58,125,142,1)',  sw: 2.5, dur: 18 },
-            { amp: 28, phase: 60,  period: 280, y: 200, opacity: 0.35, stroke: 'rgba(58,125,142,1)',  sw: 0.6, dur: 24 },
-            { amp: 12, phase: 120, period: 360, y: 200, opacity: 0.28, stroke: 'rgba(255,255,255,1)', sw: 1.5, dur: 20 },
-            { amp: 22, phase: 180, period: 300, y: 200, opacity: 0.20, stroke: 'rgba(255,255,255,1)', sw: 3.5, dur: 28 },
-            { amp: 34, phase: 240, period: 260, y: 200, opacity: 0.14, stroke: 'rgba(58,125,142,1)',  sw: 0.8, dur: 22 },
-            { amp: 10, phase: 300, period: 400, y: 200, opacity: 0.10, stroke: 'rgba(255,255,255,1)', sw: 2.0, dur: 32 },
+            { amp: 18, phase: 0,   period: 320, y: 160, opacity: 0.50, stroke: 'rgba(58,125,142,1)',  sw: 2.5, dur: 18, vAmp: 28, vDur: 12 },
+            { amp: 28, phase: 60,  period: 280, y: 230, opacity: 0.35, stroke: 'rgba(58,125,142,1)',  sw: 0.6, dur: 24, vAmp:  0, vDur:  0 },
+            { amp: 12, phase: 120, period: 360, y: 110, opacity: 0.28, stroke: 'rgba(255,255,255,1)', sw: 1.5, dur: 20, vAmp: 20, vDur: 16 },
+            { amp: 22, phase: 180, period: 300, y: 270, opacity: 0.20, stroke: 'rgba(255,255,255,1)', sw: 3.5, dur: 28, vAmp:  0, vDur:  0 },
+            { amp: 34, phase: 240, period: 260, y: 200, opacity: 0.14, stroke: 'rgba(58,125,142,1)',  sw: 0.8, dur: 22, vAmp: 36, vDur: 20 },
+            { amp: 10, phase: 300, period: 400, y: 310, opacity: 0.10, stroke: 'rgba(255,255,255,1)', sw: 2.0, dur: 32, vAmp:  0, vDur:  0 },
           ] as const).map((w, i) => {
             const pts: string[] = []
             for (let x = -w.period; x <= 1440 + w.period; x += 4) {
@@ -339,23 +339,36 @@ export default function QiSbPage() {
               pts.push(`${x},${y.toFixed(1)}`)
             }
             return (
-              <polyline
-                key={i}
-                points={pts.join(' ')}
-                fill="none"
-                stroke={w.stroke}
-                strokeWidth={w.sw}
-                opacity={w.opacity}
-              >
-                <animateTransform
-                  attributeName="transform"
-                  type="translate"
-                  from={`0 0`}
-                  to={`${-w.period} 0`}
-                  dur={`${w.dur}s`}
-                  repeatCount="indefinite"
-                />
-              </polyline>
+              <g key={i}>
+                {/* Vertical drift — only on odd waves */}
+                {w.vAmp > 0 && (
+                  <animateTransform
+                    attributeName="transform"
+                    type="translate"
+                    values={`0 0; 0 ${w.vAmp}; 0 0; 0 ${-w.vAmp}; 0 0`}
+                    dur={`${w.vDur}s`}
+                    repeatCount="indefinite"
+                    additive="sum"
+                  />
+                )}
+                <polyline
+                  points={pts.join(' ')}
+                  fill="none"
+                  stroke={w.stroke}
+                  strokeWidth={w.sw}
+                  opacity={w.opacity}
+                >
+                  <animateTransform
+                    attributeName="transform"
+                    type="translate"
+                    from={`0 0`}
+                    to={`${-w.period} 0`}
+                    dur={`${w.dur}s`}
+                    repeatCount="indefinite"
+                    additive="sum"
+                  />
+                </polyline>
+              </g>
             )
           })}
         </svg>
