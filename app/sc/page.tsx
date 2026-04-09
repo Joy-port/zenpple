@@ -53,66 +53,58 @@ export default function ScPage() {
       </svg>
 
       {/* ═══ HERO ═══ */}
-      <section style={{ position:'relative', minHeight:'100vh', display:'flex', alignItems:'center', overflow:'hidden', background:'#2B4A5E' }}>
-        {/* Airy blue-teal wash — lighter, more breathable */}
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 100% at 55% 50%, rgba(94,142,138,0.32) 0%, transparent 65%), radial-gradient(ellipse 50% 60% at 5% 30%, rgba(74,107,138,0.45) 0%, transparent 55%), radial-gradient(ellipse 40% 40% at 95% 10%, rgba(74,107,138,0.2) 0%, transparent 55%)', pointerEvents:'none' }} />
+      <section style={{ position:'relative', minHeight:'100vh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', overflow:'hidden', background:'#2B4A5E' }}>
+        {/* Airy blue-teal wash */}
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 90% 80% at 50% 40%, rgba(94,142,138,0.28) 0%, transparent 65%), radial-gradient(ellipse 60% 70% at 10% 70%, rgba(74,107,138,0.35) 0%, transparent 55%), radial-gradient(ellipse 50% 50% at 90% 15%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
 
-        {/* 薩滿巫 — dominant right side, full-height */}
+        {/* 薩滿巫 — full-bg, right-biased, large and atmospheric */}
         <Image
           src="/sc/black/薩滿巫.png"
           alt=""
           aria-hidden
           width={800}
           height={800}
-          style={{ position:'absolute', right:'-1%', top:'50%', transform:'translateY(-50%)', height:'90vh', width:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.62, pointerEvents:'none' }}
+          style={{ position:'absolute', right:'-4%', bottom:0, height:'88vh', width:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none' }}
         />
 
-        {/* 方形薩滿冥想 — title-area left, as visual heading element */}
-        <Image
-          src="/sc/black/方形薩滿冥想.png"
-          alt=""
-          aria-hidden
-          width={700}
-          height={700}
-          style={{ position:'absolute', left:'4vw', top:'50%', transform:'translateY(-58%)', height:'58vh', width:'auto', filter:'invert(1) sepia(0.15) saturate(1.0) brightness(1.05)', mixBlendMode:'screen', opacity:0.28, pointerEvents:'none' }}
-        />
-
-        {/* Ripple rings — centered on 薩滿巫 */}
-        <div style={{ position:'absolute', right:'28%', top:'50%', pointerEvents:'none' }}>
+        {/* Ripple rings — mid-right */}
+        <div style={{ position:'absolute', right:'25%', top:'48%', pointerEvents:'none' }}>
           <div className="sc-ripple" />
           <div className="sc-ripple" />
           <div className="sc-ripple" />
         </div>
 
-        {/* Content — left column, clear of right image */}
-        <div style={{ position:'relative', zIndex:2, padding:'0 6vw', width:'52%', display:'flex', flexDirection:'column', justifyContent:'center', minHeight:'100vh' }}>
-          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,1vw,11px)', letterSpacing:'0.38em', color:'rgba(200,220,235,0.55)', marginBottom:20, textTransform:'uppercase' }}>
+        {/* Content — vertical top-down flow, centered */}
+        <div style={{ position:'relative', zIndex:2, display:'flex', flexDirection:'column', alignItems:'center', textAlign:'center', padding:'clamp(100px,14vh,140px) clamp(20px,8vw,120px) clamp(80px,10vh,100px)', gap:0 }}>
+
+          {/* EN label */}
+          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,0.9vw,11px)', letterSpacing:'0.38em', color:'rgba(200,220,235,0.50)', marginBottom:28, textTransform:'uppercase' }}>
             SC · Shamanic Soul Awakening
           </p>
 
-          {/* 方形薩滿冥想 as visual title — displayed as image heading */}
-          <div style={{ marginBottom:20, marginLeft:'-2px' }}>
-            <Image
-              src="/sc/black/方形薩滿冥想.png"
-              alt="薩滿冥想"
-              width={340}
-              height={340}
-              style={{ width:'clamp(180px,22vw,300px)', height:'auto', filter:'invert(1) brightness(0.95)', mixBlendMode:'screen', opacity:0.9 }}
-            />
-          </div>
+          {/* 薩滿冥想-橫 — calligraphy title, horizontal brushwork */}
+          <Image
+            src="/sc/black/薩滿冥想-橫.png"
+            alt="薩滿冥想"
+            width={900}
+            height={300}
+            style={{ width:'clamp(260px,44vw,580px)', height:'auto', filter:'invert(1) sepia(0.12) saturate(1.0) brightness(1.0)', mixBlendMode:'screen', opacity:0.88, marginBottom:32 }}
+          />
 
-          {/* Subtitle — replaces h1 text */}
-          <h1 className="tr-d2" style={{ fontSize:'clamp(22px,2.8vw,38px)', lineHeight:1.25, letterSpacing:'0.04em', color:'rgba(230,242,250,0.88)', marginBottom:24, fontWeight:400 }}>
+          {/* h1 subtitle — sits below calligraphy, clear gap */}
+          <h1 className="tr-d2" style={{ fontSize:'clamp(20px,2.6vw,36px)', lineHeight:1.3, letterSpacing:'0.06em', color:'rgba(230,242,250,0.85)', marginBottom:20, fontWeight:400 }}>
             靈魂最原始的力量
           </h1>
-          <div style={{ width:40, height:1, background:'rgba(200,220,235,0.3)', marginBottom:20 }} />
-          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(13px,1.4vw,17px)', color:'rgba(200,220,235,0.65)', letterSpacing:'0.05em', lineHeight:1.8, maxWidth:320 }}>
+
+          <div style={{ width:36, height:1, background:'rgba(200,220,235,0.28)', marginBottom:20 }} />
+
+          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(13px,1.3vw,16px)', color:'rgba(200,220,235,0.58)', letterSpacing:'0.06em', lineHeight:1.9, maxWidth:340 }}>
             透過古老智慧，<br />連結靈魂最原始的力量
           </p>
         </div>
 
         {/* Scroll indicator */}
-        <div style={{ position:'absolute', bottom:36, left:'6vw', display:'flex', flexDirection:'column', alignItems:'center', gap:8, opacity:0.4, animation:'sc-float 2.5s ease-in-out infinite' }}>
+        <div style={{ position:'absolute', bottom:36, left:'50%', transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, opacity:0.35, animation:'sc-float 2.5s ease-in-out infinite' }}>
           <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.25em', color:'rgba(200,220,235,0.7)' }}>SCROLL</span>
           <div style={{ width:1, height:40, background:'linear-gradient(to bottom, rgba(200,220,235,0.5), transparent)' }} />
         </div>
