@@ -394,7 +394,7 @@ export default function ScPage() {
 
       {/* ═══ SC-01 尋找力量動物 ═══ */}
       {/* Theme: 大地 · 土壤 · 原始生命力 — deep earth, amber/sienna */}
-      <section id="section-sc01" style={{ padding:'100px 0', background:'#F0E8D4', position:'relative', overflow:'hidden' }}>
+      <section id="section-sc01" style={{ padding:'100px 0', background:'#F0E8D4', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 55%, rgba(160,100,40,0.12) 0%, rgba(120,70,20,0.15) 45%, transparent 70%), radial-gradient(ellipse 40% 40% at 85% 15%, rgba(140,80,30,0.14) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* 書法圖 */}
         <Image src="/sc/black/力量動物-直.png" alt="" aria-hidden width={600} height={800}
@@ -459,7 +459,7 @@ export default function ScPage() {
 
       {/* ═══ SC-02 連結高維指導靈 ═══ */}
       {/* Theme: 夜空 · 月光 · 高維頻道 — near-black with cool silver-pearl */}
-      <section id="section-sc02" style={{ padding:'100px 0', background:'#E8EDF5', position:'relative', overflow:'hidden' }}>
+      <section id="section-sc02" style={{ padding:'100px 0', background:'#E8EDF5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-5-波/材質-5-1.png" alt="" aria-hidden width={400} height={200}
           style={{ position:'absolute', top:-20, left:'5%', width:'clamp(200px,30vw,380px)', height:'auto', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'rotate(4deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 55% 70% at 85% 40%, rgba(74,107,160,0.1) 0%, rgba(160,185,215,0.06) 45%, transparent 70%), radial-gradient(ellipse 35% 50% at 10% 75%, rgba(180,200,225,0.07) 0%, transparent 55%)', pointerEvents:'none' }} />
@@ -526,7 +526,7 @@ export default function ScPage() {
 
       {/* ═══ SC-03 七脈輪情緒覺察 ═══ */}
       {/* Theme: 身體 · 情緒 · 流動感 — deep warm terracotta, body warmth */}
-      <section id="section-sc03" style={{ padding:'100px 0', background:'#F5E2D4', position:'relative', overflow:'hidden' }}>
+      <section id="section-sc03" style={{ padding:'100px 0', background:'#F5E2D4', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-1-撇/材質-1-3.png" alt="" aria-hidden width={400} height={300}
           style={{ position:'absolute', top:-10, right:'8%', width:'clamp(160px,20vw,280px)', height:'auto', mixBlendMode:'multiply', opacity:0.07, pointerEvents:'none', transform:'rotate(-8deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 65% 75% at 10% 50%, rgba(140,60,25,0.1) 0%, rgba(140,75,40,0.12) 50%, transparent 70%), radial-gradient(ellipse 45% 55% at 90% 20%, rgba(160,85,50,0.15) 0%, transparent 60%)', pointerEvents:'none' }} />
@@ -590,7 +590,7 @@ export default function ScPage() {
 
       {/* ═══ SC-04 連結高我 ═══ */}
       {/* Theme: 神聖 · 金光 · 靈魂主權 — near-black with sacred gold */}
-      <section id="section-sc04" style={{ padding:'100px 0', background:'#F5EDD5', position:'relative', overflow:'hidden' }}>
+      <section id="section-sc04" style={{ padding:'100px 0', background:'#F5EDD5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-4-圓圈/黑圈-20.png" alt="" aria-hidden width={300} height={300}
           style={{ position:'absolute', top:-30, left:'3%', width:'clamp(120px,14vw,200px)', height:'auto', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none', transform:'rotate(15deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 70% at 80% 40%, rgba(160,128,30,0.1) 0%, rgba(160,130,50,0.08) 50%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 70%, rgba(180,148,60,0.1) 0%, transparent 55%)', pointerEvents:'none' }} />
@@ -657,7 +657,7 @@ export default function ScPage() {
 
       {/* ═══ SC-05 尋找內在小孩 ═══ */}
       {/* Theme: 療癒 · 柔韌 · 重新歸位 — deep plum with soft violet warmth */}
-      <section id="section-sc05" style={{ padding:'100px 0', background:'#EDE5F5', position:'relative', overflow:'hidden' }}>
+      <section id="section-sc05" style={{ padding:'100px 0', background:'#EDE5F5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-5-波/材質-5-1_3.png" alt="" aria-hidden width={400} height={200}
           style={{ position:'absolute', top:-15, right:'4%', width:'clamp(180px,24vw,320px)', height:'auto', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'scaleX(-1) rotate(-6deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 65% 75% at 12% 55%, rgba(100,50,120,0.1) 0%, rgba(120,70,128,0.1) 50%, transparent 70%), radial-gradient(ellipse 40% 50% at 88% 25%, rgba(140,85,148,0.14) 0%, transparent 60%)', pointerEvents:'none' }} />
