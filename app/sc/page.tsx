@@ -824,21 +824,21 @@ export default function ScPage() {
           {/* Cards */}
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:20 }}>
             {[
-              { title:'深層系統對齊', desc:'薩滿打開靈魂的通道，深層對齊讓覺醒的能量落地。從靈性到現實的完整轉化路徑。', href:'/hl', img:'/sc/sc-cta-hl.png' },
-              { title:'靈性頌缽音流', desc:'薩滿旅程後的能量場需要沉澱。頌缽頻率加速整合，讓新的意識狀態滲透進身體。', href:'/qi-sb', img:'/sc/sc-cta-qi-sb.png' },
+              { title:'深層系統對齊', desc:'薩滿打開靈魂的通道，深層對齊讓覺醒的能量落地。從靈性到現實的完整轉化路徑。', href:'/hl', img:'/hl/頌缽波動-黑.png', imgBg:'rgba(176,100,100,0.12)', linkColor:'#8A4040' },
+              { title:'靈性頌缽音流', desc:'薩滿旅程後的能量場需要沉澱。頌缽頻率加速整合，讓新的意識狀態滲透進身體。', href:'/qi-sb', img:'/qi-sb/頌缽.png', imgBg:'rgba(60,110,120,0.12)', linkColor:'#2E6A78' },
             ].map(card => (
-              <div key={card.title} style={{ display:'flex', flexDirection:'row', background:'rgba(255,255,255,0.72)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:24, overflow:'hidden', boxShadow:'0 4px 28px rgba(30,60,80,0.08)', transition:'box-shadow 0.3s' }}>
-                <div style={{ flex:'0 0 62%', padding:'32px 28px', display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
+              <div key={card.title} style={{ display:'flex', flexDirection:'row', background:'rgba(255,255,255,0.75)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:24, overflow:'hidden', boxShadow:'0 4px 28px rgba(30,60,80,0.08)', transition:'box-shadow 0.3s' }}>
+                <div style={{ flex:'0 0 60%', padding:'32px 28px', display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
                   <div>
                     <div className="tr-d2" style={{ fontSize:20, color:'#1E3848', marginBottom:12 }}>{card.title}</div>
                     <p style={{ fontSize:13, lineHeight:1.85, color:'rgba(30,56,72,0.62)', marginBottom:20 }}>{card.desc}</p>
                   </div>
-                  <Link href={card.href} style={{ display:'inline-flex', alignItems:'center', gap:8, fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.18em', color:'#3A6A80', textDecoration:'none', opacity:0.8 }}>
+                  <Link href={card.href} style={{ display:'inline-flex', alignItems:'center', gap:8, fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.18em', color:card.linkColor, textDecoration:'none', opacity:0.85 }}>
                     了解更多 →
                   </Link>
                 </div>
-                <div style={{ flex:'0 0 38%', display:'flex', alignItems:'center', justifyContent:'center', padding:'20px 16px 20px 0', borderRadius:'0 24px 24px 0', overflow:'hidden' }}>
-                  <Image src={card.img} alt="" aria-hidden width={300} height={300} style={{ width:'100%', height:'auto', objectFit:'contain', opacity:0.88, borderRadius:16 }} />
+                <div style={{ flex:'0 0 40%', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px 20px', background:card.imgBg, borderRadius:'0 24px 24px 0' }}>
+                  <Image src={card.img} alt="" aria-hidden width={300} height={300} style={{ width:'100%', height:'auto', objectFit:'contain', opacity:0.45, maskImage:'radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)', WebkitMaskImage:'radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)' }} />
                 </div>
               </div>
             ))}
