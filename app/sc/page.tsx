@@ -837,8 +837,8 @@ export default function ScPage() {
                     了解更多 →
                   </Link>
                 </div>
-                <div style={{ flex:'0 0 38%', position:'relative', overflow:'hidden', borderRadius:'0 24px 24px 0' }}>
-                  <Image src={card.img} alt="" aria-hidden fill style={{ objectFit:'cover', opacity:0.82 }} />
+                <div style={{ flex:'0 0 38%', display:'flex', alignItems:'center', justifyContent:'center', padding:'20px 16px 20px 0', borderRadius:'0 24px 24px 0', overflow:'hidden' }}>
+                  <Image src={card.img} alt="" aria-hidden width={300} height={300} style={{ width:'100%', height:'auto', objectFit:'contain', opacity:0.88, borderRadius:16 }} />
                 </div>
               </div>
             ))}
