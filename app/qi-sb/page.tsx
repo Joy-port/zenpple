@@ -186,7 +186,7 @@ export default function QiSbPage() {
         >
           <h1
             className="tr-d2"
-            style={{
+            style={{ fontFamily: 'var(--f-impact)', fontWeight: 900,
               fontSize: 'clamp(32px,5vw,58px)',
               color: '#FDFBF8',
               lineHeight: 1.25,
@@ -275,7 +275,7 @@ export default function QiSbPage() {
           style={{
             position: 'relative',
             zIndex: 2,
-            fontFamily: 'var(--f-mono)',
+            fontFamily: 'var(--f-display)',
             fontSize: 10,
             letterSpacing: '0.32em',
             color: 'rgba(255,255,255,0.25)',
@@ -289,7 +289,7 @@ export default function QiSbPage() {
         {/* Title */}
         <h2
           className="tr-d2"
-          style={{
+          style={{ fontFamily: 'var(--f-impact)', fontWeight: 900,
             position: 'relative',
             zIndex: 2,
             fontSize: 'clamp(20px,2.8vw,34px)',
@@ -413,7 +413,7 @@ export default function QiSbPage() {
             ) : (
               <div key={i} style={{ textAlign: 'center' }}>
                 <p style={{ fontFamily: 'var(--f-display)', fontWeight: 100, fontSize: 'clamp(22px,2.8vw,36px)', color: 'rgba(255,255,255,0.68)', lineHeight: 1, marginBottom: 8 }}>{item.wave}</p>
-                <p style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.32)', marginBottom: 4 }}>{item.hz}</p>
+                <p style={{ fontFamily: 'var(--f-display)', fontSize: 9, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.32)', marginBottom: 4 }}>{item.hz}</p>
                 <p style={{ fontFamily: 'var(--f-zh)', fontSize: 12, color: 'rgba(255,255,255,0.38)', letterSpacing: '0.08em' }}>{item.state}</p>
               </div>
             )
@@ -483,7 +483,7 @@ export default function QiSbPage() {
           <p className="sec-label">02 · SESSIONS</p>
           <h2
             className="tr-d2"
-            style={{
+            style={{ fontFamily: 'var(--f-impact)', fontWeight: 900,
               fontSize: 'clamp(26px,3.5vw,38px)',
               color: '#2E5A6A',
               lineHeight: 1.3,
@@ -537,7 +537,7 @@ export default function QiSbPage() {
                   >
                     <span
                       style={{
-                        fontFamily: 'var(--f-mono)',
+                        fontFamily: 'var(--f-display)',
                         fontSize: 11,
                         letterSpacing: '0.2em',
                         color: isOpen ? '#65BAAF' : 'var(--muted)',
@@ -574,7 +574,7 @@ export default function QiSbPage() {
                     </div>
                     <div
                       style={{
-                        fontFamily: 'var(--f-mono)',
+                        fontFamily: 'var(--f-display)',
                         fontSize: 11,
                         color: 'var(--muted)',
                         textAlign: 'right',
@@ -632,7 +632,7 @@ export default function QiSbPage() {
                           <span
                             key={tag}
                             style={{
-                              fontFamily: 'var(--f-mono)',
+                              fontFamily: 'var(--f-display)',
                               fontSize: 10,
                               letterSpacing: '0.12em',
                               padding: '5px 12px',
@@ -648,7 +648,7 @@ export default function QiSbPage() {
                       <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
                         <span
                           style={{
-                            fontFamily: 'var(--f-mono)',
+                            fontFamily: 'var(--f-display)',
                             fontSize: 15,
                             fontWeight: 700,
                             color: '#2E5A6A',
@@ -659,7 +659,7 @@ export default function QiSbPage() {
                         </span>
                         <span
                           style={{
-                            fontFamily: 'var(--f-mono)',
+                            fontFamily: 'var(--f-display)',
                             fontSize: 10,
                             color: 'var(--muted)',
                             letterSpacing: '0.1em',
@@ -670,7 +670,7 @@ export default function QiSbPage() {
                         <Link
                           href="/contact"
                           style={{
-                            fontFamily: 'var(--f-mono)',
+                            fontFamily: 'var(--f-display)',
                             fontSize: 10,
                             letterSpacing: '0.15em',
                             textTransform: 'uppercase',
@@ -737,7 +737,7 @@ export default function QiSbPage() {
           <p className="sec-label">03 · WHAT IS IT</p>
           <h2
             className="tr-d2"
-            style={{
+            style={{ fontFamily: 'var(--f-impact)', fontWeight: 900,
               fontSize: 'clamp(26px,3.5vw,38px)',
               color: '#2E5A6A',
               lineHeight: 1.3,
@@ -807,7 +807,7 @@ export default function QiSbPage() {
                 />
                 <p
                   style={{
-                    fontFamily: 'var(--f-mono)',
+                    fontFamily: 'var(--f-display)',
                     fontSize: 10,
                     letterSpacing: '0.2em',
                     color: 'rgba(255,255,255,0.4)',
@@ -843,7 +843,7 @@ export default function QiSbPage() {
               {/* Brainwave section label */}
               <p
                 style={{
-                  fontFamily: 'var(--f-mono)',
+                  fontFamily: 'var(--f-display)',
                   fontSize: 10,
                   letterSpacing: '0.18em',
                   color: 'var(--muted)',
@@ -889,7 +889,7 @@ export default function QiSbPage() {
                 >
                   <p
                     style={{
-                      fontFamily: 'var(--f-mono)',
+                      fontFamily: 'var(--f-display)',
                       fontSize: 10,
                       letterSpacing: '0.15em',
                       color: '#65BAAF',
@@ -987,7 +987,7 @@ export default function QiSbPage() {
             <div>
               <h2
                 className="tr-d2"
-                style={{
+                style={{ fontFamily: 'var(--f-impact)', fontWeight: 900,
                   fontSize: 'clamp(28px,4vw,48px)',
                   color: '#fff',
                   lineHeight: 1.2,
@@ -1001,7 +1001,7 @@ export default function QiSbPage() {
                   <span
                     key={r}
                     style={{
-                      fontFamily: 'var(--f-mono)',
+                      fontFamily: 'var(--f-display)',
                       fontSize: 9,
                       letterSpacing: '0.14em',
                       color: 'rgba(255,255,255,0.45)',
@@ -1091,7 +1091,7 @@ export default function QiSbPage() {
           </p>
           <h2
             className="tr-d2"
-            style={{
+            style={{ fontFamily: 'var(--f-impact)', fontWeight: 900,
               fontSize: 'clamp(26px,3.5vw,38px)',
               color: '#fff',
               lineHeight: 1.3,
@@ -1233,7 +1233,7 @@ export default function QiSbPage() {
         <div style={{ position: 'relative', zIndex: 2 }}>
           <h2
             className="tr-d2"
-            style={{
+            style={{ fontFamily: 'var(--f-impact)', fontWeight: 900,
               fontSize: 'clamp(26px,4vw,44px)',
               color: '#2E5A6A',
               marginBottom: 16,
@@ -1259,7 +1259,7 @@ export default function QiSbPage() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 10,
-              fontFamily: 'var(--f-mono)',
+              fontFamily: 'var(--f-display)',
               fontSize: 12,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
@@ -1279,7 +1279,7 @@ export default function QiSbPage() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 10,
-              fontFamily: 'var(--f-mono)',
+              fontFamily: 'var(--f-display)',
               fontSize: 12,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
