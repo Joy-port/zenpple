@@ -484,7 +484,7 @@ export default function QiSbPage() {
             className="tr-d2"
             style={{
               fontSize: 'clamp(26px,3.5vw,38px)',
-              color: '#5DA5B5',
+              color: '#2E5A6A',
               lineHeight: 1.3,
               marginBottom: 12,
             }}
@@ -552,7 +552,7 @@ export default function QiSbPage() {
                         className="tr-h1"
                         style={{
                           fontSize: 18,
-                          color: '#5DA5B5',
+                          color: '#2E5A6A',
                         }}
                       >
                         {c.name}
@@ -650,7 +650,7 @@ export default function QiSbPage() {
                             fontFamily: 'var(--f-mono)',
                             fontSize: 15,
                             fontWeight: 700,
-                            color: '#5DA5B5',
+                            color: '#2E5A6A',
                             letterSpacing: '0.06em',
                           }}
                         >
@@ -738,7 +738,7 @@ export default function QiSbPage() {
             className="tr-d2"
             style={{
               fontSize: 'clamp(26px,3.5vw,38px)',
-              color: '#5DA5B5',
+              color: '#2E5A6A',
               lineHeight: 1.3,
               marginBottom: 12,
             }}
@@ -901,7 +901,7 @@ export default function QiSbPage() {
                     className="tr-h1"
                     style={{
                       fontSize: 15,
-                      color: '#5DA5B5',
+                      color: '#2E5A6A',
                       marginBottom: 6,
                     }}
                   >
