@@ -136,24 +136,24 @@ export default function QiSbPage() {
           }}
         />
 
-        {/* English ghost */}
+        {/* Ghost text — two stacked lines */}
         <div
           aria-hidden
           style={{
             position: 'absolute',
             left: '-10px',
-            bottom: '5vh',
+            bottom: '4vh',
             fontFamily: 'var(--f-display)',
             fontWeight: 100,
-            fontSize: 'clamp(80px,14vw,180px)',
-            lineHeight: 1,
+            fontSize: 'clamp(56px,9vw,120px)',
+            lineHeight: 1.05,
             color: 'rgba(255,255,255,0.04)',
-            letterSpacing: '-0.02em',
+            letterSpacing: '-0.01em',
             userSelect: 'none',
             pointerEvents: 'none',
           }}
         >
-          sound
+          SINGING<br />BOWL
         </div>
 
         {/* Ripple rings */}
@@ -183,18 +183,6 @@ export default function QiSbPage() {
             maxWidth: 680,
           }}
         >
-          <p
-            style={{
-              fontFamily: 'var(--f-mono)',
-              fontSize: 11,
-              letterSpacing: '0.22em',
-              color: 'rgba(255,255,255,0.5)',
-              textTransform: 'uppercase',
-              marginBottom: 32,
-            }}
-          >
-            QI · Singing Bowl Sound Flow · 靈性頌缽音流
-          </p>
           <h1
             className="tr-d2"
             style={{
@@ -234,23 +222,6 @@ export default function QiSbPage() {
             只需讓缽聲穿透——<br />
             你的細胞已知道路。
           </p>
-          <Link
-            href="#courses"
-            style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 300,
-              fontSize: 12,
-              letterSpacing: '0.25em',
-              textTransform: 'uppercase',
-              color: 'rgba(255,255,255,0.8)',
-              textDecoration: 'none',
-              borderBottom: '1px solid rgba(255,255,255,0.3)',
-              paddingBottom: 4,
-              transition: 'all .3s',
-            }}
-          >
-            探索課程 · explore
-          </Link>
         </div>
       </section>
 
