@@ -330,28 +330,38 @@ export default function ScPage() {
               {/* Circle image nodes — absolutely positioned at matching percentages */}
               {/* SC-01: left=5%, top=47.5% — amber */}
               <div style={{ position:'absolute', left:'calc(55/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
-                <Image src="/resource/single/材質-4-圓圈/黑圈-1.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc01' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
+                <div className="sc-glow-wrap" style={{'--glow-color':'200,130,60'} as React.CSSProperties}>
+                  <Image src="/resource/single/材質-4-圓圈/黑圈-1.png" alt="" aria-hidden width={80} height={80}
+                    style={{ width: activeNode==='sc01' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
+                </div>
               </div>
               {/* SC-02: left=25.45%, top=55% — blue-gray */}
               <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:'calc(110/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
-                <Image src="/resource/single/材質-4-圓圈/黑圈-10.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc02' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
+                <div className="sc-glow-wrap" style={{'--glow-color':'80,140,210'} as React.CSSProperties}>
+                  <Image src="/resource/single/材質-4-圓圈/黑圈-10.png" alt="" aria-hidden width={80} height={80}
+                    style={{ width: activeNode==='sc02' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
+                </div>
               </div>
               {/* SC-03: left=49.09%, top=47.5% — terracotta */}
               <div style={{ position:'absolute', left:'calc(540/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
-                <Image src="/resource/single/材質-4-圓圈/黑圈-12.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc03' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
+                <div className="sc-glow-wrap" style={{'--glow-color':'200,100,70'} as React.CSSProperties}>
+                  <Image src="/resource/single/材質-4-圓圈/黑圈-12.png" alt="" aria-hidden width={80} height={80}
+                    style={{ width: activeNode==='sc03' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
+                </div>
               </div>
               {/* SC-04: left=72.73%, top=55% — gold */}
               <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:'calc(110/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
-                <Image src="/resource/single/材質-4-圓圈/黑圈-18.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc04' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
+                <div className="sc-glow-wrap" style={{'--glow-color':'200,170,60'} as React.CSSProperties}>
+                  <Image src="/resource/single/材質-4-圓圈/黑圈-18.png" alt="" aria-hidden width={80} height={80}
+                    style={{ width: activeNode==='sc04' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
+                </div>
               </div>
               {/* SC-05: left=95%, top=47.5% — purple */}
               <div style={{ position:'absolute', left:'calc(1045/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
-                <Image src="/resource/single/材質-4-圓圈/黑圈-24.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc05' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
+                <div className="sc-glow-wrap" style={{'--glow-color':'160,80,200'} as React.CSSProperties}>
+                  <Image src="/resource/single/材質-4-圓圈/黑圈-24.png" alt="" aria-hidden width={80} height={80}
+                    style={{ width: activeNode==='sc05' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
+                </div>
               </div>
             </div>
 
