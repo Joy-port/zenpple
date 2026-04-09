@@ -360,8 +360,8 @@ export default function ScPage() {
               {/* 04 — 高我, gold */}
               <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
                 <div style={{ fontSize:18, fontWeight:700, color:'#7A5812', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
-                <Image src="/sc/white/高我-白.png" alt="" aria-hidden width={250} height={300}
-                  style={{ height:200, width:'auto', filter:'sepia(1) saturate(4.0) hue-rotate(20deg) brightness(0.58)', opacity:0.92, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
+                <Image src="/sc/black/高我.png" alt="" aria-hidden width={250} height={300}
+                  style={{ height:200, width:'auto', filter:'invert(1) sepia(1) saturate(4.0) hue-rotate(20deg) brightness(0.58)', opacity:0.92, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
               </div>
             </div>
 
