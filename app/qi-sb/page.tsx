@@ -1197,13 +1197,19 @@ export default function QiSbPage() {
       {/* ── CTA ── */}
       <section
         style={{
+          minHeight: '100svh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
           background: 'var(--base)',
           position: 'relative',
           overflow: 'hidden',
           textAlign: 'center',
+          padding: 'clamp(60px,8vh,100px) clamp(24px,8vw,120px)',
         }}
       >
-        {/* ghost word */}
+        {/* Ghost word */}
         <div
           aria-hidden
           style={{
@@ -1223,8 +1229,7 @@ export default function QiSbPage() {
           home
         </div>
 
-        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
-          <p className="sec-label" style={{ justifyContent: 'center' }}>06 · CONNECT</p>
+        <div style={{ position: 'relative', zIndex: 2 }}>
           <h2
             className="tr-d2"
             style={{
@@ -1239,7 +1244,6 @@ export default function QiSbPage() {
             style={{
               fontSize: 14,
               color: 'var(--muted)',
-              marginBottom: 40,
               lineHeight: 1.8,
               maxWidth: 400,
               margin: '0 auto 40px',
@@ -1267,17 +1271,6 @@ export default function QiSbPage() {
           >
             預約頌缽體驗 →
           </Link>
-          <p
-            style={{
-              marginTop: 20,
-              fontFamily: 'var(--f-mono)',
-              fontSize: 11,
-              color: 'var(--muted)',
-              letterSpacing: '0.12em',
-            }}
-          >
-            @ ZENPPLE 森波 · 通常在一個工作日內回覆
-          </p>
         </div>
       </section>
     </>
