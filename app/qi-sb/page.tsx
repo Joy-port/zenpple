@@ -324,14 +324,14 @@ export default function QiSbPage() {
             ))}
           </defs>
 
-          {/* 6 wave paths, each offset amplitude & phase */}
+          {/* 6 wave paths — varied thickness, slow pace */}
           {([
-            { amp: 18, phase: 0,    period: 320, y: 200, opacity: 0.55, stroke: 'rgba(58,125,142,1)',   dur: 7.0 },
-            { amp: 28, phase: 60,   period: 280, y: 200, opacity: 0.40, stroke: 'rgba(58,125,142,1)',   dur: 8.5 },
-            { amp: 12, phase: 120,  period: 360, y: 200, opacity: 0.30, stroke: 'rgba(255,255,255,1)',  dur: 6.5 },
-            { amp: 22, phase: 180,  period: 300, y: 200, opacity: 0.22, stroke: 'rgba(255,255,255,1)',  dur: 9.0 },
-            { amp: 34, phase: 240,  period: 260, y: 200, opacity: 0.15, stroke: 'rgba(58,125,142,1)',   dur: 10.5 },
-            { amp: 10, phase: 300,  period: 400, y: 200, opacity: 0.12, stroke: 'rgba(255,255,255,1)',  dur: 7.8 },
+            { amp: 18, phase: 0,   period: 320, y: 200, opacity: 0.50, stroke: 'rgba(58,125,142,1)',  sw: 2.5, dur: 18 },
+            { amp: 28, phase: 60,  period: 280, y: 200, opacity: 0.35, stroke: 'rgba(58,125,142,1)',  sw: 0.6, dur: 24 },
+            { amp: 12, phase: 120, period: 360, y: 200, opacity: 0.28, stroke: 'rgba(255,255,255,1)', sw: 1.5, dur: 20 },
+            { amp: 22, phase: 180, period: 300, y: 200, opacity: 0.20, stroke: 'rgba(255,255,255,1)', sw: 3.5, dur: 28 },
+            { amp: 34, phase: 240, period: 260, y: 200, opacity: 0.14, stroke: 'rgba(58,125,142,1)',  sw: 0.8, dur: 22 },
+            { amp: 10, phase: 300, period: 400, y: 200, opacity: 0.10, stroke: 'rgba(255,255,255,1)', sw: 2.0, dur: 32 },
           ] as const).map((w, i) => {
             const pts: string[] = []
             for (let x = -w.period; x <= 1440 + w.period; x += 4) {
@@ -344,7 +344,7 @@ export default function QiSbPage() {
                 points={pts.join(' ')}
                 fill="none"
                 stroke={w.stroke}
-                strokeWidth="1"
+                strokeWidth={w.sw}
                 opacity={w.opacity}
               >
                 <animateTransform
