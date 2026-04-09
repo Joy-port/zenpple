@@ -1232,7 +1232,7 @@ export default function QiSbPage() {
             className="tr-d2"
             style={{
               fontSize: 'clamp(26px,4vw,44px)',
-              color: '#5DA5B5',
+              color: '#2E5A6A',
               marginBottom: 16,
             }}
           >
