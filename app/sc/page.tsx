@@ -771,59 +771,69 @@ export default function ScPage() {
         </div>
       </section>
 
-      {/* ═══ 推薦整合搭配 + CTA ═══ */}
-      <section style={{ padding:'100px 0', background:'#233D4C', position:'relative' }}>
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(94,142,138,0.18) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 15% 80%, rgba(74,107,138,0.2) 0%, transparent 55%)', pointerEvents:'none' }} />
+      {/* ═══ 推薦整合搭配 ═══ */}
+      <section style={{ padding:'80px 0 100px', background:'#C8D8E4', position:'relative', overflow:'hidden' }}>
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 55% at 50% 50%, rgba(180,210,220,0.45) 0%, transparent 70%)', pointerEvents:'none' }} />
         <div style={{ maxWidth:1100, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2 }}>
 
           {/* Header */}
-          <div style={{ textAlign:'center', marginBottom:56 }}>
-            <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'#7A9AB5', opacity:0.75, marginBottom:14, textTransform:'uppercase' }}>
+          <div style={{ textAlign:'center', marginBottom:48 }}>
+            <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'rgba(42,70,90,0.55)', marginBottom:14, textTransform:'uppercase' }}>
               RECOMMENDED PAIRING
             </p>
-            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(24px,3.5vw,42px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#1E3848', marginBottom:12 }}>
               推薦整合搭配
             </h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'#7A9AB5', opacity:0.8, marginBottom:24 }}>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:400, fontSize:14, letterSpacing:'0.24em', color:'rgba(42,70,90,0.6)', marginBottom:0 }}>
               Complete Your Journey
-            </p>
-            <p style={{ fontSize:14, lineHeight:1.9, color:'rgba(242,239,234,0.65)', margin:'0 auto' }}>
-              薩滿覺醒的效果，在整合中才真正落地。
             </p>
           </div>
 
           {/* Cards */}
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:24, marginBottom:64 }}>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:20 }}>
             {[
               { title:'深層系統對齊', desc:'薩滿打開靈魂的通道，深層對齊讓覺醒的能量落地。從靈性到現實的完整轉化路徑。', href:'/hl', img:'/sc/sc-cta-hl.png' },
               { title:'靈性頌缽音流', desc:'薩滿旅程後的能量場需要沉澱。頌缽頻率加速整合，讓新的意識狀態滲透進身體。', href:'/qi-sb', img:'/sc/sc-cta-qi-sb.png' },
             ].map(card => (
-              <div key={card.title} style={{ display:'flex', flexDirection:'row', border:'1px solid rgba(74,107,138,0.15)', position:'relative', overflow:'hidden', transition:'border-color 0.35s' }}>
-                <div style={{ flex:'0 0 65%', padding:'36px 28px', display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
+              <div key={card.title} style={{ display:'flex', flexDirection:'row', background:'rgba(255,255,255,0.72)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:24, overflow:'hidden', boxShadow:'0 4px 28px rgba(30,60,80,0.08)', transition:'box-shadow 0.3s' }}>
+                <div style={{ flex:'0 0 62%', padding:'32px 28px', display:'flex', flexDirection:'column', justifyContent:'space-between' }}>
                   <div>
-                    <div className="tr-d2" style={{ fontSize:22, color:'#F2EFEA', marginBottom:16 }}>{card.title}</div>
-                    <p style={{ fontSize:13, lineHeight:1.85, color:'rgba(242,239,234,0.55)', marginBottom:24 }}>{card.desc}</p>
+                    <div className="tr-d2" style={{ fontSize:20, color:'#1E3848', marginBottom:12 }}>{card.title}</div>
+                    <p style={{ fontSize:13, lineHeight:1.85, color:'rgba(30,56,72,0.62)', marginBottom:20 }}>{card.desc}</p>
                   </div>
-                  <Link href={card.href} style={{ display:'inline-flex', alignItems:'center', gap:10, fontFamily:'var(--f-display)', fontWeight:300, fontSize:12, letterSpacing:'0.22em', color:'#7A9AB5', textDecoration:'none', borderBottom:'1px solid rgba(74,107,138,0.35)', paddingBottom:4 }}>
-                    了解更多
+                  <Link href={card.href} style={{ display:'inline-flex', alignItems:'center', gap:8, fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.18em', color:'#3A6A80', textDecoration:'none', opacity:0.8 }}>
+                    了解更多 →
                   </Link>
                 </div>
-                <div style={{ flex:'0 0 35%', position:'relative', overflow:'hidden', maxHeight:200 }}>
-                  <Image src={card.img} alt="" aria-hidden fill style={{ objectFit:'cover', opacity:0.75 }} />
+                <div style={{ flex:'0 0 38%', position:'relative', overflow:'hidden', borderRadius:'0 24px 24px 0' }}>
+                  <Image src={card.img} alt="" aria-hidden fill style={{ objectFit:'cover', opacity:0.82 }} />
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Main CTA */}
-          <div style={{ textAlign:'center', paddingTop:64, borderTop:'1px solid rgba(74,107,138,0.1)' }}>
-            <div className="tr-d2" style={{ fontSize:28, color:'#F2EFEA', marginBottom:12 }}>準備好開始你的薩滿旅程了嗎？</div>
-            <div style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:16, color:'#7A9AB5', marginBottom:32 }}>每一個靈魂都有它的路，讓我們一起找到你的。</div>
-            <Link href="/contact" className="sc-cta-btn">
-              預約探索諮詢 &nbsp;·&nbsp; BOOK A SESSION
-            </Link>
-          </div>
+        </div>
+      </section>
 
+      {/* ═══ CTA ═══ */}
+      <section style={{ minHeight:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(60px,8vh,100px) clamp(24px,8vw,120px)', background:'linear-gradient(155deg, #2B4A5E 0%, #355A6A 45%, #3A5060 100%)', position:'relative', overflow:'hidden', textAlign:'center' }}>
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(94,142,138,0.22) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
+        {/* Atmospheric bg calligraphy */}
+        <Image src="/sc/black/薩滿冥想-橫.png" alt="" aria-hidden width={900} height={300}
+          style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'clamp(300px,60vw,700px)', height:'auto', filter:'invert(1) brightness(1.0)', mixBlendMode:'screen', opacity:0.05, pointerEvents:'none' }} />
+        <div style={{ position:'relative', zIndex:2 }}>
+          <p style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.32em', color:'rgba(180,215,220,0.55)', marginBottom:28, textTransform:'uppercase' }}>
+            BEGIN YOUR JOURNEY
+          </p>
+          <h2 className="tr-d2" style={{ fontSize:'clamp(24px,3.8vw,52px)', color:'#F2EFEA', letterSpacing:'0.03em', lineHeight:1.2, marginBottom:16 }}>
+            準備好開始你的薩滿旅程了嗎？
+          </h2>
+          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(14px,1.4vw,18px)', color:'rgba(180,215,220,0.70)', marginBottom:48, lineHeight:1.8 }}>
+            每一個靈魂都有它的路，讓我們一起找到你的。
+          </p>
+          <Link href="/contact" className="sc-cta-btn">
+            預約探索諮詢 &nbsp;·&nbsp; BOOK A SESSION
+          </Link>
         </div>
       </section>
     </>
