@@ -373,25 +373,10 @@ export default function QiSbPage() {
           })}
         </svg>
 
-        {/* Bowl image — dominant, centered — bowl-white behind, 頌缽 in front */}
+        {/* Bowl image — bowl-white, centered */}
         <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          {/* Large white bowl behind */}
           <Image
             src="/qi-sb/bowl-white.png"
-            alt=""
-            aria-hidden
-            width={700}
-            height={700}
-            style={{
-              position: 'absolute',
-              width: 'clamp(300px,52vw,620px)',
-              height: 'auto',
-              opacity: 0.07,
-            }}
-          />
-          {/* Main bowl — lighter opacity */}
-          <Image
-            src="/qi-sb/頌缽.png"
             alt="頌缽"
             width={600}
             height={600}
@@ -399,7 +384,7 @@ export default function QiSbPage() {
               position: 'relative',
               width: 'clamp(220px,38vw,460px)',
               height: 'auto',
-              opacity: 0.80,
+              opacity: 0.82,
               filter: 'drop-shadow(0 0 40px rgba(58,125,142,0.42)) drop-shadow(0 0 90px rgba(58,125,142,0.18))',
             }}
           />
