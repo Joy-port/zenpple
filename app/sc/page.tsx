@@ -469,7 +469,8 @@ export default function ScPage() {
       <section id="section-sc02" style={{ padding:'100px 0', background:'#D8E3F0', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-5-波/材質-5-1.png" alt="" aria-hidden width={400} height={200}
           style={{ position:'absolute', top:-20, left:'5%', width:'clamp(200px,30vw,380px)', height:'auto', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'rotate(4deg)' }} />
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 65% 80% at 85% 40%, rgba(50,85,160,0.18) 0%, rgba(80,120,200,0.08) 50%, transparent 75%), radial-gradient(ellipse 50% 60% at 8% 70%, rgba(40,80,160,0.14) 0%, transparent 55%)', pointerEvents:'none' }} />
+        {/* C-form blue gradient — wraps right edge top-right + bottom-right, open to left */}
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 55% 40% at 100% 10%, rgba(40,80,180,0.28) 0%, transparent 65%), radial-gradient(ellipse 55% 40% at 100% 90%, rgba(40,80,180,0.26) 0%, transparent 65%), radial-gradient(ellipse 30% 80% at 100% 50%, rgba(40,80,180,0.20) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', left:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 40% 55%, rgba(40,80,180,0.42) 0%, transparent 68%)', pointerEvents:'none', filter:'blur(28px)' }} />
         {/* bottom connector → SC-03 */}
@@ -685,16 +686,16 @@ export default function ScPage() {
 
       {/* ═══ SC-05 尋找內在小孩 ═══ */}
       {/* Theme: 療癒 · 柔韌 · 重新歸位 — deep plum with soft violet warmth */}
-      <section id="section-sc05" style={{ padding:'100px 0', background:'#EDE5F5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+      <section id="section-sc05" style={{ padding:'100px 0', background:'#E4D8F5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-5-波/材質-5-1_3.png" alt="" aria-hidden width={400} height={200}
-          style={{ position:'absolute', top:-15, right:'4%', width:'clamp(180px,24vw,320px)', height:'auto', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'scaleX(-1) rotate(-6deg)' }} />
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 65% 75% at 12% 55%, rgba(100,50,120,0.1) 0%, rgba(120,70,128,0.1) 50%, transparent 70%), radial-gradient(ellipse 40% 50% at 88% 25%, rgba(140,85,148,0.14) 0%, transparent 60%)', pointerEvents:'none' }} />
+          style={{ position:'absolute', top:-15, right:'4%', width:'clamp(180px,24vw,320px)', height:'auto', mixBlendMode:'multiply', opacity:0.08, pointerEvents:'none', transform:'scaleX(-1) rotate(-6deg)' }} />
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 50%, rgba(90,30,140,0.18) 0%, rgba(120,50,160,0.12) 50%, transparent 70%), radial-gradient(ellipse 50% 60% at 90% 25%, rgba(140,60,180,0.20) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
-        <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 60% 45%, rgba(120,40,180,0.24) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
+        <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'60%', height:'90vh', borderRadius:'50%', background:'radial-gradient(ellipse 75% 90% at 60% 48%, rgba(100,20,180,0.42) 0%, transparent 68%)', pointerEvents:'none', filter:'blur(28px)' }} />
         {/* 書法圖 */}
         <Image src="/sc/black/內在小孩.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', right:'-2%', top:'50%', transform:'translateY(-50%)', height:'88vh', width:'auto',
-            filter:'sepia(0.45) hue-rotate(270deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
+            filter:'sepia(0.5) hue-rotate(270deg) saturate(2.2) brightness(0.65)', mixBlendMode:'multiply', opacity:0.48, pointerEvents:'none' }} />
         {/* 內在小孩-拿心 secondary */}
         <Image src="/sc/black/內在小孩-拿心.png" alt="" aria-hidden width={400} height={500}
           style={{ position:'absolute', left:'5%', bottom:'-5%', width:'22%', height:'auto',
