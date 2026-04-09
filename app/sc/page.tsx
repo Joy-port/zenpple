@@ -53,95 +53,101 @@ export default function ScPage() {
       </svg>
 
       {/* ═══ HERO ═══ */}
-      <section style={{ position:'relative', minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center', overflow:'hidden', background:'#2B4A5E' }}>
-        {/* Blue-teal wash */}
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 20% 50%, rgba(74,107,138,0.9) 0%, rgba(43,74,94,0.6) 40%, transparent 75%), radial-gradient(ellipse 60% 70% at 85% 60%, rgba(94,142,138,0.55) 0%, rgba(65,110,106,0.3) 45%, transparent 70%)', pointerEvents:'none' }} />
+      <section style={{ position:'relative', minHeight:'100vh', display:'flex', alignItems:'center', overflow:'hidden', background:'#2B4A5E' }}>
+        {/* Airy blue-teal wash — lighter, more breathable */}
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 100% at 55% 50%, rgba(94,142,138,0.32) 0%, transparent 65%), radial-gradient(ellipse 50% 60% at 5% 30%, rgba(74,107,138,0.45) 0%, transparent 55%), radial-gradient(ellipse 40% 40% at 95% 10%, rgba(74,107,138,0.2) 0%, transparent 55%)', pointerEvents:'none' }} />
 
-        {/* 方形薩滿冥想 — dominant center-right watermark */}
-        <Image
-          src="/sc/black/方形薩滿冥想.png"
-          alt=""
-          aria-hidden
-          width={900}
-          height={900}
-          style={{ position:'absolute', right:'4%', top:'50%', transform:'translateY(-50%)', height:'82vh', width:'auto', filter:'invert(1) sepia(0.2) saturate(1.2) hue-rotate(185deg) brightness(1.1)', mixBlendMode:'screen', opacity:0.55, pointerEvents:'none' }}
-        />
-
-        {/* 薩滿巫 — lower-left corner, secondary layer */}
+        {/* 薩滿巫 — dominant right side, full-height */}
         <Image
           src="/sc/black/薩滿巫.png"
           alt=""
           aria-hidden
-          width={600}
-          height={600}
-          style={{ position:'absolute', left:'-3%', bottom:'-4%', height:'52vh', width:'auto', filter:'invert(1) sepia(0.3) saturate(1.4) hue-rotate(175deg) brightness(1.05)', mixBlendMode:'screen', opacity:0.32, pointerEvents:'none' }}
+          width={800}
+          height={800}
+          style={{ position:'absolute', right:'-1%', top:'50%', transform:'translateY(-50%)', height:'90vh', width:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.62, pointerEvents:'none' }}
         />
 
-        {/* Ripple rings — centered on the calligraphy */}
-        <div style={{ position:'absolute', right:'22%', top:'50%', pointerEvents:'none' }}>
+        {/* 方形薩滿冥想 — title-area left, as visual heading element */}
+        <Image
+          src="/sc/black/方形薩滿冥想.png"
+          alt=""
+          aria-hidden
+          width={700}
+          height={700}
+          style={{ position:'absolute', left:'4vw', top:'50%', transform:'translateY(-58%)', height:'58vh', width:'auto', filter:'invert(1) sepia(0.15) saturate(1.0) brightness(1.05)', mixBlendMode:'screen', opacity:0.28, pointerEvents:'none' }}
+        />
+
+        {/* Ripple rings — centered on 薩滿巫 */}
+        <div style={{ position:'absolute', right:'28%', top:'50%', pointerEvents:'none' }}>
           <div className="sc-ripple" />
           <div className="sc-ripple" />
           <div className="sc-ripple" />
         </div>
 
-        {/* Title — upper-left, large and anchored */}
-        <div style={{ position:'relative', zIndex:2, padding:'0 6vw', width:'100%', display:'flex', flexDirection:'column', alignItems:'flex-start', justifyContent:'center', minHeight:'100vh' }}>
-          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,1vw,12px)', letterSpacing:'0.35em', color:'rgba(200,220,235,0.6)', marginBottom:28, textTransform:'uppercase' }}>
+        {/* Content — left column, clear of right image */}
+        <div style={{ position:'relative', zIndex:2, padding:'0 6vw', width:'52%', display:'flex', flexDirection:'column', justifyContent:'center', minHeight:'100vh' }}>
+          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,1vw,11px)', letterSpacing:'0.38em', color:'rgba(200,220,235,0.55)', marginBottom:20, textTransform:'uppercase' }}>
             SC · Shamanic Soul Awakening
           </p>
-          <h1 className="tr-d2" style={{ fontSize:'clamp(52px,8vw,108px)', lineHeight:0.95, letterSpacing:'0.02em', color:'#F2EFEA', marginBottom:32, maxWidth:'50vw' }}>
-            靈魂<br />最原始<br />的力量
+
+          {/* 方形薩滿冥想 as visual title — displayed as image heading */}
+          <div style={{ marginBottom:20, marginLeft:'-2px' }}>
+            <Image
+              src="/sc/black/方形薩滿冥想.png"
+              alt="薩滿冥想"
+              width={340}
+              height={340}
+              style={{ width:'clamp(180px,22vw,300px)', height:'auto', filter:'invert(1) brightness(0.95)', mixBlendMode:'screen', opacity:0.9 }}
+            />
+          </div>
+
+          {/* Subtitle — replaces h1 text */}
+          <h1 className="tr-d2" style={{ fontSize:'clamp(22px,2.8vw,38px)', lineHeight:1.25, letterSpacing:'0.04em', color:'rgba(230,242,250,0.88)', marginBottom:24, fontWeight:400 }}>
+            靈魂最原始的力量
           </h1>
-          <div style={{ width:48, height:1, background:'rgba(200,220,235,0.35)', marginBottom:28 }} />
-          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(14px,1.6vw,20px)', color:'rgba(200,220,235,0.75)', letterSpacing:'0.05em', lineHeight:1.7, maxWidth:380 }}>
+          <div style={{ width:40, height:1, background:'rgba(200,220,235,0.3)', marginBottom:20 }} />
+          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(13px,1.4vw,17px)', color:'rgba(200,220,235,0.65)', letterSpacing:'0.05em', lineHeight:1.8, maxWidth:320 }}>
             透過古老智慧，<br />連結靈魂最原始的力量
           </p>
         </div>
 
         {/* Scroll indicator */}
-        <div style={{ position:'absolute', bottom:36, left:'6vw', display:'flex', flexDirection:'column', alignItems:'center', gap:8, opacity:0.45, animation:'sc-float 2.5s ease-in-out infinite' }}>
+        <div style={{ position:'absolute', bottom:36, left:'6vw', display:'flex', flexDirection:'column', alignItems:'center', gap:8, opacity:0.4, animation:'sc-float 2.5s ease-in-out infinite' }}>
           <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.25em', color:'rgba(200,220,235,0.7)' }}>SCROLL</span>
           <div style={{ width:1, height:40, background:'linear-gradient(to bottom, rgba(200,220,235,0.5), transparent)' }} />
         </div>
       </section>
 
       {/* ═══ 薩滿介紹 ═══ */}
-      <section style={{ background:'#26424F', padding:'120px 0 80px', position:'relative', overflow:'hidden' }}>
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 50% 80% at 80% 50%, rgba(94,142,138,0.22) 0%, transparent 65%), radial-gradient(ellipse 60% 40% at 10% 20%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
+      <section style={{ background:'#355A6A', padding:'110px 0 90px', position:'relative', overflow:'hidden' }}>
+        {/* Airy wash — lighter, wider spread */}
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 100% at 60% 50%, rgba(120,175,170,0.2) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 5% 80%, rgba(94,142,138,0.15) 0%, transparent 55%)', pointerEvents:'none' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center', position:'relative', zIndex:2 }}>
           <div>
-            <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'#7A9AB5', opacity:0.75, marginBottom:14, textTransform:'uppercase' }}>
+            <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'rgba(180,215,220,0.7)', marginBottom:14, textTransform:'uppercase' }}>
               WHAT IS SHAMANISM
             </p>
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
               薩滿，<br />最古老的療癒智慧
             </h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'#7A9AB5', marginBottom:24, opacity:0.8 }}>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'rgba(180,215,220,0.7)', marginBottom:24 }}>
               The Oldest Healing Wisdom
             </p>
-            <p style={{ fontSize:14, lineHeight:1.9, color:'rgba(242,239,234,0.65)', maxWidth:440 }}>
+            <p style={{ fontSize:14, lineHeight:1.9, color:'rgba(242,239,234,0.72)', maxWidth:440 }}>
               薩滿不是宗教，是一種與自然、靈性世界深度連結的古老修行。<br /><br />
               透過意識的轉移，薩滿者在三個世界之間旅行，帶回療癒與靈性指引。<br /><br />
               薩滿靈魂覺醒，是找回你與生俱來的完整性。
             </p>
           </div>
-          {/* Intro images */}
-          <div style={{ display:'flex', justifyContent:'center', alignItems:'center', minHeight:300, position:'relative' }}>
+          {/* 虎爺 */}
+          <div style={{ display:'flex', justifyContent:'center', alignItems:'center', minHeight:320, position:'relative' }}>
             <Image
-              src="/sc/intro-cat.png"
+              src="/sc/black/虎爺.png"
               alt=""
               aria-hidden
-              width={340}
-              height={340}
-              style={{ width:340, height:'auto', mixBlendMode:'screen', filter:'brightness(1.5) sepia(0.6) saturate(2) hue-rotate(155deg) contrast(0.85)', opacity:0.55, animation:'sc-breathe 4s ease-in-out infinite' }}
-            />
-            <Image
-              src="/sc/intro-sun.png"
-              alt=""
-              aria-hidden
-              width={200}
-              height={200}
-              style={{ position:'absolute', width:200, height:200, bottom:-30, right:10, mixBlendMode:'screen', filter:'hue-rotate(160deg) saturate(0.6) brightness(0.8)', opacity:0.5 }}
+              width={460}
+              height={460}
+              style={{ width:'min(420px,85%)', height:'auto', filter:'invert(1) sepia(0.2) saturate(1.2) hue-rotate(185deg) brightness(1.05)', mixBlendMode:'screen', opacity:0.7, animation:'sc-breathe 5s ease-in-out infinite' }}
             />
           </div>
         </div>
@@ -256,9 +262,9 @@ export default function ScPage() {
       </section>}
 
       {/* ═══ 薩滿旅程五步驟 ═══ */}
-      <section style={{ padding:'100px 0 80px', background:'#1E3845', position:'relative', overflow:'hidden' }} id="journey">
-        {/* Blue-teal bg wash */}
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(74,107,138,0.25) 0%, transparent 60%), radial-gradient(ellipse 50% 70% at 90% 100%, rgba(94,142,138,0.2) 0%, transparent 55%)', pointerEvents:'none' }} />
+      <section style={{ padding:'100px 0 80px', background:'#3A6272', position:'relative', overflow:'hidden' }} id="journey">
+        {/* Airy wash — lighter teal spread */}
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 100% 60% at 50% 0%, rgba(140,200,195,0.18) 0%, transparent 65%), radial-gradient(ellipse 60% 80% at 90% 100%, rgba(94,142,138,0.15) 0%, transparent 60%)', pointerEvents:'none' }} />
 
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 8vw', position:'relative', zIndex:2 }}>
 
