@@ -279,25 +279,25 @@ export default function ScPage() {
           {/* Wave Timeline — 3-row layout: top labels / wave+nodes / bottom labels */}
           <div style={{ width:'100%', marginBottom:8 }}>
 
-            {/* Row 1 — above-wave labels: 01, 03, 05 — image on top, title near wave */}
-            <div style={{ position:'relative', height:160, marginBottom:20 }}>
-              {/* 01 — dragon, amber */}
-              <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
-                <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={100} height={100}
-                  style={{ width:80, height:'auto', filter:'invert(1) sepia(1) saturate(2) hue-rotate(8deg) brightness(0.85)', mixBlendMode:'screen', opacity:0.82 }} />
-                <div style={{ fontSize:22, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>力量動物</div>
+            {/* Row 1 — above-wave: 01, 03, 05 — image outward (top), title toward wave (bottom) */}
+            <div style={{ position:'relative', height:168, marginBottom:12 }}>
+              {/* 01 — dragon-white, amber #A0763A */}
+              <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
+                <Image src="/sc/animals-white/dragon.png" alt="" aria-hidden width={120} height={120}
+                  style={{ width:96, height:'auto', filter:'sepia(1) saturate(2.2) hue-rotate(5deg) brightness(0.88)', mixBlendMode:'screen', opacity:0.88 }} />
+                <div style={{ fontSize:18, fontWeight:700, color:'#A0763A', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
               </div>
-              {/* 03 — octopus, terracotta */}
-              <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc03')}>
-                <Image src="/sc/animals/octopus.png" alt="" aria-hidden width={100} height={100}
-                  style={{ width:80, height:'auto', filter:'invert(1) sepia(1) saturate(1.8) hue-rotate(350deg) brightness(0.88)', mixBlendMode:'screen', opacity:0.82 }} />
-                <div style={{ fontSize:22, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>脈輪情緒覺察</div>
+              {/* 03 — octopus-white, terracotta #C4906A */}
+              <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc03')}>
+                <Image src="/sc/animals-white/octopus.png" alt="" aria-hidden width={120} height={120}
+                  style={{ width:96, height:'auto', filter:'sepia(1) saturate(2.5) hue-rotate(348deg) brightness(0.90)', mixBlendMode:'screen', opacity:0.88 }} />
+                <div style={{ fontSize:18, fontWeight:700, color:'#C4906A', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>脈輪情緒覺察</div>
               </div>
-              {/* 05 — capybara, purple */}
-              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
-                <Image src="/sc/animals/capybara.png" alt="" aria-hidden width={100} height={100}
-                  style={{ width:80, height:'auto', filter:'invert(1) sepia(0.5) saturate(3) hue-rotate(255deg) brightness(0.85)', mixBlendMode:'screen', opacity:0.82 }} />
-                <div style={{ fontSize:22, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>尋找內在小孩</div>
+              {/* 05 — capybara-white, purple #B088B8 */}
+              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
+                <Image src="/sc/animals-white/capybara.png" alt="" aria-hidden width={120} height={120}
+                  style={{ width:96, height:'auto', filter:'sepia(1) saturate(2.8) hue-rotate(255deg) brightness(0.88)', mixBlendMode:'screen', opacity:0.88 }} />
+                <div style={{ fontSize:18, fontWeight:700, color:'#B088B8', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>尋找內在小孩</div>
               </div>
             </div>
 
@@ -344,19 +344,19 @@ export default function ScPage() {
               </div>
             </div>
 
-            {/* Row 3 — below-wave labels: 02, 04 — title near wave, image outward */}
-            <div style={{ position:'relative', height:160, marginTop:20 }}>
-              {/* 02 — crane, blue-gray */}
-              <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc02')}>
-                <div style={{ fontSize:22, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>指導靈</div>
-                <Image src="/sc/animals/crane.png" alt="" aria-hidden width={100} height={100}
-                  style={{ width:80, height:'auto', filter:'invert(1) sepia(0.2) saturate(1.5) hue-rotate(195deg) brightness(0.9)', mixBlendMode:'screen', opacity:0.82 }} />
+            {/* Row 3 — below-wave: 02, 04 — title toward wave (top), image outward (bottom) */}
+            <div style={{ position:'relative', height:168, marginTop:12 }}>
+              {/* 02 — crane-white, blue-gray #B0C4DC */}
+              <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc02')}>
+                <div style={{ fontSize:18, fontWeight:700, color:'#B0C4DC', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>指導靈</div>
+                <Image src="/sc/animals-white/crane.png" alt="" aria-hidden width={120} height={120}
+                  style={{ width:96, height:'auto', filter:'sepia(1) saturate(2) hue-rotate(175deg) brightness(0.92)', mixBlendMode:'screen', opacity:0.88 }} />
               </div>
-              {/* 04 — unicorn, gold */}
-              <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
-                <div style={{ fontSize:22, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>連結高我</div>
-                <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={100} height={100}
-                  style={{ width:80, height:'auto', filter:'invert(1) sepia(1) saturate(2) hue-rotate(28deg) brightness(0.88)', mixBlendMode:'screen', opacity:0.82 }} />
+              {/* 04 — unicorn-white, gold #C4B060 */}
+              <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
+                <div style={{ fontSize:18, fontWeight:700, color:'#C4B060', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
+                <Image src="/sc/animals-white/unicorn.png" alt="" aria-hidden width={120} height={120}
+                  style={{ width:96, height:'auto', filter:'sepia(1) saturate(2.2) hue-rotate(18deg) brightness(0.90)', mixBlendMode:'screen', opacity:0.88 }} />
               </div>
             </div>
 
