@@ -385,10 +385,7 @@ export default function ScPage() {
             filter:'sepia(0.3) hue-rotate(20deg) brightness(0.7)', mixBlendMode:'multiply', opacity:0.1, pointerEvents:'none', transform:'rotate(-15deg)' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
-            <div style={{ display:'flex', alignItems:'center', gap:16, marginBottom:24 }}>
-              <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.2em', color:'#5C3A14', opacity:0.9, padding:'4px 12px', border:'1px solid rgba(92,58,20,0.35)' }}>SC-01</div>
-              <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'rgba(92,58,20,0.55)' }}>下部世界 · Lower World</div>
-            </div>
+
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#F2EFEA', marginBottom:10 }}>尋找力量動物</h2>
             <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#5C3A14', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Power Animal · Workshop</p>
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(40,22,8,0.72)', marginBottom:32, maxWidth:480 }}>
@@ -442,12 +439,9 @@ export default function ScPage() {
             filter:'sepia(0.1) brightness(0.6)', mixBlendMode:'multiply', opacity:0.07, pointerEvents:'none' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div style={{ order:2 }}>
-            <div style={{ display:'flex', alignItems:'center', gap:16, marginBottom:24 }}>
-              <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.2em', color:'#1A3050', opacity:0.9, padding:'4px 12px', border:'1px solid rgba(26,48,80,0.3)' }}>SC-02</div>
-              <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'rgba(26,48,80,0.55)' }}>上部世界 · Upper World</div>
-            </div>
+
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#F2EFEA', marginBottom:10 }}>連結高維指導靈</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#1A3050', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Spirit Guide · Upper World</p>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#1A3050', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Spirit Guide</p>
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(15,28,50,0.72)', marginBottom:32, maxWidth:480 }}>
               不同於守護與行動力的力量動物，指導靈是純粹的光與愛，是具備高度智慧的靈魂導師。祂們持有你的生命藍圖，能在你面臨人生十字路口時，提供超越小我視角的宏觀指引。<br /><br />
               課程中將建立嚴謹的辨識機制——在宇宙中，愛的能量是無法偽造的——協助你學會區分大腦雜訊與來自高維的真實訊息。
@@ -498,10 +492,7 @@ export default function ScPage() {
             filter:'sepia(0.3) hue-rotate(340deg) brightness(0.7)', mixBlendMode:'multiply', opacity:0.08, pointerEvents:'none', transform:'rotate(-10deg)' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
-            <div style={{ display:'flex', alignItems:'center', gap:16, marginBottom:24 }}>
-              <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.2em', color:'#6A3018', opacity:0.9, padding:'4px 12px', border:'1px solid rgba(106,48,24,0.32)' }}>SC-03</div>
-              <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'rgba(106,48,24,0.55)' }}>中部世界 · Middle World</div>
-            </div>
+
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#F2EFEA', marginBottom:10 }}>七脈輪情緒覺察</h2>
             <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#6A3018', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Chakra &amp; Emotion · Awareness</p>
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(50,18,8,0.72)', marginBottom:32, maxWidth:480 }}>
@@ -552,12 +543,9 @@ export default function ScPage() {
             filter:'sepia(0.4) hue-rotate(38deg) brightness(0.65)', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div style={{ order:2 }}>
-            <div style={{ display:'flex', alignItems:'center', gap:16, marginBottom:24 }}>
-              <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.2em', color:'#5A3E08', opacity:0.9, padding:'4px 12px', border:'1px solid rgba(90,62,8,0.35)' }}>SC-04</div>
-              <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'rgba(90,62,8,0.55)' }}>靈魂整合 · Soul Alignment</div>
-            </div>
+
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#F2EFEA', marginBottom:10 }}>連結高我</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#5A3E08', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Higher Self · Soul Alignment</p>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#5A3E08', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Higher Self</p>
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(40,28,5,0.72)', marginBottom:24, maxWidth:480 }}>
               高我是你靈魂最純粹、最神聖的面向，持有你此生的生命藍圖。透過這門課，你將在身體高度通透的狀態下，正式接通內在的神聖源頭，完成身心靈合一的全面對齊，找回真正的靈魂主權。
             </p>
@@ -613,10 +601,7 @@ export default function ScPage() {
             mixBlendMode:'multiply', opacity:0.12, pointerEvents:'none' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
-            <div style={{ display:'flex', alignItems:'center', gap:16, marginBottom:24 }}>
-              <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.2em', color:'#4A1560', opacity:0.9, padding:'4px 12px', border:'1px solid rgba(176,136,184,0.38)' }}>SC-05</div>
-              <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'rgba(74,21,96,0.55)' }}>靈魂整合 · The Missing Piece</div>
-            </div>
+
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#F2EFEA', marginBottom:10 }}>尋找內在小孩</h2>
             <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#4A1560', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Inner Child · Soul Retrieval</p>
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(35,10,48,0.72)', marginBottom:32, maxWidth:480 }}>
