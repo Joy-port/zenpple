@@ -294,7 +294,7 @@ export default function ScPage() {
               {/* 05 — 內在小孩, purple */}
               <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
                 <Image src="/sc/white/內在小孩-白.png" alt="" aria-hidden width={300} height={300}
-                  style={{ height:200, width:'auto', filter:'sepia(0.8) saturate(4.5) hue-rotate(258deg) brightness(0.52)', opacity:0.92, animation:'sc-breathe 7s ease-in-out infinite' }} />
+                  style={{ width:200, height:'auto', filter:'sepia(0.8) saturate(4.5) hue-rotate(258deg) brightness(0.52)', opacity:0.92, animation:'sc-breathe 7s ease-in-out infinite' }} />
                 <div style={{ fontSize:18, fontWeight:700, color:'#6A2082', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>尋找內在小孩</div>
               </div>
             </div>
