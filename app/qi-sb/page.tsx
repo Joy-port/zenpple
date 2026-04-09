@@ -125,7 +125,7 @@ export default function QiSbPage() {
             left: '-10px',
             bottom: '4vh',
             fontFamily: 'var(--f-impact)',
-            fontStyle: 'italic',
+
             fontWeight: 700,
             fontSize: 'clamp(56px,9vw,120px)',
             lineHeight: 1.05,
@@ -959,7 +959,7 @@ export default function QiSbPage() {
             top: '50%',
             transform: 'translate(-50%, -50%)',
             fontFamily: 'var(--f-impact)',
-            fontStyle: 'italic',
+
             fontWeight: 700,
             fontSize: 'clamp(100px,15vw,200px)',
             color: 'rgba(255,255,255,0.07)',
@@ -1067,11 +1067,9 @@ export default function QiSbPage() {
           aria-hidden
           style={{
             position: 'absolute',
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
+            right: '-10px',
+            top: '20px',
             fontFamily: 'var(--f-impact)',
-            fontStyle: 'italic',
             fontWeight: 700,
             fontSize: 200,
             color: 'rgba(255,255,255,0.07)',
