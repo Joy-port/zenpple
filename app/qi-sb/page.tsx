@@ -550,8 +550,9 @@ export default function QiSbPage() {
                     </span>
                     <div style={{ flex: 1 }}>
                       <div
-                        className="tr-h1"
                         style={{
+                          fontFamily: 'var(--f-impact)',
+                          fontWeight: 900,
                           fontSize: 18,
                           color: '#2E5A6A',
                         }}
@@ -955,11 +956,9 @@ export default function QiSbPage() {
           aria-hidden
           style={{
             position: 'absolute',
-            left: '50%',
-            top: '50%',
-            transform: 'translate(-50%, -50%)',
+            right: '-10px',
+            top: '20px',
             fontFamily: 'var(--f-impact)',
-
             fontWeight: 700,
             fontSize: 'clamp(100px,15vw,200px)',
             color: 'rgba(255,255,255,0.07)',
