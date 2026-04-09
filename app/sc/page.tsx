@@ -396,10 +396,12 @@ export default function ScPage() {
       {/* Theme: 大地 · 土壤 · 原始生命力 — deep earth, amber/sienna */}
       <section id="section-sc01" style={{ padding:'100px 0', background:'#F0E8D4', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 55%, rgba(160,100,40,0.12) 0%, rgba(120,70,20,0.15) 45%, transparent 70%), radial-gradient(ellipse 40% 40% at 85% 15%, rgba(140,80,30,0.14) 0%, transparent 55%)', pointerEvents:'none' }} />
+        {/* 書法圖 glow */}
+        <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 80% at 60% 50%, rgba(180,110,30,0.18) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
         {/* 書法圖 */}
         <Image src="/sc/black/力量動物-直.png" alt="" aria-hidden width={600} height={800}
           style={{ position:'absolute', right:'-3%', top:'50%', transform:'translateY(-50%)', height:'90vh', width:'auto',
-            filter:'sepia(0.35) hue-rotate(15deg) saturate(1.1) brightness(0.82)', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none' }} />
+            filter:'sepia(0.45) hue-rotate(15deg) saturate(1.6) brightness(0.75)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
         {/* 力量動物-橫 secondary layer */}
         <Image src="/sc/black/力量動物-橫.png" alt="" aria-hidden width={900} height={400}
           style={{ position:'absolute', bottom:'-5%', left:'-5%', width:'55%', height:'auto',
@@ -451,7 +453,7 @@ export default function ScPage() {
           <div style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative', cursor:'pointer' }} onClick={() => setOpenDetail(openDetail === 'sc01' ? null : 'sc01')}>
               <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={420} height={420}
-                style={{ width:'min(360px,85%)', height:'auto', filter:'sepia(0.5) hue-rotate(10deg) saturate(1.3) brightness(0.7)', opacity: openDetail === 'sc01' ? 0.85 : 0.65, animation:'sc-breathe 5s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
+                style={{ width:'min(360px,85%)', height:'auto', filter:'sepia(0.55) hue-rotate(10deg) saturate(1.6) brightness(0.68)', opacity: openDetail === 'sc01' ? 0.92 : 0.78, animation:'sc-breathe 5s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
               {openDetail !== 'sc01' && <div style={{ position:'absolute', bottom:16, left:'50%', transform:'translateX(-50%)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'#5C3A14', opacity:0.55, whiteSpace:'nowrap' }}>點擊對話</div>}
             </div>
             <Image src="/sc/animals/akita.png" alt="" aria-hidden width={200} height={200}
@@ -466,10 +468,12 @@ export default function ScPage() {
         <Image src="/resource/single/材質-5-波/材質-5-1.png" alt="" aria-hidden width={400} height={200}
           style={{ position:'absolute', top:-20, left:'5%', width:'clamp(200px,30vw,380px)', height:'auto', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'rotate(4deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 55% 70% at 85% 40%, rgba(74,107,160,0.1) 0%, rgba(160,185,215,0.06) 45%, transparent 70%), radial-gradient(ellipse 35% 50% at 10% 75%, rgba(180,200,225,0.07) 0%, transparent 55%)', pointerEvents:'none' }} />
+        {/* 書法圖 glow */}
+        <div aria-hidden style={{ position:'absolute', left:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 80% at 40% 50%, rgba(60,100,180,0.22) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
         {/* 書法圖 */}
         <Image src="/sc/black/指導靈.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', left:'-2%', top:'50%', transform:'translateY(-50%)', height:'85vh', width:'auto',
-            filter:'sepia(0.15) saturate(0.5) brightness(0.78)', mixBlendMode:'multiply', opacity:0.28, pointerEvents:'none' }} />
+            filter:'sepia(0.3) saturate(1.8) brightness(0.70)', mixBlendMode:'multiply', opacity:0.42, pointerEvents:'none' }} />
         {/* 薩滿巫 secondary */}
         <Image src="/sc/black/薩滿巫.png" alt="" aria-hidden width={500} height={600}
           style={{ position:'absolute', right:'5%', bottom:'-10%', width:'28%', height:'auto',
@@ -521,7 +525,7 @@ export default function ScPage() {
           <div style={{ order:1, position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative', cursor:'pointer' }} onClick={() => setOpenDetail(openDetail === 'sc02' ? null : 'sc02')}>
               <Image src="/sc/animals/crane.png" alt="" aria-hidden width={400} height={400}
-                style={{ width:'min(320px,80%)', height:'auto', filter:'sepia(0.15) saturate(0.8) brightness(0.7)', opacity: openDetail === 'sc02' ? 0.85 : 0.6, animation:'sc-breathe 6s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
+                style={{ width:'min(320px,80%)', height:'auto', filter:'sepia(0.25) saturate(1.6) brightness(0.68)', opacity: openDetail === 'sc02' ? 0.92 : 0.78, animation:'sc-breathe 6s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
               {openDetail !== 'sc02' && <div style={{ position:'absolute', bottom:16, left:'50%', transform:'translateX(-50%)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'#1A3050', opacity:0.55, whiteSpace:'nowrap' }}>點擊對話</div>}
             </div>
             <Image src="/sc/animals/crane2.png" alt="" aria-hidden width={250} height={250}
@@ -536,10 +540,12 @@ export default function ScPage() {
         <Image src="/resource/single/材質-1-撇/材質-1-3.png" alt="" aria-hidden width={400} height={300}
           style={{ position:'absolute', top:-10, right:'8%', width:'clamp(160px,20vw,280px)', height:'auto', mixBlendMode:'multiply', opacity:0.07, pointerEvents:'none', transform:'rotate(-8deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 65% 75% at 10% 50%, rgba(140,60,25,0.1) 0%, rgba(140,75,40,0.12) 50%, transparent 70%), radial-gradient(ellipse 45% 55% at 90% 20%, rgba(160,85,50,0.15) 0%, transparent 60%)', pointerEvents:'none' }} />
+        {/* 書法圖 glow */}
+        <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 80% at 60% 50%, rgba(190,90,40,0.18) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
         {/* 書法圖 */}
         <Image src="/sc/black/七脈輪情緒覺察.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', right:'-2%', top:'50%', transform:'translateY(-50%)', height:'88vh', width:'auto',
-            filter:'sepia(0.4) hue-rotate(340deg) saturate(1.0) brightness(0.80)', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none' }} />
+            filter:'sepia(0.5) hue-rotate(340deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
         {/* 波浪筆觸 = emotion flow */}
         <Image src="/resource/single/材質-5-波/材質-5-1.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', bottom:'15%', right:'30%', width:200, height:'auto',
@@ -590,7 +596,7 @@ export default function ScPage() {
           <div style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative', cursor:'pointer' }} onClick={() => setOpenDetail(openDetail === 'sc03' ? null : 'sc03')}>
               <Image src="/sc/animals/octopus.png" alt="" aria-hidden width={400} height={400}
-                style={{ width:'min(340px,82%)', height:'auto', filter:'sepia(0.55) hue-rotate(340deg) saturate(1.3) brightness(0.7)', opacity: openDetail === 'sc03' ? 0.85 : 0.6, animation:'sc-breathe 7s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
+                style={{ width:'min(340px,82%)', height:'auto', filter:'sepia(0.6) hue-rotate(340deg) saturate(1.7) brightness(0.66)', opacity: openDetail === 'sc03' ? 0.92 : 0.78, animation:'sc-breathe 7s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
               {openDetail !== 'sc03' && <div style={{ position:'absolute', bottom:16, left:'50%', transform:'translateX(-50%)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'#6A3018', opacity:0.55, whiteSpace:'nowrap' }}>點擊對話</div>}
             </div>
           </div>
@@ -603,10 +609,12 @@ export default function ScPage() {
         <Image src="/resource/single/材質-4-圓圈/黑圈-20.png" alt="" aria-hidden width={300} height={300}
           style={{ position:'absolute', top:-30, left:'3%', width:'clamp(120px,14vw,200px)', height:'auto', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none', transform:'rotate(15deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 70% at 80% 40%, rgba(160,128,30,0.1) 0%, rgba(160,130,50,0.08) 50%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 70%, rgba(180,148,60,0.1) 0%, transparent 55%)', pointerEvents:'none' }} />
+        {/* 書法圖 glow */}
+        <div aria-hidden style={{ position:'absolute', left:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 80% at 40% 50%, rgba(180,140,20,0.20) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
         {/* 書法圖 */}
         <Image src="/sc/black/高我.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', left:'-2%', top:'50%', transform:'translateY(-50%)', height:'85vh', width:'auto',
-            filter:'sepia(0.4) hue-rotate(38deg) saturate(1.1) brightness(0.80)', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none' }} />
+            filter:'sepia(0.5) hue-rotate(38deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
         {/* 圓圈 sacred circle */}
         <Image src="/resource/single/材質-4-圓圈/黑圈-7.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', top:'50%', right:'8%', transform:'translateY(-50%) rotate(-12deg) scale(0.75)', width:300, height:'auto',
@@ -660,7 +668,7 @@ export default function ScPage() {
           <div style={{ order:1, position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative', cursor:'pointer' }} onClick={() => setOpenDetail(openDetail === 'sc04' ? null : 'sc04')}>
               <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={400} height={400}
-                style={{ width:'min(360px,85%)', height:'auto', filter:'sepia(0.45) hue-rotate(38deg) saturate(1.3) brightness(0.7)', opacity: openDetail === 'sc04' ? 0.85 : 0.55, animation:'sc-breathe 9s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
+                style={{ width:'min(360px,85%)', height:'auto', filter:'sepia(0.5) hue-rotate(38deg) saturate(1.7) brightness(0.68)', opacity: openDetail === 'sc04' ? 0.92 : 0.75, animation:'sc-breathe 9s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
               {openDetail !== 'sc04' && <div style={{ position:'absolute', bottom:16, left:'50%', transform:'translateX(-50%)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'#5A3E08', opacity:0.55, whiteSpace:'nowrap' }}>點擊對話</div>}
             </div>
           </div>
@@ -673,10 +681,12 @@ export default function ScPage() {
         <Image src="/resource/single/材質-5-波/材質-5-1_3.png" alt="" aria-hidden width={400} height={200}
           style={{ position:'absolute', top:-15, right:'4%', width:'clamp(180px,24vw,320px)', height:'auto', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'scaleX(-1) rotate(-6deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 65% 75% at 12% 55%, rgba(100,50,120,0.1) 0%, rgba(120,70,128,0.1) 50%, transparent 70%), radial-gradient(ellipse 40% 50% at 88% 25%, rgba(140,85,148,0.14) 0%, transparent 60%)', pointerEvents:'none' }} />
+        {/* 書法圖 glow */}
+        <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 80% at 60% 50%, rgba(120,40,180,0.18) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
         {/* 書法圖 */}
         <Image src="/sc/black/內在小孩.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', right:'-2%', top:'50%', transform:'translateY(-50%)', height:'88vh', width:'auto',
-            filter:'sepia(0.35) hue-rotate(270deg) saturate(1.1) brightness(0.80)', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none' }} />
+            filter:'sepia(0.45) hue-rotate(270deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
         {/* 內在小孩-拿心 secondary */}
         <Image src="/sc/black/內在小孩-拿心.png" alt="" aria-hidden width={400} height={500}
           style={{ position:'absolute', left:'5%', bottom:'-5%', width:'22%', height:'auto',
@@ -731,7 +741,7 @@ export default function ScPage() {
           <div style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative', cursor:'pointer' }} onClick={() => setOpenDetail(openDetail === 'sc05' ? null : 'sc05')}>
               <Image src="/sc/animals/capybara.png" alt="" aria-hidden width={400} height={400}
-                style={{ width:'min(340px,82%)', height:'auto', filter:'sepia(0.35) hue-rotate(270deg) saturate(1.2) brightness(0.72)', opacity: openDetail === 'sc05' ? 0.85 : 0.55, animation:'sc-breathe 6s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
+                style={{ width:'min(340px,82%)', height:'auto', filter:'sepia(0.45) hue-rotate(270deg) saturate(1.6) brightness(0.68)', opacity: openDetail === 'sc05' ? 0.92 : 0.75, animation:'sc-breathe 6s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
               {openDetail !== 'sc05' && <div style={{ position:'absolute', bottom:16, left:'50%', transform:'translateX(-50%)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'#4A1560', opacity:0.55, whiteSpace:'nowrap' }}>點擊對話</div>}
             </div>
             <Image src="/sc/animals/dik-dik.png" alt="" aria-hidden width={200} height={200}
