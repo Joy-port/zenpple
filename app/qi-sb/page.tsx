@@ -1212,23 +1212,14 @@ export default function QiSbPage() {
           padding: 'clamp(60px,8vh,100px) clamp(24px,8vw,120px)',
         }}
       >
-        {/* Ghost word */}
-        <div
-          aria-hidden
-          style={{
-            position: 'absolute',
-            left: '-20px',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            fontFamily: 'var(--f-display)',
-            fontWeight: 100,
-            fontSize: 220,
-            color: 'rgba(58,125,142,0.04)',
-            lineHeight: 1,
-            pointerEvents: 'none',
-            userSelect: 'none',
-          }}
-        >
+        {/* Ghost words */}
+        <div aria-hidden style={{ position:'absolute', left:'-20px', top:'18%', fontFamily:'var(--f-display)', fontWeight:100, fontSize:'clamp(100px,16vw,220px)', color:'rgba(58,125,142,0.04)', lineHeight:1, pointerEvents:'none', userSelect:'none' }}>
+          SOUND
+        </div>
+        <div aria-hidden style={{ position:'absolute', right:'-20px', top:'42%', fontFamily:'var(--f-display)', fontWeight:100, fontSize:'clamp(80px,12vw,170px)', color:'rgba(58,125,142,0.035)', lineHeight:1, pointerEvents:'none', userSelect:'none' }}>
+          FLOW
+        </div>
+        <div aria-hidden style={{ position:'absolute', left:'5%', bottom:'12%', fontFamily:'var(--f-display)', fontWeight:100, fontSize:'clamp(60px,9vw,130px)', color:'rgba(58,125,142,0.03)', lineHeight:1, pointerEvents:'none', userSelect:'none', letterSpacing:'-0.02em' }}>
           home
         </div>
 
