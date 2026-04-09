@@ -108,6 +108,21 @@ export default function ScPage() {
           <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.25em', color:'rgba(200,220,235,0.7)' }}>SCROLL</span>
           <div style={{ width:1, height:40, background:'linear-gradient(to bottom, rgba(200,220,235,0.5), transparent)' }} />
         </div>
+
+        {/* ── Hero→WhatIs transition: ink-smoke brushstroke rip ── */}
+        <svg aria-hidden viewBox="0 0 1440 110" preserveAspectRatio="none"
+          style={{ position:'absolute', bottom:-1, left:0, width:'100%', height:110, display:'block', pointerEvents:'none' }}>
+          {/* Main torn edge — irregular brush feel */}
+          <path d="M0,72 C60,55 140,90 240,68 C340,46 420,88 560,62 C680,40 760,82 900,58 C1020,36 1100,78 1220,60 C1310,46 1380,74 1440,65 L1440,110 L0,110 Z"
+            fill="#355A6A" opacity="0.95" />
+          {/* Second brush layer — slightly offset for depth */}
+          <path d="M0,88 C80,70 200,100 340,80 C460,62 560,95 700,75 C820,58 940,92 1080,72 C1200,55 1320,88 1440,78 L1440,110 L0,110 Z"
+            fill="#355A6A" opacity="0.50" />
+          {/* Ink bleed dots — shamanic texture */}
+          <ellipse cx="320" cy="76" rx="18" ry="6" fill="#355A6A" opacity="0.30" />
+          <ellipse cx="750" cy="68" rx="12" ry="4" fill="#355A6A" opacity="0.25" />
+          <ellipse cx="1100" cy="80" rx="22" ry="5" fill="#355A6A" opacity="0.28" />
+        </svg>
       </section>
 
       {/* ═══ 薩滿介紹 ═══ */}
@@ -149,6 +164,23 @@ export default function ScPage() {
               style={{ width:'min(420px,85%)', height:'auto', filter:'invert(1) sepia(0.5) saturate(1.8) hue-rotate(168deg) brightness(0.88)', mixBlendMode:'screen', opacity:0.55, animation:'sc-breathe 5s ease-in-out infinite' }}
             />
           </div>
+        </div>
+
+        {/* ── WhatIs→Journey transition: ceremonial ink divider ── */}
+        <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, display:'flex', flexDirection:'column', alignItems:'center', pointerEvents:'none' }}>
+          {/* Horizontal ink brush line — full width, feathered */}
+          <svg viewBox="0 0 1440 32" preserveAspectRatio="none" style={{ width:'100%', height:32, display:'block' }}>
+            <path d="M0,18 C120,10 280,26 480,16 C660,7 820,24 1020,14 C1180,6 1320,22 1440,16"
+              stroke="rgba(180,215,220,0.18)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+            <path d="M0,22 C200,14 400,28 640,18 C840,10 1040,26 1280,18 C1360,14 1410,20 1440,18"
+              stroke="rgba(180,215,220,0.09)" strokeWidth="1" fill="none" strokeLinecap="round" />
+          </svg>
+          {/* Centered ripple motif — shamanic gateway */}
+          <svg viewBox="0 0 120 40" style={{ width:120, height:40, display:'block', marginTop:-8 }}>
+            <ellipse cx="60" cy="20" rx="28" ry="10" stroke="rgba(180,215,220,0.22)" strokeWidth="1" fill="none" />
+            <ellipse cx="60" cy="20" rx="16" ry="6" stroke="rgba(180,215,220,0.18)" strokeWidth="1" fill="none" />
+            <ellipse cx="60" cy="20" rx="5" ry="3" fill="rgba(180,215,220,0.22)" />
+          </svg>
         </div>
       </section>
 
