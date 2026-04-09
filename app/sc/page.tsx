@@ -111,7 +111,7 @@ export default function ScPage() {
       </section>
 
       {/* ═══ 薩滿介紹 ═══ */}
-      <section style={{ background:'#355A6A', padding:'110px 0 90px', position:'relative', overflow:'hidden' }}>
+      <section style={{ background:'#355A6A', padding:'110px 0 90px', minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'hidden' }}>
         {/* Airy wash — lighter, wider spread */}
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 100% at 60% 50%, rgba(120,175,170,0.2) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 5% 80%, rgba(94,142,138,0.15) 0%, transparent 55%)', pointerEvents:'none' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center', position:'relative', zIndex:2 }}>
@@ -254,7 +254,7 @@ export default function ScPage() {
       </section>}
 
       {/* ═══ 薩滿旅程五步驟 ═══ */}
-      <section style={{ padding:'100px 0 80px', background:'#3A6272', position:'relative', overflow:'hidden' }} id="journey">
+      <section style={{ padding:'100px 0 80px', minHeight:'100vh', background:'#3A6272', position:'relative', overflow:'hidden' }} id="journey">
         {/* Airy wash — lighter teal spread */}
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 100% 60% at 50% 0%, rgba(140,200,195,0.18) 0%, transparent 65%), radial-gradient(ellipse 60% 80% at 90% 100%, rgba(94,142,138,0.15) 0%, transparent 60%)', pointerEvents:'none' }} />
 
