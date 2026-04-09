@@ -466,13 +466,11 @@ export default function ScPage() {
 
       {/* ═══ SC-02 連結高維指導靈 ═══ */}
       {/* Theme: 夜空 · 月光 · 高維頻道 — near-black with cool silver-pearl */}
-      <section id="section-sc02" style={{ padding:'100px 0', background:'#D8E3F0', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+      <section id="section-sc02" style={{ padding:'100px 0', background:'#E4EBF5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-5-波/材質-5-1.png" alt="" aria-hidden width={400} height={200}
           style={{ position:'absolute', top:-20, left:'5%', width:'clamp(200px,30vw,380px)', height:'auto', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'rotate(4deg)' }} />
-        {/* C-form blue gradient — wraps right edge top-right + bottom-right, open to left */}
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 55% 40% at 100% 10%, rgba(40,80,180,0.28) 0%, transparent 65%), radial-gradient(ellipse 55% 40% at 100% 90%, rgba(40,80,180,0.26) 0%, transparent 65%), radial-gradient(ellipse 30% 80% at 100% 50%, rgba(40,80,180,0.20) 0%, transparent 60%)', pointerEvents:'none' }} />
-        {/* 書法圖 glow */}
-        <div aria-hidden style={{ position:'absolute', left:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 40% 55%, rgba(40,80,180,0.42) 0%, transparent 68%)', pointerEvents:'none', filter:'blur(28px)' }} />
+        {/* 書法圖 glow — tight behind calligraphy path only */}
+        <div aria-hidden style={{ position:'absolute', left:'-5%', top:'50%', transform:'translateY(-50%)', width:'30%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 60% 90% at 50% 50%, rgba(40,80,180,0.32) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(22px)' }} />
         {/* bottom connector → SC-03 */}
         <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, height:'25%', background:'linear-gradient(to bottom, transparent, rgba(180,90,40,0.07))', pointerEvents:'none' }} />
         {/* 書法圖 */}
