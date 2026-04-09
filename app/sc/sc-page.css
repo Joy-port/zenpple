@@ -88,6 +88,7 @@
   align-items: center;
   justify-content: center;
 }
+/* White circle bg — clearly visible, sized to image + 40px */
 .sc-glow-wrap::before {
   content: '';
   position: absolute;
@@ -96,11 +97,25 @@
   width: calc(100% + 40px);
   height: calc(100% + 40px);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(var(--glow-color), 0.32) 0%, rgba(var(--glow-color), 0) 70%);
-  filter: blur(20px);
+  background: radial-gradient(circle, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0) 75%);
+  filter: blur(6px);
   pointer-events: none;
   z-index: 0;
 }
-/* Ensure image stacks above the glow pseudo-element */
+/* Colored glow layer — per-theme --glow-color, softer spread */
+.sc-glow-wrap::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--glow-color), 0.28) 0%, rgba(var(--glow-color), 0) 70%);
+  filter: blur(18px);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Ensure image stacks above both glow layers */
 .sc-glow-wrap img,
 .sc-glow-wrap span { position: relative; z-index: 1; }
