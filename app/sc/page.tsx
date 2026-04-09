@@ -417,29 +417,6 @@ export default function ScPage() {
               透過頌缽波頻為你的身體進行「接地（Grounding）」，讓腦波在安全的共振中進入深度放鬆。在這樣的狀態下進入薩滿旅程，你將能精準地與你的力量動物相遇——祂是你靈魂最原始的盟友，代表著你與生俱來的特質與守護力量。<br /><br />
               這不僅是一次連結，更教導你如何在日常抉擇、焦慮或失落時，隨時回到內在中心，與你的力量動物並肩航行。
             </p>
-            {openDetail === 'sc01' && (
-              <>
-                <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:36, animation:'sc-breathe 0s' }}>
-                  {[
-                    ['核心學習', '連結下部世界守護盟友、海底輪頌缽接地'],
-                    ['課程形式', '一對一 · 兩人團班 · 2-6人小組'],
-                    ['課程時長', '4 小時'],
-                    ['銜接建議', '進入所有進階課程的基石，建議首選'],
-                  ].map(([k,v]) => (
-                    <div key={k} style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(92,58,20,0.14)' }}>
-                      <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#5C3A14', opacity:0.85, flexShrink:0, width:72 }}>{k}</span>
-                      <span style={{ color:'rgba(40,22,8,0.65)', lineHeight:1.7 }}>{v}</span>
-                    </div>
-                  ))}
-                </div>
-                <div style={{ display:'flex', alignItems:'baseline', gap:16, padding:'16px 20px', background:'rgba(92,58,20,0.07)', border:'1px solid rgba(92,58,20,0.2)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'#5C3A14', opacity:0.8 }}>INVESTMENT</span>
-                  <div style={{ fontSize:13, color:'rgba(40,22,8,0.68)', lineHeight:1.8 }}>
-                    一對一 NT. 60,000　·　兩人 NT. 30,000/人　·　小組 NT. 15,000/人
-                  </div>
-                </div>
-              </>
-            )}
             <button onClick={() => setOpenDetail(openDetail === 'sc01' ? null : 'sc01')}
               style={{ marginTop:20, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:0, fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.18em', color:'#5C3A14', opacity:0.7 }}>
               {openDetail === 'sc01' ? '收起' : '探索課程細節'} <span style={{ fontSize:14, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc01' ? 'rotate(180deg)' : 'none' }}>↓</span>
@@ -455,6 +432,36 @@ export default function ScPage() {
               style={{ position:'absolute', bottom:20, right:20, width:120, height:'auto', filter:'sepia(0.4) hue-rotate(15deg) saturate(1.2) brightness(0.7)', opacity:0.4, mixBlendMode:'multiply' }} />
           </div>
         </div>
+      {openDetail === 'sc01' && (
+        <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', zIndex:20, pointerEvents:'none' }}>
+          <div style={{ background:'rgba(255,255,255,0.90)', backdropFilter:'blur(18px)', WebkitBackdropFilter:'blur(18px)', padding:'36px 40px', maxWidth:500, width:'90%', pointerEvents:'all', position:'relative', boxShadow:'0 8px 48px rgba(0,0,0,0.10)' }}>
+            <button onClick={() => setOpenDetail(null)} aria-label="關閉"
+              style={{ position:'absolute', top:16, right:18, background:'none', border:'none', cursor:'pointer', fontSize:18, color:'#5C3A14', opacity:0.45, lineHeight:1 }}>✕</button>
+            <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:28 }}>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#5C3A14', opacity:0.85, flexShrink:0, width:80 }}>核心學習</span>
+                <span style={{ color:'rgba(40,22,8,0.72)', lineHeight:1.7 }}>連結下部世界守護盟友、海底輪頌缽接地</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#5C3A14', opacity:0.85, flexShrink:0, width:80 }}>課程形式</span>
+                <span style={{ color:'rgba(40,22,8,0.72)', lineHeight:1.7 }}>一對一 · 兩人團班 · 2-6人小組</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#5C3A14', opacity:0.85, flexShrink:0, width:80 }}>課程時長</span>
+                <span style={{ color:'rgba(40,22,8,0.72)', lineHeight:1.7 }}>4 小時</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#5C3A14', opacity:0.85, flexShrink:0, width:80 }}>銜接建議</span>
+                <span style={{ color:'rgba(40,22,8,0.72)', lineHeight:1.7 }}>進入所有進階課程的基石，建議首選</span>
+              </div>
+            </div>
+            <div style={{ display:'flex', alignItems:'baseline', gap:16, padding:'14px 18px', background:'rgba(92,58,20,0.06)', border:'1px solid rgba(92,58,20,0.18)' }}>
+              <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'#5C3A14', opacity:0.8 }}>INVESTMENT</span>
+              <div style={{ fontSize:13, color:'rgba(40,22,8,0.72)', lineHeight:1.8 }}>一對一 NT. 60,000　·　兩人 NT. 30,000/人　·　小組 NT. 15,000/人</div>
+            </div>
+          </div>
+        </div>
+      )}
       </section>
 
       {/* ═══ SC-02 連結高維指導靈 ═══ */}
@@ -484,29 +491,6 @@ export default function ScPage() {
               不同於守護與行動力的力量動物，指導靈是純粹的光與愛，是具備高度智慧的靈魂導師。祂們持有你的生命藍圖，能在你面臨人生十字路口時，提供超越小我視角的宏觀指引。<br /><br />
               課程中將建立嚴謹的辨識機制——在宇宙中，愛的能量是無法偽造的——協助你學會區分大腦雜訊與來自高維的真實訊息。
             </p>
-            {openDetail === 'sc02' && (
-              <>
-                <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:36 }}>
-                  {[
-                    ['核心學習', '開啟上部世界通訊頻道、辨識愛的能量訊息'],
-                    ['課程形式', '一對一 · 兩人團班'],
-                    ['課程時長', '2 – 3.5 小時'],
-                    ['銜接建議', '強化日常生命抉擇的導航力，建議完成 SC-01 後進行'],
-                  ].map(([k,v]) => (
-                    <div key={k} style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(26,48,80,0.12)' }}>
-                      <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#1A3050', opacity:0.85, flexShrink:0, width:72 }}>{k}</span>
-                      <span style={{ color:'rgba(15,28,50,0.65)', lineHeight:1.7 }}>{v}</span>
-                    </div>
-                  ))}
-                </div>
-                <div style={{ display:'flex', alignItems:'baseline', gap:16, padding:'16px 20px', background:'rgba(26,48,80,0.06)', border:'1px solid rgba(26,48,80,0.18)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'#1A3050', opacity:0.8 }}>INVESTMENT</span>
-                  <div style={{ fontSize:13, color:'rgba(15,28,50,0.68)', lineHeight:1.8 }}>
-                    一對一 NT. 20,000　·　兩人 NT. 10,000/人
-                  </div>
-                </div>
-              </>
-            )}
             <button onClick={() => setOpenDetail(openDetail === 'sc02' ? null : 'sc02')}
               style={{ marginTop:20, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:0, fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.18em', color:'#1A3050', opacity:0.7 }}>
               {openDetail === 'sc02' ? '收起' : '探索課程細節'} <span style={{ fontSize:14, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc02' ? 'rotate(180deg)' : 'none' }}>↓</span>
@@ -522,6 +506,36 @@ export default function ScPage() {
               style={{ position:'absolute', top:10, right:0, width:140, height:'auto', filter:'sepia(0.1) saturate(0.6) brightness(0.65)', opacity:0.35, mixBlendMode:'multiply' }} />
           </div>
         </div>
+      {openDetail === 'sc02' && (
+        <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', zIndex:20, pointerEvents:'none' }}>
+          <div style={{ background:'rgba(255,255,255,0.90)', backdropFilter:'blur(18px)', WebkitBackdropFilter:'blur(18px)', padding:'36px 40px', maxWidth:500, width:'90%', pointerEvents:'all', position:'relative', boxShadow:'0 8px 48px rgba(0,0,0,0.10)' }}>
+            <button onClick={() => setOpenDetail(null)} aria-label="關閉"
+              style={{ position:'absolute', top:16, right:18, background:'none', border:'none', cursor:'pointer', fontSize:18, color:'#1A3050', opacity:0.45, lineHeight:1 }}>✕</button>
+            <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:28 }}>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#1A3050', opacity:0.85, flexShrink:0, width:80 }}>核心學習</span>
+                <span style={{ color:'rgba(15,28,50,0.68)', lineHeight:1.7 }}>開啟上部世界通訊頻道、辨識愛的能量訊息</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#1A3050', opacity:0.85, flexShrink:0, width:80 }}>課程形式</span>
+                <span style={{ color:'rgba(15,28,50,0.68)', lineHeight:1.7 }}>一對一 · 兩人團班</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#1A3050', opacity:0.85, flexShrink:0, width:80 }}>課程時長</span>
+                <span style={{ color:'rgba(15,28,50,0.68)', lineHeight:1.7 }}>2 – 3.5 小時</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#1A3050', opacity:0.85, flexShrink:0, width:80 }}>銜接建議</span>
+                <span style={{ color:'rgba(15,28,50,0.68)', lineHeight:1.7 }}>強化日常生命抉擇的導航力，建議完成 SC-01 後進行</span>
+              </div>
+            </div>
+            <div style={{ display:'flex', alignItems:'baseline', gap:16, padding:'14px 18px', background:'rgba(26,48,80,0.05)', border:'1px solid rgba(26,48,80,0.16)' }}>
+              <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'#1A3050', opacity:0.8 }}>INVESTMENT</span>
+              <div style={{ fontSize:13, color:'rgba(15,28,50,0.68)', lineHeight:1.8 }}>一對一 NT. 20,000　·　兩人 NT. 10,000/人</div>
+            </div>
+          </div>
+        </div>
+      )}
       </section>
 
       {/* ═══ SC-03 七脈輪情緒覺察 ═══ */}
@@ -550,29 +564,6 @@ export default function ScPage() {
               七脈輪是情緒的儲存槽。透過薩滿冥想，我們引領你親自進入脈輪空間，覺察那些被身體凍結的感受。透過「看見」與「表達」，協助能量重新流動，找回情緒的主控權。<br /><br />
               這不是理論課，而是一場深度內在實作——拒絕空談，直接透過薩滿冥想進入潛意識，與真實的情緒感受正面相遇。
             </p>
-            {openDetail === 'sc03' && (
-              <>
-                <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:36 }}>
-                  {[
-                    ['核心學習', '薩滿冥想實作脈輪內視、情緒轉化與能量清理'],
-                    ['課程形式', '一對一'],
-                    ['課程時長', '2 小時'],
-                    ['銜接建議', '適合感官敏銳、欲修復情緒慣性的探索者'],
-                  ].map(([k,v]) => (
-                    <div key={k} style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(106,48,24,0.14)' }}>
-                      <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#6A3018', opacity:0.85, flexShrink:0, width:72 }}>{k}</span>
-                      <span style={{ color:'rgba(50,18,8,0.65)', lineHeight:1.7 }}>{v}</span>
-                    </div>
-                  ))}
-                </div>
-                <div style={{ display:'flex', alignItems:'baseline', gap:16, padding:'16px 20px', background:'rgba(106,48,24,0.07)', border:'1px solid rgba(106,48,24,0.2)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'#6A3018', opacity:0.8 }}>INVESTMENT</span>
-                  <div style={{ fontSize:13, color:'rgba(50,18,8,0.68)', lineHeight:1.8 }}>
-                    一對一 NT. 15,000
-                  </div>
-                </div>
-              </>
-            )}
             <button onClick={() => setOpenDetail(openDetail === 'sc03' ? null : 'sc03')}
               style={{ marginTop:20, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:0, fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.18em', color:'#6A3018', opacity:0.7 }}>
               {openDetail === 'sc03' ? '收起' : '探索課程細節'} <span style={{ fontSize:14, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc03' ? 'rotate(180deg)' : 'none' }}>↓</span>
@@ -586,6 +577,36 @@ export default function ScPage() {
             </div>
           </div>
         </div>
+      {openDetail === 'sc03' && (
+        <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', zIndex:20, pointerEvents:'none' }}>
+          <div style={{ background:'rgba(255,255,255,0.90)', backdropFilter:'blur(18px)', WebkitBackdropFilter:'blur(18px)', padding:'36px 40px', maxWidth:500, width:'90%', pointerEvents:'all', position:'relative', boxShadow:'0 8px 48px rgba(0,0,0,0.10)' }}>
+            <button onClick={() => setOpenDetail(null)} aria-label="關閉"
+              style={{ position:'absolute', top:16, right:18, background:'none', border:'none', cursor:'pointer', fontSize:18, color:'#6A3018', opacity:0.45, lineHeight:1 }}>✕</button>
+            <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:28 }}>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#6A3018', opacity:0.85, flexShrink:0, width:80 }}>核心學習</span>
+                <span style={{ color:'rgba(50,18,8,0.68)', lineHeight:1.7 }}>薩滿冥想實作脈輪內視、情緒轉化與能量清理</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#6A3018', opacity:0.85, flexShrink:0, width:80 }}>課程形式</span>
+                <span style={{ color:'rgba(50,18,8,0.68)', lineHeight:1.7 }}>一對一</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#6A3018', opacity:0.85, flexShrink:0, width:80 }}>課程時長</span>
+                <span style={{ color:'rgba(50,18,8,0.68)', lineHeight:1.7 }}>2 小時</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#6A3018', opacity:0.85, flexShrink:0, width:80 }}>銜接建議</span>
+                <span style={{ color:'rgba(50,18,8,0.68)', lineHeight:1.7 }}>適合感官敏銳、欲修復情緒慣性的探索者</span>
+              </div>
+            </div>
+            <div style={{ display:'flex', alignItems:'baseline', gap:16, padding:'14px 18px', background:'rgba(106,48,24,0.06)', border:'1px solid rgba(106,48,24,0.18)' }}>
+              <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'#6A3018', opacity:0.8 }}>INVESTMENT</span>
+              <div style={{ fontSize:13, color:'rgba(50,18,8,0.68)', lineHeight:1.8 }}>一對一 NT. 15,000</div>
+            </div>
+          </div>
+        </div>
+      )}
       </section>
 
       {/* ═══ SC-04 連結高我 ═══ */}
@@ -617,29 +638,6 @@ export default function ScPage() {
               <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.15em', color:'#C4784A', opacity:0.85, display:'block', marginBottom:6 }}>前置課程 · PREREQUISITE</span>
               本課程建議在參與<strong style={{ color:'rgba(50,18,8,0.9)', fontWeight:600 }}>雅妃老師的重生呼吸課</strong>後進行，讓身體通透感轉化為與高我對話的導航能力。
             </div>
-            {openDetail === 'sc04' && (
-              <>
-                <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:36 }}>
-                  {[
-                    ['核心學習', '接通神聖名諱，完成身心靈合一的終極對齊'],
-                    ['課程形式', '一對一'],
-                    ['課程時長', '1 小時'],
-                    ['銜接建議', '建議先完成 SC-01、SC-02，並完成重生呼吸課後進行'],
-                  ].map(([k,v]) => (
-                    <div key={k} style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(90,62,8,0.12)' }}>
-                      <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#5A3E08', opacity:0.85, flexShrink:0, width:72 }}>{k}</span>
-                      <span style={{ color:'rgba(40,28,5,0.65)', lineHeight:1.7 }}>{v}</span>
-                    </div>
-                  ))}
-                </div>
-                <div style={{ display:'flex', alignItems:'baseline', gap:16, padding:'16px 20px', background:'rgba(90,62,8,0.07)', border:'1px solid rgba(90,62,8,0.2)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'#5A3E08', opacity:0.8 }}>INVESTMENT</span>
-                  <div style={{ fontSize:13, color:'rgba(40,28,5,0.68)', lineHeight:1.8 }}>
-                    一對一 NT. 8,000
-                  </div>
-                </div>
-              </>
-            )}
             <button onClick={() => setOpenDetail(openDetail === 'sc04' ? null : 'sc04')}
               style={{ marginTop:20, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:0, fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.18em', color:'#5A3E08', opacity:0.7 }}>
               {openDetail === 'sc04' ? '收起' : '探索課程細節'} <span style={{ fontSize:14, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc04' ? 'rotate(180deg)' : 'none' }}>↓</span>
@@ -653,6 +651,36 @@ export default function ScPage() {
             </div>
           </div>
         </div>
+      {openDetail === 'sc04' && (
+        <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', zIndex:20, pointerEvents:'none' }}>
+          <div style={{ background:'rgba(255,255,255,0.90)', backdropFilter:'blur(18px)', WebkitBackdropFilter:'blur(18px)', padding:'36px 40px', maxWidth:500, width:'90%', pointerEvents:'all', position:'relative', boxShadow:'0 8px 48px rgba(0,0,0,0.10)' }}>
+            <button onClick={() => setOpenDetail(null)} aria-label="關閉"
+              style={{ position:'absolute', top:16, right:18, background:'none', border:'none', cursor:'pointer', fontSize:18, color:'#5A3E08', opacity:0.45, lineHeight:1 }}>✕</button>
+            <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:28 }}>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#5A3E08', opacity:0.85, flexShrink:0, width:80 }}>核心學習</span>
+                <span style={{ color:'rgba(40,28,5,0.68)', lineHeight:1.7 }}>接通神聖名諱，完成身心靈合一的終極對齊</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#5A3E08', opacity:0.85, flexShrink:0, width:80 }}>課程形式</span>
+                <span style={{ color:'rgba(40,28,5,0.68)', lineHeight:1.7 }}>一對一</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#5A3E08', opacity:0.85, flexShrink:0, width:80 }}>課程時長</span>
+                <span style={{ color:'rgba(40,28,5,0.68)', lineHeight:1.7 }}>1 小時</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#5A3E08', opacity:0.85, flexShrink:0, width:80 }}>銜接建議</span>
+                <span style={{ color:'rgba(40,28,5,0.68)', lineHeight:1.7 }}>建議先完成 SC-01、SC-02，並完成重生呼吸課後進行</span>
+              </div>
+            </div>
+            <div style={{ display:'flex', alignItems:'baseline', gap:16, padding:'14px 18px', background:'rgba(90,62,8,0.06)', border:'1px solid rgba(90,62,8,0.18)' }}>
+              <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'#5A3E08', opacity:0.8 }}>INVESTMENT</span>
+              <div style={{ fontSize:13, color:'rgba(40,28,5,0.68)', lineHeight:1.8 }}>一對一 NT. 8,000</div>
+            </div>
+          </div>
+        </div>
+      )}
       </section>
 
       {/* ═══ SC-05 尋找內在小孩 ═══ */}
@@ -685,29 +713,6 @@ export default function ScPage() {
               當個體遭遇超載的創傷，大腦會啟動保護機制，將受傷的意識片段解離並封存——這些被凍結的自我，即是「內在小孩」。<br /><br />
               我們不採取暴力挖掘，而是透過高我與指導靈的導航，辨識那些被凍結在生命角落的「身心過敏原」。以現在的成熟意識進行跨時空的連結，讓因保護而遺落的碎片重新歸位。
             </p>
-            {openDetail === 'sc05' && (
-              <>
-                <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:36 }}>
-                  {[
-                    ['核心學習', '辨識身心過敏原，找回解離的靈魂片段'],
-                    ['課程形式', '一對一深度工作'],
-                    ['課程時長', '3 小時'],
-                    ['銜接建議', '建議具備豐富薩滿實踐經驗，完成 SC-01 至 SC-04 後進行'],
-                  ].map(([k,v]) => (
-                    <div key={k} style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(74,21,96,0.14)' }}>
-                      <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#4A1560', opacity:0.85, flexShrink:0, width:72 }}>{k}</span>
-                      <span style={{ color:'rgba(35,10,48,0.65)', lineHeight:1.7 }}>{v}</span>
-                    </div>
-                  ))}
-                </div>
-                <div style={{ display:'flex', alignItems:'baseline', gap:16, padding:'16px 20px', background:'rgba(74,21,96,0.07)', border:'1px solid rgba(74,21,96,0.2)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'#4A1560', opacity:0.8 }}>INVESTMENT</span>
-                  <div style={{ fontSize:13, color:'rgba(35,10,48,0.68)', lineHeight:1.8 }}>
-                    一對一 NT. 45,000
-                  </div>
-                </div>
-              </>
-            )}
             <button onClick={() => setOpenDetail(openDetail === 'sc05' ? null : 'sc05')}
               style={{ marginTop:20, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:0, fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.18em', color:'#4A1560', opacity:0.7 }}>
               {openDetail === 'sc05' ? '收起' : '探索課程細節'} <span style={{ fontSize:14, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc05' ? 'rotate(180deg)' : 'none' }}>↓</span>
@@ -723,6 +728,36 @@ export default function ScPage() {
               style={{ position:'absolute', bottom:30, right:10, width:110, height:'auto', filter:'sepia(0.3) hue-rotate(270deg) saturate(1.1) brightness(0.7)', opacity:0.35, mixBlendMode:'multiply' }} />
           </div>
         </div>
+      {openDetail === 'sc05' && (
+        <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', zIndex:20, pointerEvents:'none' }}>
+          <div style={{ background:'rgba(255,255,255,0.90)', backdropFilter:'blur(18px)', WebkitBackdropFilter:'blur(18px)', padding:'36px 40px', maxWidth:500, width:'90%', pointerEvents:'all', position:'relative', boxShadow:'0 8px 48px rgba(0,0,0,0.10)' }}>
+            <button onClick={() => setOpenDetail(null)} aria-label="關閉"
+              style={{ position:'absolute', top:16, right:18, background:'none', border:'none', cursor:'pointer', fontSize:18, color:'#4A1560', opacity:0.45, lineHeight:1 }}>✕</button>
+            <div style={{ display:'flex', flexDirection:'column', gap:12, marginBottom:28 }}>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#4A1560', opacity:0.85, flexShrink:0, width:80 }}>核心學習</span>
+                <span style={{ color:'rgba(35,10,48,0.68)', lineHeight:1.7 }}>辨識身心過敏原，找回解離的靈魂片段</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#4A1560', opacity:0.85, flexShrink:0, width:80 }}>課程形式</span>
+                <span style={{ color:'rgba(35,10,48,0.68)', lineHeight:1.7 }}>一對一深度工作</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#4A1560', opacity:0.85, flexShrink:0, width:80 }}>課程時長</span>
+                <span style={{ color:'rgba(35,10,48,0.68)', lineHeight:1.7 }}>3 小時</span>
+              </div>
+              <div style={{ display:'flex', gap:16, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.08)' }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.12em', color:'#4A1560', opacity:0.85, flexShrink:0, width:80 }}>銜接建議</span>
+                <span style={{ color:'rgba(35,10,48,0.68)', lineHeight:1.7 }}>建議具備豐富薩滿實踐經驗，完成 SC-01 至 SC-04 後進行</span>
+              </div>
+            </div>
+            <div style={{ display:'flex', alignItems:'baseline', gap:16, padding:'14px 18px', background:'rgba(74,21,96,0.06)', border:'1px solid rgba(74,21,96,0.18)' }}>
+              <span style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.15em', color:'#4A1560', opacity:0.8 }}>INVESTMENT</span>
+              <div style={{ fontSize:13, color:'rgba(35,10,48,0.68)', lineHeight:1.8 }}>一對一 NT. 45,000</div>
+            </div>
+          </div>
+        </div>
+      )}
       </section>
 
       {/* ═══ 推薦整合搭配 + CTA ═══ */}
