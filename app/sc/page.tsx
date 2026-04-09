@@ -469,8 +469,8 @@ export default function ScPage() {
       <section id="section-sc02" style={{ padding:'100px 0', background:'#E4EBF5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-5-波/材質-5-1.png" alt="" aria-hidden width={400} height={200}
           style={{ position:'absolute', top:-20, left:'5%', width:'clamp(200px,30vw,380px)', height:'auto', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'rotate(4deg)' }} />
-        {/* 書法圖 glow — tight behind calligraphy path only */}
-        <div aria-hidden style={{ position:'absolute', left:'-5%', top:'50%', transform:'translateY(-50%)', width:'30%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 60% 90% at 50% 50%, rgba(40,80,180,0.32) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(22px)' }} />
+        {/* C-form glow — top-left arc, left spine, bottom-left arc; opening faces right */}
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 40% 28% at 0% 8%, rgba(40,80,180,0.30) 0%, transparent 100%), radial-gradient(ellipse 20% 60% at 0% 50%, rgba(40,80,180,0.22) 0%, transparent 100%), radial-gradient(ellipse 40% 28% at 0% 92%, rgba(40,80,180,0.28) 0%, transparent 100%)', pointerEvents:'none' }} />
         {/* bottom connector → SC-03 */}
         <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, height:'25%', background:'linear-gradient(to bottom, transparent, rgba(180,90,40,0.07))', pointerEvents:'none' }} />
         {/* 書法圖 */}
