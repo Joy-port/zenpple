@@ -956,12 +956,13 @@ export default function QiSbPage() {
             position: 'absolute',
             right: '-10px',
             top: '-10px',
-            fontFamily: 'var(--f-display)',
-            fontWeight: 100,
+            fontFamily: 'var(--f-elegant)',
+            fontStyle: 'italic',
+            fontWeight: 400,
             fontSize: 'clamp(100px,15vw,200px)',
-            color: 'rgba(255,255,255,0.03)',
+            color: 'rgba(255,255,255,0.07)',
             lineHeight: 1,
-            letterSpacing: '-0.02em',
+            letterSpacing: '-0.01em',
             pointerEvents: 'none',
             userSelect: 'none',
           }}
@@ -1066,11 +1067,12 @@ export default function QiSbPage() {
             position: 'absolute',
             right: '-10px',
             top: '20px',
-            fontFamily: 'var(--f-display)',
-            fontWeight: 100,
+            fontFamily: 'var(--f-elegant)',
+            fontStyle: 'italic',
+            fontWeight: 400,
             fontSize: 200,
-            color: 'rgba(255,255,255,0.03)',
-            letterSpacing: '-0.02em',
+            color: 'rgba(255,255,255,0.07)',
+            letterSpacing: '-0.01em',
             lineHeight: 1,
             pointerEvents: 'none',
             userSelect: 'none',
@@ -1249,6 +1251,7 @@ export default function QiSbPage() {
           >
             帶著你的當下就好，其他的交給頌缽。傳訊給我們預約或詢問。
           </p>
+          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
           <Link
             href="/contact"
             style={{
@@ -1261,7 +1264,7 @@ export default function QiSbPage() {
               textTransform: 'uppercase',
               color: '#fff',
               textDecoration: 'none',
-              background: '#65BAAF',
+              background: '#6AAEBB',
               borderRadius: 999,
               padding: '14px 36px',
               transition: 'background 0.2s',
@@ -1269,6 +1272,27 @@ export default function QiSbPage() {
           >
             預約頌缽體驗 →
           </Link>
+          <Link
+            href="/contact"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              fontFamily: 'var(--f-mono)',
+              fontSize: 12,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: '#2E5A6A',
+              textDecoration: 'none',
+              border: '1px solid rgba(90,165,178,0.45)',
+              borderRadius: 999,
+              padding: '14px 36px',
+              transition: 'background 0.2s',
+            }}
+          >
+            BOOK A SESSION →
+          </Link>
+          </div>
         </div>
       </section>
     </>
