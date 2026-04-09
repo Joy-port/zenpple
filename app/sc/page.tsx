@@ -411,8 +411,8 @@ export default function ScPage() {
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
 
-            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#F2EFEA', marginBottom:10 }}>尋找力量動物</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#5C3A14', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Power Animal · Workshop</p>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#3A2008', marginBottom:10 }}>尋找力量動物</h2>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#5C3A14', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Power Animal · Workshop</p>
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(40,22,8,0.72)', marginBottom:32, maxWidth:480 }}>
               透過頌缽波頻為你的身體進行「接地（Grounding）」，讓腦波在安全的共振中進入深度放鬆。在這樣的狀態下進入薩滿旅程，你將能精準地與你的力量動物相遇——祂是你靈魂最原始的盟友，代表著你與生俱來的特質與守護力量。<br /><br />
               這不僅是一次連結，更教導你如何在日常抉擇、焦慮或失落時，隨時回到內在中心，與你的力量動物並肩航行。
@@ -465,8 +465,8 @@ export default function ScPage() {
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div style={{ order:2 }}>
 
-            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#F2EFEA', marginBottom:10 }}>連結高維指導靈</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#1A3050', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Spirit Guide</p>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#0E1E34', marginBottom:10 }}>連結高維指導靈</h2>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#1A3050', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Spirit Guide</p>
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(15,28,50,0.72)', marginBottom:32, maxWidth:480 }}>
               不同於守護與行動力的力量動物，指導靈是純粹的光與愛，是具備高度智慧的靈魂導師。祂們持有你的生命藍圖，能在你面臨人生十字路口時，提供超越小我視角的宏觀指引。<br /><br />
               課程中將建立嚴謹的辨識機制——在宇宙中，愛的能量是無法偽造的——協助你學會區分大腦雜訊與來自高維的真實訊息。
@@ -518,8 +518,8 @@ export default function ScPage() {
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
 
-            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#F2EFEA', marginBottom:10 }}>七脈輪情緒覺察</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#6A3018', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Chakra &amp; Emotion · Awareness</p>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#3C1A08', marginBottom:10 }}>七脈輪情緒覺察</h2>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#6A3018', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Chakra &amp; Emotion · Awareness</p>
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(50,18,8,0.72)', marginBottom:32, maxWidth:480 }}>
               七脈輪是情緒的儲存槽。透過薩滿冥想，我們引領你親自進入脈輪空間，覺察那些被身體凍結的感受。透過「看見」與「表達」，協助能量重新流動，找回情緒的主控權。<br /><br />
               這不是理論課，而是一場深度內在實作——拒絕空談，直接透過薩滿冥想進入潛意識，與真實的情緒感受正面相遇。
@@ -569,8 +569,8 @@ export default function ScPage() {
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div style={{ order:2 }}>
 
-            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#F2EFEA', marginBottom:10 }}>連結高我</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#5A3E08', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Higher Self</p>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#3A2800', marginBottom:10 }}>連結高我</h2>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#5A3E08', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Higher Self</p>
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(40,28,5,0.72)', marginBottom:24, maxWidth:480 }}>
               高我是你靈魂最純粹、最神聖的面向，持有你此生的生命藍圖。透過這門課，你將在身體高度通透的狀態下，正式接通內在的神聖源頭，完成身心靈合一的全面對齊，找回真正的靈魂主權。
             </p>
@@ -627,8 +627,8 @@ export default function ScPage() {
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
 
-            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#F2EFEA', marginBottom:10 }}>尋找內在小孩</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.28em', color:'#4A1560', opacity:0.85, marginBottom:28, textTransform:'uppercase' }}>Inner Child · Soul Retrieval</p>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#2A0840', marginBottom:10 }}>尋找內在小孩</h2>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#4A1560', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Inner Child · Soul Retrieval</p>
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(35,10,48,0.72)', marginBottom:32, maxWidth:480 }}>
               當個體遭遇超載的創傷，大腦會啟動保護機制，將受傷的意識片段解離並封存——這些被凍結的自我，即是「內在小孩」。<br /><br />
               我們不採取暴力挖掘，而是透過高我與指導靈的導航，辨識那些被凍結在生命角落的「身心過敏原」。以現在的成熟意識進行跨時空的連結，讓因保護而遺落的碎片重新歸位。
