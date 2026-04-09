@@ -289,7 +289,7 @@ export default function ScPage() {
               {/* 01 — 力量動物-直, amber */}
               <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
                 <Image src="/sc/animals-white/dragon.png" alt="" aria-hidden width={200} height={200}
-                  style={{ width:200, height:'auto', filter:'sepia(1) saturate(4.0) hue-rotate(8deg) brightness(0.55)', opacity:0.92, animation:'sc-breathe 5s ease-in-out infinite' }} />
+                  style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'sepia(1) saturate(4.0) hue-rotate(8deg) brightness(0.55)', opacity:0.92, animation:'sc-breathe 5s ease-in-out infinite' }} />
                 <div style={{ fontSize:18, fontWeight:700, color:'#8A4E15', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
               </div>
               {/* 03 — 七脈輪情緒覺察, terracotta */}
@@ -301,7 +301,7 @@ export default function ScPage() {
               {/* 05 — 內在小孩, purple */}
               <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
                 <Image src="/sc/white/內在小孩-白.png" alt="" aria-hidden width={300} height={300}
-                  style={{ width:200, height:'auto', filter:'sepia(0.8) saturate(4.5) hue-rotate(258deg) brightness(0.52)', opacity:0.92, animation:'sc-breathe 7s ease-in-out infinite' }} />
+                  style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'sepia(0.8) saturate(4.5) hue-rotate(258deg) brightness(0.52)', opacity:0.92, animation:'sc-breathe 7s ease-in-out infinite' }} />
                 <div style={{ fontSize:18, fontWeight:700, color:'#6A2082', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>尋找內在小孩</div>
               </div>
             </div>
