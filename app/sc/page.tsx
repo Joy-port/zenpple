@@ -64,7 +64,7 @@ export default function ScPage() {
           aria-hidden
           width={800}
           height={800}
-          style={{ position:'absolute', right:'-4%', bottom:0, height:'88vh', width:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none' }}
+          style={{ position:'absolute', right:0, bottom:0, width:'40%', height:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none' }}
         />
 
         {/* Ripple rings — mid-right */}
