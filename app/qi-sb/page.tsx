@@ -1028,17 +1028,17 @@ export default function QiSbPage() {
               </p>
             </div>
 
-            {/* Right: bowl image */}
+            {/* Right: 吉祥物禿 */}
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <Image
-                src="/qi-sb/頌缽.png"
-                alt="頌缽"
+                src="/index/吉祥物禿.png"
+                alt="禿禿"
                 width={400}
                 height={400}
                 style={{
                   width: 'clamp(180px,28vw,340px)',
                   height: 'auto',
-                  opacity: 0.72,
+                  opacity: 0.92,
                   filter: 'drop-shadow(0 0 28px rgba(58,125,142,0.32))',
                 }}
               />
