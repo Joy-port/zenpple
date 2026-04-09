@@ -225,6 +225,25 @@ export default function QiSbPage() {
         </div>
       </section>
 
+      {/* ── Wave: hero → why-bowl (dark → dark, ripple dip) ── */}
+      <svg
+        viewBox="0 0 1440 80"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style={{ display: 'block', width: '100%', marginTop: -2, marginBottom: -2, background: 'linear-gradient(180deg, #1A3C48 0%, #25525F 100%)' }}
+      >
+        <path
+          d="M0,0 C240,60 480,10 720,44 C960,78 1200,12 1440,40 L1440,80 L0,80 Z"
+          fill="#25525F"
+          opacity="0.9"
+        />
+        <path
+          d="M0,20 C300,70 600,5 900,50 C1100,80 1300,22 1440,55 L1440,80 L0,80 Z"
+          fill="#25525F"
+          opacity="0.45"
+        />
+      </svg>
 
       {/* ── 為什麼頌缽可以放鬆腦波 ── */}
       <section
