@@ -326,12 +326,12 @@ export default function QiSbPage() {
 
           {/* 6 wave paths — varied thickness, slow scroll + vertical drift */}
           {([
-            { amp: 18, phase: 0,   period: 320, y: 185, opacity: 0.50, stroke: 'rgba(58,125,142,1)',  sw: 2.5, dur: 18, vAmp: 14, vDur: 12 },
-            { amp: 28, phase: 60,  period: 280, y: 210, opacity: 0.35, stroke: 'rgba(58,125,142,1)',  sw: 0.6, dur: 24, vAmp:  0, vDur:  0 },
-            { amp: 12, phase: 120, period: 360, y: 170, opacity: 0.28, stroke: 'rgba(255,255,255,1)', sw: 1.5, dur: 20, vAmp: 12, vDur: 16 },
-            { amp: 22, phase: 180, period: 300, y: 225, opacity: 0.20, stroke: 'rgba(255,255,255,1)', sw: 3.5, dur: 28, vAmp:  0, vDur:  0 },
-            { amp: 34, phase: 240, period: 260, y: 200, opacity: 0.14, stroke: 'rgba(58,125,142,1)',  sw: 0.8, dur: 22, vAmp: 16, vDur: 20 },
-            { amp: 10, phase: 300, period: 400, y: 215, opacity: 0.10, stroke: 'rgba(255,255,255,1)', sw: 2.0, dur: 32, vAmp:  0, vDur:  0 },
+            { amp: 18, phase: 0,   period: 320, y: 193, opacity: 0.50, stroke: 'rgba(58,125,142,1)',  sw: 2.5, dur: 18, vAmp:  5, vDur: 12 },
+            { amp: 28, phase: 60,  period: 280, y: 204, opacity: 0.35, stroke: 'rgba(58,125,142,1)',  sw: 0.6, dur: 24, vAmp:  0, vDur:  0 },
+            { amp: 12, phase: 120, period: 360, y: 196, opacity: 0.28, stroke: 'rgba(255,255,255,1)', sw: 1.5, dur: 20, vAmp:  4, vDur: 16 },
+            { amp: 22, phase: 180, period: 300, y: 207, opacity: 0.20, stroke: 'rgba(255,255,255,1)', sw: 3.5, dur: 28, vAmp:  0, vDur:  0 },
+            { amp: 34, phase: 240, period: 260, y: 200, opacity: 0.14, stroke: 'rgba(58,125,142,1)',  sw: 0.8, dur: 22, vAmp:  6, vDur: 20 },
+            { amp: 10, phase: 300, period: 400, y: 202, opacity: 0.10, stroke: 'rgba(255,255,255,1)', sw: 2.0, dur: 32, vAmp:  0, vDur:  0 },
           ] as const).map((w, i) => {
             const pts: string[] = []
             for (let x = -w.period; x <= 1440 + w.period; x += 4) {
