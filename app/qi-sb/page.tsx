@@ -384,7 +384,7 @@ export default function QiSbPage() {
               position: 'relative',
               width: 'clamp(220px,38vw,460px)',
               height: 'auto',
-              opacity: 0.82,
+              opacity: 0.55,
               filter: 'drop-shadow(0 0 40px rgba(58,125,142,0.42)) drop-shadow(0 0 90px rgba(58,125,142,0.18))',
             }}
           />
