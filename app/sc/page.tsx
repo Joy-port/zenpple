@@ -276,79 +276,90 @@ export default function ScPage() {
             </p>
           </div>
 
-          {/* Wave Timeline — calligraphy image + SVG dots overlay */}
-          <div style={{ position:'relative', width:'100%', marginBottom:16 }}>
+          {/* Wave Timeline — 3-row layout: top labels / wave+nodes / bottom labels */}
+          <div style={{ width:'100%', marginBottom:8 }}>
 
-            {/* Calligraphy wave image — replaces SVG path */}
+            {/* Row 1 — above-wave labels: 01, 03, 05 */}
+            <div style={{ position:'relative', height:110, marginBottom:20 }}>
+              {/* 01 */}
+              <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:7, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.24em', color:'#A0763A', opacity:0.8 }}>01</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:14, letterSpacing:'0.1em', padding:'5px 13px', background:'rgba(160,118,58,0.18)', color:'#A0763A', whiteSpace:'nowrap' }}>下部世界</div>
+                <div style={{ fontSize:26, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>力量動物</div>
+              </div>
+              {/* 03 */}
+              <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:7, cursor:'pointer' }} onClick={() => selectNode('sc03')}>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.24em', color:'#C4906A', opacity:0.8 }}>03</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:14, letterSpacing:'0.1em', padding:'5px 13px', background:'rgba(196,144,106,0.18)', color:'#C4906A', whiteSpace:'nowrap' }}>中部世界</div>
+                <div style={{ fontSize:26, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>脈輪情緒覺察</div>
+              </div>
+              {/* 05 */}
+              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:7, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.24em', color:'#B088B8', opacity:0.8 }}>05</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:14, letterSpacing:'0.1em', padding:'5px 13px', background:'rgba(176,136,184,0.18)', color:'#B088B8', whiteSpace:'nowrap' }}>靈魂碎片團圓</div>
+                <div style={{ fontSize:26, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>尋找內在小孩</div>
+              </div>
+            </div>
+
+            {/* Row 2 — calligraphy wave + image nodes */}
             <div style={{ position:'relative', width:'100%' }}>
               <Image src="/sc/black/薩滿旅程的線.png" alt="" aria-hidden width={1800} height={320}
                 style={{ width:'100%', height:'auto', display:'block',
-                  filter:'invert(1) brightness(0.9) opacity(0.75)', mixBlendMode:'screen' }} />
+                  filter:'invert(1) sepia(0.5) saturate(1.4) hue-rotate(168deg) brightness(0.68)', mixBlendMode:'screen' }} />
 
-              {/* SVG dots layer — sits over the image, same proportional positions */}
+              {/* SVG — transparent hit circles only (no drawn circles) */}
               <svg viewBox="0 0 1100 200" style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', overflow:'visible' }}>
-                <defs>
-                  <filter id="nodeGlow">
-                    <feGaussianBlur stdDeviation="4" result="b"/>
-                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-                  </filter>
-                </defs>
-                {/* SC-01 — wave trough ≈ 45% height */}
-                <circle cx="55" cy="95" r={activeNode === 'sc01' ? 11 : 8} fill="#A0763A" opacity="0.95" onClick={() => selectNode('sc01')} style={{ cursor:'pointer' }} filter={activeNode === 'sc01' ? 'url(#nodeGlow)' : undefined}/>
-                <circle cx="55" cy="95" r="16" fill="none" stroke="#A0763A" strokeWidth="1" opacity="0.25"/>
-                <line x1="55" y1="79" x2="55" y2="28" stroke="#A0763A" strokeWidth="1" strokeDasharray="3,4" opacity="0.45"/>
-                {/* SC-02 */}
-                <circle cx="280" cy="110" r={activeNode === 'sc02' ? 11 : 8} fill="#B0C4DC" opacity="0.95" onClick={() => selectNode('sc02')} style={{ cursor:'pointer' }} filter={activeNode === 'sc02' ? 'url(#nodeGlow)' : undefined}/>
-                <circle cx="280" cy="110" r="16" fill="none" stroke="#B0C4DC" strokeWidth="1" opacity="0.25"/>
-                <line x1="280" y1="126" x2="280" y2="172" stroke="#B0C4DC" strokeWidth="1" strokeDasharray="3,4" opacity="0.45"/>
-                {/* SC-03 */}
-                <circle cx="540" cy="95" r={activeNode === 'sc03' ? 11 : 8} fill="#C4906A" opacity="0.95" onClick={() => selectNode('sc03')} style={{ cursor:'pointer' }} filter={activeNode === 'sc03' ? 'url(#nodeGlow)' : undefined}/>
-                <circle cx="540" cy="95" r="16" fill="none" stroke="#C4906A" strokeWidth="1" opacity="0.25"/>
-                <line x1="540" y1="79" x2="540" y2="28" stroke="#C4906A" strokeWidth="1" strokeDasharray="3,4" opacity="0.45"/>
-                {/* SC-04 */}
-                <circle cx="800" cy="110" r={activeNode === 'sc04' ? 11 : 8} fill="#C4B060" opacity="0.95" onClick={() => selectNode('sc04')} style={{ cursor:'pointer' }} filter={activeNode === 'sc04' ? 'url(#nodeGlow)' : undefined}/>
-                <circle cx="800" cy="110" r="16" fill="none" stroke="#C4B060" strokeWidth="1" opacity="0.25"/>
-                <line x1="800" y1="126" x2="800" y2="172" stroke="#C4B060" strokeWidth="1" strokeDasharray="3,4" opacity="0.45"/>
-                {/* SC-05 */}
-                <circle cx="1045" cy="95" r={activeNode === 'sc05' ? 11 : 8} fill="#B088B8" opacity="0.95" onClick={() => selectNode('sc05')} style={{ cursor:'pointer' }} filter={activeNode === 'sc05' ? 'url(#nodeGlow)' : undefined}/>
-                <circle cx="1045" cy="95" r="16" fill="none" stroke="#B088B8" strokeWidth="1" opacity="0.25"/>
-                <line x1="1045" y1="79" x2="1045" y2="28" stroke="#B088B8" strokeWidth="1" strokeDasharray="3,4" opacity="0.45"/>
+                <circle cx="55"   cy="95"  r="30" fill="transparent" onClick={() => selectNode('sc01')} style={{ cursor:'pointer' }}/>
+                <circle cx="280"  cy="110" r="30" fill="transparent" onClick={() => selectNode('sc02')} style={{ cursor:'pointer' }}/>
+                <circle cx="540"  cy="95"  r="30" fill="transparent" onClick={() => selectNode('sc03')} style={{ cursor:'pointer' }}/>
+                <circle cx="800"  cy="110" r="30" fill="transparent" onClick={() => selectNode('sc04')} style={{ cursor:'pointer' }}/>
+                <circle cx="1045" cy="95"  r="30" fill="transparent" onClick={() => selectNode('sc05')} style={{ cursor:'pointer' }}/>
               </svg>
+
+              {/* Circle image nodes — absolutely positioned at matching percentages */}
+              {/* SC-01: left=5%, top=47.5% — amber */}
+              <div style={{ position:'absolute', left:'calc(55/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
+                <Image src="/resource/single/材質-4-圓圈/黑圈-1.png" alt="" aria-hidden width={80} height={80}
+                  style={{ width: activeNode==='sc01' ? 70 : 58, height:'auto', filter:'invert(1) sepia(1) saturate(2.2) hue-rotate(8deg) brightness(0.85)', mixBlendMode:'screen', opacity:0.92, transition:'width 0.2s' }} />
+              </div>
+              {/* SC-02: left=25.45%, top=55% — blue-gray */}
+              <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:'calc(110/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
+                <Image src="/resource/single/材質-4-圓圈/黑圈-6.png" alt="" aria-hidden width={80} height={80}
+                  style={{ width: activeNode==='sc02' ? 70 : 58, height:'auto', filter:'invert(1) sepia(0.25) saturate(2.2) hue-rotate(198deg) brightness(0.92)', mixBlendMode:'screen', opacity:0.92, transition:'width 0.2s' }} />
+              </div>
+              {/* SC-03: left=49.09%, top=47.5% — terracotta */}
+              <div style={{ position:'absolute', left:'calc(540/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
+                <Image src="/resource/single/材質-4-圓圈/黑圈-12.png" alt="" aria-hidden width={80} height={80}
+                  style={{ width: activeNode==='sc03' ? 70 : 58, height:'auto', filter:'invert(1) sepia(1) saturate(1.9) hue-rotate(352deg) brightness(0.88)', mixBlendMode:'screen', opacity:0.92, transition:'width 0.2s' }} />
+              </div>
+              {/* SC-04: left=72.73%, top=55% — gold */}
+              <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:'calc(110/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
+                <Image src="/resource/single/材質-4-圓圈/黑圈-18.png" alt="" aria-hidden width={80} height={80}
+                  style={{ width: activeNode==='sc04' ? 70 : 58, height:'auto', filter:'invert(1) sepia(1) saturate(2.2) hue-rotate(28deg) brightness(0.88)', mixBlendMode:'screen', opacity:0.92, transition:'width 0.2s' }} />
+              </div>
+              {/* SC-05: left=95%, top=47.5% — purple */}
+              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
+                <Image src="/resource/single/材質-4-圓圈/黑圈-24.png" alt="" aria-hidden width={80} height={80}
+                  style={{ width: activeNode==='sc05' ? 70 : 58, height:'auto', filter:'invert(1) sepia(0.5) saturate(3.2) hue-rotate(258deg) brightness(0.85)', mixBlendMode:'screen', opacity:0.92, transition:'width 0.2s' }} />
+              </div>
             </div>
 
-            {/* Wave labels — absolutely positioned to match dot locations */}
-            <div style={{ position:'absolute', inset:0, pointerEvents:'none' }}>
-              {/* ABOVE: 01 */}
-              <div style={{ position:'absolute', left:'calc(55/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:6, paddingTop:4, cursor:'pointer', pointerEvents:'auto' }} onClick={() => selectNode('sc01')}>
-                <div style={{ fontSize:20, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>力量動物</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.1em', padding:'4px 11px', background:'rgba(160,118,58,0.2)', color:'#A0763A', whiteSpace:'nowrap' }}>下部世界</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#A0763A', opacity:0.85, marginTop:2 }}>01</div>
+            {/* Row 3 — below-wave labels: 02, 04 */}
+            <div style={{ position:'relative', height:110, marginTop:20 }}>
+              {/* 02 */}
+              <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:7, cursor:'pointer' }} onClick={() => selectNode('sc02')}>
+                <div style={{ fontSize:26, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>指導靈</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:14, letterSpacing:'0.1em', padding:'5px 13px', background:'rgba(176,196,220,0.18)', color:'#B0C4DC', whiteSpace:'nowrap' }}>上部世界</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.24em', color:'#B0C4DC', opacity:0.8 }}>02</div>
               </div>
-              {/* ABOVE: 03 */}
-              <div style={{ position:'absolute', left:'calc(540/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:6, paddingTop:4, cursor:'pointer', pointerEvents:'auto' }} onClick={() => selectNode('sc03')}>
-                <div style={{ fontSize:20, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>脈輪情緒覺察</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.1em', padding:'4px 11px', background:'rgba(196,144,106,0.2)', color:'#C4906A', whiteSpace:'nowrap' }}>中部世界</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#C4906A', opacity:0.85, marginTop:2 }}>03</div>
-              </div>
-              {/* ABOVE: 05 */}
-              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:6, paddingTop:4, cursor:'pointer', pointerEvents:'auto' }} onClick={() => selectNode('sc05')}>
-                <div style={{ fontSize:20, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>尋找內在小孩</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.1em', padding:'4px 11px', background:'rgba(176,136,184,0.2)', color:'#B088B8', whiteSpace:'nowrap' }}>靈魂碎片團圓</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#B088B8', opacity:0.85, marginTop:2 }}>05</div>
-              </div>
-              {/* BELOW: 02 */}
-              <div style={{ position:'absolute', left:'calc(280/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column-reverse', alignItems:'center', gap:6, paddingBottom:4, cursor:'pointer', pointerEvents:'auto' }} onClick={() => selectNode('sc02')}>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#B0C4DC', opacity:0.85, marginBottom:2 }}>02</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.1em', padding:'4px 11px', background:'rgba(176,196,220,0.2)', color:'#B0C4DC', whiteSpace:'nowrap' }}>上部世界</div>
-                <div style={{ fontSize:20, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>指導靈</div>
-              </div>
-              {/* BELOW: 04 */}
-              <div style={{ position:'absolute', left:'calc(800/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column-reverse', alignItems:'center', gap:6, paddingBottom:4, cursor:'pointer', pointerEvents:'auto' }} onClick={() => selectNode('sc04')}>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#C4B060', opacity:0.85, marginBottom:2 }}>04</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.1em', padding:'4px 11px', background:'rgba(196,176,96,0.2)', color:'#C4B060', whiteSpace:'nowrap' }}>靈魂整合</div>
-                <div style={{ fontSize:20, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>連結高我</div>
+              {/* 04 */}
+              <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:7, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
+                <div style={{ fontSize:26, fontWeight:700, color:'#F2EFEA', whiteSpace:'nowrap', letterSpacing:'0.02em' }}>連結高我</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:14, letterSpacing:'0.1em', padding:'5px 13px', background:'rgba(196,176,96,0.18)', color:'#C4B060', whiteSpace:'nowrap' }}>靈魂整合</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.24em', color:'#C4B060', opacity:0.8 }}>04</div>
               </div>
             </div>
+
           </div>
 
         </div>
