@@ -111,8 +111,8 @@
   width: calc(100% + 40px);
   height: calc(100% + 40px);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(var(--glow-color), 0.28) 0%, rgba(var(--glow-color), 0) 70%);
-  filter: blur(18px);
+  background: radial-gradient(circle, rgba(var(--glow-color), 0.65) 0%, rgba(var(--glow-color), 0.20) 50%, rgba(var(--glow-color), 0) 75%);
+  filter: blur(14px);
   pointer-events: none;
   z-index: 0;
 }
