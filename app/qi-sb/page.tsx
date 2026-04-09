@@ -1183,7 +1183,7 @@ export default function QiSbPage() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        style={{ display: 'block', width: '100%', marginTop: -2, background: '#25525F' }}
+        style={{ display: 'block', width: '100%', marginTop: -2, marginBottom: -2, background: '#25525F' }}
       >
         <path
           d="M0,0 C360,55 720,10 1080,48 C1260,62 1380,22 1440,40 L1440,60 L0,60 Z"
