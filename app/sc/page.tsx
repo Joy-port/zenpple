@@ -261,22 +261,22 @@ export default function ScPage() {
       </section>}
 
       {/* ═══ 薩滿旅程五步驟 ═══ */}
-      <section style={{ padding:'100px 0 80px', minHeight:'100vh', background:'#EDF1F5', position:'relative', overflow:'hidden' }} id="journey">
+      <section style={{ padding:'100px 0 80px', minHeight:'100vh', background:'#355A6A', position:'relative', overflow:'hidden' }} id="journey">
 
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 8vw', position:'relative', zIndex:2 }}>
 
           {/* Header */}
           <div style={{ textAlign:'center', marginBottom:60 }}>
-            <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'#7A9AB5', opacity:0.75, marginBottom:14, textTransform:'uppercase' }}>
+            <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'rgba(180,215,220,0.7)', opacity:0.75, marginBottom:14, textTransform:'uppercase' }}>
               THE SHAMANIC JOURNEY
             </p>
-            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#2B4A5E', marginBottom:16 }}>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
               薩滿旅程五步驟
             </h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'#4A6B8A', opacity:0.72, marginBottom:12 }}>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'rgba(180,215,220,0.65)', opacity:0.72, marginBottom:12 }}>
               A Path of Awakening &amp; Integration
             </p>
-            <p style={{ fontSize:14, lineHeight:1.9, color:'rgba(43,74,94,0.6)', textAlign:'center', margin:'0 auto' }}>
+            <p style={{ fontSize:14, lineHeight:1.9, color:'rgba(242,239,234,0.5)', textAlign:'center', margin:'0 auto' }}>
               點擊任一步驟，進入詳細探索。
             </p>
           </div>
@@ -287,22 +287,22 @@ export default function ScPage() {
             {/* Row 1 — above-wave: 01, 03, 05 — theme calligraphy image outward (top), title toward wave (bottom) */}
             <div style={{ position:'relative', height:280, marginBottom:12 }}>
               {/* 01 — 力量動物-直, amber */}
-              <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
+              <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer', background:'radial-gradient(circle, rgba(255,255,255,0.13) 0%, transparent 68%)', padding:'28px 24px' }} onClick={() => selectNode('sc01')}>
                 <Image src="/sc/animals-white/dragon.png" alt="" aria-hidden width={200} height={200}
-                  style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'sepia(1) saturate(4.0) hue-rotate(8deg) brightness(0.55)', opacity:0.92, animation:'sc-breathe 5s ease-in-out infinite' }} />
-                <div style={{ fontSize:18, fontWeight:700, color:'#8A4E15', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
+                  style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 5s ease-in-out infinite' }} />
+                <div style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
               </div>
               {/* 03 — 七脈輪情緒覺察, terracotta */}
-              <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc03')}>
+              <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer', background:'radial-gradient(circle, rgba(255,255,255,0.13) 0%, transparent 68%)', padding:'28px 24px' }} onClick={() => selectNode('sc03')}>
                 <Image src="/sc/white/七脈輪情緒覺察-白.png" alt="" aria-hidden width={300} height={300}
-                  style={{ height:200, width:'auto', filter:'sepia(1) saturate(4.0) hue-rotate(350deg) brightness(0.55)', opacity:0.92, animation:'sc-breathe 6s ease-in-out infinite' }} />
-                <div style={{ fontSize:18, fontWeight:700, color:'#8D4218', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>脈輪情緒覺察</div>
+                  style={{ height:200, width:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 6s ease-in-out infinite' }} />
+                <div style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>脈輪情緒覺察</div>
               </div>
               {/* 05 — 內在小孩, purple */}
-              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
+              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer', background:'radial-gradient(circle, rgba(255,255,255,0.13) 0%, transparent 68%)', padding:'28px 24px' }} onClick={() => selectNode('sc05')}>
                 <Image src="/sc/white/內在小孩-白.png" alt="" aria-hidden width={300} height={300}
-                  style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'sepia(0.8) saturate(4.5) hue-rotate(258deg) brightness(0.52)', opacity:0.92, animation:'sc-breathe 7s ease-in-out infinite' }} />
-                <div style={{ fontSize:18, fontWeight:700, color:'#6A2082', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>尋找內在小孩</div>
+                  style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 7s ease-in-out infinite' }} />
+                <div style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>尋找內在小孩</div>
               </div>
             </div>
 
@@ -310,7 +310,7 @@ export default function ScPage() {
             <div style={{ position:'relative', width:'100%' }}>
               <Image src="/sc/black/薩滿旅程的線.png" alt="" aria-hidden width={1800} height={320}
                 style={{ width:'100%', height:'auto', display:'block',
-                  filter:'sepia(0.5) hue-rotate(168deg) saturate(1.2) brightness(0.55)', mixBlendMode:'multiply', opacity:0.55 }} />
+                  filter:'invert(1) brightness(0.78)', mixBlendMode:'screen', opacity:0.32 }} />
 
               {/* SVG — transparent hit circles only (no drawn circles) */}
               <svg viewBox="0 0 1100 200" style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', overflow:'visible' }}>
@@ -325,43 +325,43 @@ export default function ScPage() {
               {/* SC-01: left=5%, top=47.5% — amber */}
               <div style={{ position:'absolute', left:'calc(55/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <Image src="/resource/single/材質-4-圓圈/黑圈-1.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc01' ? 80 : 66, height:'auto', filter:'invert(1) sepia(1) saturate(2.5) hue-rotate(8deg) brightness(0.68)', opacity:0.9, transition:'width 0.2s' }} />
+                  style={{ width: activeNode==='sc01' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
               </div>
               {/* SC-02: left=25.45%, top=55% — blue-gray */}
               <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:'calc(110/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <Image src="/resource/single/材質-4-圓圈/黑圈-10.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc02' ? 80 : 66, height:'auto', filter:'invert(1) sepia(0.2) saturate(4.0) hue-rotate(200deg) brightness(0.62)', opacity:0.9, transition:'width 0.2s' }} />
+                  style={{ width: activeNode==='sc02' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
               </div>
               {/* SC-03: left=49.09%, top=47.5% — terracotta */}
               <div style={{ position:'absolute', left:'calc(540/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <Image src="/resource/single/材質-4-圓圈/黑圈-12.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc03' ? 80 : 66, height:'auto', filter:'invert(1) sepia(1) saturate(3.5) hue-rotate(350deg) brightness(0.68)', opacity:0.9, transition:'width 0.2s' }} />
+                  style={{ width: activeNode==='sc03' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
               </div>
               {/* SC-04: left=72.73%, top=55% — gold */}
               <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:'calc(110/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <Image src="/resource/single/材質-4-圓圈/黑圈-18.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc04' ? 80 : 66, height:'auto', filter:'invert(1) sepia(1) saturate(3.5) hue-rotate(20deg) brightness(0.70)', opacity:0.9, transition:'width 0.2s' }} />
+                  style={{ width: activeNode==='sc04' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
               </div>
               {/* SC-05: left=95%, top=47.5% — purple */}
               <div style={{ position:'absolute', left:'calc(1045/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <Image src="/resource/single/材質-4-圓圈/黑圈-24.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc05' ? 80 : 66, height:'auto', filter:'invert(1) sepia(0.8) saturate(4.0) hue-rotate(258deg) brightness(0.65)', opacity:0.9, transition:'width 0.2s' }} />
+                  style={{ width: activeNode==='sc05' ? 80 : 66, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.75, transition:'width 0.2s' }} />
               </div>
             </div>
 
             {/* Row 3 — below-wave: 02, 04 — title toward wave (top), theme calligraphy image outward (bottom) */}
             <div style={{ position:'relative', height:280, marginTop:12 }}>
               {/* 02 — 指導靈, blue-gray */}
-              <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc02')}>
-                <div style={{ fontSize:18, fontWeight:700, color:'#1E5088', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>指導靈</div>
+              <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer', background:'radial-gradient(circle, rgba(255,255,255,0.13) 0%, transparent 68%)', padding:'28px 24px' }} onClick={() => selectNode('sc02')}>
+                <div style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>指導靈</div>
                 <Image src="/sc/white/指導靈-白.png" alt="" aria-hidden width={250} height={300}
-                  style={{ height:200, width:'auto', filter:'sepia(0.2) saturate(4.5) hue-rotate(200deg) brightness(0.55)', opacity:0.92, animation:'sc-breathe 5.5s ease-in-out infinite' }} />
+                  style={{ height:200, width:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 5.5s ease-in-out infinite' }} />
               </div>
               {/* 04 — 高我, gold */}
-              <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
-                <div style={{ fontSize:18, fontWeight:700, color:'#7A5812', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
+              <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer', background:'radial-gradient(circle, rgba(255,255,255,0.13) 0%, transparent 68%)', padding:'28px 24px' }} onClick={() => selectNode('sc04')}>
+                <div style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
                 <Image src="/sc/black/高我.png" alt="" aria-hidden width={250} height={300}
-                  style={{ height:200, width:'auto', filter:'invert(1) sepia(1) saturate(4.0) hue-rotate(20deg) brightness(0.58)', opacity:0.92, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
+                  style={{ height:200, width:'auto', filter:'invert(1) brightness(0.85)', opacity:0.72, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
               </div>
             </div>
 
