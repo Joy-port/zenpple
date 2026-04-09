@@ -80,3 +80,27 @@
 }
 .sc-cta-btn:hover::after { transform:scaleX(1); }
 .sc-cta-btn:hover::before { border-color:rgba(122,154,181,0.7); }
+
+/* ── Journey calligraphy image glow ── */
+.sc-glow-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.sc-glow-wrap::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--glow-color), 0.32) 0%, rgba(var(--glow-color), 0) 70%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Ensure image stacks above the glow pseudo-element */
+.sc-glow-wrap img,
+.sc-glow-wrap span { position: relative; z-index: 1; }

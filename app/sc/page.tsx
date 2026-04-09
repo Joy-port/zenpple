@@ -287,21 +287,27 @@ export default function ScPage() {
             {/* Row 1 — above-wave: 01, 03, 05 — theme calligraphy image outward (top), title toward wave (bottom) */}
             <div style={{ position:'relative', height:280, marginBottom:12 }}>
               {/* 01 — 力量動物-直, amber */}
-              <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer', background:'radial-gradient(circle, rgba(255,255,255,0.13) 0%, transparent 68%)', padding:'28px 24px' }} onClick={() => selectNode('sc01')}>
-                <Image src="/sc/animals-white/dragon.png" alt="" aria-hidden width={200} height={200}
-                  style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 5s ease-in-out infinite' }} />
+              <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
+                <div className="sc-glow-wrap" style={{'--glow-color':'200,130,60'} as React.CSSProperties}>
+                  <Image src="/sc/animals-white/dragon.png" alt="" aria-hidden width={200} height={200}
+                    style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 5s ease-in-out infinite' }} />
+                </div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
               </div>
               {/* 03 — 七脈輪情緒覺察, terracotta */}
-              <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer', background:'radial-gradient(circle, rgba(255,255,255,0.13) 0%, transparent 68%)', padding:'28px 24px' }} onClick={() => selectNode('sc03')}>
-                <Image src="/sc/white/七脈輪情緒覺察-白.png" alt="" aria-hidden width={300} height={300}
-                  style={{ height:200, width:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 6s ease-in-out infinite' }} />
+              <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc03')}>
+                <div className="sc-glow-wrap" style={{'--glow-color':'200,100,70'} as React.CSSProperties}>
+                  <Image src="/sc/white/七脈輪情緒覺察-白.png" alt="" aria-hidden width={300} height={300}
+                    style={{ height:200, width:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 6s ease-in-out infinite' }} />
+                </div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>脈輪情緒覺察</div>
               </div>
               {/* 05 — 內在小孩, purple */}
-              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer', background:'radial-gradient(circle, rgba(255,255,255,0.13) 0%, transparent 68%)', padding:'28px 24px' }} onClick={() => selectNode('sc05')}>
-                <Image src="/sc/white/內在小孩-白.png" alt="" aria-hidden width={300} height={300}
-                  style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 7s ease-in-out infinite' }} />
+              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
+                <div className="sc-glow-wrap" style={{'--glow-color':'160,80,200'} as React.CSSProperties}>
+                  <Image src="/sc/white/內在小孩-白.png" alt="" aria-hidden width={300} height={300}
+                    style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 7s ease-in-out infinite' }} />
+                </div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>尋找內在小孩</div>
               </div>
             </div>
@@ -352,16 +358,20 @@ export default function ScPage() {
             {/* Row 3 — below-wave: 02, 04 — title toward wave (top), theme calligraphy image outward (bottom) */}
             <div style={{ position:'relative', height:280, marginTop:12 }}>
               {/* 02 — 指導靈, blue-gray */}
-              <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer', background:'radial-gradient(circle, rgba(255,255,255,0.13) 0%, transparent 68%)', padding:'28px 24px' }} onClick={() => selectNode('sc02')}>
+              <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc02')}>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>指導靈</div>
-                <Image src="/sc/white/指導靈-白.png" alt="" aria-hidden width={250} height={300}
-                  style={{ height:200, width:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 5.5s ease-in-out infinite' }} />
+                <div className="sc-glow-wrap" style={{'--glow-color':'80,140,210'} as React.CSSProperties}>
+                  <Image src="/sc/white/指導靈-白.png" alt="" aria-hidden width={250} height={300}
+                    style={{ height:200, width:'auto', filter:'brightness(0.95)', opacity:0.72, animation:'sc-breathe 5.5s ease-in-out infinite' }} />
+                </div>
               </div>
               {/* 04 — 高我, gold */}
-              <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer', background:'radial-gradient(circle, rgba(255,255,255,0.13) 0%, transparent 68%)', padding:'28px 24px' }} onClick={() => selectNode('sc04')}>
+              <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
-                <Image src="/sc/black/高我.png" alt="" aria-hidden width={250} height={300}
-                  style={{ height:200, width:'auto', filter:'invert(1) brightness(0.85)', opacity:0.72, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
+                <div className="sc-glow-wrap" style={{'--glow-color':'200,170,60'} as React.CSSProperties}>
+                  <Image src="/sc/black/高我.png" alt="" aria-hidden width={250} height={300}
+                    style={{ height:200, width:'auto', filter:'invert(1) brightness(0.85)', opacity:0.72, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
+                </div>
               </div>
             </div>
 
