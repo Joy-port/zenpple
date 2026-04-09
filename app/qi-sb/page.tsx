@@ -117,27 +117,24 @@ export default function QiSbPage() {
           }}
         />
 
-        {/* Background calligraphy — 「聲」 */}
-        <div
+        {/* Background bowl image */}
+        <Image
+          src="/qi-sb/bowl-white.png"
+          alt=""
           aria-hidden
+          width={600}
+          height={600}
           style={{
             position: 'absolute',
-            right: '-20px',
+            right: '-60px',
             top: '50%',
             transform: 'translateY(-50%)',
-            fontFamily: 'var(--f-zh)',
-            fontWeight: 900,
-            fontSize: 'clamp(140px,18vw,240px)',
-            color: 'rgba(255,255,255,0.04)',
-            lineHeight: 1.1,
-            writingMode: 'vertical-rl',
-            letterSpacing: '0.05em',
-            userSelect: 'none',
+            width: 'clamp(300px,42vw,600px)',
+            height: 'auto',
+            opacity: 0.10,
             pointerEvents: 'none',
           }}
-        >
-          聲音
-        </div>
+        />
 
         {/* English ghost */}
         <div
