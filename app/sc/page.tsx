@@ -317,28 +317,28 @@ export default function ScPage() {
               {/* Circle image nodes — absolutely positioned at matching percentages */}
               {/* SC-01: left=5%, top=47.5% — amber */}
               <div style={{ position:'absolute', left:'calc(55/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
-                <Image src="/resource/single/材質-4-白/黑圈-8.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc01' ? 80 : 66, height:'auto', filter:'sepia(1) saturate(2.5) hue-rotate(8deg) brightness(0.60)', opacity:0.9, transition:'width 0.2s' }} />
+                <Image src="/resource/single/材質-4-圓圈/黑圈-1.png" alt="" aria-hidden width={80} height={80}
+                  style={{ width: activeNode==='sc01' ? 80 : 66, height:'auto', filter:'invert(1) sepia(1) saturate(2.5) hue-rotate(8deg) brightness(0.68)', opacity:0.9, transition:'width 0.2s' }} />
               </div>
               {/* SC-02: left=25.45%, top=55% — blue-gray */}
               <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:'calc(110/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
-                <Image src="/resource/single/材質-4-白/黑圈-10.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc02' ? 80 : 66, height:'auto', filter:'sepia(0.2) saturate(3.0) hue-rotate(200deg) brightness(0.58)', opacity:0.9, transition:'width 0.2s' }} />
+                <Image src="/resource/single/材質-4-圓圈/黑圈-10.png" alt="" aria-hidden width={80} height={80}
+                  style={{ width: activeNode==='sc02' ? 80 : 66, height:'auto', filter:'invert(1) sepia(0.2) saturate(4.0) hue-rotate(200deg) brightness(0.62)', opacity:0.9, transition:'width 0.2s' }} />
               </div>
               {/* SC-03: left=49.09%, top=47.5% — terracotta */}
               <div style={{ position:'absolute', left:'calc(540/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
-                <Image src="/resource/single/材質-4-白/黑圈-12.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc03' ? 80 : 66, height:'auto', filter:'sepia(1) saturate(2.5) hue-rotate(350deg) brightness(0.60)', opacity:0.9, transition:'width 0.2s' }} />
+                <Image src="/resource/single/材質-4-圓圈/黑圈-12.png" alt="" aria-hidden width={80} height={80}
+                  style={{ width: activeNode==='sc03' ? 80 : 66, height:'auto', filter:'invert(1) sepia(1) saturate(3.5) hue-rotate(350deg) brightness(0.68)', opacity:0.9, transition:'width 0.2s' }} />
               </div>
               {/* SC-04: left=72.73%, top=55% — gold */}
               <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:'calc(110/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
-                <Image src="/resource/single/材質-4-白/黑圈-18.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc04' ? 80 : 66, height:'auto', filter:'sepia(1) saturate(2.2) hue-rotate(20deg) brightness(0.60)', opacity:0.9, transition:'width 0.2s' }} />
+                <Image src="/resource/single/材質-4-圓圈/黑圈-18.png" alt="" aria-hidden width={80} height={80}
+                  style={{ width: activeNode==='sc04' ? 80 : 66, height:'auto', filter:'invert(1) sepia(1) saturate(3.5) hue-rotate(20deg) brightness(0.70)', opacity:0.9, transition:'width 0.2s' }} />
               </div>
               {/* SC-05: left=95%, top=47.5% — purple */}
               <div style={{ position:'absolute', left:'calc(1045/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
-                <Image src="/resource/single/材質-4-白/黑圈-20.png" alt="" aria-hidden width={80} height={80}
-                  style={{ width: activeNode==='sc05' ? 80 : 66, height:'auto', filter:'sepia(0.8) saturate(3.0) hue-rotate(258deg) brightness(0.58)', opacity:0.9, transition:'width 0.2s' }} />
+                <Image src="/resource/single/材質-4-圓圈/黑圈-24.png" alt="" aria-hidden width={80} height={80}
+                  style={{ width: activeNode==='sc05' ? 80 : 66, height:'auto', filter:'invert(1) sepia(0.8) saturate(4.0) hue-rotate(258deg) brightness(0.65)', opacity:0.9, transition:'width 0.2s' }} />
               </div>
             </div>
 
