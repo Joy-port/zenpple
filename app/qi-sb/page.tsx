@@ -117,25 +117,6 @@ export default function QiSbPage() {
           }}
         />
 
-        {/* Background bowl image */}
-        <Image
-          src="/qi-sb/bowl-white.png"
-          alt=""
-          aria-hidden
-          width={600}
-          height={600}
-          style={{
-            position: 'absolute',
-            right: '-60px',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            width: 'clamp(300px,42vw,600px)',
-            height: 'auto',
-            opacity: 0.10,
-            pointerEvents: 'none',
-          }}
-        />
-
         {/* Ghost text — two stacked lines */}
         <div
           aria-hidden
@@ -156,22 +137,50 @@ export default function QiSbPage() {
           SINGING<br />BOWL
         </div>
 
-        {/* Ripple rings */}
-        {[0, 1, 2].map(i => (
-          <div
-            key={i}
-            aria-hidden
+        {/* Bowl image + ripple rings — floated together on the right */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            right: '-40px',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            width: 'clamp(300px,42vw,600px)',
+            height: 'clamp(300px,42vw,600px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            animation: 'qi-float 8s ease-in-out infinite',
+            pointerEvents: 'none',
+          }}
+        >
+          {/* Ripple rings centred on bowl */}
+          {[0, 1, 2].map(i => (
+            <div
+              key={i}
+              style={{
+                position: 'absolute',
+                width: `${100 + i * 28}%`,
+                height: `${100 + i * 28}%`,
+                borderRadius: '50%',
+                border: '1px solid rgba(255,255,255,0.10)',
+                animation: `qi-ripple 4s ease-out ${i * 1.3}s infinite`,
+              }}
+            />
+          ))}
+          <Image
+            src="/qi-sb/bowl-white.png"
+            alt=""
+            width={600}
+            height={600}
             style={{
-              position: 'absolute',
-              width: 'clamp(200px,30vw,400px)',
-              height: 'clamp(200px,30vw,400px)',
-              borderRadius: '50%',
-              border: '1px solid rgba(255,255,255,0.12)',
-              animation: `qi-ripple 4s ease-out ${i * 1.3}s infinite`,
-              pointerEvents: 'none',
+              position: 'relative',
+              width: '100%',
+              height: 'auto',
+              opacity: 0.12,
             }}
           />
-        ))}
+        </div>
 
         {/* Hero content */}
         <div
