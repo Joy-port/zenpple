@@ -399,15 +399,15 @@ export default function ScPage() {
         {/* 書法圖 */}
         <Image src="/sc/black/力量動物-直.png" alt="" aria-hidden width={600} height={800}
           style={{ position:'absolute', right:'-3%', top:'50%', transform:'translateY(-50%)', height:'90vh', width:'auto',
-            filter:'sepia(0.4) hue-rotate(15deg) saturate(1.2) brightness(0.7)', mixBlendMode:'multiply', opacity:0.18, pointerEvents:'none' }} />
+            filter:'sepia(0.35) hue-rotate(15deg) saturate(1.1) brightness(0.82)', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none' }} />
         {/* 力量動物-橫 secondary layer */}
         <Image src="/sc/black/力量動物-橫.png" alt="" aria-hidden width={900} height={400}
           style={{ position:'absolute', bottom:'-5%', left:'-5%', width:'55%', height:'auto',
-            filter:'sepia(0.3) hue-rotate(15deg) saturate(1.0) brightness(0.75)', mixBlendMode:'multiply', opacity:0.08, pointerEvents:'none' }} />
+            filter:'sepia(0.2) hue-rotate(15deg) saturate(0.8) brightness(0.8)', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none', transform:'rotate(-8deg) scale(0.75)' }} />
         {/* 撇筆觸 decoration */}
         <Image src="/resource/single/材質-1-撇/材質-1-2.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', top:'8%', right:'38%', width:280, height:'auto',
-            filter:'sepia(0.3) hue-rotate(20deg) brightness(0.7)', mixBlendMode:'multiply', opacity:0.1, pointerEvents:'none', transform:'rotate(-15deg)' }} />
+            filter:'sepia(0.2) hue-rotate(20deg) brightness(0.8)', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'rotate(-15deg)' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
 
@@ -453,15 +453,15 @@ export default function ScPage() {
         {/* 書法圖 */}
         <Image src="/sc/black/指導靈.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', left:'-2%', top:'50%', transform:'translateY(-50%)', height:'85vh', width:'auto',
-            filter:'sepia(0.2) saturate(0.6) brightness(0.65)', mixBlendMode:'multiply', opacity:0.15, pointerEvents:'none' }} />
+            filter:'sepia(0.15) saturate(0.5) brightness(0.78)', mixBlendMode:'multiply', opacity:0.28, pointerEvents:'none' }} />
         {/* 薩滿巫 secondary */}
         <Image src="/sc/black/薩滿巫.png" alt="" aria-hidden width={500} height={600}
           style={{ position:'absolute', right:'5%', bottom:'-10%', width:'28%', height:'auto',
-            filter:'sepia(0.1) brightness(0.7)', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none' }} />
+            filter:'sepia(0.1) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(6deg) scale(0.8)' }} />
         {/* 圓圈 celestial orb */}
         <Image src="/resource/single/材質-4-圓圈/黑圈-3.png" alt="" aria-hidden width={300} height={300}
           style={{ position:'absolute', top:'12%', left:'42%', width:180, height:'auto',
-            filter:'sepia(0.1) brightness(0.6)', mixBlendMode:'multiply', opacity:0.07, pointerEvents:'none' }} />
+            filter:'sepia(0.1) brightness(0.7)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div style={{ order:2 }}>
 
@@ -507,14 +507,14 @@ export default function ScPage() {
         {/* 書法圖 */}
         <Image src="/sc/black/七脈輪情緒覺察.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', right:'-2%', top:'50%', transform:'translateY(-50%)', height:'88vh', width:'auto',
-            filter:'sepia(0.5) hue-rotate(340deg) saturate(1.2) brightness(0.65)', mixBlendMode:'multiply', opacity:0.16, pointerEvents:'none' }} />
+            filter:'sepia(0.4) hue-rotate(340deg) saturate(1.0) brightness(0.80)', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none' }} />
         {/* 波浪筆觸 = emotion flow */}
         <Image src="/resource/single/材質-5-波/材質-5-1.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', bottom:'15%', right:'30%', width:200, height:'auto',
-            filter:'sepia(0.4) hue-rotate(340deg) brightness(0.7)', mixBlendMode:'multiply', opacity:0.1, pointerEvents:'none', transform:'rotate(20deg)' }} />
+            filter:'sepia(0.3) hue-rotate(340deg) brightness(0.8)', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none', transform:'rotate(28deg) scale(0.7)' }} />
         <Image src="/resource/single/材質-5-波/材質-5-1_2.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', top:'10%', left:'42%', width:160, height:'auto',
-            filter:'sepia(0.3) hue-rotate(340deg) brightness(0.7)', mixBlendMode:'multiply', opacity:0.08, pointerEvents:'none', transform:'rotate(-10deg)' }} />
+            filter:'sepia(0.2) hue-rotate(340deg) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(-18deg) scale(0.7)' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
 
@@ -558,14 +558,14 @@ export default function ScPage() {
         {/* 書法圖 */}
         <Image src="/sc/black/高我.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', left:'-2%', top:'50%', transform:'translateY(-50%)', height:'85vh', width:'auto',
-            filter:'sepia(0.5) hue-rotate(38deg) saturate(1.3) brightness(0.65)', mixBlendMode:'multiply', opacity:0.16, pointerEvents:'none' }} />
+            filter:'sepia(0.4) hue-rotate(38deg) saturate(1.1) brightness(0.80)', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none' }} />
         {/* 圓圈 sacred circle */}
         <Image src="/resource/single/材質-4-圓圈/黑圈-7.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', top:'50%', right:'8%', transform:'translateY(-50%)', width:300, height:'auto',
-            filter:'sepia(0.5) hue-rotate(38deg) brightness(0.65)', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none' }} />
+            filter:'sepia(0.4) hue-rotate(38deg) brightness(0.75)', mixBlendMode:'multiply', opacity:0.03, pointerEvents:'none', transform:'rotate(-12deg) scale(0.75)' }} />
         <Image src="/resource/single/材質-4-圓圈/黑圈-12.png" alt="" aria-hidden width={200} height={200}
           style={{ position:'absolute', top:'10%', left:'44%', width:110, height:'auto',
-            filter:'sepia(0.4) hue-rotate(38deg) brightness(0.65)', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none' }} />
+            filter:'sepia(0.3) hue-rotate(38deg) brightness(0.75)', mixBlendMode:'multiply', opacity:0.03, pointerEvents:'none' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div style={{ order:2 }}>
 
@@ -612,18 +612,18 @@ export default function ScPage() {
         {/* 書法圖 */}
         <Image src="/sc/black/內在小孩.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', right:'-2%', top:'50%', transform:'translateY(-50%)', height:'88vh', width:'auto',
-            filter:'sepia(0.4) hue-rotate(270deg) saturate(1.3) brightness(0.65)', mixBlendMode:'multiply', opacity:0.16, pointerEvents:'none' }} />
+            filter:'sepia(0.35) hue-rotate(270deg) saturate(1.1) brightness(0.80)', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none' }} />
         {/* 內在小孩-拿心 secondary */}
         <Image src="/sc/black/內在小孩-拿心.png" alt="" aria-hidden width={400} height={500}
           style={{ position:'absolute', left:'5%', bottom:'-5%', width:'22%', height:'auto',
-            filter:'sepia(0.3) hue-rotate(270deg) brightness(0.7)', mixBlendMode:'multiply', opacity:0.07, pointerEvents:'none' }} />
+            filter:'sepia(0.2) hue-rotate(270deg) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(8deg) scale(0.8)' }} />
         {/* 粉點裝飾 */}
         <Image src="/resource/single/粉點-白/點-1(2).png" alt="" aria-hidden width={200} height={200}
           style={{ position:'absolute', top:'15%', right:'35%', width:120, height:'auto',
-            mixBlendMode:'multiply', opacity:0.15, pointerEvents:'none' }} />
+            mixBlendMode:'multiply', opacity:0.07, pointerEvents:'none' }} />
         <Image src="/resource/single/粉點-白/點-2(2).png" alt="" aria-hidden width={200} height={200}
           style={{ position:'absolute', bottom:'20%', left:'40%', width:90, height:'auto',
-            mixBlendMode:'multiply', opacity:0.12, pointerEvents:'none' }} />
+            mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none' }} />
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
 
