@@ -851,8 +851,8 @@ export default function ScPage() {
       <section style={{ minHeight:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(60px,8vh,100px) clamp(24px,8vw,120px)', background:'linear-gradient(155deg, #2B4A5E 0%, #355A6A 45%, #3A5060 100%)', position:'relative', overflow:'hidden', textAlign:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(94,142,138,0.22) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* Atmospheric bg calligraphy */}
-        <Image src="/sc/black/薩滿冥想-橫.png" alt="" aria-hidden width={900} height={300}
-          style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'100%', height:'100%', objectFit:'cover', filter:'invert(1) brightness(1.0)', mixBlendMode:'screen', opacity:0.07, pointerEvents:'none' }} />
+        <Image src="/sc/black/方形薩滿冥想.png" alt="" aria-hidden width={900} height={900}
+          style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'100%', height:'100%', objectFit:'cover', filter:'invert(1) brightness(1.0)', mixBlendMode:'screen', opacity:0.12, pointerEvents:'none' }} />
         <div style={{ position:'relative', zIndex:2 }}>
           <p style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.32em', color:'rgba(180,215,220,0.55)', marginBottom:28, textTransform:'uppercase' }}>
             BEGIN YOUR JOURNEY
