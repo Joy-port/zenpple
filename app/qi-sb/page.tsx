@@ -311,16 +311,50 @@ export default function QiSbPage() {
           為什麼頌缽可以放鬆腦波
         </h2>
 
-        {/* Bowl image — dominant, centered */}
-        <div style={{ position: 'relative', zIndex: 2 }}>
+        {/* Sound wave image — full-width atmospheric bg */}
+        <div aria-hidden style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', zIndex: 1 }}>
+          <Image
+            src="/hl/頌缽波動-白.png"
+            alt=""
+            width={1200}
+            height={600}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              opacity: 0.06,
+              mixBlendMode: 'screen',
+            }}
+          />
+        </div>
+
+        {/* Bowl image — dominant, centered — bowl-white behind, 頌缽 in front */}
+        <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          {/* Large white bowl behind */}
+          <Image
+            src="/qi-sb/bowl-white.png"
+            alt=""
+            aria-hidden
+            width={700}
+            height={700}
+            style={{
+              position: 'absolute',
+              width: 'clamp(300px,52vw,620px)',
+              height: 'auto',
+              opacity: 0.07,
+            }}
+          />
+          {/* Main bowl — lighter opacity */}
           <Image
             src="/qi-sb/頌缽.png"
             alt="頌缽"
             width={600}
             height={600}
             style={{
+              position: 'relative',
               width: 'clamp(220px,38vw,460px)',
               height: 'auto',
+              opacity: 0.80,
               filter: 'drop-shadow(0 0 40px rgba(58,125,142,0.42)) drop-shadow(0 0 90px rgba(58,125,142,0.18))',
             }}
           />
