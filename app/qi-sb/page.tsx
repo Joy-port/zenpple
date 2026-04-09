@@ -173,29 +173,6 @@ export default function QiSbPage() {
           />
         ))}
 
-        {/* Floating bowl ripple SVG */}
-        <div
-          aria-hidden
-          style={{
-            position: 'absolute',
-            right: '8%',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            opacity: 0.18,
-            animation: 'qi-float 8s ease-in-out infinite',
-            pointerEvents: 'none',
-          }}
-        >
-          <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
-            <circle cx="140" cy="140" r="130" stroke="rgba(255,255,255,0.6)" strokeWidth="1"/>
-            <circle cx="140" cy="140" r="100" stroke="rgba(255,255,255,0.4)" strokeWidth="0.8"/>
-            <circle cx="140" cy="140" r="70" stroke="rgba(255,255,255,0.3)" strokeWidth="0.6"/>
-            <circle cx="140" cy="140" r="40" stroke="rgba(255,255,255,0.25)" strokeWidth="0.5"/>
-            <ellipse cx="140" cy="155" rx="55" ry="20" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2" fill="none"/>
-            <path d="M85 155 Q140 135 195 155" stroke="rgba(255,255,255,0.4)" strokeWidth="1" fill="none"/>
-          </svg>
-        </div>
-
         {/* Hero content */}
         <div
           style={{
