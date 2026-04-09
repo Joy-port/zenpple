@@ -59,28 +59,28 @@ const brainwaves = [
     label: 'β Beta · 日常清醒',
     hz: '13–30 Hz',
     desc: '緊繃、思緒快速流動的日常狀態。頌缽開始之前，多數人在這裡。',
-    color: '#8A9EAA',
+    color: '#7AAEB8',
     strokeWidth: 2.2,
     points: '0,18 12,8 18,26 24,6 30,28 36,10 42,24 48,4 54,30 60,8 66,22 72,4 78,28 84,10 90,20 96,6 102,26 108,4 114,28 120,8 126,22 132,4 138,30 144,10 150,22 156,6 162,26 168,8 174,24 180,10 186,28 192,6 198,22 204,8 210,26 216,6 222,24 228,10 234,22 240,6 246,28 252,12 260,18',
-    bg: 'rgba(74,107,138,0.06)',
+    bg: 'rgba(58,125,142,0.06)',
   },
   {
     label: 'α Alpha · 放鬆專注',
     hz: '8–12 Hz',
     desc: '心智清明、身體放鬆。頌缽聲中，這是最常出現的狀態轉換入口。',
-    color: '#4A6B8A',
+    color: '#3A7D8E',
     strokeWidth: 2.6,
     points: '0,18 18,6 36,30 54,6 72,28 90,8 108,26 126,6 144,28 162,8 180,28 198,8 216,28 234,8 252,24 260,18',
-    bg: 'rgba(74,107,138,0.12)',
+    bg: 'rgba(58,125,142,0.12)',
   },
   {
     label: 'θ Theta · 深層冥想',
     hz: '4–7 Hz',
     desc: '內在意象浮現，無意識智慧可及。薩滿旅程與靈性洞察在此層發生。',
-    color: '#2E4A63',
+    color: '#25525F',
     strokeWidth: 3.0,
     points: '0,18 30,4 60,32 90,4 120,30 150,6 180,28 210,4 240,28 260,18',
-    bg: 'rgba(74,107,138,0.2)',
+    bg: 'rgba(58,125,142,0.2)',
   },
 ]
 
@@ -99,7 +99,7 @@ export default function QiSbPage() {
           alignItems: 'center',
           justifyContent: 'center',
           overflow: 'hidden',
-          background: 'linear-gradient(150deg, #1e3248 0%, #2E4A63 35%, #4A6B8A 65%, #3a5875 100%)',
+          background: 'linear-gradient(150deg, #1A3C48 0%, #25525F 35%, #3A7D8E 65%, #2D6070 100%)',
         }}
       >
         {/* Watercolor wash overlays */}
@@ -110,8 +110,8 @@ export default function QiSbPage() {
             inset: 0,
             background:
               'radial-gradient(ellipse 80% 60% at 20% 30%, rgba(255,255,255,0.07) 0%, transparent 60%),' +
-              'radial-gradient(ellipse 50% 70% at 75% 70%, rgba(20,40,65,0.4) 0%, transparent 65%),' +
-              'radial-gradient(ellipse 40% 40% at 50% 50%, rgba(74,107,138,0.18) 0%, transparent 70%)',
+              'radial-gradient(ellipse 50% 70% at 75% 70%, rgba(20,58,68,0.4) 0%, transparent 65%),' +
+              'radial-gradient(ellipse 40% 40% at 50% 50%, rgba(58,125,142,0.18) 0%, transparent 70%)',
             pointerEvents: 'none',
           }}
         />
@@ -285,7 +285,7 @@ export default function QiSbPage() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        style={{ display: 'block', width: '100%', marginTop: -2, background: '#2E4A63' }}
+        style={{ display: 'block', width: '100%', marginTop: -2, background: '#25525F' }}
       >
         <path
           d="M0,60 C180,20 360,55 540,30 C720,5 900,50 1080,25 C1260,0 1380,40 1440,30 L1440,0 L0,0 Z"
@@ -305,7 +305,7 @@ export default function QiSbPage() {
             fontFamily: 'var(--f-display)',
             fontWeight: 100,
             fontSize: 200,
-            color: 'rgba(74,107,138,0.04)',
+            color: 'rgba(58,125,142,0.04)',
             letterSpacing: '-0.02em',
             pointerEvents: 'none',
             lineHeight: 1,
@@ -321,7 +321,7 @@ export default function QiSbPage() {
             className="tr-d2"
             style={{
               fontSize: 'clamp(26px,3.5vw,38px)',
-              color: '#2E4A63',
+              color: '#25525F',
               lineHeight: 1.3,
               marginBottom: 12,
             }}
@@ -417,7 +417,7 @@ export default function QiSbPage() {
                       fontFamily: 'var(--f-mono)',
                       fontSize: 10,
                       letterSpacing: '0.15em',
-                      color: '#4A6B8A',
+                      color: '#3A7D8E',
                       marginBottom: 6,
                     }}
                   >
@@ -427,7 +427,7 @@ export default function QiSbPage() {
                     className="tr-h1"
                     style={{
                       fontSize: 15,
-                      color: '#2E4A63',
+                      color: '#25525F',
                       marginBottom: 6,
                     }}
                   >
@@ -460,20 +460,20 @@ export default function QiSbPage() {
               {/* Bowl ripple illustration */}
               <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
                 <svg width="200" height="200" viewBox="0 0 200 200" fill="none" opacity={0.7}>
-                  <circle cx="100" cy="100" r="90" stroke="#4A6B8A" strokeWidth="1.2" strokeDasharray="4 3"/>
-                  <circle cx="100" cy="100" r="68" stroke="#4A6B8A" strokeWidth="1" strokeDasharray="3 4"/>
-                  <circle cx="100" cy="100" r="46" stroke="#2E4A63" strokeWidth="1.4"/>
-                  <circle cx="100" cy="100" r="24" stroke="#2E4A63" strokeWidth="1.8" fill="rgba(74,107,138,0.06)"/>
-                  <ellipse cx="100" cy="118" rx="42" ry="14" stroke="#4A6B8A" strokeWidth="1.2" fill="none"/>
-                  <path d="M58 118 Q100 102 142 118" stroke="#4A6B8A" strokeWidth="1" fill="none" opacity={0.6}/>
-                  <path d="M70 112 Q100 100 130 112" stroke="#2E4A63" strokeWidth="0.8" fill="none" opacity={0.5}/>
+                  <circle cx="100" cy="100" r="90" stroke="#3A7D8E" strokeWidth="1.2" strokeDasharray="4 3"/>
+                  <circle cx="100" cy="100" r="68" stroke="#3A7D8E" strokeWidth="1" strokeDasharray="3 4"/>
+                  <circle cx="100" cy="100" r="46" stroke="#25525F" strokeWidth="1.4"/>
+                  <circle cx="100" cy="100" r="24" stroke="#25525F" strokeWidth="1.8" fill="rgba(58,125,142,0.06)"/>
+                  <ellipse cx="100" cy="118" rx="42" ry="14" stroke="#3A7D8E" strokeWidth="1.2" fill="none"/>
+                  <path d="M58 118 Q100 102 142 118" stroke="#3A7D8E" strokeWidth="1" fill="none" opacity={0.6}/>
+                  <path d="M70 112 Q100 100 130 112" stroke="#25525F" strokeWidth="0.8" fill="none" opacity={0.5}/>
                 </svg>
               </div>
 
               {/* Why different block */}
               <div
                 style={{
-                  background: 'linear-gradient(135deg, #2E4A63 0%, #4A6B8A 100%)',
+                  background: 'linear-gradient(135deg, #25525F 0%, #3A7D8E 100%)',
                   borderRadius: 4,
                   padding: '32px 36px',
                   position: 'relative',
@@ -559,9 +559,9 @@ export default function QiSbPage() {
             width: 380,
             height: 380,
             borderRadius: '50%',
-            border: '1px solid rgba(74,107,138,0.08)',
+            border: '1px solid rgba(58,125,142,0.08)',
             boxShadow:
-              '0 0 0 40px rgba(74,107,138,0.04), 0 0 0 80px rgba(74,107,138,0.025), 0 0 0 120px rgba(74,107,138,0.015)',
+              '0 0 0 40px rgba(58,125,142,0.04), 0 0 0 80px rgba(58,125,142,0.025), 0 0 0 120px rgba(58,125,142,0.015)',
             pointerEvents: 'none',
           }}
         />
@@ -572,7 +572,7 @@ export default function QiSbPage() {
             className="tr-d2"
             style={{
               fontSize: 'clamp(26px,3.5vw,38px)',
-              color: '#2E4A63',
+              color: '#25525F',
               lineHeight: 1.3,
               marginBottom: 12,
             }}
@@ -603,8 +603,8 @@ export default function QiSbPage() {
                 <div
                   key={c.id}
                   style={{
-                    borderTop: '1px solid rgba(74,107,138,0.18)',
-                    ...(c.id === courses.length ? { borderBottom: '1px solid rgba(74,107,138,0.18)' } : {}),
+                    borderTop: '1px solid rgba(58,125,142,0.18)',
+                    ...(c.id === courses.length ? { borderBottom: '1px solid rgba(58,125,142,0.18)' } : {}),
                     overflow: 'hidden',
                   }}
                 >
@@ -627,7 +627,7 @@ export default function QiSbPage() {
                         fontFamily: 'var(--f-mono)',
                         fontSize: 11,
                         letterSpacing: '0.2em',
-                        color: isOpen ? '#4A6B8A' : 'var(--muted)',
+                        color: isOpen ? '#3A7D8E' : 'var(--muted)',
                         width: 40,
                         flexShrink: 0,
                         transition: 'color .3s',
@@ -640,7 +640,7 @@ export default function QiSbPage() {
                         className="tr-h1"
                         style={{
                           fontSize: 18,
-                          color: '#2E4A63',
+                          color: '#25525F',
                         }}
                       >
                         {c.name}
@@ -679,13 +679,13 @@ export default function QiSbPage() {
                         width: 28,
                         height: 28,
                         borderRadius: '50%',
-                        border: '1px solid rgba(74,107,138,0.3)',
+                        border: '1px solid rgba(58,125,142,0.3)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         flexShrink: 0,
-                        color: isOpen ? '#fff' : '#4A6B8A',
-                        background: isOpen ? '#4A6B8A' : 'transparent',
+                        color: isOpen ? '#fff' : '#3A7D8E',
+                        background: isOpen ? '#3A7D8E' : 'transparent',
                         fontSize: 18,
                         lineHeight: 1,
                         transform: isOpen ? 'rotate(45deg)' : 'none',
@@ -707,7 +707,7 @@ export default function QiSbPage() {
                     <div
                       style={{
                         padding: '0 0 40px 56px',
-                        borderTop: '1px solid rgba(74,107,138,0.1)',
+                        borderTop: '1px solid rgba(58,125,142,0.1)',
                         paddingTop: 24,
                       }}
                     >
@@ -723,8 +723,8 @@ export default function QiSbPage() {
                               fontSize: 10,
                               letterSpacing: '0.12em',
                               padding: '5px 12px',
-                              border: '1px solid rgba(74,107,138,0.3)',
-                              color: '#4A6B8A',
+                              border: '1px solid rgba(58,125,142,0.3)',
+                              color: '#3A7D8E',
                               borderRadius: 1,
                             }}
                           >
@@ -738,7 +738,7 @@ export default function QiSbPage() {
                             fontFamily: 'var(--f-mono)',
                             fontSize: 15,
                             fontWeight: 700,
-                            color: '#2E4A63',
+                            color: '#25525F',
                             letterSpacing: '0.06em',
                           }}
                         >
@@ -761,9 +761,9 @@ export default function QiSbPage() {
                             fontSize: 10,
                             letterSpacing: '0.15em',
                             textTransform: 'uppercase',
-                            color: '#4A6B8A',
+                            color: '#3A7D8E',
                             textDecoration: 'none',
-                            border: '1px solid rgba(74,107,138,0.4)',
+                            border: '1px solid rgba(58,125,142,0.4)',
                             borderRadius: 999,
                             padding: '7px 16px',
                             marginLeft: 'auto',
@@ -778,7 +778,7 @@ export default function QiSbPage() {
               )
             })}
             {/* last border */}
-            <div style={{ borderTop: '1px solid rgba(74,107,138,0.18)' }} />
+            <div style={{ borderTop: '1px solid rgba(58,125,142,0.18)' }} />
           </div>
         </div>
       </section>
@@ -793,14 +793,14 @@ export default function QiSbPage() {
       >
         <path
           d="M0,0 C180,55 360,5 540,40 C720,75 900,10 1080,42 C1260,68 1380,20 1440,38 L1440,60 L0,60 Z"
-          fill="#2E4A63"
+          fill="#25525F"
         />
       </svg>
 
       {/* ── FAQ ── */}
       <section
         style={{
-          background: '#2E4A63',
+          background: '#25525F',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -939,7 +939,7 @@ export default function QiSbPage() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        style={{ display: 'block', width: '100%', marginTop: -2, background: '#2E4A63' }}
+        style={{ display: 'block', width: '100%', marginTop: -2, background: '#25525F' }}
       >
         <path
           d="M0,0 C360,55 720,10 1080,48 C1260,62 1380,22 1440,40 L1440,60 L0,60 Z"
@@ -967,7 +967,7 @@ export default function QiSbPage() {
             fontFamily: 'var(--f-display)',
             fontWeight: 100,
             fontSize: 220,
-            color: 'rgba(74,107,138,0.04)',
+            color: 'rgba(58,125,142,0.04)',
             lineHeight: 1,
             pointerEvents: 'none',
             userSelect: 'none',
@@ -982,7 +982,7 @@ export default function QiSbPage() {
             className="tr-d2"
             style={{
               fontSize: 'clamp(26px,4vw,44px)',
-              color: '#2E4A63',
+              color: '#25525F',
               marginBottom: 16,
             }}
           >
@@ -1012,7 +1012,7 @@ export default function QiSbPage() {
               textTransform: 'uppercase',
               color: '#fff',
               textDecoration: 'none',
-              background: '#4A6B8A',
+              background: '#3A7D8E',
               borderRadius: 999,
               padding: '14px 36px',
               transition: 'background 0.2s',
