@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 // ── Course data ───────────────────────────────────────────────────────────────
@@ -279,7 +280,147 @@ export default function QiSbPage() {
         </div>
       </section>
 
-      {/* ── WAVE 1: dark → base ── */}
+
+      {/* ── 為什麼頌缽可以放鬆腦波 ── */}
+      <section
+        style={{
+          background: 'linear-gradient(180deg, #1A3C48 0%, #25525F 100%)',
+          position: 'relative',
+          overflow: 'hidden',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: 'clamp(60px,8vh,100px) clamp(24px,5vw,72px)',
+          textAlign: 'center',
+        }}
+      >
+        {/* Radial glow behind bowl */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'radial-gradient(ellipse 55% 55% at 50% 52%, rgba(58,125,142,0.30) 0%, rgba(58,125,142,0.08) 55%, transparent 80%)',
+            pointerEvents: 'none',
+          }}
+        />
+
+        {/* Animated ripple rings */}
+        {[0, 1, 2, 3].map(i => (
+          <div
+            key={i}
+            aria-hidden
+            style={{
+              position: 'absolute',
+              width: `clamp(${200 + i * 90}px, ${22 + i * 9}vw, ${420 + i * 120}px)`,
+              height: `clamp(${200 + i * 90}px, ${22 + i * 9}vw, ${420 + i * 120}px)`,
+              borderRadius: '50%',
+              border: `1px solid rgba(58,125,142,${(0.16 - i * 0.03).toFixed(2)})`,
+              animation: `qi-ripple 5s ease-out ${i * 1.2}s infinite`,
+              pointerEvents: 'none',
+            } as React.CSSProperties}
+          />
+        ))}
+
+        {/* Section label */}
+        <p
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            fontFamily: 'var(--f-mono)',
+            fontSize: 10,
+            letterSpacing: '0.32em',
+            color: 'rgba(255,255,255,0.25)',
+            textTransform: 'uppercase',
+            marginBottom: 36,
+          }}
+        >
+          01 · WHY SINGING BOWL
+        </p>
+
+        {/* Title */}
+        <h2
+          className="tr-d2"
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            fontSize: 'clamp(20px,2.8vw,34px)',
+            color: 'rgba(255,255,255,0.82)',
+            letterSpacing: '0.05em',
+            lineHeight: 1.35,
+            marginBottom: 52,
+          }}
+        >
+          為什麼頌缽可以放鬆腦波
+        </h2>
+
+        {/* Bowl image — dominant, centered */}
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <Image
+            src="/qi-sb/頌缽.png"
+            alt="頌缽"
+            width={600}
+            height={600}
+            style={{
+              width: 'clamp(220px,38vw,460px)',
+              height: 'auto',
+              filter: 'drop-shadow(0 0 40px rgba(58,125,142,0.42)) drop-shadow(0 0 90px rgba(58,125,142,0.18))',
+            }}
+          />
+        </div>
+
+        {/* Brainwave journey — minimal, atmospheric */}
+        <div
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            marginTop: 52,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'clamp(16px,3.5vw,44px)',
+          }}
+        >
+          {([
+            { wave: 'β', state: '清醒緊繃', hz: '13–30 Hz' },
+            { wave: '→', state: '', hz: '' },
+            { wave: 'α', state: '放鬆專注', hz: '8–12 Hz' },
+            { wave: '→', state: '', hz: '' },
+            { wave: 'θ', state: '深層冥想', hz: '4–7 Hz' },
+          ] as const).map((item, i) =>
+            item.wave === '→' ? (
+              <span key={i} style={{ color: 'rgba(58,125,142,0.45)', fontSize: 20, fontFamily: 'var(--f-display)', lineHeight: 1 }}>→</span>
+            ) : (
+              <div key={i} style={{ textAlign: 'center' }}>
+                <p style={{ fontFamily: 'var(--f-display)', fontWeight: 100, fontSize: 'clamp(22px,2.8vw,36px)', color: 'rgba(255,255,255,0.68)', lineHeight: 1, marginBottom: 8 }}>{item.wave}</p>
+                <p style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.32)', marginBottom: 4 }}>{item.hz}</p>
+                <p style={{ fontFamily: 'var(--f-zh)', fontSize: 12, color: 'rgba(255,255,255,0.38)', letterSpacing: '0.08em' }}>{item.state}</p>
+              </div>
+            )
+          )}
+        </div>
+
+        {/* Bottom caption */}
+        <p
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            fontFamily: 'var(--f-display)',
+            fontWeight: 100,
+            fontSize: 11,
+            letterSpacing: '0.25em',
+            color: 'rgba(255,255,255,0.25)',
+            textTransform: 'uppercase',
+            marginTop: 36,
+          }}
+        >
+          聲波共振 · 腦波同步 · 神經系統自然修復
+        </p>
+      </section>
+
+      {/* ── WAVE: dark → cream ── */}
       <svg
         viewBox="0 0 1440 60"
         fill="none"
@@ -288,257 +429,7 @@ export default function QiSbPage() {
         style={{ display: 'block', width: '100%', marginTop: -2, background: '#25525F' }}
       >
         <path
-          d="M0,60 C180,20 360,55 540,30 C720,5 900,50 1080,25 C1260,0 1380,40 1440,30 L1440,0 L0,0 Z"
-          fill="#F2EFEA"
-        />
-      </svg>
-
-      {/* ── WHAT IS 頌缽音流 ── */}
-      <section style={{ background: 'var(--base)', position: 'relative', overflow: 'hidden' }}>
-        {/* ghost "sound" watermark */}
-        <div
-          aria-hidden
-          style={{
-            position: 'absolute',
-            left: '-20px',
-            top: '40px',
-            fontFamily: 'var(--f-display)',
-            fontWeight: 100,
-            fontSize: 200,
-            color: 'rgba(58,125,142,0.04)',
-            letterSpacing: '-0.02em',
-            pointerEvents: 'none',
-            lineHeight: 1,
-            userSelect: 'none',
-          }}
-        >
-          sound
-        </div>
-
-        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
-          <p className="sec-label">01 · WHAT IS IT</p>
-          <h2
-            className="tr-d2"
-            style={{
-              fontSize: 'clamp(26px,3.5vw,38px)',
-              color: '#25525F',
-              lineHeight: 1.3,
-              marginBottom: 12,
-            }}
-          >
-            什麼是靈性頌缽音流
-          </h2>
-          <p
-            style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
-              fontSize: 13,
-              letterSpacing: '0.3em',
-              color: 'var(--muted)',
-              textTransform: 'uppercase',
-              marginBottom: 48,
-            }}
-          >
-            Singing Bowl Sound Flow
-          </p>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: 'clamp(40px,6vw,80px)',
-              alignItems: 'start',
-            }}
-          >
-            {/* Left: text + brainwave cards */}
-            <div>
-              <p
-                style={{
-                  fontSize: 15,
-                  lineHeight: 1.85,
-                  color: 'var(--muted)',
-                  marginBottom: 36,
-                  maxWidth: 520,
-                }}
-              >
-                頌缽發出的泛音頻率，能同步引導腦波從 β 波（清醒緊張）過渡到 α 波（放鬆專注）乃至 θ
-                波（深層冥想），讓神經系統進入自然的修復狀態。這不是催眠，而是聲音的物理共振在身體層面發生作用。
-              </p>
-
-              {/* Brainwave section label */}
-              <p
-                style={{
-                  fontFamily: 'var(--f-mono)',
-                  fontSize: 10,
-                  letterSpacing: '0.18em',
-                  color: 'var(--muted)',
-                  marginBottom: 20,
-                }}
-              >
-                · 腦波調頻原理 ·
-              </p>
-
-              {/* SVG roughness filter — defined once */}
-              <svg width="0" height="0" style={{ position: 'absolute' }}>
-                <defs>
-                  <filter id="bw-rough">
-                    <feTurbulence
-                      type="fractalNoise"
-                      baseFrequency="0.04 0.08"
-                      numOctaves="3"
-                      seed="2"
-                      result="noise"
-                    />
-                    <feDisplacementMap
-                      in="SourceGraphic"
-                      in2="noise"
-                      scale="1.8"
-                      xChannelSelector="R"
-                      yChannelSelector="G"
-                    />
-                  </filter>
-                </defs>
-              </svg>
-
-              {brainwaves.map(bw => (
-                <div
-                  key={bw.label}
-                  style={{
-                    background: bw.bg,
-                    borderRadius: 2,
-                    padding: '20px 24px',
-                    marginBottom: 12,
-                    position: 'relative',
-                    overflow: 'hidden',
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily: 'var(--f-mono)',
-                      fontSize: 10,
-                      letterSpacing: '0.15em',
-                      color: '#3A7D8E',
-                      marginBottom: 6,
-                    }}
-                  >
-                    {bw.label}
-                  </p>
-                  <p
-                    className="tr-h1"
-                    style={{
-                      fontSize: 15,
-                      color: '#25525F',
-                      marginBottom: 6,
-                    }}
-                  >
-                    {bw.hz}
-                  </p>
-                  <svg
-                    viewBox="0 0 260 36"
-                    width="100%"
-                    height="32"
-                    style={{ display: 'block', margin: '8px 0 10px' }}
-                    preserveAspectRatio="none"
-                  >
-                    <polyline
-                      filter="url(#bw-rough)"
-                      points={bw.points}
-                      fill="none"
-                      stroke={bw.color}
-                      strokeWidth={bw.strokeWidth}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.7 }}>{bw.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Right: why different */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-              {/* Bowl ripple illustration */}
-              <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
-                <svg width="200" height="200" viewBox="0 0 200 200" fill="none" opacity={0.7}>
-                  <circle cx="100" cy="100" r="90" stroke="#3A7D8E" strokeWidth="1.2" strokeDasharray="4 3"/>
-                  <circle cx="100" cy="100" r="68" stroke="#3A7D8E" strokeWidth="1" strokeDasharray="3 4"/>
-                  <circle cx="100" cy="100" r="46" stroke="#25525F" strokeWidth="1.4"/>
-                  <circle cx="100" cy="100" r="24" stroke="#25525F" strokeWidth="1.8" fill="rgba(58,125,142,0.06)"/>
-                  <ellipse cx="100" cy="118" rx="42" ry="14" stroke="#3A7D8E" strokeWidth="1.2" fill="none"/>
-                  <path d="M58 118 Q100 102 142 118" stroke="#3A7D8E" strokeWidth="1" fill="none" opacity={0.6}/>
-                  <path d="M70 112 Q100 100 130 112" stroke="#25525F" strokeWidth="0.8" fill="none" opacity={0.5}/>
-                </svg>
-              </div>
-
-              {/* Why different block */}
-              <div
-                style={{
-                  background: 'linear-gradient(135deg, #25525F 0%, #3A7D8E 100%)',
-                  borderRadius: 4,
-                  padding: '32px 36px',
-                  position: 'relative',
-                  overflow: 'hidden',
-                }}
-              >
-                <div
-                  aria-hidden
-                  style={{
-                    position: 'absolute',
-                    right: -40,
-                    top: -40,
-                    width: 180,
-                    height: 180,
-                    borderRadius: '50%',
-                    background: 'rgba(255,255,255,0.04)',
-                    pointerEvents: 'none',
-                  }}
-                />
-                <p
-                  style={{
-                    fontFamily: 'var(--f-mono)',
-                    fontSize: 10,
-                    letterSpacing: '0.2em',
-                    color: 'rgba(255,255,255,0.4)',
-                    marginBottom: 10,
-                  }}
-                >
-                  · 為什麼森波的頌缽不一樣 ·
-                </p>
-                <h3
-                  className="tr-h1"
-                  style={{
-                    fontSize: 20,
-                    color: '#fff',
-                    marginBottom: 16,
-                  }}
-                >
-                  聲音 × 薩滿 × 通靈解析
-                </h3>
-                <p
-                  style={{
-                    fontSize: 14,
-                    color: 'rgba(255,255,255,0.72)',
-                    lineHeight: 1.85,
-                  }}
-                >
-                  大多數的頌缽課程停在聲音的放鬆層面。森波的頌缽音流，同時結合薩滿意識旅程與通靈解析——禿禿在缽聲之中接收個案的能量訊息，引導每次體驗不只是「被聲音泡著」，而是有意識地鬆動特定能量阻塞，並帶回可落地的洞見。
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── WAVE 2: base → cream ── */}
-      <svg
-        viewBox="0 0 1440 60"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
-        style={{ display: 'block', width: '100%', marginTop: -2, background: 'var(--base)' }}
-      >
-        <path
-          d="M0,0 C240,55 480,5 720,40 C960,75 1200,10 1440,45 L1440,60 L0,60 Z"
+          d="M0,0 C180,55 360,5 540,40 C720,75 900,10 1080,42 C1260,68 1380,20 1440,38 L1440,60 L0,60 Z"
           fill="var(--cream)"
         />
       </svg>
@@ -783,7 +674,8 @@ export default function QiSbPage() {
         </div>
       </section>
 
-      {/* ── WAVE 3: cream → indigo-dark ── */}
+
+      {/* ── WAVE: cream → base ── */}
       <svg
         viewBox="0 0 1440 60"
         fill="none"
@@ -792,10 +684,365 @@ export default function QiSbPage() {
         style={{ display: 'block', width: '100%', marginTop: -2, background: 'var(--cream)' }}
       >
         <path
+          d="M0,0 C240,55 480,5 720,40 C960,75 1200,10 1440,45 L1440,60 L0,60 Z"
+          fill="var(--base)"
+        />
+      </svg>
+
+      {/* ── WHAT IS 頌缽音流 ── */}
+      <section style={{ background: 'var(--base)', position: 'relative', overflow: 'hidden' }}>
+        {/* ghost "sound" watermark */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            left: '-20px',
+            top: '40px',
+            fontFamily: 'var(--f-display)',
+            fontWeight: 100,
+            fontSize: 200,
+            color: 'rgba(58,125,142,0.04)',
+            letterSpacing: '-0.02em',
+            pointerEvents: 'none',
+            lineHeight: 1,
+            userSelect: 'none',
+          }}
+        >
+          sound
+        </div>
+
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
+          <p className="sec-label">03 · WHAT IS IT</p>
+          <h2
+            className="tr-d2"
+            style={{
+              fontSize: 'clamp(26px,3.5vw,38px)',
+              color: '#25525F',
+              lineHeight: 1.3,
+              marginBottom: 12,
+            }}
+          >
+            什麼是靈性頌缽音流
+          </h2>
+          <p
+            style={{
+              fontFamily: 'var(--f-display)',
+              fontWeight: 100,
+              fontSize: 13,
+              letterSpacing: '0.3em',
+              color: 'var(--muted)',
+              textTransform: 'uppercase',
+              marginBottom: 48,
+            }}
+          >
+            Singing Bowl Sound Flow
+          </p>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 'clamp(40px,6vw,80px)',
+              alignItems: 'start',
+            }}
+          >
+            {/* Left: text + brainwave cards */}
+            <div>
+              <p
+                style={{
+                  fontSize: 15,
+                  lineHeight: 1.85,
+                  color: 'var(--muted)',
+                  marginBottom: 36,
+                  maxWidth: 520,
+                }}
+              >
+                頌缽發出的泛音頻率，能同步引導腦波從 β 波（清醒緊張）過渡到 α 波（放鬆專注）乃至 θ
+                波（深層冥想），讓神經系統進入自然的修復狀態。這不是催眠，而是聲音的物理共振在身體層面發生作用。
+              </p>
+
+              {/* Brainwave section label */}
+              <p
+                style={{
+                  fontFamily: 'var(--f-mono)',
+                  fontSize: 10,
+                  letterSpacing: '0.18em',
+                  color: 'var(--muted)',
+                  marginBottom: 20,
+                }}
+              >
+                · 腦波調頻原理 ·
+              </p>
+
+              {/* SVG roughness filter — defined once */}
+              <svg width="0" height="0" style={{ position: 'absolute' }}>
+                <defs>
+                  <filter id="bw-rough">
+                    <feTurbulence
+                      type="fractalNoise"
+                      baseFrequency="0.04 0.08"
+                      numOctaves="3"
+                      seed="2"
+                      result="noise"
+                    />
+                    <feDisplacementMap
+                      in="SourceGraphic"
+                      in2="noise"
+                      scale="1.8"
+                      xChannelSelector="R"
+                      yChannelSelector="G"
+                    />
+                  </filter>
+                </defs>
+              </svg>
+
+              {brainwaves.map(bw => (
+                <div
+                  key={bw.label}
+                  style={{
+                    background: bw.bg,
+                    borderRadius: 2,
+                    padding: '20px 24px',
+                    marginBottom: 12,
+                    position: 'relative',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: 'var(--f-mono)',
+                      fontSize: 10,
+                      letterSpacing: '0.15em',
+                      color: '#3A7D8E',
+                      marginBottom: 6,
+                    }}
+                  >
+                    {bw.label}
+                  </p>
+                  <p
+                    className="tr-h1"
+                    style={{
+                      fontSize: 15,
+                      color: '#25525F',
+                      marginBottom: 6,
+                    }}
+                  >
+                    {bw.hz}
+                  </p>
+                  <svg
+                    viewBox="0 0 260 36"
+                    width="100%"
+                    height="32"
+                    style={{ display: 'block', margin: '8px 0 10px' }}
+                    preserveAspectRatio="none"
+                  >
+                    <polyline
+                      filter="url(#bw-rough)"
+                      points={bw.points}
+                      fill="none"
+                      stroke={bw.color}
+                      strokeWidth={bw.strokeWidth}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.7 }}>{bw.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Right: why different */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              {/* Bowl ripple illustration */}
+              <div style={{ display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
+                <svg width="200" height="200" viewBox="0 0 200 200" fill="none" opacity={0.7}>
+                  <circle cx="100" cy="100" r="90" stroke="#3A7D8E" strokeWidth="1.2" strokeDasharray="4 3"/>
+                  <circle cx="100" cy="100" r="68" stroke="#3A7D8E" strokeWidth="1" strokeDasharray="3 4"/>
+                  <circle cx="100" cy="100" r="46" stroke="#25525F" strokeWidth="1.4"/>
+                  <circle cx="100" cy="100" r="24" stroke="#25525F" strokeWidth="1.8" fill="rgba(58,125,142,0.06)"/>
+                  <ellipse cx="100" cy="118" rx="42" ry="14" stroke="#3A7D8E" strokeWidth="1.2" fill="none"/>
+                  <path d="M58 118 Q100 102 142 118" stroke="#3A7D8E" strokeWidth="1" fill="none" opacity={0.6}/>
+                  <path d="M70 112 Q100 100 130 112" stroke="#25525F" strokeWidth="0.8" fill="none" opacity={0.5}/>
+                </svg>
+              </div>
+
+              {/* Why different block */}
+              <div
+                style={{
+                  background: 'linear-gradient(135deg, #25525F 0%, #3A7D8E 100%)',
+                  borderRadius: 4,
+                  padding: '32px 36px',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                <div
+                  aria-hidden
+                  style={{
+                    position: 'absolute',
+                    right: -40,
+                    top: -40,
+                    width: 180,
+                    height: 180,
+                    borderRadius: '50%',
+                    background: 'rgba(255,255,255,0.04)',
+                    pointerEvents: 'none',
+                  }}
+                />
+                <p
+                  style={{
+                    fontFamily: 'var(--f-mono)',
+                    fontSize: 10,
+                    letterSpacing: '0.2em',
+                    color: 'rgba(255,255,255,0.4)',
+                    marginBottom: 10,
+                  }}
+                >
+                  · 為什麼森波的頌缽不一樣 ·
+                </p>
+                <h3
+                  className="tr-h1"
+                  style={{
+                    fontSize: 20,
+                    color: '#fff',
+                    marginBottom: 16,
+                  }}
+                >
+                  聲音 × 薩滿 × 通靈解析
+                </h3>
+                <p
+                  style={{
+                    fontSize: 14,
+                    color: 'rgba(255,255,255,0.72)',
+                    lineHeight: 1.85,
+                  }}
+                >
+                  大多數的頌缽課程停在聲音的放鬆層面。森波的頌缽音流，同時結合薩滿意識旅程與通靈解析——禿禿在缽聲之中接收個案的能量訊息，引導每次體驗不只是「被聲音泡著」，而是有意識地鬆動特定能量阻塞，並帶回可落地的洞見。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ── WAVE: base → dark ── */}
+      <svg
+        viewBox="0 0 1440 60"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        style={{ display: 'block', width: '100%', marginTop: -2, background: 'var(--base)' }}
+      >
+        <path
           d="M0,0 C180,55 360,5 540,40 C720,75 900,10 1080,42 C1260,68 1380,20 1440,38 L1440,60 L0,60 Z"
           fill="#25525F"
         />
       </svg>
+
+      {/* ── 禿禿 TWO TWO ── */}
+      <section style={{ background: '#25525F', position: 'relative', overflow: 'hidden' }}>
+        {/* Ghost word */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            right: '-10px',
+            top: '-10px',
+            fontFamily: 'var(--f-display)',
+            fontWeight: 100,
+            fontSize: 'clamp(100px,15vw,200px)',
+            color: 'rgba(255,255,255,0.03)',
+            lineHeight: 1,
+            letterSpacing: '-0.02em',
+            pointerEvents: 'none',
+            userSelect: 'none',
+          }}
+        >
+          TWO TWO
+        </div>
+
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
+          <p className="sec-label" style={{ color: 'rgba(255,255,255,0.3)' }}>04 · THE PRACTITIONER</p>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 'clamp(40px,6vw,80px)',
+              alignItems: 'center',
+            }}
+          >
+            {/* Left: name + bio */}
+            <div>
+              <h2
+                className="tr-d2"
+                style={{
+                  fontSize: 'clamp(28px,4vw,48px)',
+                  color: '#fff',
+                  lineHeight: 1.2,
+                  marginBottom: 16,
+                }}
+              >
+                禿禿 TWO TWO
+              </h2>
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 32 }}>
+                {['頌缽', '薩滿', '能量定頻'].map(r => (
+                  <span
+                    key={r}
+                    style={{
+                      fontFamily: 'var(--f-mono)',
+                      fontSize: 9,
+                      letterSpacing: '0.14em',
+                      color: 'rgba(255,255,255,0.45)',
+                      border: '1px solid rgba(255,255,255,0.15)',
+                      borderRadius: 999,
+                      padding: '4px 14px',
+                    }}
+                  >
+                    {r}
+                  </span>
+                ))}
+              </div>
+              <p
+                style={{
+                  fontSize: 16,
+                  lineHeight: 1.9,
+                  color: 'rgba(255,255,255,0.72)',
+                  marginBottom: 20,
+                }}
+              >
+                以聲音為媒介，禿禿的工作是進入你看不見的地方，把東西帶回來。
+              </p>
+              <p
+                style={{
+                  fontSize: 14,
+                  lineHeight: 1.85,
+                  color: 'rgba(255,255,255,0.48)',
+                }}
+              >
+                多年的頌缽訓練與薩滿修習，讓她能夠精準感知能量阻塞，並以頌缽頻率、音叉與薩滿技術，協助主體重新定頻。身心狀態、潛意識模式、靈魂碎片——她都去過。
+              </p>
+            </div>
+
+            {/* Right: bowl image */}
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                src="/qi-sb/頌缽.png"
+                alt="頌缽"
+                width={400}
+                height={400}
+                style={{
+                  width: 'clamp(180px,28vw,340px)',
+                  height: 'auto',
+                  opacity: 0.72,
+                  filter: 'drop-shadow(0 0 28px rgba(58,125,142,0.32))',
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── FAQ ── */}
       <section
@@ -830,7 +1077,7 @@ export default function QiSbPage() {
             className="sec-label"
             style={{ color: 'rgba(255,255,255,0.3)' }}
           >
-            03 · FAQ
+            05 · FAQ
           </p>
           <h2
             className="tr-d2"
@@ -977,7 +1224,7 @@ export default function QiSbPage() {
         </div>
 
         <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
-          <p className="sec-label" style={{ justifyContent: 'center' }}>04 · CONNECT</p>
+          <p className="sec-label" style={{ justifyContent: 'center' }}>06 · CONNECT</p>
           <h2
             className="tr-d2"
             style={{
