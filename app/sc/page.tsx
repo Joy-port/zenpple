@@ -398,8 +398,8 @@ export default function ScPage() {
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 55%, rgba(160,100,40,0.12) 0%, rgba(120,70,20,0.15) 45%, transparent 70%), radial-gradient(ellipse 40% 40% at 85% 15%, rgba(140,80,30,0.14) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 60% 65%, rgba(180,110,30,0.22) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
-        {/* bottom connector → SC-02 */}
-        <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, height:'25%', background:'linear-gradient(to bottom, transparent, rgba(80,110,180,0.06))', pointerEvents:'none' }} />
+        {/* bottom connector → SC-02: path exits bottom-right, blends toward blue */}
+        <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, height:'30%', background:'radial-gradient(ellipse 50% 100% at 85% 100%, rgba(160,100,30,0.22) 0%, transparent 65%), linear-gradient(to bottom left, rgba(60,90,180,0.08), transparent 60%)', pointerEvents:'none', filter:'blur(8px)' }} />
         {/* 書法圖 */}
         <Image src="/sc/black/力量動物-直.png" alt="" aria-hidden width={600} height={800}
           style={{ position:'absolute', right:'-3%', top:'50%', transform:'translateY(-50%)', height:'90vh', width:'auto',
@@ -467,14 +467,16 @@ export default function ScPage() {
       {/* ═══ SC-02 連結高維指導靈 ═══ */}
       {/* Theme: 夜空 · 月光 · 高維頻道 — near-black with cool silver-pearl */}
       <section id="section-sc02" style={{ padding:'100px 0', background:'#E4EBF5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+        {/* top connector ← SC-01: receives amber path from top-right */}
+        <div aria-hidden style={{ position:'absolute', top:0, left:0, right:0, height:'28%', background:'radial-gradient(ellipse 45% 100% at 88% 0%, rgba(160,100,30,0.16) 0%, transparent 65%)', pointerEvents:'none', filter:'blur(10px)' }} />
         <Image src="/resource/single/材質-5-波/材質-5-1.png" alt="" aria-hidden width={400} height={200}
           style={{ position:'absolute', top:-20, left:'5%', width:'clamp(200px,30vw,380px)', height:'auto', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'rotate(4deg)' }} />
         {/* C-form glow — top-left arc, left spine, bottom-left arc; opening faces right */}
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 40% 28% at 0% 8%, rgba(40,80,180,0.30) 0%, transparent 100%), radial-gradient(ellipse 20% 60% at 0% 50%, rgba(40,80,180,0.22) 0%, transparent 100%), radial-gradient(ellipse 40% 28% at 0% 92%, rgba(40,80,180,0.28) 0%, transparent 100%)', pointerEvents:'none' }} />
         {/* text-zone lift — brightens the right column where content sits */}
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 55% 70% at 78% 50%, rgba(30,55,120,0.14) 0%, transparent 70%)', pointerEvents:'none' }} />
-        {/* bottom connector → SC-03 */}
-        <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, height:'25%', background:'linear-gradient(to bottom, transparent, rgba(180,90,40,0.07))', pointerEvents:'none' }} />
+        {/* bottom connector → SC-03: path exits bottom-left, blends toward terracotta */}
+        <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, height:'30%', background:'radial-gradient(ellipse 50% 100% at 15% 100%, rgba(40,80,180,0.22) 0%, transparent 65%), linear-gradient(to bottom right, rgba(180,90,40,0.08), transparent 60%)', pointerEvents:'none', filter:'blur(8px)' }} />
         {/* 書法圖 */}
         <Image src="/sc/black/指導靈.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', left:'-2%', top:'50%', transform:'translateY(-50%)', height:'85vh', width:'auto',
@@ -542,13 +544,15 @@ export default function ScPage() {
       {/* ═══ SC-03 七脈輪情緒覺察 ═══ */}
       {/* Theme: 身體 · 情緒 · 流動感 — deep warm terracotta, body warmth */}
       <section id="section-sc03" style={{ padding:'100px 0', background:'#F5E2D4', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+        {/* top connector ← SC-02: receives blue path from top-left */}
+        <div aria-hidden style={{ position:'absolute', top:0, left:0, right:0, height:'28%', background:'radial-gradient(ellipse 45% 100% at 12% 0%, rgba(40,80,180,0.14) 0%, transparent 65%)', pointerEvents:'none', filter:'blur(10px)' }} />
         <Image src="/resource/single/材質-1-撇/材質-1-3.png" alt="" aria-hidden width={400} height={300}
           style={{ position:'absolute', top:-10, right:'8%', width:'clamp(160px,20vw,280px)', height:'auto', mixBlendMode:'multiply', opacity:0.07, pointerEvents:'none', transform:'rotate(-8deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 65% 75% at 10% 50%, rgba(140,60,25,0.1) 0%, rgba(140,75,40,0.12) 50%, transparent 70%), radial-gradient(ellipse 45% 55% at 90% 20%, rgba(160,85,50,0.15) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 60% 60%, rgba(190,90,40,0.24) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
-        {/* bottom connector → SC-04 */}
-        <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, height:'25%', background:'linear-gradient(to bottom, transparent, rgba(160,130,20,0.07))', pointerEvents:'none' }} />
+        {/* bottom connector → SC-04: path exits bottom-right, blends toward gold */}
+        <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, height:'30%', background:'radial-gradient(ellipse 50% 100% at 85% 100%, rgba(180,80,30,0.22) 0%, transparent 65%), linear-gradient(to bottom left, rgba(160,130,20,0.08), transparent 60%)', pointerEvents:'none', filter:'blur(8px)' }} />
         {/* 書法圖 */}
         <Image src="/sc/black/七脈輪情緒覺察.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', right:'-2%', top:'50%', transform:'translateY(-50%)', height:'88vh', width:'auto',
@@ -613,13 +617,15 @@ export default function ScPage() {
       {/* ═══ SC-04 連結高我 ═══ */}
       {/* Theme: 神聖 · 金光 · 靈魂主權 — near-black with sacred gold */}
       <section id="section-sc04" style={{ padding:'100px 0', background:'#F5EDD5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+        {/* top connector ← SC-03: receives terracotta path from top-right */}
+        <div aria-hidden style={{ position:'absolute', top:0, left:0, right:0, height:'28%', background:'radial-gradient(ellipse 45% 100% at 88% 0%, rgba(180,80,30,0.14) 0%, transparent 65%)', pointerEvents:'none', filter:'blur(10px)' }} />
         <Image src="/resource/single/材質-4-圓圈/黑圈-20.png" alt="" aria-hidden width={300} height={300}
           style={{ position:'absolute', top:-30, left:'3%', width:'clamp(120px,14vw,200px)', height:'auto', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none', transform:'rotate(15deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 70% at 80% 40%, rgba(160,128,30,0.1) 0%, rgba(160,130,50,0.08) 50%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 70%, rgba(180,148,60,0.1) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', left:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 40% 60%, rgba(180,140,20,0.26) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
-        {/* bottom connector → SC-05 */}
-        <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, height:'25%', background:'linear-gradient(to bottom, transparent, rgba(100,30,160,0.07))', pointerEvents:'none' }} />
+        {/* bottom connector → SC-05: path exits bottom-left, blends toward purple */}
+        <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, height:'30%', background:'radial-gradient(ellipse 50% 100% at 15% 100%, rgba(140,110,20,0.22) 0%, transparent 65%), linear-gradient(to bottom right, rgba(100,30,160,0.09), transparent 60%)', pointerEvents:'none', filter:'blur(8px)' }} />
         {/* 書法圖 */}
         <Image src="/sc/black/高我.png" alt="" aria-hidden width={600} height={700}
           style={{ position:'absolute', left:'-2%', top:'50%', transform:'translateY(-50%)', height:'85vh', width:'auto',
@@ -687,6 +693,8 @@ export default function ScPage() {
       {/* ═══ SC-05 尋找內在小孩 ═══ */}
       {/* Theme: 療癒 · 柔韌 · 重新歸位 — deep plum with soft violet warmth */}
       <section id="section-sc05" style={{ padding:'100px 0', background:'#E4D8F5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+        {/* top connector ← SC-04: receives gold path from top-left */}
+        <div aria-hidden style={{ position:'absolute', top:0, left:0, right:0, height:'28%', background:'radial-gradient(ellipse 45% 100% at 12% 0%, rgba(140,110,20,0.14) 0%, transparent 65%)', pointerEvents:'none', filter:'blur(10px)' }} />
         <Image src="/resource/single/材質-5-波/材質-5-1_3.png" alt="" aria-hidden width={400} height={200}
           style={{ position:'absolute', top:-15, right:'4%', width:'clamp(180px,24vw,320px)', height:'auto', mixBlendMode:'multiply', opacity:0.08, pointerEvents:'none', transform:'scaleX(-1) rotate(-6deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 50%, rgba(90,30,140,0.18) 0%, rgba(120,50,160,0.12) 50%, transparent 70%), radial-gradient(ellipse 50% 60% at 90% 25%, rgba(140,60,180,0.20) 0%, transparent 60%)', pointerEvents:'none' }} />
