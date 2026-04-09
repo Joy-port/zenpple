@@ -302,22 +302,63 @@ export default function QiSbPage() {
           為什麼頌缽可以放鬆腦波
         </h2>
 
-        {/* Sound wave image — full-width atmospheric bg */}
-        <div aria-hidden style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', zIndex: 1 }}>
-          <Image
-            src="/hl/頌缽波動-白.png"
-            alt=""
-            width={1200}
-            height={600}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              opacity: 0.06,
-              mixBlendMode: 'screen',
-            }}
-          />
-        </div>
+        {/* Animated SVG waves — radiating from center */}
+        <svg
+          aria-hidden
+          viewBox="0 0 1440 400"
+          preserveAspectRatio="xMidYMid slice"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1, opacity: 0.18 }}
+        >
+          <defs>
+            {[0, 1, 2, 3, 4, 5].map(i => (
+              <animateTransform
+                key={i}
+                id={`wt${i}`}
+                attributeName="transform"
+                type="translate"
+                from={`${i * 18} 0`}
+                to={`${-1440 + i * 18} 0`}
+                dur={`${7 + i * 1.2}s`}
+                repeatCount="indefinite"
+              />
+            ))}
+          </defs>
+
+          {/* 6 wave paths, each offset amplitude & phase */}
+          {([
+            { amp: 18, phase: 0,    period: 320, y: 200, opacity: 0.55, stroke: 'rgba(58,125,142,1)',   dur: 7.0 },
+            { amp: 28, phase: 60,   period: 280, y: 200, opacity: 0.40, stroke: 'rgba(58,125,142,1)',   dur: 8.5 },
+            { amp: 12, phase: 120,  period: 360, y: 200, opacity: 0.30, stroke: 'rgba(255,255,255,1)',  dur: 6.5 },
+            { amp: 22, phase: 180,  period: 300, y: 200, opacity: 0.22, stroke: 'rgba(255,255,255,1)',  dur: 9.0 },
+            { amp: 34, phase: 240,  period: 260, y: 200, opacity: 0.15, stroke: 'rgba(58,125,142,1)',   dur: 10.5 },
+            { amp: 10, phase: 300,  period: 400, y: 200, opacity: 0.12, stroke: 'rgba(255,255,255,1)',  dur: 7.8 },
+          ] as const).map((w, i) => {
+            const pts: string[] = []
+            for (let x = -w.period; x <= 1440 + w.period; x += 4) {
+              const y = w.y + w.amp * Math.sin((x + w.phase) * (2 * Math.PI / w.period))
+              pts.push(`${x},${y.toFixed(1)}`)
+            }
+            return (
+              <polyline
+                key={i}
+                points={pts.join(' ')}
+                fill="none"
+                stroke={w.stroke}
+                strokeWidth="1"
+                opacity={w.opacity}
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="translate"
+                  from={`0 0`}
+                  to={`${-w.period} 0`}
+                  dur={`${w.dur}s`}
+                  repeatCount="indefinite"
+                />
+              </polyline>
+            )
+          })}
+        </svg>
 
         {/* Bowl image — dominant, centered — bowl-white behind, 頌缽 in front */}
         <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
