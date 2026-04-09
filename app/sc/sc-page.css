@@ -119,3 +119,42 @@
 /* Ensure image stacks above both glow layers */
 .sc-glow-wrap img,
 .sc-glow-wrap span { position: relative; z-index: 1; }
+
+/* ── Journey dot glow — overlay on top of dot image ── */
+.sc-dot-glow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Image sits at z-index 1 so overlays go above */
+.sc-dot-glow img,
+.sc-dot-glow span { position: relative; z-index: 1; }
+/* White overlay — tight to dot size, z-index above image */
+.sc-dot-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.08) 55%, rgba(255,255,255,0) 75%);
+  filter: blur(3px);
+  pointer-events: none;
+  z-index: 2;
+}
+/* Colored overlay — per-theme --glow-color, tight to dot */
+.sc-dot-glow::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--glow-color), 0.45) 0%, rgba(var(--glow-color), 0.12) 55%, rgba(var(--glow-color), 0) 75%);
+  filter: blur(4px);
+  pointer-events: none;
+  z-index: 2;
+}
