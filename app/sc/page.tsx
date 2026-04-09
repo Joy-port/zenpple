@@ -370,7 +370,7 @@ export default function ScPage() {
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
                 <div className="sc-glow-wrap" style={{'--glow-color':'200,170,60'} as React.CSSProperties}>
                   <Image src="/sc/black/高我.png" alt="" aria-hidden width={250} height={300}
-                    style={{ height:200, width:'auto', filter:'invert(1) brightness(0.85)', opacity:0.72, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
+                    style={{ height:200, width:'auto', filter:'invert(1) brightness(1.4)', opacity:0.85, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
                 </div>
               </div>
             </div>
