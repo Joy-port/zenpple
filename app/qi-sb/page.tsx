@@ -287,6 +287,22 @@ export default function QiSbPage() {
         >
           為什麼頌缽可以放鬆腦波
         </h2>
+        <p
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            fontFamily: 'var(--f-display)',
+            fontWeight: 300,
+            fontSize: 20,
+            letterSpacing: '0.22em',
+            color: 'rgba(255,255,255,0.35)',
+            textTransform: 'uppercase',
+            marginBottom: 52,
+            marginTop: -36,
+          }}
+        >
+          Why Singing Bowl Relaxes Brainwaves
+        </p>
 
         {/* Animated SVG waves — radiating from center */}
         <svg
