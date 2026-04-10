@@ -314,7 +314,7 @@ export default function ScPage() {
           </div>
 
           {/* Mobile: vertical steps list */}
-          <div className="md:hidden" style={{ display:'flex', flexDirection:'column', gap:24, marginBottom:8 }}>
+          <div className="flex flex-col md:hidden" style={{ gap:24, marginBottom:8 }}>
             {[
               { id:'sc01', num:'01', label:'力量動物', en:'Power Animal', color:'rgba(200,130,60,0.18)', dot:'rgba(200,130,60,0.7)' },
               { id:'sc02', num:'02', label:'指導靈', en:'Spirit Guide', color:'rgba(80,140,210,0.14)', dot:'rgba(80,140,210,0.7)' },
