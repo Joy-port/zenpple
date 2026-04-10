@@ -158,6 +158,17 @@
   }
 }
 
+/* ── SC-05 calligraphy image — mobile width constraint ── */
+@media (max-width: 767px) {
+  .sc05-bg-calligraphy {
+    height: auto !important;
+    width: 80vw !important;
+    right: -4% !important;
+    top: 12% !important;
+    transform: none !important;
+  }
+}
+
 /* ── Journey dot glow — overlay on top of dot image ── */
 .sc-dot-glow {
   position: relative;
