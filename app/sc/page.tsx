@@ -675,10 +675,9 @@ export default function ScPage() {
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
-            <div style={{ position:'relative', cursor:'pointer' }} onClick={() => setOpenDetail(openDetail === 'sc03' ? null : 'sc03')}>
+            <div style={{ position:'relative' }}>
               <Image src="/sc/animals/octopus.png" alt="" aria-hidden width={400} height={400}
-                style={{ width:'min(340px,82%)', height:'auto', filter:'sepia(0.6) hue-rotate(340deg) saturate(1.7) brightness(0.66)', opacity: openDetail === 'sc03' ? 0.92 : 0.78, animation:'sc-breathe 7s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
-              {openDetail !== 'sc03' && <div style={{ position:'absolute', bottom:16, left:'50%', transform:'translateX(-50%)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'#6A3018', opacity:0.55, whiteSpace:'nowrap' }}>點擊對話</div>}
+                style={{ width:'min(340px,82%)', height:'auto', filter:'sepia(0.6) hue-rotate(340deg) saturate(1.7) brightness(0.66)', opacity:0.78, animation:'sc-breathe 7s ease-in-out infinite', mixBlendMode:'luminosity' }} />
             </div>
           </div>
         </div>
