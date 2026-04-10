@@ -90,22 +90,22 @@ export default function WhatIsSection2() {
       </div>
 
       <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)', paddingLeft: 'clamp(48px,8vw,120px)', paddingRight: 'clamp(48px,8vw,120px)', position: 'relative', zIndex: 2 }}>
-        {/* Title row — right column */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,6vw,80px)', alignItems: 'start' }}>
-          <div />
-          <div style={{ textAlign: 'center' }}>
-            <SectionTitle zh="什麼是靈性頌缽音流" en="Singing Bowl Sound Flow" mb={0} />
-          </div>
-        </div>
-
-        {/* Content grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,6vw,80px)', alignItems: 'start', marginTop: 48 }}>
-          {/* Left: breathing block */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 32, alignItems: 'center' }}>
+        <div
+          className="flex flex-col md:grid"
+          style={{ gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,6vw,80px)', alignItems: 'start' }}
+        >
+          {/* WhyDifferentBlock — left on desktop, bottom on mobile */}
+          <div className="order-last md:order-first" style={{ display: 'flex', flexDirection: 'column', gap: 32, alignItems: 'center' }}>
             <WhyDifferentBlock />
           </div>
-          {/* Right: desc + brainwaves */}
-          <RightColumn />
+
+          {/* Title + desc + brainwaves — right on desktop, top on mobile */}
+          <div className="order-first md:order-last">
+            <div style={{ textAlign: 'center', marginBottom: 48 }}>
+              <SectionTitle zh="什麼是靈性頌缽音流" en="Singing Bowl Sound Flow" mb={0} />
+            </div>
+            <RightColumn />
+          </div>
         </div>
       </div>
     </section>
