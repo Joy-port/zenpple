@@ -489,11 +489,8 @@ export default function QiSbPage() {
           }}
         />
 
-        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
-          <SectionTitle zh="課程與體驗" en="Sessions & Experiences" mb={16} center />
-          <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.85, marginBottom: 48 }}>
-            每一次的頌缽都是獨特的旅程。點擊展開詳細說明。
-          </p>
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)', paddingLeft: 'clamp(48px,8vw,120px)', paddingRight: 'clamp(48px,8vw,120px)' }}>
+          <SectionTitle zh="課程與體驗" en="Sessions & Experiences" mb={48} center />
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {courses.map(c => {
