@@ -51,11 +51,12 @@ export default function CtaSection() {
         >
           帶著你的當下就好，其他的交給頌缽。傳訊給我們預約或詢問。
         </p>
-        <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div className="flex flex-col md:flex-row" style={{ gap: 16, flexWrap: 'wrap', justifyContent: 'center', alignItems: 'stretch' }}>
           <Link
             href="/contact"
+            className="justify-center"
             style={{
-              display: 'inline-flex',
+              display: 'flex',
               alignItems: 'center',
               gap: 10,
               fontFamily: 'var(--f-display)',
@@ -74,8 +75,9 @@ export default function CtaSection() {
           </Link>
           <Link
             href="/contact"
+            className="justify-center"
             style={{
-              display: 'inline-flex',
+              display: 'flex',
               alignItems: 'center',
               gap: 10,
               fontFamily: 'var(--f-display)',
