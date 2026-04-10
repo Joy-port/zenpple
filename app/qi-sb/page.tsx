@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import SectionTitle from '@/components/qi-sb/SectionTitle'
 
 // ── Course data ───────────────────────────────────────────────────────────────
 const courses = [
@@ -198,9 +199,9 @@ export default function QiSbPage() {
           <p
             style={{
               fontFamily: 'var(--f-display)',
-              fontWeight: 100,
-              fontSize: 13,
-              letterSpacing: '0.32em',
+              fontWeight: 300,
+              fontSize: 20,
+              letterSpacing: '0.22em',
               color: 'rgba(255,255,255,0.65)',
               textTransform: 'uppercase',
               marginBottom: 32,
@@ -270,21 +271,6 @@ export default function QiSbPage() {
           />
         ))}
 
-        {/* Section label */}
-        <p
-          style={{
-            position: 'relative',
-            zIndex: 2,
-            fontFamily: 'var(--f-display)',
-            fontSize: 10,
-            letterSpacing: '0.32em',
-            color: 'rgba(255,255,255,0.25)',
-            textTransform: 'uppercase',
-            marginBottom: 36,
-          }}
-        >
-          01 · WHY SINGING BOWL
-        </p>
 
         {/* Title */}
         <h2
@@ -480,31 +466,7 @@ export default function QiSbPage() {
         />
 
         <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
-          <p className="sec-label">02 · SESSIONS</p>
-          <h2
-            className="tr-d2"
-            style={{ fontFamily: 'var(--f-impact)', fontWeight: 900,
-              fontSize: 'clamp(26px,3.5vw,38px)',
-              color: '#2E5A6A',
-              lineHeight: 1.3,
-              marginBottom: 12,
-            }}
-          >
-            課程與體驗
-          </h2>
-          <p
-            style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
-              fontSize: 13,
-              letterSpacing: '0.3em',
-              color: 'var(--muted)',
-              textTransform: 'uppercase',
-              marginBottom: 16,
-            }}
-          >
-            Sessions &amp; Experiences
-          </p>
+          <SectionTitle zh="課程與體驗" en="Sessions & Experiences" mb={16} />
           <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.85, marginBottom: 48 }}>
             每一次的頌缽都是獨特的旅程。點擊展開詳細說明。
           </p>
@@ -714,6 +676,60 @@ export default function QiSbPage() {
 
       {/* ── WHAT IS 頌缽音流 ── */}
       <section style={{ background: 'var(--base)', position: 'relative', overflow: 'hidden' }}>
+        {/* Animated SVG waves */}
+        <svg
+          aria-hidden
+          viewBox="0 0 1440 400"
+          preserveAspectRatio="xMidYMid slice"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1, opacity: 0.12 }}
+        >
+          {([
+            { amp: 18, phase: 0,   period: 320, y: 200, stroke: 'rgba(90,165,178,1)',  sw: 2.5, dur: 18, vAmp: 5,  vDur: 12 },
+            { amp: 28, phase: 60,  period: 280, y: 210, stroke: 'rgba(90,165,178,1)',  sw: 0.6, dur: 24, vAmp: 0,  vDur: 0  },
+            { amp: 12, phase: 120, period: 360, y: 195, stroke: 'rgba(74,107,138,1)',  sw: 1.5, dur: 20, vAmp: 4,  vDur: 16 },
+            { amp: 22, phase: 180, period: 300, y: 205, stroke: 'rgba(74,107,138,1)',  sw: 3.5, dur: 28, vAmp: 0,  vDur: 0  },
+            { amp: 34, phase: 240, period: 260, y: 200, stroke: 'rgba(90,165,178,1)',  sw: 0.8, dur: 22, vAmp: 6,  vDur: 20 },
+            { amp: 10, phase: 300, period: 400, y: 202, stroke: 'rgba(74,107,138,1)',  sw: 2.0, dur: 32, vAmp: 0,  vDur: 0  },
+          ] as const).map((w, i) => {
+            const pts: string[] = []
+            for (let x = -w.period; x <= 1440 + w.period; x += 4) {
+              const y = w.y + w.amp * Math.sin((x + w.phase) * (2 * Math.PI / w.period))
+              pts.push(`${x},${y.toFixed(1)}`)
+            }
+            return (
+              <g key={i}>
+                {w.vAmp > 0 && (
+                  <animateTransform
+                    attributeName="transform"
+                    type="translate"
+                    values={`0 0; 0 ${w.vAmp}; 0 0; 0 ${-w.vAmp}; 0 0`}
+                    dur={`${w.vDur}s`}
+                    repeatCount="indefinite"
+                    additive="sum"
+                  />
+                )}
+                <polyline
+                  points={pts.join(' ')}
+                  fill="none"
+                  stroke={w.stroke}
+                  strokeWidth={w.sw}
+                  opacity={0.4}
+                >
+                  <animateTransform
+                    attributeName="transform"
+                    type="translate"
+                    from="0 0"
+                    to={`${-w.period} 0`}
+                    dur={`${w.dur}s`}
+                    repeatCount="indefinite"
+                    additive="sum"
+                  />
+                </polyline>
+              </g>
+            )
+          })}
+        </svg>
+
         {/* ghost "sound" watermark */}
         <div
           aria-hidden
@@ -734,32 +750,9 @@ export default function QiSbPage() {
           sound
         </div>
 
-        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
-          <p className="sec-label">03 · WHAT IS IT</p>
-          <h2
-            className="tr-d2"
-            style={{ fontFamily: 'var(--f-impact)', fontWeight: 900,
-              fontSize: 'clamp(26px,3.5vw,38px)',
-              color: '#2E5A6A',
-              lineHeight: 1.3,
-              marginBottom: 12,
-            }}
-          >
-            什麼是靈性頌缽音流
-          </h2>
-          <p
-            style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
-              fontSize: 13,
-              letterSpacing: '0.3em',
-              color: 'var(--muted)',
-              textTransform: 'uppercase',
-              marginBottom: 48,
-            }}
-          >
-            Singing Bowl Sound Flow
-          </p>
+        <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)', position: 'relative', zIndex: 2 }}>
+          <SectionTitle zh="什麼是靈性頌缽音流" en="Singing Bowl Sound Flow" />
+
 
           <div
             style={{
@@ -972,7 +965,6 @@ export default function QiSbPage() {
         </div>
 
         <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
-          <p className="sec-label" style={{ color: 'rgba(255,255,255,0.3)' }}>04 · THE PRACTITIONER</p>
 
           <div
             style={{
@@ -1082,36 +1074,8 @@ export default function QiSbPage() {
         </div>
 
         <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
-          <p
-            className="sec-label"
-            style={{ color: 'rgba(255,255,255,0.3)' }}
-          >
-            05 · FAQ
-          </p>
-          <h2
-            className="tr-d2"
-            style={{ fontFamily: 'var(--f-impact)', fontWeight: 900,
-              fontSize: 'clamp(26px,3.5vw,38px)',
-              color: '#fff',
-              lineHeight: 1.3,
-              marginBottom: 12,
-            }}
-          >
-            常見問題
-          </h2>
-          <p
-            style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
-              fontSize: 13,
-              letterSpacing: '0.3em',
-              color: 'rgba(255,255,255,0.3)',
-              textTransform: 'uppercase',
-              marginBottom: 48,
-            }}
-          >
-            Frequently Asked Questions
-          </p>
+          <SectionTitle zh="常見問題" en="Frequently Asked Questions" dark />
+
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {faqs.map((faq, i) => {
@@ -1219,13 +1183,13 @@ export default function QiSbPage() {
         }}
       >
         {/* Ghost words */}
-        <div aria-hidden style={{ position:'absolute', left:'-20px', top:'18%', fontFamily:'var(--f-display)', fontWeight:100, fontSize:'clamp(100px,16vw,220px)', color:'rgba(90,165,178,0.04)', lineHeight:1, pointerEvents:'none', userSelect:'none' }}>
+        <div aria-hidden style={{ position:'absolute', left:'-20px', top:'18%', fontFamily:'var(--f-impact)', fontWeight:900, fontSize:'clamp(100px,16vw,220px)', color:'rgba(90,165,178,0.10)', lineHeight:1, pointerEvents:'none', userSelect:'none', letterSpacing:'-0.01em' }}>
           SOUND
         </div>
-        <div aria-hidden style={{ position:'absolute', right:'-20px', top:'42%', fontFamily:'var(--f-display)', fontWeight:100, fontSize:'clamp(80px,12vw,170px)', color:'rgba(90,165,178,0.035)', lineHeight:1, pointerEvents:'none', userSelect:'none' }}>
+        <div aria-hidden style={{ position:'absolute', right:'-20px', top:'42%', fontFamily:'var(--f-impact)', fontWeight:900, fontSize:'clamp(80px,12vw,170px)', color:'rgba(90,165,178,0.08)', lineHeight:1, pointerEvents:'none', userSelect:'none', letterSpacing:'-0.01em' }}>
           FLOW
         </div>
-        <div aria-hidden style={{ position:'absolute', left:'5%', bottom:'12%', fontFamily:'var(--f-display)', fontWeight:100, fontSize:'clamp(60px,9vw,130px)', color:'rgba(90,165,178,0.03)', lineHeight:1, pointerEvents:'none', userSelect:'none', letterSpacing:'-0.02em' }}>
+        <div aria-hidden style={{ position:'absolute', left:'5%', bottom:'12%', fontFamily:'var(--f-impact)', fontWeight:900, fontSize:'clamp(60px,9vw,130px)', color:'rgba(90,165,178,0.07)', lineHeight:1, pointerEvents:'none', userSelect:'none', letterSpacing:'-0.01em' }}>
           home
         </div>
 
