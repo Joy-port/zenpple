@@ -314,7 +314,7 @@ export default function ScPage() {
           </div>
 
           {/* Mobile: vertical path + steps */}
-          <div className="md:hidden" style={{ position:'relative', paddingLeft:72, paddingRight:8, marginBottom:8 }}>
+          <div className="md:hidden" style={{ position:'relative', paddingLeft:72, paddingRight:8, marginBottom:8, maxWidth:300, margin:'0 auto' }}>
             {/* Vertical wavy SVG path — passes through each dot at (34, 80+160×n) */}
             <svg aria-hidden style={{ position:'absolute', left:0, top:0, width:68, height:800, pointerEvents:'none' }} viewBox="0 0 68 800">
               <path
