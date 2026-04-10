@@ -801,10 +801,10 @@ export default function QiSbPage() {
               alignItems: 'start',
             }}
           >
+            <div />{/* placeholder */}
             <div style={{ textAlign: 'center' }}>
               <SectionTitle zh="什麼是靈性頌缽音流" en="Singing Bowl Sound Flow" mb={0} />
             </div>
-            <div />{/* placeholder to close title row */}
           </div>
 
           <div
