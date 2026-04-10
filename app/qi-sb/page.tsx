@@ -574,6 +574,18 @@ export default function QiSbPage() {
                         {c.nameEn}
                       </div>
                     </div>
+                    <span
+                      style={{
+                        fontFamily: 'var(--f-display)',
+                        fontSize: 10,
+                        letterSpacing: '0.15em',
+                        color: 'var(--muted)',
+                        flexShrink: 0,
+                        marginRight: 12,
+                      }}
+                    >
+                      {c.meta.split(' · ').find(t => t.includes('分鐘') || t.includes('人'))}
+                    </span>
                     <div
                       style={{
                         width: 28,
@@ -615,7 +627,7 @@ export default function QiSbPage() {
                         {c.desc}
                       </p>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
-                        {c.meta.split(' · ').map(tag => (
+                        {c.meta.split(' · ').filter(t => !t.startsWith('1:') && !t.includes('–')).map(tag => (
                           <span
                             key={tag}
                             style={{
