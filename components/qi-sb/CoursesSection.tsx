@@ -185,12 +185,12 @@ export default function CoursesSection() {
                   }}
                 >
                   <div
+                    className="flex flex-col md:grid"
                     style={{
                       padding: '24px 0 40px 56px',
                       borderTop: '1px solid rgba(90,165,178,0.1)',
-                      display: 'grid',
                       gridTemplateColumns: '1fr auto',
-                      gap: '0 40px',
+                      gap: '24px 40px',
                       alignItems: 'start',
                     }}
                   >
@@ -239,7 +239,7 @@ export default function CoursesSection() {
                     </div>
 
                     {/* Right: price + CTA */}
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'space-between', height: '100%', gap: 24 }}>
+                    <div className="items-start md:items-end" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: 16, alignItems: 'center', justifyContent: 'space-between' }}>
                       <span
                         style={{
                           fontFamily: 'var(--f-display)',
