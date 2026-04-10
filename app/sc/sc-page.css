@@ -153,25 +153,28 @@
     flex-direction: column !important;
     align-items: stretch !important;
   }
-  /* Keep horizontal layout (image right), equal height, fixed card size */
+  /* Keep horizontal layout (image right), flex height with min */
   .sc-reco-card {
     flex-direction: row !important;
-    min-height: 160px !important;
-    height: 160px !important;
+    min-height: 140px !important;
+    height: auto !important;
+    align-items: stretch !important;
   }
   .sc-reco-card-text {
     flex: 1 1 0 !important;
     padding: 20px 18px !important;
     min-width: 0 !important;
   }
-  /* Image area — fixed width, same on both cards */
+  /* Image area — fixed width, stretches to card height */
   .sc-reco-card-img {
-    flex: 0 0 120px !important;
-    width: 120px !important;
+    flex: 0 0 110px !important;
+    width: 110px !important;
+    height: auto !important;
     border-radius: 0 24px 24px 0 !important;
+    align-self: stretch !important;
   }
   .sc-reco-card-img img {
-    width: 80px !important;
+    width: 76px !important;
     height: auto !important;
   }
 }
