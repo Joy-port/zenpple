@@ -130,6 +130,11 @@
   }
   .sc-section-grid .sc-text-col {
     order: -1 !important;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 28px 24px !important;
   }
   .sc-section-grid .sc-image-col {
     order: 0 !important;
