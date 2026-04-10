@@ -822,7 +822,7 @@ export default function ScPage() {
           </div>
 
           {/* Cards */}
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:20 }}>
+          <div className="flex flex-col md:grid" style={{ gridTemplateColumns:'1fr 1fr', gap:20 }}>
             {[
               { title:'深層系統對齊', desc:'薩滿打開靈魂的通道，深層對齊讓覺醒的能量落地。從靈性到現實的完整轉化路徑。', href:'/hl', img:'/hl/頌缽波動-黑.png', imgBg:'rgba(176,100,100,0.12)', linkColor:'#8A4040' },
               { title:'靈性頌缽音流', desc:'薩滿旅程後的能量場需要沉澱。頌缽頻率加速整合，讓新的意識狀態滲透進身體。', href:'/qi-sb', img:'/qi-sb/頌缽.png', imgBg:'rgba(60,110,120,0.12)', linkColor:'#2E6A78' },
