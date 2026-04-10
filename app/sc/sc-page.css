@@ -158,6 +158,19 @@
   }
 }
 
+/* ── SC-02/03/04 calligraphy images — mobile center-bottom ── */
+@media (max-width: 767px) {
+  .sc-section-bg-calligraphy {
+    height: auto !important;
+    width: 72vw !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: 0 !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
 /* ── SC-05 calligraphy image — mobile width constraint ── */
 @media (max-width: 767px) {
   .sc05-bg-calligraphy {
