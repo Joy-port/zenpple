@@ -9,33 +9,33 @@ import SectionTitle from '@/components/qi-sb/SectionTitle'
 const courses = [
   {
     id: 1,
-    code: 'QI-SB-01',
     name: '脈輪牌卡問事＋放鬆頌缽',
     nameEn: 'Chakra Card Reading + Relaxation Bowl',
     meta: '1:1 · 60 分鐘',
     price: 'NT$3,500',
+    typeTags: ['1:1 私人體驗', '實體'],
     desc: '結合牌卡分析與全身放鬆的入門實體體驗。適合想了解當下身心狀態，並在諮詢後透過頌缽達到深層紓壓的你。先透過脈輪牌卡讀取能量現況，再以頌缽頻率引導全身放鬆，讓神經系統在聲波中自然進入修復狀態。',
-    tags: ['1:1 私人體驗', '實體', '30min 牌卡 + 30min 頌缽', 'TWO TWO'],
+    tags: ['30min 牌卡 + 30min 頌缽', 'TWO TWO'],
   },
   {
     id: 2,
-    code: 'QI-SB-01-G',
     name: '［團體］脈輪牌卡問事＋放鬆頌缽',
     nameEn: 'Group Chakra Card + Sound Bath',
     meta: '3–5 人 · 約 60 分鐘',
     price: 'NT$3,200 / 人',
+    typeTags: ['3–5 人小團體', '實體'],
     desc: '結合直覺牌卡解析與團體全身放鬆頌缽的私密療癒聚會。適合想與閨蜜好友共度質感時光、初次體驗靈性療癒的你們。10 分鐘快速牌卡讀取當下狀態，再以 30 分鐘團體放鬆頌缽讓每個人在聲波中完美沉澱。每場 3 人起，5 人滿。',
-    tags: ['3–5 人小團體', '實體', '10min 牌卡 + 30min 頌缽', '閨蜜私密'],
+    tags: ['10min 牌卡 + 30min 頌缽', '閨蜜私密'],
   },
   {
     id: 3,
-    code: 'QI-SB-02',
     name: '能量療癒占卜旗艦',
     nameEn: 'Flagship Energy Healing & Divination',
     meta: '1:1 · 60 分鐘',
     price: 'NT$10,000',
+    typeTags: ['1:1 私人體驗', '實體'],
     desc: '針對特定問題進行「深度拆解」與「頻率清理」的旗艦體驗。先透過牌卡問事深度讀取問題背後的隱藏訊息，再由禿禿敲擊通靈頌缽，針對該問題的阻礙點進行深層敲擊與頻率疏通。適合正在面對人生重大卡點、需要被深度看見的你。',
-    tags: ['1:1 私人體驗', '實體', '30min 深度問事 + 30min 專項頌缽', '通靈解析'],
+    tags: ['30min 深度問事 + 30min 專項頌缽', '通靈解析'],
   },
 ]
 
@@ -531,25 +531,42 @@ export default function QiSbPage() {
                       {String(c.id).padStart(2, '0')}
                     </span>
                     <div style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 4 }}>
+                        <div
+                          style={{
+                            fontFamily: 'var(--f-impact)',
+                            fontWeight: 900,
+                            fontSize: 18,
+                            color: '#2E5A6A',
+                          }}
+                        >
+                          {c.name}
+                        </div>
+                        {c.typeTags.map(tag => (
+                          <span
+                            key={tag}
+                            style={{
+                              fontFamily: 'var(--f-display)',
+                              fontSize: 9,
+                              letterSpacing: '0.12em',
+                              padding: '3px 10px',
+                              border: '1px solid rgba(90,165,178,0.3)',
+                              color: '#65BAAF',
+                              borderRadius: 999,
+                              flexShrink: 0,
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                       <div
                         style={{
                           fontFamily: 'var(--f-impact)',
                           fontWeight: 900,
-                          fontSize: 18,
-                          color: '#2E5A6A',
-                        }}
-                      >
-                        {c.name}
-                      </div>
-                      <div
-                        style={{
-                          fontFamily: 'var(--f-display)',
-                          fontWeight: 100,
-                          fontSize: 11,
-                          letterSpacing: '0.25em',
+                          fontSize: 13,
+                          letterSpacing: '0.02em',
                           color: 'var(--muted)',
-                          textTransform: 'uppercase',
-                          marginTop: 4,
                         }}
                       >
                         {c.nameEn}
@@ -611,22 +628,41 @@ export default function QiSbPage() {
                         {c.desc}
                       </p>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
-                        {c.tags.map(tag => (
-                          <span
-                            key={tag}
-                            style={{
-                              fontFamily: 'var(--f-display)',
-                              fontSize: 10,
-                              letterSpacing: '0.12em',
-                              padding: '5px 12px',
-                              border: '1px solid rgba(90,165,178,0.3)',
-                              color: '#65BAAF',
-                              borderRadius: 1,
-                            }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                        {c.tags.map(tag =>
+                          tag === 'TWO TWO' ? (
+                            <a
+                              key={tag}
+                              href="#two-two"
+                              style={{
+                                fontFamily: 'var(--f-display)',
+                                fontSize: 10,
+                                letterSpacing: '0.12em',
+                                padding: '5px 12px',
+                                border: '1px solid rgba(90,165,178,0.3)',
+                                color: '#65BAAF',
+                                borderRadius: 1,
+                                textDecoration: 'none',
+                              }}
+                            >
+                              {tag} ↓
+                            </a>
+                          ) : (
+                            <span
+                              key={tag}
+                              style={{
+                                fontFamily: 'var(--f-display)',
+                                fontSize: 10,
+                                letterSpacing: '0.12em',
+                                padding: '5px 12px',
+                                border: '1px solid rgba(90,165,178,0.3)',
+                                color: '#65BAAF',
+                                borderRadius: 1,
+                              }}
+                            >
+                              {tag}
+                            </span>
+                          )
+                        )}
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
                         <span
@@ -639,16 +675,6 @@ export default function QiSbPage() {
                           }}
                         >
                           {c.price}
-                        </span>
-                        <span
-                          style={{
-                            fontFamily: 'var(--f-display)',
-                            fontSize: 10,
-                            color: 'var(--muted)',
-                            letterSpacing: '0.1em',
-                          }}
-                        >
-                          {c.code}
                         </span>
                         <Link
                           href="/contact"
@@ -963,7 +989,7 @@ export default function QiSbPage() {
       </svg>
 
       {/* ── 禿禿 TWO TWO ── */}
-      <section style={{ background: '#5DA5B5', position: 'relative', overflow: 'hidden' }}>
+      <section id="two-two" style={{ background: '#5DA5B5', position: 'relative', overflow: 'hidden' }}>
         {/* Ghost word */}
         <div
           aria-hidden
