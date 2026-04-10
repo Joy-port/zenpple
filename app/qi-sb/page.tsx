@@ -480,35 +480,19 @@ export default function QiSbPage() {
         />
 
         <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)' }}>
-          <p className="sec-label">02 · SESSIONS</p>
           <h2
-            className="tr-d2"
-            style={{ fontFamily: 'var(--f-impact)', fontWeight: 900,
-              fontSize: 'clamp(26px,3.5vw,38px)',
-              color: '#2E5A6A',
-              lineHeight: 1.3,
-              marginBottom: 12,
-            }}
-          >
-            課程與體驗
-          </h2>
-          <p
             style={{
-              fontFamily: 'var(--f-display)',
-              fontWeight: 100,
-              fontSize: 13,
-              letterSpacing: '0.3em',
-              color: 'var(--muted)',
-              textTransform: 'uppercase',
-              marginBottom: 16,
+              fontFamily: 'var(--f-impact)',
+              fontWeight: 900,
+              fontSize: 'clamp(40px,6vw,80px)',
+              color: '#2E5A6A',
+              lineHeight: 1.1,
+              letterSpacing: '-0.01em',
+              marginBottom: 48,
             }}
           >
             Sessions &amp; Experiences
-          </p>
-          <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.85, marginBottom: 48 }}>
-            每一次的頌缽都是獨特的旅程。點擊展開詳細說明。
-          </p>
-
+          </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {courses.map(c => {
               const isOpen = openCourse === c.id
