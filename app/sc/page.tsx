@@ -881,7 +881,7 @@ export default function ScPage() {
             <h2 className="tr-d2" style={{ fontSize:'clamp(24px,3.5vw,42px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#1E3848', marginBottom:12 }}>
               推薦整合搭配
             </h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:400, fontSize:14, letterSpacing:'0.24em', color:'rgba(42,70,90,0.6)', marginBottom:0 }}>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:600, fontSize:14, letterSpacing:'0.24em', color:'rgba(42,70,90,0.6)', marginBottom:0 }}>
               Complete Your Journey
             </p>
           </div>
