@@ -313,23 +313,51 @@ export default function ScPage() {
             </p>
           </div>
 
-          {/* Mobile: vertical steps list */}
-          <div className="flex flex-col md:hidden" style={{ gap:24, marginBottom:8 }}>
-            {[
-              { id:'sc01', num:'01', label:'力量動物', en:'Power Animal', color:'rgba(200,130,60,0.18)', dot:'rgba(200,130,60,0.7)' },
-              { id:'sc02', num:'02', label:'指導靈', en:'Spirit Guide', color:'rgba(80,140,210,0.14)', dot:'rgba(80,140,210,0.7)' },
-              { id:'sc03', num:'03', label:'脈輪情緒覺察', en:'Chakra & Emotion', color:'rgba(200,100,70,0.14)', dot:'rgba(200,100,70,0.7)' },
-              { id:'sc04', num:'04', label:'連結高我', en:'Higher Self', color:'rgba(200,170,60,0.14)', dot:'rgba(200,170,60,0.7)' },
-              { id:'sc05', num:'05', label:'內在小孩', en:'Inner Child', color:'rgba(160,80,200,0.14)', dot:'rgba(160,80,200,0.7)' },
-            ].map(step => (
-              <a key={step.id} href={`#section-${step.id}`} style={{ display:'flex', alignItems:'center', gap:20, background:step.color, borderRadius:12, padding:'20px 24px', textDecoration:'none' }}>
-                <div style={{ width:8, height:8, borderRadius:'50%', background:step.dot, flexShrink:0 }} />
-                <div>
-                  <p style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'rgba(242,239,234,0.45)', marginBottom:4 }}>{step.num}</p>
-                  <p style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.9)', letterSpacing:'0.04em', marginBottom:2 }}>{step.label}</p>
-                  <p style={{ fontFamily:'var(--f-display)', fontSize:11, letterSpacing:'0.2em', color:'rgba(242,239,234,0.4)', textTransform:'uppercase' }}>{step.en}</p>
+          {/* Mobile: vertical path + steps */}
+          <div className="md:hidden" style={{ position:'relative', paddingLeft:60, paddingRight:8, marginBottom:8 }}>
+            {/* Vertical wavy SVG path — passes through each dot at (28, 60+120×n) */}
+            <svg aria-hidden style={{ position:'absolute', left:0, top:0, width:56, height:600, pointerEvents:'none' }} viewBox="0 0 56 600">
+              <path
+                d="M28,0 C14,30 42,90 28,120 C14,150 42,210 28,240 C14,270 42,330 28,360 C14,390 42,450 28,480 C14,510 42,570 28,600"
+                stroke="rgba(180,215,220,0.28)" strokeWidth="1.5" fill="none" strokeLinecap="round"
+              />
+            </svg>
+
+            {/* Dots on path — 黑圈 images with glow, absolutely placed at each node */}
+            {([
+              { id:'sc01', color:'200,130,60',  img:'/resource/single/材質-4-圓圈/黑圈-1.png',  y:60  },
+              { id:'sc02', color:'80,140,210',   img:'/resource/single/材質-4-圓圈/黑圈-10.png', y:180 },
+              { id:'sc03', color:'200,100,70',   img:'/resource/single/材質-4-圓圈/黑圈-12.png', y:300 },
+              { id:'sc04', color:'200,170,60',   img:'/resource/single/材質-4-圓圈/黑圈-18.png', y:420 },
+              { id:'sc05', color:'160,80,200',   img:'/resource/single/材質-4-圓圈/黑圈-24.png', y:540 },
+            ] as { id:string; color:string; img:string; y:number }[]).map(dot => (
+              <div key={`dot-${dot.id}`} style={{ position:'absolute', left:28, top:dot.y, transform:'translate(-50%,-50%)', zIndex:3, pointerEvents:'none' }}>
+                <div className="sc-dot-glow" style={{'--glow-color': dot.color} as React.CSSProperties}>
+                  <Image src={dot.img} alt="" aria-hidden width={48} height={48}
+                    style={{ width:42, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.8 }} />
                 </div>
-                <span style={{ marginLeft:'auto', color:'rgba(242,239,234,0.3)', fontSize:18 }}>↓</span>
+              </div>
+            ))}
+
+            {/* Step rows — image + text to the right of the path */}
+            {([
+              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/animals-white/dragon.png',         glow:'200,130,60', invertImg:false },
+              { id:'sc02', num:'02', label:'指導靈',      en:'Spirit Guide',        img:'/sc/white/指導靈-白.png',              glow:'80,140,210',  invertImg:false },
+              { id:'sc03', num:'03', label:'脈輪情緒覺察', en:'Chakra & Emotion',   img:'/sc/white/七脈輪情緒覺察-白.png',     glow:'200,100,70',  invertImg:false },
+              { id:'sc04', num:'04', label:'連結高我',    en:'Higher Self',         img:'/sc/black/高我.png',                  glow:'200,170,60',  invertImg:true  },
+              { id:'sc05', num:'05', label:'尋找內在小孩', en:'Inner Child',         img:'/sc/white/內在小孩-白.png',           glow:'160,80,200',  invertImg:false },
+            ] as { id:string; num:string; label:string; en:string; img:string; glow:string; invertImg:boolean }[]).map(step => (
+              <a key={step.id} href={`#section-${step.id}`}
+                style={{ height:120, display:'flex', alignItems:'center', gap:14, textDecoration:'none' }}>
+                <div className="sc-glow-wrap" style={{'--glow-color': step.glow} as React.CSSProperties}>
+                  <Image src={step.img} alt="" aria-hidden width={80} height={80}
+                    style={{ height:68, width:'auto', filter: step.invertImg ? 'invert(1) brightness(1.4)' : 'brightness(0.95)', opacity:0.82 }} />
+                </div>
+                <div>
+                  <p style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'rgba(242,239,234,0.45)', marginBottom:3 }}>{step.num}</p>
+                  <p style={{ fontSize:16, fontWeight:700, color:'rgba(242,239,234,0.9)', letterSpacing:'0.04em', marginBottom:2 }}>{step.label}</p>
+                  <p style={{ fontFamily:'var(--f-display)', fontSize:11, letterSpacing:'0.18em', color:'rgba(242,239,234,0.4)', textTransform:'uppercase' }}>{step.en}</p>
+                </div>
               </a>
             ))}
           </div>
