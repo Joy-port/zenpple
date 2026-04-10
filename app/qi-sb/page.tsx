@@ -769,22 +769,11 @@ export default function QiSbPage() {
               alignItems: 'start',
             }}
           >
-            {/* Left: description + why different */}
+            {/* Left: why different block (breathing) + brainwave label */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
-              <p
-                style={{
-                  fontSize: 15,
-                  lineHeight: 1.85,
-                  color: 'var(--muted)',
-                  maxWidth: 520,
-                }}
-              >
-                頌缽發出的泛音頻率，能同步引導腦波從 β 波（清醒緊張）過渡到 α 波（放鬆專注）乃至 θ
-                波（深層冥想），讓神經系統進入自然的修復狀態。這不是催眠，而是聲音的物理共振在身體層面發生作用。
-              </p>
-
-              {/* Why different block */}
+              {/* Why different block — breathing animation */}
               <div
+                className="animate-breathe-scale"
                 style={{
                   background: 'linear-gradient(135deg, #5DA5B5 0%, #65BAAF 100%)',
                   borderRadius: 4,
@@ -839,8 +828,19 @@ export default function QiSbPage() {
               </div>
             </div>
 
-            {/* Right: brainwave cards */}
+            {/* Right: description + brainwave cards */}
             <div>
+              <p
+                style={{
+                  fontSize: 15,
+                  lineHeight: 1.85,
+                  color: 'var(--muted)',
+                  marginBottom: 32,
+                }}
+              >
+                頌缽發出的泛音頻率，能同步引導腦波從 β 波（清醒緊張）過渡到 α 波（放鬆專注）乃至 θ
+                波（深層冥想），讓神經系統進入自然的修復狀態。這不是催眠，而是聲音的物理共振在身體層面發生作用。
+              </p>
               {/* Brainwave section label */}
               <p
                 style={{
