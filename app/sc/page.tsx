@@ -511,10 +511,9 @@ export default function ScPage() {
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
-            <div style={{ position:'relative', cursor:'pointer' }} onClick={() => setOpenDetail(openDetail === 'sc01' ? null : 'sc01')}>
+            <div style={{ position:'relative' }}>
               <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={420} height={420}
-                style={{ width:'min(360px,85%)', height:'auto', filter:'sepia(0.55) hue-rotate(10deg) saturate(1.6) brightness(0.68)', opacity: openDetail === 'sc01' ? 0.92 : 0.78, animation:'sc-breathe 5s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
-              {openDetail !== 'sc01' && <div style={{ position:'absolute', bottom:16, left:'50%', transform:'translateX(-50%)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'#5C3A14', opacity:0.55, whiteSpace:'nowrap' }}>點擊對話</div>}
+                style={{ width:'min(360px,85%)', height:'auto', filter:'sepia(0.55) hue-rotate(10deg) saturate(1.6) brightness(0.68)', opacity:0.78, animation:'sc-breathe 5s ease-in-out infinite', mixBlendMode:'luminosity' }} />
             </div>
             <Image src="/sc/animals/akita.png" alt="" aria-hidden width={200} height={200}
               style={{ position:'absolute', bottom:20, right:20, width:120, height:'auto', filter:'sepia(0.4) hue-rotate(15deg) saturate(1.2) brightness(0.7)', opacity:0.4, mixBlendMode:'multiply' }} />
