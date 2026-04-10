@@ -523,9 +523,10 @@ export default function QiSbPage() {
                         fontSize: 11,
                         letterSpacing: '0.2em',
                         color: isOpen ? '#65BAAF' : 'var(--muted)',
+                        opacity: isOpen ? 1 : 0.4,
                         width: 40,
                         flexShrink: 0,
-                        transition: 'color .3s',
+                        transition: 'color .3s, opacity .3s',
                       }}
                     >
                       {String(c.id).padStart(2, '0')}
@@ -551,7 +552,7 @@ export default function QiSbPage() {
                           letterSpacing: '0.25em',
                           color: 'var(--muted)',
                           textTransform: 'uppercase',
-                          marginTop: 4,
+                          marginTop: 10,
                         }}
                       >
                         {c.nameEn}
@@ -594,7 +595,7 @@ export default function QiSbPage() {
                   {/* Expanded panel */}
                   <div
                     style={{
-                      maxHeight: isOpen ? 400 : 0,
+                      maxHeight: isOpen ? 600 : 0,
                       overflow: 'hidden',
                       transition: 'max-height .5s cubic-bezier(0.16,1,0.3,1)',
                     }}
@@ -606,10 +607,10 @@ export default function QiSbPage() {
                         paddingTop: 24,
                       }}
                     >
-                      <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.85, maxWidth: 540, marginBottom: 20 }}>
+                      <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 2.0, maxWidth: 540, marginBottom: 32 }}>
                         {c.desc}
                       </p>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 32 }}>
                         {[...c.typeTags, ...c.tags].map(tag =>
                           tag === 'TWO TWO' ? (
                             <a
@@ -646,14 +647,14 @@ export default function QiSbPage() {
                           )
                         )}
                       </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 24, borderTop: '1px solid rgba(90,165,178,0.1)', paddingTop: 24 }}>
                         <span
                           style={{
-                            fontFamily: 'var(--f-display)',
-                            fontSize: 15,
-                            fontWeight: 700,
+                            fontFamily: 'var(--f-impact)',
+                            fontWeight: 900,
+                            fontSize: 22,
                             color: '#2E5A6A',
-                            letterSpacing: '0.06em',
+                            letterSpacing: '0.02em',
                           }}
                         >
                           {c.price}
@@ -662,14 +663,15 @@ export default function QiSbPage() {
                           href="/contact"
                           style={{
                             fontFamily: 'var(--f-display)',
-                            fontSize: 10,
-                            letterSpacing: '0.15em',
+                            fontSize: 12,
+                            fontWeight: 400,
+                            letterSpacing: '0.18em',
                             textTransform: 'uppercase',
-                            color: '#65BAAF',
+                            color: '#fff',
                             textDecoration: 'none',
-                            border: '1px solid rgba(90,165,178,0.4)',
+                            background: '#5DA5B5',
                             borderRadius: 999,
-                            padding: '7px 16px',
+                            padding: '10px 24px',
                             marginLeft: 'auto',
                           }}
                         >
