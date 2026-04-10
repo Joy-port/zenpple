@@ -21,15 +21,18 @@ export default function Nav() {
   const [open, setOpen] = useState(false)
   const [isHero, setIsHero] = useState(true)
   const [isDarkSection, setIsDarkSection] = useState(false)
+  const [darkNavColor, setDarkNavColor] = useState('rgba(0,0,0,0.10)')
 
   useEffect(() => {
     const update = () => {
       setIsHero(window.scrollY < 80)
       const darks = document.querySelectorAll('[data-nav-theme="dark"]')
-      setIsDarkSection(Array.from(darks).some(el => {
+      const active = Array.from(darks).find(el => {
         const rect = el.getBoundingClientRect()
         return rect.top <= 64 && rect.bottom > 64
-      }))
+      })
+      setIsDarkSection(!!active)
+      if (active) setDarkNavColor((active as HTMLElement).dataset.navColor ?? 'rgba(0,0,0,0.10)')
     }
     update()
     window.addEventListener('scroll', update, { passive: true })
@@ -49,12 +52,12 @@ export default function Nav() {
   const bgColor   = isHl
     ? `rgba(176,100,100,${atTop ? 0 : 0.90})`
     : isDarkSection
-      ? `rgba(90,165,178,${atTop ? 0.10 : 0.88})`
+      ? darkNavColor
       : `rgba(242,239,234,${atTop ? 0 : 0.88})`
   const borderClr = isHl
     ? `rgba(255,255,255,${atTop ? 0 : 0.10})`
     : isDarkSection
-      ? `rgba(255,255,255,${atTop ? 0.10 : 0.10})`
+      ? 'rgba(255,255,255,0.10)'
       : `rgba(42,42,42,${atTop ? 0 : 0.07})`
 
   const headerBase: React.CSSProperties = {

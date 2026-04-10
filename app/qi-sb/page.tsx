@@ -95,6 +95,7 @@ export default function QiSbPage() {
       {/* ── HERO ── */}
       <section
         data-nav-theme="dark"
+        data-nav-color="rgba(90,165,178,0.12)"
         style={{
           position: 'relative',
           minHeight: '100vh',
@@ -231,6 +232,7 @@ export default function QiSbPage() {
       {/* ── 為什麼頌缽可以放鬆腦波 ── */}
       <section
         data-nav-theme="dark"
+        data-nav-color="rgba(90,165,178,0.12)"
         style={{
           background: 'linear-gradient(180deg, #6AAEBB 0%, #6BBFB2 100%)',
           position: 'relative',
