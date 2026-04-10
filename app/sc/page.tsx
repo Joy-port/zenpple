@@ -144,7 +144,7 @@ export default function ScPage() {
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
               薩滿，<br />最古老的療癒智慧
             </h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'rgba(180,215,220,0.7)', marginBottom:24 }}>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:400, fontSize:14, letterSpacing:'0.28em', color:'rgba(180,215,220,0.7)', marginBottom:24 }}>
               The Oldest Healing Wisdom
             </p>
             <p style={{ fontSize:14, lineHeight:1.9, color:'rgba(242,239,234,0.72)', maxWidth:440 }}>
@@ -305,11 +305,8 @@ export default function ScPage() {
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
               薩滿旅程五步驟
             </h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'rgba(180,215,220,0.65)', opacity:0.72, marginBottom:12 }}>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:400, fontSize:14, letterSpacing:'0.28em', color:'rgba(180,215,220,0.65)', opacity:0.72, marginBottom:12 }}>
               A Path of Awakening &amp; Integration
-            </p>
-            <p style={{ fontSize:14, lineHeight:1.9, color:'rgba(242,239,234,0.5)', textAlign:'center', margin:'0 auto' }}>
-              點擊任一步驟，進入詳細探索。
             </p>
           </div>
 
