@@ -793,8 +793,19 @@ export default function QiSbPage() {
         </div>
 
         <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)', position: 'relative', zIndex: 2 }}>
-          <SectionTitle zh="什麼是靈性頌缽音流" en="Singing Bowl Sound Flow" />
-
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 'clamp(40px,6vw,80px)',
+              alignItems: 'start',
+            }}
+          >
+            <div style={{ textAlign: 'center' }}>
+              <SectionTitle zh="什麼是靈性頌缽音流" en="Singing Bowl Sound Flow" mb={0} />
+            </div>
+            <div />{/* placeholder to close title row */}
+          </div>
 
           <div
             style={{
@@ -802,6 +813,7 @@ export default function QiSbPage() {
               gridTemplateColumns: '1fr 1fr',
               gap: 'clamp(40px,6vw,80px)',
               alignItems: 'start',
+              marginTop: 48,
             }}
           >
             {/* Left: why different block (breathing) */}
