@@ -576,21 +576,6 @@ export default function QiSbPage() {
                     </div>
                     <div
                       style={{
-                        fontFamily: 'var(--f-display)',
-                        fontSize: 11,
-                        color: 'var(--muted)',
-                        textAlign: 'right',
-                        marginRight: 20,
-                        lineHeight: 1.6,
-                        flexShrink: 0,
-                      }}
-                    >
-                      {c.meta.split(' · ').join('\n')}
-                      <br />
-                      {c.price}
-                    </div>
-                    <div
-                      style={{
                         width: 28,
                         height: 28,
                         borderRadius: '50%',
@@ -630,6 +615,22 @@ export default function QiSbPage() {
                         {c.desc}
                       </p>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
+                        {c.meta.split(' · ').map(tag => (
+                          <span
+                            key={tag}
+                            style={{
+                              fontFamily: 'var(--f-display)',
+                              fontSize: 10,
+                              letterSpacing: '0.12em',
+                              padding: '5px 12px',
+                              background: 'rgba(90,165,178,0.08)',
+                              color: '#2E5A6A',
+                              borderRadius: 1,
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
                         {c.tags.map(tag =>
                           tag === 'TWO TWO' ? (
                             <a
