@@ -315,21 +315,21 @@ export default function ScPage() {
 
           {/* Mobile: vertical path + steps */}
           <div className="md:hidden" style={{ position:'relative', paddingLeft:72, paddingRight:8, marginBottom:8 }}>
-            {/* Vertical wavy SVG path — passes through each dot at (36, 60+120×n) */}
-            <svg aria-hidden style={{ position:'absolute', left:0, top:0, width:68, height:600, pointerEvents:'none' }} viewBox="0 0 68 600">
+            {/* Vertical wavy SVG path — passes through each dot at (34, 80+160×n) */}
+            <svg aria-hidden style={{ position:'absolute', left:0, top:0, width:68, height:800, pointerEvents:'none' }} viewBox="0 0 68 800">
               <path
-                d="M34,0 C18,30 50,90 34,120 C18,150 50,210 34,240 C18,270 50,330 34,360 C18,390 50,450 34,480 C18,510 50,570 34,600"
+                d="M34,0 C18,40 50,120 34,160 C18,200 50,280 34,320 C18,360 50,440 34,480 C18,520 50,600 34,640 C18,680 50,760 34,800"
                 stroke="rgba(180,215,220,0.35)" strokeWidth="2.5" fill="none" strokeLinecap="round"
               />
             </svg>
 
             {/* Dots on path — 黑圈 images with glow, absolutely placed at each node */}
             {([
-              { id:'sc01', color:'200,130,60',  img:'/resource/single/材質-4-圓圈/黑圈-1.png',  y:60  },
-              { id:'sc02', color:'80,140,210',   img:'/resource/single/材質-4-圓圈/黑圈-10.png', y:180 },
-              { id:'sc03', color:'200,100,70',   img:'/resource/single/材質-4-圓圈/黑圈-12.png', y:300 },
-              { id:'sc04', color:'200,170,60',   img:'/resource/single/材質-4-圓圈/黑圈-18.png', y:420 },
-              { id:'sc05', color:'160,80,200',   img:'/resource/single/材質-4-圓圈/黑圈-24.png', y:540 },
+              { id:'sc01', color:'200,130,60',  img:'/resource/single/材質-4-圓圈/黑圈-1.png',  y:80  },
+              { id:'sc02', color:'80,140,210',   img:'/resource/single/材質-4-圓圈/黑圈-10.png', y:240 },
+              { id:'sc03', color:'200,100,70',   img:'/resource/single/材質-4-圓圈/黑圈-12.png', y:400 },
+              { id:'sc04', color:'200,170,60',   img:'/resource/single/材質-4-圓圈/黑圈-18.png', y:560 },
+              { id:'sc05', color:'160,80,200',   img:'/resource/single/材質-4-圓圈/黑圈-24.png', y:720 },
             ] as { id:string; color:string; img:string; y:number }[]).map(dot => (
               <div key={`dot-${dot.id}`} style={{ position:'absolute', left:34, top:dot.y, transform:'translate(-50%,-50%)', zIndex:3, pointerEvents:'none' }}>
                 <div className="sc-dot-glow" style={{'--glow-color': dot.color} as React.CSSProperties}>
@@ -348,7 +348,7 @@ export default function ScPage() {
               { id:'sc05', num:'05', label:'尋找內在小孩', en:'Inner Child',         img:'/sc/white/內在小孩-白.png',           glow:'160,80,200',  invertImg:false },
             ] as { id:string; num:string; label:string; en:string; img:string; glow:string; invertImg:boolean }[]).map(step => (
               <a key={step.id} href={`#section-${step.id}`}
-                style={{ height:120, display:'flex', alignItems:'center', gap:14, textDecoration:'none', flex:1 }}>
+                style={{ height:160, display:'flex', alignItems:'center', gap:14, textDecoration:'none', flex:1 }}>
                 <div className="sc-glow-wrap" style={{ flexShrink:0, ...({'--glow-color': step.glow} as React.CSSProperties) }}>
                   <Image src={step.img} alt="" aria-hidden width={80} height={80}
                     style={{ width:90, height:'auto', filter: step.invertImg ? 'invert(1) brightness(1.4)' : 'brightness(0.95)', opacity:0.82 }} />
