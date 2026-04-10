@@ -89,7 +89,7 @@ export default function WhatIsSection2() {
         sound
       </div>
 
-      <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)', position: 'relative', zIndex: 2 }}>
+      <div className="wrap" style={{ paddingTop: 'clamp(80px,10vw,120px)', paddingBottom: 'clamp(80px,10vw,120px)', paddingLeft: 'clamp(48px,8vw,120px)', paddingRight: 'clamp(48px,8vw,120px)', position: 'relative', zIndex: 2 }}>
         {/* Title row — right column */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,6vw,80px)', alignItems: 'start' }}>
           <div />
