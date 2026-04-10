@@ -908,7 +908,7 @@ export default function ScPage() {
                     了解更多 →
                   </Link>
                 </div>
-                <div style={{ flex:'0 0 40%', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px 20px', background:card.imgBg, borderRadius:'0 24px 24px 0' }}>
+                <div className="sc-reco-card-img" style={{ flex:'0 0 40%', display:'flex', alignItems:'center', justifyContent:'center', padding:'24px 20px', background:card.imgBg, borderRadius:'0 24px 24px 0' }}>
                   <Image src={card.img} alt="" aria-hidden width={300} height={300} style={{ width:'100%', height:'auto', objectFit:'contain', opacity:0.45, maskImage:'radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)', WebkitMaskImage:'radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)' }} />
                 </div>
               </div>
