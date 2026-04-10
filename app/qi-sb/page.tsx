@@ -612,7 +612,7 @@ export default function QiSbPage() {
                     >
                       {/* Left: desc + tags */}
                       <div>
-                        <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 2.0, marginBottom: 24 }}>
+                        <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 2.0, maxWidth: 420, marginBottom: 24 }}>
                           {c.desc}
                         </p>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
