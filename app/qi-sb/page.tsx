@@ -19,7 +19,7 @@ const courses = [
   },
   {
     id: 2,
-    name: '［團體］脈輪牌卡問事＋放鬆頌缽',
+    name: '脈輪牌卡問事＋放鬆頌缽［團體］',
     nameEn: 'Group Chakra Card + Sound Bath',
     meta: '3–5 人 · 約 60 分鐘',
     price: 'NT$3,200 / 人',
@@ -531,7 +531,7 @@ export default function QiSbPage() {
                       {String(c.id).padStart(2, '0')}
                     </span>
                     <div style={{ flex: 1 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 4 }}>
+                      <div style={{ marginBottom: 4 }}>
                         <div
                           style={{
                             fontFamily: 'var(--f-impact)',
@@ -542,23 +542,6 @@ export default function QiSbPage() {
                         >
                           {c.name}
                         </div>
-                        {c.typeTags.map(tag => (
-                          <span
-                            key={tag}
-                            style={{
-                              fontFamily: 'var(--f-display)',
-                              fontSize: 9,
-                              letterSpacing: '0.12em',
-                              padding: '3px 10px',
-                              border: '1px solid rgba(90,165,178,0.3)',
-                              color: '#65BAAF',
-                              borderRadius: 999,
-                              flexShrink: 0,
-                            }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
                       </div>
                       <div
                         style={{
@@ -627,7 +610,7 @@ export default function QiSbPage() {
                         {c.desc}
                       </p>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
-                        {c.tags.map(tag =>
+                        {[...c.typeTags, ...c.tags].map(tag =>
                           tag === 'TWO TWO' ? (
                             <a
                               key={tag}
