@@ -12,6 +12,7 @@ const courses = [
     name: '脈輪牌卡問事＋放鬆頌缽',
     nameEn: 'Chakra Card Reading + Relaxation Bowl',
     meta: '1:1 · 60 分鐘',
+    headerLabel: '1 對 1',
     price: 'NT$3,500',
     typeTags: ['1:1 私人體驗', '實體'],
     desc: '結合牌卡分析與全身放鬆的入門實體體驗。適合想了解當下身心狀態，並在諮詢後透過頌缽達到深層紓壓的你。先透過脈輪牌卡讀取能量現況，再以頌缽頻率引導全身放鬆，讓神經系統在聲波中自然進入修復狀態。',
@@ -22,6 +23,7 @@ const courses = [
     name: '脈輪牌卡問事＋放鬆頌缽［團體］',
     nameEn: 'Group Chakra Card + Sound Bath',
     meta: '3–5 人 · 約 60 分鐘',
+    headerLabel: '3–5 人',
     price: 'NT$3,200 / 人',
     typeTags: ['3–5 人小團體', '實體'],
     desc: '結合直覺牌卡解析與團體全身放鬆頌缽的私密療癒聚會。適合想與閨蜜好友共度質感時光、初次體驗靈性療癒的你們。10 分鐘快速牌卡讀取當下狀態，再以 30 分鐘團體放鬆頌缽讓每個人在聲波中完美沉澱。每場 3 人起，5 人滿。',
@@ -32,6 +34,7 @@ const courses = [
     name: '能量療癒占卜旗艦',
     nameEn: 'Flagship Energy Healing & Divination',
     meta: '1:1 · 60 分鐘',
+    headerLabel: '1 對 1',
     price: 'NT$10,000',
     typeTags: ['1:1 私人體驗', '實體'],
     desc: '針對特定問題進行「深度拆解」與「頻率清理」的旗艦體驗。先透過牌卡問事深度讀取問題背後的隱藏訊息，再由禿禿敲擊通靈頌缽，針對該問題的阻礙點進行深層敲擊與頻率疏通。適合正在面對人生重大卡點、需要被深度看見的你。',
@@ -568,7 +571,7 @@ export default function QiSbPage() {
                         marginRight: 12,
                       }}
                     >
-                      {c.meta.split(' · ').find(t => t.includes('分鐘') || t.includes('人'))}
+                      {c.headerLabel}
                     </span>
                     <div
                       style={{
@@ -678,7 +681,7 @@ export default function QiSbPage() {
                             textTransform: 'uppercase',
                             color: '#fff',
                             textDecoration: 'none',
-                            background: '#65BAAF',
+                            background: '#5DA5B5',
                             borderRadius: 999,
                             padding: '10px 24px',
                             whiteSpace: 'nowrap',
