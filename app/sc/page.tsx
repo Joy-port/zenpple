@@ -314,12 +314,12 @@ export default function ScPage() {
           </div>
 
           {/* Mobile: vertical path + steps */}
-          <div className="md:hidden" style={{ position:'relative', paddingLeft:60, paddingRight:8, marginBottom:8 }}>
-            {/* Vertical wavy SVG path — passes through each dot at (28, 60+120×n) */}
-            <svg aria-hidden style={{ position:'absolute', left:0, top:0, width:56, height:600, pointerEvents:'none' }} viewBox="0 0 56 600">
+          <div className="md:hidden" style={{ position:'relative', paddingLeft:72, paddingRight:8, marginBottom:8 }}>
+            {/* Vertical wavy SVG path — passes through each dot at (36, 60+120×n) */}
+            <svg aria-hidden style={{ position:'absolute', left:0, top:0, width:68, height:600, pointerEvents:'none' }} viewBox="0 0 68 600">
               <path
-                d="M28,0 C14,30 42,90 28,120 C14,150 42,210 28,240 C14,270 42,330 28,360 C14,390 42,450 28,480 C14,510 42,570 28,600"
-                stroke="rgba(180,215,220,0.28)" strokeWidth="1.5" fill="none" strokeLinecap="round"
+                d="M34,0 C18,30 50,90 34,120 C18,150 50,210 34,240 C18,270 50,330 34,360 C18,390 50,450 34,480 C18,510 50,570 34,600"
+                stroke="rgba(180,215,220,0.35)" strokeWidth="2.5" fill="none" strokeLinecap="round"
               />
             </svg>
 
@@ -331,7 +331,7 @@ export default function ScPage() {
               { id:'sc04', color:'200,170,60',   img:'/resource/single/材質-4-圓圈/黑圈-18.png', y:420 },
               { id:'sc05', color:'160,80,200',   img:'/resource/single/材質-4-圓圈/黑圈-24.png', y:540 },
             ] as { id:string; color:string; img:string; y:number }[]).map(dot => (
-              <div key={`dot-${dot.id}`} style={{ position:'absolute', left:28, top:dot.y, transform:'translate(-50%,-50%)', zIndex:3, pointerEvents:'none' }}>
+              <div key={`dot-${dot.id}`} style={{ position:'absolute', left:34, top:dot.y, transform:'translate(-50%,-50%)', zIndex:3, pointerEvents:'none' }}>
                 <div className="sc-dot-glow" style={{'--glow-color': dot.color} as React.CSSProperties}>
                   <Image src={dot.img} alt="" aria-hidden width={48} height={48}
                     style={{ width:42, height:'auto', filter:'invert(1) brightness(0.88)', opacity:0.8 }} />
