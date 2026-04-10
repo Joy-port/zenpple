@@ -353,7 +353,7 @@ export default function ScPage() {
                   <Image src={step.img} alt="" aria-hidden width={80} height={80}
                     style={{ width:64, height:'auto', filter: step.invertImg ? 'invert(1) brightness(1.4)' : 'brightness(0.95)', opacity:0.82 }} />
                 </div>
-                <div style={{ textAlign:'center', flex:1 }}>
+                <div style={{ textAlign:'center', flex:1, maxWidth:120 }}>
                   <p style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'rgba(242,239,234,0.45)', marginBottom:3 }}>{step.num}</p>
                   <p style={{ fontSize:16, fontWeight:700, color:'rgba(242,239,234,0.9)', letterSpacing:'0.04em', marginBottom:2 }}>{step.label}</p>
                   <p style={{ fontFamily:'var(--f-display)', fontSize:11, letterSpacing:'0.18em', color:'rgba(242,239,234,0.4)', textTransform:'uppercase' }}>{step.en}</p>
