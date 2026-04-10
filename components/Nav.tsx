@@ -22,7 +22,15 @@ export default function Nav() {
   const [isHero, setIsHero] = useState(true)
 
   useEffect(() => {
-    const update = () => setIsHero(window.scrollY < 80)
+    const update = () => {
+      const atTop = window.scrollY < 80
+      const darks = document.querySelectorAll('[data-nav-theme="dark"]')
+      const darkActive = Array.from(darks).some(el => {
+        const rect = el.getBoundingClientRect()
+        return rect.top <= 64 && rect.bottom > 64
+      })
+      setIsHero(atTop || darkActive)
+    }
     update()
     window.addEventListener('scroll', update, { passive: true })
     return () => window.removeEventListener('scroll', update)
