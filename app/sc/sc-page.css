@@ -158,8 +158,16 @@
   }
 }
 
+@keyframes sc-mobile-breathe {
+  0%,100% { transform: translateX(-50%) scale(1); }
+  50%      { transform: translateX(-50%) scale(1.04) translateY(-8px); }
+}
+
 /* ── SC-02/03/04 calligraphy images — mobile center-bottom ── */
 @media (max-width: 767px) {
+  .sc-section-deco {
+    display: none !important;
+  }
   .sc-section-bg-calligraphy {
     height: auto !important;
     width: 72vw !important;
@@ -168,6 +176,7 @@
     top: auto !important;
     bottom: 0 !important;
     transform: translateX(-50%) !important;
+    animation: sc-mobile-breathe 5s ease-in-out infinite !important;
   }
 }
 
@@ -175,12 +184,13 @@
 @media (max-width: 767px) {
   .sc05-bg-calligraphy {
     height: auto !important;
-    width: 80vw !important;
-    right: 10% !important;
-    left: 10% !important;
+    width: 72vw !important;
+    left: 50% !important;
+    right: auto !important;
     top: auto !important;
     bottom: 0 !important;
-    transform: none !important;
+    transform: translateX(-50%) !important;
+    animation: sc-mobile-breathe 5s ease-in-out infinite !important;
   }
 }
 

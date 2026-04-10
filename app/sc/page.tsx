@@ -526,6 +526,7 @@ export default function ScPage() {
       {/* Theme: 夜空 · 月光 · 高維頻道 — near-black with cool silver-pearl */}
       <section id="section-sc02" style={{ padding:'100px 0', background:'#E4EBF5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-5-波/材質-5-1.png" alt="" aria-hidden width={400} height={200}
+          className="sc-section-deco"
           style={{ position:'absolute', top:-20, left:'5%', width:'clamp(200px,30vw,380px)', height:'auto', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'rotate(4deg)' }} />
         {/* C-form glow — top-left arc, left spine, bottom-left arc; opening faces right */}
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 40% 28% at 0% 8%, rgba(40,80,180,0.30) 0%, transparent 100%), radial-gradient(ellipse 20% 60% at 0% 50%, rgba(40,80,180,0.22) 0%, transparent 100%), radial-gradient(ellipse 40% 28% at 0% 92%, rgba(40,80,180,0.28) 0%, transparent 100%)', pointerEvents:'none' }} />
@@ -543,10 +544,12 @@ export default function ScPage() {
             filter:'saturate(0.4) hue-rotate(195deg) brightness(0.58)', mixBlendMode:'multiply', opacity:0.50, pointerEvents:'none' }} />
         {/* 薩滿巫 secondary */}
         <Image src="/sc/black/薩滿巫.png" alt="" aria-hidden width={500} height={600}
+          className="sc-section-deco"
           style={{ position:'absolute', right:'5%', bottom:'-10%', width:'28%', height:'auto',
             filter:'sepia(0.1) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(6deg) scale(0.8)' }} />
         {/* 圓圈 celestial orb */}
         <Image src="/resource/single/材質-4-圓圈/黑圈-3.png" alt="" aria-hidden width={300} height={300}
+          className="sc-section-deco"
           style={{ position:'absolute', top:'12%', left:'42%', width:180, height:'auto',
             filter:'sepia(0.1) brightness(0.7)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
@@ -607,6 +610,7 @@ export default function ScPage() {
       {/* Theme: 身體 · 情緒 · 流動感 — deep warm terracotta, body warmth */}
       <section id="section-sc03" style={{ padding:'100px 0', background:'#F5E2D4', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-1-撇/材質-1-3.png" alt="" aria-hidden width={400} height={300}
+          className="sc-section-deco"
           style={{ position:'absolute', top:-10, right:'8%', width:'clamp(160px,20vw,280px)', height:'auto', mixBlendMode:'multiply', opacity:0.07, pointerEvents:'none', transform:'rotate(-8deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 65% 75% at 10% 50%, rgba(140,60,25,0.1) 0%, rgba(140,75,40,0.12) 50%, transparent 70%), radial-gradient(ellipse 45% 55% at 90% 20%, rgba(160,85,50,0.15) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
@@ -623,9 +627,11 @@ export default function ScPage() {
             filter:'sepia(0.5) hue-rotate(340deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
         {/* 波浪筆觸 = emotion flow */}
         <Image src="/resource/single/材質-5-波/材質-5-1.png" alt="" aria-hidden width={400} height={400}
+          className="sc-section-deco"
           style={{ position:'absolute', bottom:'15%', right:'30%', width:200, height:'auto',
             filter:'sepia(0.3) hue-rotate(340deg) brightness(0.8)', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none', transform:'rotate(28deg) scale(0.7)' }} />
         <Image src="/resource/single/材質-5-波/材質-5-1_2.png" alt="" aria-hidden width={400} height={400}
+          className="sc-section-deco"
           style={{ position:'absolute', top:'10%', left:'42%', width:160, height:'auto',
             filter:'sepia(0.2) hue-rotate(340deg) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(-18deg) scale(0.7)' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
@@ -684,6 +690,7 @@ export default function ScPage() {
       {/* Theme: 神聖 · 金光 · 靈魂主權 — near-black with sacred gold */}
       <section id="section-sc04" style={{ padding:'100px 0', background:'#F5EDD5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-4-圓圈/黑圈-20.png" alt="" aria-hidden width={300} height={300}
+          className="sc-section-deco"
           style={{ position:'absolute', top:-30, left:'3%', width:'clamp(120px,14vw,200px)', height:'auto', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none', transform:'rotate(15deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 70% at 80% 40%, rgba(160,128,30,0.1) 0%, rgba(160,130,50,0.08) 50%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 70%, rgba(180,148,60,0.1) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
@@ -700,9 +707,11 @@ export default function ScPage() {
             filter:'sepia(0.5) hue-rotate(38deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
         {/* 圓圈 sacred circle */}
         <Image src="/resource/single/材質-4-圓圈/黑圈-7.png" alt="" aria-hidden width={400} height={400}
+          className="sc-section-deco"
           style={{ position:'absolute', top:'50%', right:'8%', transform:'translateY(-50%) rotate(-12deg) scale(0.75)', width:300, height:'auto',
             filter:'sepia(0.4) hue-rotate(38deg) brightness(0.75)', mixBlendMode:'multiply', opacity:0.03, pointerEvents:'none' }} />
         <Image src="/resource/single/材質-4-圓圈/黑圈-12.png" alt="" aria-hidden width={200} height={200}
+          className="sc-section-deco"
           style={{ position:'absolute', top:'10%', left:'44%', width:110, height:'auto',
             filter:'sepia(0.3) hue-rotate(38deg) brightness(0.75)', mixBlendMode:'multiply', opacity:0.03, pointerEvents:'none' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
@@ -764,6 +773,7 @@ export default function ScPage() {
       {/* Theme: 療癒 · 柔韌 · 重新歸位 — deep plum with soft violet warmth */}
       <section id="section-sc05" style={{ padding:'100px 0', background:'#E4D8F5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <Image src="/resource/single/材質-5-波/材質-5-1_3.png" alt="" aria-hidden width={400} height={200}
+          className="sc-section-deco"
           style={{ position:'absolute', top:-15, right:'4%', width:'clamp(180px,24vw,320px)', height:'auto', mixBlendMode:'multiply', opacity:0.08, pointerEvents:'none', transform:'scaleX(-1) rotate(-6deg)' }} />
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 50%, rgba(90,30,140,0.18) 0%, rgba(120,50,160,0.12) 50%, transparent 70%), radial-gradient(ellipse 50% 60% at 90% 25%, rgba(140,60,180,0.20) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
@@ -775,13 +785,16 @@ export default function ScPage() {
             filter:'sepia(0.5) hue-rotate(270deg) saturate(2.2) brightness(0.65)', mixBlendMode:'multiply', opacity:0.48, pointerEvents:'none' }} />
         {/* 內在小孩-拿心 secondary */}
         <Image src="/sc/black/內在小孩-拿心.png" alt="" aria-hidden width={400} height={500}
+          className="sc-section-deco"
           style={{ position:'absolute', left:'5%', bottom:'-5%', width:'22%', height:'auto',
             filter:'sepia(0.2) hue-rotate(270deg) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(8deg) scale(0.8)' }} />
         {/* 粉點裝飾 */}
         <Image src="/resource/single/粉點-白/點-1(2).png" alt="" aria-hidden width={200} height={200}
+          className="sc-section-deco"
           style={{ position:'absolute', top:'15%', right:'35%', width:120, height:'auto',
             mixBlendMode:'multiply', opacity:0.07, pointerEvents:'none' }} />
         <Image src="/resource/single/粉點-白/點-2(2).png" alt="" aria-hidden width={200} height={200}
+          className="sc-section-deco"
           style={{ position:'absolute', bottom:'20%', left:'40%', width:90, height:'auto',
             mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
