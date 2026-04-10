@@ -918,7 +918,7 @@ export default function ScPage() {
         {/* Atmospheric bg calligraphy */}
         <Image src="/sc/black/薩滿冥想-橫.png" alt="" aria-hidden width={900} height={300}
           style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'100%', height:'auto', filter:'invert(1) brightness(1.0)', mixBlendMode:'screen', opacity:0.12, pointerEvents:'none' }} />
-        <div style={{ position:'relative', zIndex:2, display:'inline-block', padding:'clamp(36px,5vh,56px) clamp(40px,6vw,80px)', background:'rgba(255,255,255,0.12)', backdropFilter:'blur(6px)', WebkitBackdropFilter:'blur(6px)', borderRadius:24 }}>
+        <div style={{ position:'relative', zIndex:2, display:'inline-block', padding:'clamp(36px,5vh,56px) clamp(40px,6vw,80px)', background:'rgba(255,255,255,0.12)', backdropFilter:'blur(3px)', WebkitBackdropFilter:'blur(3px)', borderRadius:24 }}>
           <h2 className="tr-d2" style={{ fontSize:'clamp(24px,3.8vw,52px)', color:'#F2EFEA', letterSpacing:'0.03em', lineHeight:1.2, marginBottom:16 }}>
             準備好開始你的薩滿旅程了嗎？
           </h2>
