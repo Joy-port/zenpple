@@ -313,8 +313,29 @@ export default function ScPage() {
             </p>
           </div>
 
-          {/* Wave Timeline — 3-row layout: top labels / wave+nodes / bottom labels */}
-          <div style={{ width:'100%', marginBottom:8 }}>
+          {/* Mobile: vertical steps list */}
+          <div className="md:hidden" style={{ display:'flex', flexDirection:'column', gap:24, marginBottom:8 }}>
+            {[
+              { id:'sc01', num:'01', label:'力量動物', en:'Power Animal', color:'rgba(200,130,60,0.18)', dot:'rgba(200,130,60,0.7)' },
+              { id:'sc02', num:'02', label:'指導靈', en:'Spirit Guide', color:'rgba(80,140,210,0.14)', dot:'rgba(80,140,210,0.7)' },
+              { id:'sc03', num:'03', label:'脈輪情緒覺察', en:'Chakra & Emotion', color:'rgba(200,100,70,0.14)', dot:'rgba(200,100,70,0.7)' },
+              { id:'sc04', num:'04', label:'連結高我', en:'Higher Self', color:'rgba(200,170,60,0.14)', dot:'rgba(200,170,60,0.7)' },
+              { id:'sc05', num:'05', label:'內在小孩', en:'Inner Child', color:'rgba(160,80,200,0.14)', dot:'rgba(160,80,200,0.7)' },
+            ].map(step => (
+              <a key={step.id} href={`#section-${step.id}`} style={{ display:'flex', alignItems:'center', gap:20, background:step.color, borderRadius:12, padding:'20px 24px', textDecoration:'none' }}>
+                <div style={{ width:8, height:8, borderRadius:'50%', background:step.dot, flexShrink:0 }} />
+                <div>
+                  <p style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'rgba(242,239,234,0.45)', marginBottom:4 }}>{step.num}</p>
+                  <p style={{ fontSize:18, fontWeight:700, color:'rgba(242,239,234,0.9)', letterSpacing:'0.04em', marginBottom:2 }}>{step.label}</p>
+                  <p style={{ fontFamily:'var(--f-display)', fontSize:11, letterSpacing:'0.2em', color:'rgba(242,239,234,0.4)', textTransform:'uppercase' }}>{step.en}</p>
+                </div>
+                <span style={{ marginLeft:'auto', color:'rgba(242,239,234,0.3)', fontSize:18 }}>↓</span>
+              </a>
+            ))}
+          </div>
+
+          {/* Wave Timeline — desktop only */}
+          <div className="hidden md:block" style={{ width:'100%', marginBottom:8 }}>
 
             {/* Row 1 — above-wave: 01, 03, 05 — theme calligraphy image outward (top), title toward wave (bottom) */}
             <div style={{ position:'relative', height:280, marginBottom:12 }}>
