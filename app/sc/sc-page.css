@@ -131,6 +131,10 @@
   .sc-section-grid .sc-text-col {
     order: -1 !important;
   }
+  .sc-section-grid .sc-text-col > h2,
+  .sc-section-grid .sc-text-col > p {
+    text-align: center;
+  }
   .sc-section-grid .sc-content-block {
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(8px);
