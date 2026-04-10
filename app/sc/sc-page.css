@@ -140,6 +140,14 @@
     display: flex !important;
     flex-direction: column !important;
   }
+  /* Inner card layout → vertical */
+  .sc-reco-card {
+    flex-direction: column !important;
+  }
+  .sc-reco-card-text {
+    flex: unset !important;
+    padding: 28px 24px !important;
+  }
 }
 
 /* ── Journey dot glow — overlay on top of dot image ── */
