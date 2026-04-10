@@ -3,14 +3,15 @@ interface SectionTitleProps {
   en: string
   dark?: boolean
   mb?: number
+  center?: boolean
 }
 
-export default function SectionTitle({ zh, en, dark = false, mb = 48 }: SectionTitleProps) {
+export default function SectionTitle({ zh, en, dark = false, mb = 48, center = false }: SectionTitleProps) {
   const zhColor = dark ? '#fff' : '#2E5A6A'
   const enColor = dark ? 'rgba(255,255,255,0.3)' : 'var(--muted)'
 
   return (
-    <div style={{ marginBottom: mb }}>
+    <div style={{ marginBottom: mb, textAlign: center ? 'center' : 'left' }}>
       <h2
         className="tr-d2"
         style={{
