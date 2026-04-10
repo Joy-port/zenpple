@@ -20,9 +20,17 @@ export default function Nav() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [isHero, setIsHero] = useState(true)
+  const [isDarkSection, setIsDarkSection] = useState(false)
 
   useEffect(() => {
-    const update = () => setIsHero(window.scrollY < 80)
+    const update = () => {
+      setIsHero(window.scrollY < 80)
+      const darks = document.querySelectorAll('[data-nav-theme="dark"]')
+      setIsDarkSection(Array.from(darks).some(el => {
+        const rect = el.getBoundingClientRect()
+        return rect.top <= 64 && rect.bottom > 64
+      }))
+    }
     update()
     window.addEventListener('scroll', update, { passive: true })
     return () => window.removeEventListener('scroll', update)
@@ -32,10 +40,10 @@ export default function Nav() {
 
   // Pages with a light hero (cream/base bg) — nav text stays dark at top
   const isLightHeroPage = pathname === '/'
-  const isHeroDark  = isHero && !isLightHeroPage   // transparent + white text
-  const isHeroLight = isHero && isLightHeroPage     // transparent + dark text
+  const isHeroDark  = (isHero && !isLightHeroPage) || isDarkSection  // transparent + white text
+  const isHeroLight = isHero && isLightHeroPage                       // transparent + dark text
 
-  const atTop = isHeroDark || isHeroLight
+  const atTop = isHeroDark || isHeroLight || isDarkSection
 
   // Use same colour with 0→target alpha so background/border interpolate smoothly
   const bgColor   = isHl ? `rgba(176,100,100,${atTop ? 0 : 0.90})` : `rgba(242,239,234,${atTop ? 0 : 0.88})`
