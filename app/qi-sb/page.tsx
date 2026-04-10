@@ -562,11 +562,13 @@ export default function QiSbPage() {
                       </div>
                       <div
                         style={{
-                          fontFamily: 'var(--f-impact)',
-                          fontWeight: 900,
-                          fontSize: 13,
-                          letterSpacing: '0.02em',
+                          fontFamily: 'var(--f-display)',
+                          fontWeight: 300,
+                          fontSize: 11,
+                          letterSpacing: '0.25em',
                           color: 'var(--muted)',
+                          textTransform: 'uppercase',
+                          marginTop: 4,
                         }}
                       >
                         {c.nameEn}
