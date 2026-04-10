@@ -700,12 +700,12 @@ export default function QiSbPage() {
           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1, opacity: 0.12 }}
         >
           {([
-            { amp: 18, phase: 0,   period: 320, y: 200, stroke: 'rgba(90,165,178,1)',  sw: 2.5, dur: 18, vAmp: 5,  vDur: 12 },
-            { amp: 28, phase: 60,  period: 280, y: 210, stroke: 'rgba(90,165,178,1)',  sw: 0.6, dur: 24, vAmp: 0,  vDur: 0  },
-            { amp: 12, phase: 120, period: 360, y: 195, stroke: 'rgba(74,107,138,1)',  sw: 1.5, dur: 20, vAmp: 4,  vDur: 16 },
-            { amp: 22, phase: 180, period: 300, y: 205, stroke: 'rgba(74,107,138,1)',  sw: 3.5, dur: 28, vAmp: 0,  vDur: 0  },
-            { amp: 34, phase: 240, period: 260, y: 200, stroke: 'rgba(90,165,178,1)',  sw: 0.8, dur: 22, vAmp: 6,  vDur: 20 },
-            { amp: 10, phase: 300, period: 400, y: 202, stroke: 'rgba(74,107,138,1)',  sw: 2.0, dur: 32, vAmp: 0,  vDur: 0  },
+            { amp: 18, phase: 0,   period: 320, y: 200, stroke: 'rgba(101,186,175,1)', sw: 2.5, dur: 18, vAmp: 5,  vDur: 12 },
+            { amp: 28, phase: 60,  period: 280, y: 210, stroke: 'rgba(106,174,187,1)', sw: 0.6, dur: 24, vAmp: 0,  vDur: 0  },
+            { amp: 12, phase: 120, period: 360, y: 195, stroke: 'rgba(124,200,195,1)', sw: 1.5, dur: 20, vAmp: 4,  vDur: 16 },
+            { amp: 22, phase: 180, period: 300, y: 205, stroke: 'rgba(106,174,187,1)', sw: 3.5, dur: 28, vAmp: 0,  vDur: 0  },
+            { amp: 34, phase: 240, period: 260, y: 200, stroke: 'rgba(101,186,175,1)', sw: 0.8, dur: 22, vAmp: 6,  vDur: 20 },
+            { amp: 10, phase: 300, period: 400, y: 202, stroke: 'rgba(124,200,195,1)', sw: 2.0, dur: 32, vAmp: 0,  vDur: 0  },
           ] as const).map((w, i) => {
             const pts: string[] = []
             for (let x = -w.period; x <= 1440 + w.period; x += 4) {
