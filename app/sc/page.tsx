@@ -351,7 +351,7 @@ export default function ScPage() {
                 style={{ height:120, display:'flex', alignItems:'center', gap:14, textDecoration:'none', flex:1 }}>
                 <div className="sc-glow-wrap" style={{ flexShrink:0, ...({'--glow-color': step.glow} as React.CSSProperties) }}>
                   <Image src={step.img} alt="" aria-hidden width={80} height={80}
-                    style={{ width:64, height:'auto', filter: step.invertImg ? 'invert(1) brightness(1.4)' : 'brightness(0.95)', opacity:0.82 }} />
+                    style={{ width:90, height:'auto', filter: step.invertImg ? 'invert(1) brightness(1.4)' : 'brightness(0.95)', opacity:0.82 }} />
                 </div>
                 <div style={{ textAlign:'center', flex:1, maxWidth:120 }}>
                   <p style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'rgba(242,239,234,0.45)', marginBottom:3 }}>{step.num}</p>
