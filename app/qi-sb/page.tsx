@@ -434,18 +434,18 @@ export default function QiSbPage() {
       >
         <path
           d="M0,10 C240,75 480,5 720,50 C960,90 1200,15 1440,52 L1440,90 L0,90 Z"
-          fill="rgba(242,239,234,0.45)"
+          fill="rgba(232,239,232,0.45)"
         />
         <path
           d="M0,30 C300,85 600,8 900,55 C1100,85 1300,25 1440,60 L1440,90 L0,90 Z"
-          fill="var(--cream)"
+          fill="#E8EFE8"
         />
       </svg>
 
       {/* ── COURSES ── */}
       <section
         id="courses"
-        style={{ background: 'var(--cream)', position: 'relative', overflow: 'hidden' }}
+        style={{ background: '#E8EFE8', position: 'relative', overflow: 'hidden' }}
       >
         {/* bg ripple deco */}
         <div
@@ -666,7 +666,7 @@ export default function QiSbPage() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
-        style={{ display: 'block', width: '100%', marginTop: -2, background: 'var(--cream)' }}
+        style={{ display: 'block', width: '100%', marginTop: -2, background: '#E8EFE8' }}
       >
         <path
           d="M0,0 C240,55 480,5 720,40 C960,75 1200,10 1440,45 L1440,60 L0,60 Z"
