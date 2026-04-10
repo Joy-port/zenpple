@@ -804,14 +804,12 @@ export default function QiSbPage() {
               alignItems: 'start',
             }}
           >
-            {/* Left: why different block (breathing) */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 32, alignItems: 'center' }}>
+            {/* Left: why different block (breathing) + brainwave label */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
               {/* Why different block — breathing animation */}
               <div
                 className="animate-breathe-scale"
                 style={{
-                  width: '100%',
-                  maxWidth: 360,
                   background: 'linear-gradient(135deg, #5DA5B5 0%, #65BAAF 100%)',
                   borderRadius: 4,
                   padding: '32px 36px',
