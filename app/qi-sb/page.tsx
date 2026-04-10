@@ -602,52 +602,60 @@ export default function QiSbPage() {
                   >
                     <div
                       style={{
-                        padding: '0 0 40px 56px',
+                        padding: '24px 0 40px 56px',
                         borderTop: '1px solid rgba(90,165,178,0.1)',
-                        paddingTop: 24,
+                        display: 'grid',
+                        gridTemplateColumns: '1fr auto',
+                        gap: '0 40px',
+                        alignItems: 'start',
                       }}
                     >
-                      <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 2.0, maxWidth: 540, marginBottom: 32 }}>
-                        {c.desc}
-                      </p>
-                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 32 }}>
-                        {[...c.typeTags, ...c.tags].map(tag =>
-                          tag === 'TWO TWO' ? (
-                            <a
-                              key={tag}
-                              href="#two-two"
-                              style={{
-                                fontFamily: 'var(--f-display)',
-                                fontSize: 10,
-                                letterSpacing: '0.12em',
-                                padding: '5px 12px',
-                                background: 'rgba(90,165,178,0.08)',
-                                color: '#2E5A6A',
-                                borderRadius: 1,
-                                textDecoration: 'none',
-                              }}
-                            >
-                              {tag} ↓
-                            </a>
-                          ) : (
-                            <span
-                              key={tag}
-                              style={{
-                                fontFamily: 'var(--f-display)',
-                                fontSize: 10,
-                                letterSpacing: '0.12em',
-                                padding: '5px 12px',
-                                background: 'rgba(90,165,178,0.08)',
-                                color: '#2E5A6A',
-                                borderRadius: 1,
-                              }}
-                            >
-                              {tag}
-                            </span>
-                          )
-                        )}
+                      {/* Left: desc + tags */}
+                      <div>
+                        <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 2.0, marginBottom: 24 }}>
+                          {c.desc}
+                        </p>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                          {[...c.typeTags, ...c.tags].map(tag =>
+                            tag === 'TWO TWO' ? (
+                              <a
+                                key={tag}
+                                href="#two-two"
+                                style={{
+                                  fontFamily: 'var(--f-display)',
+                                  fontSize: 10,
+                                  letterSpacing: '0.12em',
+                                  padding: '5px 12px',
+                                  background: 'rgba(90,165,178,0.08)',
+                                  color: '#2E5A6A',
+                                  borderRadius: 1,
+                                  textDecoration: 'none',
+                                }}
+                              >
+                                {tag} ↓
+                              </a>
+                            ) : (
+                              <span
+                                key={tag}
+                                style={{
+                                  fontFamily: 'var(--f-display)',
+                                  fontSize: 10,
+                                  letterSpacing: '0.12em',
+                                  padding: '5px 12px',
+                                  background: 'rgba(90,165,178,0.08)',
+                                  color: '#2E5A6A',
+                                  borderRadius: 1,
+                                }}
+                              >
+                                {tag}
+                              </span>
+                            )
+                          )}
+                        </div>
                       </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 24, borderTop: '1px solid rgba(90,165,178,0.1)', paddingTop: 24 }}>
+
+                      {/* Right: price top, CTA bottom */}
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'space-between', height: '100%', gap: 24, paddingRight: 0 }}>
                         <span
                           style={{
                             fontFamily: 'var(--f-impact)',
@@ -655,6 +663,7 @@ export default function QiSbPage() {
                             fontSize: 22,
                             color: '#2E5A6A',
                             letterSpacing: '0.02em',
+                            whiteSpace: 'nowrap',
                           }}
                         >
                           {c.price}
@@ -672,7 +681,7 @@ export default function QiSbPage() {
                             background: '#5DA5B5',
                             borderRadius: 999,
                             padding: '10px 24px',
-                            marginLeft: 'auto',
+                            whiteSpace: 'nowrap',
                           }}
                         >
                           預約此服務 →
