@@ -136,7 +136,7 @@ export default function ScPage() {
           style={{ position:'absolute', bottom:'-6%', right:'2%', width:'clamp(180px,20vw,300px)', height:'auto', mixBlendMode:'screen', opacity:0.09, pointerEvents:'none', transform:'rotate(8deg)' }} />
         <Image src="/sc/animals-white/vulture.png" alt="" aria-hidden width={350} height={350}
           style={{ position:'absolute', top:'55%', left:'42%', width:'clamp(140px,14vw,220px)', height:'auto', mixBlendMode:'screen', opacity:0.06, pointerEvents:'none', transform:'translateY(-50%) rotate(-5deg)' }} />
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center', position:'relative', zIndex:2 }}>
+        <div className="flex flex-col md:grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center', position:'relative', zIndex:2 }}>
           <div>
             <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'rgba(180,215,220,0.7)', marginBottom:14, textTransform:'uppercase' }}>
               WHAT IS SHAMANISM
@@ -447,7 +447,7 @@ export default function ScPage() {
         <Image src="/resource/single/材質-1-撇/材質-1-2.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', top:'8%', right:'38%', width:280, height:'auto',
             filter:'sepia(0.2) hue-rotate(20deg) brightness(0.8)', mixBlendMode:'multiply', opacity:0.06, pointerEvents:'none', transform:'rotate(-15deg)' }} />
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
+        <div className="flex flex-col md:grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
 
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#3A2008', marginBottom:10 }}>尋找力量動物</h2>
@@ -525,8 +525,8 @@ export default function ScPage() {
         <Image src="/resource/single/材質-4-圓圈/黑圈-3.png" alt="" aria-hidden width={300} height={300}
           style={{ position:'absolute', top:'12%', left:'42%', width:180, height:'auto',
             filter:'sepia(0.1) brightness(0.7)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none' }} />
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
-          <div style={{ order:2 }}>
+        <div className="flex flex-col md:grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
+          <div className="order-first md:order-last">
 
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#0E1E34', marginBottom:10 }}>連結高維指導靈</h2>
             <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#1A3050', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Spirit Guide</p>
@@ -565,7 +565,7 @@ export default function ScPage() {
               {openDetail === 'sc02' ? '收起' : '探索課程細節'} <span style={{ fontSize:13, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc02' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
             </button>
           </div>
-          <div style={{ order:1, position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
+          <div className="order-last md:order-first" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative', cursor:'pointer' }} onClick={() => setOpenDetail(openDetail === 'sc02' ? null : 'sc02')}>
               <Image src="/sc/animals/crane.png" alt="" aria-hidden width={400} height={400}
                 style={{ width:'min(320px,80%)', height:'auto', filter:'sepia(0.25) saturate(1.6) brightness(0.68)', opacity: openDetail === 'sc02' ? 0.92 : 0.78, animation:'sc-breathe 6s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
@@ -601,7 +601,7 @@ export default function ScPage() {
         <Image src="/resource/single/材質-5-波/材質-5-1_2.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', top:'10%', left:'42%', width:160, height:'auto',
             filter:'sepia(0.2) hue-rotate(340deg) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(-18deg) scale(0.7)' }} />
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
+        <div className="flex flex-col md:grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
 
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#3C1A08', marginBottom:10 }}>七脈輪情緒覺察</h2>
@@ -675,8 +675,8 @@ export default function ScPage() {
         <Image src="/resource/single/材質-4-圓圈/黑圈-12.png" alt="" aria-hidden width={200} height={200}
           style={{ position:'absolute', top:'10%', left:'44%', width:110, height:'auto',
             filter:'sepia(0.3) hue-rotate(38deg) brightness(0.75)', mixBlendMode:'multiply', opacity:0.03, pointerEvents:'none' }} />
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
-          <div style={{ order:2 }}>
+        <div className="flex flex-col md:grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
+          <div className="order-first md:order-last">
 
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#3A2800', marginBottom:10 }}>連結高我</h2>
             <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#5A3E08', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Higher Self</p>
@@ -718,7 +718,7 @@ export default function ScPage() {
               {openDetail === 'sc04' ? '收起' : '探索課程細節'} <span style={{ fontSize:13, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc04' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
             </button>
           </div>
-          <div style={{ order:1, position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
+          <div className="order-last md:order-first" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative', cursor:'pointer' }} onClick={() => setOpenDetail(openDetail === 'sc04' ? null : 'sc04')}>
               <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={400} height={400}
                 style={{ width:'min(360px,85%)', height:'auto', filter:'sepia(0.5) hue-rotate(38deg) saturate(1.7) brightness(0.68)', opacity: openDetail === 'sc04' ? 0.92 : 0.75, animation:'sc-breathe 9s ease-in-out infinite', mixBlendMode:'luminosity', transition:'opacity 0.4s' }} />
@@ -751,7 +751,7 @@ export default function ScPage() {
         <Image src="/resource/single/粉點-白/點-2(2).png" alt="" aria-hidden width={200} height={200}
           style={{ position:'absolute', bottom:'20%', left:'40%', width:90, height:'auto',
             mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none' }} />
-        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
+        <div className="flex flex-col md:grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div>
 
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#2A0840', marginBottom:10 }}>尋找內在小孩</h2>
