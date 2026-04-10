@@ -94,6 +94,7 @@ export default function QiSbPage() {
     <>
       {/* ── HERO ── */}
       <section
+        data-nav-theme="dark"
         style={{
           position: 'relative',
           minHeight: '100vh',
