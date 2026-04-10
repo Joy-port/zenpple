@@ -229,6 +229,7 @@ export default function QiSbPage() {
 
       {/* ── 為什麼頌缽可以放鬆腦波 ── */}
       <section
+        data-nav-theme="dark"
         style={{
           background: 'linear-gradient(180deg, #6AAEBB 0%, #6BBFB2 100%)',
           position: 'relative',
