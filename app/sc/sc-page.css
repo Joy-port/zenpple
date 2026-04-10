@@ -120,6 +120,28 @@
 .sc-glow-wrap img,
 .sc-glow-wrap span { position: relative; z-index: 1; }
 
+/* ── Mobile responsive ── */
+@media (max-width: 767px) {
+  /* Content section grids → single column, text always first */
+  .sc-section-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 48px !important;
+  }
+  .sc-section-grid .sc-text-col {
+    order: -1 !important;
+  }
+  .sc-section-grid .sc-image-col {
+    order: 0 !important;
+    min-height: 260px !important;
+  }
+  /* Recommendation cards → vertical stack */
+  .sc-reco-grid {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
 /* ── Journey dot glow — overlay on top of dot image ── */
 .sc-dot-glow {
   position: relative;
