@@ -658,11 +658,11 @@ export default function QiSbPage() {
                       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'space-between', height: '100%', gap: 24, paddingRight: 0 }}>
                         <span
                           style={{
-                            fontFamily: 'var(--f-impact)',
-                            fontWeight: 900,
+                            fontFamily: 'var(--f-display)',
+                            fontWeight: 400,
                             fontSize: 22,
                             color: '#2E5A6A',
-                            letterSpacing: '0.02em',
+                            letterSpacing: '0.08em',
                             whiteSpace: 'nowrap',
                           }}
                         >
