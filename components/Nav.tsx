@@ -20,9 +20,20 @@ export default function Nav() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [isHero, setIsHero] = useState(true)
+  const [isDarkSection, setIsDarkSection] = useState(false)
+  const [darkNavColor, setDarkNavColor] = useState('rgba(0,0,0,0.10)')
 
   useEffect(() => {
-    const update = () => setIsHero(window.scrollY < 80)
+    const update = () => {
+      setIsHero(window.scrollY < 80)
+      const darks = document.querySelectorAll('[data-nav-theme="dark"]')
+      const active = Array.from(darks).find(el => {
+        const rect = el.getBoundingClientRect()
+        return rect.top <= 64 && rect.bottom > 64
+      })
+      setIsDarkSection(!!active)
+      if (active) setDarkNavColor((active as HTMLElement).dataset.navColor ?? 'rgba(0,0,0,0.10)')
+    }
     update()
     window.addEventListener('scroll', update, { passive: true })
     return () => window.removeEventListener('scroll', update)
@@ -32,22 +43,30 @@ export default function Nav() {
 
   // Pages with a light hero (cream/base bg) — nav text stays dark at top
   const isLightHeroPage = pathname === '/'
-  const isHeroDark  = isHero && !isLightHeroPage   // transparent + white text
-  const isHeroLight = isHero && isLightHeroPage     // transparent + dark text
+  const isHeroDark  = (isHero && !isLightHeroPage) || isDarkSection  // transparent + white text
+  const isHeroLight = isHero && isLightHeroPage                       // transparent + dark text
 
-  const atTop = isHeroDark || isHeroLight
+  const atTop = isHeroDark || isHeroLight || isDarkSection
 
   // Use same colour with 0→target alpha so background/border interpolate smoothly
-  const bgColor   = isHl ? `rgba(176,100,100,${atTop ? 0 : 0.90})` : `rgba(242,239,234,${atTop ? 0 : 0.88})`
-  const borderClr = isHl ? `rgba(255,255,255,${atTop ? 0 : 0.10})` : `rgba(42,42,42,${atTop ? 0 : 0.07})`
+  const bgColor   = isHl
+    ? `rgba(176,100,100,${atTop ? 0 : 0.90})`
+    : isDarkSection
+      ? darkNavColor
+      : `rgba(242,239,234,${atTop ? 0 : 0.88})`
+  const borderClr = isHl
+    ? `rgba(255,255,255,${atTop ? 0 : 0.10})`
+    : isDarkSection
+      ? 'rgba(255,255,255,0.10)'
+      : `rgba(42,42,42,${atTop ? 0 : 0.07})`
 
   const headerBase: React.CSSProperties = {
     position: 'fixed',
     top: 0, left: 0, right: 0,
     zIndex: Z.nav,
     background: bgColor,
-    backdropFilter: `blur(${atTop ? 0 : 18}px)`,
-    WebkitBackdropFilter: `blur(${atTop ? 0 : 18}px)`,
+    backdropFilter: `blur(${isDarkSection ? 12 : atTop ? 0 : 18}px)`,
+    WebkitBackdropFilter: `blur(${isDarkSection ? 12 : atTop ? 0 : 18}px)`,
     borderBottom: `1px solid ${borderClr}`,
     transition: 'background 0.45s ease, backdrop-filter 0.45s ease, border-bottom-color 0.45s ease',
   }
