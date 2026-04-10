@@ -348,12 +348,12 @@ export default function ScPage() {
               { id:'sc05', num:'05', label:'尋找內在小孩', en:'Inner Child',         img:'/sc/white/內在小孩-白.png',           glow:'160,80,200',  invertImg:false },
             ] as { id:string; num:string; label:string; en:string; img:string; glow:string; invertImg:boolean }[]).map(step => (
               <a key={step.id} href={`#section-${step.id}`}
-                style={{ height:120, display:'flex', alignItems:'center', gap:14, textDecoration:'none' }}>
-                <div className="sc-glow-wrap" style={{'--glow-color': step.glow} as React.CSSProperties}>
+                style={{ height:120, display:'flex', alignItems:'center', gap:14, textDecoration:'none', flex:1 }}>
+                <div className="sc-glow-wrap" style={{ flexShrink:0, ...({'--glow-color': step.glow} as React.CSSProperties) }}>
                   <Image src={step.img} alt="" aria-hidden width={80} height={80}
-                    style={{ height:68, width:'auto', filter: step.invertImg ? 'invert(1) brightness(1.4)' : 'brightness(0.95)', opacity:0.82 }} />
+                    style={{ width:64, height:'auto', filter: step.invertImg ? 'invert(1) brightness(1.4)' : 'brightness(0.95)', opacity:0.82 }} />
                 </div>
-                <div>
+                <div style={{ textAlign:'center', flex:1 }}>
                   <p style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'rgba(242,239,234,0.45)', marginBottom:3 }}>{step.num}</p>
                   <p style={{ fontSize:16, fontWeight:700, color:'rgba(242,239,234,0.9)', letterSpacing:'0.04em', marginBottom:2 }}>{step.label}</p>
                   <p style={{ fontFamily:'var(--f-display)', fontSize:11, letterSpacing:'0.18em', color:'rgba(242,239,234,0.4)', textTransform:'uppercase' }}>{step.en}</p>
