@@ -627,22 +627,6 @@ export default function QiSbPage() {
                         {c.desc}
                       </p>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 20 }}>
-                        {c.meta.split(' · ').filter(t => !t.startsWith('1:') && !t.includes('–')).map(tag => (
-                          <span
-                            key={tag}
-                            style={{
-                              fontFamily: 'var(--f-display)',
-                              fontSize: 10,
-                              letterSpacing: '0.12em',
-                              padding: '5px 12px',
-                              background: 'rgba(90,165,178,0.08)',
-                              color: '#2E5A6A',
-                              borderRadius: 1,
-                            }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
                         {c.tags.map(tag =>
                           tag === 'TWO TWO' ? (
                             <a
@@ -653,8 +637,8 @@ export default function QiSbPage() {
                                 fontSize: 10,
                                 letterSpacing: '0.12em',
                                 padding: '5px 12px',
-                                border: '1px solid rgba(90,165,178,0.3)',
-                                color: '#65BAAF',
+                                background: 'rgba(90,165,178,0.08)',
+                                color: '#2E5A6A',
                                 borderRadius: 1,
                                 textDecoration: 'none',
                               }}
@@ -669,8 +653,8 @@ export default function QiSbPage() {
                                 fontSize: 10,
                                 letterSpacing: '0.12em',
                                 padding: '5px 12px',
-                                border: '1px solid rgba(90,165,178,0.3)',
-                                color: '#65BAAF',
+                                background: 'rgba(90,165,178,0.08)',
+                                color: '#2E5A6A',
                                 borderRadius: 1,
                               }}
                             >
