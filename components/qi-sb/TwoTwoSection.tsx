@@ -33,12 +33,8 @@ export default function TwoTwoSection() {
         }}
       >
         <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 'clamp(40px,6vw,80px)',
-            alignItems: 'center',
-          }}
+          className="flex flex-col md:grid"
+          style={{ gridTemplateColumns: '1fr 1fr', gap: 'clamp(40px,6vw,80px)', alignItems: 'center' }}
         >
           {/* Left: name + bio */}
           <div>
