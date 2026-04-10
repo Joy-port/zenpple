@@ -134,7 +134,7 @@ function RightColumn() {
       <p style={{ fontSize: 15, lineHeight: 1.85, color: 'var(--muted)', marginBottom: 32 }}>
         頌缽發出的泛音頻率，能同步引導腦波從 β 波（清醒緊張）過渡到 α 波（放鬆專注）乃至 θ 波（深層冥想），讓神經系統進入自然的修復狀態。這不是催眠，而是聲音的物理共振在身體層面發生作用。
       </p>
-      <p style={{ fontFamily: 'var(--f-display)', fontSize: 10, letterSpacing: '0.18em', color: 'var(--muted)', marginBottom: 20 }}>· 腦波調頻原理 ·</p>
+      <p style={{ fontFamily: 'var(--f-display)', fontSize: 10, letterSpacing: '0.18em', color: 'var(--muted)', marginBottom: 20, textAlign: 'center' }}>· 腦波調頻原理 ·</p>
       <svg width="0" height="0" style={{ position: 'absolute' }}>
         <defs>
           <filter id="bw-rough">
