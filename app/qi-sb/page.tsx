@@ -678,7 +678,7 @@ export default function QiSbPage() {
                             textTransform: 'uppercase',
                             color: '#fff',
                             textDecoration: 'none',
-                            background: '#5DA5B5',
+                            background: '#65BAAF',
                             borderRadius: 999,
                             padding: '10px 24px',
                             whiteSpace: 'nowrap',
