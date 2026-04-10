@@ -878,9 +878,6 @@ export default function ScPage() {
 
           {/* Header */}
           <div style={{ textAlign:'center', marginBottom:48 }}>
-            <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'rgba(42,70,90,0.55)', marginBottom:14, textTransform:'uppercase' }}>
-              RECOMMENDED PAIRING
-            </p>
             <h2 className="tr-d2" style={{ fontSize:'clamp(24px,3.5vw,42px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#1E3848', marginBottom:12 }}>
               推薦整合搭配
             </h2>
