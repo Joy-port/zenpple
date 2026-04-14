@@ -28,7 +28,7 @@ export default function SectionTitle({ zh, en, dark = false, mb = 48, center = f
       <p
         style={{
           fontFamily: 'var(--f-display)',
-          fontWeight: 300,
+          fontWeight: 400,
           fontSize: 20,
           letterSpacing: '0.22em',
           color: enColor,

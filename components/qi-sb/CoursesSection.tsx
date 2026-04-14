@@ -131,7 +131,7 @@ export default function CoursesSection() {
                     <div
                       style={{
                         fontFamily: 'var(--f-display)',
-                        fontWeight: 300,
+                        fontWeight: 400,
                         fontSize: 'clamp(13px, 1.2vw, 15px)',
                         letterSpacing: '0.25em',
                         color: 'var(--muted)',

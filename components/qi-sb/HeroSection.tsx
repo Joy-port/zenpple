@@ -111,7 +111,7 @@ export default function HeroSection() {
         <p
           style={{
             fontFamily: 'var(--f-display)',
-            fontWeight: 300,
+            fontWeight: 400,
             fontSize: 20,
             letterSpacing: '0.22em',
             color: 'rgba(255,255,255,1)',
