@@ -192,8 +192,8 @@ export default function WhyBrainwaveSection() {
           ) : (
             <div key={i} style={{ textAlign: 'center' }}>
               <p style={{ fontFamily: 'var(--f-display)', fontWeight: 100, fontSize: 'clamp(22px,2.8vw,36px)', color: 'rgba(255,255,255,0.68)', lineHeight: 1, marginBottom: 8 }}>{item.wave}</p>
-              <p style={{ fontFamily: 'var(--f-display)', fontSize: 9, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.32)', marginBottom: 4 }}>{item.hz}</p>
-              <p style={{ fontFamily: 'var(--f-zh)', fontSize: 12, color: 'rgba(255,255,255,0.38)', letterSpacing: '0.08em' }}>{item.state}</p>
+              <p style={{ fontFamily: 'var(--f-display)', fontSize: 13, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.32)', marginBottom: 4 }}>{item.hz}</p>
+              <p style={{ fontFamily: 'var(--f-zh)', fontSize: 13, color: 'rgba(255,255,255,0.38)', letterSpacing: '0.08em' }}>{item.state}</p>
             </div>
           )
         )}
@@ -206,7 +206,7 @@ export default function WhyBrainwaveSection() {
           zIndex: 2,
           fontFamily: 'var(--f-display)',
           fontWeight: 100,
-          fontSize: 11,
+          fontSize: 13,
           letterSpacing: '0.25em',
           color: 'rgba(255,255,255,0.25)',
           textTransform: 'uppercase',

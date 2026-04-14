@@ -105,7 +105,7 @@ export default function CoursesSection() {
                   <span
                     style={{
                       fontFamily: 'var(--f-display)',
-                      fontSize: 11,
+                      fontSize: 13,
                       letterSpacing: '0.2em',
                       color: isOpen ? '#65BAAF' : 'var(--muted)',
                       opacity: isOpen ? 1 : 0.4,
@@ -132,7 +132,7 @@ export default function CoursesSection() {
                       style={{
                         fontFamily: 'var(--f-display)',
                         fontWeight: 300,
-                        fontSize: 11,
+                        fontSize: 13,
                         letterSpacing: '0.25em',
                         color: 'var(--muted)',
                         textTransform: 'uppercase',
@@ -145,7 +145,7 @@ export default function CoursesSection() {
                   <span
                     style={{
                       fontFamily: 'var(--f-display)',
-                      fontSize: 10,
+                      fontSize: 13,
                       letterSpacing: '0.15em',
                       color: 'var(--muted)',
                       flexShrink: 0,
@@ -207,7 +207,7 @@ export default function CoursesSection() {
                               href="#two-two"
                               style={{
                                 fontFamily: 'var(--f-display)',
-                                fontSize: 10,
+                                fontSize: 13,
                                 letterSpacing: '0.12em',
                                 padding: '5px 12px',
                                 background: 'rgba(90,165,178,0.08)',
@@ -223,7 +223,7 @@ export default function CoursesSection() {
                               key={tag}
                               style={{
                                 fontFamily: 'var(--f-display)',
-                                fontSize: 10,
+                                fontSize: 13,
                                 letterSpacing: '0.12em',
                                 padding: '5px 12px',
                                 background: 'rgba(90,165,178,0.08)',
@@ -256,7 +256,7 @@ export default function CoursesSection() {
                         href="/contact"
                         style={{
                           fontFamily: 'var(--f-display)',
-                          fontSize: 12,
+                          fontSize: 13,
                           fontWeight: 400,
                           letterSpacing: '0.18em',
                           textTransform: 'uppercase',
