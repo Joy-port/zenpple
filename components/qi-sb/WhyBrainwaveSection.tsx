@@ -80,7 +80,7 @@ export default function WhyBrainwaveSection() {
           fontWeight: 300,
           fontSize: 20,
           letterSpacing: '0.22em',
-          color: 'rgba(255,255,255,0.35)',
+          color: 'rgba(255,255,255,1)',
           textTransform: 'uppercase',
           marginBottom: 52,
           marginTop: -36,
@@ -192,8 +192,8 @@ export default function WhyBrainwaveSection() {
           ) : (
             <div key={i} style={{ textAlign: 'center' }}>
               <p style={{ fontFamily: 'var(--f-display)', fontWeight: 100, fontSize: 'clamp(22px,2.8vw,36px)', color: 'rgba(255,255,255,0.68)', lineHeight: 1, marginBottom: 8 }}>{item.wave}</p>
-              <p style={{ fontFamily: 'var(--f-display)', fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.32)', marginBottom: 4 }}>{item.hz}</p>
-              <p style={{ fontFamily: 'var(--f-zh)', fontSize: 'clamp(13px, 1.2vw, 15px)', color: 'rgba(255,255,255,0.38)', letterSpacing: '0.08em' }}>{item.state}</p>
+              <p style={{ fontFamily: 'var(--f-display)', fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.85)', marginBottom: 4 }}>{item.hz}</p>
+              <p style={{ fontFamily: 'var(--f-zh)', fontSize: 'clamp(13px, 1.2vw, 15px)', color: 'rgba(255,255,255,0.85)', letterSpacing: '0.08em' }}>{item.state}</p>
             </div>
           )
         )}
@@ -208,7 +208,7 @@ export default function WhyBrainwaveSection() {
           fontWeight: 100,
           fontSize: 'clamp(13px, 1.2vw, 15px)',
           letterSpacing: '0.25em',
-          color: 'rgba(255,255,255,0.25)',
+          color: 'rgba(255,255,255,1)',
           textTransform: 'uppercase',
           marginTop: 36,
         }}
