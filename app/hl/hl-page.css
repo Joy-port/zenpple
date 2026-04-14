@@ -120,7 +120,7 @@
   font-weight: 300;
   font-size: clamp(13px, 1.2vw, 15px);
   letter-spacing: 0.38em;
-  color: rgba(255,255,255,0.40);
+  color: rgba(255,255,255,1);
   text-transform: uppercase;
   margin-bottom: 28px;
   display: flex;
@@ -149,7 +149,7 @@
 .hero-content p {
   font-size: 14px;
   line-height: 2.1;
-  color: rgba(255,255,255,0.48);
+  color: rgba(255,255,255,1);
   letter-spacing: 0.025em;
   max-width: 360px;
   margin: 0 auto;
@@ -282,7 +282,7 @@ h2.sec-h2 {
 .hts-subtitle {
   font-family: var(--f-display);
   font-size: clamp(15px, 1.8vw, 18px);
-  color: #888780;
+  color: #5C5955;
   line-height: 1.7;
   max-width: 520px;
   margin: 0 auto;
@@ -302,7 +302,7 @@ h2.sec-h2 {
 }
 .hl-section-desc {
   font-size: 14px;
-  color: rgba(90, 80, 85, 0.65);  /* warm neutral grey — same family as h2, lighter */
+  color: rgba(90, 80, 85, 0.85);  /* warm neutral grey — same family as h2, lighter */
   line-height: 2.0;
   max-width: 480px;
   margin: 12px auto 0;
@@ -382,7 +382,7 @@ h2.sec-h2 {
 .step-sub {
   font-size: clamp(13px, 1.2vw, 15px);
   letter-spacing: 0.06em;
-  color: rgba(90, 80, 85, 0.55);
+  color: rgba(90, 80, 85, 0.85);
   line-height: 1.6;
 }
 
@@ -604,10 +604,10 @@ h2.sec-h2 {
   font-weight: 100;
   font-size: clamp(13px, 1.2vw, 15px);
   letter-spacing: 0.3em;
-  color: #aaa;
+  color: #5C5955;
   text-transform: uppercase;
 }
-.sm-left p { font-size: 14px; line-height: 1.9; color: #666; }
+.sm-left p { font-size: 14px; line-height: 1.9; color: #5C5955; }
 .sm-meta-list {
   display: flex;
   flex-direction: column;
@@ -652,7 +652,7 @@ h2.sec-h2 {
   font-weight: 300;
   font-size: clamp(13px, 1.2vw, 15px);
   letter-spacing: 0.25em;
-  color: #bbb;
+  color: #5C5955;
   text-transform: uppercase;
   margin-bottom: 20px;
 }
@@ -674,7 +674,7 @@ h2.sec-h2 {
   margin-top: 6px;
   opacity: 0.6;
 }
-.sm-what-item p { font-size: 14px; line-height: 1.8; color: #555; }
+.sm-what-item p { font-size: 14px; line-height: 1.8; color: #5C5955; }
 
 /* PATHS */
 #paths {
@@ -733,7 +733,7 @@ h2.sec-h2 {
 .path-expand-desc {
   font-size: clamp(13px, 1.2vw, 15px);
   line-height: 1.85;
-  color: #666;
+  color: #5C5955;
   margin-bottom: 16px;
 }
 /* Left column: expand/accordion cards */
@@ -770,7 +770,7 @@ h2.sec-h2 {
   font-family: var(--f-display);
   font-size: clamp(13px, 1.2vw, 15px);
   letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.58);
+  color: rgba(255,255,255,1);
   margin: 0;
   text-align: left;
 }
@@ -779,7 +779,7 @@ h2.sec-h2 {
   font-size: clamp(13px, 1.2vw, 15px);
   letter-spacing: 0.02em;
   line-height: 1.75;
-  color: rgba(255,255,255,0.60);
+  color: rgba(255,255,255,1);
   margin-top: 6px;
   display: block;
   text-transform: none;
@@ -1071,7 +1071,7 @@ h2.sec-h2 {
   font-family: var(--f-display);
   font-size: clamp(13px, 1.2vw, 15px);
   letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,1);
 }
 .ps-chevron {
   width: 20px; height: 20px;
@@ -1093,7 +1093,7 @@ h2.sec-h2 {
   font-family: var(--f-mono);
   font-size: clamp(13px, 1.2vw, 15px);
   letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,1);
   margin-bottom: 0.4rem;
 }
 .ps-body-text { font-size: clamp(13px, 1.2vw, 15px); color: rgba(255,255,255,0.88); line-height: 1.7; }
@@ -1134,13 +1134,13 @@ h2.sec-h2 {
 
 .ps-meta-row { display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; border-bottom: 0.5px solid rgba(255,255,255,0.12); font-size: clamp(13px, 1.2vw, 15px); }
 .ps-meta-row:first-child { border-top: 0.5px solid rgba(255,255,255,0.12); }
-.ps-meta-label { font-family: var(--f-mono); font-size: clamp(13px, 1.2vw, 15px); letter-spacing: 0.12em; color: rgba(255,255,255,0.5); }
+.ps-meta-label { font-family: var(--f-mono); font-size: clamp(13px, 1.2vw, 15px); letter-spacing: 0.12em; color: rgba(255,255,255,1); }
 .ps-meta-val   { color: rgba(255,255,255,0.88); font-size: clamp(13px, 1.2vw, 15px); }
 
 .ps-price-row { display: flex; align-items: baseline; gap: 6px; margin-top: 0.4rem; }
 .ps-price-amount { font-family: var(--f-display); font-size: 18px; font-weight: 500; color: #fff; }
-.ps-price-unit   { font-size: clamp(13px, 1.2vw, 15px); color: rgba(255,255,255,0.6); }
-.ps-price-note   { font-size: clamp(13px, 1.2vw, 15px); color: rgba(255,255,255,0.5); margin-top: 0.25rem; }
+.ps-price-unit   { font-size: clamp(13px, 1.2vw, 15px); color: rgba(255,255,255,1); }
+.ps-price-note   { font-size: clamp(13px, 1.2vw, 15px); color: rgba(255,255,255,1); margin-top: 0.25rem; }
 
 .ps-connector { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0.6rem 0; }
 .ps-connector-line { width: 1px; height: 14px; background: rgba(196,154,150,0.4); }
@@ -1288,7 +1288,7 @@ h2.sec-h2 {
   justify-content: center;
   gap: 0;
 }
-.cr-left p { font-size: 14px; line-height: 1.95; color: #555; text-align: left; }
+.cr-left p { font-size: 14px; line-height: 1.95; color: #5C5955; text-align: left; }
 .cr-left p + p { margin-top: 16px; }
 .cr-divider {
   width: 100%;
@@ -1325,7 +1325,7 @@ h2.sec-h2 {
   white-space: nowrap;
   min-width: 52px;
 }
-.cr-process-label { font-size: clamp(13px, 1.2vw, 15px); color: #666; line-height: 1.6; }
+.cr-process-label { font-size: clamp(13px, 1.2vw, 15px); color: #5C5955; line-height: 1.6; }
 .cr-right {
   padding: 56px 52px;
   display: grid;
@@ -1502,7 +1502,7 @@ h2.sec-h2 {
   flex-direction: column;
   gap: 16px;
 }
-.fu-card-left p { font-size: 14px; line-height: 1.9; color: #555; }
+.fu-card-left p { font-size: 14px; line-height: 1.9; color: #5C5955; }
 .fu-steps-list {
   display: flex;
   flex-direction: column;
@@ -1517,7 +1517,7 @@ h2.sec-h2 {
   padding: 12px 0;
   border-bottom: 1px solid rgba(196,123,123,0.08);
   font-size: clamp(13px, 1.2vw, 15px);
-  color: #666;
+  color: #5C5955;
   line-height: 1.7;
 }
 .fu-step-row:last-child { border-bottom: none; }
@@ -1631,7 +1631,7 @@ h2.sec-h2 {
   padding: 10px 24px;
   border-top: 1px solid rgba(196,123,123,0.06);
   font-size: clamp(13px, 1.2vw, 15px);
-  color: #555;
+  color: #5C5955;
 }
 .fu-cd-label {
   font-family: var(--f-mono);
