@@ -76,7 +76,7 @@ export default function Home() {
             className="cta-para"
             style={{
               fontSize: '15px',
-              color: 'rgba(242,239,234,0.65)',
+              color: 'rgba(242,239,234,0.88)',
               lineHeight: 1.9,
               maxWidth: 380,
               margin: '0 auto 56px',

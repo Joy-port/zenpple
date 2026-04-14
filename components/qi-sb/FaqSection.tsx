@@ -122,7 +122,7 @@ export default function FaqSection() {
                     style={{
                       padding: '0 60px 28px 0',
                       fontSize: 14,
-                      color: 'rgba(255,255,255,0.62)',
+                      color: 'rgba(255,255,255,1)',
                       lineHeight: 1.85,
                     }}
                   >

@@ -57,9 +57,9 @@ export default function TwoTwoSection() {
                   key={r}
                   style={{
                     fontFamily: 'var(--f-display)',
-                    fontSize: 9,
+                    fontSize: 'clamp(13px, 1.2vw, 15px)',
                     letterSpacing: '0.14em',
-                    color: 'rgba(255,255,255,0.45)',
+                    color: 'rgba(255,255,255,1)',
                     border: '1px solid rgba(255,255,255,0.15)',
                     borderRadius: 999,
                     padding: '4px 14px',
@@ -73,7 +73,7 @@ export default function TwoTwoSection() {
               style={{
                 fontSize: 16,
                 lineHeight: 1.9,
-                color: 'rgba(255,255,255,0.72)',
+                color: 'rgba(255,255,255,1)',
                 marginBottom: 20,
               }}
             >
@@ -83,7 +83,7 @@ export default function TwoTwoSection() {
               style={{
                 fontSize: 14,
                 lineHeight: 1.85,
-                color: 'rgba(255,255,255,0.48)',
+                color: 'rgba(255,255,255,1)',
               }}
             >
               多年的頌缽訓練與薩滿修習，讓她能夠精準感知能量阻塞，並以頌缽頻率、音叉與薩滿技術，協助主體重新定頻。身心狀態、潛意識模式、靈魂碎片——她都去過。

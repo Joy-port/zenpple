@@ -92,7 +92,7 @@ export default function HeroCenter() {
             fontSize: 'clamp(13px, 2.5vw, 18px)',
             letterSpacing: '0.22em',
             color: 'var(--ink)',
-            opacity: 0.7,
+            opacity: 0.85,
             textTransform: 'uppercase',
             whiteSpace: 'nowrap',
           }}

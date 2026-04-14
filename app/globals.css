@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&family=DM+Sans:wght@400;500&family=Space+Mono&family=Noto+Serif+TC:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;700;900&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;600&family=DM+Sans:wght@400;500&family=Space+Mono&family=Noto+Serif+TC:wght@300;400;700;900&family=Noto+Sans+TC:wght@100;300;400;700;900&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -127,7 +127,7 @@ body::after {
 /* H1 · Sub-heading — Course names, column headings (Chinese) */
 .tr-h1  { font-family: var(--f-zh); font-weight: 700; letter-spacing: 0.08em; }
 /* H2 · Label EN — English sub-labels, chapter labels */
-.tr-h2  { font-family: var(--f-display); font-weight: 300; letter-spacing: 0.28em; }
+.tr-h2  { font-family: var(--f-display); font-weight: 400; letter-spacing: 0.28em; }
 /* Body · Content — Description text, intro paragraphs */
 .tr-body { font-family: var(--f-body); font-weight: 400; line-height: 1.7; }
 /* Mono · Labels — Course info, time labels, metadata */

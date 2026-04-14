@@ -111,10 +111,10 @@ export default function HeroSection() {
         <p
           style={{
             fontFamily: 'var(--f-display)',
-            fontWeight: 300,
+            fontWeight: 400,
             fontSize: 20,
             letterSpacing: '0.22em',
-            color: 'rgba(255,255,255,0.65)',
+            color: 'rgba(255,255,255,1)',
             textTransform: 'uppercase',
             marginBottom: 32,
           }}
@@ -127,7 +127,7 @@ export default function HeroSection() {
             fontWeight: 300,
             fontSize: 15,
             lineHeight: 1.85,
-            color: 'rgba(255,255,255,0.68)',
+            color: 'rgba(255,255,255,1)',
             maxWidth: 420,
             margin: '0 auto 44px',
           }}
