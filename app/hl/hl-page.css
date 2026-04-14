@@ -117,7 +117,7 @@
 }
 .hero-content .en-sub {
   font-family: var(--f-display);
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(13px, 1.2vw, 15px);
   letter-spacing: 0.38em;
   color: rgba(255,255,255,1);
