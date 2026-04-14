@@ -78,7 +78,7 @@ export default function ScPage() {
         <div style={{ position:'relative', zIndex:2, display:'flex', flexDirection:'column', alignItems:'center', textAlign:'center', padding:'clamp(100px,14vh,140px) clamp(20px,8vw,120px) clamp(80px,10vh,100px)', gap:0 }}>
 
           {/* EN label */}
-          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,0.9vw,11px)', letterSpacing:'0.38em', color:'rgba(200,220,235,0.50)', marginBottom:28, textTransform:'uppercase' }}>
+          <p style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.38em', color:'rgba(200,220,235,0.50)', marginBottom:28, textTransform:'uppercase' }}>
             SC · Shamanic Soul Awakening
           </p>
 
@@ -105,7 +105,7 @@ export default function ScPage() {
 
         {/* Scroll indicator */}
         <div style={{ position:'absolute', bottom:36, left:'50%', transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, opacity:0.35, animation:'sc-float 2.5s ease-in-out infinite' }}>
-          <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.25em', color:'rgba(200,220,235,0.7)' }}>SCROLL</span>
+          <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.25em', color:'rgba(200,220,235,0.7)' }}>SCROLL</span>
           <div style={{ width:1, height:40, background:'linear-gradient(to bottom, rgba(200,220,235,0.5), transparent)' }} />
         </div>
 
@@ -138,7 +138,7 @@ export default function ScPage() {
           style={{ position:'absolute', top:'55%', left:'42%', width:'clamp(140px,14vw,220px)', height:'auto', mixBlendMode:'screen', opacity:0.06, pointerEvents:'none', transform:'translateY(-50%) rotate(-5deg)' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center', position:'relative', zIndex:2 }}>
           <div className="sc-text-col">
-            <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'rgba(180,215,220,0.7)', marginBottom:14, textTransform:'uppercase' }}>
+            <p style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.22em', color:'rgba(180,215,220,0.7)', marginBottom:14, textTransform:'uppercase' }}>
               WHAT IS SHAMANISM
             </p>
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
@@ -191,7 +191,7 @@ export default function ScPage() {
 
         <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 8vw', position:'relative', zIndex:2 }}>
           <div style={{ textAlign:'center', marginBottom:60 }}>
-            <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'#4A6B8A', opacity:0.85, marginBottom:14, textTransform:'uppercase' }}>
+            <p style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.22em', color:'#4A6B8A', opacity:0.85, marginBottom:14, textTransform:'uppercase' }}>
               THE THREE WORLDS
             </p>
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
@@ -226,7 +226,7 @@ export default function ScPage() {
                 <div style={{ fontSize:18, color:'#7A9AB5', opacity:0.5, flexShrink:0 }}>←</div>
                 <div>
                   <div className="tr-h1" style={{ fontSize:16, color:'#7A9AB5', marginBottom:2 }}>上部世界</div>
-                  <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:12, letterSpacing:'0.2em', color:'#7A9AB5', opacity:0.75, marginBottom:6 }}>UPPER WORLD</div>
+                  <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.2em', color:'#7A9AB5', opacity:0.75, marginBottom:6 }}>UPPER WORLD</div>
                   <div style={{ fontSize:13, lineHeight:1.75, color:'rgba(242,239,234,0.7)' }}>指導靈與祖先智慧的居所。<br />接收更高維度的指引。</div>
                 </div>
               </div>
@@ -252,7 +252,7 @@ export default function ScPage() {
               <div style={{ position:'absolute', left:0, display:'flex', alignItems:'center', gap:12, width:220, flexDirection:'row-reverse', textAlign:'right' }}>
                 <div>
                   <div className="tr-h1" style={{ fontSize:16, color:'#5E8E8A', marginBottom:2 }}>中部世界</div>
-                  <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:12, letterSpacing:'0.2em', color:'#5E8E8A', opacity:0.75, marginBottom:6 }}>MIDDLE WORLD</div>
+                  <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.2em', color:'#5E8E8A', opacity:0.75, marginBottom:6 }}>MIDDLE WORLD</div>
                   <div style={{ fontSize:13, lineHeight:1.75, color:'rgba(242,239,234,0.7)' }}>我們生存的當下現實。<br />解讀能量場、清理舊有印記。</div>
                 </div>
                 <div style={{ fontSize:18, color:'#5E8E8A', opacity:0.5, flexShrink:0 }}>→</div>
@@ -282,7 +282,7 @@ export default function ScPage() {
                 <div style={{ fontSize:18, color:'#C4784A', opacity:0.5, flexShrink:0 }}>←</div>
                 <div>
                   <div className="tr-h1" style={{ fontSize:16, color:'#C4784A', marginBottom:2 }}>下部世界</div>
-                  <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:12, letterSpacing:'0.2em', color:'#C4784A', opacity:0.75, marginBottom:6 }}>LOWER WORLD</div>
+                  <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:13, letterSpacing:'0.2em', color:'#C4784A', opacity:0.75, marginBottom:6 }}>LOWER WORLD</div>
                   <div style={{ fontSize:13, lineHeight:1.75, color:'rgba(242,239,234,0.7)' }}>力量動物的棲所。<br />接觸最原始的生命力。</div>
                 </div>
               </div>
@@ -299,7 +299,7 @@ export default function ScPage() {
 
           {/* Header */}
           <div style={{ textAlign:'center', marginBottom:60 }}>
-            <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.22em', color:'rgba(180,215,220,0.7)', opacity:0.75, marginBottom:14, textTransform:'uppercase' }}>
+            <p style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.22em', color:'rgba(180,215,220,0.7)', opacity:0.75, marginBottom:14, textTransform:'uppercase' }}>
               THE SHAMANIC JOURNEY
             </p>
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
@@ -351,9 +351,9 @@ export default function ScPage() {
                     style={{ width:90, height:'auto', filter: step.invertImg ? 'invert(1) brightness(1.4)' : 'brightness(0.95)', opacity:0.82 }} />
                 </div>
                 <div style={{ textAlign:'center', flex:1, maxWidth:120 }}>
-                  <p style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'rgba(242,239,234,0.45)', marginBottom:3 }}>{step.num}</p>
+                  <p style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(242,239,234,0.45)', marginBottom:3 }}>{step.num}</p>
                   <p style={{ fontSize:16, fontWeight:700, color:'rgba(242,239,234,0.9)', letterSpacing:'0.04em', marginBottom:2 }}>{step.label}</p>
-                  <p style={{ fontFamily:'var(--f-display)', fontSize:11, letterSpacing:'0.18em', color:'rgba(242,239,234,0.4)', textTransform:'uppercase' }}>{step.en}</p>
+                  <p style={{ fontFamily:'var(--f-display)', fontSize:13, letterSpacing:'0.18em', color:'rgba(242,239,234,0.4)', textTransform:'uppercase' }}>{step.en}</p>
                 </div>
               </a>
             ))}
@@ -507,30 +507,30 @@ export default function ScPage() {
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#5C3A14', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#5C3A14', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
                   <span style={{ color:'rgba(40,22,8,0.68)', lineHeight:1.75 }}>連結下部世界守護盟友、海底輪頌缽接地</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#5C3A14', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#5C3A14', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
                   <span style={{ color:'rgba(40,22,8,0.68)', lineHeight:1.75 }}>一對一 · 兩人團班 · 2-6人小組</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#5C3A14', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#5C3A14', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
                   <span style={{ color:'rgba(40,22,8,0.68)', lineHeight:1.75 }}>4 小時</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#5C3A14', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#5C3A14', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
                   <span style={{ color:'rgba(40,22,8,0.68)', lineHeight:1.75 }}>進入所有進階課程的基石，建議首選</span>
                 </div>
                 </div>
                 <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(92,58,20,0.07)', borderRadius:12 }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.15em', color:'#5C3A14', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.15em', color:'#5C3A14', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
                   <div style={{ fontSize:13, color:'rgba(40,22,8,0.68)', lineHeight:1.8 }}>一對一 NT. 60,000　·　兩人 NT. 30,000/人　·　小組 NT. 15,000/人</div>
                 </div>
               </div>
             )}
             <button onClick={() => setOpenDetail(openDetail === 'sc01' ? null : 'sc01')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.20em', color:'#5C3A14', opacity:0.6 }}>
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.20em', color:'#5C3A14', opacity:0.6 }}>
               {openDetail === 'sc01' ? '收起' : '探索課程細節'} <span style={{ fontSize:13, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc01' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
             </button>
             </div>
@@ -590,30 +590,30 @@ export default function ScPage() {
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
                   <span style={{ color:'rgba(15,28,50,0.65)', lineHeight:1.75 }}>開啟上部世界通訊頻道、辨識愛的能量訊息</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
                   <span style={{ color:'rgba(15,28,50,0.65)', lineHeight:1.75 }}>一對一 · 兩人團班</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
                   <span style={{ color:'rgba(15,28,50,0.65)', lineHeight:1.75 }}>2 – 3.5 小時</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
                   <span style={{ color:'rgba(15,28,50,0.65)', lineHeight:1.75 }}>強化日常生命抉擇的導航力，建議完成 SC-01 後進行</span>
                 </div>
                 </div>
                 <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(26,48,80,0.06)', borderRadius:12 }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.15em', color:'#1A3050', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.15em', color:'#1A3050', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
                   <div style={{ fontSize:13, color:'rgba(15,28,50,0.65)', lineHeight:1.8 }}>一對一 NT. 20,000　·　兩人 NT. 10,000/人</div>
                 </div>
               </div>
             )}
             <button onClick={() => setOpenDetail(openDetail === 'sc02' ? null : 'sc02')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.20em', color:'#1A3050', opacity:0.6 }}>
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.20em', color:'#1A3050', opacity:0.6 }}>
               {openDetail === 'sc02' ? '收起' : '探索課程細節'} <span style={{ fontSize:13, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc02' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
             </button>
             </div>
@@ -671,30 +671,30 @@ export default function ScPage() {
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#6A3018', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#6A3018', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
                   <span style={{ color:'rgba(50,18,8,0.65)', lineHeight:1.75 }}>薩滿冥想實作脈輪內視、情緒轉化與能量清理</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#6A3018', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#6A3018', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
                   <span style={{ color:'rgba(50,18,8,0.65)', lineHeight:1.75 }}>一對一</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#6A3018', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#6A3018', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
                   <span style={{ color:'rgba(50,18,8,0.65)', lineHeight:1.75 }}>2 小時</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#6A3018', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#6A3018', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
                   <span style={{ color:'rgba(50,18,8,0.65)', lineHeight:1.75 }}>適合感官敏銳、欲修復情緒慣性的探索者</span>
                 </div>
                 </div>
                 <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(106,48,24,0.07)', borderRadius:12 }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.15em', color:'#6A3018', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.15em', color:'#6A3018', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
                   <div style={{ fontSize:13, color:'rgba(50,18,8,0.65)', lineHeight:1.8 }}>一對一 NT. 15,000</div>
                 </div>
               </div>
             )}
             <button onClick={() => setOpenDetail(openDetail === 'sc03' ? null : 'sc03')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.20em', color:'#6A3018', opacity:0.6 }}>
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.20em', color:'#6A3018', opacity:0.6 }}>
               {openDetail === 'sc03' ? '收起' : '探索課程細節'} <span style={{ fontSize:13, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc03' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
             </button>
             </div>
@@ -746,37 +746,37 @@ export default function ScPage() {
               高我是你靈魂最純粹、最神聖的面向，持有你此生的生命藍圖。透過這門課，你將在身體高度通透的狀態下，正式接通內在的神聖源頭，完成身心靈合一的全面對齊，找回真正的靈魂主權。
             </p>
             <div style={{ marginBottom:28, padding:'14px 18px', background:'rgba(106,48,24,0.06)', border:'1px solid rgba(106,48,24,0.2)', fontSize:13, lineHeight:1.8, color:'rgba(50,18,8,0.65)' }}>
-              <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.15em', color:'#C4784A', opacity:0.85, display:'block', marginBottom:6 }}>前置課程 · PREREQUISITE</span>
+              <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.15em', color:'#C4784A', opacity:0.85, display:'block', marginBottom:6 }}>前置課程 · PREREQUISITE</span>
               本課程建議在參與<strong style={{ color:'rgba(50,18,8,0.9)', fontWeight:600 }}>雅妃老師的重生呼吸課</strong>後進行，讓身體通透感轉化為與高我對話的導航能力。
             </div>
             {openDetail === 'sc04' && (
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#5A3E08', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#5A3E08', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
                   <span style={{ color:'rgba(40,28,5,0.65)', lineHeight:1.75 }}>接通神聖名諱，完成身心靈合一的終極對齊</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#5A3E08', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#5A3E08', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
                   <span style={{ color:'rgba(40,28,5,0.65)', lineHeight:1.75 }}>一對一</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#5A3E08', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#5A3E08', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
                   <span style={{ color:'rgba(40,28,5,0.65)', lineHeight:1.75 }}>1 小時</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#5A3E08', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#5A3E08', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
                   <span style={{ color:'rgba(40,28,5,0.65)', lineHeight:1.75 }}>建議先完成 SC-01、SC-02，並完成重生呼吸課後進行</span>
                 </div>
                 </div>
                 <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(90,62,8,0.07)', borderRadius:12 }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.15em', color:'#5A3E08', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.15em', color:'#5A3E08', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
                   <div style={{ fontSize:13, color:'rgba(40,28,5,0.65)', lineHeight:1.8 }}>一對一 NT. 8,000</div>
                 </div>
               </div>
             )}
             <button onClick={() => setOpenDetail(openDetail === 'sc04' ? null : 'sc04')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.20em', color:'#5A3E08', opacity:0.6 }}>
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.20em', color:'#5A3E08', opacity:0.6 }}>
               {openDetail === 'sc04' ? '收起' : '探索課程細節'} <span style={{ fontSize:13, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc04' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
             </button>
             </div>
@@ -832,30 +832,30 @@ export default function ScPage() {
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
                   <span style={{ color:'rgba(35,10,48,0.65)', lineHeight:1.75 }}>辨識身心過敏原，找回解離的靈魂片段</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
                   <span style={{ color:'rgba(35,10,48,0.65)', lineHeight:1.75 }}>一對一深度工作</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
                   <span style={{ color:'rgba(35,10,48,0.65)', lineHeight:1.75 }}>3 小時</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:13, paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
                   <span style={{ color:'rgba(35,10,48,0.65)', lineHeight:1.75 }}>建議具備豐富薩滿實踐經驗，完成 SC-01 至 SC-04 後進行</span>
                 </div>
                 </div>
                 <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(74,21,96,0.07)', borderRadius:12 }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.15em', color:'#4A1560', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.15em', color:'#4A1560', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
                   <div style={{ fontSize:13, color:'rgba(35,10,48,0.65)', lineHeight:1.8 }}>一對一 NT. 45,000</div>
                 </div>
               </div>
             )}
             <button onClick={() => setOpenDetail(openDetail === 'sc05' ? null : 'sc05')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.20em', color:'#4A1560', opacity:0.6 }}>
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.20em', color:'#4A1560', opacity:0.6 }}>
               {openDetail === 'sc05' ? '收起' : '探索課程細節'} <span style={{ fontSize:13, transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc05' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
             </button>
             </div>
@@ -898,7 +898,7 @@ export default function ScPage() {
                     <div className="tr-d2" style={{ fontSize:20, color:'#1E3848', marginBottom:12 }}>{card.title}</div>
                     <p style={{ fontSize:13, lineHeight:1.85, color:'rgba(30,56,72,0.62)', marginBottom:20 }}>{card.desc}</p>
                   </div>
-                  <Link href={card.href} style={{ display:'inline-flex', alignItems:'center', gap:8, fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.18em', color:card.linkColor, textDecoration:'none', opacity:0.85 }}>
+                  <Link href={card.href} style={{ display:'inline-flex', alignItems:'center', gap:8, fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.18em', color:card.linkColor, textDecoration:'none', opacity:0.85 }}>
                     了解更多 →
                   </Link>
                 </div>
