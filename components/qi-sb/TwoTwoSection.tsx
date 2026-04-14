@@ -57,7 +57,7 @@ export default function TwoTwoSection() {
                   key={r}
                   style={{
                     fontFamily: 'var(--f-display)',
-                    fontSize: 13,
+                    fontSize: 'clamp(13px, 1.2vw, 15px)',
                     letterSpacing: '0.14em',
                     color: 'rgba(255,255,255,0.45)',
                     border: '1px solid rgba(255,255,255,0.15)',

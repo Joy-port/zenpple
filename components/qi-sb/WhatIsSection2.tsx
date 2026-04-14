@@ -119,7 +119,7 @@ function WhyDifferentBlock() {
       style={{ width: '100%', maxWidth: 360, background: 'linear-gradient(135deg, #5DA5B5 0%, #65BAAF 100%)', borderRadius: 4, padding: '32px 36px', position: 'relative', overflow: 'hidden' }}
     >
       <div aria-hidden style={{ position: 'absolute', right: -40, top: -40, width: 180, height: 180, borderRadius: '50%', background: 'rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
-      <p style={{ fontFamily: 'var(--f-display)', fontSize: 13, letterSpacing: '0.2em', color: 'rgba(255,255,255,0.4)', marginBottom: 10 }}>· 為什麼森波的頌缽不一樣 ·</p>
+      <p style={{ fontFamily: 'var(--f-display)', fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.4)', marginBottom: 10 }}>· 為什麼森波的頌缽不一樣 ·</p>
       <h3 className="tr-h1" style={{ fontSize: 20, color: '#fff', marginBottom: 16 }}>聲音 × 薩滿 × 通靈解析</h3>
       <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.72)', lineHeight: 1.85 }}>
         大多數的頌缽課程停在聲音的放鬆層面。森波的頌缽音流，同時結合薩滿意識旅程與通靈解析——禿禿在缽聲之中接收個案的能量訊息，引導每次體驗不只是「被聲音泡著」，而是有意識地鬆動特定能量阻塞，並帶回可落地的洞見。
@@ -134,7 +134,7 @@ function RightColumn() {
       <p style={{ fontSize: 15, lineHeight: 1.85, color: 'var(--muted)', marginBottom: 32 }}>
         頌缽發出的泛音頻率，能同步引導腦波從 β 波（清醒緊張）過渡到 α 波（放鬆專注）乃至 θ 波（深層冥想），讓神經系統進入自然的修復狀態。這不是催眠，而是聲音的物理共振在身體層面發生作用。
       </p>
-      <p style={{ fontFamily: 'var(--f-display)', fontSize: 13, letterSpacing: '0.18em', color: 'var(--muted)', marginBottom: 20, textAlign: 'center' }}>· 腦波調頻原理 ·</p>
+      <p style={{ fontFamily: 'var(--f-display)', fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.18em', color: 'var(--muted)', marginBottom: 20, textAlign: 'center' }}>· 腦波調頻原理 ·</p>
       <svg width="0" height="0" style={{ position: 'absolute' }}>
         <defs>
           <filter id="bw-rough">
@@ -145,12 +145,12 @@ function RightColumn() {
       </svg>
       {brainwaves.map(bw => (
         <div key={bw.label} style={{ background: bw.bg, borderRadius: 2, padding: '20px 24px', marginBottom: 12, position: 'relative', overflow: 'hidden' }}>
-          <p style={{ fontFamily: 'var(--f-display)', fontSize: 13, letterSpacing: '0.15em', color: '#65BAAF', marginBottom: 6 }}>{bw.label}</p>
+          <p style={{ fontFamily: 'var(--f-display)', fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.15em', color: '#65BAAF', marginBottom: 6 }}>{bw.label}</p>
           <p className="tr-h1" style={{ fontSize: 15, color: '#2E5A6A', marginBottom: 6 }}>{bw.hz}</p>
           <svg viewBox="0 0 260 36" width="100%" height="32" style={{ display: 'block', margin: '8px 0 10px' }} preserveAspectRatio="none">
             <polyline filter="url(#bw-rough)" points={bw.points} fill="none" stroke={bw.color} strokeWidth={bw.strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.7 }}>{bw.desc}</p>
+          <p style={{ fontSize: 'clamp(13px, 1.2vw, 15px)', color: 'var(--muted)', lineHeight: 1.7 }}>{bw.desc}</p>
         </div>
       ))}
     </div>
