@@ -59,7 +59,7 @@ export default function Footer() {
             <p
               className="tr-body"
               style={{
-                fontSize: 13,
+                fontSize: 'clamp(13px, 1.2vw, 15px)',
                 letterSpacing: '0.04em',
                 color: 'rgba(242,239,234,0.45)',
               }}
@@ -88,7 +88,7 @@ export default function Footer() {
           <p
             style={{
               fontFamily: 'var(--f-mono)',
-              fontSize: 13,
+              fontSize: 'clamp(13px, 1.2vw, 15px)',
               letterSpacing: '0.1em',
               color: 'rgba(242,239,234,0.22)',
             }}
@@ -99,7 +99,7 @@ export default function Footer() {
             href="/ethics"
             style={{
               fontFamily: 'var(--f-mono)',
-              fontSize: 13,
+              fontSize: 'clamp(13px, 1.2vw, 15px)',
               letterSpacing: '0.1em',
               color: 'rgba(242,239,234,0.25)',
               textDecoration: 'none',
@@ -125,7 +125,7 @@ function FooterCol({
       <p
         style={{
           fontFamily: 'var(--f-mono)',
-          fontSize: 13,
+          fontSize: 'clamp(13px, 1.2vw, 15px)',
           letterSpacing: '0.2em',
           color: 'rgba(242,239,234,0.5)',
           textTransform: 'uppercase',

@@ -117,7 +117,7 @@ export default function FoundersSection() {
 
                     <p style={{
                       fontFamily: 'var(--f-mono)',
-                      fontSize: 'clamp(13px, 1.2vw, 14px)',
+                      fontSize: 'clamp(13px, 1.2vw, 15px)',
                       letterSpacing: '0.06em', color: f.accent, marginBottom: 10,
                     }}>
                       {f.roles}
