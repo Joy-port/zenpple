@@ -176,7 +176,7 @@ function MobileCards({
               >
                 {currentCard.cardTitle}
               </h3>
-              <p style={{ fontSize: 'clamp(13px, 1.2vw, 15px)', color: 'var(--muted)', lineHeight: 1.8, whiteSpace: 'pre-line' }}>
+              <p style={{ fontSize: 'clamp(13px, 1.2vw, 15px)', color: '#5C5955', lineHeight: 1.8, whiteSpace: 'pre-line' }}>
                 {currentCard.cardDesc}
               </p>
             </div>
@@ -340,7 +340,7 @@ export default function PersonaCardFocus() {
         <p style={{ fontFamily: 'var(--f-display)', fontWeight: 700, fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10, flexShrink: 0, textAlign: ta, width: '100%' }}>
           {p.expandEn}
         </p>
-        <p style={{ fontSize: 'clamp(13px, 1.3vw, 15px)', lineHeight: 1.85, color: 'var(--ink)', opacity: 0.7, marginBottom: 0, flexShrink: 0, overflowWrap: 'break-word', wordBreak: 'break-word', textAlign: ta }}>
+        <p style={{ fontSize: 'clamp(13px, 1.3vw, 15px)', lineHeight: 1.85, color: 'var(--ink)', opacity: 0.85, marginBottom: 0, flexShrink: 0, overflowWrap: 'break-word', wordBreak: 'break-word', textAlign: ta }}>
           {p.expandBody}
         </p>
 
@@ -473,7 +473,7 @@ export default function PersonaCardFocus() {
                       <h3 className="tr-h1" style={{ fontSize: 'clamp(14px, 1.8vw, 18px)', lineHeight: 1.5, color: 'var(--ink)', marginBottom: isActive ? 0 : 8, whiteSpace: 'pre-line', transition: 'margin 0.4s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                         {p.cardTitle}
                       </h3>
-                      <p style={{ fontSize: 'clamp(13px, 1.2vw, 15px)', color: 'var(--muted)', lineHeight: 1.8, whiteSpace: 'pre-line', opacity: isActive ? 0 : 1, maxHeight: isActive ? 0 : 120, overflow: 'hidden', transition: 'opacity 0.35s ease, max-height 0.45s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
+                      <p style={{ fontSize: 'clamp(13px, 1.2vw, 15px)', color: '#5C5955', lineHeight: 1.8, whiteSpace: 'pre-line', opacity: isActive ? 0 : 1, maxHeight: isActive ? 0 : 120, overflow: 'hidden', transition: 'opacity 0.35s ease, max-height 0.45s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                         {p.cardDesc}
                       </p>
                     </div>
