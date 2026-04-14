@@ -88,7 +88,7 @@ export default function Footer() {
           <p
             style={{
               fontFamily: 'var(--f-mono)',
-              fontSize: 11,
+              fontSize: 13,
               letterSpacing: '0.1em',
               color: 'rgba(242,239,234,0.22)',
             }}
@@ -99,7 +99,7 @@ export default function Footer() {
             href="/ethics"
             style={{
               fontFamily: 'var(--f-mono)',
-              fontSize: 11,
+              fontSize: 13,
               letterSpacing: '0.1em',
               color: 'rgba(242,239,234,0.25)',
               textDecoration: 'none',
@@ -125,7 +125,7 @@ function FooterCol({
       <p
         style={{
           fontFamily: 'var(--f-mono)',
-          fontSize: 11,
+          fontSize: 13,
           letterSpacing: '0.2em',
           color: 'rgba(242,239,234,0.5)',
           textTransform: 'uppercase',

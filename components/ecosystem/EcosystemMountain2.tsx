@@ -198,7 +198,7 @@ export default function EcosystemMountain2() {
                     <div style={{ width: 24, height: 1, background: z.accent, opacity: 0.4, marginBottom: 6 }} />
                     <div style={{
                       fontFamily: 'var(--f-mono)',
-                      fontSize: 'clamp(12px, 1.2vw, 15px)',
+                      fontSize: 'clamp(13px, 1.2vw, 15px)',
                       letterSpacing: '0.08em',
                       color: 'var(--muted)',
                       lineHeight: 1.6,

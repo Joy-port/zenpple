@@ -337,7 +337,7 @@ export default function PersonaCardFocus() {
         <h3 className="tr-h1" style={{ fontSize: 'clamp(15px, 1.8vw, 20px)', marginBottom: 3, color: 'var(--ink)', flexShrink: 0, overflowWrap: 'break-word', wordBreak: 'break-word', textAlign: ta, width: '100%' }}>
           {p.expandTitle}
         </h3>
-        <p style={{ fontFamily: 'var(--f-display)', fontWeight: 700, fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10, flexShrink: 0, textAlign: ta, width: '100%' }}>
+        <p style={{ fontFamily: 'var(--f-display)', fontWeight: 700, fontSize: 13, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 10, flexShrink: 0, textAlign: ta, width: '100%' }}>
           {p.expandEn}
         </p>
         <p style={{ fontSize: 'clamp(13px, 1.3vw, 15px)', lineHeight: 1.85, color: 'var(--ink)', opacity: 0.7, marginBottom: 0, flexShrink: 0, overflowWrap: 'break-word', wordBreak: 'break-word', textAlign: ta }}>
@@ -347,12 +347,12 @@ export default function PersonaCardFocus() {
         <div style={{ flex: 1, minHeight: 8 }} />
 
         <div style={{ width: '100%', height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 10, flexShrink: 0 }} />
-        <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(12px, 1.1vw, 14px)', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 8, flexShrink: 0, textAlign: ta, width: '100%' }}>
+        <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(13px, 1.1vw, 14px)', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 8, flexShrink: 0, textAlign: ta, width: '100%' }}>
           適合的服務
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, justifyContent: ja, marginBottom: 14, flexShrink: 0, width: '100%' }}>
           {p.services.map(s => (
-            <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 'clamp(11px, 1vw, 13px)', padding: '4px 11px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
+            <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 13, padding: '4px 11px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
               {s}
             </span>
           ))}
@@ -360,7 +360,7 @@ export default function PersonaCardFocus() {
         <div style={{ display: 'flex', justifyContent: ja, width: '100%', flexShrink: 0 }}>
           <Link
             href={p.ctaHref}
-            style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(12px, 1.1vw, 14px)', letterSpacing: '0.06em', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 22px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.45)`, color: p.accentColor }}
+            style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(13px, 1.1vw, 14px)', letterSpacing: '0.06em', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 22px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.45)`, color: p.accentColor }}
           >
             {p.ctaLabel}
           </Link>
@@ -473,7 +473,7 @@ export default function PersonaCardFocus() {
                       <h3 className="tr-h1" style={{ fontSize: 'clamp(14px, 1.8vw, 18px)', lineHeight: 1.5, color: 'var(--ink)', marginBottom: isActive ? 0 : 8, whiteSpace: 'pre-line', transition: 'margin 0.4s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                         {p.cardTitle}
                       </h3>
-                      <p style={{ fontSize: 'clamp(12px, 1vw, 13px)', color: 'var(--muted)', lineHeight: 1.8, whiteSpace: 'pre-line', opacity: isActive ? 0 : 1, maxHeight: isActive ? 0 : 120, overflow: 'hidden', transition: 'opacity 0.35s ease, max-height 0.45s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
+                      <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.8, whiteSpace: 'pre-line', opacity: isActive ? 0 : 1, maxHeight: isActive ? 0 : 120, overflow: 'hidden', transition: 'opacity 0.35s ease, max-height 0.45s ease', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
                         {p.cardDesc}
                       </p>
                     </div>
