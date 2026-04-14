@@ -144,7 +144,7 @@ export default function ScPage() {
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
               薩滿，<br />最古老的療癒智慧
             </h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:400, fontSize:14, letterSpacing:'0.28em', color:'rgba(180,215,220,1)', marginBottom:24 }}>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:600, fontSize:14, letterSpacing:'0.28em', color:'rgba(180,215,220,1)', marginBottom:24 }}>
               The Oldest Healing Wisdom
             </p>
             <p style={{ fontSize:14, lineHeight:1.9, color:'rgba(242,239,234,1)', maxWidth:440 }}>
@@ -197,7 +197,7 @@ export default function ScPage() {
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
               上、中、下部世界
             </h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:14, letterSpacing:'0.28em', color:'#7A9AB5', opacity:0.8 }}>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:400, fontSize:14, letterSpacing:'0.28em', color:'#7A9AB5', opacity:0.8 }}>
               Realms of the Shamanic Cosmos
             </p>
           </div>
@@ -226,7 +226,7 @@ export default function ScPage() {
                 <div style={{ fontSize:18, color:'#7A9AB5', opacity:0.5, flexShrink:0 }}>←</div>
                 <div>
                   <div className="tr-h1" style={{ fontSize:16, color:'#7A9AB5', marginBottom:2 }}>上部世界</div>
-                  <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.2em', color:'#7A9AB5', opacity:0.75, marginBottom:6 }}>UPPER WORLD</div>
+                  <div style={{ fontFamily:'var(--f-display)', fontWeight:400, fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.2em', color:'#7A9AB5', opacity:0.75, marginBottom:6 }}>UPPER WORLD</div>
                   <div style={{ fontSize:'clamp(13px, 1.2vw, 15px)', lineHeight:1.75, color:'rgba(242,239,234,0.7)' }}>指導靈與祖先智慧的居所。<br />接收更高維度的指引。</div>
                 </div>
               </div>
@@ -252,7 +252,7 @@ export default function ScPage() {
               <div style={{ position:'absolute', left:0, display:'flex', alignItems:'center', gap:12, width:220, flexDirection:'row-reverse', textAlign:'right' }}>
                 <div>
                   <div className="tr-h1" style={{ fontSize:16, color:'#5E8E8A', marginBottom:2 }}>中部世界</div>
-                  <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.2em', color:'#5E8E8A', opacity:0.75, marginBottom:6 }}>MIDDLE WORLD</div>
+                  <div style={{ fontFamily:'var(--f-display)', fontWeight:400, fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.2em', color:'#5E8E8A', opacity:0.75, marginBottom:6 }}>MIDDLE WORLD</div>
                   <div style={{ fontSize:'clamp(13px, 1.2vw, 15px)', lineHeight:1.75, color:'rgba(242,239,234,0.7)' }}>我們生存的當下現實。<br />解讀能量場、清理舊有印記。</div>
                 </div>
                 <div style={{ fontSize:18, color:'#5E8E8A', opacity:0.5, flexShrink:0 }}>→</div>
@@ -282,7 +282,7 @@ export default function ScPage() {
                 <div style={{ fontSize:18, color:'#C4784A', opacity:0.5, flexShrink:0 }}>←</div>
                 <div>
                   <div className="tr-h1" style={{ fontSize:16, color:'#C4784A', marginBottom:2 }}>下部世界</div>
-                  <div style={{ fontFamily:'var(--f-display)', fontWeight:100, fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.2em', color:'#C4784A', opacity:0.75, marginBottom:6 }}>LOWER WORLD</div>
+                  <div style={{ fontFamily:'var(--f-display)', fontWeight:400, fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.2em', color:'#C4784A', opacity:0.75, marginBottom:6 }}>LOWER WORLD</div>
                   <div style={{ fontSize:'clamp(13px, 1.2vw, 15px)', lineHeight:1.75, color:'rgba(242,239,234,0.7)' }}>力量動物的棲所。<br />接觸最原始的生命力。</div>
                 </div>
               </div>
@@ -305,7 +305,7 @@ export default function ScPage() {
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
               薩滿旅程五步驟
             </h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:400, fontSize:14, letterSpacing:'0.28em', color:'rgba(180,215,220,1)', marginBottom:12 }}>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:600, fontSize:14, letterSpacing:'0.28em', color:'rgba(180,215,220,1)', marginBottom:12 }}>
               A Path of Awakening &amp; Integration
             </p>
           </div>
@@ -497,7 +497,7 @@ export default function ScPage() {
           <div className="sc-text-col">
 
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#3A2008', marginBottom:10 }}>尋找力量動物</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#5C3A14', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Power Animal · Workshop</p>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:600, fontSize:15, letterSpacing:'0.22em', color:'#5C3A14', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Power Animal · Workshop</p>
             <div className="sc-content-block">
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(40,22,8,0.88)', marginBottom:32, maxWidth:480 }}>
               透過頌缽波頻為你的身體進行「接地（Grounding）」，讓腦波在安全的共振中進入深度放鬆。在這樣的狀態下進入薩滿旅程，你將能精準地與你的力量動物相遇——祂是你靈魂最原始的盟友，代表著你與生俱來的特質與守護力量。<br /><br />
@@ -580,7 +580,7 @@ export default function ScPage() {
           <div className="sc-text-col" style={{ order:2 }}>
 
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#0E1E34', marginBottom:10 }}>連結高維指導靈</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#1A3050', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Spirit Guide</p>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:600, fontSize:15, letterSpacing:'0.22em', color:'#1A3050', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Spirit Guide</p>
             <div className="sc-content-block">
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(15,28,50,0.88)', marginBottom:32, maxWidth:480 }}>
               不同於守護與行動力的力量動物，指導靈是純粹的光與愛，是具備高度智慧的靈魂導師。祂們持有你的生命藍圖，能在你面臨人生十字路口時，提供超越小我視角的宏觀指引。<br /><br />
@@ -661,7 +661,7 @@ export default function ScPage() {
           <div className="sc-text-col">
 
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#3C1A08', marginBottom:10 }}>七脈輪情緒覺察</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#6A3018', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Chakra &amp; Emotion · Awareness</p>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:600, fontSize:15, letterSpacing:'0.22em', color:'#6A3018', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Chakra &amp; Emotion · Awareness</p>
             <div className="sc-content-block">
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(50,18,8,0.88)', marginBottom:32, maxWidth:480 }}>
               七脈輪是情緒的儲存槽。透過薩滿冥想，我們引領你親自進入脈輪空間，覺察那些被身體凍結的感受。透過「看見」與「表達」，協助能量重新流動，找回情緒的主控權。<br /><br />
@@ -740,7 +740,7 @@ export default function ScPage() {
           <div className="sc-text-col" style={{ order:2 }}>
 
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#3A2800', marginBottom:10 }}>連結高我</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#5A3E08', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Higher Self</p>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:600, fontSize:15, letterSpacing:'0.22em', color:'#5A3E08', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Higher Self</p>
             <div className="sc-content-block">
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(40,28,5,0.88)', marginBottom:24, maxWidth:480 }}>
               高我是你靈魂最純粹、最神聖的面向，持有你此生的生命藍圖。透過這門課，你將在身體高度通透的狀態下，正式接通內在的神聖源頭，完成身心靈合一的全面對齊，找回真正的靈魂主權。
@@ -822,7 +822,7 @@ export default function ScPage() {
           <div className="sc-text-col">
 
             <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,52px)', letterSpacing:'0.03em', lineHeight:1.1, color:'#2A0840', marginBottom:10 }}>尋找內在小孩</h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:500, fontSize:15, letterSpacing:'0.22em', color:'#4A1560', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Inner Child · Soul Retrieval</p>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:600, fontSize:15, letterSpacing:'0.22em', color:'#4A1560', opacity:0.9, marginBottom:28, textTransform:'uppercase' }}>Inner Child · Soul Retrieval</p>
             <div className="sc-content-block">
             <p style={{ fontSize:14, lineHeight:1.95, color:'rgba(35,10,48,0.88)', marginBottom:32, maxWidth:480 }}>
               當個體遭遇超載的創傷，大腦會啟動保護機制，將受傷的意識片段解離並封存——這些被凍結的自我，即是「內在小孩」。<br /><br />
