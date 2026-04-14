@@ -200,7 +200,7 @@ export default function EcosystemMountain2() {
                       fontFamily: 'var(--f-mono)',
                       fontSize: 'clamp(13px, 1.2vw, 15px)',
                       letterSpacing: '0.08em',
-                      color: 'var(--muted)',
+                      color: '#5C5955',
                       lineHeight: 1.6,
                     }}>
                       {z.sub}
