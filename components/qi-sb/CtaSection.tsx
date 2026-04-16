@@ -31,7 +31,7 @@ export default function CtaSection() {
         <h2
           className="tr-d2"
           style={{
-            fontFamily: 'var(--f-impact)',
+            fontFamily: 'var(--f-zh-sans)',
             fontWeight: 900,
             fontSize: 'clamp(26px,4vw,44px)',
             color: '#2E5A6A',

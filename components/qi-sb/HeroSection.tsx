@@ -98,7 +98,7 @@ export default function HeroSection() {
         <h1
           className="tr-d2"
           style={{
-            fontFamily: 'var(--f-impact)',
+            fontFamily: 'var(--f-zh-sans)',
             fontWeight: 900,
             fontSize: 'clamp(32px,5vw,58px)',
             color: '#FDFBF8',

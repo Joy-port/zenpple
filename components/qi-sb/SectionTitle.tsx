@@ -15,7 +15,7 @@ export default function SectionTitle({ zh, en, dark = false, mb = 48, center = f
       <h2
         className="tr-d2"
         style={{
-          fontFamily: 'var(--f-impact)',
+          fontFamily: 'var(--f-zh-sans)',
           fontWeight: 900,
           fontSize: 'clamp(26px,3.5vw,38px)',
           color: zhColor,

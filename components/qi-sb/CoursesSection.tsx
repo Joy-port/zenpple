@@ -119,7 +119,7 @@ export default function CoursesSection() {
                   <div style={{ flex: 1 }}>
                     <div
                       style={{
-                        fontFamily: 'var(--f-impact)',
+                        fontFamily: 'var(--f-zh-sans)',
                         fontWeight: 900,
                         fontSize: 18,
                         color: '#2E5A6A',
