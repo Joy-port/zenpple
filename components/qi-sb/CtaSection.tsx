@@ -27,6 +27,33 @@ export default function CtaSection() {
         home
       </div>
 
+      {/* Animated SVG waves */}
+      <svg
+        aria-hidden
+        viewBox="0 0 1440 400"
+        preserveAspectRatio="xMidYMid slice"
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1, opacity: 0.09 }}
+      >
+        {([
+          { amp: 18, phase:   0, period: 360, y: 200, stroke: 'rgba(90,165,178,1)', sw: 2.2, dur: 24 },
+          { amp: 28, phase:  80, period: 300, y: 212, stroke: 'rgba(90,165,178,1)', sw: 0.7, dur: 30 },
+          { amp: 12, phase: 155, period: 400, y: 194, stroke: 'rgba(90,165,178,1)', sw: 1.5, dur: 21 },
+          { amp: 36, phase: 220, period: 320, y: 208, stroke: 'rgba(90,165,178,1)', sw: 3.5, dur: 34 },
+          { amp:  8, phase: 290, period: 450, y: 202, stroke: 'rgba(90,165,178,1)', sw: 0.5, dur: 19 },
+        ] as const).map((w, i) => {
+          const pts: string[] = []
+          for (let x = -w.period; x <= 1440 + w.period; x += 4) {
+            const y = w.y + w.amp * Math.sin((x + w.phase) * (2 * Math.PI / w.period))
+            pts.push(`${x},${y.toFixed(1)}`)
+          }
+          return (
+            <polyline key={i} points={pts.join(' ')} fill="none" stroke={w.stroke} strokeWidth={w.sw} opacity={0.55}>
+              <animateTransform attributeName="transform" type="translate" from="0 0" to={`${-w.period} 0`} dur={`${w.dur}s`} repeatCount="indefinite" />
+            </polyline>
+          )
+        })}
+      </svg>
+
       <div style={{ position: 'relative', zIndex: 2 }}>
         <h2
           className="tr-d2"
