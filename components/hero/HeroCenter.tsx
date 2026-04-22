@@ -25,7 +25,7 @@ export default function HeroCenter() {
       >
         <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <Image
-            src="/index/頌缽九宮格.png"
+            src="/index/頌缽九宮格(方).png"
             alt="" width={1568} height={2172} aria-hidden
             className="animate-breathe-scale"
             style={{ height: 'clamp(380px, 68vh, 620px)', width: 'auto', display: 'block' }}
@@ -40,7 +40,7 @@ export default function HeroCenter() {
       >
         <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
           <Image
-            src="/index/頌缽九宮格.png"
+            src="/index/頌缽九宮格(方).png"
             alt="" width={1568} height={2172} aria-hidden
             className="animate-breathe-scale h-[clamp(220px,50vh,400px)] md:h-[clamp(300px,62vh,620px)]"
             style={{ width: 'auto', display: 'block', animationDelay: '2s' }}
