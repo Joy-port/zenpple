@@ -63,7 +63,7 @@ export default function FoundersSection() {
             <div
               key={f.key}
               /* Each row centered, compact */
-              className="flex flex-col items-center md:flex-row md:justify-center md:items-center"
+              className={`flex flex-col items-center md:flex-row md:justify-center md:items-center${i === 1 ? ' md:flex-row-reverse' : ''}`}
               style={{ gap: 'clamp(16px, 2.5vw, 28px)', position: 'relative' }}
             >
               {/* Glow blob behind circle */}
