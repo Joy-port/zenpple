@@ -88,8 +88,8 @@ export default function FoundersSection() {
                   letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
                   /* 禿禿: right-leaning | 夏: centered shifted left ~1 char */
                   textAlign: 'center',
-                  paddingLeft: i === 0 ? '10%' : 0,
-                  paddingRight: i === 0 ? 0 : '10%',
+                  paddingLeft: i === 0 ? '50%' : 0,
+                  paddingRight: i === 0 ? 0 : '50%',
                   marginBottom: 'clamp(12px, 1.5vw, 20px)',
                   position: 'relative', zIndex: 1,
                 }}
