@@ -77,9 +77,12 @@ export default function FoundersSection() {
               <h3
                 className="tr-d2"
                 style={{
-                  fontSize: 'clamp(22px, 2.4vw, 30px)',
+                  fontSize: 'clamp(30px, 2.4vw, 42px)',
                   letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
-                  textAlign: 'center', marginBottom: 'clamp(16px, 2vw, 24px)',
+                  textAlign: i === 0 ? 'right' : 'left',
+                  paddingLeft: i === 0 ? '20%' : 0,
+                  paddingRight: i === 0 ? 0 : '20%',
+                  marginBottom: 'clamp(12px, 1.5vw, 20px)',
                   position: 'relative', zIndex: 1,
                 }}
               >
@@ -96,8 +99,8 @@ export default function FoundersSection() {
                   className="animate-breathe-scale"
                   style={{
                     animationDelay: `${i * 0.8}s`,
-                    width: 'clamp(300px, 42vw, 420px)',
-                    height: 'clamp(300px, 42vw, 420px)',
+                    width: 'clamp(260px, 36vw, 360px)',
+                    height: 'clamp(260px, 36vw, 360px)',
                     borderRadius: '50%',
                     overflow: 'hidden',
                     flexShrink: 0,
@@ -106,12 +109,12 @@ export default function FoundersSection() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '7%',
+                    padding: '12%',
                     textAlign: 'center',
                     gap: 10,
                   }}
                 >
-                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(12px, 1.2vw, 14px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5 }}>
+                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5 }}>
                     {f.roles}
                   </p>
                   <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: '#5C5955' }}>
