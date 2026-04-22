@@ -96,21 +96,18 @@ export default function FoundersSection() {
                   {f.name}
                 </h3>
 
-                {/* 禿禿 subtitle — overlaid to the left of the title */}
+                {/* 禿禿 subtitle — below title, same paddingLeft alignment */}
                 {i === 0 && (
                   <p
                     style={{
-                      position: 'absolute',
-                      top: '50%', left: 0,
-                      transform: 'translateY(-50%)',
-                      width: '48%',
-                      textAlign: 'right',
                       fontFamily: 'var(--f-mono)',
                       fontSize: 'clamp(14px, 1.2vw, 16px)',
                       letterSpacing: '0.08em',
                       color: f.accent,
                       lineHeight: 1.5,
-                      pointerEvents: 'none',
+                      paddingLeft: '50%',
+                      textAlign: 'center',
+                      marginTop: 4,
                     }}
                   >
                     {f.roles}
