@@ -43,11 +43,8 @@ export default function HlHero() {
             style={{ width: '100%', height: 'auto' }}
             priority
           />
-          {/* Vertical chars woven between the wave stripes */}
-          <span className="hero-stripe-char" style={{ left: '18%' }}>深</span>
-          <span className="hero-stripe-char" style={{ left: '36%' }}>層</span>
-          <span className="hero-stripe-char" style={{ left: '58%' }}>對</span>
-          <span className="hero-stripe-char" style={{ left: '76%' }}>齊</span>
+          {/* 深層對齊 — vertical column anchored to left edge of image */}
+          <span className="hero-stripe-char">深層對齊</span>
         </div>
 
         {/* Right outer text group — desktop only */}

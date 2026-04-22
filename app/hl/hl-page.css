@@ -81,10 +81,11 @@
   display: block;
 }
 
-/* Chars woven between the wave stripes of the bg image */
+/* 深層對齊 — vertical column on left edge of image */
 .hero-stripe-char {
   position: absolute;
   top: 50%;
+  left: 6%;
   transform: translateY(-50%);
   writing-mode: vertical-rl;
   font-family: var(--f-zh);
