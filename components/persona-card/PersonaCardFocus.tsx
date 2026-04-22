@@ -13,11 +13,11 @@ const personas = [
   {
     id: 1,
     cardTitle: '喜歡感受\n也懂得休息的人',
-    cardDesc: '偶爾覺得快被什麼淹沒，\n只是還沒找到那個出口',
+    cardDesc: '只想在某個安靜的頻率裡，\n讓自己好好被支持一次。',
     expandTitle: '潮間帶的人',
     expandEn: 'The Shoreline Wanderer',
     expandBody: '懂得感受生活的細膩，也知道自己需要補充能量。不一定在找「答案」，只是想在某個安靜的頻率裡，讓自己好好浮一次。',
-    services: ['脈輪牌卡 + 頌缽', '團體閨蜜音流', '靈擺快速問事', '企業包場頌缽'],
+    services: ['脈輪牌卡 + 頌缽', '團體閨蜜音流', '全脈輪分析(HL系列)', '主題式脈輪能量調和', '企業包場頌缽'],
     ctaLabel: '找到我的第一步 ↗',
     ctaHref: '/qi-sb',
     accentColor: '#4A6B8A',
