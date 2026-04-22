@@ -237,7 +237,7 @@ export default function EcosystemMountain2() {
                       fontFamily: 'var(--f-zh)',
                       fontSize: 11,
                       letterSpacing: '0.12em',
-                      color: '#3a3532',
+                      color: '#5C5955',
                       marginTop: 6,
                       lineHeight: 1,
                     }}>
