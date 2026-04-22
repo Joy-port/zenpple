@@ -54,7 +54,7 @@ const personas = [
     secondaryRgb: '74,107,138',
     cardImage: '/index/卡牌-2.png',
     imageFilter: 'sepia(1) hue-rotate(240deg) saturate(2) brightness(0.85)',
-    cardScale: 1.4,   /* source is very wide (2284×1632) — trees appear tiny without upscaling */
+    cardScale: 1.15,  /* source is very wide (2284×1632) — trees appear tiny without upscaling */
   },
   {
     id: 3,
@@ -76,7 +76,7 @@ const personas = [
     secondaryRgb: '123,107,158',
     cardImage: '/index/卡牌-3.png',
     imageFilter: 'sepia(0.7) saturate(1.9) brightness(0.95) hue-rotate(5deg)',
-    cardScale: 0.72,  /* source is portrait (1541×2110) — flower fills height, needs scaling down */
+    cardScale: 0.85,  /* source is portrait (1541×2110) — flower fills height, needs scaling down */
   },
 ]
 
