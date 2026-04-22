@@ -171,17 +171,29 @@ body::after {
 
 /* ── Section scroll anchoring ── */
 section {
+  /* Mobile nav height: 13px pad + 38px logo + 13px pad = 64px */
   scroll-margin-top: 64px;
   scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
+@media (min-width: 768px) {
+  section {
+    /* Desktop nav height: 18px pad + 48px logo + 18px pad = 84px */
+    scroll-margin-top: 85px;
+  }
+}
+
+/* Pages that opt into mandatory snap (via SnapPageEffect) */
 html.snap-mandatory {
   scroll-snap-type: y mandatory !important;
-  /* Disable CSS smooth-scroll — let native snap physics animate instead.
-     scroll-behavior: smooth + mandatory snap conflict on Safari/Chrome,
-     producing a stuttery/abrupt feel. */
-  scroll-behavior: auto !important;
+  /* Keep scroll-behavior: smooth from the base html{} rule —
+     anchor link navigation relies on it. Mandatory snap uses
+     native OS physics for its own animation, so no conflict. */
+}
+
+/* Only stop-always on mandatory pages — don't affect HL proximity snap */
+html.snap-mandatory section {
+  scroll-snap-stop: always;
 }
 
 /* ── Desktop-only spacing overrides ─────────────────────────────────────────
