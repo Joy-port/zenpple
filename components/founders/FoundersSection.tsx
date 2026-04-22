@@ -61,8 +61,7 @@ export default function FoundersSection() {
       <div className="wrap">
         <PageTitle sub="Two Souls, One Mountain" title="兩個靈魂，一座山" />
 
-        {/* Outer container — extra horizontal padding reserves room for floating images */}
-        <div style={{ position: 'relative', padding: '0 clamp(80px, 12vw, 130px)' }}>
+        <div style={{ position: 'relative' }}>
 
           {/* Shared glow blobs */}
           <div aria-hidden style={{ position: 'absolute', inset: '-20%', pointerEvents: 'none', zIndex: 0 }}>
@@ -84,35 +83,12 @@ export default function FoundersSection() {
             style={{ position: 'relative', zIndex: 1 }}
           >
             {founders.map((f, i) => (
+              /* Card wrapper: flex-col — circle on top, image below */
               <div
                 key={f.key}
                 className={i === 1 ? 'mt-[-60px] md:mt-0 md:ml-[-80px]' : ''}
-                style={{ position: 'relative', flexShrink: 0 }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0, position: 'relative', zIndex: i === 1 ? 2 : 1 }}
               >
-
-                {/* ── Mascot image — floating OUTSIDE the circle ── */}
-                <div
-                  className="animate-breathe-scale"
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    ...(f.imgPos === 'left'
-                      ? { left: 'clamp(-180px, -20vw, -120px)' }
-                      : { right: 'clamp(-180px, -20vw, -120px)' }
-                    ),
-                    width: 'clamp(150px, 20vw, 220px)',
-                    zIndex: 4,
-                    animationDelay: `${i * 0.6}s`,
-                    lineHeight: 0,
-                  }}
-                >
-                  <Image
-                    src={f.img} alt={f.imgAlt} width={500} height={600}
-                    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.15))' }}
-                  />
-                </div>
-
                 {/* ── Circle — text only, breathing ── */}
                 <div
                   className="animate-breathe-scale"
@@ -123,11 +99,7 @@ export default function FoundersSection() {
                     borderRadius: '50%',
                     overflow: 'hidden',
                     flexShrink: 0,
-                    position: 'relative',
-                    zIndex: i === 0 ? 2 : 1,
                     background: 'rgba(242,239,234,0.18)',
-                    backdropFilter: 'blur(8px)',
-                    WebkitBackdropFilter: 'blur(8px)',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -176,6 +148,23 @@ export default function FoundersSection() {
                   >
                     了解更多 ↗
                   </Link>
+                </div>
+
+                {/* ── Mascot image — below the circle ── */}
+                <div
+                  className="animate-breathe-scale"
+                  style={{
+                    width: 'clamp(130px, 18vw, 190px)',
+                    marginTop: -32,
+                    animationDelay: `${i * 0.6}s`,
+                    lineHeight: 0,
+                    zIndex: 3,
+                  }}
+                >
+                  <Image
+                    src={f.img} alt={f.imgAlt} width={500} height={600}
+                    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.15))' }}
+                  />
                 </div>
               </div>
             ))}
