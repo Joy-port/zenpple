@@ -92,7 +92,7 @@ export default function FoundersSection() {
                     >
                       {f.name}
                     </h3>
-                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5, marginTop: 4 }}>
+                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: '#5C5955', lineHeight: 1.5, marginTop: 14 }}>
                       {f.roles}
                     </p>
                   </div>
