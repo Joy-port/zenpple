@@ -167,17 +167,22 @@ export default function EcosystemMountain2() {
                 style={{
                   position: 'absolute',
                   ...(isMobile === true ? z.mobileTipPos : z.tipPos),
-                  /* opacity: mobile=always 1; desktop=dim others to 0.3 matching mountain dim */
-                  opacity: isMobile === true ? 1 : (isOtherHovered ? 0.3 : 1),
-                  /* background: highlight on hover, mobile keeps frosted white */
+                  /* opacity: inline style now works — animation no longer animates opacity */
+                  opacity: isMobile === true ? 1 : (isOtherHovered ? 0 : 1),
+                  /* background: highlight when this zone hovered */
                   background: isMobile === true
                     ? 'rgba(255,255,255,0.3)'
                     : isHoveredZone
                       ? `rgba(${z.accentRgb}, 0.28)`
                       : `rgba(${z.accentRgb}, 0.12)`,
-                  /* scale pop on hover (desktop only) */
+                  /* scale pop on hover — animation:none lets inline transform take over */
+                  animation: (!isMobile && isHoveredZone)
+                    ? 'none'
+                    : `mountain-label-breathe 3s ease-in-out ${i * 0.7}s infinite`,
                   transform: (!isMobile && isHoveredZone) ? 'scale(1.06)' : undefined,
+                  transformOrigin: 'left center',
                   transition: 'opacity 0.25s ease, background 0.25s ease, transform 0.25s ease',
+                  /* desktop: pointer-events none — SVG hit zones handle hover/click */
                   pointerEvents: isMobile === true ? 'auto' : 'none',
                   cursor: isMobile === true ? 'pointer' : 'default',
                   zIndex: 10,
@@ -187,10 +192,6 @@ export default function EcosystemMountain2() {
                   borderRadius: '4px 10px 10px 4px',
                   padding: 'clamp(7px, 1vw, 12px) clamp(11px, 1.5vw, 16px)',
                   maxWidth: 'clamp(130px, 35vw, 210px)',
-                  /* breathing pulse — all viewports, staggered; paused while desktop zone is hovered */
-                  animation: `mountain-label-breathe 3s ease-in-out ${i * 0.7}s infinite`,
-                  animationPlayState: (!isMobile && isHoveredZone) ? 'paused' : 'running',
-                  transformOrigin: 'left center',
                 }}
               >
                 <div style={{

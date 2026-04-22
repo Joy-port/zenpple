@@ -166,8 +166,8 @@ body::after {
 }
 
 @keyframes mountain-label-breathe {
-  0%, 100% { opacity: 0.82; transform: scale(1); }
-  50%       { opacity: 1;    transform: scale(1.04); }
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
 }
 
 @keyframes qi-ripple {
