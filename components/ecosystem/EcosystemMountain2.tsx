@@ -91,7 +91,7 @@ export default function EcosystemMountain2() {
         {/* ── Outer container ── */}
         <div style={{ position: 'relative' }}>
 
-          <PageTitle sub="Two Paths, One Mountain" title="兩個方向，一座山" />
+          <PageTitle sub="From self-awareness to seeing others" title="從覺察自己，到看見他人的旅程" />
 
           {/* ── Mountain + tooltips ── */}
           {/* Full-bleed on mobile via CSS: -mx-[var(--gutter)] escapes .wrap gutter, md:mx-0 resets on desktop */}
