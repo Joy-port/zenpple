@@ -187,10 +187,10 @@ export default function EcosystemMountain2() {
               >
                 <div style={{
                   fontFamily: 'var(--f-zh)',
-                  fontWeight: 500,
+                  fontWeight: 700,
                   fontSize: 'clamp(13px, 2vw, 20px)',
                   letterSpacing: '0.04em',
-                  color: 'var(--ink)',
+                  color: '#1a1816',
                   lineHeight: 1.2,
                   marginBottom: isMobile === true ? 3 : 6,
                 }}>
@@ -203,7 +203,7 @@ export default function EcosystemMountain2() {
                     fontFamily: 'var(--f-display)',
                     fontSize: 10,
                     letterSpacing: '0.18em',
-                    color: z.accent,
+                    color: '#3a3532',
                     textTransform: 'uppercase',
                     lineHeight: 1,
                   }}>
