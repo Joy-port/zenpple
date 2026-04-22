@@ -238,7 +238,7 @@ export default function EcosystemMountain2() {
                       fontSize: 11,
                       letterSpacing: '0.12em',
                       color: '#5C5955',
-                      marginTop: 6,
+                      marginTop: 14,
                       lineHeight: 1,
                     }}>
                       點擊探索
