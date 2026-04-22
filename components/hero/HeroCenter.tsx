@@ -114,21 +114,13 @@ export default function HeroCenter() {
           <p style={{ margin: 0 }}>我們相信</p>
           <p style={{ margin: 0 }}>每個人都可以找到屬於自己的靈性生活之道。</p>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, opacity: 0.36 }}>
-          <span style={{
-            fontFamily: 'var(--f-display)',
-            fontSize: 'clamp(11px, 0.9vw, 12px)',
-            letterSpacing: '0.32em',
-            color: 'var(--ink)',
-            textTransform: 'uppercase',
-          }}>
-            SCROLL
-          </span>
-          <svg width="12" height="18" viewBox="0 0 12 18" fill="none" aria-hidden>
-            <line x1="6" y1="0" x2="6" y2="13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-            <path d="M1 8.5 L6 13.5 L11 8.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
+        <svg
+          width="14" height="20" viewBox="0 0 14 20" fill="none" aria-hidden
+          style={{ opacity: 0.38, animation: 'hero-arrow-drop 2s ease-in-out infinite' }}
+        >
+          <line x1="7" y1="0" x2="7" y2="14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+          <path d="M1 9.5 L7 15.5 L13 9.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
       </div>
     </section>
   )
