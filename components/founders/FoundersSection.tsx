@@ -59,118 +59,109 @@ export default function FoundersSection() {
       <div className="wrap">
         <PageTitle sub="Two Souls, One Mountain" title="兩個靈魂，一座山" />
 
-        {/* Mobile: stacked · Desktop: side-by-side columns */}
-        <div className="flex flex-col md:flex-row md:gap-0" style={{ position: 'relative', overflow: 'hidden' }}>
+        {/* Circle cards + glow container */}
+        <div style={{ position: 'relative' }}>
 
-          {/* Overlapping accent glows — shared across both columns */}
-          <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
-            {/* Circle 1 — 禿禿 (blue) : top-left on mobile / left-center on desktop */}
+          {/* Shared glow blobs — sit behind both circles, overlap each other and the cards */}
+          <div aria-hidden style={{ position: 'absolute', inset: '-20%', pointerEvents: 'none', zIndex: 0 }}>
+            {/* Blue — card 1 zone */}
             <div style={{
               position: 'absolute',
-              width: 560, height: 560, borderRadius: '50%',
-              background: 'rgba(40,100,160,0.18)',
-              filter: 'blur(90px)',
-              top: '30%', left: '28%',
+              width: 320, height: 320, borderRadius: '50%',
+              background: 'rgba(40,100,160,0.22)',
+              filter: 'blur(55px)',
+              top: '40%', left: '35%',
               transform: 'translate(-50%, -50%)',
             }} />
-            {/* Circle 2 — 夏 (orange-red) : bottom-right on mobile / right-center on desktop */}
+            {/* Orange-red — card 2 zone */}
             <div style={{
               position: 'absolute',
-              width: 560, height: 560, borderRadius: '50%',
-              background: 'rgba(200,80,30,0.18)',
-              filter: 'blur(90px)',
-              top: '70%', left: '72%',
+              width: 320, height: 320, borderRadius: '50%',
+              background: 'rgba(200,80,30,0.22)',
+              filter: 'blur(55px)',
+              top: '60%', left: '65%',
               transform: 'translate(-50%, -50%)',
             }} />
           </div>
 
-          {founders.map((f, i) => (
-            <div
-              key={f.key}
-              className={`flex-1 min-w-0${i === 0 ? ' md:border-r md:border-[rgba(42,42,42,0.07)]' : ''}`}
-            >
+          {/* Circle cards: stacked on mobile, side-by-side on desktop */}
+          <div className="flex flex-col items-center md:flex-row md:justify-center" style={{ position: 'relative', zIndex: 1 }}>
+            {founders.map((f, i) => (
               <div
-                className="founder-card-inner"
+                key={f.key}
+                /* overlap: -60px vertical on mobile, -80px horizontal on desktop */
+                className={i === 1 ? 'mt-[-60px] md:mt-0 md:ml-[-80px]' : ''}
                 style={{
+                  width: 'clamp(280px, 42vw, 400px)',
+                  height: 'clamp(280px, 42vw, 400px)',
+                  borderRadius: '50%',
+                  overflow: 'hidden',
+                  flexShrink: 0,
                   position: 'relative',
-                  paddingTop: 'clamp(24px, 3vw, 40px)',
-                  paddingBottom: 'clamp(24px, 3vw, 40px)',
-                  paddingLeft: 'clamp(28px, 4vw, 48px)',
-                  paddingRight: 'clamp(28px, 4vw, 48px)',
-                  height: '100%',
+                  zIndex: i === 0 ? 2 : 1,
+                  /* frosted glass — lets glow bleed through */
+                  background: 'rgba(242,239,234,0.48)',
+                  backdropFilter: 'blur(16px)',
+                  WebkitBackdropFilter: 'blur(16px)',
+                  border: '1px solid rgba(255,255,255,0.55)',
+                  boxShadow: '0 8px 48px rgba(42,42,42,0.09)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '10%',
+                  textAlign: 'center',
                 }}
               >
-
-                {/* Vertical layout: image top, text below, centered */}
-                <div className="relative z-[1] flex flex-col items-center gap-5 text-center">
-
-                  {/* Image */}
-                  <div className="flex-shrink-0 w-[140px] md:w-[110px]">
-                    <div className="animate-breathe-scale" style={{ lineHeight: 0 }}>
-                      <Image
-                        src={f.img} alt={f.imgAlt} width={500} height={600}
-                        style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.12))' }}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Text */}
-                  <div className="w-full">
-                    <h3
-                      className="tr-d2"
-                      style={{
-                        fontSize: 'clamp(22px, 2.2vw, 28px)',
-                        letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.1, marginBottom: 10,
-                        overflowWrap: 'break-word', wordBreak: 'break-word',
-                      }}
-                    >
-                      {f.name}
-                    </h3>
-
-                    <p style={{
-                      fontFamily: 'var(--f-mono)',
-                      fontSize: 'clamp(13px, 1.2vw, 15px)',
-                      letterSpacing: '0.06em', color: f.accent, marginBottom: 10,
-                    }}>
-                      {f.roles}
-                    </p>
-
-                    <p style={{
-                      fontSize: 'clamp(13px, 1.2vw, 15px)', lineHeight: 1.85,
-                      color: '#5C5955', marginBottom: 16,
-                      overflowWrap: 'break-word', wordBreak: 'break-word',
-                    }}>
-                      {f.desc}
-                    </p>
-
-                    <Link
-                      href="/about"
-                      style={{
-                        display: 'inline-flex', alignItems: 'center', gap: 8,
-                        fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
-                        fontSize: 'clamp(13px, 1.3vw, 16px)', letterSpacing: '0.08em',
-                        textDecoration: 'none',
-                        background: `linear-gradient(120deg, ${f.accent}, var(--ink) 80%)`,
-                        WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
-                      }}
-                    >
-                      了解更多 ↗
-                    </Link>
+                {/* Image */}
+                <div style={{ width: 'clamp(64px, 16%, 90px)', flexShrink: 0, marginBottom: 10 }}>
+                  <div className="animate-breathe-scale" style={{ lineHeight: 0 }}>
+                    <Image
+                      src={f.img} alt={f.imgAlt} width={500} height={600}
+                      style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 8px 20px rgba(42,42,42,0.14))' }}
+                    />
                   </div>
                 </div>
+
+                {/* Name */}
+                <h3
+                  className="tr-d2"
+                  style={{ fontSize: 'clamp(17px, 2vw, 23px)', letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.1, marginBottom: 6 }}
+                >
+                  {f.name}
+                </h3>
+
+                {/* Roles */}
+                <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(9px, 1vw, 11px)', letterSpacing: '0.06em', color: f.accent, marginBottom: 10 }}>
+                  {f.roles}
+                </p>
+
+                {/* Desc — 4-line clamp to fit circle */}
+                <p style={{
+                  fontSize: 'clamp(10px, 1vw, 12px)', lineHeight: 1.75, color: '#5C5955',
+                  overflow: 'hidden', display: '-webkit-box',
+                  WebkitLineClamp: 4, WebkitBoxOrient: 'vertical',
+                  marginBottom: 10,
+                }}>
+                  {f.desc}
+                </p>
+
+                {/* Link */}
+                <Link
+                  href="/about"
+                  style={{
+                    fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
+                    fontSize: 'clamp(10px, 1vw, 12px)', letterSpacing: '0.08em',
+                    textDecoration: 'none',
+                    background: `linear-gradient(120deg, ${f.accent}, var(--ink) 80%)`,
+                    WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                  }}
+                >
+                  了解更多 ↗
+                </Link>
               </div>
-
-              {/* Wave divider — mobile only (between stacked cards) */}
-              {i < founders.length - 1 && (
-                <div aria-hidden className="md:hidden" style={{ lineHeight: 0, pointerEvents: 'none' }}>
-                  <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 40, display: 'block' }}>
-                    <path d="M0,22 Q180,8 360,20 Q540,32 720,18 Q900,6 1080,22 Q1260,34 1440,18" stroke="#c0b8ae" strokeWidth="0.7" fill="none" opacity="0.5" />
-                    <path d="M0,28 Q200,14 400,26 Q600,36 800,22 Q1000,10 1200,24 Q1340,32 1440,20" stroke="#b5ac9e" strokeWidth="0.4" fill="none" opacity="0.35" />
-                  </svg>
-                </div>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </PageSection>
