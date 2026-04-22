@@ -13,8 +13,6 @@ const founders = [
     imgAlt: '禿禿 TWO TWO 吉祥物',
     accent: '#ADBCC8',
     accentRgb: '40,100,160',
-    /* image floats to the LEFT of its circle */
-    imgPos: 'left' as const,
   },
   {
     key: 'xia',
@@ -25,8 +23,6 @@ const founders = [
     imgAlt: '夏 吉祥物',
     accent: '#CB9E85',
     accentRgb: '200,80,30',
-    /* image floats to the RIGHT of its circle */
-    imgPos: 'right' as const,
   },
 ]
 
@@ -63,112 +59,124 @@ export default function FoundersSection() {
 
         <div style={{ position: 'relative' }}>
 
-          {/* Shared glow blobs */}
+          {/* Shared glow blobs — behind everything */}
           <div aria-hidden style={{ position: 'absolute', inset: '-20%', pointerEvents: 'none', zIndex: 0 }}>
             <div style={{
               position: 'absolute', width: 320, height: 320, borderRadius: '50%',
               background: 'rgba(40,100,160,0.22)', filter: 'blur(55px)',
-              top: '40%', left: '35%', transform: 'translate(-50%, -50%)',
+              top: '35%', left: '30%', transform: 'translate(-50%, -50%)',
             }} />
             <div style={{
               position: 'absolute', width: 320, height: 320, borderRadius: '50%',
               background: 'rgba(200,80,30,0.22)', filter: 'blur(55px)',
-              top: '60%', left: '65%', transform: 'translate(-50%, -50%)',
+              top: '65%', left: '70%', transform: 'translate(-50%, -50%)',
             }} />
           </div>
 
-          {/* Circle cards row */}
+          {/*
+            Mobile  → flex-col centered, circles overlap vertically (-60px), mascots below
+            Desktop → staggered diagonal:
+                       card-0 (禿禿): self-start  [mascot-left | circle]
+                       card-1 (夏):   self-end    [circle | mascot-right], pulled up -130px
+          */}
           <div
-            className="flex flex-col items-center md:flex-row md:justify-center"
+            className="flex flex-col items-center md:items-stretch"
             style={{ position: 'relative', zIndex: 1 }}
           >
             {founders.map((f, i) => (
-              /* Card wrapper: flex-col — circle on top, image below */
               <div
                 key={f.key}
-                className={i === 1 ? 'mt-[-60px] md:mt-0 md:ml-[-80px]' : ''}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0, position: 'relative', zIndex: i === 1 ? 2 : 1 }}
+                className={[
+                  /* mobile vertical overlap / desktop diagonal pull-up */
+                  i === 1 ? 'mt-[-60px] md:mt-[-130px]' : '',
+                  /* desktop: card-0 left-aligned, card-1 right-aligned */
+                  i === 0 ? 'md:self-start' : 'md:self-end',
+                ].filter(Boolean).join(' ')}
+                style={{ flexShrink: 0, position: 'relative', zIndex: i === 1 ? 2 : 1 }}
               >
-                {/* ── Circle — text only, breathing ── */}
+                {/*
+                  Inner layout:
+                  Mobile  → flex-col: circle on top, mascot tucked below (-mt-8)
+                  Desktop → flex-row: card-0 uses row-reverse so mascot appears LEFT of circle
+                                      card-1 uses row so circle appears LEFT of mascot
+                */}
                 <div
-                  className="animate-breathe-scale"
-                  style={{
-                    animationDelay: `${i * 0.8}s`,
-                    width: 'clamp(300px, 42vw, 420px)',
-                    height: 'clamp(300px, 42vw, 420px)',
-                    borderRadius: '50%',
-                    overflow: 'hidden',
-                    flexShrink: 0,
-                    background: 'rgba(242,239,234,0.18)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '10% 18%',
-                    textAlign: 'center',
-                  }}
+                  className={[
+                    'flex flex-col items-center',
+                    i === 0 ? 'md:flex-row-reverse md:items-center' : 'md:flex-row md:items-center',
+                  ].join(' ')}
                 >
-                  <h3
-                    className="tr-d2"
+
+                  {/* ── Circle (text only) ── */}
+                  <div
+                    className="animate-breathe-scale"
                     style={{
-                      fontSize: 'clamp(24px, 2.6vw, 32px)',
-                      letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.1, marginBottom: 10,
-                      overflowWrap: 'break-word', wordBreak: 'break-word',
+                      animationDelay: `${i * 0.8}s`,
+                      width: 'clamp(300px, 42vw, 420px)',
+                      height: 'clamp(300px, 42vw, 420px)',
+                      borderRadius: '50%',
+                      overflow: 'hidden',
+                      flexShrink: 0,
+                      background: 'rgba(242,239,234,0.18)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      padding: '10% 18%',
+                      textAlign: 'center',
                     }}
                   >
-                    {f.name}
-                  </h3>
+                    <h3
+                      className="tr-d2"
+                      style={{ fontSize: 'clamp(24px, 2.6vw, 32px)', letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.1, marginBottom: 10, overflowWrap: 'break-word', wordBreak: 'break-word' }}
+                    >
+                      {f.name}
+                    </h3>
 
-                  <p style={{
-                    fontFamily: 'var(--f-mono)',
-                    fontSize: 'clamp(14px, 1.3vw, 16px)',
-                    letterSpacing: '0.06em', color: f.accent, marginBottom: 10,
-                  }}>
-                    {f.roles}
-                  </p>
+                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.3vw, 16px)', letterSpacing: '0.06em', color: f.accent, marginBottom: 10 }}>
+                      {f.roles}
+                    </p>
 
-                  <p style={{
-                    fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.85,
-                    color: '#5C5955', marginBottom: 16,
-                    overflowWrap: 'break-word', wordBreak: 'break-word',
-                  }}>
-                    {f.desc}
-                  </p>
+                    <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.85, color: '#5C5955', marginBottom: 16, overflowWrap: 'break-word', wordBreak: 'break-word' }}>
+                      {f.desc}
+                    </p>
 
-                  <Link
-                    href="/about"
+                    <Link
+                      href="/about"
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: 8,
+                        fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
+                        fontSize: 'clamp(14px, 1.4vw, 17px)', letterSpacing: '0.08em',
+                        textDecoration: 'none',
+                        color: 'var(--ink)',
+                      }}
+                    >
+                      了解更多 ↗
+                    </Link>
+                  </div>
+
+                  {/* ── Mascot: below circle on mobile (-mt-8), beside circle on desktop (md:mt-0) ── */}
+                  <div
+                    className="animate-breathe-scale -mt-8 md:mt-0"
                     style={{
-                      display: 'inline-flex', alignItems: 'center', gap: 8,
-                      fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
-                      fontSize: 'clamp(14px, 1.4vw, 17px)', letterSpacing: '0.08em',
-                      textDecoration: 'none',
-                      background: `linear-gradient(120deg, ${f.accent}, var(--ink) 80%)`,
-                      WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+                      width: 'clamp(130px, 18vw, 190px)',
+                      animationDelay: `${i * 0.6}s`,
+                      lineHeight: 0,
+                      flexShrink: 0,
+                      zIndex: 3,
                     }}
                   >
-                    了解更多 ↗
-                  </Link>
-                </div>
+                    <Image
+                      src={f.img} alt={f.imgAlt} width={500} height={600}
+                      style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.15))' }}
+                    />
+                  </div>
 
-                {/* ── Mascot image — below the circle ── */}
-                <div
-                  className="animate-breathe-scale"
-                  style={{
-                    width: 'clamp(130px, 18vw, 190px)',
-                    marginTop: -32,
-                    animationDelay: `${i * 0.6}s`,
-                    lineHeight: 0,
-                    zIndex: 3,
-                  }}
-                >
-                  <Image
-                    src={f.img} alt={f.imgAlt} width={500} height={600}
-                    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.15))' }}
-                  />
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </PageSection>
