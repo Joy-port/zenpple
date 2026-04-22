@@ -73,11 +73,47 @@ export default function FoundersSection() {
                 }} />
               </div>
 
-              {/* ── Two columns: circle + mascot (mirrored for 夏) ── */}
-              <div
-                className={`flex flex-col items-center md:flex-row md:justify-center md:items-center${i === 1 ? ' md:flex-row-reverse' : ''}`}
-                style={{ gap: 'clamp(16px, 2.5vw, 32px)', position: 'relative', zIndex: 1 }}
+              {/* ── Name — above circle ── */}
+              <h3
+                className="tr-d2"
+                style={{
+                  fontSize: 'clamp(22px, 2.4vw, 30px)',
+                  letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
+                  textAlign: 'center', marginBottom: 'clamp(16px, 2vw, 24px)',
+                  position: 'relative', zIndex: 1,
+                }}
               >
+                {f.name}
+              </h3>
+
+              {/* ── Circle with mascot overlapping top edge ── */}
+              <div
+                style={{
+                  position: 'relative', zIndex: 1,
+                  display: 'flex', justifyContent: 'center',
+                  /* extra top space so mascot can overlap above circle */
+                  paddingTop: 'clamp(60px, 8vw, 90px)',
+                }}
+              >
+                {/* Mascot — absolute, overlapping top of circle, left for 禿禿 / right for 夏 */}
+                <div
+                  className="animate-breathe-scale"
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    ...(i === 0 ? { left: '8%' } : { right: '8%' }),
+                    width: 'clamp(110px, 13vw, 150px)',
+                    lineHeight: 0,
+                    zIndex: 3,
+                    animationDelay: `${i * 0.5}s`,
+                  }}
+                >
+                  <Image
+                    src={f.img} alt={f.imgAlt} width={500} height={600}
+                    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.13))' }}
+                  />
+                </div>
+
                 {/* Circle */}
                 <div
                   className="animate-breathe-scale"
@@ -93,18 +129,12 @@ export default function FoundersSection() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '10% 16%',
+                    /* extra top padding pushes text below mascot overlap zone */
+                    padding: '22% 13% 12%',
                     textAlign: 'center',
-                    gap: 8,
+                    gap: 10,
                   }}
                 >
-                  {/* Name — top of circle */}
-                  <h3
-                    className="tr-d2"
-                    style={{ fontSize: 'clamp(20px, 2.2vw, 28px)', letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2 }}
-                  >
-                    {f.name}
-                  </h3>
                   <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(12px, 1.2vw, 14px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5 }}>
                     {f.roles}
                   </p>
@@ -122,17 +152,6 @@ export default function FoundersSection() {
                   >
                     了解更多 ↗
                   </Link>
-                </div>
-
-                {/* Mascot */}
-                <div
-                  className="animate-breathe-scale"
-                  style={{ width: 'clamp(120px, 14vw, 170px)', flexShrink: 0, lineHeight: 0, animationDelay: `${i * 0.5}s` }}
-                >
-                  <Image
-                    src={f.img} alt={f.imgAlt} width={500} height={600}
-                    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.13))' }}
-                  />
                 </div>
               </div>
             </div>
