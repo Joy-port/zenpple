@@ -29,7 +29,6 @@ export default function Home() {
       {/* ── CONTACT CTA ── */}
       <section
         id="contact"
-        className="animate-gradient-drift"
         style={{
           minHeight: '100svh',
           display: 'flex',
@@ -37,21 +36,15 @@ export default function Home() {
           alignItems: 'center',
           justifyContent: 'center',
           padding: 'clamp(40px,5vw,64px) clamp(24px,5vw,80px)',
-          background: 'linear-gradient(135deg, #C47B7B 0%, #C47B7B 55%, #C8AEDD 100%)',
+          background: '#C47B7B',
           color: 'var(--base)',
           textAlign: 'center',
           position: 'relative',
           overflow: 'clip',
         }}
       >
-        {/* Wave lines — decorative */}
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 0 }}>
-          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block' }}>
-            <path d="M0,60 Q180,20 360,55 Q540,88 720,48 Q900,12 1080,50 Q1260,84 1440,44" stroke="rgba(242,239,234,0.12)" strokeWidth="1.2" fill="none" />
-            <path d="M0,80 Q200,44 400,70 Q600,94 800,60 Q1000,28 1200,62 Q1340,82 1440,58" stroke="rgba(242,239,234,0.07)" strokeWidth="0.8" fill="none" />
-          </svg>
-        </div>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 0 }}>
+        {/* bottom wave lines (kept from original) */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 1 }}>
           <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 120, display: 'block', transform: 'scaleY(-1)' }}>
             <path d="M0,60 Q180,20 360,55 Q540,88 720,48 Q900,12 1080,50 Q1260,84 1440,44" stroke="rgba(242,239,234,0.12)" strokeWidth="1.2" fill="none" />
             <path d="M0,80 Q200,44 400,70 Q600,94 800,60 Q1000,28 1200,62 Q1340,82 1440,58" stroke="rgba(242,239,234,0.07)" strokeWidth="0.8" fill="none" />
