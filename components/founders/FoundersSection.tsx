@@ -159,6 +159,14 @@ export default function FoundersSection() {
         </div>
         </div>
       </div>
+
+      {/* Bottom transition — thin wave lines in CTA pink to hint incoming section */}
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, lineHeight: 0, pointerEvents: 'none', zIndex: 2 }}>
+        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ width: '100%', height: 80, display: 'block' }}>
+          <path d="M0,40 Q180,10 360,42 Q540,72 720,36 Q900,4 1080,38 Q1260,68 1440,32" stroke="rgba(196,123,123,0.35)" strokeWidth="1.2" fill="none" />
+          <path d="M0,55 Q200,28 400,52 Q600,74 800,46 Q1000,20 1200,50 Q1340,66 1440,44" stroke="rgba(196,123,123,0.18)" strokeWidth="0.8" fill="none" />
+        </svg>
+      </div>
     </PageSection>
   )
 }
