@@ -7,12 +7,13 @@ const founders = [
   {
     key: 'tutu',
     name: '禿禿 TWO TWO',
-    roles: '頌缽 · 薩滿 · 能量定頻',
+    roles: '頌缽 · 薩滿 ·\n能量定頻',
     desc: '身心狀態、潛意識定頻，以聲音引導感知回歸內在安定。透過頌缽與薩滿儀式，協助你清理能量場中的雜訊，讓意識回到靜定的核心。',
     img: '/index/吉祥物禿.png',
     imgAlt: '禿禿 TWO TWO 吉祥物',
     accent: '#ADBCC8',
     accentRgb: '40,100,160',
+    rolesColor: '#4A6B8A',
   },
   {
     key: 'xia',
@@ -23,6 +24,7 @@ const founders = [
     imgAlt: '夏 吉祥物',
     accent: '#CB9E85',
     accentRgb: '200,80,30',
+    rolesColor: '#B85428',
   },
 ]
 
@@ -83,28 +85,14 @@ export default function FoundersSection() {
               {/* ── Name — above circle ── */}
               {/* Title block */}
               <div style={{ position: 'relative', zIndex: 1, marginBottom: 'clamp(12px, 1.5vw, 20px)' }}>
-                {i === 0 ? (
-                  <div style={{ padding: '0 25%', textAlign: 'left' }}>
-                    <h3
-                      className="tr-d2"
-                      style={{ fontSize: 'clamp(30px, 2.4vw, 42px)', letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2 }}
-                    >
-                      {f.name}
-                    </h3>
-                  </div>
-                ) : (
+                <div style={{ padding: '0 25%', textAlign: 'right' }}>
                   <h3
                     className="tr-d2"
-                    style={{
-                      fontSize: 'clamp(30px, 2.4vw, 42px)',
-                      letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
-                      textAlign: 'center',
-                      paddingRight: '50%',
-                    }}
+                    style={{ fontSize: 'clamp(30px, 2.4vw, 42px)', letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2 }}
                   >
                     {f.name}
                   </h3>
-                )}
+                </div>
               </div>
 
               {/* ── Circle + mascot side by side (mirrored for 夏) ── */}
@@ -133,7 +121,7 @@ export default function FoundersSection() {
                   }}
                 >
                   {/* roles shown in circle only for 夏; 禿禿 shows it beside title above */}
-                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: '#4A6B8A', lineHeight: 1.5 }}>
+                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: f.rolesColor, lineHeight: 1.5, whiteSpace: 'pre-line' }}>
                     {f.roles}
                   </p>
                   <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: '#5C5955' }}>
