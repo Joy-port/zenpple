@@ -96,8 +96,8 @@ export default function FoundersSection() {
                   className="animate-breathe-scale"
                   style={{
                     animationDelay: `${i * 0.8}s`,
-                    width: 'clamp(280px, 36vw, 400px)',
-                    height: 'clamp(280px, 36vw, 400px)',
+                    width: 'clamp(300px, 42vw, 420px)',
+                    height: 'clamp(300px, 42vw, 420px)',
                     borderRadius: '50%',
                     overflow: 'hidden',
                     flexShrink: 0,
