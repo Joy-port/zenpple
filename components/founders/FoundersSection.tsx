@@ -12,7 +12,7 @@ const founders = [
     img: '/index/吉祥物禿.png',
     imgAlt: '禿禿 TWO TWO 吉祥物',
     accent: '#ADBCC8',
-    accentRgb: '173,188,200',
+    accentRgb: '40,100,160',
     imgSide: 'right' as const,
   },
   {
@@ -23,7 +23,7 @@ const founders = [
     img: '/index/吉祥物夏.png',
     imgAlt: '夏 吉祥物',
     accent: '#CB9E85',
-    accentRgb: '203,158,133',
+    accentRgb: '200,80,30',
     imgSide: 'left' as const,
   },
 ]
@@ -60,7 +60,30 @@ export default function FoundersSection() {
         <PageTitle sub="Two Souls, One Mountain" title="兩個靈魂，一座山" />
 
         {/* Mobile: stacked · Desktop: side-by-side columns */}
-        <div className="flex flex-col md:flex-row md:gap-0" style={{ position: 'relative' }}>
+        <div className="flex flex-col md:flex-row md:gap-0" style={{ position: 'relative', overflow: 'hidden' }}>
+
+          {/* Overlapping accent glows — shared across both columns */}
+          <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
+            {/* Circle 1 — 禿禿 (blue) : top-left on mobile / left-center on desktop */}
+            <div style={{
+              position: 'absolute',
+              width: 560, height: 560, borderRadius: '50%',
+              background: 'rgba(40,100,160,0.18)',
+              filter: 'blur(90px)',
+              top: '30%', left: '28%',
+              transform: 'translate(-50%, -50%)',
+            }} />
+            {/* Circle 2 — 夏 (orange-red) : bottom-right on mobile / right-center on desktop */}
+            <div style={{
+              position: 'absolute',
+              width: 560, height: 560, borderRadius: '50%',
+              background: 'rgba(200,80,30,0.18)',
+              filter: 'blur(90px)',
+              top: '70%', left: '72%',
+              transform: 'translate(-50%, -50%)',
+            }} />
+          </div>
+
           {founders.map((f, i) => (
             <div
               key={f.key}
@@ -74,20 +97,9 @@ export default function FoundersSection() {
                   paddingBottom: 'clamp(24px, 3vw, 40px)',
                   paddingLeft: 'clamp(28px, 4vw, 48px)',
                   paddingRight: 'clamp(28px, 4vw, 48px)',
-                  overflow: 'hidden',
                   height: '100%',
                 }}
               >
-                {/* Accent glow */}
-                <div
-                  aria-hidden
-                  style={{
-                    position: 'absolute', width: 500, height: 500, borderRadius: '50%',
-                    background: `rgba(${f.accentRgb}, 0.15)`, filter: 'blur(100px)',
-                    top: '40%', left: '50%', transform: 'translate(-50%, -50%)',
-                    pointerEvents: 'none', zIndex: 0,
-                  }}
-                />
 
                 {/* Vertical layout: image top, text below, centered */}
                 <div className="relative z-[1] flex flex-col items-center gap-5 text-center">
