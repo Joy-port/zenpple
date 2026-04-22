@@ -111,8 +111,8 @@ export default function HeroCenter() {
           lineHeight: 1.9,
           textAlign: 'center',
         }}>
-          <p style={{ margin: 0 }}>我們相信，每個人都可以</p>
-          <p style={{ margin: 0 }}>找到屬於自己的靈性生活之道。</p>
+          <p style={{ margin: 0 }}>我們相信</p>
+          <p style={{ margin: 0 }}>每個人都可以找到屬於自己的靈性生活之道。</p>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, opacity: 0.36 }}>
           <span style={{
