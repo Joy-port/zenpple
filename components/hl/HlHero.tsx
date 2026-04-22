@@ -75,6 +75,13 @@ export default function HlHero() {
               <span>THE</span>
               <span>SOUL</span>
             </div>
+
+            {/* 脈輪定音 — outside right edge, mirrors 深層對齊 */}
+            <div className="hero-comp-group hero-comp-extra">
+              {([['脈',8],['輪',12],['定',6],['音',10]] as [string,number][]).map(([c,r]) => (
+                <span key={c} style={{ transform: `rotate(${r}deg)` }}>{c}</span>
+              ))}
+            </div>
           </div>
         </div>
 

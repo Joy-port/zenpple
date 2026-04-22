@@ -127,7 +127,7 @@
   color: rgba(255,255,255,0.28);
 }
 
-/* 清理脈輪雜訊 — left-centre stripes, starts near top */
+/* 清理脈輪雜訊 — left-centre stripes; text-shadow for visibility over white waves */
 .hero-comp-filter-zh {
   left: 22%;
   top: 8%;
@@ -135,11 +135,11 @@
   font-family: var(--f-zh);
   font-weight: 700;
   font-size: clamp(13px, 1.5vw, 19px);
-  color: rgba(255,255,255,0.82);
-  mix-blend-mode: overlay;
+  color: rgba(255,255,255,0.90);
+  text-shadow: 0 0 12px rgba(160,60,60,0.55), 0 1px 4px rgba(0,0,0,0.25);
 }
 
-/* 重啟生命流動 — right-centre stripes, starts slightly lower for rhythm */
+/* 重啟生命流動 — right-centre stripes */
 .hero-comp-align-zh {
   right: 20%;
   top: 14%;
@@ -147,11 +147,11 @@
   font-family: var(--f-zh);
   font-weight: 700;
   font-size: clamp(13px, 1.5vw, 19px);
-  color: rgba(255,255,255,0.82);
-  mix-blend-mode: overlay;
+  color: rgba(255,255,255,0.90);
+  text-shadow: 0 0 12px rgba(160,60,60,0.55), 0 1px 4px rgba(0,0,0,0.25);
 }
 
-/* ALIGN THE SOUL — far right inside image, mid-height */
+/* ALIGN THE SOUL — far right inside image */
 .hero-comp-align-en {
   right: 5%;
   top: 20%;
@@ -162,6 +162,17 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.28);
+}
+
+/* 脈輪定音 — outside right edge, mirrors 深層對齊 */
+.hero-comp-extra {
+  right: -24%;
+  top: 16%;
+  gap: clamp(20px, 3vh, 42px);
+  font-family: var(--f-zh);
+  font-weight: 900;
+  font-size: clamp(24px, 3.2vw, 44px);
+  color: rgba(255,255,255,0.88);
 }
 
 /* ── Title zone: scrolls into view below the first viewport ─────────────── */
