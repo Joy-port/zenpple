@@ -104,7 +104,7 @@ export default function FoundersSection() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '13%',
+                    padding: '10% 18%',
                     textAlign: 'center',
                   }}
                 >
