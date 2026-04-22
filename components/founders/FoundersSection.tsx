@@ -81,21 +81,42 @@ export default function FoundersSection() {
               style={{ position: 'relative', paddingTop: 'clamp(32px, 4vw, 56px)', paddingBottom: 'clamp(32px, 4vw, 56px)', overflow: 'visible' }}
             >
               {/* ── Name — above circle ── */}
-              <h3
-                className="tr-d2"
-                style={{
-                  fontSize: 'clamp(30px, 2.4vw, 42px)',
-                  letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
-                  /* 禿禿: right-leaning | 夏: centered shifted left ~1 char */
-                  textAlign: 'center',
-                  paddingLeft: i === 0 ? '50%' : 0,
-                  paddingRight: i === 0 ? 0 : '50%',
-                  marginBottom: 'clamp(12px, 1.5vw, 20px)',
-                  position: 'relative', zIndex: 1,
-                }}
-              >
-                {f.name}
-              </h3>
+              {/* Title row — relative so subtitle can overlay left of 禿禿 */}
+              <div style={{ position: 'relative', zIndex: 1, marginBottom: 'clamp(12px, 1.5vw, 20px)' }}>
+                <h3
+                  className="tr-d2"
+                  style={{
+                    fontSize: 'clamp(30px, 2.4vw, 42px)',
+                    letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
+                    textAlign: 'center',
+                    paddingLeft: i === 0 ? '50%' : 0,
+                    paddingRight: i === 0 ? 0 : '50%',
+                  }}
+                >
+                  {f.name}
+                </h3>
+
+                {/* 禿禿 subtitle — overlaid to the left of the title */}
+                {i === 0 && (
+                  <p
+                    style={{
+                      position: 'absolute',
+                      top: '50%', left: 0,
+                      transform: 'translateY(-50%)',
+                      width: '48%',
+                      textAlign: 'right',
+                      fontFamily: 'var(--f-mono)',
+                      fontSize: 'clamp(14px, 1.2vw, 16px)',
+                      letterSpacing: '0.08em',
+                      color: f.accent,
+                      lineHeight: 1.5,
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    {f.roles}
+                  </p>
+                )}
+              </div>
 
               {/* ── Circle + mascot side by side (mirrored for 夏) ── */}
               <div
@@ -122,9 +143,12 @@ export default function FoundersSection() {
                     gap: 10,
                   }}
                 >
-                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5 }}>
-                    {f.roles}
-                  </p>
+                  {/* roles shown in circle only for 夏; 禿禿 shows it beside title above */}
+                  {i === 1 && (
+                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5 }}>
+                      {f.roles}
+                    </p>
+                  )}
                   <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: '#5C5955' }}>
                     {f.desc}
                   </p>
