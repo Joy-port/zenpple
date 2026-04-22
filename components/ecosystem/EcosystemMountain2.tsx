@@ -156,33 +156,41 @@ export default function EcosystemMountain2() {
             </svg>
 
             {/* Tooltips — hidden until hydrated (isMobile !== null) to avoid SSR/CSR mismatch */}
-            {isMobile !== null && zones.map((z, i) => (
+            {isMobile !== null && zones.map((z, i) => {
+              const isHoveredZone = hovered === z.id
+              const isOtherHovered = hovered !== null && !isHoveredZone
+
+              return (
               <div
                 key={`tip-${z.id}`}
                 onClick={isMobile === true ? () => router.push(z.href) : undefined}
                 style={{
                   position: 'absolute',
                   ...(isMobile === true ? z.mobileTipPos : z.tipPos),
-                  /* Behaviour: mobile always visible; desktop fades on hover */
-                  opacity: isMobile === true ? 1 : (hovered === null ? 1 : (hovered === z.id ? 1 : 0)),
-                  transition: 'opacity 0.25s ease',
-                  /* Behaviour: mobile is tappable; desktop is pointer-events:none (hit zones handle clicks) */
+                  /* opacity: mobile=always 1; desktop=dim others to 0.3 matching mountain dim */
+                  opacity: isMobile === true ? 1 : (isOtherHovered ? 0.3 : 1),
+                  /* background: highlight on hover, mobile keeps frosted white */
+                  background: isMobile === true
+                    ? 'rgba(255,255,255,0.3)'
+                    : isHoveredZone
+                      ? `rgba(${z.accentRgb}, 0.28)`
+                      : `rgba(${z.accentRgb}, 0.12)`,
+                  /* scale pop on hover (desktop only) */
+                  transform: (!isMobile && isHoveredZone) ? 'scale(1.06)' : undefined,
+                  transition: 'opacity 0.25s ease, background 0.25s ease, transform 0.25s ease',
                   pointerEvents: isMobile === true ? 'auto' : 'none',
                   cursor: isMobile === true ? 'pointer' : 'default',
                   zIndex: 10,
-                  background: isMobile === true ? 'rgba(255,255,255,0.3)' : `rgba(${z.accentRgb}, 0.12)`,
                   backdropFilter: 'blur(14px)',
                   WebkitBackdropFilter: 'blur(14px)',
                   borderLeft: `4px solid ${z.accent}`,
                   borderRadius: '4px 10px 10px 4px',
-                  /* Layout: CSS clamp handles padding + maxWidth responsively */
                   padding: 'clamp(7px, 1vw, 12px) clamp(11px, 1.5vw, 16px)',
                   maxWidth: 'clamp(130px, 35vw, 210px)',
-                  /* Mobile breathing pulse — staggered per zone */
-                  ...(isMobile === true ? {
-                    animation: `mountain-label-breathe 3s ease-in-out ${i * 0.7}s infinite`,
-                    transformOrigin: 'left center',
-                  } : {}),
+                  /* breathing pulse — all viewports, staggered; paused while desktop zone is hovered */
+                  animation: `mountain-label-breathe 3s ease-in-out ${i * 0.7}s infinite`,
+                  animationPlayState: (!isMobile && isHoveredZone) ? 'paused' : 'running',
+                  transformOrigin: 'left center',
                 }}
               >
                 <div style={{
@@ -227,7 +235,8 @@ export default function EcosystemMountain2() {
                   </>
                 )}
               </div>
-            ))}
+              )
+            })}
           </div>
 
 
