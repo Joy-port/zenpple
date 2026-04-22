@@ -136,21 +136,18 @@ export default function FoundersSection() {
                   <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: '#5C5955' }}>
                     {f.desc}
                   </p>
+                  <Link
+                    href="/about"
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 6,
+                      fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
+                      fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.08em',
+                      textDecoration: 'none', color: 'var(--ink)', opacity: 0.65,
+                    }}
+                  >
+                    了解更多 ↗
+                  </Link>
                 </div>
-
-                {/* 了解更多 — outside, below circle */}
-                <Link
-                  href="/about"
-                  style={{
-                    marginTop: 14,
-                    display: 'inline-flex', alignItems: 'center', gap: 6,
-                    fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
-                    fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.08em',
-                    textDecoration: 'none', color: 'var(--ink)', opacity: 0.65,
-                  }}
-                >
-                  了解更多 ↗
-                </Link>
               </div>
 
             </div>
