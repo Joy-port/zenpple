@@ -133,7 +133,7 @@ export default function FoundersSection() {
                   }}
                 >
                   {/* roles shown in circle only for 夏; 禿禿 shows it beside title above */}
-                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5 }}>
+                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: '#4A6B8A', lineHeight: 1.5 }}>
                     {f.roles}
                   </p>
                   <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: '#5C5955' }}>
