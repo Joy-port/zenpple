@@ -141,7 +141,7 @@ export default function TsPePage() {
       </section>
 
       {/* ── TS 技術系列 ── */}
-      <section className="tspe-section tspe-section-alt">
+      <section id="ts-series" className="tspe-section tspe-section-alt">
         <div className="tspe-inner">
           <div className="tspe-section-head">
             <p className="en-label">TS · TECHNICAL SERIES</p>
@@ -185,7 +185,7 @@ export default function TsPePage() {
       </section>
 
       {/* ── PE 感知與倫理系列 ── */}
-      <section className="tspe-section">
+      <section id="pe-series" className="tspe-section">
         <div className="tspe-inner">
           <div className="tspe-section-head">
             <p className="en-label">PE · PROFESSIONAL ETHICS</p>

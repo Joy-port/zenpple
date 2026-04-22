@@ -17,7 +17,13 @@ const personas = [
     expandTitle: '潮間帶的人',
     expandEn: 'The Shoreline Wanderer',
     expandBody: '懂得感受生活的細膩，也知道自己需要補充能量。不一定在找「答案」，只是想在某個安靜的頻率裡，讓自己好好浮一次。',
-    services: ['脈輪牌卡 + 頌缽', '團體閨蜜音流', '全脈輪分析', '主題式脈輪能量調和', '企業包場頌缽'],
+    services: [
+      { label: '脈輪牌卡 + 頌缽', href: '/qi-sb#courses' },
+      { label: '團體閨蜜音流', href: '/qi-sb#courses' },
+      { label: '全脈輪分析', href: '/qi-sb#courses' },
+      { label: '主題式脈輪能量調和', href: '/qi-sb#courses' },
+      { label: '企業包場頌缽', href: '/qi-sb#courses' },
+    ],
     ctaLabel: '找到我的第一步 ↗',
     ctaHref: '/qi-sb',
     accentColor: '#4A6B8A',
@@ -33,7 +39,13 @@ const personas = [
     expandTitle: '林間迷霧者',
     expandEn: 'The Mist Walker',
     expandBody: '有自己的感知與判斷，但某個地方就感覺卡住了！情感、事業、身體，或說不清楚的東西，需要有人幫你看見自己。',
-    services: ['能量占卜旗艦', '全脈輪能量分析', '七脈輪能量調和', '薩滿靈魂覺醒', '易經理路定調'],
+    services: [
+      { label: '能量占卜旗艦', href: '/hl#pearls' },
+      { label: '全脈輪能量分析', href: '/hl#pearls' },
+      { label: '七脈輪能量調和', href: '/hl#pearls' },
+      { label: '薩滿靈魂覺醒', href: '/hl#pearls' },
+      { label: '易經理路定調', href: '/hl#pearls' },
+    ],
     ctaLabel: '說說你的困境 ↗',
     ctaHref: '/hl',
     accentColor: '#7B6B9E',
@@ -49,7 +61,12 @@ const personas = [
     expandTitle: '播種者',
     expandEn: 'The Seed Keeper',
     expandBody: '已經在靈性路上走了一段，想讓這份感知長成能協助自己，也能幫助別人的東西。擁有熱情，但需要更完整的視野與結構。',
-    services: ['頌缽技法培訓', '深度能量定頻師認證', '靈性品牌策略定錨', '高階品牌創業陪跑'],
+    services: [
+      { label: '頌缽技法培訓', href: '/ts-pe#ts-series' },
+      { label: '深度能量定頻師認證', href: '/ts-pe#ts-series' },
+      { label: '靈性品牌策略定錨', href: '/ts-pe#pe-series' },
+      { label: '高階品牌創業陪跑', href: '/ts-pe#pe-series' },
+    ],
     ctaLabel: '了解我的路徑 ↗',
     ctaHref: '/ts-pe',
     accentColor: '#B09070',
@@ -352,9 +369,9 @@ export default function PersonaCardFocus() {
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, justifyContent: ja, marginBottom: 14, flexShrink: 0, width: '100%' }}>
           {p.services.map(s => (
-            <span key={s} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 'clamp(13px, 1.2vw, 15px)', padding: '4px 11px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em' }}>
-              {s}
-            </span>
+            <Link key={s.label} href={s.href} style={{ fontFamily: 'var(--f-zh-sans)', fontSize: 'clamp(13px, 1.2vw, 15px)', padding: '4px 11px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.3)`, color: p.accentColor, background: `rgba(${p.accentRgb},0.06)`, letterSpacing: '0.02em', textDecoration: 'none', transition: 'background 0.18s ease', cursor: 'pointer' }}>
+              {s.label}
+            </Link>
           ))}
         </div>
         <div style={{ display: 'flex', justifyContent: ja, width: '100%', flexShrink: 0 }}>
