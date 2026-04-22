@@ -62,7 +62,7 @@ export default function FoundersSection() {
           {founders.map((f, i) => (
             <div
               key={f.key}
-              style={{ position: 'relative', paddingTop: 'clamp(40px, 5vw, 64px)' }}
+              style={{ position: 'relative', paddingTop: 'clamp(24px, 3vw, 40px)' }}
             >
               {/* Glow blob */}
               <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
@@ -72,19 +72,6 @@ export default function FoundersSection() {
                   top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
                 }} />
               </div>
-
-              {/* ── Name — centered, full width, with generous top space ── */}
-              <h3
-                className="tr-d2"
-                style={{
-                  fontSize: 'clamp(22px, 2.4vw, 30px)',
-                  letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
-                  textAlign: 'center', marginBottom: 'clamp(20px, 3vw, 32px)',
-                  position: 'relative', zIndex: 1,
-                }}
-              >
-                {f.name}
-              </h3>
 
               {/* ── Two columns: circle + mascot (mirrored for 夏) ── */}
               <div
@@ -108,9 +95,16 @@ export default function FoundersSection() {
                     justifyContent: 'center',
                     padding: '10% 16%',
                     textAlign: 'center',
-                    gap: 10,
+                    gap: 8,
                   }}
                 >
+                  {/* Name — top of circle */}
+                  <h3
+                    className="tr-d2"
+                    style={{ fontSize: 'clamp(20px, 2.2vw, 28px)', letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2 }}
+                  >
+                    {f.name}
+                  </h3>
                   <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(12px, 1.2vw, 14px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5 }}>
                     {f.roles}
                   </p>
