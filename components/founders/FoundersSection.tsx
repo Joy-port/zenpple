@@ -87,8 +87,8 @@ export default function FoundersSection() {
                   fontSize: 'clamp(30px, 2.4vw, 42px)',
                   letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
                   /* 禿禿: right-leaning | 夏: centered shifted left ~1 char */
-                  textAlign: i === 0 ? 'right' : 'center',
-                  paddingLeft: i === 0 ? '20%' : 0,
+                  textAlign: 'center',
+                  paddingLeft: i === 0 ? '10%' : 0,
                   paddingRight: i === 0 ? 0 : '10%',
                   marginBottom: 'clamp(12px, 1.5vw, 20px)',
                   position: 'relative', zIndex: 1,
