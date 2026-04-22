@@ -182,10 +182,10 @@ function MobileCards({
           >
             {/* Image */}
             <div style={{ position: 'relative', width: '100%', height: 'clamp(180px, 46vw, 260px)', flexShrink: 0, overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', inset: 0, transform: `scale(${currentCard.cardScale})`, transformOrigin: 'center center' }}>
+              <div style={{ position: 'absolute', inset: '16px', transform: `scale(${currentCard.cardScale})`, transformOrigin: 'center center' }}>
                 <Image
                   src={currentCard.cardImage} alt="" fill
-                  style={{ objectFit: 'contain', filter: currentCard.imageFilter, mixBlendMode: 'multiply', opacity: 0.8, padding: '16px' }}
+                  style={{ objectFit: 'contain', objectPosition: 'center center', filter: currentCard.imageFilter, mixBlendMode: 'multiply', opacity: 0.8 }}
                 />
               </div>
             </div>
