@@ -57,7 +57,7 @@ export default function FoundersSection() {
       <div className="wrap">
         <PageTitle sub="Two Souls, One Mountain" title="兩個靈魂，一座山" />
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(48px, 7vw, 80px)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
 
           {founders.map((f, i) => (
             <div
@@ -69,8 +69,8 @@ export default function FoundersSection() {
               {/* Glow blob behind circle */}
               <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
                 <div style={{
-                  position: 'absolute', width: 300, height: 300, borderRadius: '50%',
-                  background: `rgba(${f.accentRgb},0.20)`, filter: 'blur(60px)',
+                  position: 'absolute', width: 460, height: 460, borderRadius: '50%',
+                  background: `rgba(${f.accentRgb},0.18)`, filter: 'blur(80px)',
                   top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
                 }} />
               </div>
