@@ -48,13 +48,6 @@ export default function HlHero() {
               ))}
             </div>
 
-            {/* FILTER THE NOISE — small EN, far left inside image */}
-            <div className="hero-comp-group hero-comp-filter-en">
-              <span>FILTER</span>
-              <span>THE</span>
-              <span>NOISE</span>
-            </div>
-
             {/* 清理脈輪雜訊 — woven through left-centre stripes */}
             <div className="hero-comp-group hero-comp-filter-zh">
               {([['清',-10],['理',-4],['脈',-12],['輪',-6],['雜',-14],['訊',-5]] as [string,number][]).map(([c,r]) => (
@@ -67,13 +60,6 @@ export default function HlHero() {
               {([['重',6],['啟',12],['生',4],['命',10],['流',14],['動',7]] as [string,number][]).map(([c,r]) => (
                 <span key={c} style={{ transform: `rotate(${r}deg)` }}>{c}</span>
               ))}
-            </div>
-
-            {/* ALIGN THE SOUL — small EN, far right inside image */}
-            <div className="hero-comp-group hero-comp-align-en">
-              <span>ALIGN</span>
-              <span>THE</span>
-              <span>SOUL</span>
             </div>
 
             {/* 脈輪定音 — outside right edge, mirrors 深層對齊 */}
