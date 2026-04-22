@@ -289,8 +289,8 @@ function MobileCards({
 const CARD_W   = 300
 const CARD_H   = 'clamp(380px, 48vh, 520px)'
 
-const EXPAND_W = 380
-const EXPAND_H = 'clamp(420px, 54vh, 580px)'
+const EXPAND_W = 460
+const EXPAND_H = 'clamp(480px, 60vh, 660px)'
 
 export default function PersonaCardFocus() {
   const [active, setActive] = useState<number | null>(null)
