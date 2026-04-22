@@ -306,8 +306,7 @@ function MobileCards({
 const CARD_W   = 300
 const CARD_H   = 'clamp(380px, 48vh, 520px)'
 
-const EXPAND_W = 460
-const EXPAND_H = 'clamp(480px, 60vh, 660px)'
+const EXPAND_W = 400
 
 export default function PersonaCardFocus() {
   const [active, setActive] = useState<number | null>(null)
@@ -361,7 +360,7 @@ export default function PersonaCardFocus() {
           {p.expandBody}
         </p>
 
-        <div style={{ flex: 1, minHeight: 8 }} />
+        <div style={{ minHeight: 16 }} />
 
         <div style={{ width: '100%', height: 1, background: `rgba(${p.accentRgb},0.15)`, marginBottom: 10, flexShrink: 0 }} />
         <p style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(13px, 1.1vw, 15px)', letterSpacing: '0.08em', color: 'var(--muted)', marginBottom: 8, flexShrink: 0, textAlign: ta, width: '100%' }}>
@@ -494,7 +493,7 @@ export default function PersonaCardFocus() {
                   key={`expand-${p.id}`}
                   style={{
                     width: isActive ? EXPAND_W : 0,
-                    height: EXPAND_H,
+                    alignSelf: 'center',
                     flexShrink: 0,
                     overflow: 'hidden',
                     opacity: isActive ? 1 : 0,
@@ -504,7 +503,7 @@ export default function PersonaCardFocus() {
                     boxShadow: isActive ? `0 16px 52px rgba(${p.accentRgb},0.18), 0 0 0 1px rgba(${p.accentRgb},0.1)` : 'none',
                   }}
                 >
-                  <div style={{ width: EXPAND_W, height: '100%', overflowY: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '2.25rem 2.25rem 1.75rem' }}>
+                  <div style={{ width: EXPAND_W, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '2.25rem 2rem 1.75rem' }}>
                     <ExpandContent p={p} hideImage />
                   </div>
                 </div>,
