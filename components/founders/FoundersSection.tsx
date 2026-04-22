@@ -57,105 +57,101 @@ export default function FoundersSection() {
       <div className="wrap">
         <PageTitle sub="Two Souls, One Mountain" title="兩個靈魂，一座山" />
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(40px, 6vw, 72px)', position: 'relative' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(48px, 7vw, 80px)' }}>
 
           {founders.map((f, i) => (
             <div
               key={f.key}
-              style={{ position: 'relative' }}
+              /* Each row centered, compact */
+              className="flex flex-col items-center md:flex-row md:justify-center md:items-center"
+              style={{ gap: 'clamp(16px, 2.5vw, 28px)', position: 'relative' }}
             >
-              {/* Glow blob — behind each row's circle */}
+              {/* Glow blob behind circle */}
               <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
                 <div style={{
-                  position: 'absolute',
-                  width: 320, height: 320, borderRadius: '50%',
-                  background: `rgba(${f.accentRgb},0.20)`,
-                  filter: 'blur(60px)',
-                  top: '50%', right: i === 0 ? '5%' : '5%',
-                  transform: 'translateY(-50%)',
+                  position: 'absolute', width: 300, height: 300, borderRadius: '50%',
+                  background: `rgba(${f.accentRgb},0.20)`, filter: 'blur(60px)',
+                  top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
                 }} />
               </div>
 
-              {/*
-                Mobile  → flex-col centered: mascot → name → roles → circle → link
-                Desktop → flex-row: [mascot+identity left] [circle+link right]
-              */}
+              {/* ── Mascot ── */}
               <div
-                className="flex flex-col items-center md:flex-row md:items-center"
-                style={{ gap: 'clamp(24px, 4vw, 56px)', position: 'relative', zIndex: 1 }}
+                className="animate-breathe-scale"
+                style={{
+                  width: 'clamp(120px, 14vw, 170px)',
+                  flexShrink: 0,
+                  lineHeight: 0,
+                  animationDelay: `${i * 0.5}s`,
+                  position: 'relative', zIndex: 1,
+                }}
               >
+                <Image
+                  src={f.img} alt={f.imgAlt} width={500} height={600}
+                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.13))' }}
+                />
+              </div>
 
-                {/* ── Left: mascot + identity ── */}
-                <div
-                  className="flex flex-col items-center md:items-start"
-                  style={{ flexShrink: 0, width: 'clamp(140px, 18vw, 200px)', textAlign: 'center', gap: 10 }}
+              {/* ── Right column: name above + circle + link ── */}
+              <div
+                className="flex flex-col items-center"
+                style={{ position: 'relative', zIndex: 1 }}
+              >
+                {/* Name — above circle */}
+                <h3
+                  className="tr-d2"
+                  style={{
+                    fontSize: 'clamp(22px, 2.4vw, 30px)',
+                    letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.1,
+                    marginBottom: 12, textAlign: 'center',
+                  }}
                 >
-                  {/* Mascot */}
-                  <div className="animate-breathe-scale" style={{ lineHeight: 0, animationDelay: `${i * 0.5}s`, width: '100%' }}>
-                    <Image
-                      src={f.img} alt={f.imgAlt} width={500} height={600}
-                      style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.13))' }}
-                    />
-                  </div>
+                  {f.name}
+                </h3>
 
-                  {/* Name */}
-                  <h3
-                    className="tr-d2"
-                    style={{ fontSize: 'clamp(18px, 2vw, 24px)', letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.15, textAlign: 'inherit' }}
-                  >
-                    {f.name}
-                  </h3>
-
-                  {/* Roles */}
-                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(11px, 1.1vw, 13px)', letterSpacing: '0.06em', color: f.accent, lineHeight: 1.6, textAlign: 'inherit' }}>
+                {/* Circle: roles + desc */}
+                <div
+                  className="animate-breathe-scale"
+                  style={{
+                    animationDelay: `${i * 0.8}s`,
+                    width: 'clamp(280px, 36vw, 400px)',
+                    height: 'clamp(280px, 36vw, 400px)',
+                    borderRadius: '50%',
+                    overflow: 'hidden',
+                    flexShrink: 0,
+                    background: 'rgba(242,239,234,0.18)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '10% 16%',
+                    textAlign: 'center',
+                    gap: 10,
+                  }}
+                >
+                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(12px, 1.2vw, 14px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5 }}>
                     {f.roles}
+                  </p>
+                  <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: '#5C5955' }}>
+                    {f.desc}
                   </p>
                 </div>
 
-                {/* ── Right: circle (desc only) + link below ── */}
-                <div className="flex flex-col items-center md:items-end" style={{ flex: 1, minWidth: 0 }}>
-
-                  {/* Circle */}
-                  <div
-                    className="animate-breathe-scale"
-                    style={{
-                      animationDelay: `${i * 0.8}s`,
-                      width: 'clamp(260px, 38vw, 380px)',
-                      height: 'clamp(260px, 38vw, 380px)',
-                      borderRadius: '50%',
-                      overflow: 'hidden',
-                      flexShrink: 0,
-                      background: 'rgba(242,239,234,0.18)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      padding: '12% 16%',
-                      textAlign: 'center',
-                    }}
-                  >
-                    <p style={{ fontSize: 'clamp(13px, 1.2vw, 15px)', lineHeight: 1.95, color: '#5C5955' }}>
-                      {f.desc}
-                    </p>
-                  </div>
-
-                  {/* 了解更多 — outside circle */}
-                  <Link
-                    href="/about"
-                    style={{
-                      marginTop: 16,
-                      display: 'inline-flex', alignItems: 'center', gap: 8,
-                      fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
-                      fontSize: 'clamp(13px, 1.3vw, 15px)', letterSpacing: '0.08em',
-                      textDecoration: 'none',
-                      color: 'var(--ink)',
-                      opacity: 0.7,
-                    }}
-                  >
-                    了解更多 ↗
-                  </Link>
-                </div>
-
+                {/* 了解更多 — outside, below circle */}
+                <Link
+                  href="/about"
+                  style={{
+                    marginTop: 14,
+                    display: 'inline-flex', alignItems: 'center', gap: 6,
+                    fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
+                    fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.08em',
+                    textDecoration: 'none', color: 'var(--ink)', opacity: 0.65,
+                  }}
+                >
+                  了解更多 ↗
+                </Link>
               </div>
+
             </div>
           ))}
 
