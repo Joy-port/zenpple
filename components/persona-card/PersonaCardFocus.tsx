@@ -31,6 +31,7 @@ const personas = [
     secondaryRgb: '123,107,158',
     cardImage: '/index/卡牌-1.png',
     imageFilter: 'sepia(1) hue-rotate(170deg) saturate(2) brightness(0.82)',
+    cardScale: 1.0,
   },
   {
     id: 2,
@@ -53,6 +54,7 @@ const personas = [
     secondaryRgb: '74,107,138',
     cardImage: '/index/卡牌-2.png',
     imageFilter: 'sepia(1) hue-rotate(240deg) saturate(2) brightness(0.85)',
+    cardScale: 1.4,   /* source is very wide (2284×1632) — trees appear tiny without upscaling */
   },
   {
     id: 3,
@@ -74,6 +76,7 @@ const personas = [
     secondaryRgb: '123,107,158',
     cardImage: '/index/卡牌-3.png',
     imageFilter: 'sepia(0.7) saturate(1.9) brightness(0.95) hue-rotate(5deg)',
+    cardScale: 0.72,  /* source is portrait (1541×2110) — flower fills height, needs scaling down */
   },
 ]
 
@@ -178,11 +181,13 @@ function MobileCards({
             }}
           >
             {/* Image */}
-            <div style={{ position: 'relative', width: '100%', height: 'clamp(180px, 46vw, 260px)', flexShrink: 0 }}>
-              <Image
-                src={currentCard.cardImage} alt="" fill
-                style={{ objectFit: 'contain', filter: currentCard.imageFilter, mixBlendMode: 'multiply', opacity: 0.8, padding: '16px' }}
-              />
+            <div style={{ position: 'relative', width: '100%', height: 'clamp(180px, 46vw, 260px)', flexShrink: 0, overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', inset: 0, transform: `scale(${currentCard.cardScale})`, transformOrigin: 'center center' }}>
+                <Image
+                  src={currentCard.cardImage} alt="" fill
+                  style={{ objectFit: 'contain', filter: currentCard.imageFilter, mixBlendMode: 'multiply', opacity: 0.8, padding: '16px' }}
+                />
+              </div>
             </div>
 
             {/* Text */}
@@ -337,10 +342,12 @@ export default function PersonaCardFocus() {
     return (
       <>
         {!hideImage && (
-          <div style={{ width: 80, height: 80, position: 'relative', marginBottom: 20, flexShrink: 0 }}>
-            <Image src={p.cardImage} alt="" fill
-              style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.82 }}
-            />
+          <div style={{ width: 80, height: 80, position: 'relative', marginBottom: 20, flexShrink: 0, overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', inset: 0, transform: `scale(${p.cardScale})`, transformOrigin: 'center center' }}>
+              <Image src={p.cardImage} alt="" fill
+                style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.82 }}
+              />
+            </div>
           </div>
         )}
 
@@ -474,8 +481,10 @@ export default function PersonaCardFocus() {
                     transition: 'background 0.6s ease, box-shadow 0.5s ease',
                   }}>
                     <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 16 }}>
-                      <div style={{ position: 'relative', width: 160, height: 210, flexShrink: 0 }}>
-                        <Image src={p.cardImage} alt="" fill style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8 }} />
+                      <div style={{ position: 'relative', width: 160, height: 210, flexShrink: 0, overflow: 'hidden' }}>
+                        <div style={{ position: 'absolute', inset: 0, transform: `scale(${p.cardScale})`, transformOrigin: 'center center' }}>
+                          <Image src={p.cardImage} alt="" fill style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8 }} />
+                        </div>
                       </div>
                     </div>
                     <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '0.75rem 1.25rem 1.25rem' }}>
