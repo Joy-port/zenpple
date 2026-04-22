@@ -120,6 +120,101 @@
 .sc-glow-wrap img,
 .sc-glow-wrap span { position: relative; z-index: 1; }
 
+/* ── Mobile responsive ── */
+@media (max-width: 767px) {
+  /* Content section grids → single column, text always first */
+  .sc-section-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 48px !important;
+  }
+  .sc-section-grid .sc-text-col {
+    order: -1 !important;
+  }
+  .sc-section-grid .sc-text-col > h2,
+  .sc-section-grid .sc-text-col > p {
+    text-align: center;
+  }
+  .sc-section-grid .sc-content-block {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    padding: 24px 20px;
+    margin-top: 16px;
+  }
+  .sc-section-grid .sc-image-col {
+    order: 0 !important;
+    min-height: 260px !important;
+  }
+  /* Recommendation cards → vertical stack, equal height */
+  .sc-reco-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  /* Keep horizontal layout (image right), flex height with min */
+  .sc-reco-card {
+    flex-direction: row !important;
+    min-height: 140px !important;
+    height: auto !important;
+    align-items: stretch !important;
+  }
+  .sc-reco-card-text {
+    flex: 1 1 0 !important;
+    padding: 20px 18px !important;
+    min-width: 0 !important;
+  }
+  /* Image area — fixed width, stretches to card height */
+  .sc-reco-card-img {
+    flex: 0 0 110px !important;
+    width: 110px !important;
+    height: auto !important;
+    border-radius: 0 24px 24px 0 !important;
+    align-self: stretch !important;
+  }
+  .sc-reco-card-img img {
+    width: 76px !important;
+    height: auto !important;
+  }
+}
+
+@keyframes sc-mobile-breathe {
+  0%,100% { transform: translateX(-50%) scale(1); }
+  50%      { transform: translateX(-50%) scale(1.04) translateY(-8px); }
+}
+
+/* ── SC-02/03/04 calligraphy images — mobile center-bottom ── */
+@media (max-width: 767px) {
+  .sc-section-deco {
+    display: none !important;
+  }
+  .sc-section-bg-calligraphy {
+    height: auto !important;
+    width: 72vw !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: 0 !important;
+    transform: translateX(-50%) !important;
+    animation: sc-mobile-breathe 5s ease-in-out infinite !important;
+  }
+}
+
+/* ── SC-05 calligraphy image — mobile width constraint ── */
+@media (max-width: 767px) {
+  .sc05-bg-calligraphy {
+    height: auto !important;
+    width: 72vw !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: 0 !important;
+    transform: translateX(-50%) !important;
+    animation: sc-mobile-breathe 5s ease-in-out infinite !important;
+  }
+}
+
 /* ── Journey dot glow — overlay on top of dot image ── */
 .sc-dot-glow {
   position: relative;

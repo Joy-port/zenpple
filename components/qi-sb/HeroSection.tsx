@@ -66,6 +66,33 @@ export default function HeroSection() {
         />
       ))}
 
+      {/* Animated SVG waves */}
+      <svg
+        aria-hidden
+        viewBox="0 0 1440 400"
+        preserveAspectRatio="xMidYMid slice"
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', opacity: 0.14 }}
+      >
+        {([
+          { amp: 16, phase:   0, period: 340, y: 200, stroke: 'rgba(255,255,255,1)', sw: 2.0, dur: 22 },
+          { amp: 26, phase:  70, period: 290, y: 210, stroke: 'rgba(90,165,178,1)',  sw: 0.6, dur: 28 },
+          { amp: 10, phase: 140, period: 380, y: 195, stroke: 'rgba(255,255,255,1)', sw: 1.4, dur: 20 },
+          { amp: 32, phase: 200, period: 310, y: 206, stroke: 'rgba(90,165,178,1)',  sw: 3.2, dur: 32 },
+          { amp:  8, phase: 270, period: 420, y: 202, stroke: 'rgba(255,255,255,1)', sw: 0.5, dur: 18 },
+        ] as const).map((w, i) => {
+          const pts: string[] = []
+          for (let x = -w.period; x <= 1440 + w.period; x += 4) {
+            const y = w.y + w.amp * Math.sin((x + w.phase) * (2 * Math.PI / w.period))
+            pts.push(`${x},${y.toFixed(1)}`)
+          }
+          return (
+            <polyline key={i} points={pts.join(' ')} fill="none" stroke={w.stroke} strokeWidth={w.sw} opacity={0.55}>
+              <animateTransform attributeName="transform" type="translate" from="0 0" to={`${-w.period} 0`} dur={`${w.dur}s`} repeatCount="indefinite" />
+            </polyline>
+          )
+        })}
+      </svg>
+
       {/* Background bowl image */}
       <Image
         src="/qi-sb/bowl-white.png"
@@ -98,7 +125,7 @@ export default function HeroSection() {
         <h1
           className="tr-d2"
           style={{
-            fontFamily: 'var(--f-impact)',
+            fontFamily: 'var(--f-zh-sans)',
             fontWeight: 900,
             fontSize: 'clamp(32px,5vw,58px)',
             color: '#FDFBF8',
@@ -111,10 +138,10 @@ export default function HeroSection() {
         <p
           style={{
             fontFamily: 'var(--f-display)',
-            fontWeight: 300,
+            fontWeight: 400,
             fontSize: 20,
             letterSpacing: '0.22em',
-            color: 'rgba(255,255,255,0.65)',
+            color: 'rgba(255,255,255,1)',
             textTransform: 'uppercase',
             marginBottom: 32,
           }}
@@ -127,7 +154,7 @@ export default function HeroSection() {
             fontWeight: 300,
             fontSize: 15,
             lineHeight: 1.85,
-            color: 'rgba(255,255,255,0.68)',
+            color: 'rgba(255,255,255,1)',
             maxWidth: 420,
             margin: '0 auto 44px',
           }}

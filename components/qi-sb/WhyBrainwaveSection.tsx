@@ -59,7 +59,7 @@ export default function WhyBrainwaveSection() {
       <h2
         className="tr-d2"
         style={{
-          fontFamily: 'var(--f-impact)',
+          fontFamily: 'var(--f-zh-sans)',
           fontWeight: 900,
           position: 'relative',
           zIndex: 2,
@@ -77,10 +77,10 @@ export default function WhyBrainwaveSection() {
           position: 'relative',
           zIndex: 2,
           fontFamily: 'var(--f-display)',
-          fontWeight: 300,
+          fontWeight: 400,
           fontSize: 20,
           letterSpacing: '0.22em',
-          color: 'rgba(255,255,255,0.35)',
+          color: 'rgba(255,255,255,1)',
           textTransform: 'uppercase',
           marginBottom: 52,
           marginTop: -36,
@@ -158,6 +158,33 @@ export default function WhyBrainwaveSection() {
         })}
       </svg>
 
+      {/* Bottom waves — behind brainwave journey (β→α→θ) */}
+      <svg
+        aria-hidden
+        viewBox="0 0 1440 180"
+        preserveAspectRatio="none"
+        style={{ position: 'absolute', bottom: 0, left: 0, right: 0, width: '100%', height: '38%', pointerEvents: 'none', zIndex: 1, opacity: 0.22 }}
+      >
+        {([
+          { amp: 18, phase:  30, period: 300, y:  78, stroke: 'rgba(255,255,255,1)', sw: 1.8, dur: 16 },
+          { amp: 26, phase: 100, period: 260, y:  92, stroke: 'rgba(90,165,178,1)',  sw: 0.8, dur: 22 },
+          { amp: 12, phase: 180, period: 360, y:  72, stroke: 'rgba(255,255,255,1)', sw: 1.2, dur: 19 },
+          { amp: 22, phase: 240, period: 280, y: 102, stroke: 'rgba(90,165,178,1)',  sw: 2.8, dur: 27 },
+          { amp:  8, phase: 310, period: 440, y:  86, stroke: 'rgba(255,255,255,1)', sw: 0.5, dur: 24 },
+        ] as const).map((w, i) => {
+          const pts: string[] = []
+          for (let x = -w.period; x <= 1440 + w.period; x += 4) {
+            const y = w.y + w.amp * Math.sin((x + w.phase) * (2 * Math.PI / w.period))
+            pts.push(`${x},${y.toFixed(1)}`)
+          }
+          return (
+            <polyline key={i} points={pts.join(' ')} fill="none" stroke={w.stroke} strokeWidth={w.sw} opacity={0.55}>
+              <animateTransform attributeName="transform" type="translate" from="0 0" to={`${-w.period} 0`} dur={`${w.dur}s`} repeatCount="indefinite" />
+            </polyline>
+          )
+        })}
+      </svg>
+
       {/* Bowl image */}
       <div style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <Image
@@ -192,8 +219,8 @@ export default function WhyBrainwaveSection() {
           ) : (
             <div key={i} style={{ textAlign: 'center' }}>
               <p style={{ fontFamily: 'var(--f-display)', fontWeight: 100, fontSize: 'clamp(22px,2.8vw,36px)', color: 'rgba(255,255,255,0.68)', lineHeight: 1, marginBottom: 8 }}>{item.wave}</p>
-              <p style={{ fontFamily: 'var(--f-display)', fontSize: 9, letterSpacing: '0.14em', color: 'rgba(255,255,255,0.32)', marginBottom: 4 }}>{item.hz}</p>
-              <p style={{ fontFamily: 'var(--f-zh)', fontSize: 12, color: 'rgba(255,255,255,0.38)', letterSpacing: '0.08em' }}>{item.state}</p>
+              <p style={{ fontFamily: 'var(--f-display)', fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.14em', color: 'rgba(255,255,255,0.85)', marginBottom: 4 }}>{item.hz}</p>
+              <p style={{ fontFamily: 'var(--f-zh)', fontSize: 'clamp(13px, 1.2vw, 15px)', color: 'rgba(255,255,255,0.85)', letterSpacing: '0.08em' }}>{item.state}</p>
             </div>
           )
         )}
@@ -205,10 +232,10 @@ export default function WhyBrainwaveSection() {
           position: 'relative',
           zIndex: 2,
           fontFamily: 'var(--f-display)',
-          fontWeight: 100,
-          fontSize: 11,
+          fontWeight: 400,
+          fontSize: 'clamp(13px, 1.2vw, 15px)',
           letterSpacing: '0.25em',
-          color: 'rgba(255,255,255,0.25)',
+          color: 'rgba(255,255,255,1)',
           textTransform: 'uppercase',
           marginTop: 36,
         }}

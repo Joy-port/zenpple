@@ -154,7 +154,7 @@ export default function HlPage() {
         <div className="sm-inner" id="sm-card">
           <div className="sm-left">
             <p>以頌缽、音叉與直覺讀取，禿禿掃描你七個脈輪的振動狀態，辨識阻塞區域、能量漏失點與長期壓抑的情緒訊號。</p>
-            <p style={{ fontSize: 14, color: '#999', lineHeight: 1.85, marginTop: 12 }}>
+            <p style={{ fontSize: 14, color: '#5C5955', lineHeight: 1.85, marginTop: 12 }}>
               這份掃描不只是診斷——它是你後續所有清理工作的地圖，讓每一步都精準落在真正需要移動的地方。
             </p>
           </div>
