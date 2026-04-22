@@ -73,10 +73,28 @@
   animation: hl-watermark-breathe 6s ease-in-out infinite;
   user-select: none;
   flex-shrink: 0;
+  position: relative;
 }
 .hero-watermark img {
   width: clamp(200px, 30vw, 380px) !important;
   height: auto !important;
+  display: block;
+}
+
+/* Chars woven between the wave stripes of the bg image */
+.hero-stripe-char {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-family: var(--f-zh);
+  font-weight: 900;
+  font-size: clamp(18px, 2.4vw, 30px);
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.82);
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: overlay;
 }
 
 /* ── Title zone: scrolls into view below the first viewport ─────────────── */
@@ -169,6 +187,36 @@
   width: 100%;
   height: clamp(80px, 10vw, 120px);
   display: block;
+}
+
+/* ── Flanking vertical text groups ── */
+.hero-flanking-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(8px, 1vw, 14px);
+  flex-shrink: 0;
+}
+.hero-vert-zh {
+  writing-mode: vertical-rl;
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: clamp(13px, 1.4vw, 18px);
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.72);
+  user-select: none;
+  pointer-events: none;
+}
+.hero-vert-en {
+  writing-mode: vertical-lr;
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(9px, 0.85vw, 11px);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  user-select: none;
+  pointer-events: none;
 }
 
 /* ── Mobile ─────────────────────────────────────────────────────────────── */

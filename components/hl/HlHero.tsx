@@ -28,8 +28,11 @@ export default function HlHero() {
       {/* ── First viewport: image + bg chars ── */}
       <div className="hero-image-zone" aria-hidden="true">
 
-        {/* Desktop only — flanking the image horizontally */}
-        <div className="hero-bg-char hero-char-desktop">深層</div>
+        {/* Left outer text group — desktop only */}
+        <div className="hero-flanking-group hero-char-desktop">
+          <span className="hero-vert-en">FILTER THE NOISE</span>
+          <span className="hero-vert-zh">清理脈輪雜訊</span>
+        </div>
 
         <div className="hero-watermark">
           <Image
@@ -40,9 +43,18 @@ export default function HlHero() {
             style={{ width: '100%', height: 'auto' }}
             priority
           />
+          {/* Vertical chars woven between the wave stripes */}
+          <span className="hero-stripe-char" style={{ left: '18%' }}>深</span>
+          <span className="hero-stripe-char" style={{ left: '36%' }}>層</span>
+          <span className="hero-stripe-char" style={{ left: '58%' }}>對</span>
+          <span className="hero-stripe-char" style={{ left: '76%' }}>齊</span>
         </div>
 
-        <div className="hero-bg-char hero-char-desktop">對齊</div>
+        {/* Right outer text group — desktop only */}
+        <div className="hero-flanking-group hero-char-desktop">
+          <span className="hero-vert-zh">重啟生命流動</span>
+          <span className="hero-vert-en">ALIGN THE SOUL</span>
+        </div>
 
         {/* Mobile only — single caption below image */}
         <div className="hero-chars-mobile">深層對齊</div>
