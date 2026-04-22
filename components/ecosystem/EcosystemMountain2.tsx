@@ -163,12 +163,14 @@ export default function EcosystemMountain2() {
               return (
               <div
                 key={`tip-${z.id}`}
-                onClick={isMobile === true ? () => router.push(z.href) : undefined}
+                onClick={() => router.push(z.href)}
+                onMouseEnter={isMobile === false ? () => setHovered(z.id) : undefined}
+                onMouseLeave={isMobile === false ? () => setHovered(null) : undefined}
                 style={{
                   position: 'absolute',
                   ...(isMobile === true ? z.mobileTipPos : z.tipPos),
-                  /* opacity: mobile=always 1; desktop=dim others to 0.3 matching mountain dim */
-                  opacity: isMobile === true ? 1 : (isOtherHovered ? 0.3 : 1),
+                  /* opacity: mobile=always 1; desktop=hide others when any zone/label is hovered */
+                  opacity: isMobile === true ? 1 : (isOtherHovered ? 0 : 1),
                   /* background: highlight on hover, mobile keeps frosted white */
                   background: isMobile === true
                     ? 'rgba(255,255,255,0.3)'
@@ -178,8 +180,8 @@ export default function EcosystemMountain2() {
                   /* scale pop on hover (desktop only) */
                   transform: (!isMobile && isHoveredZone) ? 'scale(1.06)' : undefined,
                   transition: 'opacity 0.25s ease, background 0.25s ease, transform 0.25s ease',
-                  pointerEvents: isMobile === true ? 'auto' : 'none',
-                  cursor: isMobile === true ? 'pointer' : 'default',
+                  pointerEvents: 'auto',
+                  cursor: 'pointer',
                   zIndex: 10,
                   backdropFilter: 'blur(14px)',
                   WebkitBackdropFilter: 'blur(14px)',
