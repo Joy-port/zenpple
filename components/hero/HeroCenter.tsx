@@ -1,6 +1,5 @@
 import Image from 'next/image'
 
-// Centered hero layout — images diagonal: top-left (desktop only) + bottom-right
 export default function HeroCenter() {
   return (
     <section
@@ -18,32 +17,23 @@ export default function HeroCenter() {
         background: 'var(--base)',
       }}
     >
-      {/* Top-left image — desktop only */}
+      {/* Background bowl grid — centered */}
       <div
-        className="hidden md:block"
-        style={{ position: 'absolute', top: '-5%', left: '-6%', zIndex: 0, pointerEvents: 'none', opacity: 0.35 }}
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 0,
+          pointerEvents: 'none',
+          opacity: 0.28,
+        }}
       >
-        <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <div className="animate-fade-in animate-breathe-scale" style={{ animationDelay: '0.3s' }}>
           <Image
             src="/index/頌缽九宮格(方).png"
-            alt="" width={1568} height={2172} aria-hidden
-            className="animate-breathe-scale"
-            style={{ height: 'clamp(380px, 68vh, 620px)', width: 'auto', display: 'block' }}
-          />
-        </div>
-      </div>
-
-      {/* Bottom-right image — always present, positioned lower on mobile */}
-      <div
-        className="absolute right-[15%] md:right-[-5%] bottom-[-25vh] opacity-[0.7] md:bottom-[-34vh] md:opacity-100"
-        style={{ zIndex: 0, pointerEvents: 'none' }}
-      >
-        <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
-          <Image
-            src="/index/頌缽九宮格(方).png"
-            alt="" width={1568} height={2172} aria-hidden
-            className="animate-breathe-scale h-[clamp(220px,50vh,400px)] md:h-[clamp(300px,62vh,620px)]"
-            style={{ width: 'auto', display: 'block', animationDelay: '2s' }}
+            alt="" width={1400} height={1400} aria-hidden
+            style={{ width: 'clamp(300px, 58vw, 600px)', height: 'auto', display: 'block' }}
           />
         </div>
       </div>
@@ -71,9 +61,6 @@ export default function HeroCenter() {
         <h1
           className="animate-ink-reveal tr-d2"
           style={{
-            /* Mobile: ~26px keeps all 8 chars on one line.
-               Desktop: ~36px — roughly half the old 72px max,
-               visually matches the width of the EN subtitle. */
             fontSize: 'clamp(26px, 3vw, 36px)',
             letterSpacing: '0.06em',
             lineHeight: 1.15,
@@ -99,6 +86,47 @@ export default function HeroCenter() {
         >
           Tune inward. Return to self.
         </p>
+      </div>
+
+      {/* Tagline + scroll hint — bottom of hero */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 'clamp(36px, 6vh, 56px)',
+          left: 0, right: 0,
+          zIndex: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 14,
+          pointerEvents: 'none',
+        }}
+      >
+        <p style={{
+          fontFamily: 'var(--f-zh)',
+          fontSize: 'clamp(13px, 1.2vw, 15px)',
+          letterSpacing: '0.06em',
+          color: 'var(--ink)',
+          opacity: 0.52,
+          lineHeight: 1,
+        }}>
+          我們相信，每個人都可以找到屬於自己的靈性生活之道。
+        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, opacity: 0.36 }}>
+          <span style={{
+            fontFamily: 'var(--f-display)',
+            fontSize: 'clamp(11px, 0.9vw, 12px)',
+            letterSpacing: '0.32em',
+            color: 'var(--ink)',
+            textTransform: 'uppercase',
+          }}>
+            SCROLL
+          </span>
+          <svg width="12" height="18" viewBox="0 0 12 18" fill="none" aria-hidden>
+            <line x1="6" y1="0" x2="6" y2="13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M1 8.5 L6 13.5 L11 8.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
       </div>
     </section>
   )
