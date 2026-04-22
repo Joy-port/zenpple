@@ -18,7 +18,7 @@ const founders = [
   {
     key: 'xia',
     name: '夏',
-    roles: '靈性顧問 · 易經 · 品牌策略',
+    roles: '靈性顧問 · 易經\n品牌策略',
     desc: '大方向定錨與理路梳理，結合玄天上帝指引與數位實務。以易經洞見為基礎，協助你釐清現狀、辨識能量走向，走出屬於自己的路徑。',
     img: '/index/吉祥物夏.png',
     imgAlt: '夏 吉祥物',
@@ -85,7 +85,7 @@ export default function FoundersSection() {
               {/* ── Name — above circle ── */}
               {/* Title block */}
               <div style={{ position: 'relative', zIndex: 1, marginBottom: 'clamp(12px, 1.5vw, 20px)' }}>
-                <div style={{ padding: '0 25%', textAlign: 'right' }}>
+                <div className={`text-center md:px-[25%] ${i === 0 ? 'md:text-right' : 'md:text-left'}`}>
                   <h3
                     className="tr-d2"
                     style={{ fontSize: 'clamp(30px, 2.4vw, 42px)', letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2 }}
@@ -101,43 +101,45 @@ export default function FoundersSection() {
                 style={{ gap: 'clamp(12px, 2vw, 24px)', position: 'relative', zIndex: 1 }}
               >
                 {/* Circle */}
-                <div
-                  className="animate-breathe-scale"
-                  style={{
-                    animationDelay: `${i * 0.8}s`,
-                    width: 'clamp(260px, 36vw, 360px)',
-                    height: 'clamp(260px, 36vw, 360px)',
-                    borderRadius: '50%',
-                    overflow: 'hidden',
-                    flexShrink: 0,
-                    background: 'rgba(242,239,234,0.18)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    padding: '12%',
-                    textAlign: 'center',
-                    gap: 10,
-                  }}
-                >
-                  {/* roles shown in circle only for 夏; 禿禿 shows it beside title above */}
-                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: f.rolesColor, lineHeight: 1.5, whiteSpace: 'pre-line' }}>
-                    {f.roles}
-                  </p>
-                  <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: '#5C5955' }}>
-                    {f.desc}
-                  </p>
-                  <Link
-                    href="/about"
+                <div style={{ position: 'relative', flexShrink: 0, width: 'clamp(260px, 36vw, 360px)' }}>
+                  {/* Animated circle background — separated so overflow:hidden never clips text */}
+                  <div
+                    className="animate-breathe-scale"
+                    aria-hidden
                     style={{
-                      display: 'inline-flex', alignItems: 'center', gap: 6,
-                      fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
-                      fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.08em',
-                      textDecoration: 'none', color: 'var(--ink)', opacity: 0.65,
+                      animationDelay: `${i * 0.8}s`,
+                      position: 'absolute', inset: 0,
+                      borderRadius: '50%',
+                      background: 'rgba(242,239,234,0.18)',
+                      pointerEvents: 'none',
                     }}
-                  >
-                    了解更多 ↗
-                  </Link>
+                  />
+                  {/* Text content — no clipping, expands naturally on mobile */}
+                  <div style={{
+                    position: 'relative', zIndex: 1,
+                    minHeight: 'clamp(260px, 36vw, 360px)',
+                    display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', justifyContent: 'center',
+                    padding: '12%', textAlign: 'center', gap: 10,
+                  }}>
+                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: f.rolesColor, lineHeight: 1.5, whiteSpace: 'pre-line' }}>
+                      {f.roles}
+                    </p>
+                    <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: '#5C5955' }}>
+                      {f.desc}
+                    </p>
+                    <Link
+                      href="/about"
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: 6,
+                        fontFamily: 'var(--f-zh-sans)', fontWeight: 600,
+                        fontSize: 'clamp(13px, 1.2vw, 15px)', letterSpacing: '0.08em',
+                        textDecoration: 'none', color: 'var(--ink)', opacity: 0.65,
+                      }}
+                    >
+                      了解更多 ↗
+                    </Link>
+                  </div>
                 </div>
 
                 {/* Mascot — beside circle */}
