@@ -156,7 +156,7 @@ export default function EcosystemMountain2() {
             </svg>
 
             {/* Tooltips — hidden until hydrated (isMobile !== null) to avoid SSR/CSR mismatch */}
-            {isMobile !== null && zones.map(z => (
+            {isMobile !== null && zones.map((z, i) => (
               <div
                 key={`tip-${z.id}`}
                 onClick={isMobile === true ? () => router.push(z.href) : undefined}
@@ -178,6 +178,11 @@ export default function EcosystemMountain2() {
                   /* Layout: CSS clamp handles padding + maxWidth responsively */
                   padding: 'clamp(7px, 1vw, 12px) clamp(11px, 1.5vw, 16px)',
                   maxWidth: 'clamp(130px, 35vw, 210px)',
+                  /* Mobile breathing pulse — staggered per zone */
+                  ...(isMobile === true ? {
+                    animation: `mountain-label-breathe 3s ease-in-out ${i * 0.7}s infinite`,
+                    transformOrigin: 'left center',
+                  } : {}),
                 }}
               >
                 <div style={{
@@ -187,10 +192,24 @@ export default function EcosystemMountain2() {
                   letterSpacing: '0.04em',
                   color: 'var(--ink)',
                   lineHeight: 1.2,
-                  marginBottom: isMobile === true ? 0 : 6,
+                  marginBottom: isMobile === true ? 3 : 6,
                 }}>
                   {z.label}
                 </div>
+
+                {/* Mobile only: tap cue */}
+                {isMobile === true && (
+                  <div style={{
+                    fontFamily: 'var(--f-display)',
+                    fontSize: 10,
+                    letterSpacing: '0.18em',
+                    color: z.accent,
+                    textTransform: 'uppercase',
+                    lineHeight: 1,
+                  }}>
+                    探索 →
+                  </div>
+                )}
 
                 {/* Desktop only: horizontal divider + sub text */}
                 {isMobile === false && (
