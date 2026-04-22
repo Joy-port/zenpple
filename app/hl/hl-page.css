@@ -89,76 +89,84 @@
   flex-shrink: 0;
 }
 
-/* Shared base for all composition text overlays */
-.hero-comp-text {
+/* Shared group base — flex column, each span is one character */
+.hero-comp-group {
   position: absolute;
-  writing-mode: vertical-rl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   pointer-events: none;
   user-select: none;
 }
+.hero-comp-group span {
+  display: block;
+  line-height: 1;
+}
 
-/* 深層對齊 — outside left, slight CCW tilt, generous letter-spacing for flow */
+/* 深層對齊 — outside left, large, generous gap */
 .hero-comp-deep {
-  left: -14%;
+  left: -16%;
   top: 50%;
-  transform: translateY(-50%) rotate(-6deg);
+  transform: translateY(-50%);
+  gap: clamp(14px, 2vh, 28px);
   font-family: var(--f-zh);
   font-weight: 900;
-  font-size: clamp(22px, 3vw, 40px);
-  letter-spacing: 0.55em;
+  font-size: clamp(24px, 3.2vw, 44px);
   color: rgba(255,255,255,0.88);
 }
 
-/* 清理脈輪雜訊 — left wave stripes, slightly tilted */
+/* 清理脈輪雜訊 — left wave stripes */
 .hero-comp-filter-zh {
-  left: 16%;
-  top: 8%;
-  transform: rotate(-5deg);
+  left: 18%;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: clamp(10px, 1.4vh, 20px);
   font-family: var(--f-zh);
   font-weight: 700;
-  font-size: clamp(12px, 1.4vw, 17px);
-  letter-spacing: 0.40em;
-  color: rgba(255,255,255,0.78);
+  font-size: clamp(13px, 1.5vw, 18px);
+  color: rgba(255,255,255,0.80);
   mix-blend-mode: overlay;
 }
 
-/* FILTER THE NOISE — small EN, beside left stripes */
+/* FILTER THE NOISE — small EN, word-per-line, beside left stripes */
 .hero-comp-filter-en {
-  left: 6%;
-  top: 14%;
-  writing-mode: vertical-lr;
+  left: 7%;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: clamp(6px, 1vh, 12px);
   font-family: var(--f-display);
   font-weight: 300;
-  font-size: clamp(8px, 0.78vw, 10px);
-  letter-spacing: 0.30em;
+  font-size: clamp(7px, 0.72vw, 9px);
+  letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.30);
+  color: rgba(255,255,255,0.28);
 }
 
-/* 重啟生命流動 — right wave stripes, opposite tilt */
+/* 重啟生命流動 — right wave stripes */
 .hero-comp-align-zh {
-  right: 12%;
-  top: 8%;
-  transform: rotate(5deg);
+  right: 14%;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: clamp(10px, 1.4vh, 20px);
   font-family: var(--f-zh);
   font-weight: 700;
-  font-size: clamp(12px, 1.4vw, 17px);
-  letter-spacing: 0.40em;
-  color: rgba(255,255,255,0.78);
+  font-size: clamp(13px, 1.5vw, 18px);
+  color: rgba(255,255,255,0.80);
   mix-blend-mode: overlay;
 }
 
 /* ALIGN THE SOUL — small EN, right edge */
 .hero-comp-align-en {
-  right: 3%;
-  top: 14%;
-  writing-mode: vertical-lr;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: clamp(6px, 1vh, 12px);
   font-family: var(--f-display);
   font-weight: 300;
-  font-size: clamp(8px, 0.78vw, 10px);
-  letter-spacing: 0.30em;
+  font-size: clamp(7px, 0.72vw, 9px);
+  letter-spacing: 0.20em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.30);
+  color: rgba(255,255,255,0.28);
 }
 
 /* ── Title zone: scrolls into view below the first viewport ─────────────── */
