@@ -62,11 +62,9 @@ export default function FoundersSection() {
           {founders.map((f, i) => (
             <div
               key={f.key}
-              /* Each row centered, compact */
-              className={`flex flex-col items-center md:flex-row md:justify-center md:items-center${i === 1 ? ' md:flex-row-reverse' : ''}`}
-              style={{ gap: 'clamp(16px, 2.5vw, 28px)', position: 'relative' }}
+              style={{ position: 'relative', paddingTop: 'clamp(40px, 5vw, 64px)' }}
             >
-              {/* Glow blob behind circle */}
+              {/* Glow blob */}
               <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
                 <div style={{
                   position: 'absolute', width: 460, height: 460, borderRadius: '50%',
@@ -75,42 +73,25 @@ export default function FoundersSection() {
                 }} />
               </div>
 
-              {/* ── Left column: name above + mascot below ── */}
-              <div
-                className="flex flex-col items-center"
-                style={{ flexShrink: 0, width: 'clamp(120px, 14vw, 170px)', position: 'relative', zIndex: 1 }}
+              {/* ── Name — centered, full width, with generous top space ── */}
+              <h3
+                className="tr-d2"
+                style={{
+                  fontSize: 'clamp(22px, 2.4vw, 30px)',
+                  letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
+                  textAlign: 'center', marginBottom: 'clamp(20px, 3vw, 32px)',
+                  position: 'relative', zIndex: 1,
+                }}
               >
-                {/* Name — above mascot */}
-                <h3
-                  className="tr-d2"
-                  style={{
-                    fontSize: 'clamp(18px, 2vw, 26px)',
-                    letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
-                    marginBottom: 10, textAlign: 'center',
-                  }}
-                >
-                  {f.name}
-                </h3>
+                {f.name}
+              </h3>
 
-                {/* Mascot */}
-                <div
-                  className="animate-breathe-scale"
-                  style={{ width: '100%', lineHeight: 0, animationDelay: `${i * 0.5}s` }}
-                >
-                  <Image
-                    src={f.img} alt={f.imgAlt} width={500} height={600}
-                    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.13))' }}
-                  />
-                </div>
-              </div>
-
-              {/* ── Right column: circle + link ── */}
+              {/* ── Two columns: circle + mascot (mirrored for 夏) ── */}
               <div
-                className="flex flex-col items-center"
-                style={{ position: 'relative', zIndex: 1 }}
+                className={`flex flex-col items-center md:flex-row md:justify-center md:items-center${i === 1 ? ' md:flex-row-reverse' : ''}`}
+                style={{ gap: 'clamp(16px, 2.5vw, 32px)', position: 'relative', zIndex: 1 }}
               >
-
-                {/* Circle: roles + desc */}
+                {/* Circle */}
                 <div
                   className="animate-breathe-scale"
                   style={{
@@ -148,8 +129,18 @@ export default function FoundersSection() {
                     了解更多 ↗
                   </Link>
                 </div>
-              </div>
 
+                {/* Mascot */}
+                <div
+                  className="animate-breathe-scale"
+                  style={{ width: 'clamp(120px, 14vw, 170px)', flexShrink: 0, lineHeight: 0, animationDelay: `${i * 0.5}s` }}
+                >
+                  <Image
+                    src={f.img} alt={f.imgAlt} width={500} height={600}
+                    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.13))' }}
+                  />
+                </div>
+              </div>
             </div>
           ))}
 
