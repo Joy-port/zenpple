@@ -164,14 +164,12 @@ export default function EcosystemMountain2() {
               <div
                 key={`tip-${z.id}`}
                 onClick={() => router.push(z.href)}
-                onMouseEnter={isMobile === false ? () => setHovered(z.id) : undefined}
-                onMouseLeave={isMobile === false ? () => setHovered(null) : undefined}
                 style={{
                   position: 'absolute',
                   ...(isMobile === true ? z.mobileTipPos : z.tipPos),
-                  /* opacity: mobile=always 1; desktop=hide others when any zone/label is hovered */
+                  /* opacity: mobile=always 1; desktop=hide others when a zone is hovered */
                   opacity: isMobile === true ? 1 : (isOtherHovered ? 0 : 1),
-                  /* background: highlight on hover, mobile keeps frosted white */
+                  /* background: highlight when this zone is hovered (driven by SVG hit zone) */
                   background: isMobile === true
                     ? 'rgba(255,255,255,0.3)'
                     : isHoveredZone
@@ -180,7 +178,8 @@ export default function EcosystemMountain2() {
                   /* scale pop on hover (desktop only) */
                   transform: (!isMobile && isHoveredZone) ? 'scale(1.06)' : undefined,
                   transition: 'opacity 0.25s ease, background 0.25s ease, transform 0.25s ease',
-                  pointerEvents: 'auto',
+                  /* hidden labels must NOT block SVG hit zones underneath */
+                  pointerEvents: isOtherHovered ? 'none' : 'auto',
                   cursor: 'pointer',
                   zIndex: 10,
                   backdropFilter: 'blur(14px)',
