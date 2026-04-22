@@ -303,10 +303,10 @@ function MobileCards({
   )
 }
 
-const CARD_W   = 'clamp(200px, 22vw, 300px)'
+const CARD_W   = 300
 const CARD_H   = 'clamp(380px, 48vh, 520px)'
 
-const EXPAND_W = 'clamp(260px, 32vw, 400px)'
+const EXPAND_W = 400
 
 export default function PersonaCardFocus() {
   const [active, setActive] = useState<number | null>(null)
@@ -444,8 +444,6 @@ export default function PersonaCardFocus() {
               margin: '0 auto',
               position: 'relative',
               zIndex: 1,
-              overflowX: 'auto',
-              paddingBottom: 4, /* prevent clipping box-shadow */
             }}
           >
             {personas.flatMap((p, i) => {
@@ -476,7 +474,7 @@ export default function PersonaCardFocus() {
                     transition: 'background 0.6s ease, box-shadow 0.5s ease',
                   }}>
                     <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 16 }}>
-                      <div style={{ position: 'relative', width: 'clamp(110px, 14vw, 160px)', height: 'clamp(145px, 18vw, 210px)', flexShrink: 0 }}>
+                      <div style={{ position: 'relative', width: 160, height: 210, flexShrink: 0 }}>
                         <Image src={p.cardImage} alt="" fill style={{ objectFit: 'contain', filter: p.imageFilter, mixBlendMode: 'multiply', opacity: 0.8 }} />
                       </div>
                     </div>
