@@ -88,9 +88,9 @@ export default function FoundersSection() {
                   style={{
                     fontSize: 'clamp(30px, 2.4vw, 42px)',
                     letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
-                    textAlign: 'center',
-                    paddingLeft: i === 0 ? '50%' : 0,
-                    paddingRight: i === 0 ? 0 : '50%',
+                    textAlign: i === 0 ? 'right' : 'center',
+                    paddingLeft: 0,
+                    paddingRight: '50%',
                   }}
                 >
                   {f.name}
@@ -105,8 +105,9 @@ export default function FoundersSection() {
                       letterSpacing: '0.08em',
                       color: f.accent,
                       lineHeight: 1.5,
-                      paddingLeft: '50%',
-                      textAlign: 'center',
+                      paddingLeft: 0,
+                      paddingRight: '50%',
+                      textAlign: 'right',
                       marginTop: 4,
                     }}
                   >
