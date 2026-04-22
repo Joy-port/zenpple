@@ -29,7 +29,7 @@ const personas = [
   {
     id: 2,
     cardTitle: '正在穿越某段\n人生霧區的人',
-    cardDesc: '有直覺，但看不清前方，\n說不出來，卻揮之不去',
+    cardDesc: '有直覺，但看不清前方，\n說不出來，也揮之不去',
     expandTitle: '林間迷霧者',
     expandEn: 'The Mist Walker',
     expandBody: '有自己的感知與判斷，但某個地方就是卡著。情感、事業、身體，或說不清楚的東西。需要有人幫你看見自己。',
@@ -45,7 +45,7 @@ const personas = [
   {
     id: 3,
     cardTitle: '準備把感知\n化成力量的人',
-    cardDesc: '想傳遞，想建立，\n熱情有了，還缺一個結構',
+    cardDesc: '想傳遞，想建立，\n擁有熱情，卻缺乏一個實踐的結構',
     expandTitle: '播種者',
     expandEn: 'The Seed Keeper',
     expandBody: '已經在靈性路上走了一段，開始想讓這份感知長成別人也能依靠的東西。熱情夠了，需要的是方向與結構。',
