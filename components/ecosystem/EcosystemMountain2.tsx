@@ -163,28 +163,28 @@ export default function EcosystemMountain2() {
               return (
               <div
                 key={`tip-${z.id}`}
-                onClick={isMobile === true ? () => router.push(z.href) : undefined}
+                onClick={() => router.push(z.href)}
+                onMouseEnter={isMobile === false ? () => setHovered(z.id) : undefined}
+                onMouseLeave={isMobile === false ? () => setHovered(null) : undefined}
                 style={{
                   position: 'absolute',
                   ...(isMobile === true ? z.mobileTipPos : z.tipPos),
-                  /* opacity: inline style now works — animation no longer animates opacity */
                   opacity: isMobile === true ? 1 : (isOtherHovered ? 0 : 1),
-                  /* background: highlight when this zone hovered */
                   background: isMobile === true
                     ? 'rgba(255,255,255,0.3)'
                     : isHoveredZone
                       ? `rgba(${z.accentRgb}, 0.28)`
                       : `rgba(${z.accentRgb}, 0.12)`,
-                  /* scale pop on hover — animation:none lets inline transform take over */
-                  animation: (!isMobile && isHoveredZone)
-                    ? 'none'
-                    : `mountain-label-breathe 3s ease-in-out ${i * 0.7}s infinite`,
                   transform: (!isMobile && isHoveredZone) ? 'scale(1.06)' : undefined,
                   transformOrigin: 'left center',
                   transition: 'opacity 0.25s ease, background 0.25s ease, transform 0.25s ease',
-                  /* desktop: pointer-events none — SVG hit zones handle hover/click */
-                  pointerEvents: isMobile === true ? 'auto' : 'none',
-                  cursor: isMobile === true ? 'pointer' : 'default',
+                  /* mobile: breathing animation; desktop: none (hover effect is affordance) */
+                  animation: isMobile === true
+                    ? `mountain-label-breathe 3s ease-in-out ${i * 0.7}s infinite`
+                    : 'none',
+                  /* hidden labels must not block SVG hit zones underneath */
+                  pointerEvents: isOtherHovered ? 'none' : 'auto',
+                  cursor: 'pointer',
                   zIndex: 10,
                   backdropFilter: 'blur(14px)',
                   WebkitBackdropFilter: 'blur(14px)',
