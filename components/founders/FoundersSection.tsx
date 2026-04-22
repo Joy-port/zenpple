@@ -83,7 +83,6 @@ export default function FoundersSection() {
               {/* ── Name — above circle ── */}
               {/* Title block */}
               <div style={{ position: 'relative', zIndex: 1, marginBottom: 'clamp(12px, 1.5vw, 20px)' }}>
-                {/* 禿禿: title + subtitle in shared container, right-aligned, 25% padding each side */}
                 {i === 0 ? (
                   <div style={{ padding: '0 25%', textAlign: 'left' }}>
                     <h3
@@ -92,9 +91,6 @@ export default function FoundersSection() {
                     >
                       {f.name}
                     </h3>
-                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: '#5C5955', lineHeight: 1.5, marginTop: 14 }}>
-                      {f.roles}
-                    </p>
                   </div>
                 ) : (
                   <h3
@@ -137,11 +133,9 @@ export default function FoundersSection() {
                   }}
                 >
                   {/* roles shown in circle only for 夏; 禿禿 shows it beside title above */}
-                  {i === 1 && (
-                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5 }}>
-                      {f.roles}
-                    </p>
-                  )}
+                  <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5 }}>
+                    {f.roles}
+                  </p>
                   <p style={{ fontSize: 'clamp(14px, 1.3vw, 16px)', lineHeight: 1.9, color: '#5C5955' }}>
                     {f.desc}
                   </p>
