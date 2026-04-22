@@ -57,31 +57,39 @@ export default function FoundersSection() {
       <div className="wrap">
         <PageTitle sub="Two Souls, One Mountain" title="兩個靈魂，一座山" />
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+        {/* Glow blobs — span full column, no overflow clipping so they fade across card boundaries */}
+        <div style={{ position: 'relative' }}>
+          <div aria-hidden style={{ position: 'absolute', inset: '-10% 0', pointerEvents: 'none', zIndex: 0 }}>
+            {founders.map((f, i) => (
+              <div
+                key={f.key}
+                style={{
+                  position: 'absolute', width: 500, height: 500, borderRadius: '50%',
+                  background: `rgba(${f.accentRgb},0.16)`, filter: 'blur(90px)',
+                  top: i === 0 ? '25%' : '75%', left: '50%',
+                  transform: 'translate(-50%,-50%)',
+                }}
+              />
+            ))}
+          </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 0, position: 'relative', zIndex: 1 }}>
 
           {founders.map((f, i) => (
             <div
               key={f.key}
-              style={{ position: 'relative', paddingTop: 'clamp(24px, 3vw, 40px)' }}
+              style={{ position: 'relative', paddingTop: 'clamp(32px, 4vw, 56px)', paddingBottom: 'clamp(32px, 4vw, 56px)', overflow: 'visible' }}
             >
-              {/* Glow blob */}
-              <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
-                <div style={{
-                  position: 'absolute', width: 460, height: 460, borderRadius: '50%',
-                  background: `rgba(${f.accentRgb},0.18)`, filter: 'blur(80px)',
-                  top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
-                }} />
-              </div>
-
               {/* ── Name — above circle ── */}
               <h3
                 className="tr-d2"
                 style={{
                   fontSize: 'clamp(30px, 2.4vw, 42px)',
                   letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
-                  textAlign: i === 0 ? 'right' : 'left',
+                  /* 禿禿: right-leaning | 夏: centered shifted left ~1 char */
+                  textAlign: i === 0 ? 'right' : 'center',
                   paddingLeft: i === 0 ? '20%' : 0,
-                  paddingRight: i === 0 ? 0 : '20%',
+                  paddingRight: i === 0 ? 0 : '10%',
                   marginBottom: 'clamp(12px, 1.5vw, 20px)',
                   position: 'relative', zIndex: 1,
                 }}
@@ -147,6 +155,7 @@ export default function FoundersSection() {
             </div>
           ))}
 
+        </div>
         </div>
       </div>
     </PageSection>
