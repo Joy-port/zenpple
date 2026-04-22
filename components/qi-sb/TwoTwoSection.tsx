@@ -41,7 +41,7 @@ export default function TwoTwoSection() {
             <h2
               className="tr-d2"
               style={{
-                fontFamily: 'var(--f-impact)',
+                fontFamily: 'var(--f-zh-sans)',
                 fontWeight: 900,
                 fontSize: 'clamp(28px,4vw,48px)',
                 color: '#fff',
