@@ -17,22 +17,17 @@ export default function HeroCenter() {
         background: 'var(--base)',
       }}
     >
-      {/* Background bowl grid — top-left to bottom-right */}
+      {/* Background bowl grid — top-left, desktop only */}
       <div
-        style={{
-          position: 'absolute',
-          top: '-15%',
-          left: '-20%',
-          zIndex: 0,
-          pointerEvents: 'none',
-          opacity: 0.28,
-        }}
+        className="hidden md:block"
+        style={{ position: 'absolute', top: '-5%', left: '-6%', zIndex: 0, pointerEvents: 'none', opacity: 0.35 }}
       >
-        <div className="animate-fade-in animate-breathe-scale" style={{ animationDelay: '0.3s' }}>
+        <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <Image
             src="/index/頌缽九宮格(方).png"
             alt="" width={1400} height={1400} aria-hidden
-            style={{ width: 'clamp(300px, 58vw, 600px)', height: 'auto', display: 'block' }}
+            className="animate-breathe-scale"
+            style={{ height: 'clamp(380px, 68vh, 620px)', width: 'auto', display: 'block' }}
           />
         </div>
       </div>
