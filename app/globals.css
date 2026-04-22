@@ -173,10 +173,15 @@ body::after {
 section {
   scroll-margin-top: 64px;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 html.snap-mandatory {
   scroll-snap-type: y mandatory !important;
+  /* Disable CSS smooth-scroll — let native snap physics animate instead.
+     scroll-behavior: smooth + mandatory snap conflict on Safari/Chrome,
+     producing a stuttery/abrupt feel. */
+  scroll-behavior: auto !important;
 }
 
 /* ── Desktop-only spacing overrides ─────────────────────────────────────────
