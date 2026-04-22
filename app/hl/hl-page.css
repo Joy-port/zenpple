@@ -103,68 +103,63 @@
   line-height: 1;
 }
 
-/* 深層對齊 — outside left, large, generous gap */
+/* 深層對齊 — outside left edge (negative left), starts high, large chars */
 .hero-comp-deep {
-  left: -16%;
-  top: 50%;
-  transform: translateY(-50%);
-  gap: clamp(14px, 2vh, 28px);
+  left: -24%;
+  top: 12%;
+  gap: clamp(20px, 3vh, 42px);
   font-family: var(--f-zh);
   font-weight: 900;
   font-size: clamp(24px, 3.2vw, 44px);
   color: rgba(255,255,255,0.88);
 }
 
-/* 清理脈輪雜訊 — left wave stripes */
-.hero-comp-filter-zh {
-  left: 18%;
-  top: 50%;
-  transform: translateY(-50%);
-  gap: clamp(10px, 1.4vh, 20px);
-  font-family: var(--f-zh);
-  font-weight: 700;
-  font-size: clamp(13px, 1.5vw, 18px);
-  color: rgba(255,255,255,0.80);
-  mix-blend-mode: overlay;
-}
-
-/* FILTER THE NOISE — small EN, word-per-line, beside left stripes */
+/* FILTER THE NOISE — far left inside image, mid-height */
 .hero-comp-filter-en {
-  left: 7%;
-  top: 50%;
-  transform: translateY(-50%);
-  gap: clamp(6px, 1vh, 12px);
+  left: 4%;
+  top: 22%;
+  gap: clamp(8px, 1.2vh, 16px);
   font-family: var(--f-display);
   font-weight: 300;
   font-size: clamp(7px, 0.72vw, 9px);
-  letter-spacing: 0.20em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.28);
 }
 
-/* 重啟生命流動 — right wave stripes */
-.hero-comp-align-zh {
-  right: 14%;
-  top: 50%;
-  transform: translateY(-50%);
-  gap: clamp(10px, 1.4vh, 20px);
+/* 清理脈輪雜訊 — left-centre stripes, starts near top */
+.hero-comp-filter-zh {
+  left: 22%;
+  top: 8%;
+  gap: clamp(16px, 2.4vh, 34px);
   font-family: var(--f-zh);
   font-weight: 700;
-  font-size: clamp(13px, 1.5vw, 18px);
-  color: rgba(255,255,255,0.80);
+  font-size: clamp(13px, 1.5vw, 19px);
+  color: rgba(255,255,255,0.82);
   mix-blend-mode: overlay;
 }
 
-/* ALIGN THE SOUL — small EN, right edge */
+/* 重啟生命流動 — right-centre stripes, starts slightly lower for rhythm */
+.hero-comp-align-zh {
+  right: 20%;
+  top: 14%;
+  gap: clamp(16px, 2.4vh, 34px);
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: clamp(13px, 1.5vw, 19px);
+  color: rgba(255,255,255,0.82);
+  mix-blend-mode: overlay;
+}
+
+/* ALIGN THE SOUL — far right inside image, mid-height */
 .hero-comp-align-en {
-  right: 4%;
-  top: 50%;
-  transform: translateY(-50%);
-  gap: clamp(6px, 1vh, 12px);
+  right: 5%;
+  top: 20%;
+  gap: clamp(8px, 1.2vh, 16px);
   font-family: var(--f-display);
   font-weight: 300;
   font-size: clamp(7px, 0.72vw, 9px);
-  letter-spacing: 0.20em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.28);
 }

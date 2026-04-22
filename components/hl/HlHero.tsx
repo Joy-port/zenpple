@@ -30,15 +30,7 @@ export default function HlHero() {
 
         {/* All text + image in one composition — desktop only */}
         <div className="hero-composition hero-char-desktop">
-
-          {/* 深層對齊 — left outside image, each char individually rotated */}
-          <div className="hero-comp-group hero-comp-deep">
-            {([['深',-8],['層',-5],['對',-7],['齊',-9]] as [string,number][]).map(([c,r]) => (
-              <span key={c} style={{ transform: `rotate(${r}deg)` }}>{c}</span>
-            ))}
-          </div>
-
-          {/* Image */}
+          {/* hero-watermark wraps image + ALL text so everything breathes together */}
           <div className="hero-watermark">
             <Image
               src="/hl/頌缽波動-白.png"
@@ -49,28 +41,35 @@ export default function HlHero() {
               priority
             />
 
-            {/* 清理脈輪雜訊 — left wave stripes, each char rotated */}
-            <div className="hero-comp-group hero-comp-filter-zh">
-              {([['清',-6],['理',-4],['脈',-7],['輪',-5],['雜',-8],['訊',-5]] as [string,number][]).map(([c,r]) => (
+            {/* 深層對齊 — outside left edge of image, starts from top */}
+            <div className="hero-comp-group hero-comp-deep">
+              {([['深',-12],['層',-6],['對',-14],['齊',-8]] as [string,number][]).map(([c,r]) => (
                 <span key={c} style={{ transform: `rotate(${r}deg)` }}>{c}</span>
               ))}
             </div>
 
-            {/* FILTER THE NOISE — small EN vertical */}
+            {/* FILTER THE NOISE — small EN, far left inside image */}
             <div className="hero-comp-group hero-comp-filter-en">
               <span>FILTER</span>
               <span>THE</span>
               <span>NOISE</span>
             </div>
 
-            {/* 重啟生命流動 — right wave stripes, each char rotated */}
-            <div className="hero-comp-group hero-comp-align-zh">
-              {([['重',5],['啟',7],['生',4],['命',6],['流',8],['動',5]] as [string,number][]).map(([c,r]) => (
+            {/* 清理脈輪雜訊 — woven through left-centre stripes */}
+            <div className="hero-comp-group hero-comp-filter-zh">
+              {([['清',-10],['理',-4],['脈',-12],['輪',-6],['雜',-14],['訊',-5]] as [string,number][]).map(([c,r]) => (
                 <span key={c} style={{ transform: `rotate(${r}deg)` }}>{c}</span>
               ))}
             </div>
 
-            {/* ALIGN THE SOUL — small EN vertical */}
+            {/* 重啟生命流動 — right-centre stripes */}
+            <div className="hero-comp-group hero-comp-align-zh">
+              {([['重',6],['啟',12],['生',4],['命',10],['流',14],['動',7]] as [string,number][]).map(([c,r]) => (
+                <span key={c} style={{ transform: `rotate(${r}deg)` }}>{c}</span>
+              ))}
+            </div>
+
+            {/* ALIGN THE SOUL — small EN, far right inside image */}
             <div className="hero-comp-group hero-comp-align-en">
               <span>ALIGN</span>
               <span>THE</span>
