@@ -102,16 +102,18 @@ export default function HeroCenter() {
           pointerEvents: 'none',
         }}
       >
-        <p style={{
+        <div style={{
           fontFamily: 'var(--f-zh)',
           fontSize: 'clamp(13px, 1.2vw, 15px)',
           letterSpacing: '0.06em',
           color: 'var(--ink)',
           opacity: 0.52,
-          lineHeight: 1,
+          lineHeight: 1.9,
+          textAlign: 'center',
         }}>
-          我們相信，每個人都可以找到屬於自己的靈性生活之道。
-        </p>
+          <p style={{ margin: 0 }}>我們相信，每個人都可以</p>
+          <p style={{ margin: 0 }}>找到屬於自己的靈性生活之道。</p>
+        </div>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, opacity: 0.36 }}>
           <span style={{
             fontFamily: 'var(--f-display)',
