@@ -318,6 +318,13 @@ export default function PersonaCardFocus() {
   const isMobile = useIsMobile()
 
   const toggle = (id: number) => setActive(prev => (prev === id ? null : id))
+  const close  = () => setActive(null)
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') close() }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
 
   const activePersona = personas.find(p => p.id === active)
   const primaryRgb   = activePersona?.accentRgb    ?? '192,184,174'
@@ -512,7 +519,12 @@ export default function PersonaCardFocus() {
                     boxShadow: isActive ? `0 16px 52px rgba(${p.accentRgb},0.18), 0 0 0 1px rgba(${p.accentRgb},0.1)` : 'none',
                   }}
                 >
-                  <div style={{ width: EXPAND_W, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '2.25rem 2rem 1.75rem' }}>
+                  <div style={{ width: EXPAND_W, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '2.25rem 2rem 1.75rem', position: 'relative' }}>
+                    <button
+                      onClick={e => { e.stopPropagation(); close() }}
+                      style={{ position: 'absolute', top: 14, right: 14, background: 'none', border: 'none', cursor: 'pointer', fontSize: 16, color: 'var(--ink)', opacity: 0.35, lineHeight: 1, padding: '4px 6px' }}
+                      aria-label="收合"
+                    >✕</button>
                     <ExpandContent p={p} hideImage />
                   </div>
                 </div>,
