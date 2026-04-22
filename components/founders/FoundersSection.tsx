@@ -81,38 +81,33 @@ export default function FoundersSection() {
               style={{ position: 'relative', paddingTop: 'clamp(32px, 4vw, 56px)', paddingBottom: 'clamp(32px, 4vw, 56px)', overflow: 'visible' }}
             >
               {/* ── Name — above circle ── */}
-              {/* Title row — relative so subtitle can overlay left of 禿禿 */}
+              {/* Title block */}
               <div style={{ position: 'relative', zIndex: 1, marginBottom: 'clamp(12px, 1.5vw, 20px)' }}>
-                <h3
-                  className="tr-d2"
-                  style={{
-                    fontSize: 'clamp(30px, 2.4vw, 42px)',
-                    letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
-                    textAlign: i === 0 ? 'right' : 'center',
-                    paddingLeft: 0,
-                    paddingRight: '50%',
-                  }}
-                >
-                  {f.name}
-                </h3>
-
-                {/* 禿禿 subtitle — below title, same paddingLeft alignment */}
-                {i === 0 && (
-                  <p
+                {/* 禿禿: title + subtitle in shared container, right-aligned, 25% padding each side */}
+                {i === 0 ? (
+                  <div style={{ padding: '0 25%', textAlign: 'right' }}>
+                    <h3
+                      className="tr-d2"
+                      style={{ fontSize: 'clamp(30px, 2.4vw, 42px)', letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2 }}
+                    >
+                      {f.name}
+                    </h3>
+                    <p style={{ fontFamily: 'var(--f-mono)', fontSize: 'clamp(14px, 1.2vw, 16px)', letterSpacing: '0.08em', color: f.accent, lineHeight: 1.5, marginTop: 4 }}>
+                      {f.roles}
+                    </p>
+                  </div>
+                ) : (
+                  <h3
+                    className="tr-d2"
                     style={{
-                      fontFamily: 'var(--f-mono)',
-                      fontSize: 'clamp(14px, 1.2vw, 16px)',
-                      letterSpacing: '0.08em',
-                      color: f.accent,
-                      lineHeight: 1.5,
-                      paddingLeft: 0,
+                      fontSize: 'clamp(30px, 2.4vw, 42px)',
+                      letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
+                      textAlign: 'center',
                       paddingRight: '50%',
-                      textAlign: 'right',
-                      marginTop: 4,
                     }}
                   >
-                    {f.roles}
-                  </p>
+                    {f.name}
+                  </h3>
                 )}
               </div>
 
