@@ -86,34 +86,11 @@ export default function FoundersSection() {
                 {f.name}
               </h3>
 
-              {/* ── Circle with mascot overlapping top edge ── */}
+              {/* ── Circle + mascot side by side (mirrored for 夏) ── */}
               <div
-                style={{
-                  position: 'relative', zIndex: 1,
-                  display: 'flex', justifyContent: 'center',
-                  /* extra top space so mascot can overlap above circle */
-                  paddingTop: 'clamp(60px, 8vw, 90px)',
-                }}
+                className={`flex flex-col items-center md:flex-row md:justify-center md:items-center${i === 1 ? ' md:flex-row-reverse' : ''}`}
+                style={{ gap: 'clamp(12px, 2vw, 24px)', position: 'relative', zIndex: 1 }}
               >
-                {/* Mascot — absolute, overlapping top of circle, left for 禿禿 / right for 夏 */}
-                <div
-                  className="animate-breathe-scale"
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    ...(i === 0 ? { left: '8%' } : { right: '8%' }),
-                    width: 'clamp(110px, 13vw, 150px)',
-                    lineHeight: 0,
-                    zIndex: 3,
-                    animationDelay: `${i * 0.5}s`,
-                  }}
-                >
-                  <Image
-                    src={f.img} alt={f.imgAlt} width={500} height={600}
-                    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.13))' }}
-                  />
-                </div>
-
                 {/* Circle */}
                 <div
                   className="animate-breathe-scale"
@@ -129,8 +106,7 @@ export default function FoundersSection() {
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    /* extra top padding pushes text below mascot overlap zone */
-                    padding: '22% 13% 12%',
+                    padding: '12% 13%',
                     textAlign: 'center',
                     gap: 10,
                   }}
@@ -152,6 +128,17 @@ export default function FoundersSection() {
                   >
                     了解更多 ↗
                   </Link>
+                </div>
+
+                {/* Mascot — beside circle */}
+                <div
+                  className="animate-breathe-scale"
+                  style={{ width: 'clamp(110px, 13vw, 150px)', flexShrink: 0, lineHeight: 0, animationDelay: `${i * 0.5}s` }}
+                >
+                  <Image
+                    src={f.img} alt={f.imgAlt} width={500} height={600}
+                    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.13))' }}
+                  />
                 </div>
               </div>
             </div>
