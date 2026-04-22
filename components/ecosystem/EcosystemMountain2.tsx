@@ -220,7 +220,7 @@ export default function EcosystemMountain2() {
                   </div>
                 )}
 
-                {/* Desktop only: horizontal divider + sub text */}
+                {/* Desktop only: horizontal divider + sub text + click cue */}
                 {isMobile === false && (
                   <>
                     <div style={{ width: 24, height: 1, background: z.accent, opacity: 0.4, marginBottom: 6 }} />
@@ -232,6 +232,16 @@ export default function EcosystemMountain2() {
                       lineHeight: 1.6,
                     }}>
                       {z.sub}
+                    </div>
+                    <div style={{
+                      fontFamily: 'var(--f-zh)',
+                      fontSize: 11,
+                      letterSpacing: '0.12em',
+                      color: '#3a3532',
+                      marginTop: 6,
+                      lineHeight: 1,
+                    }}>
+                      點擊探索
                     </div>
                   </>
                 )}
