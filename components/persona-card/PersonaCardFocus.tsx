@@ -374,14 +374,7 @@ export default function PersonaCardFocus() {
             </Link>
           ))}
         </div>
-        <div style={{ display: 'flex', justifyContent: ja, width: '100%', flexShrink: 0 }}>
-          <Link
-            href={p.ctaHref}
-            style={{ fontFamily: 'var(--f-zh-sans)', fontWeight: 500, fontSize: 'clamp(13px, 1.1vw, 15px)', letterSpacing: '0.06em', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 22px', borderRadius: 999, border: `1px solid rgba(${p.accentRgb},0.45)`, color: p.accentColor }}
-          >
-            {p.ctaLabel}
-          </Link>
-        </div>
+        {/* CTA button hidden — reserved for future card landing page */}
       </>
     )
   }
