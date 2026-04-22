@@ -5,10 +5,12 @@ import PersonaCardFocus from '@/components/persona-card/PersonaCardFocus'
 import EcosystemMountain2 from '@/components/ecosystem/EcosystemMountain2'
 import SectionTransition from '@/components/ui/SectionTransition'
 import FoundersSection from '@/components/founders/FoundersSection'
+import SnapPageEffect from '@/components/ui/SnapPageEffect'
 
 export default function Home() {
   return (
     <>
+      <SnapPageEffect />
       {/* ── HERO ── */}
       <HeroCenter />
 

@@ -175,6 +175,10 @@ section {
   scroll-snap-align: start;
 }
 
+html.snap-mandatory {
+  scroll-snap-type: y mandatory !important;
+}
+
 /* ── Desktop-only spacing overrides ─────────────────────────────────────────
    Uses !important to beat inline styles. All values target ≥768px only.
    Mobile floors in clamp() / component styles are untouched.
