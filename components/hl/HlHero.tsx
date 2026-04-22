@@ -28,29 +28,30 @@ export default function HlHero() {
       {/* ── First viewport: image + bg chars ── */}
       <div className="hero-image-zone" aria-hidden="true">
 
-        {/* Left outer text group — desktop only */}
-        <div className="hero-flanking-group hero-char-desktop">
-          <span className="hero-vert-en">FILTER THE NOISE</span>
-          <span className="hero-vert-zh">清理脈輪雜訊</span>
-        </div>
+        {/* All text + image in one composition — desktop only */}
+        <div className="hero-composition hero-char-desktop">
+          {/* 深層對齊 — left outside image, rotated, with generous letter-spacing */}
+          <span className="hero-comp-text hero-comp-deep">深層對齊</span>
 
-        <div className="hero-watermark">
-          <Image
-            src="/hl/頌缽波動-白.png"
-            alt=""
-            width={600}
-            height={600}
-            style={{ width: '100%', height: 'auto' }}
-            priority
-          />
-          {/* 深層對齊 — vertical column anchored to left edge of image */}
-          <span className="hero-stripe-char">深層對齊</span>
-        </div>
-
-        {/* Right outer text group — desktop only */}
-        <div className="hero-flanking-group hero-char-desktop">
-          <span className="hero-vert-zh">重啟生命流動</span>
-          <span className="hero-vert-en">ALIGN THE SOUL</span>
+          {/* Image */}
+          <div className="hero-watermark">
+            <Image
+              src="/hl/頌缽波動-白.png"
+              alt=""
+              width={600}
+              height={600}
+              style={{ width: '100%', height: 'auto' }}
+              priority
+            />
+            {/* 清理脈輪雜訊 — woven through left wave stripes, tilted */}
+            <span className="hero-comp-text hero-comp-filter-zh">清理脈輪雜訊</span>
+            {/* FILTER THE NOISE — small EN, inside image right area */}
+            <span className="hero-comp-text hero-comp-filter-en">FILTER THE NOISE</span>
+            {/* 重啟生命流動 — right wave area, opposite tilt */}
+            <span className="hero-comp-text hero-comp-align-zh">重啟生命流動</span>
+            {/* ALIGN THE SOUL — small EN, right edge */}
+            <span className="hero-comp-text hero-comp-align-en">ALIGN THE SOUL</span>
+          </div>
         </div>
 
         {/* Mobile only — single caption below image */}

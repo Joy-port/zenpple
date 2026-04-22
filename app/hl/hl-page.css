@@ -81,21 +81,84 @@
   display: block;
 }
 
-/* 深層對齊 — vertical column on left edge of image */
-.hero-stripe-char {
+/* ── Hero composition — image + all text in one relative container ── */
+.hero-composition {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Shared base for all composition text overlays */
+.hero-comp-text {
   position: absolute;
-  top: 50%;
-  left: 6%;
-  transform: translateY(-50%);
   writing-mode: vertical-rl;
-  font-family: var(--f-zh);
-  font-weight: 900;
-  font-size: clamp(18px, 2.4vw, 30px);
-  letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.82);
   pointer-events: none;
   user-select: none;
+}
+
+/* 深層對齊 — outside left, slight CCW tilt, generous letter-spacing for flow */
+.hero-comp-deep {
+  left: -14%;
+  top: 50%;
+  transform: translateY(-50%) rotate(-6deg);
+  font-family: var(--f-zh);
+  font-weight: 900;
+  font-size: clamp(22px, 3vw, 40px);
+  letter-spacing: 0.55em;
+  color: rgba(255,255,255,0.88);
+}
+
+/* 清理脈輪雜訊 — left wave stripes, slightly tilted */
+.hero-comp-filter-zh {
+  left: 16%;
+  top: 8%;
+  transform: rotate(-5deg);
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: clamp(12px, 1.4vw, 17px);
+  letter-spacing: 0.40em;
+  color: rgba(255,255,255,0.78);
   mix-blend-mode: overlay;
+}
+
+/* FILTER THE NOISE — small EN, beside left stripes */
+.hero-comp-filter-en {
+  left: 6%;
+  top: 14%;
+  writing-mode: vertical-lr;
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(8px, 0.78vw, 10px);
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.30);
+}
+
+/* 重啟生命流動 — right wave stripes, opposite tilt */
+.hero-comp-align-zh {
+  right: 12%;
+  top: 8%;
+  transform: rotate(5deg);
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: clamp(12px, 1.4vw, 17px);
+  letter-spacing: 0.40em;
+  color: rgba(255,255,255,0.78);
+  mix-blend-mode: overlay;
+}
+
+/* ALIGN THE SOUL — small EN, right edge */
+.hero-comp-align-en {
+  right: 3%;
+  top: 14%;
+  writing-mode: vertical-lr;
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(8px, 0.78vw, 10px);
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.30);
 }
 
 /* ── Title zone: scrolls into view below the first viewport ─────────────── */
@@ -190,35 +253,6 @@
   display: block;
 }
 
-/* ── Flanking vertical text groups ── */
-.hero-flanking-group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: clamp(8px, 1vw, 14px);
-  flex-shrink: 0;
-}
-.hero-vert-zh {
-  writing-mode: vertical-rl;
-  font-family: var(--f-zh);
-  font-weight: 700;
-  font-size: clamp(13px, 1.4vw, 18px);
-  letter-spacing: 0.14em;
-  color: rgba(255,255,255,0.72);
-  user-select: none;
-  pointer-events: none;
-}
-.hero-vert-en {
-  writing-mode: vertical-lr;
-  font-family: var(--f-display);
-  font-weight: 300;
-  font-size: clamp(9px, 0.85vw, 11px);
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  user-select: none;
-  pointer-events: none;
-}
 
 /* ── Mobile ─────────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
