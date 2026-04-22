@@ -17,13 +17,12 @@ export default function HeroCenter() {
         background: 'var(--base)',
       }}
     >
-      {/* Background bowl grid — centered */}
+      {/* Background bowl grid — top-left to bottom-right */}
       <div
         style={{
           position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
+          top: '-15%',
+          left: '-20%',
           zIndex: 0,
           pointerEvents: 'none',
           opacity: 0.28,
