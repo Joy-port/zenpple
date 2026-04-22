@@ -85,7 +85,7 @@ export default function FoundersSection() {
               <div style={{ position: 'relative', zIndex: 1, marginBottom: 'clamp(12px, 1.5vw, 20px)' }}>
                 {/* 禿禿: title + subtitle in shared container, right-aligned, 25% padding each side */}
                 {i === 0 ? (
-                  <div style={{ padding: '0 25%', textAlign: 'right' }}>
+                  <div style={{ padding: '0 25%', textAlign: 'left' }}>
                     <h3
                       className="tr-d2"
                       style={{ fontSize: 'clamp(30px, 2.4vw, 42px)', letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2 }}
