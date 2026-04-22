@@ -20,14 +20,29 @@ export default function HeroCenter() {
       {/* Background bowl grid — top-left, desktop only */}
       <div
         className="hidden md:block"
-        style={{ position: 'absolute', top: '-5%', left: '-6%', zIndex: 0, pointerEvents: 'none', opacity: 0.35 }}
+        style={{ position: 'absolute', top: '-12%', left: '-14%', zIndex: 0, pointerEvents: 'none', opacity: 0.35 }}
       >
         <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <Image
             src="/index/頌缽九宮格(方).png"
             alt="" width={1400} height={1400} aria-hidden
             className="animate-breathe-scale"
-            style={{ height: 'clamp(380px, 68vh, 620px)', width: 'auto', display: 'block' }}
+            style={{ height: 'clamp(360px, 62vh, 580px)', width: 'auto', display: 'block' }}
+          />
+        </div>
+      </div>
+
+      {/* Background bowl grid — bottom-right */}
+      <div
+        className="hidden md:block"
+        style={{ position: 'absolute', bottom: '-8%', right: '-6%', zIndex: 0, pointerEvents: 'none', opacity: 0.35 }}
+      >
+        <div className="animate-fade-in" style={{ animationDelay: '1s' }}>
+          <Image
+            src="/index/頌缽九宮格(方).png"
+            alt="" width={1400} height={1400} aria-hidden
+            className="animate-breathe-scale"
+            style={{ height: 'clamp(220px, 38vh, 380px)', width: 'auto', display: 'block', animationDelay: '1.5s' }}
           />
         </div>
       </div>
