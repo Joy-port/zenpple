@@ -76,7 +76,7 @@ const personas = [
     secondaryRgb: '123,107,158',
     cardImage: '/index/卡牌-3.png',
     imageFilter: 'sepia(0.7) saturate(1.9) brightness(0.95) hue-rotate(5deg)',
-    cardScale: 0.85,  /* source is portrait (1541×2110) — flower fills height, needs scaling down */
+    cardScale: 0.80,  /* source is portrait (1541×2110) — flower fills height, needs scaling down */
   },
 ]
 
