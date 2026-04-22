@@ -144,7 +144,7 @@ export default function FoundersSection() {
                 {/* Mascot — beside circle */}
                 <div
                   className="animate-breathe-scale"
-                  style={{ width: 'clamp(110px, 13vw, 150px)', flexShrink: 0, lineHeight: 0, animationDelay: `${i * 0.5}s` }}
+                  style={{ width: 'clamp(127px, 15vw, 173px)', flexShrink: 0, lineHeight: 0, animationDelay: `${i * 0.5}s` }}
                 >
                   <Image
                     src={f.img} alt={f.imgAlt} width={500} height={600}
