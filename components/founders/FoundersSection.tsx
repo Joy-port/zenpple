@@ -75,39 +75,40 @@ export default function FoundersSection() {
                 }} />
               </div>
 
-              {/* ── Mascot ── */}
-              <div
-                className="animate-breathe-scale"
-                style={{
-                  width: 'clamp(120px, 14vw, 170px)',
-                  flexShrink: 0,
-                  lineHeight: 0,
-                  animationDelay: `${i * 0.5}s`,
-                  position: 'relative', zIndex: 1,
-                }}
-              >
-                <Image
-                  src={f.img} alt={f.imgAlt} width={500} height={600}
-                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.13))' }}
-                />
-              </div>
-
-              {/* ── Right column: name above + circle + link ── */}
+              {/* ── Left column: name above + mascot below ── */}
               <div
                 className="flex flex-col items-center"
-                style={{ position: 'relative', zIndex: 1 }}
+                style={{ flexShrink: 0, width: 'clamp(120px, 14vw, 170px)', position: 'relative', zIndex: 1 }}
               >
-                {/* Name — above circle */}
+                {/* Name — above mascot */}
                 <h3
                   className="tr-d2"
                   style={{
-                    fontSize: 'clamp(22px, 2.4vw, 30px)',
-                    letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.1,
-                    marginBottom: 12, textAlign: 'center',
+                    fontSize: 'clamp(18px, 2vw, 26px)',
+                    letterSpacing: '0.04em', color: 'var(--ink)', lineHeight: 1.2,
+                    marginBottom: 10, textAlign: 'center',
                   }}
                 >
                   {f.name}
                 </h3>
+
+                {/* Mascot */}
+                <div
+                  className="animate-breathe-scale"
+                  style={{ width: '100%', lineHeight: 0, animationDelay: `${i * 0.5}s` }}
+                >
+                  <Image
+                    src={f.img} alt={f.imgAlt} width={500} height={600}
+                    style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', filter: 'drop-shadow(0 12px 32px rgba(42,42,42,0.13))' }}
+                  />
+                </div>
+              </div>
+
+              {/* ── Right column: circle + link ── */}
+              <div
+                className="flex flex-col items-center"
+                style={{ position: 'relative', zIndex: 1 }}
+              >
 
                 {/* Circle: roles + desc */}
                 <div
