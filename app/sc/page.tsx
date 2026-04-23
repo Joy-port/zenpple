@@ -540,7 +540,7 @@ export default function ScPage() {
               <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={420} height={420}
                 style={{ width:'min(360px,85%)', height:'auto', filter:'sepia(0.55) hue-rotate(10deg) saturate(1.6) brightness(0.68)', opacity:0.78, animation:'sc-breathe 5s ease-in-out infinite', mixBlendMode:'luminosity' }} />
             </div>
-            <Image src="/sc/animals/akita.png" alt="" aria-hidden width={200} height={200}
+            <Image src="/sc/animals-white/akita.png" alt="" aria-hidden width={200} height={200}
               style={{ position:'absolute', bottom:20, right:20, width:120, height:'auto', filter:'sepia(0.4) hue-rotate(15deg) saturate(1.2) brightness(0.7)', opacity:0.4, mixBlendMode:'multiply' }} />
           </div>
         </div>
@@ -620,10 +620,10 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ order:1, position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative' }}>
-              <Image src="/sc/animals/crane.png" alt="" aria-hidden width={400} height={400}
+              <Image src="/sc/animals-white/crane.png" alt="" aria-hidden width={400} height={400}
                 style={{ width:'min(320px,80%)', height:'auto', filter:'sepia(0.25) saturate(1.6) brightness(0.68)', opacity:0.78, animation:'sc-breathe 6s ease-in-out infinite', mixBlendMode:'luminosity' }} />
             </div>
-            <Image src="/sc/animals/crane2.png" alt="" aria-hidden width={250} height={250}
+            <Image src="/sc/animals-white/crane.png" alt="" aria-hidden width={250} height={250}
               style={{ position:'absolute', top:10, right:0, width:140, height:'auto', filter:'sepia(0.1) saturate(0.6) brightness(0.65)', opacity:0.35, mixBlendMode:'multiply' }} />
           </div>
         </div>
@@ -701,7 +701,7 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative' }}>
-              <Image src="/sc/animals/octopus.png" alt="" aria-hidden width={400} height={400}
+              <Image src="/sc/animals-white/octopus.png" alt="" aria-hidden width={400} height={400}
                 style={{ width:'min(340px,82%)', height:'auto', filter:'sepia(0.6) hue-rotate(340deg) saturate(1.7) brightness(0.66)', opacity:0.78, animation:'sc-breathe 7s ease-in-out infinite', mixBlendMode:'luminosity' }} />
             </div>
           </div>
@@ -862,10 +862,10 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative' }}>
-              <Image src="/sc/animals/capybara.png" alt="" aria-hidden width={400} height={400}
+              <Image src="/sc/animals-white/capybara.png" alt="" aria-hidden width={400} height={400}
                 style={{ width:'min(340px,82%)', height:'auto', filter:'sepia(0.45) hue-rotate(270deg) saturate(1.6) brightness(0.68)', opacity:0.75, animation:'sc-breathe 6s ease-in-out infinite', mixBlendMode:'luminosity' }} />
             </div>
-            <Image src="/sc/animals/dik-dik.png" alt="" aria-hidden width={200} height={200}
+            <Image src="/sc/animals-white/dik-dik.png" alt="" aria-hidden width={200} height={200}
               style={{ position:'absolute', bottom:30, right:10, width:110, height:'auto', filter:'sepia(0.3) hue-rotate(270deg) saturate(1.1) brightness(0.7)', opacity:0.35, mixBlendMode:'multiply' }} />
           </div>
         </div>
