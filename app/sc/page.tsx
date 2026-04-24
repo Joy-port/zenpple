@@ -60,21 +60,21 @@ export default function ScPage() {
           aria-hidden
           width={800}
           height={800}
-          style={{ position:'absolute', right:0, bottom:0, width:'35%', height:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite' }}
+          style={{ position:'absolute', right:0, bottom:0, width:'26%', height:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite' }}
         />
 
         {/* Small animals + ripple — desktop only */}
         <div className="hidden md:block" aria-hidden>
           <Image src="/sc/animals-white/crane.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'10%', right:'5%', width:94, height:'auto', opacity:0.20, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(14deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
+            style={{ position:'absolute', top:'10%', right:'5%', width:122, height:'auto', opacity:0.20, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(14deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
           <Image src="/sc/animals-white/whale.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'7%', left:'24%', width:70, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
+            style={{ position:'absolute', top:'7%', left:'24%', width:91, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
           <Image src="/sc/animals-white/vulture.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'44%', left:'8%', width:47, height:'auto', opacity:0.18, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
+            style={{ position:'absolute', top:'44%', left:'8%', width:61, height:'auto', opacity:0.18, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
           <Image src="/sc/animals-white/fox.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'38%', right:'9%', width:81, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-7deg)', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.6s' }} />
+            style={{ position:'absolute', top:'38%', right:'9%', width:105, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-7deg)', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.6s' }} />
           <Image src="/sc/animals-white/turtle.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', bottom:'22%', left:'16%', width:39, height:'auto', opacity:0.22, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
+            style={{ position:'absolute', bottom:'22%', left:'16%', width:51, height:'auto', opacity:0.22, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
           <div style={{ position:'absolute', right:'25%', top:'48%', pointerEvents:'none' }}>
             <div className="sc-ripple" />
             <div className="sc-ripple" />
