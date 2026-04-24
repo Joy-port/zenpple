@@ -94,7 +94,7 @@ export default function ScPage() {
 
           <div style={{ width:36, height:1, background:'rgba(200,220,235,0.28)', marginBottom:20 }} />
 
-          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(13px,1.3vw,16px)', color:'rgba(200,220,235,1)', letterSpacing:'0.06em', lineHeight:1.9, maxWidth:340 }}>
+          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'normal', fontSize:'clamp(13px,1.3vw,16px)', color:'rgba(200,220,235,1)', letterSpacing:'0.06em', lineHeight:1.9, maxWidth:340 }}>
             透過古老智慧，<br />連結靈魂最原始的力量
           </p>
         </div>
