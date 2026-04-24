@@ -515,6 +515,10 @@ export default function ScPage() {
               透過頌缽波頻為你的身體進行「接地（Grounding）」，讓腦波在安全的共振中進入深度放鬆。在這樣的狀態下進入薩滿旅程，你將能精準地與你的力量動物相遇——祂是你靈魂最原始的盟友，代表著你與生俱來的特質與守護力量。<br /><br />
               這不僅是一次連結，更教導你如何在日常抉擇、焦慮或失落時，隨時回到內在中心，與你的力量動物並肩航行。
             </p>
+            <button onClick={() => setOpenDetail(openDetail === 'sc01' ? null : 'sc01')}
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#2E5030', opacity:0.6 }}>
+              {openDetail === 'sc01' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc01' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
+            </button>
             {openDetail === 'sc01' && (
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
@@ -541,10 +545,6 @@ export default function ScPage() {
                 </div>
               </div>
             )}
-            <button onClick={() => setOpenDetail(openDetail === 'sc01' ? null : 'sc01')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#2E5030', opacity:0.6 }}>
-              {openDetail === 'sc01' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc01' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
-            </button>
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
@@ -587,6 +587,10 @@ export default function ScPage() {
               不同於守護與行動力的力量動物，指導靈是純粹的光與愛，是具備高度智慧的靈魂導師。祂們持有你的生命藍圖，能在你面臨人生十字路口時，提供超越小我視角的宏觀指引。<br /><br />
               課程中將建立嚴謹的辨識機制——在宇宙中，愛的能量是無法偽造的——協助你學會區分大腦雜訊與來自高維的真實訊息。
             </p>
+            <button onClick={() => setOpenDetail(openDetail === 'sc02' ? null : 'sc02')}
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#1A3050', opacity:0.6 }}>
+              {openDetail === 'sc02' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc02' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
+            </button>
             {openDetail === 'sc02' && (
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
@@ -613,10 +617,6 @@ export default function ScPage() {
                 </div>
               </div>
             )}
-            <button onClick={() => setOpenDetail(openDetail === 'sc02' ? null : 'sc02')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#1A3050', opacity:0.6 }}>
-              {openDetail === 'sc02' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc02' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
-            </button>
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
@@ -655,6 +655,10 @@ export default function ScPage() {
               七脈輪是情緒的儲存槽。透過薩滿冥想，我們引領你親自進入脈輪空間，覺察那些被身體凍結的感受。透過「看見」與「表達」，協助能量重新流動，找回情緒的主控權。<br /><br />
               這不是理論課，而是一場深度內在實作——拒絕空談，直接透過薩滿冥想進入潛意識，與真實的情緒感受正面相遇。
             </p>
+            <button onClick={() => setOpenDetail(openDetail === 'sc03' ? null : 'sc03')}
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#6A3018', opacity:0.6 }}>
+              {openDetail === 'sc03' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc03' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
+            </button>
             {openDetail === 'sc03' && (
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
@@ -681,10 +685,6 @@ export default function ScPage() {
                 </div>
               </div>
             )}
-            <button onClick={() => setOpenDetail(openDetail === 'sc03' ? null : 'sc03')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#6A3018', opacity:0.6 }}>
-              {openDetail === 'sc03' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc03' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
-            </button>
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
@@ -727,6 +727,10 @@ export default function ScPage() {
               <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#A07800', opacity:0.85, display:'block', marginBottom:6 }}>前置課程 · PREREQUISITE</span>
               本課程建議在參與<strong style={{ color:'rgba(38,36,0,0.9)', fontWeight:600 }}>雅妃老師的重生呼吸課</strong>後進行，讓身體通透感轉化為與高我對話的導航能力。
             </div>
+            <button onClick={() => setOpenDetail(openDetail === 'sc04' ? null : 'sc04')}
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#4A4200', opacity:0.6 }}>
+              {openDetail === 'sc04' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc04' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
+            </button>
             {openDetail === 'sc04' && (
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
@@ -753,10 +757,6 @@ export default function ScPage() {
                 </div>
               </div>
             )}
-            <button onClick={() => setOpenDetail(openDetail === 'sc04' ? null : 'sc04')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#4A4200', opacity:0.6 }}>
-              {openDetail === 'sc04' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc04' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
-            </button>
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
@@ -790,6 +790,10 @@ export default function ScPage() {
               當個體遭遇超載的創傷，大腦會啟動保護機制，將受傷的意識片段解離並封存——這些被凍結的自我，即是「內在小孩」。<br /><br />
               我們不採取暴力挖掘，而是透過高我與指導靈的導航，辨識那些被凍結在生命角落的「身心過敏原」。以現在的成熟意識進行跨時空的連結，讓因保護而遺落的碎片重新歸位。
             </p>
+            <button onClick={() => setOpenDetail(openDetail === 'sc05' ? null : 'sc05')}
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#4A1560', opacity:0.6 }}>
+              {openDetail === 'sc05' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc05' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
+            </button>
             {openDetail === 'sc05' && (
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
@@ -816,10 +820,6 @@ export default function ScPage() {
                 </div>
               </div>
             )}
-            <button onClick={() => setOpenDetail(openDetail === 'sc05' ? null : 'sc05')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#4A1560', opacity:0.6 }}>
-              {openDetail === 'sc05' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc05' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
-            </button>
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
