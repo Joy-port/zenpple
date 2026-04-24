@@ -351,12 +351,12 @@ export default function ScPage() {
                     style={{ width:90, height:'auto', filter:step.imgFilter, opacity:0.95 }} />
                 </div>
                 <div style={{ textAlign:'center', flex:1, maxWidth:120 }}>
+                  <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginBottom:4 }}>{step.num}</p>
                   {step.world && (
                     <div style={{ display:'inline-flex', alignItems:'center', padding:'3px 9px', borderRadius:2, background:'transparent', border:`1px solid ${step.worldColor}`, fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:step.worldColor, whiteSpace:'nowrap', marginBottom:5 }}>
                       {step.world}
                     </div>
                   )}
-                  <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginBottom:2 }}>{step.num}</p>
                   <p style={{ fontSize:16, fontWeight:700, color:'rgba(42,54,46,0.92)', letterSpacing:'0.04em', marginBottom:2 }}>{step.label}</p>
                   <p style={{ fontFamily:'var(--f-display)', fontSize:11, letterSpacing:'0.16em', color:'rgba(60,88,68,0.65)', textTransform:'uppercase' }}>{step.en}</p>
                 </div>
