@@ -344,7 +344,7 @@ export default function ScPage() {
 
             {/* Step rows — image + text to the right of the path */}
             {([
-              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/animals/dragon.png',              glow:'200,130,60', invertImg:false },
+              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/animals/貓咪.png',                glow:'200,130,60', invertImg:false },
               { id:'sc02', num:'02', label:'指導靈',      en:'Spirit Guide',        img:'/sc/black/指導靈.png',                glow:'80,140,210',  invertImg:false },
               { id:'sc03', num:'03', label:'脈輪情緒覺察', en:'Chakra & Emotion',   img:'/sc/black/七脈輪情緒覺察.png',        glow:'200,100,70',  invertImg:false },
               { id:'sc04', num:'04', label:'連結高我',    en:'Higher Self',         img:'/sc/black/高我.png',                  glow:'200,170,60',  invertImg:false },
@@ -370,10 +370,10 @@ export default function ScPage() {
 
             {/* Row 1 — above-wave: 01, 03, 05 — theme calligraphy image outward (top), title toward wave (bottom) */}
             <div style={{ position:'relative', height:280, marginBottom:12 }}>
-              {/* 01 — 力量動物-直, amber */}
+              {/* 01 — 力量動物, amber */}
               <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
                 <div className="sc-glow-wrap" style={{'--glow-color':'200,130,60'} as React.CSSProperties}>
-                  <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={200} height={200}
+                  <Image src="/sc/animals/貓咪.png" alt="" aria-hidden width={200} height={200}
                     style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'brightness(0.72)', opacity:0.82, animation:'sc-breathe 5s ease-in-out infinite' }} />
                 </div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
@@ -489,12 +489,16 @@ export default function ScPage() {
         </svg>
         {/* 書法圖 */}
         <Image src="/sc/black/力量動物-直.png" alt="" aria-hidden width={600} height={800}
-          style={{ position:'absolute', right:'-3%', top:'50%', transform:'translateY(-50%)', height:'90vh', width:'auto',
+          style={{ position:'absolute', right:'-8%', top:'50%', transform:'translateY(-50%)', height:'clamp(280px,58vh,480px)', width:'auto',
             filter:'sepia(0.45) hue-rotate(15deg) saturate(1.6) brightness(0.75)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
         {/* 力量動物-橫 secondary layer */}
         <Image src="/sc/black/力量動物-橫.png" alt="" aria-hidden width={900} height={400}
           style={{ position:'absolute', bottom:'-5%', left:'-5%', width:'55%', height:'auto',
             filter:'sepia(0.2) hue-rotate(15deg) saturate(0.8) brightness(0.8)', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none', transform:'rotate(-8deg) scale(0.75)' }} />
+        {/* 龍 — supporting accent, top-left corner (opposite calligraphy side) */}
+        <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={200} height={200}
+          style={{ position:'absolute', left:'5%', top:'8%', width:80, height:'auto',
+            filter:'sepia(0.55) hue-rotate(10deg) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.20, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
@@ -539,8 +543,8 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative' }}>
-              <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={420} height={420}
-                style={{ width:'min(360px,85%)', height:'auto', filter:'sepia(0.55) hue-rotate(10deg) saturate(1.6) brightness(0.68)', opacity:0.78, animation:'sc-breathe 5s ease-in-out infinite', mixBlendMode:'luminosity' }} />
+              <Image src="/sc/animals/貓咪.png" alt="" aria-hidden width={420} height={420}
+                style={{ width:'min(320px,80%)', height:'auto', filter:'sepia(0.55) hue-rotate(10deg) saturate(1.6) brightness(0.68)', opacity:0.78, animation:'sc-breathe 5s ease-in-out infinite', mixBlendMode:'luminosity' }} />
             </div>
           </div>
         </div>
@@ -561,7 +565,7 @@ export default function ScPage() {
         {/* 書法圖 */}
         <Image src="/sc/black/指導靈.png" alt="" aria-hidden width={600} height={700}
           className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', left:'-2%', top:'50%', transform:'translateY(-50%)', height:'85vh', width:'auto',
+          style={{ position:'absolute', left:'-7%', top:'50%', transform:'translateY(-50%)', height:'clamp(280px,58vh,480px)', width:'auto',
             filter:'saturate(0.4) hue-rotate(195deg) brightness(0.58)', mixBlendMode:'multiply', opacity:0.50, pointerEvents:'none' }} />
         {/* 薩滿巫 secondary */}
         <Image src="/sc/black/薩滿巫.png" alt="" aria-hidden width={500} height={600}
@@ -632,7 +636,7 @@ export default function ScPage() {
         {/* 書法圖 */}
         <Image src="/sc/black/七脈輪情緒覺察.png" alt="" aria-hidden width={600} height={700}
           className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', right:'-2%', top:'50%', transform:'translateY(-50%)', height:'88vh', width:'auto',
+          style={{ position:'absolute', right:'-7%', top:'50%', transform:'translateY(-50%)', height:'clamp(280px,58vh,480px)', width:'auto',
             filter:'sepia(0.5) hue-rotate(340deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
         {/* 擬態章魚 — small, top-left (away from right calligraphy) */}
         <Image src="/sc/animals/擬態章魚.png" alt="" aria-hidden width={200} height={200}
@@ -698,7 +702,7 @@ export default function ScPage() {
         {/* 書法圖 */}
         <Image src="/sc/black/高我.png" alt="" aria-hidden width={600} height={700}
           className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', left:'-2%', top:'50%', transform:'translateY(-50%)', height:'85vh', width:'auto',
+          style={{ position:'absolute', left:'-7%', top:'50%', transform:'translateY(-50%)', height:'clamp(280px,58vh,480px)', width:'auto',
             filter:'sepia(0.5) hue-rotate(38deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
         {/* 獨角獸 — small, bottom-right (away from left calligraphy) */}
         <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={200} height={200}
@@ -759,20 +763,19 @@ export default function ScPage() {
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 50%, rgba(90,30,140,0.18) 0%, rgba(120,50,160,0.12) 50%, transparent 70%), radial-gradient(ellipse 50% 60% at 90% 25%, rgba(140,60,180,0.20) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'60%', height:'90vh', borderRadius:'50%', background:'radial-gradient(ellipse 75% 90% at 60% 48%, rgba(100,20,180,0.42) 0%, transparent 68%)', pointerEvents:'none', filter:'blur(28px)' }} />
-        {/* 書法圖 */}
+        {/* ── 雙主圖 on RIGHT: 內在小孩 (upper) + 內在小孩-拿心 (lower) ── */}
+        {/* Upper — 內在小孩, taller figure, upper-right */}
         <Image src="/sc/black/內在小孩.png" alt="" aria-hidden width={600} height={700}
-          className="sc05-bg-calligraphy"
-          style={{ position:'absolute', right:'-2%', top:'50%', transform:'translateY(-50%)', height:'88vh', width:'auto',
-            filter:'sepia(0.5) hue-rotate(270deg) saturate(2.2) brightness(0.65)', mixBlendMode:'multiply', opacity:0.48, pointerEvents:'none' }} />
-        {/* 內在小孩-拿心 secondary */}
+          style={{ position:'absolute', right:'6%', top:'8%', height:'clamp(200px,36vh,320px)', width:'auto',
+            filter:'sepia(0.5) hue-rotate(270deg) saturate(2.2) brightness(0.65)', mixBlendMode:'multiply', opacity:0.70, pointerEvents:'none', animation:'sc-breathe 5s ease-in-out infinite' }} />
+        {/* Lower — 拿心, holding-heart figure, lower-right, offset inward */}
         <Image src="/sc/black/內在小孩-拿心.png" alt="" aria-hidden width={400} height={500}
-          className="sc-section-deco"
-          style={{ position:'absolute', left:'5%', bottom:'-5%', width:'22%', height:'auto',
-            filter:'sepia(0.2) hue-rotate(270deg) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(8deg) scale(0.8)' }} />
-        {/* 水豚 — small, bottom-left (away from right calligraphy) */}
+          style={{ position:'absolute', right:'14%', bottom:'10%', height:'clamp(160px,28vh,250px)', width:'auto',
+            filter:'sepia(0.5) hue-rotate(270deg) saturate(2.2) brightness(0.68)', mixBlendMode:'multiply', opacity:0.65, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
+        {/* 水豚 — small accent, bottom-left (away from right images) */}
         <Image src="/sc/animals/水豚.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', left:'7%', bottom:'12%', width:90, height:'auto',
-            filter:'sepia(0.45) hue-rotate(270deg) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite' }} />
+          style={{ position:'absolute', left:'6%', bottom:'14%', width:80, height:'auto',
+            filter:'sepia(0.45) hue-rotate(270deg) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.20, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
