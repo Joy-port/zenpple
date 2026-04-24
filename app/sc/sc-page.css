@@ -4,7 +4,7 @@
 }
 
 /* ── Hide Nav & Footer on SC page ── */
-body.page-sc nav,
+body.page-sc header,
 body.page-sc footer { display: none !important; }
 
 /* ── Ripple animation ── */

@@ -60,7 +60,7 @@ export default function ScPage() {
           aria-hidden
           width={800}
           height={800}
-          style={{ position:'absolute', right:0, bottom:0, width:'40%', height:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none' }}
+          style={{ position:'absolute', right:0, bottom:0, width:'35%', height:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none' }}
         />
 
         {/* Ripple rings — mid-right */}
@@ -75,7 +75,7 @@ export default function ScPage() {
 
           {/* EN label */}
           <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.38em', color:'rgba(200,220,235,1)', marginBottom:28, textTransform:'uppercase' }}>
-            SC · Shamanic Soul Awakening
+            Shamanic Soul Awakening
           </p>
 
           {/* 薩滿冥想-橫 — calligraphy title, horizontal brushwork */}
@@ -490,10 +490,14 @@ export default function ScPage() {
           <path d="M0,42 C200,72 440,12 700,50 C920,80 1180,16 1360,44 C1410,52 1430,50 1440,49 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.88" />
           <path d="M0,58 C280,34 560,72 840,50 C1060,32 1280,64 1440,58 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.45" />
         </svg>
-        {/* 龍-color — large bg, right side, semi-transparent */}
-        <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={600} height={600}
-          style={{ position:'absolute', right:'4%', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'saturate(1.7) contrast(1.3) brightness(0.82)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
+        {/* 龍-color — large bg, right side, semi-transparent, clipped to container */}
+        <div aria-hidden style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
+          <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={600} height={600}
+            style={{ position:'absolute', right:0, top:'50%', transform:'translateY(-70%)', height:'clamp(300px,60vh,500px)', width:'auto',
+              filter:'saturate(1.7) contrast(1.3) brightness(0.82)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite',
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
+        </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
@@ -537,7 +541,7 @@ export default function ScPage() {
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
-            <div style={{ position:'relative' }}>
+            <div style={{ position:'relative', transform:'translateY(-15%)' }}>
               <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={420} height={420}
                 style={{ width:'min(320px,80%)', height:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite' }} />
             </div>
@@ -558,11 +562,14 @@ export default function ScPage() {
           <path d="M0,88 C300,58 620,108 920,76 C1140,54 1320,94 1440,86 L1440,120 L0,120 Z" fill="#F5E2D4" opacity="0.48" />
           <path d="M0,104 C360,82 720,118 1080,96 C1260,86 1380,108 1440,105 L1440,120 L0,120 Z" fill="#F5E2D4" opacity="0.22" />
         </svg>
-        {/* 指導靈-color — large bg, left side, semi-transparent */}
-        <Image src="/sc/journey/指導靈-color.png" alt="" aria-hidden width={600} height={700}
-          className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', left:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'saturate(0.75) brightness(1.05) contrast(0.90)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 5.5s ease-in-out infinite' }} />
+        {/* 指導靈-color — large bg, left side, semi-transparent, clipped to container */}
+        <div aria-hidden style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
+          <Image src="/sc/journey/指導靈-color.png" alt="" aria-hidden width={600} height={700}
+            style={{ position:'absolute', left:0, top:'50%', transform:'translateY(-70%)', height:'clamp(300px,60vh,500px)', width:'auto',
+              filter:'saturate(0.75) brightness(1.05) contrast(0.90)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 5.5s ease-in-out infinite',
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
+        </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col" style={{ order:2 }}>
 
@@ -607,7 +614,7 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/指導靈-color.png" alt="" aria-hidden width={420} height={420}
-              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.75) brightness(1.05) contrast(0.90)', opacity:0.95, animation:'sc-breathe 5.5s ease-in-out infinite' }} />
+              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.75) brightness(1.05) contrast(0.90)', opacity:0.95, animation:'sc-breathe 5.5s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
       </section>
@@ -623,11 +630,14 @@ export default function ScPage() {
           <path d="M0,38 C220,70 480,10 740,48 C980,80 1220,18 1420,42 C1430,44 1436,44 1440,44 L1440,80 L0,80 Z" fill="#FFF8CC" opacity="0.88" />
           <path d="M0,54 C300,30 600,70 880,48 C1100,30 1300,62 1440,55 L1440,80 L0,80 Z" fill="#FFF8CC" opacity="0.45" />
         </svg>
-        {/* 七脈輪情緒覺察-color — large bg, right side, semi-transparent */}
-        <Image src="/sc/journey/七脈輪情緒覺察-color.png" alt="" aria-hidden width={600} height={700}
-          className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', right:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'saturate(1.1) brightness(0.92) contrast(1.08)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite' }} />
+        {/* 七脈輪情緒覺察-color — large bg, right side, semi-transparent, clipped to container */}
+        <div aria-hidden style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
+          <Image src="/sc/journey/七脈輪情緒覺察-color.png" alt="" aria-hidden width={600} height={700}
+            style={{ position:'absolute', right:0, top:'50%', transform:'translateY(-70%)', height:'clamp(300px,60vh,500px)', width:'auto',
+              filter:'saturate(1.1) brightness(0.92) contrast(1.08)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite',
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
+        </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
@@ -672,7 +682,7 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/七脈輪情緒覺察-color.png" alt="" aria-hidden width={420} height={420}
-              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(1.1) brightness(0.92) contrast(1.08)', opacity:0.95, animation:'sc-breathe 6s ease-in-out infinite' }} />
+              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(1.1) brightness(0.92) contrast(1.08)', opacity:0.95, animation:'sc-breathe 6s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
       </section>
@@ -689,11 +699,14 @@ export default function ScPage() {
           <path d="M0,84 C320,56 660,106 960,72 C1160,50 1320,90 1440,82 L1440,120 L0,120 Z" fill="#E4D8F5" opacity="0.48" />
           <path d="M0,102 C400,80 800,118 1120,96 C1280,86 1380,108 1440,104 L1440,120 L0,120 Z" fill="#E4D8F5" opacity="0.22" />
         </svg>
-        {/* 高我-color — large bg, left side, semi-transparent */}
-        <Image src="/sc/journey/高我-color.png" alt="" aria-hidden width={600} height={700}
-          className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', left:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'saturate(1.0) brightness(0.82) contrast(1.18)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 6.5s ease-in-out infinite' }} />
+        {/* 高我-color — large bg, left side, semi-transparent, clipped to container */}
+        <div aria-hidden style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
+          <Image src="/sc/journey/高我-color.png" alt="" aria-hidden width={600} height={700}
+            style={{ position:'absolute', left:0, top:'50%', transform:'translateY(-70%)', height:'clamp(300px,60vh,500px)', width:'auto',
+              filter:'saturate(1.0) brightness(0.82) contrast(1.18)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 6.5s ease-in-out infinite',
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
+        </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col" style={{ order:2 }}>
 
@@ -741,7 +754,7 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/高我-color.png" alt="" aria-hidden width={420} height={420}
-              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(1.0) brightness(0.82) contrast(1.18)', opacity:0.95, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
+              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(1.0) brightness(0.82) contrast(1.18)', opacity:0.95, animation:'sc-breathe 6.5s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
       </section>
@@ -752,11 +765,14 @@ export default function ScPage() {
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 50%, rgba(90,30,140,0.18) 0%, rgba(120,50,160,0.12) 50%, transparent 70%), radial-gradient(ellipse 50% 60% at 90% 25%, rgba(140,60,180,0.20) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'60%', height:'90vh', borderRadius:'50%', background:'radial-gradient(ellipse 75% 90% at 60% 48%, rgba(100,20,180,0.42) 0%, transparent 68%)', pointerEvents:'none', filter:'blur(28px)' }} />
-        {/* 內在小孩-color — large bg, right side, semi-transparent */}
-        <Image src="/sc/journey/內在小孩-color.png" alt="" aria-hidden width={600} height={700}
-          className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', right:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'saturate(0.78) brightness(1.08) contrast(0.92)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 5s ease-in-out infinite' }} />
+        {/* 內在小孩-color — large bg, right side, semi-transparent, clipped to container */}
+        <div aria-hidden style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
+          <Image src="/sc/journey/內在小孩-color.png" alt="" aria-hidden width={600} height={700}
+            style={{ position:'absolute', right:0, top:'50%', transform:'translateY(-70%)', height:'clamp(300px,60vh,500px)', width:'auto',
+              filter:'saturate(0.78) brightness(1.08) contrast(0.92)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 5s ease-in-out infinite',
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
+        </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
@@ -801,7 +817,7 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/內在小孩-color.png" alt="" aria-hidden width={420} height={420}
-              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.78) brightness(1.08) contrast(0.92)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite' }} />
+              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.78) brightness(1.08) contrast(0.92)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
       </section>
