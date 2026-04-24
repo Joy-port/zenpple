@@ -539,7 +539,7 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative' }}>
-              <Image src="/sc/animals/白老虎.png" alt="" aria-hidden width={420} height={420}
+              <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={420} height={420}
                 style={{ width:'min(320px,80%)', height:'auto', filter:'sepia(0.3) hue-rotate(80deg) saturate(1.8) brightness(0.68)', opacity:0.78, animation:'sc-breathe 5s ease-in-out infinite', mixBlendMode:'luminosity' }} />
             </div>
           </div>
