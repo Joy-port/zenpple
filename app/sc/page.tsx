@@ -139,8 +139,6 @@ export default function ScPage() {
           style={{ position:'absolute', top:'-2%', left:'-4%', width:'clamp(260px,30vw,420px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.15, pointerEvents:'none', transform:'scaleX(-1) rotate(-12deg)', zIndex:2 }} />
         <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', bottom:'-6%', right:'2%', width:'clamp(180px,20vw,300px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.09, pointerEvents:'none', transform:'rotate(8deg)' }} />
-        <Image src="/sc/animals/vulture.png" alt="" aria-hidden width={350} height={350}
-          style={{ position:'absolute', top:'55%', left:'42%', width:'clamp(140px,14vw,220px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.06, pointerEvents:'none', transform:'translateY(-50%) rotate(-5deg)' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center', position:'relative', zIndex:2 }}>
           <div className="sc-text-col">
             <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.22em', color:'rgba(180,215,220,1)', marginBottom:14, textTransform:'uppercase' }}>
@@ -347,7 +345,7 @@ export default function ScPage() {
 
             {/* Step rows — image + text to the right of the path */}
             {([
-              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/journey/龍-color.png',                    glow:'70,140,80',  world:'下部世界',   worldColor:'#4E9660', imgFilter:'saturate(1.7) contrast(1.3) brightness(0.82)' },
+              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/journey/龍-color.png',                    glow:'70,140,80',  world:'下部世界',   worldColor:'#3E784D', imgFilter:'saturate(1.7) contrast(1.3) brightness(0.82)' },
               { id:'sc02', num:'02', label:'指導靈',      en:'Spirit Guide',        img:'/sc/journey/指導靈-color.png',                glow:'80,140,210', world:'中部世界',   worldColor:'#4472A8', imgFilter:'saturate(0.75) brightness(1.05) contrast(0.90)' },
               { id:'sc03', num:'03', label:'脈輪情緒覺察', en:'Chakra & Emotion',   img:'/sc/journey/七脈輪情緒覺察-color.png',         glow:'200,100,70', world:'上部世界',   worldColor:'#C05A30', imgFilter:'saturate(1.1) brightness(0.92) contrast(1.08)' },
               { id:'sc04', num:'04', label:'連結高我',    en:'Higher Self',         img:'/sc/journey/高我-color.png',                  glow:'240,200,30', world:'整合階段',   worldColor:'#A89020', imgFilter:'saturate(1.0) brightness(0.82) contrast(1.18)' },
@@ -384,9 +382,9 @@ export default function ScPage() {
                   <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={200} height={200}
                     style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite' }} />
                 </div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#4E9660', opacity:0.7, marginBottom:2 }}>01</div>
-                <div style={{ fontSize:18, fontWeight:700, color:'#4E9660', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
-                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:2, background:'transparent', border:'1px solid #4E9660', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'#4E9660', whiteSpace:'nowrap' }}>下部世界</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:18, letterSpacing:'0.2em', color:'#3E784D', opacity:0.7, marginBottom:2 }}>01</div>
+                <div style={{ fontSize:18, fontWeight:700, color:'#3E784D', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
+                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:2, background:'transparent', border:'1px solid #3E784D', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'#3E784D', whiteSpace:'nowrap' }}>下部世界</div>
               </div>
               {/* 03 — 七脈輪情緒覺察, terracotta */}
               <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc03')}>
