@@ -469,7 +469,11 @@ export default function ScPage() {
 
         </div>
 
-        {/* 薩滿旅程的線-白.png kept in project, now using black version above */}
+        {/* bottom wave → SC-01 */}
+        <svg aria-hidden viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ position:'absolute', bottom:0, left:0, width:'100%', height:80, display:'block', pointerEvents:'none' }}>
+          <path d="M0,45 C160,72 380,18 620,52 C860,82 1120,20 1300,46 C1380,56 1420,50 1440,48 L1440,80 L0,80 Z" fill="#E6EDE6" opacity="0.88" />
+          <path d="M0,62 C240,42 520,74 780,54 C1020,36 1260,66 1440,60 L1440,80 L0,80 Z" fill="#E6EDE6" opacity="0.45" />
+        </svg>
       </section>
 
       {/* ═══ SC-01 尋找力量動物 ═══ */}
@@ -480,8 +484,8 @@ export default function ScPage() {
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 60% 65%, rgba(50,140,70,0.20) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
         {/* bottom wave → SC-02 */}
         <svg aria-hidden viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ position:'absolute', bottom:0, left:0, width:'100%', height:80, display:'block', pointerEvents:'none' }}>
-          <path d="M0,40 C240,75 480,10 720,45 C960,78 1200,18 1440,48 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.85" />
-          <path d="M0,55 C300,30 600,70 900,50 C1100,36 1300,62 1440,55 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.45" />
+          <path d="M0,42 C200,72 440,12 700,50 C920,80 1180,16 1360,44 C1410,52 1430,50 1440,49 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.88" />
+          <path d="M0,58 C280,34 560,72 840,50 C1060,32 1280,64 1440,58 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.45" />
         </svg>
         {/* 書法圖 */}
         <Image src="/sc/black/力量動物-直.png" alt="" aria-hidden width={600} height={800}
@@ -554,9 +558,10 @@ export default function ScPage() {
         {/* text-zone lift — brightens the right column where content sits */}
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 55% 70% at 78% 50%, rgba(30,55,120,0.14) 0%, transparent 70%)', pointerEvents:'none' }} />
         {/* bottom wave → SC-03 */}
-        <svg aria-hidden viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ position:'absolute', bottom:0, left:0, width:'100%', height:80, display:'block', pointerEvents:'none' }}>
-          <path d="M0,48 C200,18 500,72 780,38 C1020,10 1240,60 1440,42 L1440,80 L0,80 Z" fill="#F5E2D4" opacity="0.85" />
-          <path d="M0,60 C360,38 680,72 960,52 C1160,38 1320,65 1440,60 L1440,80 L0,80 Z" fill="#F5E2D4" opacity="0.45" />
+        <svg aria-hidden viewBox="0 0 1440 120" preserveAspectRatio="none" style={{ position:'absolute', bottom:0, left:0, width:'100%', height:120, display:'block', pointerEvents:'none' }}>
+          <path d="M0,68 C200,104 460,32 720,74 C960,112 1200,36 1440,70 L1440,120 L0,120 Z" fill="#F5E2D4" opacity="0.88" />
+          <path d="M0,88 C300,58 620,108 920,76 C1140,54 1320,94 1440,86 L1440,120 L0,120 Z" fill="#F5E2D4" opacity="0.48" />
+          <path d="M0,104 C360,82 720,118 1080,96 C1260,86 1380,108 1440,105 L1440,120 L0,120 Z" fill="#F5E2D4" opacity="0.22" />
         </svg>
         {/* 書法圖 */}
         <Image src="/sc/black/指導靈.png" alt="" aria-hidden width={600} height={700}
@@ -626,8 +631,8 @@ export default function ScPage() {
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 60% 60%, rgba(190,90,40,0.24) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
         {/* bottom wave → SC-04 */}
         <svg aria-hidden viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ position:'absolute', bottom:0, left:0, width:'100%', height:80, display:'block', pointerEvents:'none' }}>
-          <path d="M0,35 C280,68 560,15 840,50 C1080,78 1260,22 1440,45 L1440,80 L0,80 Z" fill="#F5EDD5" opacity="0.85" />
-          <path d="M0,52 C320,28 640,68 920,45 C1140,28 1320,58 1440,52 L1440,80 L0,80 Z" fill="#F5EDD5" opacity="0.45" />
+          <path d="M0,38 C220,70 480,10 740,48 C980,80 1220,18 1420,42 C1430,44 1436,44 1440,44 L1440,80 L0,80 Z" fill="#FFF8CC" opacity="0.88" />
+          <path d="M0,54 C300,30 600,70 880,48 C1100,30 1300,62 1440,55 L1440,80 L0,80 Z" fill="#FFF8CC" opacity="0.45" />
         </svg>
         {/* 書法圖 */}
         <Image src="/sc/black/七脈輪情緒覺察.png" alt="" aria-hidden width={600} height={700}
@@ -691,9 +696,10 @@ export default function ScPage() {
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', left:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 40% 60%, rgba(255,210,20,0.28) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
         {/* bottom wave → SC-05 */}
-        <svg aria-hidden viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ position:'absolute', bottom:0, left:0, width:'100%', height:80, display:'block', pointerEvents:'none' }}>
-          <path d="M0,44 C180,72 420,16 700,52 C940,82 1180,20 1440,46 L1440,80 L0,80 Z" fill="#E4D8F5" opacity="0.85" />
-          <path d="M0,58 C280,35 580,72 860,48 C1080,30 1280,62 1440,55 L1440,80 L0,80 Z" fill="#E4D8F5" opacity="0.45" />
+        <svg aria-hidden viewBox="0 0 1440 120" preserveAspectRatio="none" style={{ position:'absolute', bottom:0, left:0, width:'100%', height:120, display:'block', pointerEvents:'none' }}>
+          <path d="M0,64 C180,100 420,24 700,68 C960,108 1200,28 1440,66 L1440,120 L0,120 Z" fill="#E4D8F5" opacity="0.88" />
+          <path d="M0,84 C320,56 660,106 960,72 C1160,50 1320,90 1440,82 L1440,120 L0,120 Z" fill="#E4D8F5" opacity="0.48" />
+          <path d="M0,102 C400,80 800,118 1120,96 C1280,86 1380,108 1440,104 L1440,120 L0,120 Z" fill="#E4D8F5" opacity="0.22" />
         </svg>
         {/* 書法圖 */}
         <Image src="/sc/black/高我.png" alt="" aria-hidden width={600} height={700}
