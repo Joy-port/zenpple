@@ -604,7 +604,7 @@ export default function ScPage() {
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
-                  <span style={{ color:'rgba(15,28,50,0.85)', lineHeight:1.75 }}>強化日常生命抉擇的導航力，建議完成 SC-01 後進行</span>
+                  <span style={{ color:'rgba(15,28,50,0.85)', lineHeight:1.75 }}>強化日常生命抉擇的導航力，建議完成力量動物課程後進行</span>
                 </div>
                 </div>
                 <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(26,48,80,0.06)', borderRadius:12 }}>
@@ -740,7 +740,7 @@ export default function ScPage() {
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#4A4200', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
-                  <span style={{ color:'rgba(38,36,0,0.85)', lineHeight:1.75 }}>建議先完成 SC-01、SC-02，並完成重生呼吸課後進行</span>
+                  <span style={{ color:'rgba(38,36,0,0.85)', lineHeight:1.75 }}>建議先完成力量動物、指導靈課程，並完成重生呼吸課後進行</span>
                 </div>
                 </div>
                 <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(90,62,8,0.07)', borderRadius:12 }}>
@@ -796,7 +796,7 @@ export default function ScPage() {
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>銜接建議</span>
-                  <span style={{ color:'rgba(35,10,48,0.85)', lineHeight:1.75 }}>建議具備豐富薩滿實踐經驗，完成 SC-01 至 SC-04 後進行</span>
+                  <span style={{ color:'rgba(35,10,48,0.85)', lineHeight:1.75 }}>建議具備豐富薩滿實踐經驗，完成前四堂課程後進行</span>
                 </div>
                 </div>
                 <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(74,21,96,0.07)', borderRadius:12 }}>
