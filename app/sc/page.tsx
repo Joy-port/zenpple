@@ -568,6 +568,10 @@ export default function ScPage() {
           className="sc-section-deco"
           style={{ position:'absolute', right:'5%', bottom:'-10%', width:'28%', height:'auto',
             filter:'sepia(0.1) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(6deg) scale(0.8)' }} />
+        {/* 鶴 — small, bottom-right (away from left calligraphy) */}
+        <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={200} height={200}
+          style={{ position:'absolute', right:'7%', bottom:'10%', width:90, height:'auto',
+            filter:'sepia(0.25) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col" style={{ order:2 }}>
 
@@ -610,12 +614,7 @@ export default function ScPage() {
             </button>
             </div>
           </div>
-          <div className="sc-image-col" style={{ order:1, position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
-            <div style={{ position:'relative' }}>
-              <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={400} height={400}
-                style={{ width:'min(320px,80%)', height:'auto', filter:'sepia(0.25) saturate(1.6) brightness(0.68)', opacity:0.78, animation:'sc-breathe 6s ease-in-out infinite', mixBlendMode:'luminosity' }} />
-            </div>
-          </div>
+          <div className="sc-image-col hidden md:block" />
         </div>
       </section>
 
@@ -635,6 +634,10 @@ export default function ScPage() {
           className="sc-section-bg-calligraphy"
           style={{ position:'absolute', right:'-2%', top:'50%', transform:'translateY(-50%)', height:'88vh', width:'auto',
             filter:'sepia(0.5) hue-rotate(340deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
+        {/* 擬態章魚 — small, top-left (away from right calligraphy) */}
+        <Image src="/sc/animals/擬態章魚.png" alt="" aria-hidden width={200} height={200}
+          style={{ position:'absolute', left:'7%', top:'10%', width:90, height:'auto',
+            filter:'sepia(0.6) hue-rotate(340deg) saturate(1.7) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
@@ -677,12 +680,7 @@ export default function ScPage() {
             </button>
             </div>
           </div>
-          <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
-            <div style={{ position:'relative' }}>
-              <Image src="/sc/animals/擬態章魚.png" alt="" aria-hidden width={400} height={400}
-                style={{ width:'min(340px,82%)', height:'auto', filter:'sepia(0.6) hue-rotate(340deg) saturate(1.7) brightness(0.66)', opacity:0.78, animation:'sc-breathe 7s ease-in-out infinite', mixBlendMode:'luminosity' }} />
-            </div>
-          </div>
+          <div className="sc-image-col hidden md:block" />
         </div>
       </section>
 
@@ -702,6 +700,10 @@ export default function ScPage() {
           className="sc-section-bg-calligraphy"
           style={{ position:'absolute', left:'-2%', top:'50%', transform:'translateY(-50%)', height:'85vh', width:'auto',
             filter:'sepia(0.5) hue-rotate(38deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
+        {/* 獨角獸 — small, bottom-right (away from left calligraphy) */}
+        <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={200} height={200}
+          style={{ position:'absolute', right:'7%', bottom:'10%', width:90, height:'auto',
+            filter:'sepia(0.5) hue-rotate(38deg) saturate(1.7) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col" style={{ order:2 }}>
 
@@ -747,12 +749,7 @@ export default function ScPage() {
             </button>
             </div>
           </div>
-          <div className="sc-image-col" style={{ order:1, position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
-            <div style={{ position:'relative' }}>
-              <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={400} height={400}
-                style={{ width:'min(360px,85%)', height:'auto', filter:'sepia(0.5) hue-rotate(38deg) saturate(1.7) brightness(0.68)', opacity:0.75, animation:'sc-breathe 9s ease-in-out infinite', mixBlendMode:'luminosity' }} />
-            </div>
-          </div>
+          <div className="sc-image-col hidden md:block" />
         </div>
       </section>
 
@@ -772,6 +769,10 @@ export default function ScPage() {
           className="sc-section-deco"
           style={{ position:'absolute', left:'5%', bottom:'-5%', width:'22%', height:'auto',
             filter:'sepia(0.2) hue-rotate(270deg) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(8deg) scale(0.8)' }} />
+        {/* 水豚 — small, bottom-left (away from right calligraphy) */}
+        <Image src="/sc/animals/水豚.png" alt="" aria-hidden width={200} height={200}
+          style={{ position:'absolute', left:'7%', bottom:'12%', width:90, height:'auto',
+            filter:'sepia(0.45) hue-rotate(270deg) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
@@ -814,12 +815,7 @@ export default function ScPage() {
             </button>
             </div>
           </div>
-          <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
-            <div style={{ position:'relative' }}>
-              <Image src="/sc/animals/水豚.png" alt="" aria-hidden width={400} height={400}
-                style={{ width:'min(340px,82%)', height:'auto', filter:'sepia(0.45) hue-rotate(270deg) saturate(1.6) brightness(0.68)', opacity:0.75, animation:'sc-breathe 6s ease-in-out infinite', mixBlendMode:'luminosity' }} />
-            </div>
-          </div>
+          <div className="sc-image-col hidden md:block" />
         </div>
       </section>
 
