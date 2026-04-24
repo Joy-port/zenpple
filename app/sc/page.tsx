@@ -49,7 +49,7 @@ export default function ScPage() {
       </svg>
 
       {/* ═══ HERO ═══ */}
-      <section style={{ position:'relative', minHeight:'100vh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', overflow:'hidden', background:'#2B4A5E' }}>
+      <section style={{ position:'relative', height:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', overflow:'hidden', background:'#2B4A5E' }}>
         {/* Airy blue-teal wash */}
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 90% 80% at 50% 40%, rgba(94,142,138,0.28) 0%, transparent 65%), radial-gradient(ellipse 60% 70% at 10% 70%, rgba(74,107,138,0.35) 0%, transparent 55%), radial-gradient(ellipse 50% 50% at 90% 15%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
 
@@ -63,6 +63,23 @@ export default function ScPage() {
           style={{ position:'absolute', right:0, bottom:0, width:'35%', height:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite' }}
         />
 
+        {/* Small animals — scattered across hero, avoiding center content & bottom-right figure */}
+        {/* crane — top-right corner */}
+        <Image src="/sc/animals-white/crane.png" alt="" aria-hidden width={160} height={160}
+          style={{ position:'absolute', top:'10%', right:'5%', width:78, height:'auto', opacity:0.18, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(14deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
+        {/* whale — top-left, inset from edge */}
+        <Image src="/sc/animals-white/whale.png" alt="" aria-hidden width={160} height={160}
+          style={{ position:'absolute', top:'7%', left:'24%', width:82, height:'auto', opacity:0.17, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
+        {/* vulture — left side, mid-height */}
+        <Image src="/sc/animals-white/vulture.png" alt="" aria-hidden width={160} height={160}
+          style={{ position:'absolute', top:'44%', left:'8%', width:62, height:'auto', opacity:0.16, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
+        {/* fox — right side, upper-mid (above main figure) */}
+        <Image src="/sc/animals-white/fox.png" alt="" aria-hidden width={160} height={160}
+          style={{ position:'absolute', top:'38%', right:'9%', width:66, height:'auto', opacity:0.18, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-7deg)', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.6s' }} />
+        {/* turtle — bottom-left, away from figure */}
+        <Image src="/sc/animals-white/turtle.png" alt="" aria-hidden width={160} height={160}
+          style={{ position:'absolute', bottom:'22%', left:'16%', width:58, height:'auto', opacity:0.15, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
+
         {/* Ripple rings — mid-right */}
         <div style={{ position:'absolute', right:'25%', top:'48%', pointerEvents:'none' }}>
           <div className="sc-ripple" />
@@ -72,6 +89,10 @@ export default function ScPage() {
 
         {/* Content — vertical top-down flow, centered */}
         <div style={{ position:'relative', zIndex:2, display:'flex', flexDirection:'column', alignItems:'center', textAlign:'center', padding:'clamp(100px,14vh,140px) clamp(20px,8vw,120px) clamp(80px,10vh,100px)', gap:0 }}>
+
+          {/* Logo */}
+          <Image src="/zenpple-logo-wh.png" alt="Zenpple 森波" width={160} height={160}
+            style={{ width:'clamp(48px,5.5vw,68px)', height:'auto', opacity:0.75, marginBottom:28 }} />
 
           {/* EN label */}
           <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.38em', color:'rgba(200,220,235,1)', marginBottom:28, textTransform:'uppercase' }}>
@@ -405,7 +426,7 @@ export default function ScPage() {
             <div style={{ position:'relative', width:'100%' }}>
               <Image src="/sc/black/薩滿旅程的線.png" alt="" aria-hidden width={1800} height={320}
                 style={{ width:'100%', height:'auto', display:'block',
-                  filter:'brightness(0.55)', mixBlendMode:'multiply', opacity:0.7 }} />
+                  filter:'brightness(0.55)', mixBlendMode:'multiply', opacity:0.2 }} />
 
               {/* SVG — transparent hit circles only (no drawn circles) */}
               <svg viewBox="0 0 1100 200" style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', overflow:'visible' }}>
