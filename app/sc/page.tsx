@@ -500,7 +500,7 @@ export default function ScPage() {
         {/* 龍-color — large bg, right side, semi-transparent, clipped to container */}
         <div aria-hidden className="hidden md:block" style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
           <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={600} height={600}
-            style={{ position:'absolute', right:'2%', top:'0%', height:'clamp(300px,60vh,500px)', width:'auto',
+            style={{ position:'absolute', right:'2%', bottom:'0%', height:'clamp(300px,60vh,500px)', width:'auto',
               filter:'saturate(1.7) contrast(1.3) brightness(0.82)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite',
               maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
               WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
