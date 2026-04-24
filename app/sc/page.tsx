@@ -350,7 +350,7 @@ export default function ScPage() {
                 style={{ height:160, display:'flex', alignItems:'center', gap:14, textDecoration:'none', flex:1 }}>
                 <div className="sc-glow-wrap" style={{ flexShrink:0, ...({'--glow-color': step.glow} as React.CSSProperties) }}>
                   <Image src={step.img} alt="" aria-hidden width={80} height={80}
-                    style={{ width:90, height:'auto', filter:'brightness(0.75)', opacity:0.82 }} />
+                    style={{ width:90, height:'auto', filter: step.id === 'sc01' ? 'saturate(0.2) sepia(0.25) brightness(0.75)' : 'brightness(0.75)', opacity:0.82 }} />
                 </div>
                 <div style={{ textAlign:'center', flex:1, maxWidth:120 }}>
                   <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.2em', color:'rgba(80,110,90,0.55)', marginBottom:3 }}>{step.num}</p>
@@ -370,7 +370,7 @@ export default function ScPage() {
               <div style={{ position:'absolute', left:'calc(90/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
                 <div className="sc-glow-wrap" style={{'--glow-color':'70,140,80'} as React.CSSProperties}>
                   <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={200} height={200}
-                    style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.72)', opacity:0.82, animation:'sc-breathe 5s ease-in-out infinite' }} />
+                    style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'saturate(0.2) sepia(0.25) brightness(0.72)', opacity:0.82, animation:'sc-breathe 5s ease-in-out infinite' }} />
                 </div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
               </div>
@@ -567,7 +567,7 @@ export default function ScPage() {
         <Image src="/sc/black/指導靈.png" alt="" aria-hidden width={600} height={700}
           className="sc-section-bg-calligraphy"
           style={{ position:'absolute', left:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'saturate(0.4) hue-rotate(195deg) brightness(0.58)', mixBlendMode:'multiply', opacity:0.50, pointerEvents:'none' }} />
+            filter:'sepia(0.3) hue-rotate(195deg) saturate(1.6) brightness(0.70)', mixBlendMode:'multiply', opacity:0.44, pointerEvents:'none' }} />
         {/* 薩滿巫 secondary */}
         <Image src="/sc/black/薩滿巫.png" alt="" aria-hidden width={500} height={600}
           className="sc-section-deco"
@@ -819,7 +819,7 @@ export default function ScPage() {
             {/* 內在小孩-拿心 — right of pair, slightly shorter for visual rhythm */}
             <Image src="/sc/black/內在小孩-拿心.png" alt="" aria-hidden width={400} height={500}
               style={{ height:'clamp(220px,38vh,340px)', width:'auto',
-                filter:'sepia(0.5) hue-rotate(270deg) saturate(2.2) brightness(0.68)', mixBlendMode:'multiply', opacity:0.70, animation:'sc-breathe 7s ease-in-out infinite' }} />
+                filter:'sepia(0.5) hue-rotate(270deg) saturate(2.2) brightness(0.65)', mixBlendMode:'multiply', opacity:0.75, animation:'sc-breathe 7s ease-in-out infinite' }} />
           </div>
         </div>
       </section>
