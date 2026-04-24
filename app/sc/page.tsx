@@ -64,21 +64,21 @@ export default function ScPage() {
         />
 
         {/* Small animals — scattered across hero, avoiding center content & bottom-right figure */}
-        {/* crane — top-right corner */}
+        {/* crane — top-right, biggest of the small group */}
         <Image src="/sc/animals-white/crane.png" alt="" aria-hidden width={160} height={160}
-          style={{ position:'absolute', top:'10%', right:'5%', width:78, height:'auto', opacity:0.18, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(14deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
-        {/* whale — top-left, inset from edge */}
+          style={{ position:'absolute', top:'10%', right:'5%', width:72, height:'auto', opacity:0.20, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(14deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
+        {/* whale — top-left, medium */}
         <Image src="/sc/animals-white/whale.png" alt="" aria-hidden width={160} height={160}
-          style={{ position:'absolute', top:'7%', left:'24%', width:82, height:'auto', opacity:0.17, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
-        {/* vulture — left side, mid-height */}
+          style={{ position:'absolute', top:'7%', left:'24%', width:54, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
+        {/* vulture — left side, small */}
         <Image src="/sc/animals-white/vulture.png" alt="" aria-hidden width={160} height={160}
-          style={{ position:'absolute', top:'44%', left:'8%', width:62, height:'auto', opacity:0.16, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
-        {/* fox — right side, upper-mid (above main figure) */}
+          style={{ position:'absolute', top:'44%', left:'8%', width:36, height:'auto', opacity:0.18, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
+        {/* fox — right side, medium-large */}
         <Image src="/sc/animals-white/fox.png" alt="" aria-hidden width={160} height={160}
-          style={{ position:'absolute', top:'38%', right:'9%', width:66, height:'auto', opacity:0.18, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-7deg)', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.6s' }} />
-        {/* turtle — bottom-left, away from figure */}
+          style={{ position:'absolute', top:'38%', right:'9%', width:62, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-7deg)', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.6s' }} />
+        {/* turtle — bottom-left, very small */}
         <Image src="/sc/animals-white/turtle.png" alt="" aria-hidden width={160} height={160}
-          style={{ position:'absolute', bottom:'22%', left:'16%', width:58, height:'auto', opacity:0.15, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
+          style={{ position:'absolute', bottom:'22%', left:'16%', width:30, height:'auto', opacity:0.22, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
 
         {/* Ripple rings — mid-right */}
         <div style={{ position:'absolute', right:'25%', top:'48%', pointerEvents:'none' }}>
@@ -108,14 +108,9 @@ export default function ScPage() {
             style={{ width:'clamp(260px,44vw,580px)', height:'auto', filter:'invert(1) sepia(0.12) saturate(1.0) brightness(1.0)', mixBlendMode:'screen', opacity:0.88, marginBottom:32 }}
           />
 
-          {/* h1 subtitle — sits below calligraphy, clear gap */}
-          <h1 className="tr-d2" style={{ fontSize:'clamp(20px,2.6vw,36px)', lineHeight:1.3, letterSpacing:'0.06em', color:'rgba(230,242,250,0.85)', marginBottom:20, fontWeight:400 }}>
-            靈魂最原始的力量
-          </h1>
+          <div style={{ width:36, height:1, background:'rgba(200,220,235,0.28)', marginBottom:24 }} />
 
-          <div style={{ width:36, height:1, background:'rgba(200,220,235,0.28)', marginBottom:20 }} />
-
-          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'normal', fontSize:'clamp(13px,1.3vw,16px)', color:'rgba(200,220,235,1)', letterSpacing:'0.06em', lineHeight:1.9, maxWidth:340 }}>
+          <p style={{ fontFamily:'var(--f-zh)', fontSize:'clamp(18px,2vw,26px)', color:'rgba(200,220,235,1)', letterSpacing:'0.06em', lineHeight:1.9, maxWidth:340 }}>
             透過古老智慧，<br />連結靈魂最原始的力量
           </p>
         </div>
@@ -148,7 +143,7 @@ export default function ScPage() {
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 100% at 60% 50%, rgba(120,175,170,0.2) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 5% 80%, rgba(94,142,138,0.15) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* Decorative bg animals — atmospheric, screen blend */}
         <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={500} height={500}
-          style={{ position:'absolute', top:'-8%', left:'-4%', width:'clamp(260px,30vw,420px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.15, pointerEvents:'none', transform:'scaleX(-1) rotate(-12deg)', zIndex:2 }} />
+          style={{ position:'absolute', top:'-2%', left:'-4%', width:'clamp(260px,30vw,420px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.15, pointerEvents:'none', transform:'scaleX(-1) rotate(-12deg)', zIndex:2 }} />
         <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', bottom:'-6%', right:'2%', width:'clamp(180px,20vw,300px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.09, pointerEvents:'none', transform:'rotate(8deg)' }} />
         <Image src="/sc/animals/vulture.png" alt="" aria-hidden width={350} height={350}
