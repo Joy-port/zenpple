@@ -490,18 +490,10 @@ export default function ScPage() {
           <path d="M0,42 C200,72 440,12 700,50 C920,80 1180,16 1360,44 C1410,52 1430,50 1440,49 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.88" />
           <path d="M0,58 C280,34 560,72 840,50 C1060,32 1280,64 1440,58 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.45" />
         </svg>
-        {/* 書法圖 */}
-        <Image src="/sc/black/力量動物-直.png" alt="" aria-hidden width={600} height={800}
+        {/* 龍-color — large bg, right side, semi-transparent */}
+        <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={600} height={600}
           style={{ position:'absolute', right:'4%', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'sepia(0.3) hue-rotate(80deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.40, pointerEvents:'none' }} />
-        {/* 力量動物-橫 secondary layer */}
-        <Image src="/sc/black/力量動物-橫.png" alt="" aria-hidden width={900} height={400}
-          style={{ position:'absolute', bottom:'-5%', left:'-5%', width:'55%', height:'auto',
-            filter:'sepia(0.15) hue-rotate(80deg) saturate(0.8) brightness(0.8)', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none', transform:'rotate(-8deg) scale(0.75)' }} />
-        {/* 獨角獸 — supporting accent, top-left corner */}
-        <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', left:'5%', top:'8%', width:80, height:'auto',
-            filter:'sepia(0.3) hue-rotate(80deg) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.20, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
+            filter:'saturate(1.7) contrast(1.3) brightness(0.82)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
@@ -566,20 +558,11 @@ export default function ScPage() {
           <path d="M0,88 C300,58 620,108 920,76 C1140,54 1320,94 1440,86 L1440,120 L0,120 Z" fill="#F5E2D4" opacity="0.48" />
           <path d="M0,104 C360,82 720,118 1080,96 C1260,86 1380,108 1440,105 L1440,120 L0,120 Z" fill="#F5E2D4" opacity="0.22" />
         </svg>
-        {/* 書法圖 */}
-        <Image src="/sc/black/指導靈.png" alt="" aria-hidden width={600} height={700}
+        {/* 指導靈-color — large bg, left side, semi-transparent */}
+        <Image src="/sc/journey/指導靈-color.png" alt="" aria-hidden width={600} height={700}
           className="sc-section-bg-calligraphy"
           style={{ position:'absolute', left:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'sepia(0.3) hue-rotate(195deg) saturate(1.6) brightness(0.70)', mixBlendMode:'multiply', opacity:0.44, pointerEvents:'none' }} />
-        {/* 薩滿巫 secondary */}
-        <Image src="/sc/black/薩滿巫.png" alt="" aria-hidden width={500} height={600}
-          className="sc-section-deco"
-          style={{ position:'absolute', right:'5%', bottom:'-10%', width:'28%', height:'auto',
-            filter:'sepia(0.1) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(6deg) scale(0.8)' }} />
-        {/* 鶴 — small, bottom-right (away from left calligraphy) */}
-        <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', right:'7%', bottom:'10%', width:90, height:'auto',
-            filter:'sepia(0.25) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite' }} />
+            filter:'saturate(0.75) brightness(1.05) contrast(0.90)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 5.5s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col" style={{ order:2 }}>
 
@@ -640,15 +623,11 @@ export default function ScPage() {
           <path d="M0,38 C220,70 480,10 740,48 C980,80 1220,18 1420,42 C1430,44 1436,44 1440,44 L1440,80 L0,80 Z" fill="#FFF8CC" opacity="0.88" />
           <path d="M0,54 C300,30 600,70 880,48 C1100,30 1300,62 1440,55 L1440,80 L0,80 Z" fill="#FFF8CC" opacity="0.45" />
         </svg>
-        {/* 書法圖 */}
-        <Image src="/sc/black/七脈輪情緒覺察.png" alt="" aria-hidden width={600} height={700}
+        {/* 七脈輪情緒覺察-color — large bg, right side, semi-transparent */}
+        <Image src="/sc/journey/七脈輪情緒覺察-color.png" alt="" aria-hidden width={600} height={700}
           className="sc-section-bg-calligraphy"
           style={{ position:'absolute', right:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'sepia(0.5) hue-rotate(340deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
-        {/* 擬態章魚 — small, top-left (away from right calligraphy) */}
-        <Image src="/sc/animals/擬態章魚.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', left:'7%', top:'10%', width:90, height:'auto',
-            filter:'sepia(0.6) hue-rotate(340deg) saturate(1.7) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
+            filter:'saturate(1.1) brightness(0.92) contrast(1.08)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
@@ -710,15 +689,11 @@ export default function ScPage() {
           <path d="M0,84 C320,56 660,106 960,72 C1160,50 1320,90 1440,82 L1440,120 L0,120 Z" fill="#E4D8F5" opacity="0.48" />
           <path d="M0,102 C400,80 800,118 1120,96 C1280,86 1380,108 1440,104 L1440,120 L0,120 Z" fill="#E4D8F5" opacity="0.22" />
         </svg>
-        {/* 書法圖 */}
-        <Image src="/sc/black/高我.png" alt="" aria-hidden width={600} height={700}
+        {/* 高我-color — large bg, left side, semi-transparent */}
+        <Image src="/sc/journey/高我-color.png" alt="" aria-hidden width={600} height={700}
           className="sc-section-bg-calligraphy"
           style={{ position:'absolute', left:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'sepia(0.35) hue-rotate(20deg) saturate(2.0) brightness(0.72)', mixBlendMode:'multiply', opacity:0.42, pointerEvents:'none' }} />
-        {/* 獨角獸 — small, bottom-right (away from left calligraphy) */}
-        <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', right:'7%', bottom:'10%', width:90, height:'auto',
-            filter:'sepia(0.35) hue-rotate(20deg) saturate(2.0) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite' }} />
+            filter:'saturate(1.0) brightness(0.82) contrast(1.18)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 6.5s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col" style={{ order:2 }}>
 
@@ -777,10 +752,11 @@ export default function ScPage() {
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 50%, rgba(90,30,140,0.18) 0%, rgba(120,50,160,0.12) 50%, transparent 70%), radial-gradient(ellipse 50% 60% at 90% 25%, rgba(140,60,180,0.20) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'60%', height:'90vh', borderRadius:'50%', background:'radial-gradient(ellipse 75% 90% at 60% 48%, rgba(100,20,180,0.42) 0%, transparent 68%)', pointerEvents:'none', filter:'blur(28px)' }} />
-        {/* 水豚 — small accent, top-left corner */}
-        <Image src="/sc/animals/水豚.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', left:'6%', top:'12%', width:80, height:'auto',
-            filter:'sepia(0.45) hue-rotate(270deg) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.20, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite' }} />
+        {/* 內在小孩-color — large bg, right side, semi-transparent */}
+        <Image src="/sc/journey/內在小孩-color.png" alt="" aria-hidden width={600} height={700}
+          className="sc-section-bg-calligraphy"
+          style={{ position:'absolute', right:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
+            filter:'saturate(0.78) brightness(1.08) contrast(0.92)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 5s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
