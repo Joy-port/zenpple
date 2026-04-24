@@ -324,16 +324,16 @@ export default function ScPage() {
 
             {/* Dots on path — 黑圈 images with glow, absolutely placed at each node */}
             {([
-              { id:'sc01', color:'70,140,80',   img:'/resource/single/材質-4-圓圈/黑圈-1.png',  y:80  },
-              { id:'sc02', color:'80,140,210',   img:'/resource/single/材質-4-圓圈/黑圈-10.png', y:240 },
-              { id:'sc03', color:'200,100,70',   img:'/resource/single/材質-4-圓圈/黑圈-12.png', y:400 },
-              { id:'sc04', color:'240,200,30',   img:'/resource/single/材質-4-圓圈/黑圈-18.png', y:560 },
-              { id:'sc05', color:'160,80,200',   img:'/resource/single/材質-4-圓圈/黑圈-24.png', y:720 },
+              { id:'sc01', color:'70,140,80',   img:'/sc/journey/黑圈-龍.png',    y:80  },
+              { id:'sc02', color:'80,140,210',   img:'/sc/journey/黑圈-指導靈.png', y:240 },
+              { id:'sc03', color:'200,100,70',   img:'/sc/journey/黑圈-七脈.png',  y:400 },
+              { id:'sc04', color:'240,200,30',   img:'/sc/journey/黑圈-高我.png',  y:560 },
+              { id:'sc05', color:'160,80,200',   img:'/sc/journey/黑圈-內在.png',  y:720 },
             ] as { id:string; color:string; img:string; y:number }[]).map(dot => (
               <div key={`dot-${dot.id}`} style={{ position:'absolute', left:34, top:dot.y, transform:'translate(-50%,-50%)', zIndex:3, pointerEvents:'none' }}>
                 <div className="sc-dot-glow" style={{'--glow-color': dot.color} as React.CSSProperties}>
                   <Image src={dot.img} alt="" aria-hidden width={48} height={48}
-                    style={{ width:42, height:'auto', filter:'brightness(0.65)', opacity:0.8 }} />
+                    style={{ width:42, height:'auto', filter:'brightness(0.95) contrast(1.1)', opacity:0.92 }} />
                 </div>
               </div>
             ))}
@@ -348,7 +348,7 @@ export default function ScPage() {
             ] as { id:string; num:string; label:string; en:string; img:string; glow:string; world:string; worldColor:string; imgFilter:string }[]).map(step => (
               <a key={step.id} href={`#section-${step.id}`}
                 style={{ height:160, display:'flex', alignItems:'center', gap:14, textDecoration:'none', flex:1 }}>
-                <div className="sc-glow-wrap" style={{ flexShrink:0, ...({'--glow-color': step.glow} as React.CSSProperties) }}>
+                <div style={{ flexShrink:0 }}>
                   <Image src={step.img} alt="" aria-hidden width={80} height={80}
                     style={{ width:90, height:'auto', filter:step.imgFilter, opacity:0.95 }} />
                 </div>
@@ -373,7 +373,7 @@ export default function ScPage() {
             <div style={{ position:'relative', height:280, marginBottom:12 }}>
               {/* 01 — 力量動物, green */}
               <div style={{ position:'absolute', left:'calc(90/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
-                <div className="sc-glow-wrap" style={{'--glow-color':'70,140,80'} as React.CSSProperties}>
+                <div>
                   <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={200} height={200}
                     style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite' }} />
                 </div>
@@ -383,7 +383,7 @@ export default function ScPage() {
               </div>
               {/* 03 — 七脈輪情緒覺察, terracotta */}
               <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc03')}>
-                <div className="sc-glow-wrap" style={{'--glow-color':'200,100,70'} as React.CSSProperties}>
+                <div>
                   <Image src="/sc/journey/七脈輪情緒覺察-color.png" alt="" aria-hidden width={300} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 6s ease-in-out infinite' }} />
                 </div>
@@ -393,7 +393,7 @@ export default function ScPage() {
               </div>
               {/* 05 — 內在小孩, purple */}
               <div style={{ position:'absolute', left:'calc(1010/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
-                <div className="sc-glow-wrap" style={{'--glow-color':'160,80,200'} as React.CSSProperties}>
+                <div>
                   <Image src="/sc/journey/內在小孩-color.png" alt="" aria-hidden width={300} height={300}
                     style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 7s ease-in-out infinite' }} />
                 </div>
@@ -422,36 +422,36 @@ export default function ScPage() {
               {/* SC-01: left=~8.2%, top=47.5% — green */}
               <div style={{ position:'absolute', left:'calc(90/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <div className="sc-dot-glow" style={{'--glow-color':'70,140,80'} as React.CSSProperties}>
-                  <Image src="/resource/single/材質-4-圓圈/黑圈-1.png" alt="" aria-hidden width={80} height={80}
-                    style={{ width: activeNode==='sc01' ? 80 : 66, height:'auto', filter:'brightness(0.65)', opacity:0.75, transition:'width 0.2s' }} />
+                  <Image src="/sc/journey/黑圈-龍.png" alt="" aria-hidden width={80} height={80}
+                    style={{ width: activeNode==='sc01' ? 80 : 66, height:'auto', filter:'brightness(0.95) contrast(1.1)', opacity:0.92, transition:'width 0.2s' }} />
                 </div>
               </div>
               {/* SC-02: left=25.45%, top=55% — blue-gray */}
               <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:'calc(110/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <div className="sc-dot-glow" style={{'--glow-color':'80,140,210'} as React.CSSProperties}>
-                  <Image src="/resource/single/材質-4-圓圈/黑圈-10.png" alt="" aria-hidden width={80} height={80}
-                    style={{ width: activeNode==='sc02' ? 80 : 66, height:'auto', filter:'brightness(0.65)', opacity:0.75, transition:'width 0.2s' }} />
+                  <Image src="/sc/journey/黑圈-指導靈.png" alt="" aria-hidden width={80} height={80}
+                    style={{ width: activeNode==='sc02' ? 80 : 66, height:'auto', filter:'brightness(0.95) contrast(1.1)', opacity:0.92, transition:'width 0.2s' }} />
                 </div>
               </div>
               {/* SC-03: left=49.09%, top=47.5% — terracotta */}
               <div style={{ position:'absolute', left:'calc(540/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <div className="sc-dot-glow" style={{'--glow-color':'200,100,70'} as React.CSSProperties}>
-                  <Image src="/resource/single/材質-4-圓圈/黑圈-12.png" alt="" aria-hidden width={80} height={80}
-                    style={{ width: activeNode==='sc03' ? 80 : 66, height:'auto', filter:'brightness(0.65)', opacity:0.75, transition:'width 0.2s' }} />
+                  <Image src="/sc/journey/黑圈-七脈.png" alt="" aria-hidden width={80} height={80}
+                    style={{ width: activeNode==='sc03' ? 80 : 66, height:'auto', filter:'brightness(0.95) contrast(1.1)', opacity:0.92, transition:'width 0.2s' }} />
                 </div>
               </div>
               {/* SC-04: left=72.73%, top=55% — gold */}
               <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:'calc(110/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <div className="sc-dot-glow" style={{'--glow-color':'240,200,30'} as React.CSSProperties}>
-                  <Image src="/resource/single/材質-4-圓圈/黑圈-18.png" alt="" aria-hidden width={80} height={80}
-                    style={{ width: activeNode==='sc04' ? 80 : 66, height:'auto', filter:'brightness(0.65)', opacity:0.75, transition:'width 0.2s' }} />
+                  <Image src="/sc/journey/黑圈-高我.png" alt="" aria-hidden width={80} height={80}
+                    style={{ width: activeNode==='sc04' ? 80 : 66, height:'auto', filter:'brightness(0.95) contrast(1.1)', opacity:0.92, transition:'width 0.2s' }} />
                 </div>
               </div>
               {/* SC-05: left=~91.8%, top=47.5% — purple */}
               <div style={{ position:'absolute', left:'calc(1010/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <div className="sc-dot-glow" style={{'--glow-color':'160,80,200'} as React.CSSProperties}>
-                  <Image src="/resource/single/材質-4-圓圈/黑圈-24.png" alt="" aria-hidden width={80} height={80}
-                    style={{ width: activeNode==='sc05' ? 80 : 66, height:'auto', filter:'brightness(0.65)', opacity:0.75, transition:'width 0.2s' }} />
+                  <Image src="/sc/journey/黑圈-內在.png" alt="" aria-hidden width={80} height={80}
+                    style={{ width: activeNode==='sc05' ? 80 : 66, height:'auto', filter:'brightness(0.95) contrast(1.1)', opacity:0.92, transition:'width 0.2s' }} />
                 </div>
               </div>
             </div>
@@ -463,7 +463,7 @@ export default function ScPage() {
                 <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>中部世界</div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>指導靈</div>
                 <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginTop:2 }}>02</div>
-                <div className="sc-glow-wrap" style={{'--glow-color':'80,140,210'} as React.CSSProperties}>
+                <div>
                   <Image src="/sc/journey/指導靈-color.png" alt="" aria-hidden width={250} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 5.5s ease-in-out infinite' }} />
                 </div>
@@ -473,7 +473,7 @@ export default function ScPage() {
                 <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>整合階段</div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
                 <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginTop:2 }}>04</div>
-                <div className="sc-glow-wrap" style={{'--glow-color':'240,200,30'} as React.CSSProperties}>
+                <div>
                   <Image src="/sc/journey/高我-color.png" alt="" aria-hidden width={250} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
                 </div>
