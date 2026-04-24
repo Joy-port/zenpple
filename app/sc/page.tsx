@@ -354,13 +354,13 @@ export default function ScPage() {
                 </div>
                 <div style={{ textAlign:'center', flex:1, maxWidth:120 }}>
                   {step.world && (
-                    <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:20, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.28)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.12em', color:'rgba(60,88,68,0.85)', whiteSpace:'nowrap', marginBottom:5 }}>
+                    <div style={{ display:'inline-flex', alignItems:'center', padding:'3px 9px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap', marginBottom:5 }}>
                       {step.world}
                     </div>
                   )}
-                  <p style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.2em', color:'rgba(80,110,90,0.45)', marginBottom:2 }}>{step.num}</p>
-                  <p style={{ fontSize:15, fontWeight:700, color:'rgba(42,54,46,0.9)', letterSpacing:'0.04em', marginBottom:2 }}>{step.label}</p>
-                  <p style={{ fontFamily:'var(--f-display)', fontSize:10, letterSpacing:'0.18em', color:'rgba(80,110,90,0.45)', textTransform:'uppercase' }}>{step.en}</p>
+                  <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginBottom:2 }}>{step.num}</p>
+                  <p style={{ fontSize:16, fontWeight:700, color:'rgba(42,54,46,0.92)', letterSpacing:'0.04em', marginBottom:2 }}>{step.label}</p>
+                  <p style={{ fontFamily:'var(--f-display)', fontSize:11, letterSpacing:'0.16em', color:'rgba(60,88,68,0.65)', textTransform:'uppercase' }}>{step.en}</p>
                 </div>
               </a>
             ))}
@@ -377,9 +377,9 @@ export default function ScPage() {
                   <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={200} height={200}
                     style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite' }} />
                 </div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.2em', color:'rgba(80,110,90,0.45)', marginBottom:2 }}>01</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginBottom:2 }}>01</div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
-                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:20, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.28)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.12em', color:'rgba(60,88,68,0.85)', whiteSpace:'nowrap' }}>下部世界</div>
+                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>下部世界</div>
               </div>
               {/* 03 — 七脈輪情緒覺察, terracotta */}
               <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc03')}>
@@ -387,9 +387,9 @@ export default function ScPage() {
                   <Image src="/sc/journey/七脈輪情緒覺察-color.png" alt="" aria-hidden width={300} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 6s ease-in-out infinite' }} />
                 </div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.2em', color:'rgba(80,110,90,0.45)', marginBottom:2 }}>03</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginBottom:2 }}>03</div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>脈輪情緒覺察</div>
-                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:20, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.28)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.12em', color:'rgba(60,88,68,0.85)', whiteSpace:'nowrap' }}>上部世界</div>
+                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>上部世界</div>
               </div>
               {/* 05 — 內在小孩, purple */}
               <div style={{ position:'absolute', left:'calc(1010/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
@@ -397,9 +397,9 @@ export default function ScPage() {
                   <Image src="/sc/journey/內在小孩-color.png" alt="" aria-hidden width={300} height={300}
                     style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 7s ease-in-out infinite' }} />
                 </div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.2em', color:'rgba(80,110,90,0.45)', marginBottom:2 }}>05</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginBottom:2 }}>05</div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>尋找內在小孩</div>
-                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:20, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.28)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.12em', color:'rgba(60,88,68,0.85)', whiteSpace:'nowrap' }}>靈魂碎片團員</div>
+                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>靈魂碎片團員</div>
               </div>
             </div>
 
@@ -460,9 +460,9 @@ export default function ScPage() {
             <div style={{ position:'relative', height:280, marginTop:12 }}>
               {/* 02 — 指導靈, blue-gray */}
               <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc02')}>
-                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:20, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.28)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.12em', color:'rgba(60,88,68,0.85)', whiteSpace:'nowrap' }}>中部世界</div>
+                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>中部世界</div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>指導靈</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.2em', color:'rgba(80,110,90,0.45)', marginTop:2 }}>02</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginTop:2 }}>02</div>
                 <div className="sc-glow-wrap" style={{'--glow-color':'80,140,210'} as React.CSSProperties}>
                   <Image src="/sc/journey/指導靈-color.png" alt="" aria-hidden width={250} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 5.5s ease-in-out infinite' }} />
@@ -470,9 +470,9 @@ export default function ScPage() {
               </div>
               {/* 04 — 高我, gold */}
               <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
-                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:20, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.28)', fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.12em', color:'rgba(60,88,68,0.85)', whiteSpace:'nowrap' }}>整合階段</div>
+                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>整合階段</div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.2em', color:'rgba(80,110,90,0.45)', marginTop:2 }}>04</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginTop:2 }}>04</div>
                 <div className="sc-glow-wrap" style={{'--glow-color':'240,200,30'} as React.CSSProperties}>
                   <Image src="/sc/journey/高我-color.png" alt="" aria-hidden width={250} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
