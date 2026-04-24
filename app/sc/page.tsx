@@ -759,18 +759,9 @@ export default function ScPage() {
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 50%, rgba(90,30,140,0.18) 0%, rgba(120,50,160,0.12) 50%, transparent 70%), radial-gradient(ellipse 50% 60% at 90% 25%, rgba(140,60,180,0.20) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'60%', height:'90vh', borderRadius:'50%', background:'radial-gradient(ellipse 75% 90% at 60% 48%, rgba(100,20,180,0.42) 0%, transparent 68%)', pointerEvents:'none', filter:'blur(28px)' }} />
-        {/* ── 雙主圖 on RIGHT: 內在小孩 (upper) + 內在小孩-拿心 (lower) ── */}
-        {/* Upper — 內在小孩, taller figure, upper-right */}
-        <Image src="/sc/black/內在小孩.png" alt="" aria-hidden width={600} height={700}
-          style={{ position:'absolute', right:'6%', top:'8%', height:'clamp(200px,36vh,320px)', width:'auto',
-            filter:'sepia(0.5) hue-rotate(270deg) saturate(2.2) brightness(0.65)', mixBlendMode:'multiply', opacity:0.70, pointerEvents:'none', animation:'sc-breathe 5s ease-in-out infinite' }} />
-        {/* Lower — 拿心, holding-heart figure, lower-right, offset inward */}
-        <Image src="/sc/black/內在小孩-拿心.png" alt="" aria-hidden width={400} height={500}
-          style={{ position:'absolute', right:'14%', bottom:'10%', height:'clamp(160px,28vh,250px)', width:'auto',
-            filter:'sepia(0.5) hue-rotate(270deg) saturate(2.2) brightness(0.68)', mixBlendMode:'multiply', opacity:0.65, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
-        {/* 水豚 — small accent, bottom-left (away from right images) */}
+        {/* 水豚 — small accent, top-left corner */}
         <Image src="/sc/animals/水豚.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', left:'6%', bottom:'14%', width:80, height:'auto',
+          style={{ position:'absolute', left:'6%', top:'12%', width:80, height:'auto',
             filter:'sepia(0.45) hue-rotate(270deg) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.20, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
@@ -814,7 +805,16 @@ export default function ScPage() {
             </button>
             </div>
           </div>
-          <div className="sc-image-col hidden md:block" />
+          <div className="sc-image-col" style={{ display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'flex-end', gap:20, minHeight:400, position:'relative' }}>
+            {/* 內在小孩 — left of pair */}
+            <Image src="/sc/black/內在小孩.png" alt="" aria-hidden width={600} height={700}
+              style={{ height:'clamp(260px,44vh,400px)', width:'auto',
+                filter:'sepia(0.5) hue-rotate(270deg) saturate(2.2) brightness(0.65)', mixBlendMode:'multiply', opacity:0.75, animation:'sc-breathe 5s ease-in-out infinite' }} />
+            {/* 內在小孩-拿心 — right of pair, slightly shorter for visual rhythm */}
+            <Image src="/sc/black/內在小孩-拿心.png" alt="" aria-hidden width={400} height={500}
+              style={{ height:'clamp(220px,38vh,340px)', width:'auto',
+                filter:'sepia(0.5) hue-rotate(270deg) saturate(2.2) brightness(0.68)', mixBlendMode:'multiply', opacity:0.70, animation:'sc-breathe 7s ease-in-out infinite' }} />
+          </div>
         </div>
       </section>
 
