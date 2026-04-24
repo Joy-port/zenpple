@@ -73,10 +73,106 @@
   animation: hl-watermark-breathe 6s ease-in-out infinite;
   user-select: none;
   flex-shrink: 0;
+  position: relative;
 }
 .hero-watermark img {
   width: clamp(200px, 30vw, 380px) !important;
   height: auto !important;
+  display: block;
+}
+
+/* ── Hero composition — image + all text in one relative container ── */
+.hero-composition {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Shared group base — flex column, each span is one character */
+.hero-comp-group {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-comp-group span {
+  display: block;
+  line-height: 1;
+}
+
+/* 深層對齊 — outside left edge (negative left), starts high, large chars */
+.hero-comp-deep {
+  left: -24%;
+  top: 12%;
+  gap: clamp(20px, 3vh, 42px);
+  font-family: var(--f-zh);
+  font-weight: 900;
+  font-size: clamp(24px, 3.2vw, 44px);
+  color: rgba(255,255,255,0.88);
+}
+
+/* FILTER THE NOISE — far left inside image, mid-height */
+.hero-comp-filter-en {
+  left: 4%;
+  top: 22%;
+  gap: clamp(8px, 1.2vh, 16px);
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(7px, 0.72vw, 9px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+}
+
+/* 清理脈輪雜訊 — left-centre stripes; text-shadow for visibility over white waves */
+.hero-comp-filter-zh {
+  left: 22%;
+  top: 8%;
+  gap: clamp(16px, 2.4vh, 34px);
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: clamp(13px, 1.5vw, 19px);
+  color: rgba(255,255,255,0.90);
+  text-shadow: 0 0 12px rgba(160,60,60,0.55), 0 1px 4px rgba(0,0,0,0.25);
+}
+
+/* 重啟生命流動 — right-centre stripes */
+.hero-comp-align-zh {
+  right: 20%;
+  top: 14%;
+  gap: clamp(16px, 2.4vh, 34px);
+  font-family: var(--f-zh);
+  font-weight: 700;
+  font-size: clamp(13px, 1.5vw, 19px);
+  color: rgba(255,255,255,0.90);
+  text-shadow: 0 0 12px rgba(160,60,60,0.55), 0 1px 4px rgba(0,0,0,0.25);
+}
+
+/* ALIGN THE SOUL — far right inside image */
+.hero-comp-align-en {
+  right: 5%;
+  top: 20%;
+  gap: clamp(8px, 1.2vh, 16px);
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(7px, 0.72vw, 9px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+}
+
+/* 脈輪定音 — outside right edge, mirrors 深層對齊 */
+.hero-comp-extra {
+  right: -24%;
+  top: 16%;
+  gap: clamp(20px, 3vh, 42px);
+  font-family: var(--f-zh);
+  font-weight: 900;
+  font-size: clamp(24px, 3.2vw, 44px);
+  color: rgba(255,255,255,0.88);
 }
 
 /* ── Title zone: scrolls into view below the first viewport ─────────────── */
@@ -170,6 +266,7 @@
   height: clamp(80px, 10vw, 120px);
   display: block;
 }
+
 
 /* ── Mobile ─────────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {

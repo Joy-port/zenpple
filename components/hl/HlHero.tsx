@@ -28,21 +28,48 @@ export default function HlHero() {
       {/* ── First viewport: image + bg chars ── */}
       <div className="hero-image-zone" aria-hidden="true">
 
-        {/* Desktop only — flanking the image horizontally */}
-        <div className="hero-bg-char hero-char-desktop">深層</div>
+        {/* All text + image in one composition — desktop only */}
+        <div className="hero-composition hero-char-desktop">
+          {/* hero-watermark wraps image + ALL text so everything breathes together */}
+          <div className="hero-watermark">
+            <Image
+              src="/hl/頌缽波動-白.png"
+              alt=""
+              width={600}
+              height={600}
+              style={{ width: '100%', height: 'auto' }}
+              priority
+            />
 
-        <div className="hero-watermark">
-          <Image
-            src="/hl/頌缽波動-白.png"
-            alt=""
-            width={600}
-            height={600}
-            style={{ width: '100%', height: 'auto' }}
-            priority
-          />
+            {/* 深層對齊 — outside left edge of image, starts from top */}
+            <div className="hero-comp-group hero-comp-deep">
+              {([['深',-12],['層',-6],['對',-14],['齊',-8]] as [string,number][]).map(([c,r]) => (
+                <span key={c} style={{ transform: `rotate(${r}deg)` }}>{c}</span>
+              ))}
+            </div>
+
+            {/* 清理脈輪雜訊 — woven through left-centre stripes */}
+            <div className="hero-comp-group hero-comp-filter-zh">
+              {([['清',-10],['理',-4],['脈',-12],['輪',-6],['雜',-14],['訊',-5]] as [string,number][]).map(([c,r]) => (
+                <span key={c} style={{ transform: `rotate(${r}deg)` }}>{c}</span>
+              ))}
+            </div>
+
+            {/* 重啟生命流動 — right-centre stripes */}
+            <div className="hero-comp-group hero-comp-align-zh">
+              {([['重',6],['啟',12],['生',4],['命',10],['流',14],['動',7]] as [string,number][]).map(([c,r]) => (
+                <span key={c} style={{ transform: `rotate(${r}deg)` }}>{c}</span>
+              ))}
+            </div>
+
+            {/* 脈輪定音 — outside right edge, mirrors 深層對齊 */}
+            <div className="hero-comp-group hero-comp-extra">
+              {([['脈',8],['輪',12],['定',6],['音',10]] as [string,number][]).map(([c,r]) => (
+                <span key={c} style={{ transform: `rotate(${r}deg)` }}>{c}</span>
+              ))}
+            </div>
+          </div>
         </div>
-
-        <div className="hero-bg-char hero-char-desktop">對齊</div>
 
         {/* Mobile only — single caption below image */}
         <div className="hero-chars-mobile">深層對齊</div>
