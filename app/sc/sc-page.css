@@ -16,6 +16,13 @@ body.page-sc footer { display: none !important; }
 .sc-ripple:nth-child(2) { animation-delay:2s; }
 .sc-ripple:nth-child(3) { animation-delay:4s; }
 
+@keyframes sc-boat {
+  0%,100% { transform: translateY(0)     rotate(0deg); }
+  20%     { transform: translateY(-10px) rotate(1.8deg); }
+  50%     { transform: translateY(-18px) rotate(0deg); }
+  75%     { transform: translateY(-8px)  rotate(-1.4deg); }
+}
+
 @keyframes sc-float {
   0%,100% { transform:translateX(-50%) translateY(0); }
   50%      { transform:translateX(-50%) translateY(8px); }

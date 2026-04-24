@@ -60,7 +60,7 @@ export default function ScPage() {
           aria-hidden
           width={800}
           height={800}
-          style={{ position:'absolute', right:0, bottom:0, width:'35%', height:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none' }}
+          style={{ position:'absolute', right:0, bottom:0, width:'35%', height:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite' }}
         />
 
         {/* Ripple rings — mid-right */}
@@ -491,12 +491,12 @@ export default function ScPage() {
           <path d="M0,58 C280,34 560,72 840,50 C1060,32 1280,64 1440,58 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.45" />
         </svg>
         {/* 龍-color — large bg, right side, semi-transparent, clipped to container */}
-        <div aria-hidden className="hidden md:block" style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
+        <div aria-hidden className="hidden md:block" style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', pointerEvents:'none', zIndex:1 }}>
           <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={600} height={600}
             style={{ position:'absolute', right:'2%', top:'35%', height:'clamp(300px,60vh,500px)', width:'auto',
               filter:'saturate(1.7) contrast(1.3) brightness(0.82)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite',
-              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
-              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%)' }} />
         </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
