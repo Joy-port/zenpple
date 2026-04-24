@@ -340,7 +340,7 @@ export default function ScPage() {
 
             {/* Step rows — image + text to the right of the path */}
             {([
-              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/animals/白老虎.png',              glow:'70,140,80',  invertImg:false },
+              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/animals/unicorn.png',            glow:'70,140,80',  invertImg:false },
               { id:'sc02', num:'02', label:'指導靈',      en:'Spirit Guide',        img:'/sc/black/指導靈.png',                glow:'80,140,210',  invertImg:false },
               { id:'sc03', num:'03', label:'脈輪情緒覺察', en:'Chakra & Emotion',   img:'/sc/black/七脈輪情緒覺察.png',        glow:'200,100,70',  invertImg:false },
               { id:'sc04', num:'04', label:'連結高我',    en:'Higher Self',         img:'/sc/black/高我.png',                  glow:'240,200,30',  invertImg:false },
@@ -367,10 +367,10 @@ export default function ScPage() {
             {/* Row 1 — above-wave: 01, 03, 05 — theme calligraphy image outward (top), title toward wave (bottom) */}
             <div style={{ position:'relative', height:280, marginBottom:12 }}>
               {/* 01 — 力量動物, green */}
-              <div style={{ position:'absolute', left:'calc(55/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
+              <div style={{ position:'absolute', left:'calc(90/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
                 <div className="sc-glow-wrap" style={{'--glow-color':'70,140,80'} as React.CSSProperties}>
-                  <Image src="/sc/animals/白老虎.png" alt="" aria-hidden width={200} height={200}
-                    style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'brightness(0.72)', opacity:0.82, animation:'sc-breathe 5s ease-in-out infinite' }} />
+                  <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={200} height={200}
+                    style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.72)', opacity:0.82, animation:'sc-breathe 5s ease-in-out infinite' }} />
                 </div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
               </div>
@@ -383,10 +383,10 @@ export default function ScPage() {
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>脈輪情緒覺察</div>
               </div>
               {/* 05 — 內在小孩, purple */}
-              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
+              <div style={{ position:'absolute', left:'calc(1010/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
                 <div className="sc-glow-wrap" style={{'--glow-color':'160,80,200'} as React.CSSProperties}>
                   <Image src="/sc/black/內在小孩.png" alt="" aria-hidden width={300} height={300}
-                    style={{ maxWidth:200, maxHeight:200, width:'auto', height:'auto', filter:'brightness(0.72)', opacity:0.82, animation:'sc-breathe 7s ease-in-out infinite' }} />
+                    style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.72)', opacity:0.82, animation:'sc-breathe 7s ease-in-out infinite' }} />
                 </div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>尋找內在小孩</div>
               </div>
@@ -400,16 +400,16 @@ export default function ScPage() {
 
               {/* SVG — transparent hit circles only (no drawn circles) */}
               <svg viewBox="0 0 1100 200" style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', overflow:'visible' }}>
-                <circle cx="55"   cy="95"  r="30" fill="transparent" onClick={() => selectNode('sc01')} style={{ cursor:'pointer' }}/>
+                <circle cx="90"   cy="95"  r="30" fill="transparent" onClick={() => selectNode('sc01')} style={{ cursor:'pointer' }}/>
                 <circle cx="280"  cy="110" r="30" fill="transparent" onClick={() => selectNode('sc02')} style={{ cursor:'pointer' }}/>
                 <circle cx="540"  cy="95"  r="30" fill="transparent" onClick={() => selectNode('sc03')} style={{ cursor:'pointer' }}/>
                 <circle cx="800"  cy="110" r="30" fill="transparent" onClick={() => selectNode('sc04')} style={{ cursor:'pointer' }}/>
-                <circle cx="1045" cy="95"  r="30" fill="transparent" onClick={() => selectNode('sc05')} style={{ cursor:'pointer' }}/>
+                <circle cx="1010" cy="95"  r="30" fill="transparent" onClick={() => selectNode('sc05')} style={{ cursor:'pointer' }}/>
               </svg>
 
               {/* Circle image nodes — absolutely positioned at matching percentages */}
-              {/* SC-01: left=5%, top=47.5% — green */}
-              <div style={{ position:'absolute', left:'calc(55/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
+              {/* SC-01: left=~8.2%, top=47.5% — green */}
+              <div style={{ position:'absolute', left:'calc(90/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <div className="sc-dot-glow" style={{'--glow-color':'70,140,80'} as React.CSSProperties}>
                   <Image src="/resource/single/材質-4-圓圈/黑圈-1.png" alt="" aria-hidden width={80} height={80}
                     style={{ width: activeNode==='sc01' ? 80 : 66, height:'auto', filter:'brightness(0.65)', opacity:0.75, transition:'width 0.2s' }} />
@@ -436,8 +436,8 @@ export default function ScPage() {
                     style={{ width: activeNode==='sc04' ? 80 : 66, height:'auto', filter:'brightness(0.65)', opacity:0.75, transition:'width 0.2s' }} />
                 </div>
               </div>
-              {/* SC-05: left=95%, top=47.5% — purple */}
-              <div style={{ position:'absolute', left:'calc(1045/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
+              {/* SC-05: left=~91.8%, top=47.5% — purple */}
+              <div style={{ position:'absolute', left:'calc(1010/1100*100%)', top:'calc(95/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
                 <div className="sc-dot-glow" style={{'--glow-color':'160,80,200'} as React.CSSProperties}>
                   <Image src="/resource/single/材質-4-圓圈/黑圈-24.png" alt="" aria-hidden width={80} height={80}
                     style={{ width: activeNode==='sc05' ? 80 : 66, height:'auto', filter:'brightness(0.65)', opacity:0.75, transition:'width 0.2s' }} />
