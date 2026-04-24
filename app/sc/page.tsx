@@ -122,12 +122,12 @@ export default function ScPage() {
       </section>
 
       {/* ═══ 薩滿介紹 ═══ */}
-      <section style={{ background:'#355A6A', padding:'110px 0 90px', minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'hidden' }}>
+      <section style={{ background:'#355A6A', padding:'110px 0 90px', minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'visible' }}>
         {/* Airy wash — lighter, wider spread */}
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 100% at 60% 50%, rgba(120,175,170,0.2) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 5% 80%, rgba(94,142,138,0.15) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* Decorative bg animals — atmospheric, screen blend */}
         <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={500} height={500}
-          style={{ position:'absolute', top:'-8%', left:'-4%', width:'clamp(260px,30vw,420px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.07, pointerEvents:'none', transform:'scaleX(-1) rotate(-12deg)' }} />
+          style={{ position:'absolute', top:'-8%', left:'-4%', width:'clamp(260px,30vw,420px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.15, pointerEvents:'none', transform:'scaleX(-1) rotate(-12deg)', zIndex:2 }} />
         <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', bottom:'-6%', right:'2%', width:'clamp(180px,20vw,300px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.09, pointerEvents:'none', transform:'rotate(8deg)' }} />
         <Image src="/sc/animals/vulture.png" alt="" aria-hidden width={350} height={350}
@@ -405,7 +405,7 @@ export default function ScPage() {
             <div style={{ position:'relative', width:'100%' }}>
               <Image src="/sc/black/薩滿旅程的線.png" alt="" aria-hidden width={1800} height={320}
                 style={{ width:'100%', height:'auto', display:'block',
-                  filter:'brightness(0.55)', mixBlendMode:'multiply', opacity:0.45 }} />
+                  filter:'brightness(0.55)', mixBlendMode:'multiply', opacity:0.7 }} />
 
               {/* SVG — transparent hit circles only (no drawn circles) */}
               <svg viewBox="0 0 1100 200" style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', overflow:'visible' }}>
@@ -491,12 +491,12 @@ export default function ScPage() {
           <path d="M0,58 C280,34 560,72 840,50 C1060,32 1280,64 1440,58 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.45" />
         </svg>
         {/* 龍-color — large bg, right side, semi-transparent, clipped to container */}
-        <div aria-hidden className="hidden md:block" style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', pointerEvents:'none', zIndex:1 }}>
+        <div aria-hidden className="hidden md:block" style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
           <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={600} height={600}
-            style={{ position:'absolute', right:'2%', top:'35%', height:'clamp(300px,60vh,500px)', width:'auto',
+            style={{ position:'absolute', right:'2%', top:'0%', height:'clamp(300px,60vh,500px)', width:'auto',
               filter:'saturate(1.7) contrast(1.3) brightness(0.82)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite',
-              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%)',
-              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%)' }} />
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
         </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
