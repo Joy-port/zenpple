@@ -340,7 +340,7 @@ export default function ScPage() {
 
             {/* Step rows — image + text to the right of the path */}
             {([
-              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/animals/dragon.png',             glow:'70,140,80',  invertImg:false },
+              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/journey/龍-color.png',          glow:'70,140,80',  invertImg:false },
               { id:'sc02', num:'02', label:'指導靈',      en:'Spirit Guide',        img:'/sc/black/指導靈.png',                glow:'80,140,210',  invertImg:false },
               { id:'sc03', num:'03', label:'脈輪情緒覺察', en:'Chakra & Emotion',   img:'/sc/black/七脈輪情緒覺察.png',        glow:'200,100,70',  invertImg:false },
               { id:'sc04', num:'04', label:'連結高我',    en:'Higher Self',         img:'/sc/black/高我.png',                  glow:'240,200,30',  invertImg:false },
@@ -350,7 +350,7 @@ export default function ScPage() {
                 style={{ height:160, display:'flex', alignItems:'center', gap:14, textDecoration:'none', flex:1 }}>
                 <div className="sc-glow-wrap" style={{ flexShrink:0, ...({'--glow-color': step.glow} as React.CSSProperties) }}>
                   <Image src={step.img} alt="" aria-hidden width={80} height={80}
-                    style={{ width:90, height:'auto', filter: step.id === 'sc01' ? 'saturate(0.2) sepia(0.25) brightness(0.75)' : 'brightness(0.75)', opacity:0.82 }} />
+                    style={{ width:90, height:'auto', filter: step.id === 'sc01' ? 'brightness(0.88) contrast(1.05)' : 'brightness(0.75)', mixBlendMode: step.id === 'sc01' ? 'multiply' : undefined, opacity:0.82 }} />
                 </div>
                 <div style={{ textAlign:'center', flex:1, maxWidth:120 }}>
                   <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.2em', color:'rgba(80,110,90,0.55)', marginBottom:3 }}>{step.num}</p>
@@ -369,8 +369,8 @@ export default function ScPage() {
               {/* 01 — 力量動物, green */}
               <div style={{ position:'absolute', left:'calc(90/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
                 <div className="sc-glow-wrap" style={{'--glow-color':'70,140,80'} as React.CSSProperties}>
-                  <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={200} height={200}
-                    style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'saturate(0.2) sepia(0.25) brightness(0.72)', opacity:0.82, animation:'sc-breathe 5s ease-in-out infinite' }} />
+                  <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={200} height={200}
+                    style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.88) contrast(1.05)', mixBlendMode:'multiply', opacity:0.88, animation:'sc-breathe 5s ease-in-out infinite' }} />
                 </div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
               </div>
@@ -543,8 +543,8 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative' }}>
-              <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={420} height={420}
-                style={{ width:'min(320px,80%)', height:'auto', filter:'sepia(0.3) hue-rotate(80deg) saturate(1.8) brightness(0.68)', opacity:0.78, animation:'sc-breathe 5s ease-in-out infinite', mixBlendMode:'luminosity' }} />
+              <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={420} height={420}
+                style={{ width:'min(320px,80%)', height:'auto', filter:'brightness(0.90) contrast(1.08) saturate(1.1)', opacity:0.88, animation:'sc-breathe 5s ease-in-out infinite', mixBlendMode:'multiply' }} />
             </div>
           </div>
         </div>
