@@ -340,7 +340,7 @@ export default function ScPage() {
 
             {/* Step rows — image + text to the right of the path */}
             {([
-              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/animals/unicorn.png',            glow:'70,140,80',  invertImg:false },
+              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/animals/dragon.png',             glow:'70,140,80',  invertImg:false },
               { id:'sc02', num:'02', label:'指導靈',      en:'Spirit Guide',        img:'/sc/black/指導靈.png',                glow:'80,140,210',  invertImg:false },
               { id:'sc03', num:'03', label:'脈輪情緒覺察', en:'Chakra & Emotion',   img:'/sc/black/七脈輪情緒覺察.png',        glow:'200,100,70',  invertImg:false },
               { id:'sc04', num:'04', label:'連結高我',    en:'Higher Self',         img:'/sc/black/高我.png',                  glow:'240,200,30',  invertImg:false },
@@ -369,7 +369,7 @@ export default function ScPage() {
               {/* 01 — 力量動物, green */}
               <div style={{ position:'absolute', left:'calc(90/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc01')}>
                 <div className="sc-glow-wrap" style={{'--glow-color':'70,140,80'} as React.CSSProperties}>
-                  <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={200} height={200}
+                  <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={200} height={200}
                     style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.72)', opacity:0.82, animation:'sc-breathe 5s ease-in-out infinite' }} />
                 </div>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
@@ -485,14 +485,14 @@ export default function ScPage() {
         </svg>
         {/* 書法圖 */}
         <Image src="/sc/black/力量動物-直.png" alt="" aria-hidden width={600} height={800}
-          style={{ position:'absolute', right:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
+          style={{ position:'absolute', right:'4%', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
             filter:'sepia(0.3) hue-rotate(80deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.40, pointerEvents:'none' }} />
         {/* 力量動物-橫 secondary layer */}
         <Image src="/sc/black/力量動物-橫.png" alt="" aria-hidden width={900} height={400}
           style={{ position:'absolute', bottom:'-5%', left:'-5%', width:'55%', height:'auto',
             filter:'sepia(0.15) hue-rotate(80deg) saturate(0.8) brightness(0.8)', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none', transform:'rotate(-8deg) scale(0.75)' }} />
-        {/* 龍 — supporting accent, top-left corner */}
-        <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={200} height={200}
+        {/* 獨角獸 — supporting accent, top-left corner */}
+        <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={200} height={200}
           style={{ position:'absolute', left:'5%', top:'8%', width:80, height:'auto',
             filter:'sepia(0.3) hue-rotate(80deg) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.20, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
@@ -539,7 +539,7 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <div style={{ position:'relative' }}>
-              <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={420} height={420}
+              <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={420} height={420}
                 style={{ width:'min(320px,80%)', height:'auto', filter:'sepia(0.3) hue-rotate(80deg) saturate(1.8) brightness(0.68)', opacity:0.78, animation:'sc-breathe 5s ease-in-out infinite', mixBlendMode:'luminosity' }} />
             </div>
           </div>
