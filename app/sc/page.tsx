@@ -327,7 +327,7 @@ export default function ScPage() {
               { id:'sc01', color:'70,140,80',   img:'/resource/single/材質-4-圓圈/黑圈-1.png',  y:80  },
               { id:'sc02', color:'80,140,210',   img:'/resource/single/材質-4-圓圈/黑圈-10.png', y:240 },
               { id:'sc03', color:'200,100,70',   img:'/resource/single/材質-4-圓圈/黑圈-12.png', y:400 },
-              { id:'sc04', color:'200,190,20',   img:'/resource/single/材質-4-圓圈/黑圈-18.png', y:560 },
+              { id:'sc04', color:'240,200,30',   img:'/resource/single/材質-4-圓圈/黑圈-18.png', y:560 },
               { id:'sc05', color:'160,80,200',   img:'/resource/single/材質-4-圓圈/黑圈-24.png', y:720 },
             ] as { id:string; color:string; img:string; y:number }[]).map(dot => (
               <div key={`dot-${dot.id}`} style={{ position:'absolute', left:34, top:dot.y, transform:'translate(-50%,-50%)', zIndex:3, pointerEvents:'none' }}>
@@ -343,7 +343,7 @@ export default function ScPage() {
               { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/animals/白老虎.png',              glow:'70,140,80',  invertImg:false },
               { id:'sc02', num:'02', label:'指導靈',      en:'Spirit Guide',        img:'/sc/black/指導靈.png',                glow:'80,140,210',  invertImg:false },
               { id:'sc03', num:'03', label:'脈輪情緒覺察', en:'Chakra & Emotion',   img:'/sc/black/七脈輪情緒覺察.png',        glow:'200,100,70',  invertImg:false },
-              { id:'sc04', num:'04', label:'連結高我',    en:'Higher Self',         img:'/sc/black/高我.png',                  glow:'200,190,20',  invertImg:false },
+              { id:'sc04', num:'04', label:'連結高我',    en:'Higher Self',         img:'/sc/black/高我.png',                  glow:'240,200,30',  invertImg:false },
               { id:'sc05', num:'05', label:'尋找內在小孩', en:'Inner Child',         img:'/sc/black/內在小孩.png',              glow:'160,80,200',  invertImg:false },
             ] as { id:string; num:string; label:string; en:string; img:string; glow:string; invertImg:boolean }[]).map(step => (
               <a key={step.id} href={`#section-${step.id}`}
@@ -431,7 +431,7 @@ export default function ScPage() {
               </div>
               {/* SC-04: left=72.73%, top=55% — gold */}
               <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:'calc(110/200*100%)', transform:'translate(-50%,-50%)', pointerEvents:'none', zIndex:3 }}>
-                <div className="sc-dot-glow" style={{'--glow-color':'200,190,20'} as React.CSSProperties}>
+                <div className="sc-dot-glow" style={{'--glow-color':'240,200,30'} as React.CSSProperties}>
                   <Image src="/resource/single/材質-4-圓圈/黑圈-18.png" alt="" aria-hidden width={80} height={80}
                     style={{ width: activeNode==='sc04' ? 80 : 66, height:'auto', filter:'brightness(0.65)', opacity:0.75, transition:'width 0.2s' }} />
                 </div>
@@ -458,7 +458,7 @@ export default function ScPage() {
               {/* 04 — 高我, gold */}
               <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:10, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
                 <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
-                <div className="sc-glow-wrap" style={{'--glow-color':'200,190,20'} as React.CSSProperties}>
+                <div className="sc-glow-wrap" style={{'--glow-color':'240,200,30'} as React.CSSProperties}>
                   <Image src="/sc/black/高我.png" alt="" aria-hidden width={250} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.72)', opacity:0.82, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
                 </div>
@@ -686,10 +686,10 @@ export default function ScPage() {
 
       {/* ═══ SC-04 連結高我 ═══ */}
       {/* Theme: 神聖 · 金光 · 靈魂主權 — near-black with sacred gold */}
-      <section id="section-sc04" style={{ padding:'100px 0', background:'#FAFAD4', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 70% at 80% 40%, rgba(200,200,20,0.10) 0%, rgba(190,190,30,0.08) 50%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 70%, rgba(210,200,10,0.10) 0%, transparent 55%)', pointerEvents:'none' }} />
+      <section id="section-sc04" style={{ padding:'100px 0', background:'#FFF8CC', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 70% at 80% 40%, rgba(255,210,30,0.12) 0%, rgba(240,195,20,0.08) 50%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 70%, rgba(255,215,20,0.10) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
-        <div aria-hidden style={{ position:'absolute', left:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 40% 60%, rgba(210,200,10,0.28) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
+        <div aria-hidden style={{ position:'absolute', left:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 40% 60%, rgba(255,210,20,0.28) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
         {/* bottom wave → SC-05 */}
         <svg aria-hidden viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ position:'absolute', bottom:0, left:0, width:'100%', height:80, display:'block', pointerEvents:'none' }}>
           <path d="M0,44 C180,72 420,16 700,52 C940,82 1180,20 1440,46 L1440,80 L0,80 Z" fill="#E4D8F5" opacity="0.85" />
@@ -699,11 +699,11 @@ export default function ScPage() {
         <Image src="/sc/black/高我.png" alt="" aria-hidden width={600} height={700}
           className="sc-section-bg-calligraphy"
           style={{ position:'absolute', left:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'sepia(0.15) hue-rotate(50deg) saturate(2.4) brightness(0.72)', mixBlendMode:'multiply', opacity:0.42, pointerEvents:'none' }} />
+            filter:'sepia(0.35) hue-rotate(20deg) saturate(2.0) brightness(0.72)', mixBlendMode:'multiply', opacity:0.42, pointerEvents:'none' }} />
         {/* 獨角獸 — small, bottom-right (away from left calligraphy) */}
         <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={200} height={200}
           style={{ position:'absolute', right:'7%', bottom:'10%', width:90, height:'auto',
-            filter:'sepia(0.15) hue-rotate(50deg) saturate(2.4) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite' }} />
+            filter:'sepia(0.35) hue-rotate(20deg) saturate(2.0) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col" style={{ order:2 }}>
 
@@ -714,7 +714,7 @@ export default function ScPage() {
               高我是你靈魂最純粹、最神聖的面向，持有你此生的生命藍圖。透過這門課，你將在身體高度通透的狀態下，正式接通內在的神聖源頭，完成身心靈合一的全面對齊，找回真正的靈魂主權。
             </p>
             <div style={{ marginBottom:28, padding:'14px 18px', background:'rgba(106,48,24,0.06)', border:'1px solid rgba(106,48,24,0.2)', fontSize:'clamp(13px, 1.2vw, 15px)', lineHeight:1.8, color:'rgba(50,18,8,0.85)' }}>
-              <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#8A8000', opacity:0.85, display:'block', marginBottom:6 }}>前置課程 · PREREQUISITE</span>
+              <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#A07800', opacity:0.85, display:'block', marginBottom:6 }}>前置課程 · PREREQUISITE</span>
               本課程建議在參與<strong style={{ color:'rgba(38,36,0,0.9)', fontWeight:600 }}>雅妃老師的重生呼吸課</strong>後進行，讓身體通透感轉化為與高我對話的導航能力。
             </div>
             {openDetail === 'sc04' && (
