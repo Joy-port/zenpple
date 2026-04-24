@@ -3,6 +3,10 @@
   --sc-blue-light: #7A9AB5;
 }
 
+/* ── Hide Nav & Footer on SC page ── */
+body.page-sc nav,
+body.page-sc footer { display: none !important; }
+
 /* ── Ripple animation ── */
 @keyframes ripple-out {
   0%   { width:0; height:0; top:50%; left:50%; opacity:0.6; transform:translate(-50%,-50%); }

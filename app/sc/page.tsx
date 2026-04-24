@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+// import Link from 'next/link'
 import './sc-page.css'
 
 export default function ScPage() {
@@ -830,12 +830,10 @@ export default function ScPage() {
         </div>
       </section>
 
-      {/* ═══ 推薦整合搭配 ═══ */}
-      <section style={{ padding:'80px 0 100px', background:'#C8D8E4', position:'relative', overflow:'hidden' }}>
+      {/* ═══ 推薦整合搭配 ═══ (commented out) */}
+      {/* <section style={{ padding:'80px 0 100px', background:'#C8D8E4', position:'relative', overflow:'hidden' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 55% at 50% 50%, rgba(180,210,220,0.45) 0%, transparent 70%)', pointerEvents:'none' }} />
         <div style={{ maxWidth:1100, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2 }}>
-
-          {/* Header */}
           <div style={{ textAlign:'center', marginBottom:48 }}>
             <h2 className="tr-d2" style={{ fontSize:'clamp(24px,3.5vw,42px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#1E3848', marginBottom:12 }}>
               推薦整合搭配
@@ -844,8 +842,6 @@ export default function ScPage() {
               Complete Your Journey
             </p>
           </div>
-
-          {/* Cards */}
           <div className="sc-reco-grid" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:20 }}>
             {[
               { title:'深層系統對齊', desc:'薩滿打開靈魂的通道，深層對齊讓覺醒的能量落地。從靈性到現實的完整轉化路徑。', href:'/hl', img:'/hl/頌缽波動-黑.png', imgBg:'rgba(176,100,100,0.12)', linkColor:'#8A4040' },
@@ -867,14 +863,12 @@ export default function ScPage() {
               </div>
             ))}
           </div>
-
         </div>
-      </section>
+      </section> */}
 
-      {/* ═══ CTA ═══ */}
-      <section style={{ minHeight:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(60px,8vh,100px) clamp(24px,8vw,120px)', background:'linear-gradient(155deg, #2B4A5E 0%, #355A6A 45%, #3A5060 100%)', position:'relative', overflow:'hidden', textAlign:'center' }}>
+      {/* ═══ CTA ═══ (commented out) */}
+      {/* <section style={{ minHeight:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(60px,8vh,100px) clamp(24px,8vw,120px)', background:'linear-gradient(155deg, #2B4A5E 0%, #355A6A 45%, #3A5060 100%)', position:'relative', overflow:'hidden', textAlign:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(94,142,138,0.22) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
-        {/* Atmospheric bg calligraphy */}
         <Image src="/sc/black/薩滿冥想-橫.png" alt="" aria-hidden width={900} height={300}
           style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'100%', height:'auto', filter:'invert(1) brightness(1.0)', mixBlendMode:'screen', opacity:0.12, pointerEvents:'none' }} />
         <div style={{ position:'relative', zIndex:2, display:'inline-block', padding:'clamp(36px,5vh,56px) clamp(40px,6vw,80px)', background:'rgba(255,255,255,0.12)', backdropFilter:'blur(3px)', WebkitBackdropFilter:'blur(3px)', borderRadius:24 }}>
@@ -888,7 +882,7 @@ export default function ScPage() {
             預約探索諮詢 &nbsp;·&nbsp; BOOK A SESSION
           </Link>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }
