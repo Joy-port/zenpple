@@ -3,6 +3,10 @@
   --sc-blue-light: #7A9AB5;
 }
 
+/* ── Hide Nav & Footer on SC page ── */
+body.page-sc header,
+body.page-sc footer { display: none !important; }
+
 /* ── Ripple animation ── */
 @keyframes ripple-out {
   0%   { width:0; height:0; top:50%; left:50%; opacity:0.6; transform:translate(-50%,-50%); }
@@ -11,6 +15,13 @@
 .sc-ripple { position:absolute; border-radius:50%; border:1px solid rgba(94,142,138,0.18); animation:ripple-out 8s ease-out infinite; }
 .sc-ripple:nth-child(2) { animation-delay:2s; }
 .sc-ripple:nth-child(3) { animation-delay:4s; }
+
+@keyframes sc-boat {
+  0%,100% { transform: rotate(0deg); }
+  20%     { transform: rotate(1.2deg); }
+  50%     { transform: rotate(0.3deg); }
+  75%     { transform: rotate(-1.0deg); }
+}
 
 @keyframes sc-float {
   0%,100% { transform:translateX(-50%) translateY(0); }

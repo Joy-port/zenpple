@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+// import Link from 'next/link'
 import './sc-page.css'
 
 export default function ScPage() {
@@ -49,7 +49,7 @@ export default function ScPage() {
       </svg>
 
       {/* ═══ HERO ═══ */}
-      <section style={{ position:'relative', minHeight:'100vh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', overflow:'hidden', background:'#2B4A5E' }}>
+      <section style={{ position:'relative', height:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', overflow:'hidden', background:'#2B4A5E' }}>
         {/* Airy blue-teal wash */}
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 90% 80% at 50% 40%, rgba(94,142,138,0.28) 0%, transparent 65%), radial-gradient(ellipse 60% 70% at 10% 70%, rgba(74,107,138,0.35) 0%, transparent 55%), radial-gradient(ellipse 50% 50% at 90% 15%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
 
@@ -60,22 +60,38 @@ export default function ScPage() {
           aria-hidden
           width={800}
           height={800}
-          style={{ position:'absolute', right:0, bottom:0, width:'40%', height:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none' }}
+          style={{ position:'absolute', right:0, bottom:0, width:'26%', height:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite' }}
         />
 
-        {/* Ripple rings — mid-right */}
-        <div style={{ position:'absolute', right:'25%', top:'48%', pointerEvents:'none' }}>
-          <div className="sc-ripple" />
-          <div className="sc-ripple" />
-          <div className="sc-ripple" />
+        {/* Small animals + ripple — desktop only */}
+        <div className="hidden md:block" aria-hidden>
+          <Image src="/sc/animals-white/crane.png" alt="" aria-hidden width={160} height={160}
+            style={{ position:'absolute', top:'10%', right:'5%', width:122, height:'auto', opacity:0.20, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(14deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
+          <Image src="/sc/animals-white/whale.png" alt="" aria-hidden width={160} height={160}
+            style={{ position:'absolute', top:'7%', left:'24%', width:91, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
+          <Image src="/sc/animals-white/vulture.png" alt="" aria-hidden width={160} height={160}
+            style={{ position:'absolute', top:'44%', left:'8%', width:61, height:'auto', opacity:0.18, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
+          <Image src="/sc/animals-white/fox.png" alt="" aria-hidden width={160} height={160}
+            style={{ position:'absolute', top:'38%', right:'9%', width:105, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-7deg)', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.6s' }} />
+          <Image src="/sc/animals-white/turtle.png" alt="" aria-hidden width={160} height={160}
+            style={{ position:'absolute', bottom:'22%', left:'16%', width:51, height:'auto', opacity:0.22, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
+          <div style={{ position:'absolute', right:'25%', top:'48%', pointerEvents:'none' }}>
+            <div className="sc-ripple" />
+            <div className="sc-ripple" />
+            <div className="sc-ripple" />
+          </div>
         </div>
 
         {/* Content — vertical top-down flow, centered */}
         <div style={{ position:'relative', zIndex:2, display:'flex', flexDirection:'column', alignItems:'center', textAlign:'center', padding:'clamp(100px,14vh,140px) clamp(20px,8vw,120px) clamp(80px,10vh,100px)', gap:0 }}>
 
+          {/* Logo */}
+          <Image src="/zenpple-logo-wh.png" alt="Zenpple 森波" width={160} height={160}
+            style={{ width:'clamp(48px,5.5vw,68px)', height:'auto', opacity:0.75, marginBottom:28 }} />
+
           {/* EN label */}
           <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.38em', color:'rgba(200,220,235,1)', marginBottom:28, textTransform:'uppercase' }}>
-            SC · Shamanic Soul Awakening
+            Shamanic Soul Awakening
           </p>
 
           {/* 薩滿冥想-橫 — calligraphy title, horizontal brushwork */}
@@ -87,14 +103,7 @@ export default function ScPage() {
             style={{ width:'clamp(260px,44vw,580px)', height:'auto', filter:'invert(1) sepia(0.12) saturate(1.0) brightness(1.0)', mixBlendMode:'screen', opacity:0.88, marginBottom:32 }}
           />
 
-          {/* h1 subtitle — sits below calligraphy, clear gap */}
-          <h1 className="tr-d2" style={{ fontSize:'clamp(20px,2.6vw,36px)', lineHeight:1.3, letterSpacing:'0.06em', color:'rgba(230,242,250,0.85)', marginBottom:20, fontWeight:400 }}>
-            靈魂最原始的力量
-          </h1>
-
-          <div style={{ width:36, height:1, background:'rgba(200,220,235,0.28)', marginBottom:20 }} />
-
-          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(13px,1.3vw,16px)', color:'rgba(200,220,235,1)', letterSpacing:'0.06em', lineHeight:1.9, maxWidth:340 }}>
+          <p style={{ fontFamily:'var(--f-zh)', fontSize:'clamp(18px,2vw,26px)', color:'rgba(200,220,235,1)', letterSpacing:'0.06em', lineHeight:1.9, maxWidth:340, marginTop:8 }}>
             透過古老智慧，<br />連結靈魂最原始的力量
           </p>
         </div>
@@ -122,16 +131,14 @@ export default function ScPage() {
       </section>
 
       {/* ═══ 薩滿介紹 ═══ */}
-      <section style={{ background:'#355A6A', padding:'110px 0 90px', minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'hidden' }}>
+      <section style={{ background:'#355A6A', padding:'110px 0 90px', minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'visible' }}>
         {/* Airy wash — lighter, wider spread */}
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 100% at 60% 50%, rgba(120,175,170,0.2) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 5% 80%, rgba(94,142,138,0.15) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* Decorative bg animals — atmospheric, screen blend */}
         <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={500} height={500}
-          style={{ position:'absolute', top:'-8%', left:'-4%', width:'clamp(260px,30vw,420px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.07, pointerEvents:'none', transform:'scaleX(-1) rotate(-12deg)' }} />
+          style={{ position:'absolute', top:'-2%', left:'-4%', width:'clamp(260px,30vw,420px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.15, pointerEvents:'none', transform:'scaleX(-1) rotate(-12deg)', zIndex:2 }} />
         <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={400} height={400}
           style={{ position:'absolute', bottom:'-6%', right:'2%', width:'clamp(180px,20vw,300px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.09, pointerEvents:'none', transform:'rotate(8deg)' }} />
-        <Image src="/sc/animals/vulture.png" alt="" aria-hidden width={350} height={350}
-          style={{ position:'absolute', top:'55%', left:'42%', width:'clamp(140px,14vw,220px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.06, pointerEvents:'none', transform:'translateY(-50%) rotate(-5deg)' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center', position:'relative', zIndex:2 }}>
           <div className="sc-text-col">
             <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.22em', color:'rgba(180,215,220,1)', marginBottom:14, textTransform:'uppercase' }}>
@@ -338,11 +345,11 @@ export default function ScPage() {
 
             {/* Step rows — image + text to the right of the path */}
             {([
-              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/journey/龍-color.png',                    glow:'70,140,80',  world:'下部世界',   worldColor:'#C4784A', imgFilter:'saturate(1.7) contrast(1.3) brightness(0.82)' },
-              { id:'sc02', num:'02', label:'指導靈',      en:'Spirit Guide',        img:'/sc/journey/指導靈-color.png',                glow:'80,140,210', world:'中部世界',   worldColor:'#5E8E8A', imgFilter:'saturate(0.75) brightness(1.05) contrast(0.90)' },
-              { id:'sc03', num:'03', label:'脈輪情緒覺察', en:'Chakra & Emotion',   img:'/sc/journey/七脈輪情緒覺察-color.png',         glow:'200,100,70', world:'上部世界',   worldColor:'#7A9AB5', imgFilter:'saturate(1.1) brightness(0.92) contrast(1.08)' },
-              { id:'sc04', num:'04', label:'連結高我',    en:'Higher Self',         img:'/sc/journey/高我-color.png',                  glow:'240,200,30', world:'整合階段',   worldColor:'#8A9E90', imgFilter:'saturate(1.0) brightness(0.82) contrast(1.18)' },
-              { id:'sc05', num:'05', label:'尋找內在小孩', en:'Inner Child',         img:'/sc/journey/內在小孩-color.png',              glow:'160,80,200', world:'靈魂碎片團員', worldColor:'#9A7AB5', imgFilter:'saturate(0.78) brightness(1.08) contrast(0.92)' },
+              { id:'sc01', num:'01', label:'力量動物',    en:'Power Animal',       img:'/sc/journey/龍-color.png',                    glow:'70,140,80',  world:'下部世界',   worldColor:'#3E784D', imgFilter:'saturate(1.7) contrast(1.3) brightness(0.82)' },
+              { id:'sc02', num:'02', label:'指導靈',      en:'Spirit Guide',        img:'/sc/journey/指導靈-color.png',                glow:'80,140,210', world:'中部世界',   worldColor:'#4472A8', imgFilter:'saturate(0.75) brightness(1.05) contrast(0.90)' },
+              { id:'sc03', num:'03', label:'脈輪情緒覺察', en:'Chakra & Emotion',   img:'/sc/journey/七脈輪情緒覺察-color.png',         glow:'200,100,70', world:'上部世界',   worldColor:'#C05A30', imgFilter:'saturate(1.1) brightness(0.92) contrast(1.08)' },
+              { id:'sc04', num:'04', label:'連結高我',    en:'Higher Self',         img:'/sc/journey/高我-color.png',                  glow:'240,200,30', world:'整合階段',   worldColor:'#A89020', imgFilter:'saturate(1.0) brightness(0.82) contrast(1.18)' },
+              { id:'sc05', num:'05', label:'尋找內在小孩', en:'Inner Child',         img:'/sc/journey/內在小孩-color.png',              glow:'160,80,200', world:'靈魂碎片團員', worldColor:'#8844B8', imgFilter:'saturate(0.78) brightness(1.08) contrast(0.92)' },
             ] as { id:string; num:string; label:string; en:string; img:string; glow:string; world:string; worldColor:string; imgFilter:string }[]).map(step => (
               <a key={step.id} href={`#section-${step.id}`}
                 style={{ height:160, display:'flex', alignItems:'center', gap:14, textDecoration:'none', flex:1 }}>
@@ -351,14 +358,14 @@ export default function ScPage() {
                     style={{ width:90, height:'auto', filter:step.imgFilter, opacity:0.95 }} />
                 </div>
                 <div style={{ textAlign:'center', flex:1, maxWidth:120 }}>
+                  <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.2em', color:step.worldColor, opacity:0.7, marginBottom:4 }}>{step.num}</p>
                   {step.world && (
-                    <div style={{ display:'inline-flex', alignItems:'center', padding:'3px 9px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap', marginBottom:5 }}>
+                    <div style={{ display:'inline-flex', alignItems:'center', padding:'3px 9px', borderRadius:2, background:'transparent', border:`1px solid ${step.worldColor}`, fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:step.worldColor, whiteSpace:'nowrap', marginBottom:5 }}>
                       {step.world}
                     </div>
                   )}
-                  <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginBottom:2 }}>{step.num}</p>
-                  <p style={{ fontSize:16, fontWeight:700, color:'rgba(42,54,46,0.92)', letterSpacing:'0.04em', marginBottom:2 }}>{step.label}</p>
-                  <p style={{ fontFamily:'var(--f-display)', fontSize:11, letterSpacing:'0.16em', color:'rgba(60,88,68,0.65)', textTransform:'uppercase' }}>{step.en}</p>
+                  <p style={{ fontSize:16, fontWeight:700, color:step.worldColor, letterSpacing:'0.04em', marginBottom:2 }}>{step.label}</p>
+                  <p style={{ fontFamily:'var(--f-display)', fontSize:11, letterSpacing:'0.16em', color:step.worldColor, opacity:0.65, textTransform:'uppercase' }}>{step.en}</p>
                 </div>
               </a>
             ))}
@@ -375,9 +382,9 @@ export default function ScPage() {
                   <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={200} height={200}
                     style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite' }} />
                 </div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginBottom:2 }}>01</div>
-                <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
-                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>下部世界</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:18, letterSpacing:'0.2em', color:'#3E784D', opacity:0.7, marginBottom:2 }}>01</div>
+                <div style={{ fontSize:18, fontWeight:700, color:'#3E784D', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>力量動物</div>
+                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:2, background:'transparent', border:'1px solid #3E784D', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'#3E784D', whiteSpace:'nowrap' }}>下部世界</div>
               </div>
               {/* 03 — 七脈輪情緒覺察, terracotta */}
               <div style={{ position:'absolute', left:'calc(540/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc03')}>
@@ -385,9 +392,9 @@ export default function ScPage() {
                   <Image src="/sc/journey/七脈輪情緒覺察-color.png" alt="" aria-hidden width={300} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 6s ease-in-out infinite' }} />
                 </div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginBottom:2 }}>03</div>
-                <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>脈輪情緒覺察</div>
-                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>上部世界</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#C05A30', opacity:0.7, marginBottom:2 }}>03</div>
+                <div style={{ fontSize:18, fontWeight:700, color:'#C05A30', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>脈輪情緒覺察</div>
+                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:2, background:'transparent', border:'1px solid #C05A30', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'#C05A30', whiteSpace:'nowrap' }}>上部世界</div>
               </div>
               {/* 05 — 內在小孩, purple */}
               <div style={{ position:'absolute', left:'calc(1010/1100*100%)', bottom:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc05')}>
@@ -395,9 +402,9 @@ export default function ScPage() {
                   <Image src="/sc/journey/內在小孩-color.png" alt="" aria-hidden width={300} height={300}
                     style={{ maxWidth:150, maxHeight:150, width:'auto', height:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 7s ease-in-out infinite' }} />
                 </div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginBottom:2 }}>05</div>
-                <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>尋找內在小孩</div>
-                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>靈魂碎片團員</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#8844B8', opacity:0.7, marginBottom:2 }}>05</div>
+                <div style={{ fontSize:18, fontWeight:700, color:'#8844B8', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>尋找內在小孩</div>
+                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:2, background:'transparent', border:'1px solid #8844B8', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'#8844B8', whiteSpace:'nowrap' }}>靈魂碎片團員</div>
               </div>
             </div>
 
@@ -405,7 +412,7 @@ export default function ScPage() {
             <div style={{ position:'relative', width:'100%' }}>
               <Image src="/sc/black/薩滿旅程的線.png" alt="" aria-hidden width={1800} height={320}
                 style={{ width:'100%', height:'auto', display:'block',
-                  filter:'brightness(0.55)', mixBlendMode:'multiply', opacity:0.45 }} />
+                  filter:'brightness(0.55)', mixBlendMode:'multiply', opacity:0.2 }} />
 
               {/* SVG — transparent hit circles only (no drawn circles) */}
               <svg viewBox="0 0 1100 200" style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', overflow:'visible' }}>
@@ -448,9 +455,9 @@ export default function ScPage() {
             <div style={{ position:'relative', height:280, marginTop:12 }}>
               {/* 02 — 指導靈, blue-gray */}
               <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc02')}>
-                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>中部世界</div>
-                <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>指導靈</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginTop:2 }}>02</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#4472A8', opacity:0.7, marginBottom:2 }}>02</div>
+                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:2, background:'transparent', border:'1px solid #4472A8', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'#4472A8', whiteSpace:'nowrap' }}>中部世界</div>
+                <div style={{ fontSize:18, fontWeight:700, color:'#4472A8', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>指導靈</div>
                 <div>
                   <Image src="/sc/journey/指導靈-color.png" alt="" aria-hidden width={250} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 5.5s ease-in-out infinite' }} />
@@ -458,9 +465,9 @@ export default function ScPage() {
               </div>
               {/* 04 — 高我, gold */}
               <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
-                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:5, background:'rgba(80,110,90,0.10)', border:'1px solid rgba(80,110,90,0.32)', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'rgba(42,62,50,0.88)', whiteSpace:'nowrap' }}>整合階段</div>
-                <div style={{ fontSize:18, fontWeight:700, color:'rgba(42,54,46,0.85)', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'rgba(60,88,68,0.70)', marginTop:2 }}>04</div>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#A89020', opacity:0.7, marginBottom:2 }}>04</div>
+                <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:2, background:'transparent', border:'1px solid #A89020', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'#A89020', whiteSpace:'nowrap' }}>整合階段</div>
+                <div style={{ fontSize:18, fontWeight:700, color:'#A89020', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
                 <div>
                   <Image src="/sc/journey/高我-color.png" alt="" aria-hidden width={250} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
@@ -490,18 +497,14 @@ export default function ScPage() {
           <path d="M0,42 C200,72 440,12 700,50 C920,80 1180,16 1360,44 C1410,52 1430,50 1440,49 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.88" />
           <path d="M0,58 C280,34 560,72 840,50 C1060,32 1280,64 1440,58 L1440,80 L0,80 Z" fill="#E4EBF5" opacity="0.45" />
         </svg>
-        {/* 書法圖 */}
-        <Image src="/sc/black/力量動物-直.png" alt="" aria-hidden width={600} height={800}
-          style={{ position:'absolute', right:'4%', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'sepia(0.3) hue-rotate(80deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.40, pointerEvents:'none' }} />
-        {/* 力量動物-橫 secondary layer */}
-        <Image src="/sc/black/力量動物-橫.png" alt="" aria-hidden width={900} height={400}
-          style={{ position:'absolute', bottom:'-5%', left:'-5%', width:'55%', height:'auto',
-            filter:'sepia(0.15) hue-rotate(80deg) saturate(0.8) brightness(0.8)', mixBlendMode:'multiply', opacity:0.05, pointerEvents:'none', transform:'rotate(-8deg) scale(0.75)' }} />
-        {/* 獨角獸 — supporting accent, top-left corner */}
-        <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', left:'5%', top:'8%', width:80, height:'auto',
-            filter:'sepia(0.3) hue-rotate(80deg) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.20, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
+        {/* 龍-color — large bg, right side, semi-transparent, clipped to container */}
+        <div aria-hidden className="hidden md:block" style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
+          <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={600} height={600}
+            style={{ position:'absolute', right:'2%', bottom:'0%', height:'clamp(300px,60vh,500px)', width:'auto',
+              filter:'saturate(1.7) contrast(1.3) brightness(0.82)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite',
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
+        </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
@@ -512,6 +515,10 @@ export default function ScPage() {
               透過頌缽波頻為你的身體進行「接地（Grounding）」，讓腦波在安全的共振中進入深度放鬆。在這樣的狀態下進入薩滿旅程，你將能精準地與你的力量動物相遇——祂是你靈魂最原始的盟友，代表著你與生俱來的特質與守護力量。<br /><br />
               這不僅是一次連結，更教導你如何在日常抉擇、焦慮或失落時，隨時回到內在中心，與你的力量動物並肩航行。
             </p>
+            <button onClick={() => setOpenDetail(openDetail === 'sc01' ? null : 'sc01')}
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#2E5030', opacity:0.6 }}>
+              {openDetail === 'sc01' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc01' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
+            </button>
             {openDetail === 'sc01' && (
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
@@ -538,14 +545,10 @@ export default function ScPage() {
                 </div>
               </div>
             )}
-            <button onClick={() => setOpenDetail(openDetail === 'sc01' ? null : 'sc01')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#2E5030', opacity:0.6 }}>
-              {openDetail === 'sc01' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc01' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
-            </button>
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
-            <div style={{ position:'relative' }}>
+            <div style={{ position:'relative', transform:'translateY(-15%)' }}>
               <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={420} height={420}
                 style={{ width:'min(320px,80%)', height:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite' }} />
             </div>
@@ -566,20 +569,14 @@ export default function ScPage() {
           <path d="M0,88 C300,58 620,108 920,76 C1140,54 1320,94 1440,86 L1440,120 L0,120 Z" fill="#F5E2D4" opacity="0.48" />
           <path d="M0,104 C360,82 720,118 1080,96 C1260,86 1380,108 1440,105 L1440,120 L0,120 Z" fill="#F5E2D4" opacity="0.22" />
         </svg>
-        {/* 書法圖 */}
-        <Image src="/sc/black/指導靈.png" alt="" aria-hidden width={600} height={700}
-          className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', left:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'sepia(0.3) hue-rotate(195deg) saturate(1.6) brightness(0.70)', mixBlendMode:'multiply', opacity:0.44, pointerEvents:'none' }} />
-        {/* 薩滿巫 secondary */}
-        <Image src="/sc/black/薩滿巫.png" alt="" aria-hidden width={500} height={600}
-          className="sc-section-deco"
-          style={{ position:'absolute', right:'5%', bottom:'-10%', width:'28%', height:'auto',
-            filter:'sepia(0.1) brightness(0.8)', mixBlendMode:'multiply', opacity:0.04, pointerEvents:'none', transform:'rotate(6deg) scale(0.8)' }} />
-        {/* 鶴 — small, bottom-right (away from left calligraphy) */}
-        <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', right:'7%', bottom:'10%', width:90, height:'auto',
-            filter:'sepia(0.25) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite' }} />
+        {/* 指導靈-color — large bg, left side, semi-transparent, clipped to container */}
+        <div aria-hidden className="hidden md:block" style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
+          <Image src="/sc/journey/指導靈-color.png" alt="" aria-hidden width={600} height={700}
+            style={{ position:'absolute', left:'2%', top:'35%', height:'clamp(300px,60vh,500px)', width:'auto',
+              filter:'saturate(0.75) brightness(1.05) contrast(0.90)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 5.5s ease-in-out infinite',
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
+        </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col" style={{ order:2 }}>
 
@@ -590,6 +587,10 @@ export default function ScPage() {
               不同於守護與行動力的力量動物，指導靈是純粹的光與愛，是具備高度智慧的靈魂導師。祂們持有你的生命藍圖，能在你面臨人生十字路口時，提供超越小我視角的宏觀指引。<br /><br />
               課程中將建立嚴謹的辨識機制——在宇宙中，愛的能量是無法偽造的——協助你學會區分大腦雜訊與來自高維的真實訊息。
             </p>
+            <button onClick={() => setOpenDetail(openDetail === 'sc02' ? null : 'sc02')}
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#1A3050', opacity:0.6 }}>
+              {openDetail === 'sc02' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc02' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
+            </button>
             {openDetail === 'sc02' && (
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
@@ -616,15 +617,11 @@ export default function ScPage() {
                 </div>
               </div>
             )}
-            <button onClick={() => setOpenDetail(openDetail === 'sc02' ? null : 'sc02')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#1A3050', opacity:0.6 }}>
-              {openDetail === 'sc02' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc02' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
-            </button>
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/指導靈-color.png" alt="" aria-hidden width={420} height={420}
-              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.75) brightness(1.05) contrast(0.90)', opacity:0.95, animation:'sc-breathe 5.5s ease-in-out infinite' }} />
+              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.75) brightness(1.05) contrast(0.90)', opacity:0.95, animation:'sc-breathe 5.5s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
       </section>
@@ -640,15 +637,14 @@ export default function ScPage() {
           <path d="M0,38 C220,70 480,10 740,48 C980,80 1220,18 1420,42 C1430,44 1436,44 1440,44 L1440,80 L0,80 Z" fill="#FFF8CC" opacity="0.88" />
           <path d="M0,54 C300,30 600,70 880,48 C1100,30 1300,62 1440,55 L1440,80 L0,80 Z" fill="#FFF8CC" opacity="0.45" />
         </svg>
-        {/* 書法圖 */}
-        <Image src="/sc/black/七脈輪情緒覺察.png" alt="" aria-hidden width={600} height={700}
-          className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', right:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'sepia(0.5) hue-rotate(340deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
-        {/* 擬態章魚 — small, top-left (away from right calligraphy) */}
-        <Image src="/sc/animals/擬態章魚.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', left:'7%', top:'10%', width:90, height:'auto',
-            filter:'sepia(0.6) hue-rotate(340deg) saturate(1.7) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
+        {/* 七脈輪情緒覺察-color — large bg, right side, semi-transparent, clipped to container */}
+        <div aria-hidden className="hidden md:block" style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
+          <Image src="/sc/journey/七脈輪情緒覺察-color.png" alt="" aria-hidden width={600} height={700}
+            style={{ position:'absolute', right:'2%', top:'35%', height:'clamp(300px,60vh,500px)', width:'auto',
+              filter:'saturate(1.1) brightness(0.92) contrast(1.08)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite',
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
+        </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
@@ -659,6 +655,10 @@ export default function ScPage() {
               七脈輪是情緒的儲存槽。透過薩滿冥想，我們引領你親自進入脈輪空間，覺察那些被身體凍結的感受。透過「看見」與「表達」，協助能量重新流動，找回情緒的主控權。<br /><br />
               這不是理論課，而是一場深度內在實作——拒絕空談，直接透過薩滿冥想進入潛意識，與真實的情緒感受正面相遇。
             </p>
+            <button onClick={() => setOpenDetail(openDetail === 'sc03' ? null : 'sc03')}
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#6A3018', opacity:0.6 }}>
+              {openDetail === 'sc03' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc03' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
+            </button>
             {openDetail === 'sc03' && (
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
@@ -685,15 +685,11 @@ export default function ScPage() {
                 </div>
               </div>
             )}
-            <button onClick={() => setOpenDetail(openDetail === 'sc03' ? null : 'sc03')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#6A3018', opacity:0.6 }}>
-              {openDetail === 'sc03' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc03' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
-            </button>
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/七脈輪情緒覺察-color.png" alt="" aria-hidden width={420} height={420}
-              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(1.1) brightness(0.92) contrast(1.08)', opacity:0.95, animation:'sc-breathe 6s ease-in-out infinite' }} />
+              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(1.1) brightness(0.92) contrast(1.08)', opacity:0.95, animation:'sc-breathe 6s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
       </section>
@@ -710,15 +706,14 @@ export default function ScPage() {
           <path d="M0,84 C320,56 660,106 960,72 C1160,50 1320,90 1440,82 L1440,120 L0,120 Z" fill="#E4D8F5" opacity="0.48" />
           <path d="M0,102 C400,80 800,118 1120,96 C1280,86 1380,108 1440,104 L1440,120 L0,120 Z" fill="#E4D8F5" opacity="0.22" />
         </svg>
-        {/* 書法圖 */}
-        <Image src="/sc/black/高我.png" alt="" aria-hidden width={600} height={700}
-          className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', left:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
-            filter:'sepia(0.35) hue-rotate(20deg) saturate(2.0) brightness(0.72)', mixBlendMode:'multiply', opacity:0.42, pointerEvents:'none' }} />
-        {/* 獨角獸 — small, bottom-right (away from left calligraphy) */}
-        <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', right:'7%', bottom:'10%', width:90, height:'auto',
-            filter:'sepia(0.35) hue-rotate(20deg) saturate(2.0) brightness(0.6)', mixBlendMode:'multiply', opacity:0.22, pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite' }} />
+        {/* 高我-color — large bg, left side, semi-transparent, clipped to container */}
+        <div aria-hidden className="hidden md:block" style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
+          <Image src="/sc/journey/高我-color.png" alt="" aria-hidden width={600} height={700}
+            style={{ position:'absolute', left:'2%', top:'35%', height:'clamp(300px,60vh,500px)', width:'auto',
+              filter:'saturate(1.0) brightness(0.82) contrast(1.18)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 6.5s ease-in-out infinite',
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
+        </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col" style={{ order:2 }}>
 
@@ -732,6 +727,10 @@ export default function ScPage() {
               <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#A07800', opacity:0.85, display:'block', marginBottom:6 }}>前置課程 · PREREQUISITE</span>
               本課程建議在參與<strong style={{ color:'rgba(38,36,0,0.9)', fontWeight:600 }}>雅妃老師的重生呼吸課</strong>後進行，讓身體通透感轉化為與高我對話的導航能力。
             </div>
+            <button onClick={() => setOpenDetail(openDetail === 'sc04' ? null : 'sc04')}
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#4A4200', opacity:0.6 }}>
+              {openDetail === 'sc04' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc04' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
+            </button>
             {openDetail === 'sc04' && (
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
@@ -758,15 +757,11 @@ export default function ScPage() {
                 </div>
               </div>
             )}
-            <button onClick={() => setOpenDetail(openDetail === 'sc04' ? null : 'sc04')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#4A4200', opacity:0.6 }}>
-              {openDetail === 'sc04' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc04' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
-            </button>
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/高我-color.png" alt="" aria-hidden width={420} height={420}
-              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(1.0) brightness(0.82) contrast(1.18)', opacity:0.95, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
+              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(1.0) brightness(0.82) contrast(1.18)', opacity:0.95, animation:'sc-breathe 6.5s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
       </section>
@@ -777,10 +772,14 @@ export default function ScPage() {
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 50%, rgba(90,30,140,0.18) 0%, rgba(120,50,160,0.12) 50%, transparent 70%), radial-gradient(ellipse 50% 60% at 90% 25%, rgba(140,60,180,0.20) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'60%', height:'90vh', borderRadius:'50%', background:'radial-gradient(ellipse 75% 90% at 60% 48%, rgba(100,20,180,0.42) 0%, transparent 68%)', pointerEvents:'none', filter:'blur(28px)' }} />
-        {/* 水豚 — small accent, top-left corner */}
-        <Image src="/sc/animals/水豚.png" alt="" aria-hidden width={200} height={200}
-          style={{ position:'absolute', left:'6%', top:'12%', width:80, height:'auto',
-            filter:'sepia(0.45) hue-rotate(270deg) saturate(1.6) brightness(0.6)', mixBlendMode:'multiply', opacity:0.20, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite' }} />
+        {/* 內在小孩-color — large bg, right side, semi-transparent, clipped to container */}
+        <div aria-hidden className="hidden md:block" style={{ position:'absolute', top:0, bottom:0, left:'50%', transform:'translateX(-50%)', width:'100%', maxWidth:1200, padding:'0 10vw', overflow:'hidden', pointerEvents:'none', zIndex:1 }}>
+          <Image src="/sc/journey/內在小孩-color.png" alt="" aria-hidden width={600} height={700}
+            style={{ position:'absolute', right:'2%', top:'35%', height:'clamp(300px,60vh,500px)', width:'auto',
+              filter:'saturate(0.78) brightness(1.08) contrast(0.92)', opacity:0.18, pointerEvents:'none', animation:'sc-breathe 5s ease-in-out infinite',
+              maskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)',
+              WebkitMaskImage:'linear-gradient(to bottom, transparent 0%, black 18%, black 72%, transparent 100%)' }} />
+        </div>
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2, display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center' }}>
           <div className="sc-text-col">
 
@@ -791,6 +790,10 @@ export default function ScPage() {
               當個體遭遇超載的創傷，大腦會啟動保護機制，將受傷的意識片段解離並封存——這些被凍結的自我，即是「內在小孩」。<br /><br />
               我們不採取暴力挖掘，而是透過高我與指導靈的導航，辨識那些被凍結在生命角落的「身心過敏原」。以現在的成熟意識進行跨時空的連結，讓因保護而遺落的碎片重新歸位。
             </p>
+            <button onClick={() => setOpenDetail(openDetail === 'sc05' ? null : 'sc05')}
+              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#4A1560', opacity:0.6 }}>
+              {openDetail === 'sc05' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc05' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
+            </button>
             {openDetail === 'sc05' && (
               <div style={{ marginTop:20, background:'rgba(255,255,255,0.82)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', borderRadius:20, padding:'24px 28px', boxShadow:'0 4px 32px rgba(0,0,0,0.07)', border:'1px solid rgba(255,255,255,0.7)' }}>
                 <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20 }}>
@@ -817,25 +820,19 @@ export default function ScPage() {
                 </div>
               </div>
             )}
-            <button onClick={() => setOpenDetail(openDetail === 'sc05' ? null : 'sc05')}
-              style={{ marginTop:16, display:'inline-flex', alignItems:'center', gap:8, background:'none', border:'none', cursor:'pointer', padding:'6px 0', fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.20em', color:'#4A1560', opacity:0.6 }}>
-              {openDetail === 'sc05' ? '收起' : '探索課程細節'} <span style={{ fontSize:'clamp(13px, 1.2vw, 15px)', transition:'transform 0.3s', display:'inline-block', transform: openDetail === 'sc05' ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
-            </button>
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/內在小孩-color.png" alt="" aria-hidden width={420} height={420}
-              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.78) brightness(1.08) contrast(0.92)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite' }} />
+              style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.78) brightness(1.08) contrast(0.92)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
       </section>
 
-      {/* ═══ 推薦整合搭配 ═══ */}
-      <section style={{ padding:'80px 0 100px', background:'#C8D8E4', position:'relative', overflow:'hidden' }}>
+      {/* ═══ 推薦整合搭配 ═══ (commented out) */}
+      {/* <section style={{ padding:'80px 0 100px', background:'#C8D8E4', position:'relative', overflow:'hidden' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 55% at 50% 50%, rgba(180,210,220,0.45) 0%, transparent 70%)', pointerEvents:'none' }} />
         <div style={{ maxWidth:1100, margin:'0 auto', padding:'0 10vw', position:'relative', zIndex:2 }}>
-
-          {/* Header */}
           <div style={{ textAlign:'center', marginBottom:48 }}>
             <h2 className="tr-d2" style={{ fontSize:'clamp(24px,3.5vw,42px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#1E3848', marginBottom:12 }}>
               推薦整合搭配
@@ -844,8 +841,6 @@ export default function ScPage() {
               Complete Your Journey
             </p>
           </div>
-
-          {/* Cards */}
           <div className="sc-reco-grid" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:20 }}>
             {[
               { title:'深層系統對齊', desc:'薩滿打開靈魂的通道，深層對齊讓覺醒的能量落地。從靈性到現實的完整轉化路徑。', href:'/hl', img:'/hl/頌缽波動-黑.png', imgBg:'rgba(176,100,100,0.12)', linkColor:'#8A4040' },
@@ -867,14 +862,12 @@ export default function ScPage() {
               </div>
             ))}
           </div>
-
         </div>
-      </section>
+      </section> */}
 
-      {/* ═══ CTA ═══ */}
-      <section style={{ minHeight:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(60px,8vh,100px) clamp(24px,8vw,120px)', background:'linear-gradient(155deg, #2B4A5E 0%, #355A6A 45%, #3A5060 100%)', position:'relative', overflow:'hidden', textAlign:'center' }}>
+      {/* ═══ CTA ═══ (commented out) */}
+      {/* <section style={{ minHeight:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(60px,8vh,100px) clamp(24px,8vw,120px)', background:'linear-gradient(155deg, #2B4A5E 0%, #355A6A 45%, #3A5060 100%)', position:'relative', overflow:'hidden', textAlign:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(94,142,138,0.22) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
-        {/* Atmospheric bg calligraphy */}
         <Image src="/sc/black/薩滿冥想-橫.png" alt="" aria-hidden width={900} height={300}
           style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'100%', height:'auto', filter:'invert(1) brightness(1.0)', mixBlendMode:'screen', opacity:0.12, pointerEvents:'none' }} />
         <div style={{ position:'relative', zIndex:2, display:'inline-block', padding:'clamp(36px,5vh,56px) clamp(40px,6vw,80px)', background:'rgba(255,255,255,0.12)', backdropFilter:'blur(3px)', WebkitBackdropFilter:'blur(3px)', borderRadius:24 }}>
@@ -888,7 +881,7 @@ export default function ScPage() {
             預約探索諮詢 &nbsp;·&nbsp; BOOK A SESSION
           </Link>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }
