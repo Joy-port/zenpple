@@ -462,9 +462,9 @@ export default function ScPage() {
             <div style={{ position:'relative', height:280, marginTop:12 }}>
               {/* 02 — 指導靈, blue-gray */}
               <div style={{ position:'absolute', left:'calc(280/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc02')}>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#4472A8', opacity:0.7, marginBottom:2 }}>02</div>
                 <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:2, background:'transparent', border:'1px solid #4472A8', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'#4472A8', whiteSpace:'nowrap' }}>中部世界</div>
                 <div style={{ fontSize:18, fontWeight:700, color:'#4472A8', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>指導靈</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#4472A8', opacity:0.7, marginTop:2 }}>02</div>
                 <div>
                   <Image src="/sc/journey/指導靈-color.png" alt="" aria-hidden width={250} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 5.5s ease-in-out infinite' }} />
@@ -472,9 +472,9 @@ export default function ScPage() {
               </div>
               {/* 04 — 高我, gold */}
               <div style={{ position:'absolute', left:'calc(800/1100*100%)', top:0, transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, cursor:'pointer' }} onClick={() => selectNode('sc04')}>
+                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#A89020', opacity:0.7, marginBottom:2 }}>04</div>
                 <div style={{ display:'inline-flex', alignItems:'center', padding:'2px 8px', borderRadius:2, background:'transparent', border:'1px solid #A89020', fontFamily:'var(--f-mono)', fontSize:11, letterSpacing:'0.10em', color:'#A89020', whiteSpace:'nowrap' }}>整合階段</div>
                 <div style={{ fontSize:18, fontWeight:700, color:'#A89020', whiteSpace:'nowrap', letterSpacing:'0.04em' }}>連結高我</div>
-                <div style={{ fontFamily:'var(--f-mono)', fontSize:13, letterSpacing:'0.2em', color:'#A89020', opacity:0.7, marginTop:2 }}>04</div>
                 <div>
                   <Image src="/sc/journey/高我-color.png" alt="" aria-hidden width={250} height={300}
                     style={{ height:200, width:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 6.5s ease-in-out infinite' }} />
