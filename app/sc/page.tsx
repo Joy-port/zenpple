@@ -485,7 +485,7 @@ export default function ScPage() {
         </svg>
         {/* 書法圖 */}
         <Image src="/sc/black/力量動物-直.png" alt="" aria-hidden width={600} height={800}
-          style={{ position:'absolute', right:'-1%', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
+          style={{ position:'absolute', right:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
             filter:'sepia(0.3) hue-rotate(80deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.40, pointerEvents:'none' }} />
         {/* 力量動物-橫 secondary layer */}
         <Image src="/sc/black/力量動物-橫.png" alt="" aria-hidden width={900} height={400}
@@ -561,7 +561,7 @@ export default function ScPage() {
         {/* 書法圖 */}
         <Image src="/sc/black/指導靈.png" alt="" aria-hidden width={600} height={700}
           className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', left:'-1%', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
+          style={{ position:'absolute', left:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
             filter:'saturate(0.4) hue-rotate(195deg) brightness(0.58)', mixBlendMode:'multiply', opacity:0.50, pointerEvents:'none' }} />
         {/* 薩滿巫 secondary */}
         <Image src="/sc/black/薩滿巫.png" alt="" aria-hidden width={500} height={600}
@@ -632,7 +632,7 @@ export default function ScPage() {
         {/* 書法圖 */}
         <Image src="/sc/black/七脈輪情緒覺察.png" alt="" aria-hidden width={600} height={700}
           className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', right:'-1%', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
+          style={{ position:'absolute', right:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
             filter:'sepia(0.5) hue-rotate(340deg) saturate(1.8) brightness(0.72)', mixBlendMode:'multiply', opacity:0.38, pointerEvents:'none' }} />
         {/* 擬態章魚 — small, top-left (away from right calligraphy) */}
         <Image src="/sc/animals/擬態章魚.png" alt="" aria-hidden width={200} height={200}
@@ -698,7 +698,7 @@ export default function ScPage() {
         {/* 書法圖 */}
         <Image src="/sc/black/高我.png" alt="" aria-hidden width={600} height={700}
           className="sc-section-bg-calligraphy"
-          style={{ position:'absolute', left:'-1%', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
+          style={{ position:'absolute', left:'calc(10vw + max(0px, (100vw - 1200px) / 2))', top:'50%', transform:'translateY(-50%)', height:'clamp(300px,60vh,500px)', width:'auto',
             filter:'sepia(0.15) hue-rotate(50deg) saturate(2.4) brightness(0.72)', mixBlendMode:'multiply', opacity:0.42, pointerEvents:'none' }} />
         {/* 獨角獸 — small, bottom-right (away from left calligraphy) */}
         <Image src="/sc/animals/unicorn.png" alt="" aria-hidden width={200} height={200}
