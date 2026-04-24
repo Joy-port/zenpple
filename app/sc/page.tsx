@@ -66,19 +66,19 @@ export default function ScPage() {
         {/* Small animals — scattered across hero, avoiding center content & bottom-right figure */}
         {/* crane — top-right, biggest of the small group */}
         <Image src="/sc/animals-white/crane.png" alt="" aria-hidden width={160} height={160}
-          style={{ position:'absolute', top:'10%', right:'5%', width:72, height:'auto', opacity:0.20, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(14deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
+          style={{ position:'absolute', top:'10%', right:'5%', width:94, height:'auto', opacity:0.20, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(14deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
         {/* whale — top-left, medium */}
         <Image src="/sc/animals-white/whale.png" alt="" aria-hidden width={160} height={160}
-          style={{ position:'absolute', top:'7%', left:'24%', width:54, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
+          style={{ position:'absolute', top:'7%', left:'24%', width:70, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
         {/* vulture — left side, small */}
         <Image src="/sc/animals-white/vulture.png" alt="" aria-hidden width={160} height={160}
-          style={{ position:'absolute', top:'44%', left:'8%', width:36, height:'auto', opacity:0.18, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
+          style={{ position:'absolute', top:'44%', left:'8%', width:47, height:'auto', opacity:0.18, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
         {/* fox — right side, medium-large */}
         <Image src="/sc/animals-white/fox.png" alt="" aria-hidden width={160} height={160}
-          style={{ position:'absolute', top:'38%', right:'9%', width:62, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-7deg)', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.6s' }} />
+          style={{ position:'absolute', top:'38%', right:'9%', width:81, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-7deg)', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.6s' }} />
         {/* turtle — bottom-left, very small */}
         <Image src="/sc/animals-white/turtle.png" alt="" aria-hidden width={160} height={160}
-          style={{ position:'absolute', bottom:'22%', left:'16%', width:30, height:'auto', opacity:0.22, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
+          style={{ position:'absolute', bottom:'22%', left:'16%', width:39, height:'auto', opacity:0.22, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
 
         {/* Ripple rings — mid-right */}
         <div style={{ position:'absolute', right:'25%', top:'48%', pointerEvents:'none' }}>
@@ -108,9 +108,7 @@ export default function ScPage() {
             style={{ width:'clamp(260px,44vw,580px)', height:'auto', filter:'invert(1) sepia(0.12) saturate(1.0) brightness(1.0)', mixBlendMode:'screen', opacity:0.88, marginBottom:32 }}
           />
 
-          <div style={{ width:36, height:1, background:'rgba(200,220,235,0.28)', marginBottom:24 }} />
-
-          <p style={{ fontFamily:'var(--f-zh)', fontSize:'clamp(18px,2vw,26px)', color:'rgba(200,220,235,1)', letterSpacing:'0.06em', lineHeight:1.9, maxWidth:340 }}>
+          <p style={{ fontFamily:'var(--f-zh)', fontSize:'clamp(18px,2vw,26px)', color:'rgba(200,220,235,1)', letterSpacing:'0.06em', lineHeight:1.9, maxWidth:340, marginTop:8 }}>
             透過古老智慧，<br />連結靈魂最原始的力量
           </p>
         </div>
