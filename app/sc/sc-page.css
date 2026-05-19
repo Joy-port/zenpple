@@ -226,6 +226,18 @@ body.page-sc footer { display: none !important; }
   }
 }
 
+/* ── Hero animals — mobile: move up 5%, shrink 10% to avoid text overlap ── */
+@media (max-width: 767px) {
+  .sc-hero-whale {
+    top: 18% !important;
+    width: 133px !important;
+  }
+  .sc-hero-crane {
+    top: 1% !important;
+    width: 79px !important;
+  }
+}
+
 /* ── Section main images — consistent size on mobile, no translateY offset ── */
 @media (max-width: 767px) {
   .sc-main-img {
