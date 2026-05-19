@@ -106,11 +106,6 @@ export default function ScPage() {
           </p>
         </div>
 
-        {/* Scroll indicator */}
-        <div style={{ position:'absolute', bottom:36, left:'50%', transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, opacity:0.45, animation:'sc-float 2.5s ease-in-out infinite' }}>
-          <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.25em', color:'rgba(30,56,72,0.6)' }}>SCROLL</span>
-        </div>
-
         {/* ── Hero→WhatIs transition: ink-smoke brushstroke rip ── */}
         <svg aria-hidden viewBox="0 0 1440 110" preserveAspectRatio="none"
           style={{ position:'absolute', bottom:-1, left:0, width:'100%', height:110, display:'block', pointerEvents:'none' }}>
