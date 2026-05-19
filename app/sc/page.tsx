@@ -116,40 +116,36 @@ export default function ScPage() {
         {/* ── Hero→WhatIs transition: ink-smoke brushstroke rip ── */}
         <svg aria-hidden viewBox="0 0 1440 110" preserveAspectRatio="none"
           style={{ position:'absolute', bottom:-1, left:0, width:'100%', height:110, display:'block', pointerEvents:'none' }}>
-          {/* Main torn edge — irregular brush feel */}
           <path d="M0,72 C60,55 140,90 240,68 C340,46 420,88 560,62 C680,40 760,82 900,58 C1020,36 1100,78 1220,60 C1310,46 1380,74 1440,65 L1440,110 L0,110 Z"
-            fill="#355A6A" opacity="0.95" />
-          {/* Second brush layer — slightly offset for depth */}
+            fill="#E0EBF4" opacity="0.95" />
           <path d="M0,88 C80,70 200,100 340,80 C460,62 560,95 700,75 C820,58 940,92 1080,72 C1200,55 1320,88 1440,78 L1440,110 L0,110 Z"
-            fill="#355A6A" opacity="0.50" />
-          {/* Ink bleed dots — shamanic texture */}
-          <ellipse cx="320" cy="76" rx="18" ry="6" fill="#355A6A" opacity="0.30" />
-          <ellipse cx="750" cy="68" rx="12" ry="4" fill="#355A6A" opacity="0.25" />
-          <ellipse cx="1100" cy="80" rx="22" ry="5" fill="#355A6A" opacity="0.28" />
+            fill="#E0EBF4" opacity="0.50" />
+          <ellipse cx="320" cy="76" rx="18" ry="6" fill="#E0EBF4" opacity="0.30" />
+          <ellipse cx="750" cy="68" rx="12" ry="4" fill="#E0EBF4" opacity="0.25" />
+          <ellipse cx="1100" cy="80" rx="22" ry="5" fill="#E0EBF4" opacity="0.28" />
         </svg>
       </section>
 
       {/* ═══ 薩滿介紹 ═══ */}
-      <section style={{ background:'#355A6A', padding:'110px 0 90px', minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'visible' }}>
-        {/* Airy wash — lighter, wider spread */}
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 100% at 60% 50%, rgba(120,175,170,0.2) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 5% 80%, rgba(94,142,138,0.15) 0%, transparent 55%)', pointerEvents:'none' }} />
-        {/* Decorative bg animals — atmospheric, screen blend */}
+      <section style={{ background:'#E0EBF4', padding:'110px 0 90px', minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'visible' }}>
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 100% at 60% 50%, rgba(74,107,138,0.08) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 5% 80%, rgba(74,107,138,0.06) 0%, transparent 55%)', pointerEvents:'none' }} />
+        {/* Decorative bg animals — multiply on light bg */}
         <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={500} height={500}
-          style={{ position:'absolute', top:'-2%', left:'-4%', width:'clamp(260px,30vw,420px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.15, pointerEvents:'none', transform:'scaleX(-1) rotate(-12deg)', zIndex:2 }} />
+          style={{ position:'absolute', top:'-2%', left:'-4%', width:'clamp(260px,30vw,420px)', height:'auto', mixBlendMode:'multiply', opacity:0.12, pointerEvents:'none', transform:'scaleX(-1) rotate(-12deg)', zIndex:2 }} />
         <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={400} height={400}
-          style={{ position:'absolute', bottom:'-6%', right:'2%', width:'clamp(180px,20vw,300px)', height:'auto', filter:'invert(1)', mixBlendMode:'screen', opacity:0.09, pointerEvents:'none', transform:'rotate(8deg)' }} />
+          style={{ position:'absolute', bottom:'-6%', right:'2%', width:'clamp(180px,20vw,300px)', height:'auto', mixBlendMode:'multiply', opacity:0.10, pointerEvents:'none', transform:'rotate(8deg)' }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center', position:'relative', zIndex:2 }}>
           <div className="sc-text-col">
-            <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.22em', color:'rgba(180,215,220,1)', marginBottom:14, textTransform:'uppercase' }}>
+            <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.22em', color:'rgba(42,70,90,0.60)', marginBottom:14, textTransform:'uppercase' }}>
               WHAT IS SHAMANISM
             </p>
-            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#F2EFEA', marginBottom:16 }}>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#1E3848', marginBottom:16 }}>
               薩滿，<br />最古老的療癒智慧
             </h2>
-            <p style={{ fontFamily:'var(--f-display)', fontWeight:600, fontSize:14, letterSpacing:'0.28em', color:'rgba(180,215,220,1)', marginBottom:24 }}>
+            <p style={{ fontFamily:'var(--f-display)', fontWeight:600, fontSize:14, letterSpacing:'0.28em', color:'rgba(42,70,90,0.55)', marginBottom:24 }}>
               The Oldest Healing Wisdom
             </p>
-            <p style={{ fontSize:14, lineHeight:1.9, color:'rgba(242,239,234,1)', maxWidth:440 }}>
+            <p style={{ fontSize:14, lineHeight:1.9, color:'rgba(30,56,72,0.80)', maxWidth:440 }}>
               薩滿不是宗教，是一種與自然、靈性世界深度連結的古老修行。<br /><br />
               透過意識的轉移，薩滿者在三個世界之間旅行，帶回療癒與靈性指引。<br /><br />
               薩滿靈魂覺醒，是找回你與生俱來的完整性。
@@ -163,31 +159,29 @@ export default function ScPage() {
               aria-hidden
               width={460}
               height={460}
-              style={{ width:'min(420px,85%)', height:'auto', filter:'invert(1) sepia(0.5) saturate(1.8) hue-rotate(168deg) brightness(0.88)', mixBlendMode:'screen', opacity:0.55, animation:'sc-breathe 5s ease-in-out infinite' }}
+              style={{ width:'min(420px,85%)', height:'auto', mixBlendMode:'multiply', opacity:0.55, animation:'sc-breathe 5s ease-in-out infinite' }}
             />
           </div>
         </div>
 
-        {/* ── WhatIs→Journey wave: fills with light journey bg ── */}
+        {/* ── WhatIs→Journey wave ── */}
         <svg aria-hidden viewBox="0 0 1440 80" preserveAspectRatio="none"
           style={{ position:'absolute', bottom:0, left:0, width:'100%', height:80, display:'block', pointerEvents:'none', zIndex:1 }}>
           <path d="M0,45 C220,78 500,12 760,50 C1000,82 1220,20 1440,48 L1440,80 L0,80 Z" fill="#F5EFDF" opacity="0.95" />
           <path d="M0,58 C280,35 580,75 860,50 C1080,32 1300,65 1440,58 L1440,80 L0,80 Z" fill="#F5EFDF" opacity="0.45" />
         </svg>
-        {/* ── WhatIs→Journey transition: ceremonial ink divider ── */}
+        {/* ── Ink divider ── */}
         <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, display:'flex', flexDirection:'column', alignItems:'center', pointerEvents:'none' }}>
-          {/* Horizontal ink brush line — full width, feathered */}
           <svg viewBox="0 0 1440 32" preserveAspectRatio="none" style={{ width:'100%', height:32, display:'block' }}>
             <path d="M0,18 C120,10 280,26 480,16 C660,7 820,24 1020,14 C1180,6 1320,22 1440,16"
-              stroke="rgba(180,215,220,0.18)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+              stroke="rgba(42,70,90,0.12)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
             <path d="M0,22 C200,14 400,28 640,18 C840,10 1040,26 1280,18 C1360,14 1410,20 1440,18"
-              stroke="rgba(180,215,220,0.09)" strokeWidth="1" fill="none" strokeLinecap="round" />
+              stroke="rgba(42,70,90,0.07)" strokeWidth="1" fill="none" strokeLinecap="round" />
           </svg>
-          {/* Centered ripple motif — shamanic gateway */}
           <svg viewBox="0 0 120 40" style={{ width:120, height:40, display:'block', marginTop:-8 }}>
-            <ellipse cx="60" cy="20" rx="28" ry="10" stroke="rgba(180,215,220,0.22)" strokeWidth="1" fill="none" />
-            <ellipse cx="60" cy="20" rx="16" ry="6" stroke="rgba(180,215,220,0.18)" strokeWidth="1" fill="none" />
-            <ellipse cx="60" cy="20" rx="5" ry="3" fill="rgba(180,215,220,0.22)" />
+            <ellipse cx="60" cy="20" rx="28" ry="10" stroke="rgba(42,70,90,0.14)" strokeWidth="1" fill="none" />
+            <ellipse cx="60" cy="20" rx="16" ry="6" stroke="rgba(42,70,90,0.11)" strokeWidth="1" fill="none" />
+            <ellipse cx="60" cy="20" rx="5" ry="3" fill="rgba(42,70,90,0.14)" />
           </svg>
         </div>
       </section>
