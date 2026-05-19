@@ -60,7 +60,7 @@ export default function ScPage() {
           aria-hidden
           width={800}
           height={800}
-          style={{ position:'absolute', right:0, bottom:0, width:'26%', height:'auto', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite' }}
+          style={{ position:'absolute', right:0, bottom:0, width:'32%', height:'auto', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite', zIndex:2 }}
         />
 
         {/* Small animals + ripple — desktop only */}
@@ -71,8 +71,6 @@ export default function ScPage() {
             style={{ position:'absolute', top:'7%', left:'24%', width:91, height:'auto', opacity:0.35, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
           <Image src="/sc/animals/vulture.png" alt="" aria-hidden width={160} height={160}
             style={{ position:'absolute', top:'44%', left:'8%', width:61, height:'auto', opacity:0.40, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
-          <Image src="/sc/animals/fox.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'38%', right:'9%', width:105, height:'auto', opacity:0.35, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-7deg)', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.6s' }} />
           <Image src="/sc/animals/鱷龜.png" alt="" aria-hidden width={160} height={160}
             style={{ position:'absolute', bottom:'22%', left:'16%', width:51, height:'auto', opacity:0.45, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
           <div style={{ position:'absolute', right:'25%', top:'48%', pointerEvents:'none' }}>
