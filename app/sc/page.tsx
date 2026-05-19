@@ -837,10 +837,16 @@ export default function ScPage() {
               style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.78) brightness(1.08) contrast(0.92)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
+        {/* ── SC-05 → 帶領者 wave ── */}
+        <svg aria-hidden viewBox="0 0 1440 90" preserveAspectRatio="none"
+          style={{ position:'absolute', bottom:0, left:0, width:'100%', height:90, display:'block', pointerEvents:'none', zIndex:3 }}>
+          <path d="M0,52 C240,88 560,14 860,54 C1080,84 1260,22 1440,50 L1440,90 L0,90 Z" fill="#E4EBF5" opacity="0.95" />
+          <path d="M0,66 C300,40 620,82 920,58 C1140,38 1320,72 1440,64 L1440,90 L0,90 Z" fill="#E4EBF5" opacity="0.45" />
+        </svg>
       </section>
 
       {/* ═══ 帶領者 ═══ */}
-      <section style={{ height:'100svh', background:'#E4EBF5', position:'relative', overflow:'hidden', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+      <section style={{ minHeight:'100svh', background:'#E4EBF5', position:'relative', overflow:'hidden', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 55% 50% at 50% 50%, rgba(74,107,180,0.08) 0%, transparent 70%)', pointerEvents:'none' }} />
         <div style={{ maxWidth:900, margin:'0 auto', padding:'0 clamp(24px,8vw,80px)', position:'relative', zIndex:2, width:'100%' }}>
           <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px,1.2vw,15px)', letterSpacing:'0.22em', color:'rgba(30,56,80,0.60)', marginBottom:14, textTransform:'uppercase' }}>
