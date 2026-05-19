@@ -866,10 +866,10 @@ export default function ScPage() {
 
       {/* ═══ Landing page footer ═══ */}
       <div role="contentinfo" style={{ background:'#C8D8E6', padding:'14px clamp(24px,6vw,80px)', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:8 }}>
-        <p style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.12em', color:'rgba(30,56,72,0.75)', margin:0 }}>
+        <p style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.12em', color:'rgba(30,56,72,0.50)', margin:0 }}>
           © 2026 ZENPPLE 森波 · All rights reserved
         </p>
-        <Link href="/ethics" style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.12em', color:'rgba(30,56,72,0.65)', textDecoration:'none' }}>
+        <Link href="/ethics" style={{ fontFamily:'var(--f-mono)', fontSize:10, letterSpacing:'0.12em', color:'rgba(30,56,72,0.50)', textDecoration:'none' }}>
           服務條款與倫理聲明
         </Link>
       </div>
