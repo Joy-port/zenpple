@@ -3,7 +3,8 @@
   --sc-blue-light: #7A9AB5;
 }
 
-/* ── Hide Nav & Footer on SC page ── */
+/* ── Standalone landing page mode — global nav & footer hidden ──
+   To restore site nav/footer: remove these two rules.               */
 body.page-sc header,
 body.page-sc footer { display: none !important; }
 
@@ -133,11 +134,19 @@ body.page-sc footer { display: none !important; }
 
 /* ── Mobile responsive ── */
 @media (max-width: 767px) {
+  /* Full-height content sections — reduce vertical padding on mobile */
+  .sc-full-section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
   /* Content section grids → single column, text always first */
   .sc-section-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 48px !important;
+    gap: 32px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
   .sc-section-grid .sc-text-col {
     order: -1 !important;
@@ -223,6 +232,27 @@ body.page-sc footer { display: none !important; }
     bottom: 0 !important;
     transform: translateX(-50%) !important;
     animation: sc-mobile-breathe 5s ease-in-out infinite !important;
+  }
+}
+
+/* ── Hero animals — mobile overrides ── */
+@media (max-width: 767px) {
+  .sc-hero-whale {
+    width: 120px !important;
+  }
+}
+
+/* ── Section main images — consistent size on mobile, no translateY offset ── */
+@media (max-width: 767px) {
+  .sc-main-img {
+    max-width: 220px !important;
+    max-height: 240px !important;
+    width: auto !important;
+    height: auto !important;
+    transform: none !important;
+  }
+  .sc-img-wrapper {
+    transform: none !important;
   }
 }
 
