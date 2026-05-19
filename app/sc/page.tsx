@@ -876,7 +876,7 @@ export default function ScPage() {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section style={{ minHeight:'80svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(100px,14vh,160px) clamp(24px,8vw,120px)', background:'#D4E3EE', position:'relative', overflow:'hidden', textAlign:'center' }}>
+      <section style={{ height:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(100px,14vh,160px) clamp(24px,8vw,120px)', background:'#D4E3EE', position:'relative', overflow:'hidden', textAlign:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(74,107,138,0.10) 0%, transparent 70%)', pointerEvents:'none' }} />
 
         {/* Colored animals — corners, clear of content */}
