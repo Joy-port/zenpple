@@ -237,9 +237,6 @@ body.page-sc footer { display: none !important; }
 /* ── Hero animals — mobile overrides ── */
 @media (max-width: 767px) {
   .sc-hero-whale {
-    top: auto !important;
-    bottom: -3% !important;
-    left: 2% !important;
     width: 120px !important;
   }
   .sc-hero-crane {
