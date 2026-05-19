@@ -133,11 +133,19 @@ body.page-sc footer { display: none !important; }
 
 /* ── Mobile responsive ── */
 @media (max-width: 767px) {
+  /* Full-height content sections — reduce vertical padding on mobile */
+  .sc-full-section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+
   /* Content section grids → single column, text always first */
   .sc-section-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 48px !important;
+    gap: 32px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
   .sc-section-grid .sc-text-col {
     order: -1 !important;

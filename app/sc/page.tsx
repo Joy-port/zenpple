@@ -113,7 +113,7 @@ export default function ScPage() {
       </section>
 
       {/* ═══ 薩滿介紹 ═══ */}
-      <section style={{ background:'#E0EBF4', padding:'110px 0 90px', minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'visible' }}>
+      <section className="sc-full-section" style={{ background:'#E0EBF4', padding:'110px 0 90px', minHeight:'100vh', display:'flex', alignItems:'center', position:'relative', overflow:'visible' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 100% at 60% 50%, rgba(74,107,138,0.08) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 5% 80%, rgba(74,107,138,0.06) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* Decorative bg animals — multiply on light bg */}
         <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={500} height={500}
@@ -466,7 +466,7 @@ export default function ScPage() {
 
       {/* ═══ SC-01 尋找力量動物 ═══ */}
       {/* Theme: 大地 · 土壤 · 原始生命力 — deep earth, amber/sienna */}
-      <section id="section-sc01" style={{ padding:'100px 0', background:'#E6EDE6', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+      <section id="section-sc01" className="sc-full-section" style={{ padding:'100px 0', background:'#E6EDE6', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 55%, rgba(50,110,60,0.10) 0%, rgba(40,90,50,0.12) 45%, transparent 70%), radial-gradient(ellipse 40% 40% at 85% 15%, rgba(60,120,70,0.12) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 60% 65%, rgba(50,140,70,0.20) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
@@ -537,7 +537,7 @@ export default function ScPage() {
 
       {/* ═══ SC-02 連結高維指導靈 ═══ */}
       {/* Theme: 夜空 · 月光 · 高維頻道 — near-black with cool silver-pearl */}
-      <section id="section-sc02" style={{ padding:'100px 0', background:'#E4EBF5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+      <section id="section-sc02" className="sc-full-section" style={{ padding:'100px 0', background:'#E4EBF5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         {/* C-form glow — top-left arc, left spine, bottom-left arc; opening faces right */}
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 40% 28% at 0% 8%, rgba(40,80,180,0.30) 0%, transparent 100%), radial-gradient(ellipse 20% 60% at 0% 50%, rgba(40,80,180,0.22) 0%, transparent 100%), radial-gradient(ellipse 40% 28% at 0% 92%, rgba(40,80,180,0.28) 0%, transparent 100%)', pointerEvents:'none' }} />
         {/* text-zone lift — brightens the right column where content sits */}
@@ -607,7 +607,7 @@ export default function ScPage() {
 
       {/* ═══ SC-03 七脈輪情緒覺察 ═══ */}
       {/* Theme: 身體 · 情緒 · 流動感 — deep warm terracotta, body warmth */}
-      <section id="section-sc03" style={{ padding:'100px 0', background:'#F5E2D4', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+      <section id="section-sc03" className="sc-full-section" style={{ padding:'100px 0', background:'#F5E2D4', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 65% 75% at 10% 50%, rgba(140,60,25,0.1) 0%, rgba(140,75,40,0.12) 50%, transparent 70%), radial-gradient(ellipse 45% 55% at 90% 20%, rgba(160,85,50,0.15) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 60% 60%, rgba(190,90,40,0.24) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
@@ -672,7 +672,7 @@ export default function ScPage() {
 
       {/* ═══ SC-04 連結高我 ═══ */}
       {/* Theme: 神聖 · 金光 · 靈魂主權 — near-black with sacred gold */}
-      <section id="section-sc04" style={{ padding:'100px 0', background:'#FFF8CC', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+      <section id="section-sc04" className="sc-full-section" style={{ padding:'100px 0', background:'#FFF8CC', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 70% at 80% 40%, rgba(255,210,30,0.12) 0%, rgba(240,195,20,0.08) 50%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 70%, rgba(255,215,20,0.10) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', left:'-5%', top:'50%', transform:'translateY(-50%)', width:'55%', height:'85vh', borderRadius:'50%', background:'radial-gradient(ellipse 70% 90% at 40% 60%, rgba(255,210,20,0.28) 0%, transparent 70%)', pointerEvents:'none', filter:'blur(30px)' }} />
@@ -741,7 +741,7 @@ export default function ScPage() {
 
       {/* ═══ SC-05 尋找內在小孩 ═══ */}
       {/* Theme: 療癒 · 柔韌 · 重新歸位 — deep plum with soft violet warmth */}
-      <section id="section-sc05" style={{ padding:'100px 0', background:'#E4D8F5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
+      <section id="section-sc05" className="sc-full-section" style={{ padding:'100px 0', background:'#E4D8F5', position:'relative', overflow:'hidden', minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 80% at 15% 50%, rgba(90,30,140,0.18) 0%, rgba(120,50,160,0.12) 50%, transparent 70%), radial-gradient(ellipse 50% 60% at 90% 25%, rgba(140,60,180,0.20) 0%, transparent 60%)', pointerEvents:'none' }} />
         {/* 書法圖 glow */}
         <div aria-hidden style={{ position:'absolute', right:'-5%', top:'50%', transform:'translateY(-50%)', width:'60%', height:'90vh', borderRadius:'50%', background:'radial-gradient(ellipse 75% 90% at 60% 48%, rgba(100,20,180,0.42) 0%, transparent 68%)', pointerEvents:'none', filter:'blur(28px)' }} />
@@ -853,7 +853,7 @@ export default function ScPage() {
 
         {/* Content — no box */}
         <div style={{ position:'relative', zIndex:2, display:'flex', flexDirection:'column', alignItems:'center' }}>
-          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(11px,1vw,12px)', letterSpacing:'0.38em', color:'rgba(42,70,90,0.55)', marginBottom:28, textTransform:'uppercase' }}>
+          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px,1vw,13px)', letterSpacing:'0.38em', color:'rgba(42,70,90,0.55)', marginBottom:28, textTransform:'uppercase' }}>
             Begin Your Journey
           </p>
           {/* 薩滿冥想 as title */}
