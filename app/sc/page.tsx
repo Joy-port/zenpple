@@ -818,7 +818,7 @@ export default function ScPage() {
           </p>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px,1fr))', gap:18 }}>
             {/* 禿禿 */}
-            <div style={{ display:'flex', alignItems:'center', gap:24, padding:'28px 28px', border:'1px solid rgba(30,50,80,0.14)', borderRadius:10, background:'rgba(255,255,255,0.62)' }}>
+            <div style={{ display:'flex', alignItems:'center', gap:16, padding:'20px 20px', border:'1px solid rgba(30,50,80,0.14)', borderRadius:10, background:'rgba(255,255,255,0.62)' }}>
               <Image src="/index/吉祥物禿.png" alt="禿禿" width={160} height={160}
                 style={{ width:160, height:160, objectFit:'contain', flexShrink:0 }} />
               <div>
@@ -828,7 +828,7 @@ export default function ScPage() {
               </div>
             </div>
             {/* 夏 */}
-            <div style={{ display:'flex', alignItems:'center', gap:24, padding:'28px 28px', border:'1px solid rgba(30,50,80,0.14)', borderRadius:10, background:'rgba(255,255,255,0.62)' }}>
+            <div style={{ display:'flex', alignItems:'center', gap:16, padding:'20px 20px', border:'1px solid rgba(30,50,80,0.14)', borderRadius:10, background:'rgba(255,255,255,0.62)' }}>
               <Image src="/index/吉祥物夏.png" alt="夏" width={160} height={160}
                 style={{ width:160, height:160, objectFit:'contain', flexShrink:0 }} />
               <div>
