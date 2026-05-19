@@ -521,7 +521,9 @@ export default function ScPage() {
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#2E5030', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
-                  <span style={{ color:'rgba(18,40,22,0.85)', lineHeight:1.75 }}>一對一 · 兩人團班 · 2-6人小組</span>
+                  <div style={{ display:'flex', flexDirection:'column', gap:2, color:'rgba(18,40,22,0.85)', lineHeight:1.75 }}>
+                    <span>一對一</span><span>兩人團班</span><span>2–6 人小組</span>
+                  </div>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#2E5030', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
@@ -532,9 +534,13 @@ export default function ScPage() {
                   <span style={{ color:'rgba(18,40,22,0.85)', lineHeight:1.75 }}>進入所有進階課程的基石，建議首選</span>
                 </div>
                 </div>
-                <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(92,58,20,0.07)', borderRadius:12 }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#2E5030', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
-                  <div style={{ fontSize:'clamp(13px, 1.2vw, 15px)', color:'rgba(18,40,22,0.85)', lineHeight:1.8 }}>一對一 NT. 60,000　·　兩人 NT. 30,000/人　·　小組 NT. 15,000/人</div>
+                <div style={{ padding:'12px 16px', background:'rgba(92,58,20,0.07)', borderRadius:12 }}>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#2E5030', opacity:0.75, display:'block', marginBottom:8 }}>課程價格</span>
+                  <div style={{ display:'flex', flexDirection:'column', gap:3, fontSize:'clamp(13px, 1.2vw, 15px)', color:'rgba(18,40,22,0.85)', lineHeight:1.8 }}>
+                    <span>一對一　NT. 60,000</span>
+                    <span>兩人　NT. 30,000 / 人</span>
+                    <span>小組　NT. 15,000 / 人</span>
+                  </div>
                 </div>
               </div>
             )}
@@ -593,7 +599,9 @@ export default function ScPage() {
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
-                  <span style={{ color:'rgba(15,28,50,0.85)', lineHeight:1.75 }}>一對一 · 兩人團班</span>
+                  <div style={{ display:'flex', flexDirection:'column', gap:2, color:'rgba(15,28,50,0.85)', lineHeight:1.75 }}>
+                    <span>一對一</span><span>兩人團班</span>
+                  </div>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
@@ -604,9 +612,12 @@ export default function ScPage() {
                   <span style={{ color:'rgba(15,28,50,0.85)', lineHeight:1.75 }}>強化日常生命抉擇的導航力，建議完成力量動物課程後進行</span>
                 </div>
                 </div>
-                <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(26,48,80,0.06)', borderRadius:12 }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#1A3050', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
-                  <div style={{ fontSize:'clamp(13px, 1.2vw, 15px)', color:'rgba(15,28,50,0.85)', lineHeight:1.8 }}>一對一 NT. 20,000　·　兩人 NT. 10,000/人</div>
+                <div style={{ padding:'12px 16px', background:'rgba(26,48,80,0.06)', borderRadius:12 }}>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#1A3050', opacity:0.75, display:'block', marginBottom:8 }}>課程價格</span>
+                  <div style={{ display:'flex', flexDirection:'column', gap:3, fontSize:'clamp(13px, 1.2vw, 15px)', color:'rgba(15,28,50,0.85)', lineHeight:1.8 }}>
+                    <span>一對一　NT. 20,000</span>
+                    <span>兩人　NT. 10,000 / 人</span>
+                  </div>
                 </div>
               </div>
             )}
@@ -672,9 +683,11 @@ export default function ScPage() {
                   <span style={{ color:'rgba(50,18,8,0.85)', lineHeight:1.75 }}>適合感官敏銳、欲修復情緒慣性的探索者</span>
                 </div>
                 </div>
-                <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(106,48,24,0.07)', borderRadius:12 }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#6A3018', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
-                  <div style={{ fontSize:'clamp(13px, 1.2vw, 15px)', color:'rgba(50,18,8,0.85)', lineHeight:1.8 }}>一對一 NT. 15,000</div>
+                <div style={{ padding:'12px 16px', background:'rgba(106,48,24,0.07)', borderRadius:12 }}>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#6A3018', opacity:0.75, display:'block', marginBottom:8 }}>課程價格</span>
+                  <div style={{ display:'flex', flexDirection:'column', gap:3, fontSize:'clamp(13px, 1.2vw, 15px)', color:'rgba(50,18,8,0.85)', lineHeight:1.8 }}>
+                    <span>一對一　NT. 15,000</span>
+                  </div>
                 </div>
               </div>
             )}
@@ -744,9 +757,11 @@ export default function ScPage() {
                   <span style={{ color:'rgba(38,36,0,0.85)', lineHeight:1.75 }}>建議先完成力量動物、指導靈課程，並完成重生呼吸課後進行</span>
                 </div>
                 </div>
-                <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(90,62,8,0.07)', borderRadius:12 }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#4A4200', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
-                  <div style={{ fontSize:'clamp(13px, 1.2vw, 15px)', color:'rgba(38,36,0,0.85)', lineHeight:1.8 }}>一對一 NT. 8,000</div>
+                <div style={{ padding:'12px 16px', background:'rgba(90,62,8,0.07)', borderRadius:12 }}>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#4A4200', opacity:0.75, display:'block', marginBottom:8 }}>課程價格</span>
+                  <div style={{ display:'flex', flexDirection:'column', gap:3, fontSize:'clamp(13px, 1.2vw, 15px)', color:'rgba(38,36,0,0.85)', lineHeight:1.8 }}>
+                    <span>一對一　NT. 8,000</span>
+                  </div>
                 </div>
               </div>
             )}
@@ -807,9 +822,11 @@ export default function ScPage() {
                   <span style={{ color:'rgba(35,10,48,0.85)', lineHeight:1.75 }}>建議具備豐富薩滿實踐經驗，完成前四堂課程後進行</span>
                 </div>
                 </div>
-                <div style={{ display:'flex', alignItems:'baseline', gap:12, padding:'12px 16px', background:'rgba(74,21,96,0.07)', borderRadius:12 }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#4A1560', opacity:0.75, flexShrink:0 }}>INVESTMENT</span>
-                  <div style={{ fontSize:'clamp(13px, 1.2vw, 15px)', color:'rgba(35,10,48,0.85)', lineHeight:1.8 }}>一對一 NT. 45,000</div>
+                <div style={{ padding:'12px 16px', background:'rgba(74,21,96,0.07)', borderRadius:12 }}>
+                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.15em', color:'#4A1560', opacity:0.75, display:'block', marginBottom:8 }}>課程價格</span>
+                  <div style={{ display:'flex', flexDirection:'column', gap:3, fontSize:'clamp(13px, 1.2vw, 15px)', color:'rgba(35,10,48,0.85)', lineHeight:1.8 }}>
+                    <span>一對一　NT. 45,000</span>
+                  </div>
                 </div>
               </div>
             )}
