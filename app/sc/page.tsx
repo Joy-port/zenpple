@@ -63,21 +63,12 @@ export default function ScPage() {
           style={{ position:'absolute', right:0, bottom:0, width:'27%', height:'auto', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite', zIndex:2 }}
         />
 
-        {/* Small animals + ripple — desktop only */}
+        {/* Atmospheric animals — desktop only */}
         <div className="hidden md:block" aria-hidden>
-          <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'10%', right:'5%', width:122, height:'auto', opacity:0.42, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(14deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
-          <Image src="/sc/animals/大翅鯨.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'7%', left:'24%', width:91, height:'auto', opacity:0.35, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
-          <Image src="/sc/animals/vulture.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'44%', left:'8%', width:61, height:'auto', opacity:0.40, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
-          <Image src="/sc/animals/鱷龜.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', bottom:'22%', left:'16%', width:51, height:'auto', opacity:0.45, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
-          <div style={{ position:'absolute', right:'25%', top:'48%', pointerEvents:'none' }}>
-            <div className="sc-ripple" />
-            <div className="sc-ripple" />
-            <div className="sc-ripple" />
-          </div>
+          <Image src="/sc/animals/大翅鯨.png" alt="" aria-hidden width={180} height={180}
+            style={{ position:'absolute', top:'8%', left:'4%', width:148, height:'auto', opacity:0.22, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-5deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.2s' }} />
+          <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={120} height={120}
+            style={{ position:'absolute', top:'14%', right:'24%', width:88, height:'auto', opacity:0.18, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(10deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
         </div>
 
         {/* Content — vertical top-down flow, centered */}
