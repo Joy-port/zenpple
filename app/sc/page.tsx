@@ -851,8 +851,8 @@ export default function ScPage() {
 
         {/* Atmospheric animals — varied sizes, asymmetric, faded */}
         <div className="hidden md:block" aria-hidden>
-          <Image src="/sc/animals/白老虎.png" alt="" aria-hidden width={260} height={260}
-            style={{ position:'absolute', top:'-4%', right:'-2%', width:250, height:'auto', opacity:0.22, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
+          <Image src="/sc/animals/白老虎.png" alt="" aria-hidden width={360} height={360}
+            style={{ position:'absolute', bottom:'-6%', left:'-3%', width:320, height:'auto', opacity:0.26, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
           <Image src="/sc/animals/fox.png" alt="" aria-hidden width={100} height={100}
             style={{ position:'absolute', bottom:'10%', right:'4%', width:82, height:'auto', opacity:0.15, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2.4s' }} />
         </div>
@@ -868,7 +868,7 @@ export default function ScPage() {
           <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(14px,1.4vw,18px)', color:'rgba(30,56,72,0.72)', marginBottom:48, lineHeight:1.8 }}>
             每一個靈魂都有它的路，讓我們一起找到你的。
           </p>
-          <a href="https://lin.ee/64GSYM5" target="_blank" rel="noopener noreferrer" style={{ position:'relative', overflow:'hidden', display:'inline-flex', alignItems:'center', gap:12, padding:'16px 40px', background:'rgba(30,56,72,0.08)', color:'#1E3848', fontFamily:'var(--f-display)', fontWeight:300, fontSize:13, letterSpacing:'0.25em', textDecoration:'none', border:'1px solid rgba(30,56,72,0.28)', filter:'url(#sc-brush-box)' }}>
+          <a href="https://lin.ee/64GSYM5" target="_blank" rel="noopener noreferrer" style={{ position:'relative', overflow:'hidden', display:'inline-flex', alignItems:'center', gap:12, padding:'20px 56px', background:'rgba(30,56,72,0.08)', color:'#1E3848', fontFamily:'var(--f-display)', fontWeight:300, fontSize:15, letterSpacing:'0.28em', textDecoration:'none', border:'1px solid rgba(30,56,72,0.28)', filter:'url(#sc-brush-box)' }}>
             預約探索諮詢 &nbsp;·&nbsp; BOOK A SESSION
           </a>
         </div>
