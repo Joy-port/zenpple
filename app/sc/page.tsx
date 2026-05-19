@@ -848,7 +848,7 @@ export default function ScPage() {
       {/* ═══ 帶領者 ═══ */}
       <section style={{ minHeight:'100svh', background:'#E4EBF5', position:'relative', overflow:'hidden', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 55% 50% at 50% 50%, rgba(74,107,180,0.08) 0%, transparent 70%)', pointerEvents:'none' }} />
-        <div style={{ maxWidth:900, margin:'0 auto', padding:'0 clamp(24px,8vw,80px)', position:'relative', zIndex:2, width:'100%' }}>
+        <div style={{ maxWidth:900, margin:'0 auto', padding:'clamp(60px,8vh,100px) clamp(24px,8vw,80px) 120px', position:'relative', zIndex:2, width:'100%' }}>
           <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px,1.2vw,15px)', letterSpacing:'0.22em', color:'rgba(30,56,80,0.60)', marginBottom:14, textTransform:'uppercase' }}>
             Your Guides
           </p>
