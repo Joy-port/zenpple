@@ -868,7 +868,7 @@ export default function ScPage() {
           <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(14px,1.4vw,18px)', color:'rgba(30,56,72,0.72)', marginBottom:48, lineHeight:1.8 }}>
             每一個靈魂都有它的路，讓我們一起找到你的。
           </p>
-          <a href="https://lin.ee/64GSYM5" target="_blank" rel="noopener noreferrer" style={{ position:'relative', overflow:'hidden', display:'inline-flex', alignItems:'center', gap:12, padding:'20px 56px', background:'rgba(30,56,72,0.08)', color:'#1E3848', fontFamily:'var(--f-display)', fontWeight:300, fontSize:15, letterSpacing:'0.28em', textDecoration:'none', border:'1px solid rgba(30,56,72,0.28)', filter:'url(#sc-brush-box)' }}>
+          <a href="https://lin.ee/64GSYM5" target="_blank" rel="noopener noreferrer" style={{ position:'relative', overflow:'hidden', display:'inline-flex', alignItems:'center', gap:12, padding:'20px 56px', background:'rgba(30,56,72,0.08)', color:'#1E3848', fontFamily:'var(--f-mono)', fontWeight:400, fontSize:13, letterSpacing:'0.30em', textDecoration:'none', border:'1px solid rgba(30,56,72,0.35)', filter:'url(#sc-brush-box)', textTransform:'uppercase' }}>
             預約探索諮詢 &nbsp;·&nbsp; BOOK A SESSION
           </a>
         </div>
