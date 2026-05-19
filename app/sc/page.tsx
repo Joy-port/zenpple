@@ -865,8 +865,8 @@ export default function ScPage() {
             <a href="https://lin.ee/64GSYM5" target="_blank" rel="noopener noreferrer" style={{ position:'relative', overflow:'hidden', display:'inline-flex', alignItems:'center', gap:12, padding:'20px 56px', background:'rgba(30,56,72,0.08)', color:'#1E3848', fontFamily:'var(--f-display)', fontWeight:400, fontSize:15, letterSpacing:'0.18em', textDecoration:'none', border:'1px solid rgba(30,56,72,0.35)', filter:'url(#sc-brush-box)' }}>
               預約諮詢
             </a>
-            <Image src="/sc/animals/白老虎.png" alt="" aria-hidden width={120} height={120}
-              style={{ width:96, height:'auto', opacity:0.30, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
+            <Image src="/sc/animals/白老虎.png" alt="" aria-hidden width={40} height={40}
+              style={{ width:36, height:36, objectFit:'contain', opacity:0.55, mixBlendMode:'multiply', pointerEvents:'none' }} />
           </div>
         </div>
       </section>
