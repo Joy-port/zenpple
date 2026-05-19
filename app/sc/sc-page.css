@@ -3,7 +3,8 @@
   --sc-blue-light: #7A9AB5;
 }
 
-/* ── Hide Nav & Footer on SC page ── */
+/* ── Standalone landing page mode — global nav & footer hidden ──
+   To restore site nav/footer: remove these two rules.               */
 body.page-sc header,
 body.page-sc footer { display: none !important; }
 
