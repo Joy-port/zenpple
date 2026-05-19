@@ -808,10 +808,7 @@ export default function ScPage() {
       {/* ═══ 帶領者 ═══ */}
       <section style={{ minHeight:'100svh', background:'#E4EBF5', position:'relative', overflow:'hidden', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 55% 50% at 50% 50%, rgba(74,107,180,0.08) 0%, transparent 70%)', pointerEvents:'none' }} />
-        <div style={{ maxWidth:900, margin:'0 auto', padding:'clamp(60px,8vh,100px) clamp(24px,8vw,80px) 120px', position:'relative', zIndex:2, width:'100%' }}>
-          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px,1.2vw,15px)', letterSpacing:'0.22em', color:'rgba(30,56,80,0.60)', marginBottom:14, textTransform:'uppercase' }}>
-            Your Guides
-          </p>
+        <div style={{ maxWidth:900, margin:'0 auto', padding:'clamp(60px,8vh,100px) clamp(24px,8vw,80px) 120px', position:'relative', zIndex:2, width:'100%', textAlign:'center' }}>
           <h2 className="tr-d2" style={{ fontSize:'clamp(28px,4vw,48px)', letterSpacing:'0.03em', lineHeight:1.2, color:'#1E3848', marginBottom:12 }}>
             認識你的引路人
           </h2>
@@ -859,7 +856,7 @@ export default function ScPage() {
           {/* 薩滿冥想 as title */}
           <Image src="/sc/black/薩滿冥想-橫.png" alt="薩滿冥想" width={700} height={200}
             style={{ width:'clamp(240px,52vw,540px)', height:'auto', opacity:0.78, marginBottom:28 }} />
-          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(14px,1.4vw,18px)', color:'rgba(30,56,72,0.72)', marginBottom:48, lineHeight:1.8 }}>
+          <p style={{ fontFamily:'var(--f-elegant)', fontSize:'clamp(14px,1.4vw,18px)', color:'rgba(30,56,72,0.72)', marginBottom:48, lineHeight:1.8 }}>
             每一個靈魂都有它的路，讓我們一起找到你的。
           </p>
           <a href="https://lin.ee/64GSYM5" target="_blank" rel="noopener noreferrer" style={{ position:'relative', overflow:'hidden', display:'inline-flex', alignItems:'center', gap:12, padding:'20px 36px 20px 48px', background:'rgba(30,56,72,0.08)', color:'#1E3848', fontFamily:'var(--f-display)', fontWeight:400, fontSize:15, letterSpacing:'0.18em', textDecoration:'none', border:'1px solid rgba(30,56,72,0.35)', filter:'url(#sc-brush-box)' }}>
