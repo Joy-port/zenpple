@@ -240,9 +240,6 @@ body.page-sc footer { display: none !important; }
   .sc-hero-whale {
     width: 120px !important;
   }
-  .sc-hero-crane {
-    display: none !important;
-  }
 }
 
 /* ── Section main images — consistent size on mobile, no translateY offset ── */
