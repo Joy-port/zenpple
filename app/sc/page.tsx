@@ -830,7 +830,7 @@ export default function ScPage() {
       </section>
 
       {/* ═══ 帶領者 ═══ */}
-      <section style={{ padding:'clamp(64px,9vh,100px) 0', background:'#E4EBF5', position:'relative', overflow:'hidden' }}>
+      <section style={{ padding:'clamp(64px,9vh,100px) 0 0', background:'#E4EBF5', position:'relative', overflow:'hidden' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 55% 50% at 50% 50%, rgba(74,107,180,0.08) 0%, transparent 70%)', pointerEvents:'none' }} />
         <div style={{ maxWidth:900, margin:'0 auto', padding:'0 clamp(24px,8vw,80px)', position:'relative', zIndex:2 }}>
           <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(11px,1vw,12px)', letterSpacing:'0.38em', color:'rgba(42,70,110,0.55)', marginBottom:36, textTransform:'uppercase', borderTop:'1px solid rgba(42,70,110,0.12)', paddingTop:32 }}>
@@ -859,15 +859,17 @@ export default function ScPage() {
             </div>
           </div>
         </div>
+        {/* wave → CTA */}
+        <svg aria-hidden viewBox="0 0 1440 64" preserveAspectRatio="none" style={{ display:'block', width:'100%', height:64, marginTop:'clamp(48px,7vh,80px)', pointerEvents:'none' }}>
+          <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" fill="#D4E3EE"/>
+        </svg>
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section style={{ minHeight:'80svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(120px,16vh,180px) clamp(24px,8vw,120px)', background:'linear-gradient(155deg, #2B4A5E 0%, #355A6A 45%, #3A5060 100%)', position:'relative', overflow:'hidden', textAlign:'center' }}>
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(94,142,138,0.22) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
-        <Image src="/sc/black/薩滿冥想-橫.png" alt="" aria-hidden width={900} height={300}
-          style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'90%', height:'auto', filter:'invert(1)', opacity:0.06, pointerEvents:'none' }} />
+      <section style={{ minHeight:'80svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(100px,14vh,160px) clamp(24px,8vw,120px)', background:'#D4E3EE', position:'relative', overflow:'hidden', textAlign:'center' }}>
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(74,107,138,0.10) 0%, transparent 70%)', pointerEvents:'none' }} />
 
-        {/* Colored animals — pushed to corners, clear of center card */}
+        {/* Colored animals — corners, clear of content */}
         <div className="hidden md:block" aria-hidden>
           <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={220} height={220}
             style={{ position:'absolute', top:0, right:0, width:200, height:'auto', opacity:0.72, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite', transformOrigin:'top right' }} />
@@ -879,17 +881,18 @@ export default function ScPage() {
             style={{ position:'absolute', bottom:0, right:0, width:160, height:'auto', opacity:0.68, pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s', transformOrigin:'bottom right' }} />
         </div>
 
-        <div style={{ position:'relative', zIndex:2, display:'inline-block', padding:'clamp(36px,5vh,56px) clamp(40px,6vw,80px)', background:'rgba(255,255,255,0.07)', backdropFilter:'blur(4px)', WebkitBackdropFilter:'blur(4px)', border:'1px solid rgba(180,210,230,0.12)', borderRadius:24 }}>
-          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(11px,1vw,13px)', letterSpacing:'0.38em', color:'rgba(160,200,220,0.7)', marginBottom:20, textTransform:'uppercase' }}>
+        {/* Content — no box */}
+        <div style={{ position:'relative', zIndex:2, display:'flex', flexDirection:'column', alignItems:'center' }}>
+          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(11px,1vw,12px)', letterSpacing:'0.38em', color:'rgba(42,70,90,0.55)', marginBottom:28, textTransform:'uppercase' }}>
             Begin Your Journey
           </p>
-          <h2 className="tr-d2" style={{ fontSize:'clamp(24px,3.8vw,48px)', color:'#F2EFEA', letterSpacing:'0.03em', lineHeight:1.25, marginBottom:16 }}>
-            準備好開始你的薩滿旅程了嗎？
-          </h2>
-          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(14px,1.4vw,18px)', color:'rgba(180,215,220,1)', marginBottom:48, lineHeight:1.8 }}>
+          {/* 薩滿冥想 as title */}
+          <Image src="/sc/black/薩滿冥想-橫.png" alt="薩滿冥想" width={700} height={200}
+            style={{ width:'clamp(240px,52vw,540px)', height:'auto', opacity:0.78, marginBottom:28 }} />
+          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(14px,1.4vw,18px)', color:'rgba(30,56,72,0.72)', marginBottom:48, lineHeight:1.8 }}>
             每一個靈魂都有它的路，讓我們一起找到你的。
           </p>
-          <Link href="/contact" className="sc-cta-btn">
+          <Link href="/contact" style={{ position:'relative', overflow:'hidden', display:'inline-flex', alignItems:'center', gap:12, padding:'16px 40px', background:'rgba(30,56,72,0.08)', color:'#1E3848', fontFamily:'var(--f-display)', fontWeight:300, fontSize:13, letterSpacing:'0.25em', textDecoration:'none', border:'1px solid rgba(30,56,72,0.28)', filter:'url(#sc-brush-box)' }}>
             預約探索諮詢 &nbsp;·&nbsp; BOOK A SESSION
           </Link>
         </div>
