@@ -849,14 +849,6 @@ export default function ScPage() {
       <section style={{ height:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(100px,14vh,160px) clamp(24px,8vw,120px)', background:'#D4E3EE', position:'relative', overflow:'hidden', textAlign:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(74,107,138,0.10) 0%, transparent 70%)', pointerEvents:'none' }} />
 
-        {/* Atmospheric animals — varied sizes, asymmetric, faded */}
-        <div className="hidden md:block" aria-hidden>
-          <Image src="/sc/animals/白老虎.png" alt="" aria-hidden width={360} height={360}
-            style={{ position:'absolute', bottom:'-6%', left:'-3%', width:320, height:'auto', opacity:0.26, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
-          <Image src="/sc/animals/fox.png" alt="" aria-hidden width={100} height={100}
-            style={{ position:'absolute', bottom:'10%', right:'4%', width:82, height:'auto', opacity:0.15, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2.4s' }} />
-        </div>
-
         {/* Content — no box */}
         <div style={{ position:'relative', zIndex:2, display:'flex', flexDirection:'column', alignItems:'center' }}>
           <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(11px,1vw,12px)', letterSpacing:'0.38em', color:'rgba(42,70,90,0.55)', marginBottom:28, textTransform:'uppercase' }}>
@@ -868,9 +860,14 @@ export default function ScPage() {
           <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(14px,1.4vw,18px)', color:'rgba(30,56,72,0.72)', marginBottom:48, lineHeight:1.8 }}>
             每一個靈魂都有它的路，讓我們一起找到你的。
           </p>
-          <a href="https://lin.ee/64GSYM5" target="_blank" rel="noopener noreferrer" style={{ position:'relative', overflow:'hidden', display:'inline-flex', alignItems:'center', gap:12, padding:'20px 56px', background:'rgba(30,56,72,0.08)', color:'#1E3848', fontFamily:'var(--f-mono)', fontWeight:400, fontSize:13, letterSpacing:'0.30em', textDecoration:'none', border:'1px solid rgba(30,56,72,0.35)', filter:'url(#sc-brush-box)', textTransform:'uppercase' }}>
-            預約探索諮詢 &nbsp;·&nbsp; BOOK A SESSION
-          </a>
+          {/* Button + tiger side by side */}
+          <div style={{ display:'flex', alignItems:'center', gap:28 }}>
+            <a href="https://lin.ee/64GSYM5" target="_blank" rel="noopener noreferrer" style={{ position:'relative', overflow:'hidden', display:'inline-flex', alignItems:'center', gap:12, padding:'20px 56px', background:'rgba(30,56,72,0.08)', color:'#1E3848', fontFamily:'var(--f-display)', fontWeight:400, fontSize:15, letterSpacing:'0.18em', textDecoration:'none', border:'1px solid rgba(30,56,72,0.35)', filter:'url(#sc-brush-box)' }}>
+              預約諮詢
+            </a>
+            <Image src="/sc/animals/白老虎.png" alt="" aria-hidden width={120} height={120}
+              style={{ width:96, height:'auto', opacity:0.30, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
+          </div>
         </div>
       </section>
 
