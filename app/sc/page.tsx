@@ -99,7 +99,7 @@ export default function ScPage() {
 
         {/* ── Hero→WhatIs transition: ink-smoke brushstroke rip ── */}
         <svg aria-hidden viewBox="0 0 1440 110" preserveAspectRatio="none"
-          style={{ position:'absolute', bottom:-1, left:0, width:'100%', height:110, display:'block', pointerEvents:'none' }}>
+          style={{ position:'absolute', bottom:'-1vh', left:0, width:'100%', height:110, display:'block', pointerEvents:'none' }}>
           <path d="M0,72 C60,55 140,90 240,68 C340,46 420,88 560,62 C680,40 760,82 900,58 C1020,36 1100,78 1220,60 C1310,46 1380,74 1440,65 L1440,110 L0,110 Z"
             fill="#E0EBF4" opacity="0.95" />
           <path d="M0,88 C80,70 200,100 340,80 C460,62 560,95 700,75 C820,58 940,92 1080,72 C1200,55 1320,88 1440,78 L1440,110 L0,110 Z"
