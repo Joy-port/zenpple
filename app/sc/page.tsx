@@ -879,16 +879,16 @@ export default function ScPage() {
       <section style={{ height:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(100px,14vh,160px) clamp(24px,8vw,120px)', background:'#D4E3EE', position:'relative', overflow:'hidden', textAlign:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(74,107,138,0.10) 0%, transparent 70%)', pointerEvents:'none' }} />
 
-        {/* Colored animals — corners, clear of content */}
+        {/* Atmospheric animals — varied sizes, asymmetric, faded */}
         <div className="hidden md:block" aria-hidden>
-          <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={220} height={220}
-            style={{ position:'absolute', top:0, right:0, width:200, height:'auto', opacity:0.72, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite', transformOrigin:'top right' }} />
-          <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={180} height={180}
-            style={{ position:'absolute', top:0, left:0, width:150, height:'auto', opacity:0.68, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite', animationDelay:'1.5s', transformOrigin:'top left' }} />
+          <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={260} height={260}
+            style={{ position:'absolute', top:'-4%', right:'-2%', width:250, height:'auto', opacity:0.22, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
+          <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={120} height={120}
+            style={{ position:'absolute', top:'18%', left:'-1%', width:100, height:'auto', opacity:0.16, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite', animationDelay:'1.5s' }} />
           <Image src="/sc/animals/大翅鯨.png" alt="" aria-hidden width={200} height={200}
-            style={{ position:'absolute', bottom:0, left:0, width:170, height:'auto', opacity:0.65, pointerEvents:'none', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.8s', transformOrigin:'bottom left' }} />
-          <Image src="/sc/animals/fox.png" alt="" aria-hidden width={180} height={180}
-            style={{ position:'absolute', bottom:0, right:0, width:160, height:'auto', opacity:0.68, pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s', transformOrigin:'bottom right' }} />
+            style={{ position:'absolute', bottom:'-2%', left:'2%', width:175, height:'auto', opacity:0.20, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.8s' }} />
+          <Image src="/sc/animals/fox.png" alt="" aria-hidden width={100} height={100}
+            style={{ position:'absolute', bottom:'10%', right:'4%', width:82, height:'auto', opacity:0.15, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2.4s' }} />
         </div>
 
         {/* Content — no box */}
