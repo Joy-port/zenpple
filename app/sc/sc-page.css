@@ -226,6 +226,19 @@ body.page-sc footer { display: none !important; }
   }
 }
 
+/* ── Section main images — consistent size on mobile, no translateY offset ── */
+@media (max-width: 767px) {
+  .sc-main-img {
+    height: 200px !important;
+    width: auto !important;
+    max-width: 78% !important;
+    transform: none !important;
+  }
+  .sc-img-wrapper {
+    transform: none !important;
+  }
+}
+
 /* ── Journey dot glow — overlay on top of dot image ── */
 .sc-dot-glow {
   position: relative;

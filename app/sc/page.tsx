@@ -141,6 +141,7 @@ export default function ScPage() {
               aria-hidden
               width={460}
               height={460}
+              className="sc-main-img"
               style={{ width:'min(420px,85%)', height:'auto', mixBlendMode:'multiply', opacity:0.55, animation:'sc-breathe 5s ease-in-out infinite' }}
             />
           </div>
@@ -529,8 +530,9 @@ export default function ScPage() {
             </div>
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
-            <div style={{ position:'relative', transform:'translateY(-15%)' }}>
+            <div className="sc-img-wrapper" style={{ position:'relative', transform:'translateY(-15%)' }}>
               <Image src="/sc/journey/龍-color.png" alt="" aria-hidden width={420} height={420}
+                className="sc-main-img"
                 style={{ width:'min(320px,80%)', height:'auto', filter:'brightness(0.95) contrast(1.15) saturate(1.3)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite' }} />
             </div>
           </div>
@@ -607,6 +609,7 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/指導靈-color.png" alt="" aria-hidden width={420} height={420}
+              className="sc-main-img"
               style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.75) brightness(1.05) contrast(0.90)', opacity:0.95, animation:'sc-breathe 5.5s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
@@ -677,6 +680,7 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/七脈輪情緒覺察-color.png" alt="" aria-hidden width={420} height={420}
+              className="sc-main-img"
               style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(1.1) brightness(0.92) contrast(1.08)', opacity:0.95, animation:'sc-breathe 6s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
@@ -751,6 +755,7 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/高我-color.png" alt="" aria-hidden width={420} height={420}
+              className="sc-main-img"
               style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(1.0) brightness(0.82) contrast(1.18)', opacity:0.95, animation:'sc-breathe 6.5s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
@@ -816,6 +821,7 @@ export default function ScPage() {
           </div>
           <div className="sc-image-col" style={{ position:'relative', display:'flex', justifyContent:'center', alignItems:'center', minHeight:400 }}>
             <Image src="/sc/journey/內在小孩-color.png" alt="" aria-hidden width={420} height={420}
+              className="sc-main-img"
               style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.78) brightness(1.08) contrast(0.92)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
         </div>
