@@ -823,7 +823,7 @@ export default function ScPage() {
                 style={{ width:120, height:120, objectFit:'contain', flexShrink:0 }} />
               <div>
                 <span style={{ fontFamily:'var(--f-display)', fontWeight:700, fontSize:'clamp(16px,1.6vw,20px)', letterSpacing:'0.04em', color:'#1A2C3A', display:'block', marginBottom:6 }}>禿禿 TWO TWO</span>
-                <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,0.85vw,12px)', letterSpacing:'0.12em', color:'rgba(30,50,80,0.72)', display:'block', lineHeight:1.7, marginBottom:8 }}>頌缽 · 薩滿 · 能量定頻</span>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px,1.1vw,14px)', letterSpacing:'0.12em', color:'rgba(30,50,80,0.72)', display:'block', lineHeight:1.7, marginBottom:8 }}>頌缽 · 薩滿 · 能量定頻</span>
                 <span style={{ fontSize:'clamp(13px,1.1vw,14px)', color:'rgba(20,40,60,0.82)', display:'block', lineHeight:1.7 }}>身心狀態、潛意識定頻，以聲音引導感知回歸內在安定</span>
               </div>
             </div>
@@ -833,7 +833,7 @@ export default function ScPage() {
                 style={{ width:120, height:120, objectFit:'contain', flexShrink:0 }} />
               <div>
                 <span style={{ fontFamily:'var(--f-display)', fontWeight:700, fontSize:'clamp(16px,1.6vw,20px)', letterSpacing:'0.04em', color:'#1A2C3A', display:'block', marginBottom:6 }}>夏</span>
-                <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,0.85vw,12px)', letterSpacing:'0.12em', color:'rgba(30,50,80,0.72)', display:'block', lineHeight:1.7, marginBottom:8 }}>靈性顧問 · 易經 · 品牌策略</span>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px,1.1vw,14px)', letterSpacing:'0.12em', color:'rgba(30,50,80,0.72)', display:'block', lineHeight:1.7, marginBottom:8 }}>靈性顧問 · 易經 · 品牌策略</span>
                 <span style={{ fontSize:'clamp(13px,1.1vw,14px)', color:'rgba(20,40,60,0.82)', display:'block', lineHeight:1.7 }}>大方向定錨與理路梳理，結合玄天上帝指引與數位實務</span>
               </div>
             </div>
