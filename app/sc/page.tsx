@@ -64,7 +64,7 @@ export default function ScPage() {
         />
 
         {/* Atmospheric animals — desktop only */}
-        <div className="hidden md:block" aria-hidden>
+        <div aria-hidden>
           <Image src="/sc/animals/大翅鯨.png" alt="" aria-hidden width={180} height={180}
             style={{ position:'absolute', top:'23%', left:'4%', width:148, height:'auto', opacity:0.50, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-5deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.2s' }} />
           <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={120} height={120}
