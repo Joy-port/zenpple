@@ -868,14 +868,14 @@ export default function ScPage() {
       </section>
 
       {/* ═══ Landing page footer ═══ */}
-      <footer style={{ background:'#C8D8E6', padding:'18px clamp(20px,8vw,120px)', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:8 }}>
+      <div role="contentinfo" style={{ background:'#C8D8E6', padding:'18px clamp(20px,8vw,120px)', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:8 }}>
         <p style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.12em', color:'rgba(30,56,72,0.45)', margin:0 }}>
           © 2026 ZENPPLE 森波 · All rights reserved
         </p>
         <Link href="/ethics" style={{ fontFamily:'var(--f-mono)', fontSize:12, letterSpacing:'0.12em', color:'rgba(30,56,72,0.38)', textDecoration:'none' }}>
           服務條款與倫理聲明
         </Link>
-      </footer>
+      </div>
 
       {/* ═══ 推薦整合搭配 ═══ (commented out) */}
       {/* <section style={{ padding:'80px 0 100px', background:'#C8D8E4', position:'relative', overflow:'hidden' }}>
