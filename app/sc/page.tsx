@@ -853,10 +853,6 @@ export default function ScPage() {
         <div className="hidden md:block" aria-hidden>
           <Image src="/sc/animals/白老虎.png" alt="" aria-hidden width={260} height={260}
             style={{ position:'absolute', top:'-4%', right:'-2%', width:250, height:'auto', opacity:0.22, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
-          <Image src="/sc/animals/獨角獸.png" alt="" aria-hidden width={120} height={120}
-            style={{ position:'absolute', top:'18%', left:'-1%', width:100, height:'auto', opacity:0.16, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite', animationDelay:'1.5s' }} />
-          <Image src="/sc/animals/大翅鯨.png" alt="" aria-hidden width={200} height={200}
-            style={{ position:'absolute', bottom:'-2%', left:'2%', width:175, height:'auto', opacity:0.40, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.8s' }} />
           <Image src="/sc/animals/fox.png" alt="" aria-hidden width={100} height={100}
             style={{ position:'absolute', bottom:'10%', right:'4%', width:82, height:'auto', opacity:0.15, mixBlendMode:'multiply', pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2.4s' }} />
         </div>
