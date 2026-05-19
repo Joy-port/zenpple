@@ -861,7 +861,7 @@ export default function ScPage() {
             每一個靈魂都有它的路，讓我們一起找到你的。
           </p>
           <a href="https://lin.ee/64GSYM5" target="_blank" rel="noopener noreferrer" style={{ position:'relative', overflow:'hidden', display:'inline-flex', alignItems:'center', gap:12, padding:'20px 36px 20px 48px', background:'rgba(30,56,72,0.08)', color:'#1E3848', fontFamily:'var(--f-display)', fontWeight:400, fontSize:15, letterSpacing:'0.18em', textDecoration:'none', border:'1px solid rgba(30,56,72,0.35)', filter:'url(#sc-brush-box)' }}>
-            預約諮詢
+            LINE 預約諮詢
             <Image src="/sc/animals/白老虎.png" alt="" aria-hidden width={40} height={40}
               style={{ width:40, height:40, objectFit:'contain', opacity:0.80, mixBlendMode:'multiply', pointerEvents:'none', flexShrink:0 }} />
           </a>
