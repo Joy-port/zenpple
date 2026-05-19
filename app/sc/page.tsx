@@ -60,7 +60,7 @@ export default function ScPage() {
           aria-hidden
           width={800}
           height={800}
-          style={{ position:'absolute', right:0, bottom:0, width:'32%', height:'auto', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite', zIndex:2 }}
+          style={{ position:'absolute', right:0, bottom:0, width:'27%', height:'auto', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite', zIndex:2 }}
         />
 
         {/* Small animals + ripple — desktop only */}
