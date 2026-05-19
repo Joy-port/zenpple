@@ -60,15 +60,15 @@ export default function ScPage() {
           aria-hidden
           width={800}
           height={800}
-          style={{ position:'absolute', right:0, bottom:0, width:'27%', height:'auto', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite', zIndex:2 }}
+          style={{ position:'absolute', right:0, bottom:0, width:'27%', height:'auto', mixBlendMode:'multiply', opacity:0.44, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite', zIndex:2 }}
         />
 
         {/* Atmospheric animals — desktop only */}
         <div className="hidden md:block" aria-hidden>
           <Image src="/sc/animals/大翅鯨.png" alt="" aria-hidden width={180} height={180}
-            style={{ position:'absolute', top:'8%', left:'4%', width:148, height:'auto', opacity:0.22, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-5deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.2s' }} />
+            style={{ position:'absolute', top:'23%', left:'4%', width:148, height:'auto', opacity:0.50, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-5deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.2s' }} />
           <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={120} height={120}
-            style={{ position:'absolute', top:'14%', right:'24%', width:88, height:'auto', opacity:0.18, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(10deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
+            style={{ position:'absolute', top:'6%', right:'6%', width:88, height:'auto', opacity:0.28, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(10deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
         </div>
 
         {/* Content — vertical top-down flow, centered */}
