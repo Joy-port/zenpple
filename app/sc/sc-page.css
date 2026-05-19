@@ -229,9 +229,10 @@ body.page-sc footer { display: none !important; }
 /* ── Section main images — consistent size on mobile, no translateY offset ── */
 @media (max-width: 767px) {
   .sc-main-img {
-    height: 200px !important;
+    max-width: 220px !important;
+    max-height: 240px !important;
     width: auto !important;
-    max-width: 78% !important;
+    height: auto !important;
     transform: none !important;
   }
   .sc-img-wrapper {
