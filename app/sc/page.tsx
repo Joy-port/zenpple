@@ -115,9 +115,7 @@ export default function ScPage() {
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 80% 100% at 60% 50%, rgba(74,107,138,0.08) 0%, transparent 70%), radial-gradient(ellipse 50% 60% at 5% 80%, rgba(74,107,138,0.06) 0%, transparent 55%)', pointerEvents:'none' }} />
         {/* Decorative bg animals — multiply on light bg */}
         <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={500} height={500}
-          style={{ position:'absolute', top:'-2%', left:'-4%', width:'clamp(260px,30vw,420px)', height:'auto', mixBlendMode:'multiply', opacity:0.12, pointerEvents:'none', transform:'scaleX(-1) rotate(-12deg)', zIndex:2 }} />
-        <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={400} height={400}
-          style={{ position:'absolute', bottom:'-6%', right:'2%', width:'clamp(180px,20vw,300px)', height:'auto', mixBlendMode:'multiply', opacity:0.10, pointerEvents:'none', transform:'rotate(8deg)' }} />
+          style={{ position:'absolute', top:'-2%', left:'-4%', width:'clamp(180px,20vw,280px)', height:'auto', mixBlendMode:'multiply', opacity:0.07, pointerEvents:'none', transform:'scaleX(-1) rotate(-12deg)', zIndex:2 }} />
         <div className="sc-section-grid" style={{ maxWidth:1200, margin:'0 auto', padding:'0 10vw', display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center', position:'relative', zIndex:2 }}>
           <div className="sc-text-col">
             <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.22em', color:'rgba(42,70,90,0.60)', marginBottom:14, textTransform:'uppercase' }}>
@@ -158,14 +156,14 @@ export default function ScPage() {
         <div aria-hidden style={{ position:'absolute', bottom:0, left:0, right:0, display:'flex', flexDirection:'column', alignItems:'center', pointerEvents:'none' }}>
           <svg viewBox="0 0 1440 32" preserveAspectRatio="none" style={{ width:'100%', height:32, display:'block' }}>
             <path d="M0,18 C120,10 280,26 480,16 C660,7 820,24 1020,14 C1180,6 1320,22 1440,16"
-              stroke="rgba(42,70,90,0.12)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+              stroke="rgba(42,70,90,0.05)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
             <path d="M0,22 C200,14 400,28 640,18 C840,10 1040,26 1280,18 C1360,14 1410,20 1440,18"
-              stroke="rgba(42,70,90,0.07)" strokeWidth="1" fill="none" strokeLinecap="round" />
+              stroke="rgba(42,70,90,0.03)" strokeWidth="1" fill="none" strokeLinecap="round" />
           </svg>
           <svg viewBox="0 0 120 40" style={{ width:120, height:40, display:'block', marginTop:-8 }}>
-            <ellipse cx="60" cy="20" rx="28" ry="10" stroke="rgba(42,70,90,0.14)" strokeWidth="1" fill="none" />
-            <ellipse cx="60" cy="20" rx="16" ry="6" stroke="rgba(42,70,90,0.11)" strokeWidth="1" fill="none" />
-            <ellipse cx="60" cy="20" rx="5" ry="3" fill="rgba(42,70,90,0.14)" />
+            <ellipse cx="60" cy="20" rx="28" ry="10" stroke="rgba(42,70,90,0.06)" strokeWidth="1" fill="none" />
+            <ellipse cx="60" cy="20" rx="16" ry="6" stroke="rgba(42,70,90,0.04)" strokeWidth="1" fill="none" />
+            <ellipse cx="60" cy="20" rx="5" ry="3" fill="rgba(42,70,90,0.05)" />
           </svg>
         </div>
       </section>
