@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-// import Link from 'next/link'
+import Link from 'next/link'
 import './sc-page.css'
 
 export default function ScPage() {
@@ -826,6 +826,78 @@ export default function ScPage() {
             <Image src="/sc/journey/內在小孩-color.png" alt="" aria-hidden width={420} height={420}
               style={{ width:'min(320px,80%)', height:'auto', filter:'saturate(0.78) brightness(1.08) contrast(0.92)', opacity:0.95, animation:'sc-breathe 5s ease-in-out infinite', transform:'translateY(-15%)' }} />
           </div>
+        </div>
+      </section>
+
+      {/* ═══ 帶領者 ═══ */}
+      <section style={{ padding:'clamp(80px,10vh,120px) 0', background:'#233F52', position:'relative', overflow:'hidden' }}>
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(94,142,138,0.18) 0%, transparent 70%)', pointerEvents:'none' }} />
+        <Image src="/sc/white/薩滿旅程的線-白.png" alt="" aria-hidden width={900} height={300}
+          style={{ position:'absolute', bottom:0, right:0, width:'55%', height:'auto', opacity:0.04, pointerEvents:'none' }} />
+        <div style={{ maxWidth:1100, margin:'0 auto', padding:'0 clamp(24px,8vw,120px)', position:'relative', zIndex:2 }}>
+          <div style={{ textAlign:'center', marginBottom:56 }}>
+            <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(11px,1vw,13px)', letterSpacing:'0.38em', color:'rgba(160,200,220,0.7)', marginBottom:16, textTransform:'uppercase' }}>
+              Your Guides
+            </p>
+            <h2 className="tr-d2" style={{ fontSize:'clamp(22px,3vw,36px)', color:'rgba(235,245,250,0.92)', letterSpacing:'0.06em', lineHeight:1.3 }}>
+              帶領你入境的人
+            </h2>
+          </div>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))', gap:24 }}>
+            {/* 禿禿 */}
+            <div style={{ display:'flex', alignItems:'center', gap:24, padding:'28px 32px', background:'rgba(255,255,255,0.06)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', border:'1px solid rgba(180,210,230,0.12)', borderRadius:16 }}>
+              <div style={{ width:72, height:72, borderRadius:'50%', background:'rgba(94,142,138,0.18)', border:'1px solid rgba(120,170,190,0.25)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:9, letterSpacing:'0.08em', color:'rgba(160,200,220,0.5)' }}>photo</span>
+              </div>
+              <div>
+                <span style={{ fontFamily:'var(--f-display)', fontWeight:700, fontSize:'clamp(16px,1.6vw,20px)', letterSpacing:'0.04em', color:'rgba(235,245,250,0.95)', display:'block', marginBottom:6 }}>禿禿 TWO TWO</span>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,0.85vw,12px)', letterSpacing:'0.14em', color:'rgba(140,190,215,0.75)', display:'block', lineHeight:1.7 }}>頌缽 · 薩滿 · 能量定頻</span>
+                <span style={{ fontSize:'clamp(12px,1vw,13px)', color:'rgba(200,225,235,0.65)', display:'block', marginTop:6, lineHeight:1.65 }}>身心狀態、潛意識定頻，以聲音引導感知回歸內在安定</span>
+              </div>
+            </div>
+            {/* 夏 */}
+            <div style={{ display:'flex', alignItems:'center', gap:24, padding:'28px 32px', background:'rgba(255,255,255,0.06)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', border:'1px solid rgba(180,210,230,0.12)', borderRadius:16 }}>
+              <div style={{ width:72, height:72, borderRadius:'50%', background:'rgba(94,142,138,0.18)', border:'1px solid rgba(120,170,190,0.25)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0 }}>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:9, letterSpacing:'0.08em', color:'rgba(160,200,220,0.5)' }}>photo</span>
+              </div>
+              <div>
+                <span style={{ fontFamily:'var(--f-display)', fontWeight:700, fontSize:'clamp(16px,1.6vw,20px)', letterSpacing:'0.04em', color:'rgba(235,245,250,0.95)', display:'block', marginBottom:6 }}>夏 · SUMMER</span>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,0.85vw,12px)', letterSpacing:'0.14em', color:'rgba(140,190,215,0.75)', display:'block', lineHeight:1.7 }}>靈性顧問 · 易經 · 品牌策略</span>
+                <span style={{ fontSize:'clamp(12px,1vw,13px)', color:'rgba(200,225,235,0.65)', display:'block', marginTop:6, lineHeight:1.65 }}>大方向定錨與理路梳理，結合玄天上帝指引與數位實務</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ CTA ═══ */}
+      <section style={{ minHeight:'80svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(60px,8vh,100px) clamp(24px,8vw,120px)', background:'linear-gradient(155deg, #2B4A5E 0%, #355A6A 45%, #3A5060 100%)', position:'relative', overflow:'hidden', textAlign:'center' }}>
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(94,142,138,0.22) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
+        <Image src="/sc/black/薩滿冥想-橫.png" alt="" aria-hidden width={900} height={300}
+          style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'90%', height:'auto', filter:'invert(1) brightness(1.0)', mixBlendMode:'screen', opacity:0.08, pointerEvents:'none' }} />
+        <div className="hidden md:block" aria-hidden>
+          <Image src="/sc/animals-white/dragon.png" alt="" aria-hidden width={200} height={200}
+            style={{ position:'absolute', top:'8%', right:'6%', width:160, height:'auto', opacity:0.14, mixBlendMode:'screen', pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
+          <Image src="/sc/animals-white/crane.png" alt="" aria-hidden width={140} height={140}
+            style={{ position:'absolute', bottom:'12%', left:'5%', width:110, height:'auto', opacity:0.12, mixBlendMode:'screen', pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite', animationDelay:'1.5s' }} />
+          <Image src="/sc/animals-white/whale.png" alt="" aria-hidden width={140} height={140}
+            style={{ position:'absolute', top:'20%', left:'8%', width:90, height:'auto', opacity:0.10, mixBlendMode:'screen', pointerEvents:'none', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.8s' }} />
+          <Image src="/sc/animals-white/fox.png" alt="" aria-hidden width={120} height={120}
+            style={{ position:'absolute', bottom:'8%', right:'8%', width:85, height:'auto', opacity:0.12, mixBlendMode:'screen', pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
+        </div>
+        <div style={{ position:'relative', zIndex:2, display:'inline-block', padding:'clamp(36px,5vh,56px) clamp(40px,6vw,80px)', background:'rgba(255,255,255,0.07)', backdropFilter:'blur(4px)', WebkitBackdropFilter:'blur(4px)', border:'1px solid rgba(180,210,230,0.12)', borderRadius:24 }}>
+          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(11px,1vw,13px)', letterSpacing:'0.38em', color:'rgba(160,200,220,0.7)', marginBottom:20, textTransform:'uppercase' }}>
+            Begin Your Journey
+          </p>
+          <h2 className="tr-d2" style={{ fontSize:'clamp(24px,3.8vw,48px)', color:'#F2EFEA', letterSpacing:'0.03em', lineHeight:1.25, marginBottom:16 }}>
+            準備好開始你的薩滿旅程了嗎？
+          </h2>
+          <p style={{ fontFamily:'var(--f-elegant)', fontStyle:'italic', fontSize:'clamp(14px,1.4vw,18px)', color:'rgba(180,215,220,1)', marginBottom:48, lineHeight:1.8 }}>
+            每一個靈魂都有它的路，讓我們一起找到你的。
+          </p>
+          <Link href="/contact" className="sc-cta-btn">
+            預約探索諮詢 &nbsp;·&nbsp; BOOK A SESSION
+          </Link>
         </div>
       </section>
 
