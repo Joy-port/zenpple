@@ -840,37 +840,37 @@ export default function ScPage() {
       </section>
 
       {/* ═══ 帶領者 ═══ */}
-      <section style={{ padding:'clamp(64px,9vh,100px) 0 0', background:'#E4EBF5', position:'relative', overflow:'hidden' }}>
+      <section style={{ height:'100svh', background:'#E4EBF5', position:'relative', overflow:'hidden', display:'flex', flexDirection:'column', justifyContent:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 55% 50% at 50% 50%, rgba(74,107,180,0.08) 0%, transparent 70%)', pointerEvents:'none' }} />
-        <div style={{ maxWidth:900, margin:'0 auto', padding:'0 clamp(24px,8vw,80px)', position:'relative', zIndex:2 }}>
-          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(11px,1vw,12px)', letterSpacing:'0.38em', color:'rgba(42,70,110,0.55)', marginBottom:36, textTransform:'uppercase', borderTop:'1px solid rgba(42,70,110,0.12)', paddingTop:32 }}>
+        <div style={{ maxWidth:900, margin:'0 auto', padding:'0 clamp(24px,8vw,80px)', position:'relative', zIndex:2, width:'100%' }}>
+          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(11px,1vw,12px)', letterSpacing:'0.38em', color:'rgba(30,50,80,0.70)', marginBottom:36, textTransform:'uppercase', borderTop:'1px solid rgba(30,50,80,0.16)', paddingTop:32 }}>
             Your Guides · 認識你的引路人
           </p>
-          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(300px,1fr))', gap:16 }}>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px,1fr))', gap:18 }}>
             {/* 禿禿 */}
-            <div style={{ display:'flex', alignItems:'center', gap:20, padding:'22px 24px', border:'1px solid rgba(42,70,110,0.13)', borderRadius:10, background:'rgba(255,255,255,0.55)', textDecoration:'none' }}>
-              <Image src="/index/吉祥物禿.png" alt="禿禿" width={60} height={60}
-                style={{ width:60, height:60, objectFit:'contain', flexShrink:0, borderRadius:'50%', background:'rgba(74,107,180,0.08)' }} />
+            <div style={{ display:'flex', alignItems:'center', gap:24, padding:'28px 28px', border:'1px solid rgba(30,50,80,0.14)', borderRadius:10, background:'rgba(255,255,255,0.62)' }}>
+              <Image src="/index/吉祥物禿.png" alt="禿禿" width={120} height={120}
+                style={{ width:120, height:120, objectFit:'contain', flexShrink:0 }} />
               <div>
-                <span style={{ fontFamily:'var(--f-display)', fontWeight:700, fontSize:'clamp(14px,1.4vw,17px)', letterSpacing:'0.04em', color:'#1E3848', display:'block', marginBottom:4 }}>禿禿 TWO TWO</span>
-                <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,0.8vw,11px)', letterSpacing:'0.12em', color:'rgba(42,70,110,0.6)', display:'block', lineHeight:1.7 }}>頌缽 · 薩滿 · 能量定頻</span>
-                <span style={{ fontSize:'clamp(12px,1vw,13px)', color:'rgba(30,56,72,0.72)', display:'block', marginTop:5, lineHeight:1.65 }}>身心狀態、潛意識定頻，以聲音引導感知回歸內在安定</span>
+                <span style={{ fontFamily:'var(--f-display)', fontWeight:700, fontSize:'clamp(16px,1.6vw,20px)', letterSpacing:'0.04em', color:'#1A2C3A', display:'block', marginBottom:6 }}>禿禿 TWO TWO</span>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,0.85vw,12px)', letterSpacing:'0.12em', color:'rgba(30,50,80,0.72)', display:'block', lineHeight:1.7, marginBottom:8 }}>頌缽 · 薩滿 · 能量定頻</span>
+                <span style={{ fontSize:'clamp(13px,1.1vw,14px)', color:'rgba(20,40,60,0.82)', display:'block', lineHeight:1.7 }}>身心狀態、潛意識定頻，以聲音引導感知回歸內在安定</span>
               </div>
             </div>
             {/* 夏 */}
-            <div style={{ display:'flex', alignItems:'center', gap:20, padding:'22px 24px', border:'1px solid rgba(42,70,110,0.13)', borderRadius:10, background:'rgba(255,255,255,0.55)', textDecoration:'none' }}>
-              <Image src="/index/吉祥物夏.png" alt="夏" width={60} height={60}
-                style={{ width:60, height:60, objectFit:'contain', flexShrink:0, borderRadius:'50%', background:'rgba(74,107,180,0.08)' }} />
+            <div style={{ display:'flex', alignItems:'center', gap:24, padding:'28px 28px', border:'1px solid rgba(30,50,80,0.14)', borderRadius:10, background:'rgba(255,255,255,0.62)' }}>
+              <Image src="/index/吉祥物夏.png" alt="夏" width={120} height={120}
+                style={{ width:120, height:120, objectFit:'contain', flexShrink:0 }} />
               <div>
-                <span style={{ fontFamily:'var(--f-display)', fontWeight:700, fontSize:'clamp(14px,1.4vw,17px)', letterSpacing:'0.04em', color:'#1E3848', display:'block', marginBottom:4 }}>夏</span>
-                <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,0.8vw,11px)', letterSpacing:'0.12em', color:'rgba(42,70,110,0.6)', display:'block', lineHeight:1.7 }}>靈性顧問 · 易經 · 品牌策略</span>
-                <span style={{ fontSize:'clamp(12px,1vw,13px)', color:'rgba(30,56,72,0.72)', display:'block', marginTop:5, lineHeight:1.65 }}>大方向定錨與理路梳理，結合玄天上帝指引與數位實務</span>
+                <span style={{ fontFamily:'var(--f-display)', fontWeight:700, fontSize:'clamp(16px,1.6vw,20px)', letterSpacing:'0.04em', color:'#1A2C3A', display:'block', marginBottom:6 }}>夏</span>
+                <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(10px,0.85vw,12px)', letterSpacing:'0.12em', color:'rgba(30,50,80,0.72)', display:'block', lineHeight:1.7, marginBottom:8 }}>靈性顧問 · 易經 · 品牌策略</span>
+                <span style={{ fontSize:'clamp(13px,1.1vw,14px)', color:'rgba(20,40,60,0.82)', display:'block', lineHeight:1.7 }}>大方向定錨與理路梳理，結合玄天上帝指引與數位實務</span>
               </div>
             </div>
           </div>
         </div>
         {/* wave → CTA */}
-        <svg aria-hidden viewBox="0 0 1440 64" preserveAspectRatio="none" style={{ display:'block', width:'100%', height:64, marginTop:'clamp(48px,7vh,80px)', pointerEvents:'none' }}>
+        <svg aria-hidden viewBox="0 0 1440 64" preserveAspectRatio="none" style={{ position:'absolute', bottom:0, left:0, width:'100%', height:64, display:'block', pointerEvents:'none' }}>
           <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" fill="#D4E3EE"/>
         </svg>
       </section>
