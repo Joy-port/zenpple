@@ -862,20 +862,23 @@ export default function ScPage() {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section style={{ minHeight:'80svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(60px,8vh,100px) clamp(24px,8vw,120px)', background:'linear-gradient(155deg, #2B4A5E 0%, #355A6A 45%, #3A5060 100%)', position:'relative', overflow:'hidden', textAlign:'center' }}>
+      <section style={{ minHeight:'80svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'clamp(120px,16vh,180px) clamp(24px,8vw,120px)', background:'linear-gradient(155deg, #2B4A5E 0%, #355A6A 45%, #3A5060 100%)', position:'relative', overflow:'hidden', textAlign:'center' }}>
         <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 70% 60% at 50% 45%, rgba(94,142,138,0.22) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
         <Image src="/sc/black/薩滿冥想-橫.png" alt="" aria-hidden width={900} height={300}
-          style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'90%', height:'auto', filter:'invert(1) brightness(1.0)', mixBlendMode:'screen', opacity:0.08, pointerEvents:'none' }} />
+          style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'90%', height:'auto', filter:'invert(1)', opacity:0.06, pointerEvents:'none' }} />
+
+        {/* Colored animals — pushed to corners, clear of center card */}
         <div className="hidden md:block" aria-hidden>
-          <Image src="/sc/animals-white/dragon.png" alt="" aria-hidden width={200} height={200}
-            style={{ position:'absolute', top:'8%', right:'6%', width:160, height:'auto', opacity:0.14, mixBlendMode:'screen', pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite' }} />
-          <Image src="/sc/animals-white/crane.png" alt="" aria-hidden width={140} height={140}
-            style={{ position:'absolute', bottom:'12%', left:'5%', width:110, height:'auto', opacity:0.12, mixBlendMode:'screen', pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite', animationDelay:'1.5s' }} />
-          <Image src="/sc/animals-white/whale.png" alt="" aria-hidden width={140} height={140}
-            style={{ position:'absolute', top:'20%', left:'8%', width:90, height:'auto', opacity:0.10, mixBlendMode:'screen', pointerEvents:'none', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.8s' }} />
-          <Image src="/sc/animals-white/fox.png" alt="" aria-hidden width={120} height={120}
-            style={{ position:'absolute', bottom:'8%', right:'8%', width:85, height:'auto', opacity:0.12, mixBlendMode:'screen', pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
+          <Image src="/sc/animals/dragon.png" alt="" aria-hidden width={220} height={220}
+            style={{ position:'absolute', top:0, right:0, width:200, height:'auto', opacity:0.72, pointerEvents:'none', animation:'sc-breathe 7s ease-in-out infinite', transformOrigin:'top right' }} />
+          <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={180} height={180}
+            style={{ position:'absolute', top:0, left:0, width:150, height:'auto', opacity:0.68, pointerEvents:'none', animation:'sc-breathe 6s ease-in-out infinite', animationDelay:'1.5s', transformOrigin:'top left' }} />
+          <Image src="/sc/animals/大翅鯨.png" alt="" aria-hidden width={200} height={200}
+            style={{ position:'absolute', bottom:0, left:0, width:170, height:'auto', opacity:0.65, pointerEvents:'none', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.8s', transformOrigin:'bottom left' }} />
+          <Image src="/sc/animals/fox.png" alt="" aria-hidden width={180} height={180}
+            style={{ position:'absolute', bottom:0, right:0, width:160, height:'auto', opacity:0.68, pointerEvents:'none', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s', transformOrigin:'bottom right' }} />
         </div>
+
         <div style={{ position:'relative', zIndex:2, display:'inline-block', padding:'clamp(36px,5vh,56px) clamp(40px,6vw,80px)', background:'rgba(255,255,255,0.07)', backdropFilter:'blur(4px)', WebkitBackdropFilter:'blur(4px)', border:'1px solid rgba(180,210,230,0.12)', borderRadius:24 }}>
           <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(11px,1vw,13px)', letterSpacing:'0.38em', color:'rgba(160,200,220,0.7)', marginBottom:20, textTransform:'uppercase' }}>
             Begin Your Journey
