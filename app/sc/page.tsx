@@ -819,8 +819,8 @@ export default function ScPage() {
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px,1fr))', gap:18 }}>
             {/* 禿禿 */}
             <div style={{ display:'flex', alignItems:'center', gap:24, padding:'28px 28px', border:'1px solid rgba(30,50,80,0.14)', borderRadius:10, background:'rgba(255,255,255,0.62)' }}>
-              <Image src="/index/吉祥物禿.png" alt="禿禿" width={120} height={120}
-                style={{ width:120, height:120, objectFit:'contain', flexShrink:0 }} />
+              <Image src="/index/吉祥物禿.png" alt="禿禿" width={160} height={160}
+                style={{ width:160, height:160, objectFit:'contain', flexShrink:0 }} />
               <div>
                 <span style={{ fontFamily:'var(--f-display)', fontWeight:700, fontSize:'clamp(16px,1.6vw,20px)', letterSpacing:'0.04em', color:'#1A2C3A', display:'block', marginBottom:6 }}>禿禿 TWO TWO</span>
                 <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px,1.1vw,14px)', letterSpacing:'0.12em', color:'rgba(30,50,80,0.72)', display:'block', lineHeight:1.7, marginBottom:8 }}>頌缽 · 薩滿 · 能量定頻</span>
@@ -829,8 +829,8 @@ export default function ScPage() {
             </div>
             {/* 夏 */}
             <div style={{ display:'flex', alignItems:'center', gap:24, padding:'28px 28px', border:'1px solid rgba(30,50,80,0.14)', borderRadius:10, background:'rgba(255,255,255,0.62)' }}>
-              <Image src="/index/吉祥物夏.png" alt="夏" width={120} height={120}
-                style={{ width:120, height:120, objectFit:'contain', flexShrink:0 }} />
+              <Image src="/index/吉祥物夏.png" alt="夏" width={160} height={160}
+                style={{ width:160, height:160, objectFit:'contain', flexShrink:0 }} />
               <div>
                 <span style={{ fontFamily:'var(--f-display)', fontWeight:700, fontSize:'clamp(16px,1.6vw,20px)', letterSpacing:'0.04em', color:'#1A2C3A', display:'block', marginBottom:6 }}>夏</span>
                 <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px,1.1vw,14px)', letterSpacing:'0.12em', color:'rgba(30,50,80,0.72)', display:'block', lineHeight:1.7, marginBottom:8 }}>靈性顧問 · 易經 · 品牌策略</span>
