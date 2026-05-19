@@ -49,9 +49,9 @@ export default function ScPage() {
       </svg>
 
       {/* ═══ HERO ═══ */}
-      <section style={{ position:'relative', height:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', overflow:'hidden', background:'#2B4A5E' }}>
+      <section style={{ position:'relative', height:'100svh', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', overflow:'hidden', background:'#D4E3EE' }}>
         {/* Airy blue-teal wash */}
-        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 90% 80% at 50% 40%, rgba(94,142,138,0.28) 0%, transparent 65%), radial-gradient(ellipse 60% 70% at 10% 70%, rgba(74,107,138,0.35) 0%, transparent 55%), radial-gradient(ellipse 50% 50% at 90% 15%, rgba(74,107,138,0.18) 0%, transparent 55%)', pointerEvents:'none' }} />
+        <div aria-hidden style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse 90% 80% at 50% 40%, rgba(74,107,138,0.12) 0%, transparent 65%), radial-gradient(ellipse 60% 70% at 10% 70%, rgba(74,107,138,0.10) 0%, transparent 55%), radial-gradient(ellipse 50% 50% at 90% 15%, rgba(74,107,138,0.08) 0%, transparent 55%)', pointerEvents:'none' }} />
 
         {/* 薩滿巫 — full-bg, right-biased, large and atmospheric */}
         <Image
@@ -60,21 +60,21 @@ export default function ScPage() {
           aria-hidden
           width={800}
           height={800}
-          style={{ position:'absolute', right:0, bottom:0, width:'26%', height:'auto', filter:'invert(1) sepia(0.18) saturate(1.1) hue-rotate(185deg) brightness(1.08)', mixBlendMode:'screen', opacity:0.45, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite' }}
+          style={{ position:'absolute', right:0, bottom:0, width:'26%', height:'auto', mixBlendMode:'multiply', opacity:0.30, pointerEvents:'none', transformOrigin:'bottom center', animation:'sc-boat 5s ease-in-out infinite' }}
         />
 
         {/* Small animals + ripple — desktop only */}
         <div className="hidden md:block" aria-hidden>
-          <Image src="/sc/animals-white/crane.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'10%', right:'5%', width:122, height:'auto', opacity:0.20, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(14deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
-          <Image src="/sc/animals-white/whale.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'7%', left:'24%', width:91, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
-          <Image src="/sc/animals-white/vulture.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'44%', left:'8%', width:61, height:'auto', opacity:0.18, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
-          <Image src="/sc/animals-white/fox.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', top:'38%', right:'9%', width:105, height:'auto', opacity:0.13, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(-7deg)', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.6s' }} />
-          <Image src="/sc/animals-white/turtle.png" alt="" aria-hidden width={160} height={160}
-            style={{ position:'absolute', bottom:'22%', left:'16%', width:51, height:'auto', opacity:0.22, mixBlendMode:'screen', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
+          <Image src="/sc/animals/鶴.png" alt="" aria-hidden width={160} height={160}
+            style={{ position:'absolute', top:'10%', right:'5%', width:122, height:'auto', opacity:0.42, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(14deg)', animation:'sc-breathe 6s ease-in-out infinite' }} />
+          <Image src="/sc/animals/大翅鯨.png" alt="" aria-hidden width={160} height={160}
+            style={{ position:'absolute', top:'7%', left:'24%', width:91, height:'auto', opacity:0.35, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-6deg)', animation:'sc-breathe 7.5s ease-in-out infinite', animationDelay:'1.8s' }} />
+          <Image src="/sc/animals/vulture.png" alt="" aria-hidden width={160} height={160}
+            style={{ position:'absolute', top:'44%', left:'8%', width:61, height:'auto', opacity:0.40, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-10deg)', animation:'sc-breathe 7s ease-in-out infinite', animationDelay:'1.2s' }} />
+          <Image src="/sc/animals/fox.png" alt="" aria-hidden width={160} height={160}
+            style={{ position:'absolute', top:'38%', right:'9%', width:105, height:'auto', opacity:0.35, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(-7deg)', animation:'sc-breathe 8s ease-in-out infinite', animationDelay:'0.6s' }} />
+          <Image src="/sc/animals/鱷龜.png" alt="" aria-hidden width={160} height={160}
+            style={{ position:'absolute', bottom:'22%', left:'16%', width:51, height:'auto', opacity:0.45, mixBlendMode:'multiply', pointerEvents:'none', transform:'rotate(9deg)', animation:'sc-breathe 9s ease-in-out infinite', animationDelay:'2s' }} />
           <div style={{ position:'absolute', right:'25%', top:'48%', pointerEvents:'none' }}>
             <div className="sc-ripple" />
             <div className="sc-ripple" />
@@ -86,11 +86,11 @@ export default function ScPage() {
         <div style={{ position:'relative', zIndex:2, display:'flex', flexDirection:'column', alignItems:'center', textAlign:'center', padding:'clamp(100px,14vh,140px) clamp(20px,8vw,120px) clamp(80px,10vh,100px)', gap:0 }}>
 
           {/* Logo */}
-          <Image src="/zenpple-logo-wh.png" alt="Zenpple 森波" width={160} height={160}
-            style={{ width:'clamp(48px,5.5vw,68px)', height:'auto', opacity:0.75, marginBottom:28 }} />
+          <Image src="/zenpple-logo-eng.png" alt="Zenpple 森波" width={160} height={160}
+            style={{ width:'clamp(48px,5.5vw,68px)', height:'auto', opacity:0.80, marginBottom:28 }} />
 
           {/* EN label */}
-          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.38em', color:'rgba(200,220,235,1)', marginBottom:28, textTransform:'uppercase' }}>
+          <p style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.38em', color:'rgba(42,70,90,0.65)', marginBottom:28, textTransform:'uppercase' }}>
             Shamanic Soul Awakening
           </p>
 
@@ -100,18 +100,17 @@ export default function ScPage() {
             alt="薩滿冥想"
             width={900}
             height={300}
-            style={{ width:'clamp(260px,44vw,580px)', height:'auto', filter:'invert(1) sepia(0.12) saturate(1.0) brightness(1.0)', mixBlendMode:'screen', opacity:0.88, marginBottom:32 }}
+            style={{ width:'clamp(260px,44vw,580px)', height:'auto', mixBlendMode:'multiply', opacity:0.80, marginBottom:32 }}
           />
 
-          <p style={{ fontFamily:'var(--f-zh)', fontSize:'clamp(18px,2vw,26px)', color:'rgba(200,220,235,1)', letterSpacing:'0.06em', lineHeight:1.9, maxWidth:340, marginTop:8 }}>
+          <p style={{ fontFamily:'var(--f-zh)', fontSize:'clamp(18px,2vw,26px)', color:'rgba(30,56,72,0.78)', letterSpacing:'0.06em', lineHeight:1.9, maxWidth:340, marginTop:8 }}>
             透過古老智慧，<br />連結靈魂最原始的力量
           </p>
         </div>
 
         {/* Scroll indicator */}
-        <div style={{ position:'absolute', bottom:36, left:'50%', transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, opacity:0.35, animation:'sc-float 2.5s ease-in-out infinite' }}>
-          <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.25em', color:'rgba(200,220,235,0.7)' }}>SCROLL</span>
-          <div style={{ width:1, height:40, background:'linear-gradient(to bottom, rgba(200,220,235,0.5), transparent)' }} />
+        <div style={{ position:'absolute', bottom:36, left:'50%', transform:'translateX(-50%)', display:'flex', flexDirection:'column', alignItems:'center', gap:8, opacity:0.45, animation:'sc-float 2.5s ease-in-out infinite' }}>
+          <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.25em', color:'rgba(30,56,72,0.6)' }}>SCROLL</span>
         </div>
 
         {/* ── Hero→WhatIs transition: ink-smoke brushstroke rip ── */}
