@@ -503,12 +503,6 @@ export default function ScPage() {
                   <span style={{ color:'rgba(18,40,22,0.85)', lineHeight:1.75 }}>連結下部世界守護盟友、海底輪頌缽接地</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#2E5030', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
-                  <div style={{ display:'flex', flexDirection:'column', gap:2, color:'rgba(18,40,22,0.85)', lineHeight:1.75 }}>
-                    <span>一對一</span><span>兩人團班</span><span>2–6 人小組</span>
-                  </div>
-                </div>
-                <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#2E5030', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
                   <span style={{ color:'rgba(18,40,22,0.85)', lineHeight:1.75 }}>4 小時</span>
                 </div>
@@ -582,12 +576,6 @@ export default function ScPage() {
                   <span style={{ color:'rgba(15,28,50,0.85)', lineHeight:1.75 }}>開啟上部世界通訊頻道、辨識愛的能量訊息</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
-                  <div style={{ display:'flex', flexDirection:'column', gap:2, color:'rgba(15,28,50,0.85)', lineHeight:1.75 }}>
-                    <span>一對一</span><span>兩人團班</span>
-                  </div>
-                </div>
-                <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#1A3050', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
                   <span style={{ color:'rgba(15,28,50,0.85)', lineHeight:1.75 }}>2 – 3.5 小時</span>
                 </div>
@@ -654,10 +642,6 @@ export default function ScPage() {
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#6A3018', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
                   <span style={{ color:'rgba(50,18,8,0.85)', lineHeight:1.75 }}>薩滿冥想實作脈輪內視、情緒轉化與能量清理</span>
-                </div>
-                <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#6A3018', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
-                  <span style={{ color:'rgba(50,18,8,0.85)', lineHeight:1.75 }}>一對一</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#6A3018', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
@@ -729,10 +713,6 @@ export default function ScPage() {
                   <span style={{ color:'rgba(38,36,0,0.85)', lineHeight:1.75 }}>接通神聖名諱，完成身心靈合一的終極對齊</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#4A4200', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
-                  <span style={{ color:'rgba(38,36,0,0.85)', lineHeight:1.75 }}>一對一</span>
-                </div>
-                <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#4A4200', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
                   <span style={{ color:'rgba(38,36,0,0.85)', lineHeight:1.75 }}>1 小時</span>
                 </div>
@@ -791,10 +771,6 @@ export default function ScPage() {
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>核心學習</span>
                   <span style={{ color:'rgba(35,10,48,0.85)', lineHeight:1.75 }}>辨識身心過敏原，找回解離的靈魂片段</span>
-                </div>
-                <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
-                  <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程形式</span>
-                  <span style={{ color:'rgba(35,10,48,0.85)', lineHeight:1.75 }}>一對一深度工作</span>
                 </div>
                 <div style={{ display:'flex', gap:14, fontSize:'clamp(13px, 1.2vw, 15px)', paddingBottom:10, borderBottom:'1px solid rgba(0,0,0,0.06)' }}>
                   <span style={{ fontFamily:'var(--f-mono)', fontSize:'clamp(13px, 1.2vw, 15px)', letterSpacing:'0.14em', color:'#4A1560', opacity:0.75, flexShrink:0, width:76, paddingTop:2 }}>課程時長</span>
